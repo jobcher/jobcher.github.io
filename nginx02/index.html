@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>nginx 编译参数详解 - nbtyfood 日志</title><meta name="Description" content="书山有路钱为径，学海无涯没有舟。分享一些自己的技术笔记和心得，说得不好我也不接受，反正我就写给自己看……"><meta property="og:title" content="nginx 编译参数详解" />
+<meta property="og:description" content="nginx 编译参数详解 nginx编译参数 作用 –prefix= 指向安装目录 –sbin-path 指向（执行）程序文件（nginx） –conf-path=" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.nbtyfood.com/nginx02/" /><meta property="og:image" content="http://www.nbtyfood.com/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-12-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-12-24T00:00:00+00:00" />
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://www.nbtyfood.com/logo.png"/>
+
+<meta name="twitter:title" content="nginx 编译参数详解"/>
+<meta name="twitter:description" content="nginx 编译参数详解 nginx编译参数 作用 –prefix= 指向安装目录 –sbin-path 指向（执行）程序文件（nginx） –conf-path="/>
+<meta name="application-name" content="LoveIt">
+<meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://www.nbtyfood.com/nginx02/" /><link rel="prev" href="http://www.nbtyfood.com/nginx04/" /><link rel="next" href="http://www.nbtyfood.com/mysqldump/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "nginx 编译参数详解",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/www.nbtyfood.com\/nginx02\/"
+        },"genre": "posts","keywords": "nginx, linux","wordcount":  4517 ,
+        "url": "http:\/\/www.nbtyfood.com\/nginx02\/","datePublished": "2021-12-24T00:00:00+00:00","dateModified": "2021-12-24T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "sjtfreaks"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="nbtyfood 日志">nbtyfood 技术日志</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="nbtyfood 日志">nbtyfood 技术日志</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="/posts/" title="">文章</a><a class="menu-item" href="/tags/" title="">标签</a><a class="menu-item" href="/categories/" title="">分类</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">nginx 编译参数详解</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>sjtfreaks</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/web-%E6%9C%8D%E5%8A%A1%E5%99%A8/"><i class="far fa-folder fa-fw"></i>web 服务器</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-24">2021-12-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 4517 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 10 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
+            </div><div class="content" id="content"><h1 id="nginx-编译参数详解">nginx 编译参数详解</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">nginx编译参数</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">–prefix=</td>
+<td style="text-align:left">指向安装目录</td>
+</tr>
+<tr>
+<td style="text-align:left">–sbin-path</td>
+<td style="text-align:left">指向（执行）程序文件（nginx）</td>
+</tr>
+<tr>
+<td style="text-align:left">–conf-path=</td>
+<td style="text-align:left">指向配置文件（nginx.conf）</td>
+</tr>
+<tr>
+<td style="text-align:left">–error-log-path=</td>
+<td style="text-align:left">指向错误日志目录</td>
+</tr>
+<tr>
+<td style="text-align:left">–pid-path=</td>
+<td style="text-align:left">指向 pid 文件（nginx.pid）</td>
+</tr>
+<tr>
+<td style="text-align:left">–lock-path=</td>
+<td style="text-align:left">指向 lock 文件（nginx.lock）（安装文件锁定，防止安装文件被别人利用，或自己误操作。）</td>
+</tr>
+<tr>
+<td style="text-align:left">–user=</td>
+<td style="text-align:left">指定程序运行时的非特权用户</td>
+</tr>
+<tr>
+<td style="text-align:left">–group=</td>
+<td style="text-align:left">指定程序运行时的非特权用户组</td>
+</tr>
+<tr>
+<td style="text-align:left">–builddir=</td>
+<td style="text-align:left">指向编译目录</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-rtsig_module</td>
+<td style="text-align:left">启用 rtsig 模块支持（实时信号）</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-select_module</td>
+<td style="text-align:left">启用 select 模块支持（一种轮询模式,不推荐在高载环境下使用）禁用：–withoutselect_module</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-poll_module</td>
+<td style="text-align:left">启用 poll 模块支持（功能与 select 相同，与 select 特性相同，为一种轮询模式,不推荐在高载环境下使用）</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-file-aio</td>
+<td style="text-align:left">启用 file aio 支持（一种 APL 文件传输格式）</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-ipv6</td>
+<td style="text-align:left">启用 ipv6 支持</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-http_ssl_module</td>
+<td style="text-align:left">启用 ngx_http_ssl_module 支持（使支持 https 请求，需已安装 openssl）</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-http_realip_module</td>
+<td style="text-align:left">启用 ngx_http_realip_module 支持（这个模块允许从请求标头更改客户端的 IP 地址值，默认为关）</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-http_addition_module</td>
+<td style="text-align:left">启用 ngx_http_addition_module 支持（作为一个输出过滤器，支持不完全缓冲，分部分响应请求）</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-http_xslt_module</td>
+<td style="text-align:left">启用 ngx_http_xslt_module 支持（过滤转换 XML 请求</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-http_image_filter_module</td>
+<td style="text-align:left">启用 ngx_http_image_filter_module 支持（传输 JPEG/GIF/PNG 图片的一个过滤器）（默认为不启用。gd 库要用到）</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-http_geoip_module</td>
+<td style="text-align:left">启用 ngx_http_geoip_module 支持（该模块创建基于与 MaxMind GeoIP 二进制文件相配的客户端 IP 地址的 ngx_http_geoip_module 变量）</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-http_sub_module</td>
+<td style="text-align:left">启用 ngx_http_sub_module 支持（允许用一些其他文本替换 nginx 响应中的一些文本）</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-http_dav_module</td>
+<td style="text-align:left">启用 ngx_http_dav_module 支持（增加 PUT,DELETE,MKCOL：创建集合,COPY 和 MOVE 方法）默认情况下为关闭，需编译开启</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-http_flv_module</td>
+<td style="text-align:left">启用 ngx_http_flv_module 支持（提供寻求内存使用基于时间的偏移量文件）</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-http_gzip_static_module</td>
+<td style="text-align:left">启用 ngx_http_gzip_static_module 支持（在线实时压缩输出数据流）</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-http_random_index_module</td>
+<td style="text-align:left">启用 ngx_http_random_index_module 支持（从目录中随机挑选一个目录索引）</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-http_secure_link_module</td>
+<td style="text-align:left">启用 ngx_http_secure_link_module 支持（计算和检查要求所需的安全链接网址）</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-http_degradation_module</td>
+<td style="text-align:left">启用 ngx_http_degradation_module 支持（允许在内存不足的情况下返回204 或 444 码）</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-http_stub_status_module</td>
+<td style="text-align:left">启用 ngx_http_stub_status_module 支持（获取 nginx 自上次启动以来的工作状态）</td>
+</tr>
+<tr>
+<td style="text-align:left">–without-http_charset_module</td>
+<td style="text-align:left">禁用 ngx_http_charset_module 支持（重新编码 web 页面，但只能是一个方向–服务器端到客户端，并且只有一个字节的编码可以被重新编码）</td>
+</tr>
+<tr>
+<td style="text-align:left">–without-http_gzip_module</td>
+<td style="text-align:left">禁用 ngx_http_gzip_module 支持（该模块同-with-http_gzip_static_module 功能一样）</td>
+</tr>
+<tr>
+<td style="text-align:left">–without-http_ssi_module</td>
+<td style="text-align:left">禁用 ngx_http_ssi_module 支持（该模块提供了一个在输入端处理处理服务器包含文件（SSI）的过滤器，目前支持 SSI 命令的列表是不完整的）</td>
+</tr>
+<tr>
+<td style="text-align:left">–without-http_userid_module</td>
+<td style="text-align:left">禁用 ngx_http_userid_module 支持（该模块用来处理用来确定客户端后续请求的 cookies）</td>
+</tr>
+<tr>
+<td style="text-align:left">–without-http_access_module</td>
+<td style="text-align:left">禁用 ngx_http_access_module 支持（该模块提供了一个简单的基于主机的访问控制。允许/拒绝基于 ip 地址）</td>
+</tr>
+<tr>
+<td style="text-align:left">–without-http_auth_basic_module</td>
+<td style="text-align:left">禁用 ngx_http_auth_basic_module（该模块是可以使用用户名和密码基于http 基本认证方法来保护你的站点或其部分内容）</td>
+</tr>
+<tr>
+<td style="text-align:left">–without-http_autoindex_module</td>
+<td style="text-align:left">禁用 disable ngx_http_autoindex_module 支持（该模块用于自动生成目录列表，只在 ngx_http_index_module 模块未找到索引文件时发出请求。）</td>
+</tr>
+<tr>
+<td style="text-align:left">–without-http_geo_module</td>
+<td style="text-align:left">禁用 ngx_http_geo_module 支持（创建一些变量，其值依赖于客户端的 IP 地址）</td>
+</tr>
+<tr>
+<td style="text-align:left">–without-http_map_module</td>
+<td style="text-align:left">禁用 ngx_http_map_module 支持（使用任意的键/值对设置配置变量）</td>
+</tr>
+<tr>
+<td style="text-align:left">–without-http_split_clients_module</td>
+<td style="text-align:left">禁用 ngx_http_split_clients_module 支持（该模块用来基于某些条件划分用户。条件如：ip 地址、报头、cookies 等等）</td>
+</tr>
+<tr>
+<td style="text-align:left">–without-http_referer_module</td>
+<td style="text-align:left">禁用 disable ngx_http_referer_module 支持（该模块用来过滤请求，拒绝报</td>
+</tr>
+<tr>
+<td style="text-align:left">头中 Referer 值不正确的请求）</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:left">–without-http_rewrite_module</td>
+<td style="text-align:left">禁用 ngx_http_rewrite_module 支持（该模块允许使用正则表达式改变 URI，并且根据变量来转向以及选择配置。如果在 server 级别设置该选项，那么他们将在 location 之前生效。如果在location 还有更进一步的重写规则，location 部分的规则依然会被执行。如果这个 URI 重写是因为 location 部分的规则造成的，那么 location 部分会再次被执行作为新的 URI。 这个循环会执行 10 次，然后 Nginx 会返回一个 500 错误。）</td>
+</tr>
+<tr>
+<td style="text-align:left">–without-http_proxy_module</td>
+<td style="text-align:left">禁用 ngx_http_proxy_module 支持（有关代理服务器）</td>
+</tr>
+<tr>
+<td style="text-align:left">–without-http_fastcgi_module</td>
+<td style="text-align:left">禁用 ngx_http_fastcgi_module 支持（该模块允许 Nginx 与 FastCGI 进程交互，并通过传递参数来控制 FastCGI 进程工作。 ）FastCGI 一个常驻型的公共网关接口。</td>
+</tr>
+<tr>
+<td style="text-align:left">–without-http_uwsgi_module</td>
+<td style="text-align:left">禁用 ngx_http_uwsgi_module 支持（该模块用来医用 uwsgi 协议，uWSGI 服务器相关）</td>
+</tr>
+<tr>
+<td style="text-align:left">–without-http_scgi_module</td>
+<td style="text-align:left">禁用 ngx_http_scgi_module 支持（该模块用来启用 SCGI 协议支持，SCGI 协议是CGI 协议的替代。它是一种应用程序与 HTTP 服务接口标准。它有些像 FastCGI 但他的设计 更容易实现。）</td>
+</tr>
+<tr>
+<td style="text-align:left">–without-http_memcached_module</td>
+<td style="text-align:left">禁用 ngx_http_memcached_module 支持（该模块用来提供简单的缓存，以提高系统效率）</td>
+</tr>
+<tr>
+<td style="text-align:left">-without-http_limit_zone_module</td>
+<td style="text-align:left">禁用 ngx_http_limit_zone_module 支持（该模块可以针对条件，进行会话的并发连接数控制）</td>
+</tr>
+<tr>
+<td style="text-align:left">–without-http_limit_req_module</td>
+<td style="text-align:left">禁用 ngx_http_limit_req_module 支持（该模块允许你对于一个地址进行请求数量的限制用一个给定的 session 或一个特定的事件）</td>
+</tr>
+<tr>
+<td style="text-align:left">–without-http_empty_gif_module</td>
+<td style="text-align:left">禁用 ngx_http_empty_gif_module 支持（该模块在内存中常驻了一个 1*1 的透明 GIF 图像，可以被非常快速的调用）</td>
+</tr>
+<tr>
+<td style="text-align:left">–without-http_browser_module</td>
+<td style="text-align:left">禁用 ngx_http_browser_module 支持（该模块用来创建依赖于请求报头的值。如果浏览器为 modern ，则$modern_browser 等于 modern_browser_value 指令分配的值；如 果浏览器为 old，则$ancient_browser 等于 ancient_browser_value 指令分配的值；如果浏览器为 MSIE 中的任意版本，则 $msie 等于 1）</td>
+</tr>
+<tr>
+<td style="text-align:left">–without-http_upstream_ip_hash_module</td>
+<td style="text-align:left">禁用 ngx_http_upstream_ip_hash_module 支持（该模块用于简单的负载均衡）</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-http_perl_module</td>
+<td style="text-align:left">启用 ngx_http_perl_module 支持（该模块使 nginx 可以直接使用 perl 或通过 ssi 调用 perl）</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-perl_modules_path=</td>
+<td style="text-align:left">设定 perl 模块路径</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-perl=</td>
+<td style="text-align:left">设定 perl 库文件路径</td>
+</tr>
+<tr>
+<td style="text-align:left">–http-log-path=</td>
+<td style="text-align:left">设定 access log 路径</td>
+</tr>
+<tr>
+<td style="text-align:left">–http-client-body-temp-path=</td>
+<td style="text-align:left">设定 http 客户端请求临时文件路径</td>
+</tr>
+<tr>
+<td style="text-align:left">–http-proxy-temp-path=</td>
+<td style="text-align:left">设定 http 代理临时文件路径</td>
+</tr>
+<tr>
+<td style="text-align:left">–http-fastcgi-temp-path=</td>
+<td style="text-align:left">设定 http fastcgi 临时文件路径</td>
+</tr>
+<tr>
+<td style="text-align:left">–http-uwsgi-temp-path=</td>
+<td style="text-align:left">设定 http uwsgi 临时文件路径</td>
+</tr>
+<tr>
+<td style="text-align:left">–http-scgi-temp-path=</td>
+<td style="text-align:left">设定 http scgi 临时文件路径</td>
+</tr>
+<tr>
+<td style="text-align:left">-without-http</td>
+<td style="text-align:left">禁用 http server 功能</td>
+</tr>
+<tr>
+<td style="text-align:left">–without-http-cache</td>
+<td style="text-align:left">禁用 http cache 功能</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-mail</td>
+<td style="text-align:left">启用 POP3/IMAP4/SMTP 代理模块支持</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-mail_ssl_module</td>
+<td style="text-align:left">启用 ngx_mail_ssl_module 支持</td>
+</tr>
+<tr>
+<td style="text-align:left">–without-mail_pop3_module</td>
+<td style="text-align:left">禁用 pop3 协议（POP3 即邮局协议的第 3 个版本,它是规定个人计算机如何连接到互联网上的邮件服务器进行收发邮件的协议。是因特网电子邮件的第一个离线协议标 准,POP3 协议允许用户从服务器上把邮件存储到本地主机上,同时根据客户端的操作删除或保存在邮件服务器上的邮件。POP3 协议是 TCP/IP 协议族中的一员，主要用于 支持使用客户端远程管理在服务器上的电子邮件）</td>
+</tr>
+<tr>
+<td style="text-align:left">–without-mail_imap_module</td>
+<td style="text-align:left">禁用 imap 协议（一种邮件获取协议。它的主要作用是邮件客户端可以通过这种协议从邮件服务器上获取邮件的信息，下载邮件等。IMAP 协议运行在 TCP/IP 协议之上， 使用的端口是 143。它与POP3 协议的主要区别是用户可以不用把所有的邮件全部下载，可以通过客户端直接对服务器上的邮件进行操作。）</td>
+</tr>
+<tr>
+<td style="text-align:left">–without-mail_smtp_module</td>
+<td style="text-align:left">禁用 smtp 协议（SMTP 即简单邮件传输协议,它是一组用于由源地址到目的地址传送邮件的规则，由它来控制信件的中转方式。SMTP 协议属于 TCP/IP 协议族，它帮助每台计算机在发送或中转信件时找到下一个目的地。）</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-google_perftools_module</td>
+<td style="text-align:left">启用 ngx_google_perftools_module 支持（调试用，剖析程序性能瓶颈）</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-cpp_test_module</td>
+<td style="text-align:left">启用 ngx_cpp_test_module 支持</td>
+</tr>
+<tr>
+<td style="text-align:left">–add-module=</td>
+<td style="text-align:left">启用外部模块支持</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-cc=</td>
+<td style="text-align:left">指向 C 编译器路径</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-cpp=</td>
+<td style="text-align:left">指向 C 预处理路径</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-cc-opt=</td>
+<td style="text-align:left">设置 C 编译器参数（PCRE 库，需要指定–with-cc-opt=”-I /usr/local/include”，如果使用select()函数则需要同时增加文件描述符数量，可以通过–with-cc- opt=”-D FD_SETSIZE=2048”指定。）</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-ld-opt=</td>
+<td style="text-align:left">设置连接文件参数。（PCRE 库，需要指定–with-ld-opt=”-L /usr/local/lib”。）</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-cpu-opt=</td>
+<td style="text-align:left">指定编译的 CPU，可用的值为: pentium, pentiumpro, pentium3, pentium4, athlon,opteron, amd64, sparc32, sparc64, ppc64</td>
+</tr>
+<tr>
+<td style="text-align:left">–without-pcre</td>
+<td style="text-align:left">禁用 pcre 库</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-pcre</td>
+<td style="text-align:left">启用 pcre 库</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-pcre=</td>
+<td style="text-align:left">指向 pcre 库文件目录</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-pcre-opt=</td>
+<td style="text-align:left">在编译时为 pcre 库设置附加参数</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-md5=</td>
+<td style="text-align:left">指向 md5 库文件目录（消息摘要算法第五版，用以提供消息的完整性保护）</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-md5-opt=</td>
+<td style="text-align:left">在编译时为 md5 库设置附加参数</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-md5-asm</td>
+<td style="text-align:left">使用 md5 汇编源</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-sha1=</td>
+<td style="text-align:left">指向 sha1 库目录（数字签名算法，主要用于数字签名）</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-sha1-opt=</td>
+<td style="text-align:left">在编译时为 sha1 库设置附加参数</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-sha1-asm</td>
+<td style="text-align:left">使用 sha1 汇编源</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-zlib=</td>
+<td style="text-align:left">指向 zlib 库目录</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-zlib-opt=</td>
+<td style="text-align:left">在编译时为 zlib 设置附加参数</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-zlib-asm=</td>
+<td style="text-align:left">为指定的 CPU 使用 zlib 汇编源进行优化，CPU 类型为 pentium, pentiumpro</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-libatomic</td>
+<td style="text-align:left">为原子内存的更新操作的实现提供一个架构</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-libatomic=</td>
+<td style="text-align:left">指向 libatomic_ops 安装目录</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-openssl=</td>
+<td style="text-align:left">指向 openssl 安装目录</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-openssl-opt</td>
+<td style="text-align:left">在编译时为 openssl 设置附加参数</td>
+</tr>
+<tr>
+<td style="text-align:left">–with-debug</td>
+<td style="text-align:left">启用 debug 日志</td>
+</tr>
+</tbody>
+</table>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2021-12-24</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="/nginx02/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://www.nbtyfood.com/nginx02/" data-title="nginx 编译参数详解" data-via="xxxx" data-hashtags="nginx,linux"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://www.nbtyfood.com/nginx02/" data-hashtag="nginx"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="http://www.nbtyfood.com/nginx02/" data-title="nginx 编译参数详解" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://www.nbtyfood.com/nginx02/" data-title="nginx 编译参数详解"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://www.nbtyfood.com/nginx02/" data-title="nginx 编译参数详解"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://www.nbtyfood.com/nginx02/" data-title="nginx 编译参数详解" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://www.nbtyfood.com/nginx02/" data-title="nginx 编译参数详解" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://www.nbtyfood.com/nginx02/" data-title="nginx 编译参数详解"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="/tags/nginx/">nginx</a>,&nbsp;<a href="/tags/linux/">linux</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="/">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/nginx04/" class="prev" rel="prev" title="nginx 重写规则 rewrite模块"><i class="fas fa-angle-left fa-fw"></i>nginx 重写规则 rewrite模块</a>
+            <a href="/mysqldump/" class="next" rel="next" title="mysql数据库备份迁移">mysql数据库备份迁移<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">sjtfreaks</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp">copyright by sjt</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="/lib/katex/katex.min.css"><link rel="stylesheet" href="/lib/katex/copy-tex.min.css"><link rel="stylesheet" href="/lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="https://.disqus.com/embed.js" defer></script><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="/lib/sharer/sharer.min.js"></script><script type="text/javascript" src="/lib/katex/katex.min.js"></script><script type="text/javascript" src="/lib/katex/auto-render.min.js"></script><script type="text/javascript" src="/lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="/lib/katex/mhchem.min.js"></script><script type="text/javascript" src="/lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
