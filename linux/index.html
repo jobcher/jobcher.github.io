@@ -9,8 +9,8 @@
 <meta property="og:description" content="linux 基础知识 1、简述Linux权限划分原则。 给文件或目录分配权限时，先考虑所有者和所属组 遵循最小化权限，用啥权限给啥权限 修改目录和子文件归属权" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.jobcher.com/linux/" /><meta property="og:image" content="http://www.jobcher.com/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-12-15T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-12-15T00:00:00+00:00" />
+<meta property="article:published_time" content="2021-12-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-12-28T00:00:00+00:00" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -21,7 +21,7 @@
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://www.jobcher.com/linux/" /><link rel="prev" href="http://www.jobcher.com/service/" /><link rel="next" href="http://www.jobcher.com/auto/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://www.jobcher.com/linux/" /><link rel="prev" href="http://www.jobcher.com/gitrsync/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -30,8 +30,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/linux\/"
-        },"genre": "posts","keywords": "运维","wordcount":  364 ,
-        "url": "http:\/\/www.jobcher.com\/linux\/","datePublished": "2021-12-15T00:00:00+00:00","dateModified": "2021-12-15T00:00:00+00:00","publisher": {
+        },"genre": "posts","keywords": "运维","wordcount":  548 ,
+        "url": "http:\/\/www.jobcher.com\/linux\/","datePublished": "2021-12-28T00:00:00+00:00","dateModified": "2021-12-28T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -107,8 +107,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">linux基础知识</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/%E5%9F%BA%E7%A1%80/"><i class="far fa-folder fa-fw"></i>基础</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-15">2021-12-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 364 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-28">2021-12-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 548 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -127,6 +127,7 @@
     <li><a href="#9简述centos-6x的启动过程">9、简述CentOS 6.x的启动过程？</a></li>
     <li><a href="#10简述centos-7x的启动过程">10、简述CentOS 7.x的启动过程？</a></li>
     <li><a href="#11如何进行linux系统优化">11、如何进行Linux系统优化？</a></li>
+    <li><a href="#12大文件如何删除">12、大文件如何删除？</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="linux-基础知识">linux 基础知识</h1>
@@ -147,11 +148,55 @@
 <h2 id="9简述centos-6x的启动过程">9、简述CentOS 6.x的启动过程？</h2>
 <h2 id="10简述centos-7x的启动过程">10、简述CentOS 7.x的启动过程？</h2>
 <h2 id="11如何进行linux系统优化">11、如何进行Linux系统优化？</h2>
-</div><div class="post-footer" id="post-footer">
+<h2 id="12大文件如何删除">12、大文件如何删除？</h2>
+<ol>
+<li>查看磁盘使用情况，查看是否需要扩容</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">df -h
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>查找大文件，使用du定位大文件位置</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># 在根目录查找，展示第一层级的目录和文件，倒叙排列 ，展示前10名</span>
+du -h / --max-depth<span class="o">=</span><span class="m">1</span> <span class="p">|</span> sort -hr <span class="p">|</span> head -n <span class="m">10</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>删除文件</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># 删除文件可以直接用rm -rf 删除</span>
+rm -rf &lt;文件或目录&gt;
+<span class="c1"># 按时间和名称删除 :找到目录下，超过10天的文件 删除名字后缀为.gz的文件</span>
+find /目录/* -mtime +10 -name <span class="s2">&#34;*.gz&#34;</span> -exec rm -rf <span class="o">{}</span> <span class="se">\
+</span><span class="se"></span>
+</code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-12-15</span>
+                <span>更新于 2021-12-28</span>
             </div>
             <div class="post-info-license"></div>
         </div>
@@ -172,8 +217,7 @@
         </section>
     </div>
 
-    <div class="post-nav"><a href="/service/" class="prev" rel="prev" title="linux服务基础知识"><i class="fas fa-angle-left fa-fw"></i>linux服务基础知识</a>
-            <a href="/auto/" class="next" rel="next" title="获取用户浏览器默认语言设置，自动判断跳转不同网站">获取用户浏览器默认语言设置，自动判断跳转不同网站<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/gitrsync/" class="prev" rel="prev" title="gitlab与github同步项目"><i class="fas fa-angle-left fa-fw"></i>gitlab与github同步项目</a></div>
 </div>
 <div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.

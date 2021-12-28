@@ -4,7 +4,14 @@
         <link>http://www.jobcher.com/posts/</link>
         <description>所有文章 | 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 28 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>linux基础知识</title>
+    <link>http://www.jobcher.com/linux/</link>
+    <pubDate>Tue, 28 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/linux/</guid>
+    <description><![CDATA[linux 基础知识 1、简述Linux权限划分原则。 给文件或目录分配权限时，先考虑所有者和所属组 遵循最小化权限，用啥权限给啥权限 修改目录和子文件归属权]]></description>
+</item><item>
     <title>gitlab与github同步项目</title>
     <link>http://www.jobcher.com/gitrsync/</link>
     <pubDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</pubDate>
@@ -67,12 +74,5 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/nginx04/</guid>
     <description><![CDATA[nginx 重写规则 rewrite模块 语法 语法 默认值 使用字段 作用 break none server, location, if 完成当前设置的重写规则，停止执行其他的重写规则。 set variable value none server, location, if 为给定的变量设]]></description>
-</item><item>
-    <title>nginx.conf 配置文件详解</title>
-    <link>http://www.jobcher.com/nginx03/</link>
-    <pubDate>Fri, 24 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/nginx03/</guid>
-    <description><![CDATA[nginx.conf 配置文件详解 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 # vim nginx.conf user nobody]]></description>
 </item></channel>
 </rss>
