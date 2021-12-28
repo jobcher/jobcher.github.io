@@ -5,23 +5,23 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>Argo cd 安装和部署 - nbtyfood 日志</title><meta name="Description" content="书山有路钱为径，学海无涯没有舟。分享一些自己的技术笔记和心得，说得不好我也不接受，反正我就写给自己看……"><meta property="og:title" content="Argo cd 安装和部署" />
+        <title>Argo cd 安装和部署 - 打工人日志 - jobcher</title><meta name="Description" content="书山有路钱为径，学海无涯没有舟。分享一些自己的技术笔记和心得，说得不好我也不接受，反正我就写给自己看……"><meta property="og:title" content="Argo cd 安装和部署" />
 <meta property="og:description" content="Argo cd 安装和部署 Argo CD 是一个为 Kubernetes 而生的，遵循声明式 GitOps 理念的持续部署（CD）工具。Argo CD 可在 Git 存储库更改时自动同步和部署应用程序 安装 k8s快速" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://www.nbtyfood.com/argocd/" /><meta property="og:image" content="http://www.nbtyfood.com/logo.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="http://www.jobcher.com/argocd/" /><meta property="og:image" content="http://www.jobcher.com/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-12-24T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-12-24T00:00:00+00:00" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="http://www.nbtyfood.com/logo.png"/>
+<meta name="twitter:image" content="http://www.jobcher.com/logo.png"/>
 
 <meta name="twitter:title" content="Argo cd 安装和部署"/>
 <meta name="twitter:description" content="Argo cd 安装和部署 Argo CD 是一个为 Kubernetes 而生的，遵循声明式 GitOps 理念的持续部署（CD）工具。Argo CD 可在 Git 存储库更改时自动同步和部署应用程序 安装 k8s快速"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://www.nbtyfood.com/argocd/" /><link rel="prev" href="http://www.nbtyfood.com/mysqldump/" /><link rel="next" href="http://www.nbtyfood.com/eryngii/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://www.jobcher.com/argocd/" /><link rel="prev" href="http://www.jobcher.com/mysqldump/" /><link rel="next" href="http://www.jobcher.com/eryngii/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -29,13 +29,13 @@
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "http:\/\/www.nbtyfood.com\/argocd\/"
+            "@id": "http:\/\/www.jobcher.com\/argocd\/"
         },"genre": "posts","keywords": "gitlab","wordcount":  88 ,
-        "url": "http:\/\/www.nbtyfood.com\/argocd\/","datePublished": "2021-12-24T00:00:00+00:00","dateModified": "2021-12-24T00:00:00+00:00","publisher": {
+        "url": "http:\/\/www.jobcher.com\/argocd\/","datePublished": "2021-12-24T00:00:00+00:00","dateModified": "2021-12-24T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
-                "name": "sjtfreaks"
+                "name": "jobcher"
             },"description": ""
     }
     </script></head>
@@ -44,7 +44,7 @@
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
-            <a href="/" title="nbtyfood 日志">nbtyfood 技术日志</a>
+            <a href="/" title="打工人日志 - jobcher">打工人日志-jobcher</a>
         </div>
         <div class="menu">
             <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
@@ -68,7 +68,7 @@
     <div class="header-container">
         <div class="header-wrapper">
             <div class="header-title">
-                <a href="/" title="nbtyfood 日志">nbtyfood 技术日志</a>
+                <a href="/" title="打工人日志 - jobcher">打工人日志-jobcher</a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
@@ -106,7 +106,7 @@
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Argo cd 安装和部署</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>sjtfreaks</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/gitlab/"><i class="far fa-folder fa-fw"></i>gitlab</a></span></div>
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/gitlab/"><i class="far fa-folder fa-fw"></i>gitlab</a></span></div>
             <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-24">2021-12-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 88 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
@@ -164,7 +164,7 @@ k3s kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-c
                             <a class="link-to-markdown" href="/argocd/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://www.nbtyfood.com/argocd/" data-title="Argo cd 安装和部署" data-via="xxxx" data-hashtags="gitlab"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://www.nbtyfood.com/argocd/" data-hashtag="gitlab"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="http://www.nbtyfood.com/argocd/" data-title="Argo cd 安装和部署" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://www.nbtyfood.com/argocd/" data-title="Argo cd 安装和部署"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://www.nbtyfood.com/argocd/" data-title="Argo cd 安装和部署"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://www.nbtyfood.com/argocd/" data-title="Argo cd 安装和部署" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://www.nbtyfood.com/argocd/" data-title="Argo cd 安装和部署" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://www.nbtyfood.com/argocd/" data-title="Argo cd 安装和部署"><i class="fab fa-evernote fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://www.jobcher.com/argocd/" data-title="Argo cd 安装和部署" data-via="xxxx" data-hashtags="gitlab"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://www.jobcher.com/argocd/" data-hashtag="gitlab"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="http://www.jobcher.com/argocd/" data-title="Argo cd 安装和部署" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://www.jobcher.com/argocd/" data-title="Argo cd 安装和部署"><i data-svg-src="/lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://www.jobcher.com/argocd/" data-title="Argo cd 安装和部署"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://www.jobcher.com/argocd/" data-title="Argo cd 安装和部署" data-description=""><i data-svg-src="/lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://www.jobcher.com/argocd/" data-title="Argo cd 安装和部署" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://www.jobcher.com/argocd/" data-title="Argo cd 安装和部署"><i class="fab fa-evernote fa-fw"></i></a></span>
             </div>
         </div>
     </div>
@@ -183,7 +183,7 @@ k3s kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-c
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
             </noscript></div></article></div>
             </main><footer class="footer">
-        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">sjtfreaks</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">jobcher</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
                     <span class="icp">copyright by sjt</span></div>
         </div>
     </footer></div>

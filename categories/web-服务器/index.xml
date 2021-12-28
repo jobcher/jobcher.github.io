@@ -1,43 +1,43 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>web 服务器 - 分类 - nbtyfood 日志</title>
-        <link>http://www.nbtyfood.com/categories/web-%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
-        <description>web 服务器 - 分类 - nbtyfood 日志</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (sjtfreaks)</managingEditor>
-            <webMaster>nb@nbtyfood.com (sjtfreaks)</webMaster><lastBuildDate>Fri, 24 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.nbtyfood.com/categories/web-%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="self" type="application/rss+xml" /><item>
+        <title>web 服务器 - 分类 - 打工人日志 - jobcher</title>
+        <link>http://www.jobcher.com/categories/web-%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+        <description>web 服务器 - 分类 - 打工人日志 - jobcher</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 24 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/web-%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="self" type="application/rss+xml" /><item>
     <title>nginx 编译参数详解</title>
-    <link>http://www.nbtyfood.com/nginx02/</link>
+    <link>http://www.jobcher.com/nginx02/</link>
     <pubDate>Fri, 24 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.nbtyfood.com/nginx02/</guid>
+    <guid>http://www.jobcher.com/nginx02/</guid>
     <description><![CDATA[nginx 编译参数详解 nginx编译参数 作用 –prefix= 指向安装目录 –sbin-path 指向（执行）程序文件（nginx） –conf-path=]]></description>
 </item><item>
     <title>nginx 重写规则 rewrite模块</title>
-    <link>http://www.nbtyfood.com/nginx04/</link>
+    <link>http://www.jobcher.com/nginx04/</link>
     <pubDate>Fri, 24 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.nbtyfood.com/nginx04/</guid>
+    <guid>http://www.jobcher.com/nginx04/</guid>
     <description><![CDATA[nginx 重写规则 rewrite模块 语法 语法 默认值 使用字段 作用 break none server, location, if 完成当前设置的重写规则，停止执行其他的重写规则。 set variable value none server, location, if 为给定的变量设]]></description>
 </item><item>
     <title>nginx.conf 配置文件详解</title>
-    <link>http://www.nbtyfood.com/nginx03/</link>
+    <link>http://www.jobcher.com/nginx03/</link>
     <pubDate>Fri, 24 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.nbtyfood.com/nginx03/</guid>
+    <guid>http://www.jobcher.com/nginx03/</guid>
     <description><![CDATA[nginx.conf 配置文件详解 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 # vim nginx.conf user nobody]]></description>
 </item><item>
     <title>nginx 日志格式整理</title>
-    <link>http://www.nbtyfood.com/nginx01/</link>
+    <link>http://www.jobcher.com/nginx01/</link>
     <pubDate>Mon, 13 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.nbtyfood.com/nginx01/</guid>
+    <guid>http://www.jobcher.com/nginx01/</guid>
     <description><![CDATA[nginx 日志配置 语法 1 2 access_log path [format [buffer=size] [gzip[=level]] [flush=time] [if=condition]]; # 设置访问日志 access_log off; # 关闭访问日志 例子： 1 2 access_log /var/logs/nginx-access.log access_log /var/logs/nginx-access.log buffer=32k gzip flush=1m 使用log_format 自定义日志格式 Nginx预定]]></description>
 </item><item>
     <title>nginx 汇总</title>
-    <link>http://www.nbtyfood.com/nginx/</link>
+    <link>http://www.jobcher.com/nginx/</link>
     <pubDate>Wed, 08 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.nbtyfood.com/nginx/</guid>
+    <guid>http://www.jobcher.com/nginx/</guid>
     <description><![CDATA[nginx 汇总 各类nginx 问题汇总 安装nginx 1 2 3 4 #centos yum install nginx #ubuntu apt install nginx http代理 正向代理 1 2 3 4 5 6 7 8 server { listen 80; server_name www.nbtyfood.com; location / { proxy_pass http://127.0.0.1:8080; } } 反向代理 负载]]></description>
 </item></channel>
 </rss>

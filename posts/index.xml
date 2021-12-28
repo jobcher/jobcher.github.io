@@ -1,78 +1,78 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
-        <title>所有文章 - nbtyfood 日志</title>
-        <link>http://www.nbtyfood.com/posts/</link>
-        <description>所有文章 | nbtyfood 日志</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (sjtfreaks)</managingEditor>
-            <webMaster>nb@nbtyfood.com (sjtfreaks)</webMaster><lastBuildDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.nbtyfood.com/posts/" rel="self" type="application/rss+xml" /><item>
+        <title>所有文章 - 打工人日志 - jobcher</title>
+        <link>http://www.jobcher.com/posts/</link>
+        <description>所有文章 | 打工人日志 - jobcher</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
     <title>gitlab与github同步项目</title>
-    <link>http://www.nbtyfood.com/gitrsync/</link>
+    <link>http://www.jobcher.com/gitrsync/</link>
     <pubDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.nbtyfood.com/gitrsync/</guid>
+    <guid>http://www.jobcher.com/gitrsync/</guid>
     <description><![CDATA[gitlab与github同步项目 本地同步项目 1 git clone 创建一个同名的项目,命令行终端中添加remote地址 1 git remote add githubOrigin git@github.com:sjtfreaks/blog.git 项目同步到Github上]]></description>
 </item><item>
     <title>iptables 基础知识</title>
-    <link>http://www.nbtyfood.com/iptable/</link>
+    <link>http://www.jobcher.com/iptable/</link>
     <pubDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.nbtyfood.com/iptable/</guid>
+    <guid>http://www.jobcher.com/iptable/</guid>
     <description><![CDATA[iptables 基础知识 内核包过滤与NAT管理工具.是linux系统中在用户空间中运行的运来配置内核防火墙的工具。它可以设置，维护和检查linux内核中的]]></description>
 </item><item>
     <title>k3s 升级版本</title>
-    <link>http://www.nbtyfood.com/k3supgrade/</link>
+    <link>http://www.jobcher.com/k3supgrade/</link>
     <pubDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.nbtyfood.com/k3supgrade/</guid>
+    <guid>http://www.jobcher.com/k3supgrade/</guid>
     <description><![CDATA[k3s 升级版本 停止所有的 K3s 容器（慎用） 从 server 节点运行 killall 脚本 1 /usr/local/bin/k3s-killall.sh 开始升级 使用安装脚本升级 K3s 1 2 3 curl -sfL https://get.k3s.io | sh - #国内可用 curl -sfL http://rancher-mirror.cnrancher.com/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn sh - 重启k3s 1 sudo systemctl]]></description>
 </item><item>
     <title>安装配置 Terraform</title>
-    <link>http://www.nbtyfood.com/terraform/</link>
+    <link>http://www.jobcher.com/terraform/</link>
     <pubDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.nbtyfood.com/terraform/</guid>
+    <guid>http://www.jobcher.com/terraform/</guid>
     <description><![CDATA[安装配置 Terraform 安装 macOS 苹果系统安装 1 2 3 4 5 6 7 8 #安装 brew tap hashicorp/tap brew install hashicorp/tap/terraform # 更新 brew update brew upgrade hashicorp/tap/terraform #验证安装 terraform -help windows 系统安装 1 2 3 4 5 6 #安装 choco install terraform #直接到这个u]]></description>
 </item><item>
     <title>孜然杏鲍菇-素食</title>
-    <link>http://www.nbtyfood.com/eryngii/</link>
+    <link>http://www.jobcher.com/eryngii/</link>
     <pubDate>Sun, 26 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.nbtyfood.com/eryngii/</guid>
+    <guid>http://www.jobcher.com/eryngii/</guid>
     <description><![CDATA[孜然杏鲍菇-素食 准备食材 杏鲍菇 蒜 糖 白芝麻 孜然粉 老抽 生抽 蚝油 步骤 杏鲍菇切片 蒜切成末 热油下蒜爆香 杏鲍菇下锅把水分炒干 加一勺生抽、半勺老抽，半勺蚝]]></description>
 </item><item>
     <title>Argo cd 安装和部署</title>
-    <link>http://www.nbtyfood.com/argocd/</link>
+    <link>http://www.jobcher.com/argocd/</link>
     <pubDate>Fri, 24 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.nbtyfood.com/argocd/</guid>
+    <guid>http://www.jobcher.com/argocd/</guid>
     <description><![CDATA[Argo cd 安装和部署 Argo CD 是一个为 Kubernetes 而生的，遵循声明式 GitOps 理念的持续部署（CD）工具。Argo CD 可在 Git 存储库更改时自动同步和部署应用程序 安装 k8s快速]]></description>
 </item><item>
     <title>mysql数据库备份迁移</title>
-    <link>http://www.nbtyfood.com/mysqldump/</link>
+    <link>http://www.jobcher.com/mysqldump/</link>
     <pubDate>Fri, 24 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.nbtyfood.com/mysqldump/</guid>
+    <guid>http://www.jobcher.com/mysqldump/</guid>
     <description><![CDATA[mysql数据库备份迁移 使用mydumper做数据备份迁移 备份数据库 安装 1 2 3 4 5 6 7 8 # 安装 centos yum install https://github.com/mydumper/mydumper/releases/download/v0.11.5/mydumper-0.11.5-1.el7.x86_64.rpm yum install https://github.com/mydumper/mydumper/releases/download/v0.11.5/mydumper-0.11.5-1.el8.x86_64.rpm # 安装 ubuntu apt-get install libatomic1 wget https://github.com/mydumper/mydumper/releases/download/v0.11.5/mydumper_0.11.5-1.$(lsb_release -cs)_amd64.deb dpkg -i mydumper_0.11.5-1.$(lsb_release -cs)_amd64.deb 备份]]></description>
 </item><item>
     <title>nginx 编译参数详解</title>
-    <link>http://www.nbtyfood.com/nginx02/</link>
+    <link>http://www.jobcher.com/nginx02/</link>
     <pubDate>Fri, 24 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.nbtyfood.com/nginx02/</guid>
+    <guid>http://www.jobcher.com/nginx02/</guid>
     <description><![CDATA[nginx 编译参数详解 nginx编译参数 作用 –prefix= 指向安装目录 –sbin-path 指向（执行）程序文件（nginx） –conf-path=]]></description>
 </item><item>
     <title>nginx 重写规则 rewrite模块</title>
-    <link>http://www.nbtyfood.com/nginx04/</link>
+    <link>http://www.jobcher.com/nginx04/</link>
     <pubDate>Fri, 24 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.nbtyfood.com/nginx04/</guid>
+    <guid>http://www.jobcher.com/nginx04/</guid>
     <description><![CDATA[nginx 重写规则 rewrite模块 语法 语法 默认值 使用字段 作用 break none server, location, if 完成当前设置的重写规则，停止执行其他的重写规则。 set variable value none server, location, if 为给定的变量设]]></description>
 </item><item>
     <title>nginx.conf 配置文件详解</title>
-    <link>http://www.nbtyfood.com/nginx03/</link>
+    <link>http://www.jobcher.com/nginx03/</link>
     <pubDate>Fri, 24 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.nbtyfood.com/nginx03/</guid>
+    <guid>http://www.jobcher.com/nginx03/</guid>
     <description><![CDATA[nginx.conf 配置文件详解 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 # vim nginx.conf user nobody]]></description>
 </item></channel>
 </rss>
