@@ -7,6 +7,13 @@
             <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 28 Dec 2021 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://www.jobcher.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>docker 命令</title>
+    <link>http://www.jobcher.com/docker/</link>
+    <pubDate>Tue, 28 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/docker/</guid>
+    <description><![CDATA[安装docker 通过docker 脚本安装 1 2 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun curl -sSL https://get.daocloud.io/docker | sh docker-compose 安装 1 2 3 4 5 6 7 8 #下载安装 sudo curl -L &#34;https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)&#34; -o /usr/local/bin/docker-compose #可执行权限 sudo chmod +x /usr/local/bin/docker-compose]]></description>
+</item><item>
     <title>linux基础知识</title>
     <link>http://www.jobcher.com/linux/</link>
     <pubDate>Tue, 28 Dec 2021 00:00:00 &#43;0000</pubDate>
@@ -69,12 +76,5 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/nginx02/</guid>
     <description><![CDATA[nginx 编译参数详解 nginx编译参数 作用 –prefix= 指向安装目录 –sbin-path 指向（执行）程序文件（nginx） –conf-path=]]></description>
-</item><item>
-    <title>nginx 重写规则 rewrite模块</title>
-    <link>http://www.jobcher.com/nginx04/</link>
-    <pubDate>Fri, 24 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/nginx04/</guid>
-    <description><![CDATA[nginx 重写规则 rewrite模块 语法 语法 默认值 使用字段 作用 break none server, location, if 完成当前设置的重写规则，停止执行其他的重写规则。 set variable value none server, location, if 为给定的变量设]]></description>
 </item></channel>
 </rss>

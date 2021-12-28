@@ -7,7 +7,18 @@
     curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
     curl -sSL https://get.daocloud.io/docker | sh
 ```
-# docker命令
+## docker-compose 安装
+```sh
+#下载安装
+sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+#可执行权限
+sudo chmod +x /usr/local/bin/docker-compose
+#创建软链：
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+#测试是否安装成功
+docker-compose --version
+```
+## docker命令
 常用docker命令  
 ```sh
     #查看容器
@@ -21,3 +32,4 @@
     #删除镜像
     docker rmi nginx
 ```
+
