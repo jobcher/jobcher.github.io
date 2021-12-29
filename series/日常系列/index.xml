@@ -4,7 +4,14 @@
         <link>http://www.jobcher.com/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/</link>
         <description>日常系列 - seris - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 29 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+    <title>logrotate 日志滚动的使用</title>
+    <link>http://www.jobcher.com/logrotate/</link>
+    <pubDate>Wed, 29 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/logrotate/</guid>
+    <description><![CDATA[logrotate 日志滚动的使用 logrotate 日志滚动切割工具，是linux默认安装的工具，配置文件位置： 1 2 /etc/logrotate.conf /etc/logrotate.d/ 参数 以nginx 配置为例 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15]]></description>
+</item><item>
     <title>安装配置 Terraform</title>
     <link>http://www.jobcher.com/terraform/</link>
     <pubDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</pubDate>

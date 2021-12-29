@@ -12,6 +12,13 @@
     <guid>http://www.jobcher.com/linux/</guid>
     <description><![CDATA[linux 基础知识 1、简述Linux权限划分原则。 给文件或目录分配权限时，先考虑所有者和所属组 遵循最小化权限，用啥权限给啥权限 修改目录和子文件归属权]]></description>
 </item><item>
+    <title>logrotate 日志滚动的使用</title>
+    <link>http://www.jobcher.com/logrotate/</link>
+    <pubDate>Wed, 29 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/logrotate/</guid>
+    <description><![CDATA[logrotate 日志滚动的使用 logrotate 日志滚动切割工具，是linux默认安装的工具，配置文件位置： 1 2 /etc/logrotate.conf /etc/logrotate.d/ 参数 以nginx 配置为例 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15]]></description>
+</item><item>
     <title>docker 命令</title>
     <link>http://www.jobcher.com/docker/</link>
     <pubDate>Tue, 28 Dec 2021 00:00:00 &#43;0000</pubDate>
@@ -67,12 +74,5 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/mysqldump/</guid>
     <description><![CDATA[mysql数据库备份迁移 使用mydumper做数据备份迁移 备份数据库 安装 1 2 3 4 5 6 7 8 # 安装 centos yum install https://github.com/mydumper/mydumper/releases/download/v0.11.5/mydumper-0.11.5-1.el7.x86_64.rpm yum install https://github.com/mydumper/mydumper/releases/download/v0.11.5/mydumper-0.11.5-1.el8.x86_64.rpm # 安装 ubuntu apt-get install libatomic1 wget https://github.com/mydumper/mydumper/releases/download/v0.11.5/mydumper_0.11.5-1.$(lsb_release -cs)_amd64.deb dpkg -i mydumper_0.11.5-1.$(lsb_release -cs)_amd64.deb 备份]]></description>
-</item><item>
-    <title>nginx 编译参数详解</title>
-    <link>http://www.jobcher.com/nginx02/</link>
-    <pubDate>Fri, 24 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/nginx02/</guid>
-    <description><![CDATA[nginx 编译参数详解 nginx编译参数 作用 –prefix= 指向安装目录 –sbin-path 指向（执行）程序文件（nginx） –conf-path=]]></description>
 </item></channel>
 </rss>
