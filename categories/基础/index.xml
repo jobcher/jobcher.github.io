@@ -4,10 +4,10 @@
         <link>http://www.jobcher.com/categories/%E5%9F%BA%E7%A1%80/</link>
         <description>基础 - 分类 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 28 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/%E5%9F%BA%E7%A1%80/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 29 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/%E5%9F%BA%E7%A1%80/" rel="self" type="application/rss+xml" /><item>
     <title>linux基础知识</title>
     <link>http://www.jobcher.com/linux/</link>
-    <pubDate>Tue, 28 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <pubDate>Wed, 29 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/linux/</guid>
     <description><![CDATA[linux 基础知识 1、简述Linux权限划分原则。 给文件或目录分配权限时，先考虑所有者和所属组 遵循最小化权限，用啥权限给啥权限 修改目录和子文件归属权]]></description>
