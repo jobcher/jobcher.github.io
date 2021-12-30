@@ -4,7 +4,14 @@
         <link>http://www.jobcher.com/categories/%E5%9F%BA%E7%A1%80/</link>
         <description>基础 - 分类 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 29 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/%E5%9F%BA%E7%A1%80/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 30 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/%E5%9F%BA%E7%A1%80/" rel="self" type="application/rss+xml" /><item>
+    <title>yaml 语法</title>
+    <link>http://www.jobcher.com/yaml/</link>
+    <pubDate>Thu, 30 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/yaml/</guid>
+    <description><![CDATA[yaml 语法 我们使用 YAML 是因为它像 XML 或 JSON 是一种利于人们读写的数据格式. 此外在大多数变成语言中有使用 YAML 的库.YAML 语法的基本概述, 它被用来描述一个 p]]></description>
+</item><item>
     <title>linux基础知识</title>
     <link>http://www.jobcher.com/linux/</link>
     <pubDate>Wed, 29 Dec 2021 00:00:00 &#43;0000</pubDate>

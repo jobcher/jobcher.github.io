@@ -4,7 +4,14 @@
         <link>http://www.jobcher.com/categories/gitlab/</link>
         <description>gitlab - 分类 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/gitlab/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 30 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/gitlab/" rel="self" type="application/rss+xml" /><item>
+    <title>ansible 安装和部署</title>
+    <link>http://www.jobcher.com/ansible/</link>
+    <pubDate>Thu, 30 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/ansible/</guid>
+    <description><![CDATA[ansible 安装和部署 Ansible默认通过 SSH 协议管理机器. 安装ansible 下载安装 1 2 3 4 5 6 7 # ubuntu 安装 apt-get install software-properties-common apt-add-repository ppa:ansible/ansible apt-get update apt-get install ansible # centos 安装 yum install ansible 检查文件]]></description>
+</item><item>
     <title>gitlab与github同步项目</title>
     <link>http://www.jobcher.com/gitrsync/</link>
     <pubDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</pubDate>

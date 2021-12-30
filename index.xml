@@ -4,9 +4,23 @@
         <link>http://www.jobcher.com/</link>
         <description>书山有路钱为径，学海无涯没有舟。分享一些自己的技术笔记和心得，说得不好我也不接受，反正我就写给自己看……</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 29 Dec 2021 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 30 Dec 2021 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://www.jobcher.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>ansible 安装和部署</title>
+    <link>http://www.jobcher.com/ansible/</link>
+    <pubDate>Thu, 30 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/ansible/</guid>
+    <description><![CDATA[ansible 安装和部署 Ansible默认通过 SSH 协议管理机器. 安装ansible 下载安装 1 2 3 4 5 6 7 # ubuntu 安装 apt-get install software-properties-common apt-add-repository ppa:ansible/ansible apt-get update apt-get install ansible # centos 安装 yum install ansible 检查文件]]></description>
+</item><item>
+    <title>yaml 语法</title>
+    <link>http://www.jobcher.com/yaml/</link>
+    <pubDate>Thu, 30 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/yaml/</guid>
+    <description><![CDATA[yaml 语法 我们使用 YAML 是因为它像 XML 或 JSON 是一种利于人们读写的数据格式. 此外在大多数变成语言中有使用 YAML 的库.YAML 语法的基本概述, 它被用来描述一个 p]]></description>
+</item><item>
     <title>linux基础知识</title>
     <link>http://www.jobcher.com/linux/</link>
     <pubDate>Wed, 29 Dec 2021 00:00:00 &#43;0000</pubDate>
@@ -62,19 +76,5 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/eryngii/</guid>
     <description><![CDATA[孜然杏鲍菇-素食 准备食材 杏鲍菇 蒜 糖 白芝麻 孜然粉 老抽 生抽 蚝油 步骤 杏鲍菇切片 蒜切成末 热油下蒜爆香 杏鲍菇下锅把水分炒干 加一勺生抽、半勺老抽，半勺蚝]]></description>
-</item><item>
-    <title>Argo cd 安装和部署</title>
-    <link>http://www.jobcher.com/argocd/</link>
-    <pubDate>Fri, 24 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/argocd/</guid>
-    <description><![CDATA[Argo cd 安装和部署 Argo CD 是一个为 Kubernetes 而生的，遵循声明式 GitOps 理念的持续部署（CD）工具。Argo CD 可在 Git 存储库更改时自动同步和部署应用程序 安装 k8s快速]]></description>
-</item><item>
-    <title>mysql数据库备份迁移</title>
-    <link>http://www.jobcher.com/mysqldump/</link>
-    <pubDate>Fri, 24 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/mysqldump/</guid>
-    <description><![CDATA[mysql数据库备份迁移 使用mydumper做数据备份迁移 备份数据库 安装 1 2 3 4 5 6 7 8 # 安装 centos yum install https://github.com/mydumper/mydumper/releases/download/v0.11.5/mydumper-0.11.5-1.el7.x86_64.rpm yum install https://github.com/mydumper/mydumper/releases/download/v0.11.5/mydumper-0.11.5-1.el8.x86_64.rpm # 安装 ubuntu apt-get install libatomic1 wget https://github.com/mydumper/mydumper/releases/download/v0.11.5/mydumper_0.11.5-1.$(lsb_release -cs)_amd64.deb dpkg -i mydumper_0.11.5-1.$(lsb_release -cs)_amd64.deb 备份]]></description>
 </item></channel>
 </rss>
