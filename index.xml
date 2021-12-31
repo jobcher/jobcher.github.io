@@ -4,9 +4,16 @@
         <link>http://www.jobcher.com/</link>
         <description>书山有路钱为径，学海无涯没有舟。分享一些自己的技术笔记和心得，说得不好我也不接受，反正我就写给自己看……</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 30 Dec 2021 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 31 Dec 2021 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://www.jobcher.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Kubernetes 实验手册（1）</title>
+    <link>http://www.jobcher.com/k8s1/</link>
+    <pubDate>Fri, 31 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/k8s1/</guid>
+    <description><![CDATA[Kubernetes 实验手册（1） 通过在pve创建5台虚拟机： 节点 IP node1 192.168.99.217 node2 192.168.99.224 node3 192.168.99.41 node4 192.168.99.219 更新ansible连接 1 2 3 4 ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.217 ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.224 ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.41 ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.219]]></description>
+</item><item>
     <title>ansible 安装和部署</title>
     <link>http://www.jobcher.com/ansible/</link>
     <pubDate>Thu, 30 Dec 2021 00:00:00 &#43;0000</pubDate>
@@ -69,12 +76,5 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/terraform/</guid>
     <description><![CDATA[安装配置 Terraform 安装 macOS 苹果系统安装 1 2 3 4 5 6 7 8 #安装 brew tap hashicorp/tap brew install hashicorp/tap/terraform # 更新 brew update brew upgrade hashicorp/tap/terraform #验证安装 terraform -help windows 系统安装 1 2 3 4 5 6 #安装 choco install terraform #直接到这个u]]></description>
-</item><item>
-    <title>孜然杏鲍菇-素食</title>
-    <link>http://www.jobcher.com/eryngii/</link>
-    <pubDate>Sun, 26 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/eryngii/</guid>
-    <description><![CDATA[孜然杏鲍菇-素食 准备食材 杏鲍菇 蒜 糖 白芝麻 孜然粉 老抽 生抽 蚝油 步骤 杏鲍菇切片 蒜切成末 热油下蒜爆香 杏鲍菇下锅把水分炒干 加一勺生抽、半勺老抽，半勺蚝]]></description>
 </item></channel>
 </rss>

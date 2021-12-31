@@ -3,7 +3,7 @@
 # linux系统开启root权限
 1. 修改ssh服务配置文件
 ```sh
-shdo su -
+sudo su -
 sudo vim /etc/ssh/sshd_config
 ```
 2. 增加权限  

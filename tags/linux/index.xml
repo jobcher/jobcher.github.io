@@ -38,7 +38,7 @@
     <pubDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/resetsystem/</guid>
-    <description><![CDATA[linux系统开启root权限 修改ssh服务配置文件 1 2 shdo su - sudo vim /etc/ssh/sshd_config 增加权限 在# Authentication: 下输入 1 PermitRootLogin yes 更改root密码，重启服务 1 2 sudo passwd root service sshd restart]]></description>
+    <description><![CDATA[linux系统开启root权限 修改ssh服务配置文件 1 2 sudo su - sudo vim /etc/ssh/sshd_config 增加权限 在# Authentication: 下输入 1 PermitRootLogin yes 更改root密码，重启服务 1 2 sudo passwd root service sshd restart]]></description>
 </item><item>
     <title>nginx 汇总</title>
     <link>http://www.jobcher.com/nginx/</link>
