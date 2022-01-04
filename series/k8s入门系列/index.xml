@@ -4,13 +4,20 @@
         <link>http://www.jobcher.com/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/</link>
         <description>k8s入门系列 - seris - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 31 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 04 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+    <title>Keepalived高可用</title>
+    <link>http://www.jobcher.com/keepalived/</link>
+    <pubDate>Tue, 04 Jan 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/keepalived/</guid>
+    <description><![CDATA[Keepalived高可用 配置文件存放位置：/usr/share/doc/keepalived/samples VVRP 虚拟路由冗余协议 组成 LB集群]]></description>
+</item><item>
     <title>Kubernetes 实验手册（1）</title>
     <link>http://www.jobcher.com/k8s1/</link>
     <pubDate>Fri, 31 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/k8s1/</guid>
-    <description><![CDATA[Kubernetes 实验手册（1） 通过在pve创建5台虚拟机： 节点 IP node1 192.168.99.217 node2 192.168.99.224 node3 192.168.99.41 node4 192.168.99.219 更新ansible连接 1 2 3 4 ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.217 ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.224 ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.41 ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.219]]></description>
+    <description><![CDATA[Kubernetes 实验手册（1） 通过在pve创建5台虚拟机： 节点 IP 作用 node1 192.168.99.217 k8s-master01 node2 192.168.99.224 k8s-master02 node3 192.168.99.41 k8s-node01 node4 192.168.99.219 k8s-node02 node5 192.168.99.155 k8s-lb01 更新ansible连接 1 2 3 4 5 ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.217 ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.224 ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.41]]></description>
 </item><item>
     <title>k3s 升级版本</title>
     <link>http://www.jobcher.com/k3supgrade/</link>
