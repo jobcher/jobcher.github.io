@@ -4,10 +4,10 @@
         <link>http://www.jobcher.com/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/</link>
         <description>k8s入门系列 - seris - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 04 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 05 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
     <title>Keepalived高可用</title>
     <link>http://www.jobcher.com/keepalived/</link>
-    <pubDate>Tue, 04 Jan 2022 00:00:00 &#43;0000</pubDate>
+    <pubDate>Wed, 05 Jan 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/keepalived/</guid>
     <description><![CDATA[Keepalived高可用 配置文件存放位置：/usr/share/doc/keepalived/samples VVRP 虚拟路由冗余协议 组成 LB集群]]></description>

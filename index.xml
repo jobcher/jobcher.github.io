@@ -4,12 +4,12 @@
         <link>http://www.jobcher.com/</link>
         <description>书山有路钱为径，学海无涯没有舟。分享一些自己的技术笔记和心得，说得不好我也不接受，反正我就写给自己看……</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 04 Jan 2022 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 05 Jan 2022 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://www.jobcher.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
     <title>Keepalived高可用</title>
     <link>http://www.jobcher.com/keepalived/</link>
-    <pubDate>Tue, 04 Jan 2022 00:00:00 &#43;0000</pubDate>
+    <pubDate>Wed, 05 Jan 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/keepalived/</guid>
     <description><![CDATA[Keepalived高可用 配置文件存放位置：/usr/share/doc/keepalived/samples VVRP 虚拟路由冗余协议 组成 LB集群]]></description>
