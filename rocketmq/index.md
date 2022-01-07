@@ -16,7 +16,7 @@ tar -zxvf apache-maven-3.8.4-bin.tar.gz
 mv -f apache-maven-3.8.4 /usr/local/
 vim /etc/profile
 # 末尾添加
-export MAVEN_HOME=/usr/local/apache-maven-3.3.9
+export MAVEN_HOME=/usr/local/apache-maven-3.8.4
 export PATH=${PATH}:${MAVEN_HOME}/bin
 # 保存
 source /etc/profile
@@ -41,3 +41,23 @@ sh bin/dledger/fast-try.sh start
 # 通过 mqadmin 运维命令查看集群状态
 sh bin/mqadmin clusterList -n 127.0.0.1:9876
 ```
+
+启动单节点  
+```sh
+cd distribution/target/rocketmq-4.9.3-SNAPSHOT/rocketmq-4.9.3-SNAPSHOT
+nohup sh bin/mqnamesrv &
+# 查看 Namesrv 日志
+tail -f ~/logs/rocketmqlogs/namesrv.log
+2022-01-07 14:59:29 INFO main - The Name Server boot success. serializeType=JSON
+# 启动 Broker
+nohup sh bin/mqbroker -c conf/broker.conf  -n 127.0.0.1:9876 &
+# 查看 Broker 日志
+tail -f ~/logs/rocketmqlogs/broker.log
+```
+
+
+如果提示找不到上面的日志文件，应该是没启动成功。  
+应该是内存不够，RocketMQ默认用8g内存，如果你服务器的内存比较小，可以修改下bin/runbroker.sh脚本，将 Broker JVM 内存调小。如：JAVA_OPT="${JAVA_OPT} -server -Xms2g -Xmx2g -Xmn1g"。  
+再次启动broker，可以正常启动。  
+  
+默认情况下，Broker 日志文件所在地址为~/logs/rocketmqlogs/broker.log。如果想要自定义，可以通过conf/logback_broker.xml配置文件来进行修改。  

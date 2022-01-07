@@ -19,7 +19,7 @@
     <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/rocketmq/</guid>
-    <description><![CDATA[RocketMQ 安装和部署 部署RocketMQ 单机安装构建 安装JDK 1.8.0 1 yum install java-1.8.0-openjdk* 安装Maven 1 2 3 4 5 6 7 8 9 10 11 wget http://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz tar -zxvf apache-maven-3.8.4-bin.tar.gz mv -f apache-maven-3.8.4 /usr/local/ vim /etc/profile # 末尾添加 export MAVEN_HOME=/usr/local/apache-maven-3.3.9 export PATH=${PATH}:${MAVEN_HOME}/bin]]></description>
+    <description><![CDATA[RocketMQ 安装和部署 部署RocketMQ 单机安装构建 安装JDK 1.8.0 1 yum install java-1.8.0-openjdk* 安装Maven 1 2 3 4 5 6 7 8 9 10 11 wget http://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz tar -zxvf apache-maven-3.8.4-bin.tar.gz mv -f apache-maven-3.8.4 /usr/local/ vim /etc/profile # 末尾添加 export MAVEN_HOME=/usr/local/apache-maven-3.8.4 export PATH=${PATH}:${MAVEN_HOME}/bin]]></description>
 </item><item>
     <title>安装 minIO Azure S3网关</title>
     <link>http://www.jobcher.com/minio/</link>
