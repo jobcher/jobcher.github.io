@@ -9,8 +9,8 @@
 <meta property="og:description" content="Kubernetes 实验手册（1） 通过在pve创建5台虚拟机： 节点 IP 作用 node0 192.168.99.155 k8s-master01 node1 192.168.99.217 k8s-master02 node2 192.168.99.224 k8s-master03 node3 192.168.99.41 k8s-node01 node4 192.168.99.219 k8s-node02 node5 192.168.99.42 k8s-master-lb 配置信息 备注 系统版本 Ubuntu Docker 20.10.12 pod网段 172.168.0.0/12 servic" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.jobcher.com/k8s1/" /><meta property="og:image" content="http://www.jobcher.com/logo.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-01-04T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-01-04T00:00:00+00:00" />
+<meta property="article:published_time" content="2022-01-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-07T00:00:00+00:00" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -21,7 +21,7 @@
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://www.jobcher.com/k8s1/" /><link rel="next" href="http://www.jobcher.com/yunwei/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://www.jobcher.com/k8s1/" /><link rel="prev" href="http://www.jobcher.com/minio/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -31,7 +31,7 @@
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/k8s1\/"
         },"genre": "posts","keywords": "k8s","wordcount":  794 ,
-        "url": "http:\/\/www.jobcher.com\/k8s1\/","datePublished": "2021-01-04T00:00:00+00:00","dateModified": "2021-01-04T00:00:00+00:00","publisher": {
+        "url": "http:\/\/www.jobcher.com\/k8s1\/","datePublished": "2022-01-07T00:00:00+00:00","dateModified": "2022-01-07T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -107,7 +107,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Kubernetes 实验手册（1）</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/k8s/"><i class="far fa-folder fa-fw"></i>k8s</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-01-04">2021-01-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 794 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-07">2022-01-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 794 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -538,7 +538,7 @@ systemctl restart keepalived.service
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2021-01-04</span>
+                <span>更新于 2022-01-07</span>
             </div>
             <div class="post-info-license"></div>
         </div>
@@ -559,8 +559,7 @@ systemctl restart keepalived.service
         </section>
     </div>
 
-    <div class="post-nav">
-            <a href="/yunwei/" class="next" rel="next" title="运维知识图谱">运维知识图谱<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/minio/" class="prev" rel="prev" title="安装 minIO Azure S3网关"><i class="fas fa-angle-left fa-fw"></i>安装 minIO Azure S3网关</a></div>
 </div>
 <div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
