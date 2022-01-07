@@ -14,6 +14,13 @@
     <guid>http://www.jobcher.com/k8s1/</guid>
     <description><![CDATA[Kubernetes 实验手册（1） 通过在pve创建5台虚拟机： 节点 IP 作用 node0 192.168.99.155 k8s-master01 node1 192.168.99.217 k8s-master02 node2 192.168.99.224 k8s-master03 node3 192.168.99.41 k8s-node01 node4 192.168.99.219 k8s-node02 node5 192.168.99.42 k8s-master-lb 配置信息 备注 系统版本 Ubuntu Docker 20.10.12 pod网段 172.168.0.0/12 servic]]></description>
 </item><item>
+    <title>RocketMQ 安装和启动</title>
+    <link>http://www.jobcher.com/rocketmq/</link>
+    <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/rocketmq/</guid>
+    <description><![CDATA[RocketMQ 安装和部署 部署RocketMQ 单机安装构建 安装JDK 1.8.0 1 yum install java-1.8.0-openjdk* 安装Maven 1 2 3 4 5 6 7 8 9 10 11 wget http://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz tar -zxvf apache-maven-3.8.4-bin.tar.gz mv -f apache-maven-3.8.4 /usr/local/ vim /etc/profile # 末尾添加 export MAVEN_HOME=/usr/local/apache-maven-3.3.9 export PATH=${PATH}:${MAVEN_HOME}/bin]]></description>
+</item><item>
     <title>安装 minIO Azure S3网关</title>
     <link>http://www.jobcher.com/minio/</link>
     <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate>
@@ -69,12 +76,5 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/gitrsync/</guid>
     <description><![CDATA[gitlab与github同步项目 本地同步项目 1 git clone 创建一个同名的项目,命令行终端中添加remote地址 1 git remote add githubOrigin git@github.com:sjtfreaks/blog.git 项目同步到Github上]]></description>
-</item><item>
-    <title>iptables 基础知识</title>
-    <link>http://www.jobcher.com/iptable/</link>
-    <pubDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/iptable/</guid>
-    <description><![CDATA[iptables 基础知识 内核包过滤与NAT管理工具.是linux系统中在用户空间中运行的运来配置内核防火墙的工具。它可以设置，维护和检查linux内核中的]]></description>
 </item></channel>
 </rss>
