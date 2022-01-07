@@ -2,15 +2,19 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>http://www.jobcher.com/categories/</loc><lastmod>2022-01-05T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.jobcher.com/categories/</loc><lastmod>2022-01-07T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.jobcher.com/tags/minio/</loc><lastmod>2022-01-07T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.jobcher.com/posts/</loc><lastmod>2022-01-07T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.jobcher.com/series/</loc><lastmod>2022-01-07T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.jobcher.com/tags/</loc><lastmod>2022-01-07T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.jobcher.com/minio/</loc><lastmod>2022-01-07T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.jobcher.com/</loc><lastmod>2022-01-07T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.jobcher.com/categories/%E6%97%A5%E5%B8%B8/</loc><lastmod>2022-01-07T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.jobcher.com/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/</loc><lastmod>2022-01-07T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://www.jobcher.com/tags/k8s/</loc><lastmod>2022-01-05T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://www.jobcher.com/categories/k8s/</loc><lastmod>2022-01-05T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://www.jobcher.com/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/</loc><lastmod>2022-01-05T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://www.jobcher.com/keepalived/</loc><lastmod>2022-01-05T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://www.jobcher.com/posts/</loc><lastmod>2022-01-05T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://www.jobcher.com/series/</loc><lastmod>2022-01-05T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://www.jobcher.com/tags/</loc><lastmod>2022-01-05T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://www.jobcher.com/</loc><lastmod>2022-01-05T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://www.jobcher.com/tags/ansible/</loc><lastmod>2021-12-30T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
             <loc>http://www.jobcher.com/ansible/</loc><lastmod>2021-12-30T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
             <loc>http://www.jobcher.com/categories/gitlab/</loc><lastmod>2021-12-30T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
@@ -22,8 +26,6 @@
             <loc>http://www.jobcher.com/tags/daliy/</loc><lastmod>2021-12-29T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
             <loc>http://www.jobcher.com/linux/</loc><lastmod>2021-12-29T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
             <loc>http://www.jobcher.com/logrotate/</loc><lastmod>2021-12-29T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://www.jobcher.com/categories/%E6%97%A5%E5%B8%B8/</loc><lastmod>2021-12-29T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://www.jobcher.com/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/</loc><lastmod>2021-12-29T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
             <loc>http://www.jobcher.com/tags/docker/</loc><lastmod>2021-12-28T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
             <loc>http://www.jobcher.com/categories/docker/</loc><lastmod>2021-12-28T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
             <loc>http://www.jobcher.com/docker/</loc><lastmod>2021-12-28T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
@@ -39,18 +41,18 @@
             <loc>http://www.jobcher.com/tags/%E7%BE%8E%E9%A3%9F/</loc><lastmod>2021-12-26T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
             <loc>http://www.jobcher.com/categories/%E7%BE%8E%E9%A3%9F/</loc><lastmod>2021-12-26T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
             <loc>http://www.jobcher.com/series/%E7%BE%8E%E9%A3%9F%E5%AE%B6%E5%B8%B8%E8%8F%9C%E7%B3%BB%E5%88%97/</loc><lastmod>2021-12-26T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://www.jobcher.com/argocd/</loc><lastmod>2021-12-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://www.jobcher.com/tags/linux/</loc><lastmod>2021-12-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://www.jobcher.com/tags/mysql/</loc><lastmod>2021-12-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://www.jobcher.com/mysqldump/</loc><lastmod>2021-12-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://www.jobcher.com/series/mysql%E7%B3%BB%E5%88%97/</loc><lastmod>2021-12-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://www.jobcher.com/tags/nginx/</loc><lastmod>2021-12-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://www.jobcher.com/nginx02/</loc><lastmod>2021-12-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://www.jobcher.com/nginx04/</loc><lastmod>2021-12-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://www.jobcher.com/nginx03/</loc><lastmod>2021-12-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://www.jobcher.com/categories/web-%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc><lastmod>2021-12-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://www.jobcher.com/series/web%E6%9C%8D%E5%8A%A1%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/</loc><lastmod>2021-12-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
-            <loc>http://www.jobcher.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc><lastmod>2021-12-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>http://www.jobcher.com/argocd/</loc><lastmod>2021-12-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://www.jobcher.com/tags/linux/</loc><lastmod>2021-12-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://www.jobcher.com/tags/mysql/</loc><lastmod>2021-12-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://www.jobcher.com/mysqldump/</loc><lastmod>2021-12-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://www.jobcher.com/series/mysql%E7%B3%BB%E5%88%97/</loc><lastmod>2021-12-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://www.jobcher.com/tags/nginx/</loc><lastmod>2021-12-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://www.jobcher.com/nginx02/</loc><lastmod>2021-12-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://www.jobcher.com/nginx04/</loc><lastmod>2021-12-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://www.jobcher.com/nginx03/</loc><lastmod>2021-12-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://www.jobcher.com/categories/web-%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc><lastmod>2021-12-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://www.jobcher.com/series/web%E6%9C%8D%E5%8A%A1%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/</loc><lastmod>2021-12-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://www.jobcher.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc><lastmod>2021-12-24T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>http://www.jobcher.com/network/</loc><lastmod>2021-12-23T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>http://www.jobcher.com/docker-kong/</loc><lastmod>2021-12-22T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
             <loc>http://www.jobcher.com/docker-registry/</loc><lastmod>2021-12-22T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
@@ -71,8 +73,8 @@
             <loc>http://www.jobcher.com/nginx01/</loc><lastmod>2021-12-13T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
             <loc>http://www.jobcher.com/resetsystem/</loc><lastmod>2021-12-12T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
             <loc>http://www.jobcher.com/mysql01/</loc><lastmod>2021-12-12T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
-            <loc>http://www.jobcher.com/qyyemail163/</loc><lastmod>2021-12-10T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
-            <loc>http://www.jobcher.com/gitlab/</loc><lastmod>2021-12-10T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
+            <loc>http://www.jobcher.com/qyyemail163/</loc><lastmod>2021-12-10T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>http://www.jobcher.com/gitlab/</loc><lastmod>2021-12-10T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
             <loc>http://www.jobcher.com/dockerimage/</loc><lastmod>2021-12-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
             <loc>http://www.jobcher.com/tags/dockercompose/</loc><lastmod>2021-12-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
             <loc>http://www.jobcher.com/tags/dockerfile/</loc><lastmod>2021-12-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
@@ -87,14 +89,14 @@
             <loc>http://www.jobcher.com/nps/</loc><lastmod>2021-12-08T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
             <loc>http://www.jobcher.com/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/</loc><lastmod>2021-12-06T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
             <loc>http://www.jobcher.com/rasberry/</loc><lastmod>2021-12-06T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-            <loc>http://www.jobcher.com/tags/brew/</loc><lastmod>2021-12-03T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-            <loc>http://www.jobcher.com/brew/</loc><lastmod>2021-12-03T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-            <loc>http://www.jobcher.com/gitlab-cicd/</loc><lastmod>2021-12-03T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-            <loc>http://www.jobcher.com/git/</loc><lastmod>2021-12-03T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-            <loc>http://www.jobcher.com/categories/mac/</loc><lastmod>2021-12-03T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-            <loc>http://www.jobcher.com/series/mac%E7%B3%BB%E5%88%97/</loc><lastmod>2021-12-03T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-            <loc>http://www.jobcher.com/tags/markdown/</loc><lastmod>2021-12-03T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-            <loc>http://www.jobcher.com/markdown/</loc><lastmod>2021-12-03T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>http://www.jobcher.com/tags/brew/</loc><lastmod>2021-12-03T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://www.jobcher.com/brew/</loc><lastmod>2021-12-03T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://www.jobcher.com/gitlab-cicd/</loc><lastmod>2021-12-03T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://www.jobcher.com/git/</loc><lastmod>2021-12-03T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://www.jobcher.com/categories/mac/</loc><lastmod>2021-12-03T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://www.jobcher.com/series/mac%E7%B3%BB%E5%88%97/</loc><lastmod>2021-12-03T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://www.jobcher.com/tags/markdown/</loc><lastmod>2021-12-03T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://www.jobcher.com/markdown/</loc><lastmod>2021-12-03T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/tags/hugo/</loc><lastmod>2021-12-01T17:05:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/categories/hugo/</loc><lastmod>2021-12-01T17:05:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/first/</loc><lastmod>2021-12-01T17:05:35&#43;08:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>

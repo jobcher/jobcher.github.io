@@ -4,9 +4,16 @@
         <link>http://www.jobcher.com/</link>
         <description>书山有路钱为径，学海无涯没有舟。分享一些自己的技术笔记和心得，说得不好我也不接受，反正我就写给自己看……</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 05 Jan 2022 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://www.jobcher.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>安装 minIO Azure S3网关</title>
+    <link>http://www.jobcher.com/minio/</link>
+    <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/minio/</guid>
+    <description><![CDATA[安装 minIO 通过docker 安装 1 2 3 4 docker run -p 9000:9000 -p 41863:41863 -d --name azure-s3 \ -e &#34;MINIO_ACCESS_KEY=azure存储账户&#34; \ -e &#34]]></description>
+</item><item>
     <title>Keepalived高可用</title>
     <link>http://www.jobcher.com/keepalived/</link>
     <pubDate>Wed, 05 Jan 2022 00:00:00 &#43;0000</pubDate>
@@ -69,12 +76,5 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/k3supgrade/</guid>
     <description><![CDATA[k3s 升级版本 停止所有的 K3s 容器（慎用） 从 server 节点运行 killall 脚本 1 /usr/local/bin/k3s-killall.sh 开始升级 使用安装脚本升级 K3s 1 2 3 curl -sfL https://get.k3s.io | sh - #国内可用 curl -sfL http://rancher-mirror.cnrancher.com/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn sh - 重启k3s 1 sudo systemctl]]></description>
-</item><item>
-    <title>安装配置 Terraform</title>
-    <link>http://www.jobcher.com/terraform/</link>
-    <pubDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/terraform/</guid>
-    <description><![CDATA[安装配置 Terraform 安装 macOS 苹果系统安装 1 2 3 4 5 6 7 8 #安装 brew tap hashicorp/tap brew install hashicorp/tap/terraform # 更新 brew update brew upgrade hashicorp/tap/terraform #验证安装 terraform -help windows 系统安装 1 2 3 4 5 6 #安装 choco install terraform #直接到这个u]]></description>
 </item></channel>
 </rss>
