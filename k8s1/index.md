@@ -7,8 +7,8 @@
 |节点|IP|作用|
 |:----|:----|:----|
 |node0|192.168.99.155|k8s-master01|
-|node1|192.168.99.217|k8s-master02|
-|node2|192.168.99.224|k8s-master03|
+|node1|192.168.99.199|k8s-master02|
+|node2|192.168.99.87|k8s-master03|
 |node3|192.168.99.41|k8s-node01|
 |node4|192.168.99.219|k8s-node02|
 |node5|192.168.99.42|k8s-master-lb|
@@ -25,36 +25,65 @@ VIP 不要和内网IP重复，VIP需要和主机在同一个局域网内
 
 1. 更新ansible连接  
 ```sh
-ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.217
-ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.224
-ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.41
-ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.219
 ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.155
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.199
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.87
+#ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.41
+#ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.219
 ```
 ```sh
 vim /etc/hosts
 192.168.99.155  k8s-master01
-192.168.99.217  k8s-master02
-192.168.99.224  k8s-master03
-192.168.99.41   k8s-node01
-192.168.99.219  k8s-node02
+192.168.99.199  k8s-master02
+192.168.99.87  k8s-master03
+#192.168.99.41   k8s-node01
+#192.168.99.219  k8s-node02
 ```
 ## 基本配置
-1. 关闭配置
+1. 安装基本软件包
 ```sh
-systemctl disable --now firewalld
-systemctl disable --now dnsmasq
-systemctl disable --now NetworkManager
-setenforce 0
+apt install wget jq psmisc vim net-tools telnet lvm2 git -y
+# 关闭swap分区
+vim /etc/fstab
+注释掉swap 内容 并重启
+reboot
+# 时间同步
+apt install ntpdate -y
+# 查看时区
+set-timezone 'Asia/Shanghai'
+timedatectl
+date
+```
+2. 安装docker
+```sh
+curl -sSL https://get.daocloud.io/docker | sh
+systemctl restart docker
+```
+3. 安装k8s组件
+```sh
+# 更新 apt 包索引并安装使用 Kubernetes 
+sudo apt-get update
+sudo apt-get install -y apt-transport-https ca-certificates curl
+# 下载 Google Cloud 公开签名秘钥：
+sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+# 添加 Kubernetes apt 仓库
+echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+# 更新 apt 包索引，安装 kubelet、kubeadm 和 kubectl，并锁定其版本：
+sudo apt-get update
+sudo apt-get install -y kubelet kubeadm kubectl
+sudo apt-mark hold kubelet kubeadm kubectl
+
 ```
 
-2. 安装keepalived和haproxy
+4. 安装keepalived和haproxy
 所有Master节点安装HAProxy和KeepAlived
 ```sh
 apt install keepalived haproxy -y
+vim /etc/haproxy/haproxy.cfg 
 ```
 所有Master节点的HAProxy配置相同
-```cfg
+
+```sh
 global
   maxconn  2000
   ulimit-n  16384
@@ -92,11 +121,12 @@ backend k8s-master
   balance roundrobin
   default-server inter 10s downinter 5s rise 2 fall 2 slowstart 60s maxconn 250 maxqueue 256 weight 100
   server k8s-master01	192.168.99.155:6443  check
-  server k8s-master02	192.168.99.217:6443  check
-  server k8s-master03	192.168.99.224:6443  check
+  server k8s-master02	192.168.99.199:6443  check
+  server k8s-master03	192.168.99.87:6443  check
 ```
 所有Master节点配置KeepAlived，配置不一样，注意区分  
-注意每个节点的IP和网卡（interface参数）  
+注意每个节点的IP和网卡（interface参数）
+vim /etc/keepalived/keepalived.conf
 ```conf
 ! Configuration File for keepalived
 global_defs {

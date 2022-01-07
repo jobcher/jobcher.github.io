@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Kubernetes 实验手册（1） - 打工人日志 - jobcher</title><meta name="Description" content="书山有路钱为径，学海无涯没有舟。分享一些自己的技术笔记和心得，说得不好我也不接受，反正我就写给自己看……"><meta property="og:title" content="Kubernetes 实验手册（1）" />
-<meta property="og:description" content="Kubernetes 实验手册（1） 通过在pve创建5台虚拟机： 节点 IP 作用 node0 192.168.99.155 k8s-master01 node1 192.168.99.217 k8s-master02 node2 192.168.99.224 k8s-master03 node3 192.168.99.41 k8s-node01 node4 192.168.99.219 k8s-node02 node5 192.168.99.42 k8s-master-lb 配置信息 备注 系统版本 Ubuntu Docker 20.10.12 pod网段 172.168.0.0/12 servic" />
+<meta property="og:description" content="Kubernetes 实验手册（1） 通过在pve创建5台虚拟机： 节点 IP 作用 node0 192.168.99.155 k8s-master01 node1 192.168.99.199 k8s-master02 node2 192.168.99.87 k8s-master03 node3 192.168.99.41 k8s-node01 node4 192.168.99.219 k8s-node02 node5 192.168.99.42 k8s-master-lb 配置信息 备注 系统版本 Ubuntu Docker 20.10.12 pod网段 172.168.0.0/12 servic" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.jobcher.com/k8s1/" /><meta property="og:image" content="http://www.jobcher.com/logo.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-01-07T00:00:00+00:00" />
@@ -17,7 +17,7 @@
 <meta name="twitter:image" content="http://www.jobcher.com/logo.png"/>
 
 <meta name="twitter:title" content="Kubernetes 实验手册（1）"/>
-<meta name="twitter:description" content="Kubernetes 实验手册（1） 通过在pve创建5台虚拟机： 节点 IP 作用 node0 192.168.99.155 k8s-master01 node1 192.168.99.217 k8s-master02 node2 192.168.99.224 k8s-master03 node3 192.168.99.41 k8s-node01 node4 192.168.99.219 k8s-node02 node5 192.168.99.42 k8s-master-lb 配置信息 备注 系统版本 Ubuntu Docker 20.10.12 pod网段 172.168.0.0/12 servic"/>
+<meta name="twitter:description" content="Kubernetes 实验手册（1） 通过在pve创建5台虚拟机： 节点 IP 作用 node0 192.168.99.155 k8s-master01 node1 192.168.99.199 k8s-master02 node2 192.168.99.87 k8s-master03 node3 192.168.99.41 k8s-node01 node4 192.168.99.219 k8s-node02 node5 192.168.99.42 k8s-master-lb 配置信息 备注 系统版本 Ubuntu Docker 20.10.12 pod网段 172.168.0.0/12 servic"/>
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/k8s1\/"
-        },"genre": "posts","keywords": "k8s","wordcount":  794 ,
+        },"genre": "posts","keywords": "k8s","wordcount":  999 ,
         "url": "http:\/\/www.jobcher.com\/k8s1\/","datePublished": "2022-01-07T00:00:00+00:00","dateModified": "2022-01-07T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -107,7 +107,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Kubernetes 实验手册（1）</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/k8s/"><i class="far fa-folder fa-fw"></i>k8s</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-07">2022-01-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 794 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-07">2022-01-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 999 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -138,12 +138,12 @@
 </tr>
 <tr>
 <td style="text-align:left">node1</td>
-<td style="text-align:left">192.168.99.217</td>
+<td style="text-align:left">192.168.99.199</td>
 <td style="text-align:left">k8s-master02</td>
 </tr>
 <tr>
 <td style="text-align:left">node2</td>
-<td style="text-align:left">192.168.99.224</td>
+<td style="text-align:left">192.168.99.87</td>
 <td style="text-align:left">k8s-master03</td>
 </tr>
 <tr>
@@ -202,11 +202,11 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.217
-ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.224
-ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.41
-ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.219
-ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.155
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.155
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.199
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.87
+<span class="c1">#ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.41</span>
+<span class="c1">#ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.219</span>
 </code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
@@ -221,40 +221,102 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.155
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">vim /etc/hosts
 192.168.99.155  k8s-master01
-192.168.99.217  k8s-master02
-192.168.99.224  k8s-master03
-192.168.99.41   k8s-node01
-192.168.99.219  k8s-node02
+192.168.99.199  k8s-master02
+192.168.99.87  k8s-master03
+<span class="c1">#192.168.99.41   k8s-node01</span>
+<span class="c1">#192.168.99.219  k8s-node02</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="基本配置">基本配置</h2>
 <ol>
-<li>关闭配置</li>
+<li>安装基本软件包</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">apt install wget jq psmisc vim net-tools telnet lvm2 git -y
+<span class="c1"># 关闭swap分区</span>
+vim /etc/fstab
+注释掉swap 内容 并重启
+reboot
+<span class="c1"># 时间同步</span>
+apt install ntpdate -y
+<span class="c1"># 查看时区</span>
+set-timezone <span class="s1">&#39;Asia/Shanghai&#39;</span>
+timedatectl
+date
+</code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>安装docker</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">systemctl disable --now firewalld
-systemctl disable --now dnsmasq
-systemctl disable --now NetworkManager
-setenforce <span class="m">0</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">curl -sSL https://get.daocloud.io/docker <span class="p">|</span> sh
+systemctl restart docker
 </code></pre></td></tr></table>
 </div>
-</div><ol start="2">
+</div><ol start="3">
+<li>安装k8s组件</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="c1"># 更新 apt 包索引并安装使用 Kubernetes </span>
+sudo apt-get update
+sudo apt-get install -y apt-transport-https ca-certificates curl
+<span class="c1"># 下载 Google Cloud 公开签名秘钥：</span>
+sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+<span class="c1"># 添加 Kubernetes apt 仓库</span>
+<span class="nb">echo</span> <span class="s2">&#34;deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main&#34;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/kubernetes.list
+<span class="c1"># 更新 apt 包索引，安装 kubelet、kubeadm 和 kubectl，并锁定其版本：</span>
+sudo apt-get update
+sudo apt-get install -y kubelet kubeadm kubectl
+sudo apt-mark hold kubelet kubeadm kubectl
+
+</code></pre></td></tr></table>
+</div>
+</div><ol start="4">
 <li>安装keepalived和haproxy
 所有Master节点安装HAProxy和KeepAlived</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">apt install keepalived haproxy -y
+vim /etc/haproxy/haproxy.cfg 
 </code></pre></td></tr></table>
 </div>
 </div><p>所有Master节点的HAProxy配置相同</p>
@@ -301,49 +363,50 @@ setenforce <span class="m">0</span>
 </span><span class="lnt">39
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-cfg" data-lang="cfg"><span class="na">global</span>
-  <span class="na">maxconn  2000</span>
-  <span class="na">ulimit-n  16384</span>
-  <span class="na">log  127.0.0.1 local0 err</span>
-  <span class="na">stats timeout 30s</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">global
+  maxconn  <span class="m">2000</span>
+  ulimit-n  <span class="m">16384</span>
+  log  127.0.0.1 local0 err
+  stats timeout 30s
 
-<span class="na">defaults</span>
-  <span class="na">log global</span>
-  <span class="na">mode  http</span>
-  <span class="na">option  httplog</span>
-  <span class="na">timeout connect 5000</span>
-  <span class="na">timeout client  50000</span>
-  <span class="na">timeout server  50000</span>
-  <span class="na">timeout http-request 15s</span>
-  <span class="na">timeout http-keep-alive 15s</span>
+defaults
+  log global
+  mode  http
+  option  httplog
+  timeout connect <span class="m">5000</span>
+  timeout client  <span class="m">50000</span>
+  timeout server  <span class="m">50000</span>
+  timeout http-request 15s
+  timeout http-keep-alive 15s
 
-<span class="na">frontend monitor-in</span>
-  <span class="na">bind *:33305</span>
-  <span class="na">mode http</span>
-  <span class="na">option httplog</span>
-  <span class="na">monitor-uri /monitor</span>
+frontend monitor-in
+  <span class="nb">bind</span> *:33305
+  mode http
+  option httplog
+  monitor-uri /monitor
 
-<span class="na">frontend k8s-master</span>
-  <span class="na">bind 0.0.0.0:16443</span>
-  <span class="na">bind 127.0.0.1:16443</span>
-  <span class="na">mode tcp</span>
-  <span class="na">option tcplog</span>
-  <span class="na">tcp-request inspect-delay 5s</span>
-  <span class="na">default_backend k8s-master</span>
+frontend k8s-master
+  <span class="nb">bind</span> 0.0.0.0:16443
+  <span class="nb">bind</span> 127.0.0.1:16443
+  mode tcp
+  option tcplog
+  tcp-request inspect-delay 5s
+  default_backend k8s-master
 
-<span class="na">backend k8s-master</span>
-  <span class="na">mode tcp</span>
-  <span class="na">option tcplog</span>
-  <span class="na">option tcp-check</span>
-  <span class="na">balance roundrobin</span>
-  <span class="na">default-server inter 10s downinter 5s rise 2 fall 2 slowstart 60s maxconn 250 maxqueue 256 weight 100</span>
-  <span class="na">server k8s-master01	192.168.99.155:6443  check</span>
-  <span class="na">server k8s-master02	192.168.99.217:6443  check</span>
-  <span class="na">server k8s-master03	192.168.99.224:6443  check</span>
+backend k8s-master
+  mode tcp
+  option tcplog
+  option tcp-check
+  balance roundrobin
+  default-server inter 10s downinter 5s rise <span class="m">2</span> fall <span class="m">2</span> slowstart 60s maxconn <span class="m">250</span> maxqueue <span class="m">256</span> weight <span class="m">100</span>
+  server k8s-master01	192.168.99.155:6443  check
+  server k8s-master02	192.168.99.199:6443  check
+  server k8s-master03	192.168.99.87:6443  check
 </code></pre></td></tr></table>
 </div>
 </div><p>所有Master节点配置KeepAlived，配置不一样，注意区分<br>
-注意每个节点的IP和网卡（interface参数）</p>
+注意每个节点的IP和网卡（interface参数）
+vim /etc/keepalived/keepalived.conf</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
