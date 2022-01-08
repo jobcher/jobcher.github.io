@@ -168,6 +168,10 @@ systemctl restart keepalived.service
 
 ## 集群初始化
 Master01节点创建new.yaml配置文件如下：  
+```sh
+mkdir -p k8s && cd k8s
+vim new.yaml
+```
 ```yaml
 apiVersion: kubeadm.k8s.io/v1beta2
 bootstrapTokens:

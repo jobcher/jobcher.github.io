@@ -8,13 +8,13 @@
         <title>Kubernetes 实验手册（1） - 打工人日志 - jobcher</title><meta name="Description" content="书山有路钱为径，学海无涯没有舟。分享一些自己的技术笔记和心得，说得不好我也不接受，反正我就写给自己看……"><meta property="og:title" content="Kubernetes 实验手册（1）" />
 <meta property="og:description" content="Kubernetes 实验手册（1） 通过在pve创建5台虚拟机： 节点 IP 作用 node0 192.168.99.155 k8s-master01 node1 192.168.99.199 k8s-master02 node2 192.168.99.87 k8s-master03 node3 192.168.99.41 k8s-node01 node4 192.168.99.219 k8s-node02 node5 192.168.99.42 k8s-master-lb 配置信息 备注 系统版本 Ubuntu Docker 20.10.12 pod网段 172.168.0.0/12 servic" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://www.jobcher.com/k8s1/" /><meta property="og:image" content="http://www.jobcher.com/logo.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="http://www.jobcher.com/k8s1/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-01-07T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-01-07T00:00:00+00:00" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="http://www.jobcher.com/logo.png"/>
+<meta name="twitter:image" content="http://www.jobcher.com/avatar1.png"/>
 
 <meta name="twitter:title" content="Kubernetes 实验手册（1）"/>
 <meta name="twitter:description" content="Kubernetes 实验手册（1） 通过在pve创建5台虚拟机： 节点 IP 作用 node0 192.168.99.155 k8s-master01 node1 192.168.99.199 k8s-master02 node2 192.168.99.87 k8s-master03 node3 192.168.99.41 k8s-node01 node4 192.168.99.219 k8s-node02 node5 192.168.99.42 k8s-master-lb 配置信息 备注 系统版本 Ubuntu Docker 20.10.12 pod网段 172.168.0.0/12 servic"/>
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/k8s1\/"
-        },"genre": "posts","keywords": "k8s","wordcount":  999 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "k8s","wordcount":  1009 ,
         "url": "http:\/\/www.jobcher.com\/k8s1\/","datePublished": "2022-01-07T00:00:00+00:00","dateModified": "2022-01-07T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -44,7 +44,14 @@
         <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
     <div class="header-wrapper">
         <div class="header-title">
-            <a href="/" title="打工人日志 - jobcher">打工人日志-jobcher</a>
+            <a href="/" title="打工人日志 - jobcher"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="https://www.jobcher.com/avatar1.png"
+        data-srcset="https://www.jobcher.com/avatar1.png, https://www.jobcher.com/avatar1.png 1.5x, https://www.jobcher.com/avatar1.png 2x"
+        data-sizes="auto"
+        alt="https://www.jobcher.com/avatar1.png"
+        title="https://www.jobcher.com/avatar1.png" />打工人日志</a>
         </div>
         <div class="menu">
             <div class="menu-inner"><a class="menu-item" href="/posts/"> 文章 </a><a class="menu-item" href="/tags/"> 标签 </a><a class="menu-item" href="/categories/"> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
@@ -68,7 +75,14 @@
     <div class="header-container">
         <div class="header-wrapper">
             <div class="header-title">
-                <a href="/" title="打工人日志 - jobcher">打工人日志-jobcher</a>
+                <a href="/" title="打工人日志 - jobcher"><img
+        class="lazyload logo"
+        src="/svg/loading.min.svg"
+        data-src="https://www.jobcher.com/avatar1.png"
+        data-srcset="https://www.jobcher.com/avatar1.png, https://www.jobcher.com/avatar1.png 1.5x, https://www.jobcher.com/avatar1.png 2x"
+        data-sizes="auto"
+        alt="https://www.jobcher.com/avatar1.png"
+        title="https://www.jobcher.com/avatar1.png" />打工人日志</a>
             </div>
             <div class="menu-toggle" id="menu-toggle-mobile">
                 <span></span><span></span><span></span>
@@ -107,8 +121,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Kubernetes 实验手册（1）</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/k8s/"><i class="far fa-folder fa-fw"></i>k8s</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-07">2022-01-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 999 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-07">2022-01-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1009 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -488,6 +502,16 @@ systemctl restart keepalived.service
 </div><h2 id="集群初始化">集群初始化</h2>
 <p>Master01节点创建new.yaml配置文件如下：</p>
 <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">mkdir -p k8s <span class="o">&amp;&amp;</span> <span class="nb">cd</span> k8s
+vim new.yaml
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
