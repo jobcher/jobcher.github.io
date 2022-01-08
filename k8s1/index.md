@@ -6,9 +6,9 @@
 
 |节点|IP|作用|
 |:----|:----|:----|
-|node0|192.168.99.155|k8s-master01|
-|node1|192.168.99.199|k8s-master02|
-|node2|192.168.99.87|k8s-master03|
+|node0|192.168.99.69|k8s-master01|
+|node1|192.168.99.9|k8s-master02|
+|node2|192.168.99.53|k8s-master03|
 |node3|192.168.99.41|k8s-node01|
 |node4|192.168.99.219|k8s-node02|
 |node5|192.168.99.42|k8s-master-lb|
@@ -50,7 +50,7 @@ reboot
 # 时间同步
 apt install ntpdate -y
 # 查看时区
-set-timezone 'Asia/Shanghai'
+timedatectl set-timezone 'Asia/Shanghai'
 timedatectl
 date
 ```
@@ -79,6 +79,8 @@ sudo apt-mark hold kubelet kubeadm kubectl
 所有Master节点安装HAProxy和KeepAlived
 ```sh
 apt install keepalived haproxy -y
+cp -rf /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.bak
+rm -rf /etc/haproxy/haproxy.cfg
 vim /etc/haproxy/haproxy.cfg 
 ```
 所有Master节点的HAProxy配置相同
@@ -160,9 +162,40 @@ vrrp_instance VI_1 {
 #    }
 }
 ```
+
+5. 配置KeepAlived健康检查文件
+vim /etc/keepalived/check_apiserver.sh
+```sh
+#!/bin/bash
+
+err=0
+for k in $(seq 1 3)
+do
+    check_code=$(pgrep haproxy)
+    if [[ $check_code == "" ]]; then
+        err=$(expr $err + 1)
+        sleep 1
+        continue
+    else
+        err=0
+        break
+    fi
+done
+
+if [[ $err != "0" ]]; then
+    echo "systemctl stop keepalived"
+    /usr/bin/systemctl stop keepalived
+    exit 1
+else
+    exit 0
+fi
+```
+chmod +x /etc/keepalived/check_apiserver.sh  
+
 ```sh
 systemctl restart haproxy.service
 systemctl restart keepalived.service
+apt install kubeadm -y
 ```
 
 
@@ -209,7 +242,7 @@ etcd:
     dataDir: /var/lib/etcd
 imageRepository: registry.cn-hangzhou.aliyuncs.com/google_containers
 kind: ClusterConfiguration
-kubernetesVersion: v1.23.0
+kubernetesVersion: v1.23.1
 networking:
   dnsDomain: cluster.local
   podSubnet: 172.168.0.0/16
@@ -223,6 +256,7 @@ kubeadm config images pull --config /root/k8s/new.yaml
 ```
 master01 节点生成初始化,初始化以后会在/etc/kubernetes目录下生成对应的证书和配置文件，之后其他Master节点加入Master01即可
 ```sh
+systemctl enable --now kubelet
 kubeadm init --config /root/k8s/new.yaml  --upload-certs
 ```
 初始化成功以后，会产生Token值，用于其他节点加入时使用，因此要记录下初始化成功生成的token值（令牌值）：  
