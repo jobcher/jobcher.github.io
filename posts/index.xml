@@ -5,6 +5,13 @@
         <description>所有文章 | 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
             <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 11 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>centos7.9 网络配置</title>
+    <link>http://www.jobcher.com/linux-network/</link>
+    <pubDate>Tue, 11 Jan 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/linux-network/</guid>
+    <description><![CDATA[centos7.9 网络配置 解决centos 新机器网络不通的问题，CentOS7默认不启动网卡的。CentOS 安装成功后,进行一下 ping 的操作,验证网络是否联通.]]></description>
+</item><item>
     <title>安装 docker 出现 ERROR: Unsupported distribution &#39;ol&#39; 问题</title>
     <link>http://www.jobcher.com/error1/</link>
     <pubDate>Tue, 11 Jan 2022 00:00:00 &#43;0000</pubDate>
@@ -67,12 +74,5 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/logrotate/</guid>
     <description><![CDATA[logrotate 日志滚动的使用 logrotate 日志滚动切割工具，是linux默认安装的工具，配置文件位置： 1 2 /etc/logrotate.conf /etc/logrotate.d/ 参数 以nginx 配置为例 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15]]></description>
-</item><item>
-    <title>docker 命令</title>
-    <link>http://www.jobcher.com/docker/</link>
-    <pubDate>Tue, 28 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/docker/</guid>
-    <description><![CDATA[安装docker 通过docker 脚本安装 1 2 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun curl -sSL https://get.daocloud.io/docker | sh docker-compose 安装 1 2 3 4 5 6 7 8 #下载安装 sudo curl -L &#34;https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)&#34; -o /usr/local/bin/docker-compose #可执行权限 sudo chmod +x /usr/local/bin/docker-compose]]></description>
 </item></channel>
 </rss>

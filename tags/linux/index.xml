@@ -4,7 +4,14 @@
         <link>http://www.jobcher.com/tags/linux/</link>
         <description>linux - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 24 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/linux/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 11 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/linux/" rel="self" type="application/rss+xml" /><item>
+    <title>centos7.9 网络配置</title>
+    <link>http://www.jobcher.com/linux-network/</link>
+    <pubDate>Tue, 11 Jan 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/linux-network/</guid>
+    <description><![CDATA[centos7.9 网络配置 解决centos 新机器网络不通的问题，CentOS7默认不启动网卡的。CentOS 安装成功后,进行一下 ping 的操作,验证网络是否联通.]]></description>
+</item><item>
     <title>nginx 编译参数详解</title>
     <link>http://www.jobcher.com/nginx02/</link>
     <pubDate>Fri, 24 Dec 2021 00:00:00 &#43;0000</pubDate>
