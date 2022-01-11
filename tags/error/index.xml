@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>error - 标签 - 打工人日志 - jobcher</title>
+        <link>http://www.jobcher.com/tags/error/</link>
+        <description>error - 标签 - 打工人日志 - jobcher</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 11 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/error/" rel="self" type="application/rss+xml" /><item>
+    <title>安装 docker 出现 ERROR: Unsupported distribution &#39;ol&#39; 问题</title>
+    <link>http://www.jobcher.com/error1/</link>
+    <pubDate>Tue, 11 Jan 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/error1/</guid>
+    <description><![CDATA[安装 docker 出现 ERROR: Unsupported distribution &lsquo;ol&rsquo; 问题 部署docker 安装出现 ERROR: Unsupported distribution &lsquo;ol&rsquo; 确认是不是arm架构 1 uname -r 确认使用的是不是oracle服务器系统,如果是请继续操作，安]]></description>
+</item></channel>
+</rss>

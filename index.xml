@@ -4,9 +4,16 @@
         <link>http://www.jobcher.com/</link>
         <description>书山有路钱为径，学海无涯没有舟。分享一些自己的技术笔记和心得，说得不好我也不接受，反正我就写给自己看……</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 11 Jan 2022 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://www.jobcher.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>安装 docker 出现 ERROR: Unsupported distribution &#39;ol&#39; 问题</title>
+    <link>http://www.jobcher.com/error1/</link>
+    <pubDate>Tue, 11 Jan 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/error1/</guid>
+    <description><![CDATA[安装 docker 出现 ERROR: Unsupported distribution &lsquo;ol&rsquo; 问题 部署docker 安装出现 ERROR: Unsupported distribution &lsquo;ol&rsquo; 确认是不是arm架构 1 uname -r 确认使用的是不是oracle服务器系统,如果是请继续操作，安]]></description>
+</item><item>
     <title>Kubernetes 实验手册（1）</title>
     <link>http://www.jobcher.com/k8s1/</link>
     <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate>
@@ -69,12 +76,5 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/docker/</guid>
     <description><![CDATA[安装docker 通过docker 脚本安装 1 2 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun curl -sSL https://get.daocloud.io/docker | sh docker-compose 安装 1 2 3 4 5 6 7 8 #下载安装 sudo curl -L &#34;https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)&#34; -o /usr/local/bin/docker-compose #可执行权限 sudo chmod +x /usr/local/bin/docker-compose]]></description>
-</item><item>
-    <title>gitlab与github同步项目</title>
-    <link>http://www.jobcher.com/gitrsync/</link>
-    <pubDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/gitrsync/</guid>
-    <description><![CDATA[gitlab与github同步项目 本地同步项目 1 git clone 创建一个同名的项目,命令行终端中添加remote地址 1 git remote add githubOrigin git@github.com:sjtfreaks/blog.git 项目同步到Github上]]></description>
 </item></channel>
 </rss>
