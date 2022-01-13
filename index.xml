@@ -4,9 +4,16 @@
         <link>http://www.jobcher.com/</link>
         <description>书山有路钱为径，学海无涯没有舟。分享一些自己的技术笔记和心得，说得不好我也不接受，反正我就写给自己看……</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 11 Jan 2022 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 13 Jan 2022 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://www.jobcher.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>prometheus 配置</title>
+    <link>http://www.jobcher.com/prometheus/</link>
+    <pubDate>Thu, 13 Jan 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/prometheus/</guid>
+    <description><![CDATA[prometheus 配置 Prometheus 是由 SoundCloud 开源监控告警解决方案 组件 Prometheus Server， 主要用于抓取数据和存储时序数据，另外还提供查询和 Alert Rule 配置管理。 client libraries，用]]></description>
+</item><item>
     <title>centos7.9 网络配置</title>
     <link>http://www.jobcher.com/linux-network/</link>
     <pubDate>Tue, 11 Jan 2022 00:00:00 &#43;0000</pubDate>
@@ -69,12 +76,5 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/linux/</guid>
     <description><![CDATA[linux 基础知识 1、简述Linux权限划分原则。 给文件或目录分配权限时，先考虑所有者和所属组 遵循最小化权限，用啥权限给啥权限 修改目录和子文件归属权]]></description>
-</item><item>
-    <title>logrotate 日志滚动的使用</title>
-    <link>http://www.jobcher.com/logrotate/</link>
-    <pubDate>Wed, 29 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/logrotate/</guid>
-    <description><![CDATA[logrotate 日志滚动的使用 logrotate 日志滚动切割工具，是linux默认安装的工具，配置文件位置： 1 2 /etc/logrotate.conf /etc/logrotate.d/ 参数 以nginx 配置为例 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15]]></description>
 </item></channel>
 </rss>
