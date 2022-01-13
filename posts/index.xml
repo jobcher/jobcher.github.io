@@ -5,6 +5,13 @@
         <description>所有文章 | 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
             <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 13 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>prometheus grafana alertmanager 安装配置</title>
+    <link>http://www.jobcher.com/prometheus1/</link>
+    <pubDate>Thu, 13 Jan 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/prometheus1/</guid>
+    <description><![CDATA[prometheus+grafana+alertmanager 安装配置 服务器监控告警系统搭建，通过exporter获取节点信息到prometheus。prometheus配置规则，使garfana和a]]></description>
+</item><item>
     <title>prometheus 配置</title>
     <link>http://www.jobcher.com/prometheus/</link>
     <pubDate>Thu, 13 Jan 2022 00:00:00 &#43;0000</pubDate>
@@ -67,12 +74,5 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/yaml/</guid>
     <description><![CDATA[yaml 语法 我们使用 YAML 是因为它像 XML 或 JSON 是一种利于人们读写的数据格式. 此外在大多数变成语言中有使用 YAML 的库.YAML 语法的基本概述, 它被用来描述一个 p]]></description>
-</item><item>
-    <title>linux基础知识</title>
-    <link>http://www.jobcher.com/linux/</link>
-    <pubDate>Wed, 29 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/linux/</guid>
-    <description><![CDATA[linux 基础知识 1、简述Linux权限划分原则。 给文件或目录分配权限时，先考虑所有者和所属组 遵循最小化权限，用啥权限给啥权限 修改目录和子文件归属权]]></description>
 </item></channel>
 </rss>
