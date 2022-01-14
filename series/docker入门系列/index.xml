@@ -10,7 +10,7 @@
     <pubDate>Tue, 28 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/docker/</guid>
-    <description><![CDATA[安装docker 通过docker 脚本安装 1 2 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun curl -sSL https://get.daocloud.io/docker | sh docker-compose 安装 1 2 3 4 5 6 7 8 #下载安装 sudo curl -L &#34;https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)&#34; -o /usr/local/bin/docker-composedocker-compose #可执行权限 sudo chmod +x /usr/local/bin/docker-compose]]></description>
+    <description><![CDATA[安装docker 通过docker 脚本安装 1 2 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun curl -sSL https://get.daocloud.io/docker | sh docker-compose 安装 1 2 3 4 5 6 7 8 #下载安装 sudo curl -L &#34;https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)&#34; -o /usr/local/bin/docker-compose #可执行权限 sudo chmod +x /usr/local/bin/docker-compose]]></description>
 </item><item>
     <title>docker 安装kong 网关</title>
     <link>http://www.jobcher.com/docker-kong/</link>
