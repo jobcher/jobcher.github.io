@@ -4,7 +4,14 @@
         <link>http://www.jobcher.com/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/</link>
         <description>k8s入门系列 - seris - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 14 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+    <title>Harbor 搭建</title>
+    <link>http://www.jobcher.com/harbor/</link>
+    <pubDate>Fri, 14 Jan 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/harbor/</guid>
+    <description><![CDATA[Harbor 搭建 Harbor 是一个开源可信的云原生注册表项目，用于存储、签名和扫描内容。用于存储docker image 要求 Linux主机 docker 17.06.0-ce 以上 docker-compose 1.18.0 以上 链接跳转：doc]]></description>
+</item><item>
     <title>Kubernetes 实验手册（1）</title>
     <link>http://www.jobcher.com/k8s1/</link>
     <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate>
