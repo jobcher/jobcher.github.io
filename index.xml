@@ -4,9 +4,16 @@
         <link>http://www.jobcher.com/</link>
         <description>书山有路钱为径，学海无涯没有舟。分享一些自己的技术笔记和心得，说得不好我也不接受，反正我就写给自己看……</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 14 Jan 2022 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 19 Jan 2022 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://www.jobcher.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Proxmox VE 在线扩容磁盘分区</title>
+    <link>http://www.jobcher.com/pve1/</link>
+    <pubDate>Wed, 19 Jan 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/pve1/</guid>
+    <description><![CDATA[Proxmox VE 在线扩容磁盘分区 添加磁盘大小 在VM上做扩容操作 安装 growpart 1 2 yum install -y epel-release yum install -y cloud-utils 查看系统盘 路径 1 2 fdisk -l df -h 扩容设备并重启 1 2 growpart /dev/sda 2 #2代表是第二]]></description>
+</item><item>
     <title>Gitlab批量导出用户</title>
     <link>http://www.jobcher.com/exportuser/</link>
     <pubDate>Fri, 14 Jan 2022 00:00:00 &#43;0000</pubDate>
@@ -69,12 +76,5 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/minio/</guid>
     <description><![CDATA[安装 minIO 通过docker 安装 1 2 3 4 docker run -p 9000:9000 -p 41863:41863 -d --name azure-s3 \ -e &#34;MINIO_ACCESS_KEY=azure存储账户&#34; \ -e &#34]]></description>
-</item><item>
-    <title>Keepalived高可用</title>
-    <link>http://www.jobcher.com/keepalived/</link>
-    <pubDate>Wed, 05 Jan 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/keepalived/</guid>
-    <description><![CDATA[Keepalived高可用 配置文件存放位置：/usr/share/doc/keepalived/samples VVRP 虚拟路由冗余协议 组成 LB集群]]></description>
 </item></channel>
 </rss>
