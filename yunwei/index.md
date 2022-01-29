@@ -26,3 +26,22 @@
   
 熟练掌握docker和k8s技术
 devops掌握jenkins和gitlab
+
+## 应用12要素
+|名称|英文|描述|
+|:----|:----|:----|
+|基准代码|codebase|一份基准代码，多份部署|
+|依赖|Dependencies|显示声明依赖关系|
+|配置|config|在环境中存储配置|
+|后端服务|backing services|把后端服务当做附加资源|
+|构建，发布，运行|build，release，run|严格分离构建和运行|
+|进程|Processes|以一个或多个无状态进程运行应用|
+|端口绑定|port binding|通过端口绑定来提供服务|
+|并发|concurrency|通过进程模型进行扩展|
+|易处理|disposability|快速启动和优雅终止可最大化健壮性|
+|开发环境和线上环境等价|Dev/prod parity|尽可能保持开发、预发布、线上环境|
+|日志|log|把日志当做事件流|
+|管理进程|admin processes|后台管理任务当做一次性进程处理|
+
+
+
