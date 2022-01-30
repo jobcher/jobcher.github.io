@@ -4,7 +4,14 @@
         <link>http://www.jobcher.com/posts/</link>
         <description>所有文章 | 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 21 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Sun, 30 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>ProXmoX VE升级 apt-get update 报错</title>
+    <link>http://www.jobcher.com/pveupdate/</link>
+    <pubDate>Sun, 30 Jan 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/pveupdate/</guid>
+    <description><![CDATA[ProXmoX VE升级 apt-get update 报错 解决方法 1 2 3 vim /etc/apt/sources.list.d/pve-enterprise.list #注释掉 #deb https://enterprise.proxmox.com/debian/pve stretch pve-enterprise 添加内容 1 2 echo &#34;deb http://download.proxmox.com/debian/pve stretch pve-no-subscription&#34; &gt; /etc/apt/sources.list.d/pve-install-repo.list wget http://download.proxmox.com/debian/proxmox-ve-release-5.x.gpg -O /etc/apt/trusted.gpg.d/proxmox-ve-release-5.x.gpg 更新系统 1 apt update &amp;&amp; apt dist-upgrade 结尾 升级完成后，可以执行pveve]]></description>
+</item><item>
     <title>mysql 笔记（2）</title>
     <link>http://www.jobcher.com/mysql02/</link>
     <pubDate>Fri, 21 Jan 2022 00:00:00 &#43;0000</pubDate>
@@ -67,12 +74,5 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/k8s1/</guid>
     <description><![CDATA[Kubernetes 实验手册（1） 通过在pve创建5台虚拟机： 节点 IP 作用 node0 192.168.99.69 k8s-master01 node1 192.168.99.9 k8s-master02 node2 192.168.99.53 k8s-master03 node3 192.168.99.41 k8s-node01 node4 192.168.99.219 k8s-node02 node5 192.168.99.42 k8s-master-lb 配置信息 备注 系统版本 Ubuntu Docker 20.10.12 pod网段 172.168.0.0/12 servic]]></description>
-</item><item>
-    <title>RocketMQ 安装和启动</title>
-    <link>http://www.jobcher.com/rocketmq/</link>
-    <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/rocketmq/</guid>
-    <description><![CDATA[RocketMQ 安装和部署 部署RocketMQ 单机安装构建 安装JDK 1.8.0 1 yum install java-1.8.0-openjdk* 安装Maven 1 2 3 4 5 6 7 8 9 10 11 wget http://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz tar -zxvf apache-maven-3.8.4-bin.tar.gz mv -f apache-maven-3.8.4 /usr/local/ vim /etc/profile # 末尾添加 export MAVEN_HOME=/usr/local/apache-maven-3.8.4 export PATH=${PATH}:${MAVEN_HOME}/bin]]></description>
 </item></channel>
 </rss>
