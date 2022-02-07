@@ -4,7 +4,14 @@
         <link>http://www.jobcher.com/posts/</link>
         <description>所有文章 | 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Sun, 30 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 07 Feb 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Jenkins 安装与使用</title>
+    <link>http://www.jobcher.com/jenkins/</link>
+    <pubDate>Mon, 07 Feb 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/jenkins/</guid>
+    <description><![CDATA[Jenkins 安装与使用 安装docker 安装docker docker安装jenkins 1 2 3 4 5 6 7 8 9 10 docker run \ -u root \ -d \ -p 8080:8080 \ -p 50000:50000 \ -v jenkins-data:/var/jenkins_home \ -v /etc/localtime:/etc/localtime:ro \ -v /var/run/docker.sock:/var/run/docker.sock \]]></description>
+</item><item>
     <title>ProXmoX VE升级 apt-get update 报错</title>
     <link>http://www.jobcher.com/pveupdate/</link>
     <pubDate>Sun, 30 Jan 2022 00:00:00 &#43;0000</pubDate>
@@ -67,12 +74,5 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/error1/</guid>
     <description><![CDATA[安装 docker 出现 ERROR: Unsupported distribution &lsquo;ol&rsquo; 问题 部署docker 安装出现 ERROR: Unsupported distribution &lsquo;ol&rsquo; 确认是不是arm架构 1 uname -r 确认使用的是不是oracle服务器系统,如果是请继续操作，安]]></description>
-</item><item>
-    <title>Kubernetes 实验手册（1）</title>
-    <link>http://www.jobcher.com/k8s1/</link>
-    <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/k8s1/</guid>
-    <description><![CDATA[Kubernetes 实验手册（1） 通过在pve创建5台虚拟机： 节点 IP 作用 node0 192.168.99.69 k8s-master01 node1 192.168.99.9 k8s-master02 node2 192.168.99.53 k8s-master03 node3 192.168.99.41 k8s-node01 node4 192.168.99.219 k8s-node02 node5 192.168.99.42 k8s-master-lb 配置信息 备注 系统版本 Ubuntu Docker 20.10.12 pod网段 172.168.0.0/12 servic]]></description>
 </item></channel>
 </rss>

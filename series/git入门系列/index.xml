@@ -4,7 +4,14 @@
         <link>http://www.jobcher.com/series/git%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/</link>
         <description>git入门系列 - seris - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 14 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/git%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 07 Feb 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/git%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+    <title>Jenkins 安装与使用</title>
+    <link>http://www.jobcher.com/jenkins/</link>
+    <pubDate>Mon, 07 Feb 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/jenkins/</guid>
+    <description><![CDATA[Jenkins 安装与使用 安装docker 安装docker docker安装jenkins 1 2 3 4 5 6 7 8 9 10 docker run \ -u root \ -d \ -p 8080:8080 \ -p 50000:50000 \ -v jenkins-data:/var/jenkins_home \ -v /etc/localtime:/etc/localtime:ro \ -v /var/run/docker.sock:/var/run/docker.sock \]]></description>
+</item><item>
     <title>Gitlab批量导出用户</title>
     <link>http://www.jobcher.com/exportuser/</link>
     <pubDate>Fri, 14 Jan 2022 00:00:00 &#43;0000</pubDate>
