@@ -16,8 +16,8 @@ pipeline {
             steps {
                 //要做的所有事情
                 echo "编译……"
-                docker pull hub.jobcher.com/blog/hugo:latest
-                docker run -d --name bloghugo -p 8020:80 hub.jobcher.com/blog/hugo:latest
+                sh 'docker pull hub.jobcher.com/blog/hugo:latest'
+                sh 'docker run -d --name bloghugo -p 8020:80 hub.jobcher.com/blog/hugo:latest'
                 echo "编译完成"
             }
         }
