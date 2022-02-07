@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/jenkins\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "gitlab","wordcount":  102 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "gitlab","wordcount":  537 ,
         "url": "http:\/\/www.jobcher.com\/jenkins\/","datePublished": "2022-02-07T00:00:00+00:00","dateModified": "2022-02-07T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -123,8 +123,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Jenkins 安装与使用</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/gitlab/"><i class="far fa-folder fa-fw"></i>gitlab</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-07">2022-02-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 102 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-07">2022-02-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 537 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -135,6 +135,8 @@
     <li><a href="#安装docker">安装docker</a></li>
     <li><a href="#docker安装jenkins">docker安装jenkins</a></li>
     <li><a href="#访问">访问</a></li>
+    <li><a href="#工作流程">工作流程</a></li>
+    <li><a href="#jenkins语法">Jenkins语法</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="jenkins-安装与使用">Jenkins 安装与使用</h1>
@@ -178,6 +180,107 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">docker <span class="nb">exec</span> -ti &lt;容器名称&gt; sh
 cat /var/jenkins_home/secrets/initialAdminPassword
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="工作流程">工作流程</h2>
+<ol>
+<li>先定义一个流水线项目，指定项目的git位置</li>
+<li>git位置自动拉取代码</li>
+<li>解析拉取代码里面的Jenkinsfile文件</li>
+<li>按照Jenkinsfile指定的流水线开始加工项目</li>
+</ol>
+<h2 id="jenkins语法">Jenkins语法</h2>
+<p>基础语法</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="err">pipeline</span> <span class="p">{</span>
+    <span class="err">/*</span> <span class="err">全部的CICD流程都在这里定义</span> <span class="err">*/</span>
+
+    <span class="c1">//任意代理可用就可以执行
+</span><span class="c1"></span>    <span class="err">agent</span> <span class="err">any</span>
+    <span class="c1">//定义流水线的加工流程
+</span><span class="c1"></span>    <span class="err">stages</span> <span class="err">{</span>
+        <span class="err">/*</span> <span class="err">流水线的所有阶段</span>
+            <span class="err">1.编译</span> <span class="nt">&#34;常量&#34;</span><span class="err">&#39;变量&#39;</span>
+            <span class="mi">2</span><span class="err">.测试</span>
+            <span class="mi">3</span><span class="err">.打包</span>
+            <span class="mi">4</span><span class="err">.部署</span>
+        <span class="err">*/</span>
+
+        <span class="err">stage(&#39;代码编译&#39;)</span><span class="p">{</span>
+            <span class="err">steps</span> <span class="err">{</span>
+                <span class="c1">//要做的所有事情
+</span><span class="c1"></span>                <span class="err">echo</span> <span class="nt">&#34;编译……&#34;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="err">stage(&#39;代码测试&#39;)</span><span class="p">{</span>
+            <span class="err">steps</span> <span class="err">{</span>
+                <span class="c1">//要做的所有事情
+</span><span class="c1"></span>                <span class="err">echo</span> <span class="nt">&#34;测试……&#34;</span>
+            <span class="p">}</span>
+        <span class="err">}</span>
+
+        <span class="err">stage(&#39;打包&#39;)</span><span class="p">{</span>
+            <span class="err">steps</span> <span class="err">{</span>
+                <span class="c1">//要做的所有事情
+</span><span class="c1"></span>                <span class="err">echo</span> <span class="nt">&#34;打包……&#34;</span>
+            <span class="p">}</span>
+        <span class="err">}</span>
+
+        <span class="err">stage(&#39;部署&#39;)</span><span class="p">{</span>
+            <span class="err">steps</span> <span class="err">{</span>
+                <span class="c1">//要做的所有事情
+</span><span class="c1"></span>                <span class="err">echo</span> <span class="nt">&#34;部署……&#34;</span>
+            <span class="p">}</span>
+        <span class="err">}</span>
+    <span class="err">}</span>
+<span class="err">}</span>
 </code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
