@@ -2,7 +2,8 @@
 
 
 # Jenkins 安装与使用
-
+代码在本地修改----》提交到远程gitlab----》触发jenkins整个自动化构建流程（打包，测试，发布，部署）  
+  
 ## 安装docker
 [安装docker](https://www.jobcher.com/docker/)
 
@@ -36,8 +37,8 @@ cat /var/jenkins_home/secrets/initialAdminPassword
 3. 解析拉取代码里面的Jenkinsfile文件
 4. 按照Jenkinsfile指定的流水线开始加工项目
 
-## Jenkins语法
-基础语法
+## Jenkinsfile语法
+基础语法,在仓库创建一个 `Jenkinsfile` 文件
 ```json
 pipeline {
     /* 全部的CICD流程都在这里定义 */
@@ -84,3 +85,6 @@ pipeline {
 }
 ```
 
+## 构建远程触发
+1. 在jenkins上选择:项目->配置->构建触发器->勾选触发远程构建  
+![远程触发](/images/jenkins.png)

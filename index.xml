@@ -19,7 +19,7 @@
     <pubDate>Mon, 07 Feb 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/jenkins/</guid>
-    <description><![CDATA[Jenkins 安装与使用 安装docker 安装docker docker安装jenkins 1 2 3 4 5 6 7 8 9 10 docker run \ -u root \ -d \ -p 8080:8080 \ -p 50000:50000 \ -v jenkins-data:/var/jenkins_home \ -v /etc/localtime:/etc/localtime:ro \ -v /var/run/docker.sock:/var/run/docker.sock \]]></description>
+    <description><![CDATA[Jenkins 安装与使用 代码在本地修改&mdash;-》提交到远程gitlab&mdash;-》触发jenkins整个自动化构建流程（打包，测试，发布，]]></description>
 </item><item>
     <title>ProXmoX VE升级 apt-get update 报错</title>
     <link>http://www.jobcher.com/pveupdate/</link>
