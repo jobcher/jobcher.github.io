@@ -87,4 +87,15 @@ pipeline {
 
 ## 构建远程触发
 1. 在jenkins上选择:项目->配置->构建触发器->勾选触发远程构建  
-![远程触发](/images/jenkins.png)
+![远程触发](/images/jenkins.png)  
+  
+2. 新疆gitlab账户，登录新用户并天剑token令牌  
+![远程触发](/images/jenkins1.png)  
+![远程触发](/images/jenkins2.png)  
+  
+3. 找到gitlab 设置->webhook  
+![远程触发](/images/jenkins3.png)  
+网站格式
+```url
+http://<USER>:<TOKENAPI>@<JENKINS-URL>/job/test-blog-demo/build?token=<TOKEN>
+```

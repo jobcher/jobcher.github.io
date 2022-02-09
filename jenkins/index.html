@@ -9,8 +9,8 @@
 <meta property="og:description" content="Jenkins 安装与使用 代码在本地修改&mdash;-》提交到远程gitlab&mdash;-》触发jenkins整个自动化构建流程（打包，测试，发布，" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.jobcher.com/jenkins/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2022-02-07T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-02-07T00:00:00+00:00" />
+<meta property="article:published_time" content="2022-02-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-02-09T00:00:00+00:00" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
@@ -21,7 +21,7 @@
 <meta name="application-name" content="LoveIt">
 <meta name="apple-mobile-web-app-title" content="LoveIt"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://www.jobcher.com/jenkins/" /><link rel="prev" href="http://www.jobcher.com/pveupdate/" /><link rel="next" href="http://www.jobcher.com/navicatforgetpassword/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://www.jobcher.com/jenkins/" /><link rel="prev" href="http://www.jobcher.com/navicatforgetpassword/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
@@ -30,8 +30,8 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/jenkins\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "gitlab","wordcount":  669 ,
-        "url": "http:\/\/www.jobcher.com\/jenkins\/","datePublished": "2022-02-07T00:00:00+00:00","dateModified": "2022-02-07T00:00:00+00:00","publisher": {
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "gitlab","wordcount":  723 ,
+        "url": "http:\/\/www.jobcher.com\/jenkins\/","datePublished": "2022-02-09T00:00:00+00:00","dateModified": "2022-02-09T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -123,7 +123,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Jenkins 安装与使用</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="/categories/gitlab/"><i class="far fa-folder fa-fw"></i>gitlab</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-07">2022-02-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 669 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-09">2022-02-09</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 723 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -287,7 +287,8 @@ cat /var/jenkins_home/secrets/initialAdminPassword
 </div>
 </div><h2 id="构建远程触发">构建远程触发</h2>
 <ol>
-<li>在jenkins上选择:项目-&gt;配置-&gt;构建触发器-&gt;勾选触发远程构建<br>
+<li>
+<p>在jenkins上选择:项目-&gt;配置-&gt;构建触发器-&gt;勾选触发远程构建<br>
 <img
         class="lazyload"
         src="/svg/loading.min.svg"
@@ -295,13 +296,53 @@ cat /var/jenkins_home/secrets/initialAdminPassword
         data-srcset="/images/jenkins.png, /images/jenkins.png 1.5x, /images/jenkins.png 2x"
         data-sizes="auto"
         alt="/images/jenkins.png"
-        title="远程触发" /></li>
+        title="远程触发" /></p>
+</li>
+<li>
+<p>新疆gitlab账户，登录新用户并天剑token令牌<br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/jenkins1.png"
+        data-srcset="/images/jenkins1.png, /images/jenkins1.png 1.5x, /images/jenkins1.png 2x"
+        data-sizes="auto"
+        alt="/images/jenkins1.png"
+        title="远程触发" /><br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/jenkins2.png"
+        data-srcset="/images/jenkins2.png, /images/jenkins2.png 1.5x, /images/jenkins2.png 2x"
+        data-sizes="auto"
+        alt="/images/jenkins2.png"
+        title="远程触发" /></p>
+</li>
+<li>
+<p>找到gitlab 设置-&gt;webhook<br>
+<img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="/images/jenkins3.png"
+        data-srcset="/images/jenkins3.png, /images/jenkins3.png 1.5x, /images/jenkins3.png 2x"
+        data-sizes="auto"
+        alt="/images/jenkins3.png"
+        title="远程触发" /><br>
+网站格式</p>
+</li>
 </ol>
-</div><div class="post-footer" id="post-footer">
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">http://&lt;USER&gt;:&lt;TOKENAPI&gt;@&lt;JENKINS-URL&gt;/job/test-blog-demo/build?token=&lt;TOKEN&gt;
+</code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2022-02-07</span>
+                <span>更新于 2022-02-09</span>
             </div>
             <div class="post-info-license"></div>
         </div>
@@ -322,8 +363,7 @@ cat /var/jenkins_home/secrets/initialAdminPassword
         </section>
     </div>
 
-    <div class="post-nav"><a href="/pveupdate/" class="prev" rel="prev" title="ProXmoX VE升级 apt-get update 报错"><i class="fas fa-angle-left fa-fw"></i>ProXmoX VE升级 apt-get update 报错</a>
-            <a href="/navicatforgetpassword/" class="next" rel="next" title="Navicat 查看导出连接的密码 | navicat查看密码方案">Navicat 查看导出连接的密码 | navicat查看密码方案<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="/navicatforgetpassword/" class="prev" rel="prev" title="Navicat 查看导出连接的密码 | navicat查看密码方案"><i class="fas fa-angle-left fa-fw"></i>Navicat 查看导出连接的密码 | navicat查看密码方案</a></div>
 </div>
 <div id="comments"><div id="disqus_thread" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://disqus.com/?ref_noscript">Disqus</a>.
