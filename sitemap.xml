@@ -2,14 +2,18 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>http://www.jobcher.com/categories/</loc><lastmod>2022-09-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.jobcher.com/categories/</loc><lastmod>2022-09-21T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.jobcher.com/categories/go/</loc><lastmod>2022-09-21T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.jobcher.com/tags/golang/</loc><lastmod>2022-09-21T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.jobcher.com/golang/</loc><lastmod>2022-09-21T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.jobcher.com/series/go%E7%B3%BB%E5%88%97/</loc><lastmod>2022-09-21T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.jobcher.com/posts/</loc><lastmod>2022-09-21T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.jobcher.com/series/</loc><lastmod>2022-09-21T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.jobcher.com/tags/</loc><lastmod>2022-09-21T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.jobcher.com/</loc><lastmod>2022-09-21T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://www.jobcher.com/tags/docker/</loc><lastmod>2022-09-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://www.jobcher.com/categories/docker/</loc><lastmod>2022-09-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://www.jobcher.com/series/docker%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/</loc><lastmod>2022-09-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://www.jobcher.com/posts/</loc><lastmod>2022-09-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://www.jobcher.com/series/</loc><lastmod>2022-09-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://www.jobcher.com/tags/</loc><lastmod>2022-09-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://www.jobcher.com/</loc><lastmod>2022-09-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://www.jobcher.com/cleandocker/</loc><lastmod>2022-09-19T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://www.jobcher.com/tags/daliy/</loc><lastmod>2022-09-16T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://www.jobcher.com/categories/%E6%97%A5%E5%B8%B8/</loc><lastmod>2022-09-16T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
@@ -63,10 +67,7 @@
             <loc>http://www.jobcher.com/k8s7/</loc><lastmod>2022-06-13T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/nginx-exporter/</loc><lastmod>2022-06-08T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/tags/prometheus/</loc><lastmod>2022-06-08T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://www.jobcher.com/categories/go/</loc><lastmod>2022-04-26T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/go3/</loc><lastmod>2022-04-26T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://www.jobcher.com/tags/golang/</loc><lastmod>2022-04-26T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://www.jobcher.com/series/go%E7%B3%BB%E5%88%97/</loc><lastmod>2022-04-26T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/go2/</loc><lastmod>2022-04-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/go1/</loc><lastmod>2022-04-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/vscode-runcode/</loc><lastmod>2022-04-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>

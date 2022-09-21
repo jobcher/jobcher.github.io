@@ -4,7 +4,14 @@
         <link>http://www.jobcher.com/posts/</link>
         <description>所有文章 | 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 19 Sep 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 21 Sep 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Golang 初识（安装、使用）</title>
+    <link>http://www.jobcher.com/golang/</link>
+    <pubDate>Wed, 21 Sep 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/golang/</guid>
+    <description><![CDATA[Golang 初识（安装、使用） Go 导学 go语言由google公司推出。 运行速度快，简单易学 适合区块链开发 拥有丰富指令 可以直接包含C语言 语言层面支持并发 Go]]></description>
+</item><item>
     <title>清理Docker容器日志</title>
     <link>http://www.jobcher.com/cleandocker/</link>
     <pubDate>Mon, 19 Sep 2022 00:00:00 &#43;0000</pubDate>
@@ -67,12 +74,5 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/argocd/</guid>
     <description><![CDATA[Argo cd 安装和部署 Argo CD 是一个为 Kubernetes 而生的，遵循声明式 GitOps 理念的持续部署（CD）工具。Argo CD 可在 Git 存储库更改时自动同步和部署应用程序 安装 k8s快速]]></description>
-</item><item>
-    <title>skywalking APM 监控</title>
-    <link>http://www.jobcher.com/skywalking/</link>
-    <pubDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/skywalking/</guid>
-    <description><![CDATA[skywalking 基于OpenTracing规范，专门为微服务架构以及云原生服务。 APM 监控 一个基于微服务架构的电商系统 APM (Application Performance Management) 即应用性能管理，属于IT运维管理]]></description>
 </item></channel>
 </rss>

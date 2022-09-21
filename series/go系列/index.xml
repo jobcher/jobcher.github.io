@@ -4,7 +4,14 @@
         <link>http://www.jobcher.com/series/go%E7%B3%BB%E5%88%97/</link>
         <description>go系列 - seris - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 26 Apr 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/go%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 21 Sep 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/go%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+    <title>Golang 初识（安装、使用）</title>
+    <link>http://www.jobcher.com/golang/</link>
+    <pubDate>Wed, 21 Sep 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/golang/</guid>
+    <description><![CDATA[Golang 初识（安装、使用） Go 导学 go语言由google公司推出。 运行速度快，简单易学 适合区块链开发 拥有丰富指令 可以直接包含C语言 语言层面支持并发 Go]]></description>
+</item><item>
     <title>go Struct 结构体</title>
     <link>http://www.jobcher.com/go3/</link>
     <pubDate>Tue, 26 Apr 2022 00:00:00 &#43;0000</pubDate>
