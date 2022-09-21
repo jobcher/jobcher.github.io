@@ -1,0 +1,10 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>打工人日志 - jobcher</title>
+        <link>http://www.jobcher.com/</link>
+        <description>书山有路钱为径，学海无涯没有舟。分享一些自己的技术笔记和心得，说得不好我也不接受，反正我就写给自己看……</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster>
+            <atom:link href="http://www.jobcher.com/index.xml" rel="self" type="application/rss+xml" />
+        </channel>
+</rss>
