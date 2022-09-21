@@ -1,0 +1,29 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>日常生活 - 标签 - 打工人日志 - jobcher</title>
+        <link>http://www.jobcher.com/tags/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/</link>
+        <description>日常生活 - 标签 - 打工人日志 - jobcher</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 20 Jul 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" rel="self" type="application/rss+xml" /><item>
+    <title>linux服务器 删除空间却未释放</title>
+    <link>http://www.jobcher.com/linux-disk/</link>
+    <pubDate>Wed, 20 Jul 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/linux-disk/</guid>
+    <description><![CDATA[linux服务器 删除空间却未释放 在Linux或者Unix系统中，通过rm或者文件管理器删除文件将会从文件系统的目录结构上解除链接(unlin]]></description>
+</item><item>
+    <title>VSCode插件推荐=&gt; Code Runner</title>
+    <link>http://www.jobcher.com/vscode-runcode/</link>
+    <pubDate>Mon, 25 Apr 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/vscode-runcode/</guid>
+    <description><![CDATA[VSCode插件推荐=&gt; Code Runner Run code snippet or code file for multiple languages: C, C++, Java, JavaScript, PHP, Python, Perl, Perl 6, Ruby, Go, Lua, Groovy, PowerShell, BAT/CMD, BASH/SH, F# Script, F# (.NET Core), C# Script, C# (.NET Core), VBScript, TypeScript, CoffeeScript, Scala, Swift, Julia, Crystal, OCaml Script, R, AppleScript, Elixir, Visual Basic .NET, Clojure, Haxe, Objective-C,]]></description>
+</item><item>
+    <title>记录一次上门打散工</title>
+    <link>http://www.jobcher.com/20220416/</link>
+    <pubDate>Sun, 17 Apr 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/20220416/</guid>
+    <description><![CDATA[记录一次上门打散工 壬寅年头磨难多 人间规则奈吾何 吟诗为把瘟神送 风起大江扬洪波 疫情减弱，遍邀亲友，无人相约，但闻昔日挚友，感怀往事邀吾往之。欲把]]></description>
+</item></channel>
+</rss>

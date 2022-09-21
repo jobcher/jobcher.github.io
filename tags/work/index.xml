@@ -1,0 +1,29 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>work - 标签 - 打工人日志 - jobcher</title>
+        <link>http://www.jobcher.com/tags/work/</link>
+        <description>work - 标签 - 打工人日志 - jobcher</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Sun, 20 Mar 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/work/" rel="self" type="application/rss+xml" /><item>
+    <title>shell 脚本（1）</title>
+    <link>http://www.jobcher.com/shell1/</link>
+    <pubDate>Sun, 20 Mar 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/shell1/</guid>
+    <description><![CDATA[shell脚本之变量 变量替换 语法 说明 ${变量名#匹配规则} 从变量开头进行规则匹配，将符合最短的数据删除 ${变量名##匹配规则} 从变量开头进行]]></description>
+</item><item>
+    <title>Maven 安装编译</title>
+    <link>http://www.jobcher.com/maven/</link>
+    <pubDate>Thu, 03 Mar 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/maven/</guid>
+    <description><![CDATA[Maven 安装编译 Maven就是专门为Java项目打造的管理和构建工具，它的主要功能有： 提供了一套标准化的项目结构； 提供了一套标准化的构建流程（编译]]></description>
+</item><item>
+    <title>Nodejs 安装编译</title>
+    <link>http://www.jobcher.com/nodejs/</link>
+    <pubDate>Thu, 03 Mar 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/nodejs/</guid>
+    <description><![CDATA[Nodejs 安装编译 Node.js平台是在后端运行JavaScript代码，必须首先在本机安装Node环境。 安装Node.js 安装npm npm其实是N]]></description>
+</item></channel>
+</rss>

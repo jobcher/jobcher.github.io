@@ -1,0 +1,78 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>日常 - 分类 - 打工人日志 - jobcher</title>
+        <link>http://www.jobcher.com/categories/%E6%97%A5%E5%B8%B8/</link>
+        <description>日常 - 分类 - 打工人日志 - jobcher</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 16 Sep 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/%E6%97%A5%E5%B8%B8/" rel="self" type="application/rss+xml" /><item>
+    <title>羊了个羊小程序 破解通关</title>
+    <link>http://www.jobcher.com/ylgy/</link>
+    <pubDate>Fri, 16 Sep 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/ylgy/</guid>
+    <description><![CDATA[注意此教程需要通过电脑端完成 操作步骤 1、微信打开羊了个羊小程序，玩第一关 2、进入当前登录的微信数据文件夹 微信左下角 -&gt; 设置 -&gt; 文件管理 -&gt; 打开文件]]></description>
+</item><item>
+    <title>RocketMQ k8s部署 4主4从集群</title>
+    <link>http://www.jobcher.com/rocketmq3/</link>
+    <pubDate>Mon, 29 Aug 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/rocketmq3/</guid>
+    <description><![CDATA[RocketMQ k8s部署 4主4从集群 使用NFS配置StatefulSet的动态持久化存储 安装NFS服务端 1 2 sudo apt update sudo apt install nfs-kernel-server nfs-common 安装NFS客户端 所有的节点都]]></description>
+</item><item>
+    <title>RocketMQ docker-compose部署 4主4从集群</title>
+    <link>http://www.jobcher.com/rocketmq2/</link>
+    <pubDate>Mon, 15 Aug 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/rocketmq2/</guid>
+    <description><![CDATA[RocketMQ docker-compose部署 4主4从集群 V 4.8.0 采用4主4从，同步模式。HA实现上采用Master/Slave+Failover组件方式 每]]></description>
+</item><item>
+    <title>linux服务器 删除空间却未释放</title>
+    <link>http://www.jobcher.com/linux-disk/</link>
+    <pubDate>Wed, 20 Jul 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/linux-disk/</guid>
+    <description><![CDATA[linux服务器 删除空间却未释放 在Linux或者Unix系统中，通过rm或者文件管理器删除文件将会从文件系统的目录结构上解除链接(unlin]]></description>
+</item><item>
+    <title>VSCode插件推荐=&gt; Code Runner</title>
+    <link>http://www.jobcher.com/vscode-runcode/</link>
+    <pubDate>Mon, 25 Apr 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/vscode-runcode/</guid>
+    <description><![CDATA[VSCode插件推荐=&gt; Code Runner Run code snippet or code file for multiple languages: C, C++, Java, JavaScript, PHP, Python, Perl, Perl 6, Ruby, Go, Lua, Groovy, PowerShell, BAT/CMD, BASH/SH, F# Script, F# (.NET Core), C# Script, C# (.NET Core), VBScript, TypeScript, CoffeeScript, Scala, Swift, Julia, Crystal, OCaml Script, R, AppleScript, Elixir, Visual Basic .NET, Clojure, Haxe, Objective-C,]]></description>
+</item><item>
+    <title>ant build.xml 编写</title>
+    <link>http://www.jobcher.com/ant1/</link>
+    <pubDate>Thu, 21 Apr 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/ant1/</guid>
+    <description><![CDATA[ant build.xml 编写 生成build.xml Eclipse 自动生成 Ant的Build.xml 配置文件,生成的方法很隐蔽 选择你要生成Build.xml文件的项目,右键.]]></description>
+</item><item>
+    <title>记录一次上门打散工</title>
+    <link>http://www.jobcher.com/20220416/</link>
+    <pubDate>Sun, 17 Apr 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/20220416/</guid>
+    <description><![CDATA[记录一次上门打散工 壬寅年头磨难多 人间规则奈吾何 吟诗为把瘟神送 风起大江扬洪波 疫情减弱，遍邀亲友，无人相约，但闻昔日挚友，感怀往事邀吾往之。欲把]]></description>
+</item><item>
+    <title>Ant中如何添加第三方jar包依赖</title>
+    <link>http://www.jobcher.com/ant/</link>
+    <pubDate>Thu, 14 Apr 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/ant/</guid>
+    <description><![CDATA[Ant中如何添加第三方jar包依赖 如果使用ant进行java项目的编译部署，那怎么添加第三方jar包的依赖呢？方法如下： 在项目的根目录下创建]]></description>
+</item><item>
+    <title>linux 网络测速</title>
+    <link>http://www.jobcher.com/bench/</link>
+    <pubDate>Tue, 22 Feb 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/bench/</guid>
+    <description><![CDATA[linux 网络测速 一键测试脚本bench.sh 适用于各种 Linux 发行版的网络（下行）和 IO 测试： 显示当前测试的各种系统信息 取自世界多处的知名数据中心的测试点]]></description>
+</item><item>
+    <title>网心云挂机教程 | 轻松实现睡后收入~</title>
+    <link>http://www.jobcher.com/wxyun/</link>
+    <pubDate>Fri, 11 Feb 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/wxyun/</guid>
+    <description><![CDATA[网心云挂机教程 | 轻松实现睡后收入~ 首先，本文章只是分享，造成一切的后果，博主概不负责！都是成年人了…… 我采用docker 容器魔方来挂载网心云]]></description>
+</item></channel>
+</rss>

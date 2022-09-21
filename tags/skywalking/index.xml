@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>skywalking - 标签 - 打工人日志 - jobcher</title>
+        <link>http://www.jobcher.com/tags/skywalking/</link>
+        <description>skywalking - 标签 - 打工人日志 - jobcher</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/skywalking/" rel="self" type="application/rss+xml" /><item>
+    <title>skywalking APM 监控</title>
+    <link>http://www.jobcher.com/skywalking/</link>
+    <pubDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/skywalking/</guid>
+    <description><![CDATA[skywalking 基于OpenTracing规范，专门为微服务架构以及云原生服务。 APM 监控 一个基于微服务架构的电商系统 APM (Application Performance Management) 即应用性能管理，属于IT运维管理]]></description>
+</item></channel>
+</rss>

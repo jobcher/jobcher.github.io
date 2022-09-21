@@ -1,0 +1,71 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>gitlab - 标签 - 打工人日志 - jobcher</title>
+        <link>http://www.jobcher.com/tags/gitlab/</link>
+        <description>gitlab - 标签 - 打工人日志 - jobcher</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/gitlab/" rel="self" type="application/rss+xml" /><item>
+    <title>Argo cd 安装和部署</title>
+    <link>http://www.jobcher.com/argocd/</link>
+    <pubDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/argocd/</guid>
+    <description><![CDATA[Argo cd 安装和部署 Argo CD 是一个为 Kubernetes 而生的，遵循声明式 GitOps 理念的持续部署（CD）工具。Argo CD 可在 Git 存储库更改时自动同步和部署应用程序 安装 k8s快速]]></description>
+</item><item>
+    <title>Git 规则</title>
+    <link>http://www.jobcher.com/git3/</link>
+    <pubDate>Thu, 24 Mar 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/git3/</guid>
+    <description><![CDATA[Git飞行规则(Flight Rules) 编辑提交(editting commits) 我刚才提交了什么? 我的提交信息(commit message)写错了 我提交(comm]]></description>
+</item><item>
+    <title>git版本控制</title>
+    <link>http://www.jobcher.com/git2/</link>
+    <pubDate>Mon, 28 Feb 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/git2/</guid>
+    <description><![CDATA[git版本控制 版本回退 1.查看git提交历史 1 2 #查看git提交历史 git log 如果嫌输出信息太多，看得眼花缭乱的，可以试试加上--pretty=o]]></description>
+</item><item>
+    <title>CICD 概念</title>
+    <link>http://www.jobcher.com/devops/</link>
+    <pubDate>Thu, 17 Feb 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/devops/</guid>
+    <description><![CDATA[CICD 概念 DevOps Devlopment和Operation的组合词 规划-》代码-》构建-》测试-》发布-》部署-》运营-》监控-》再次规划 devOps]]></description>
+</item><item>
+    <title>git使用方法</title>
+    <link>http://www.jobcher.com/git/</link>
+    <pubDate>Thu, 17 Feb 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/git/</guid>
+    <description><![CDATA[git使用方法 一、git安装配置 Debian/Ubuntu 1 2 3 4 5 6 7 apt-get install libcurl4-gnutls-dev libexpat1-dev gettext \ libz-dev libssl-dev apt-get install git git --version git version 1.8.1.2 Centos/RedHat 1 2 3 4 5 6 7 yum install curl-devel expat-devel gettext-devel \ openssl-devel zlib-devel yum -y install git-core git --version git version 1.7.1 二、git]]></description>
+</item><item>
+    <title>Jenkins 安装与使用</title>
+    <link>http://www.jobcher.com/jenkins/</link>
+    <pubDate>Wed, 09 Feb 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/jenkins/</guid>
+    <description><![CDATA[Jenkins 安装与使用 代码在本地修改&mdash;-》提交到远程gitlab&mdash;-》触发jenkins整个自动化构建流程（打包，测试，发布，]]></description>
+</item><item>
+    <title>gitlab与github同步项目</title>
+    <link>http://www.jobcher.com/gitrsync/</link>
+    <pubDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/gitrsync/</guid>
+    <description><![CDATA[gitlab与github同步项目 本地同步项目 1 git clone 创建一个同名的项目,命令行终端中添加remote地址 1 git remote add githubOrigin git@github.com:sjtfreaks/blog.git 项目同步到Github上]]></description>
+</item><item>
+    <title>git技巧</title>
+    <link>http://www.jobcher.com/gitlab/</link>
+    <pubDate>Fri, 10 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/gitlab/</guid>
+    <description><![CDATA[git技巧 Git 是一个 “分布式版本管理工具”，简单的理解版本管理工具：大家在写东西的时候都用过 “回撤” 这个功能，但是回撤只能回撤几步，假如想要找]]></description>
+</item><item>
+    <title>gitlab CI/CD 的使用</title>
+    <link>http://www.jobcher.com/gitlab-cicd/</link>
+    <pubDate>Fri, 03 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/gitlab-cicd/</guid>
+    <description><![CDATA[gitlab CI/CD 的使用 我将使用gitlab的流水线自动实现hugo blog 文章的自动发布。 一、基础知识 二、安装过程 1.安装gitlab runner 首先需要安装 gitlab runner 进入服]]></description>
+</item></channel>
+</rss>

@@ -1,0 +1,78 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>基础 - 分类 - 打工人日志 - jobcher</title>
+        <link>http://www.jobcher.com/categories/%E5%9F%BA%E7%A1%80/</link>
+        <description>基础 - 分类 - 打工人日志 - jobcher</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 08 Aug 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/%E5%9F%BA%E7%A1%80/" rel="self" type="application/rss+xml" /><item>
+    <title>systemd 守护命令</title>
+    <link>http://www.jobcher.com/systemd/</link>
+    <pubDate>Mon, 08 Aug 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/systemd/</guid>
+    <description><![CDATA[介绍 systemd 是linux中用来启动守护进程，Linux最早一直采用init进程 (systemd 架构图) systemd 命令 systemd 不是一个具体的命令，而是一组命令，用于系统管理的各]]></description>
+</item><item>
+    <title>Linux crontab 命令</title>
+    <link>http://www.jobcher.com/crontab/</link>
+    <pubDate>Tue, 22 Feb 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/crontab/</guid>
+    <description><![CDATA[Linux crontab 命令 Linux crontab是用来定期执行程序的命令。 系统执行的工作：系统周期性所要执行的工作，如备份系统数据、清理缓存 个人执行的工作：某个用户]]></description>
+</item><item>
+    <title>linux常用命令</title>
+    <link>http://www.jobcher.com/linux1/</link>
+    <pubDate>Sat, 12 Feb 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/linux1/</guid>
+    <description><![CDATA[linux 常用命令 软件操作命令 1 2 3 4 5 6 7 8 9 10 11 12 13 14 #软件包管理器 yum # 安装软件 yum install xxxx # 卸载软件 yum remove xxx # 搜索软件 yum search xxx # 清理缓存 yum clean packages # 列出已安]]></description>
+</item><item>
+    <title>linux基础知识</title>
+    <link>http://www.jobcher.com/linux/</link>
+    <pubDate>Fri, 11 Feb 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/linux/</guid>
+    <description><![CDATA[linux 基础知识 1、简述Linux权限划分原则。 给文件或目录分配权限时，先考虑所有者和所属组 遵循最小化权限，用啥权限给啥权限 修改目录和子文件归属权]]></description>
+</item><item>
+    <title>yaml 语法</title>
+    <link>http://www.jobcher.com/yaml/</link>
+    <pubDate>Thu, 30 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/yaml/</guid>
+    <description><![CDATA[yaml 语法 我们使用 YAML 是因为它像 XML 或 JSON 是一种利于人们读写的数据格式. 此外在大多数变成语言中有使用 YAML 的库.YAML 语法的基本概述, 它被用来描述一个 p]]></description>
+</item><item>
+    <title>iptables 基础知识</title>
+    <link>http://www.jobcher.com/iptable/</link>
+    <pubDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/iptable/</guid>
+    <description><![CDATA[iptables 基础知识 内核包过滤与NAT管理工具.是linux系统中在用户空间中运行的运来配置内核防火墙的工具。它可以设置，维护和检查linux内核中的]]></description>
+</item><item>
+    <title>网络基础知识</title>
+    <link>http://www.jobcher.com/network/</link>
+    <pubDate>Thu, 23 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/network/</guid>
+    <description><![CDATA[网络基础知识 1、简述ISO/OSI七层模型的分层与作用 分层 作用 应用层 应用系统，提供用户服务 例如：HTTP、HTTPS、FTP、Telnet、]]></description>
+</item><item>
+    <title>linux服务基础知识</title>
+    <link>http://www.jobcher.com/service/</link>
+    <pubDate>Wed, 15 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/service/</guid>
+    <description><![CDATA[linux服务基础知识 1、哪些设置能够提升SSH远程管理的安全等级 2、ssh连接时认证时间过长如何解决？ 3、scp和rsync进行远程文件复]]></description>
+</item><item>
+    <title>mysql基础知识</title>
+    <link>http://www.jobcher.com/mysql/</link>
+    <pubDate>Wed, 15 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/mysql/</guid>
+    <description><![CDATA[mysql基础知识 1、库表student.report,有3个字段，姓名、学科、成绩，记录如下，根据要求完成SQL语句： Name Subject Result 李白 Math 95 张三 English]]></description>
+</item><item>
+    <title>shell基础知识</title>
+    <link>http://www.jobcher.com/shell/</link>
+    <pubDate>Wed, 15 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/shell/</guid>
+    <description><![CDATA[shell基础知识 1、有一个b.txt文本(内容如下)，要求将所有域名截取出来，并统计重复域名出现的次数： http://www.baidu.com/index.html https://www.atguigu.com/index.html http://www.sina.com.cn/1024.html https://www.atguigu.com/2048.html http://www.sina.com.cn/4096.html https://www.atguigu.com/8192.html 2、统计当前服务器正在]]></description>
+</item></channel>
+</rss>

@@ -1,0 +1,43 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>daliy - 标签 - 打工人日志 - jobcher</title>
+        <link>http://www.jobcher.com/tags/daliy/</link>
+        <description>daliy - 标签 - 打工人日志 - jobcher</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 16 Sep 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/daliy/" rel="self" type="application/rss+xml" /><item>
+    <title>羊了个羊小程序 破解通关</title>
+    <link>http://www.jobcher.com/ylgy/</link>
+    <pubDate>Fri, 16 Sep 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/ylgy/</guid>
+    <description><![CDATA[注意此教程需要通过电脑端完成 操作步骤 1、微信打开羊了个羊小程序，玩第一关 2、进入当前登录的微信数据文件夹 微信左下角 -&gt; 设置 -&gt; 文件管理 -&gt; 打开文件]]></description>
+</item><item>
+    <title>logrotate 日志滚动的使用</title>
+    <link>http://www.jobcher.com/logrotate/</link>
+    <pubDate>Wed, 29 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/logrotate/</guid>
+    <description><![CDATA[logrotate 日志滚动的使用 logrotate 日志滚动切割工具，是linux默认安装的工具，配置文件位置： 1 2 /etc/logrotate.conf /etc/logrotate.d/ 参数 以nginx 配置为例 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15]]></description>
+</item><item>
+    <title>rsync 文件同步</title>
+    <link>http://www.jobcher.com/rsync/</link>
+    <pubDate>Mon, 20 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/rsync/</guid>
+    <description><![CDATA[rsync 文件同步 rsync 是一个常用的Linux应用程序，用于文件同步 安装 1 2 3 4 5 6 7 8 # Debian or Ubuntu $ sudo apt-get install rsync # Red Hat $ sudo yum install rsync # Arch Linux $ sudo pacman -S rsync 基本用法 使用 rsync]]></description>
+</item><item>
+    <title>163企业邮箱设置教程</title>
+    <link>http://www.jobcher.com/qyyemail163/</link>
+    <pubDate>Fri, 10 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/qyyemail163/</guid>
+    <description><![CDATA[163企业邮箱设置教程 请进入这个网站 https://qiye.163.com/help/l-11.html]]></description>
+</item><item>
+    <title>2021年第50周记</title>
+    <link>http://www.jobcher.com/20211210/</link>
+    <pubDate>Wed, 08 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/20211210/</guid>
+    <description><![CDATA[2021年第50周周记 这周完成了以下任务 搭建hugo博客 使用docker封装了blog 搭建k3s环境 计划： 学习k8s 总结：没啥好总结，刚开始]]></description>
+</item></channel>
+</rss>

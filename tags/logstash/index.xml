@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>logstash - 标签 - 打工人日志 - jobcher</title>
+        <link>http://www.jobcher.com/tags/logstash/</link>
+        <description>logstash - 标签 - 打工人日志 - jobcher</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 19 Jul 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/logstash/" rel="self" type="application/rss+xml" /><item>
+    <title>logstash 多管道部署</title>
+    <link>http://www.jobcher.com/logstash/</link>
+    <pubDate>Tue, 19 Jul 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/logstash/</guid>
+    <description><![CDATA[logstash 多管道部署 找到logstash 目录位置，一般来说在 /etc/logstash 路径下,修改 logstash.yml 1 2 #增加 日志记录 path.logs: /var/log/logstash 增加管道 增加 conf.d目录下 test.conf 1 2 3 4 5 6 7 8 9]]></description>
+</item></channel>
+</rss>

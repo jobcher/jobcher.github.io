@@ -1,0 +1,29 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>RocketMQ - 标签 - 打工人日志 - jobcher</title>
+        <link>http://www.jobcher.com/tags/rocketmq/</link>
+        <description>RocketMQ - 标签 - 打工人日志 - jobcher</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 29 Aug 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/rocketmq/" rel="self" type="application/rss+xml" /><item>
+    <title>RocketMQ k8s部署 4主4从集群</title>
+    <link>http://www.jobcher.com/rocketmq3/</link>
+    <pubDate>Mon, 29 Aug 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/rocketmq3/</guid>
+    <description><![CDATA[RocketMQ k8s部署 4主4从集群 使用NFS配置StatefulSet的动态持久化存储 安装NFS服务端 1 2 sudo apt update sudo apt install nfs-kernel-server nfs-common 安装NFS客户端 所有的节点都]]></description>
+</item><item>
+    <title>RocketMQ docker-compose部署 4主4从集群</title>
+    <link>http://www.jobcher.com/rocketmq2/</link>
+    <pubDate>Mon, 15 Aug 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/rocketmq2/</guid>
+    <description><![CDATA[RocketMQ docker-compose部署 4主4从集群 V 4.8.0 采用4主4从，同步模式。HA实现上采用Master/Slave+Failover组件方式 每]]></description>
+</item><item>
+    <title>RocketMQ 安装和启动</title>
+    <link>http://www.jobcher.com/rocketmq/</link>
+    <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/rocketmq/</guid>
+    <description><![CDATA[RocketMQ 安装和部署 部署RocketMQ 单机安装构建 安装JDK 1.8.0 1 yum install java-1.8.0-openjdk* 安装Maven 1 2 3 4 5 6 7 8 9 10 11 wget http://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz tar -zxvf apache-maven-3.8.4-bin.tar.gz mv -f apache-maven-3.8.4 /usr/local/ vim /etc/profile # 末尾添加 export MAVEN_HOME=/usr/local/apache-maven-3.8.4 export PATH=${PATH}:${MAVEN_HOME}/bin]]></description>
+</item></channel>
+</rss>

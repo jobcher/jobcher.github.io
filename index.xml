@@ -4,7 +4,77 @@
         <link>http://www.jobcher.com/</link>
         <description>书山有路钱为径，学海无涯没有舟。分享一些自己的技术笔记和心得，说得不好我也不接受，反正我就写给自己看……</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 19 Sep 2022 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://www.jobcher.com/index.xml" rel="self" type="application/rss+xml" />
-        </channel>
+        <item>
+    <title>清理Docker容器日志</title>
+    <link>http://www.jobcher.com/cleandocker/</link>
+    <pubDate>Mon, 19 Sep 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/cleandocker/</guid>
+    <description><![CDATA[清理Docker容器日志 如果docker容器正在运行，那么使用rm -rf方式删除日志后，通过df -h会发现磁盘空间并没有释放。原因是在Lin]]></description>
+</item><item>
+    <title>羊了个羊小程序 破解通关</title>
+    <link>http://www.jobcher.com/ylgy/</link>
+    <pubDate>Fri, 16 Sep 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/ylgy/</guid>
+    <description><![CDATA[注意此教程需要通过电脑端完成 操作步骤 1、微信打开羊了个羊小程序，玩第一关 2、进入当前登录的微信数据文件夹 微信左下角 -&gt; 设置 -&gt; 文件管理 -&gt; 打开文件]]></description>
+</item><item>
+    <title>K8S 问题排查：cgroup 内存泄露问题</title>
+    <link>http://www.jobcher.com/k8s-error/</link>
+    <pubDate>Tue, 30 Aug 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/k8s-error/</guid>
+    <description><![CDATA[K8S 问题排查：cgroup 内存泄露问题 1 unable to ensure pod container exists: failed to create container for [kubepods besteffort pod5f26dae8-0421-4eab-a3f7-aa51c6848e2b] : mkdir /sys/fs/cgroup/memory/kubepods/besteffort/pod5f26dae8-0421-4eab-a3f7-aa51c6848e2b: cannot allocate memory 查看linux内核 1 2 cat /proc/version uname -a 可以发现 linux版本是3.0版]]></description>
+</item><item>
+    <title>RocketMQ k8s部署 4主4从集群</title>
+    <link>http://www.jobcher.com/rocketmq3/</link>
+    <pubDate>Mon, 29 Aug 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/rocketmq3/</guid>
+    <description><![CDATA[RocketMQ k8s部署 4主4从集群 使用NFS配置StatefulSet的动态持久化存储 安装NFS服务端 1 2 sudo apt update sudo apt install nfs-kernel-server nfs-common 安装NFS客户端 所有的节点都]]></description>
+</item><item>
+    <title>contained 安装及使用</title>
+    <link>http://www.jobcher.com/contained/</link>
+    <pubDate>Wed, 17 Aug 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/contained/</guid>
+    <description><![CDATA[contained 安装及使用 containerd 是一个行业标准的容器运行时，强调简单性、健壮性和可移植性。它可作为 Linux 和 Windows 的守护进程使用，可以管理其主机系统的完整容器生命周期：]]></description>
+</item><item>
+    <title>Planet 下载及安装</title>
+    <link>http://www.jobcher.com/planet/</link>
+    <pubDate>Wed, 17 Aug 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/planet/</guid>
+    <description><![CDATA[Planet 下载及安装 官网下载 Planet 是一款用于发布和关注 Web 内容的免费开源软件，它不需要集中式服务器或服务。它使用 IPFS 来实现点对点的内容分发。此外，您可以将您]]></description>
+</item><item>
+    <title>关系数据库 索引操作</title>
+    <link>http://www.jobcher.com/sql-index/</link>
+    <pubDate>Tue, 16 Aug 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/sql-index/</guid>
+    <description><![CDATA[索引 在关系数据库中，如果有上万甚至上亿条记录，在查找记录的时候，想要获得非常快的速度，就需要使用索引。 索引是关系数据库中对某一列或多个列的值]]></description>
+</item><item>
+    <title>RocketMQ docker-compose部署 4主4从集群</title>
+    <link>http://www.jobcher.com/rocketmq2/</link>
+    <pubDate>Mon, 15 Aug 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/rocketmq2/</guid>
+    <description><![CDATA[RocketMQ docker-compose部署 4主4从集群 V 4.8.0 采用4主4从，同步模式。HA实现上采用Master/Slave+Failover组件方式 每]]></description>
+</item><item>
+    <title>Argo cd 安装和部署</title>
+    <link>http://www.jobcher.com/argocd/</link>
+    <pubDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/argocd/</guid>
+    <description><![CDATA[Argo cd 安装和部署 Argo CD 是一个为 Kubernetes 而生的，遵循声明式 GitOps 理念的持续部署（CD）工具。Argo CD 可在 Git 存储库更改时自动同步和部署应用程序 安装 k8s快速]]></description>
+</item><item>
+    <title>skywalking APM 监控</title>
+    <link>http://www.jobcher.com/skywalking/</link>
+    <pubDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/skywalking/</guid>
+    <description><![CDATA[skywalking 基于OpenTracing规范，专门为微服务架构以及云原生服务。 APM 监控 一个基于微服务架构的电商系统 APM (Application Performance Management) 即应用性能管理，属于IT运维管理]]></description>
+</item></channel>
 </rss>

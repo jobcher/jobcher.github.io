@@ -1,0 +1,43 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>监控 - 分类 - 打工人日志 - jobcher</title>
+        <link>http://www.jobcher.com/categories/%E7%9B%91%E6%8E%A7/</link>
+        <description>监控 - 分类 - 打工人日志 - jobcher</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/%E7%9B%91%E6%8E%A7/" rel="self" type="application/rss+xml" /><item>
+    <title>skywalking APM 监控</title>
+    <link>http://www.jobcher.com/skywalking/</link>
+    <pubDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/skywalking/</guid>
+    <description><![CDATA[skywalking 基于OpenTracing规范，专门为微服务架构以及云原生服务。 APM 监控 一个基于微服务架构的电商系统 APM (Application Performance Management) 即应用性能管理，属于IT运维管理]]></description>
+</item><item>
+    <title>logstash 多管道部署</title>
+    <link>http://www.jobcher.com/logstash/</link>
+    <pubDate>Tue, 19 Jul 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/logstash/</guid>
+    <description><![CDATA[logstash 多管道部署 找到logstash 目录位置，一般来说在 /etc/logstash 路径下,修改 logstash.yml 1 2 #增加 日志记录 path.logs: /var/log/logstash 增加管道 增加 conf.d目录下 test.conf 1 2 3 4 5 6 7 8 9]]></description>
+</item><item>
+    <title>nginx exporter 安装配置</title>
+    <link>http://www.jobcher.com/nginx-exporter/</link>
+    <pubDate>Wed, 08 Jun 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/nginx-exporter/</guid>
+    <description><![CDATA[nginx exporter 安装配置 二进制安装 1 2 wget https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v0.10.0/nginx-prometheus-exporter_0.10.0_linux_amd64.tar.gz tar -zxvf nginx-prometheus-exporter_0.10.0_linux_amd64.tar.gz -C ./nginx-exporter 在nginx上配置 1 2 3 4 5 ./configure \ … \ --with-http_stub_status_module make sudo make install 在nginx.config上配置 1 2 3 4 5 6 7 server { # 新]]></description>
+</item><item>
+    <title>prometheus grafana alertmanager 安装配置</title>
+    <link>http://www.jobcher.com/prometheus1/</link>
+    <pubDate>Thu, 13 Jan 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/prometheus1/</guid>
+    <description><![CDATA[prometheus+grafana+alertmanager 安装配置 服务器监控告警系统搭建，通过exporter获取节点信息到prometheus。prometheus配置规则，使garfana和a]]></description>
+</item><item>
+    <title>prometheus 配置</title>
+    <link>http://www.jobcher.com/prometheus/</link>
+    <pubDate>Thu, 13 Jan 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/prometheus/</guid>
+    <description><![CDATA[prometheus 配置 Prometheus 是由 SoundCloud 开源监控告警解决方案 组件 Prometheus Server， 主要用于抓取数据和存储时序数据，另外还提供查询和 Alert Rule 配置管理。 client libraries，用]]></description>
+</item></channel>
+</rss>
