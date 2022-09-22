@@ -4,7 +4,14 @@
         <link>http://www.jobcher.com/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/</link>
         <description>日常系列 - seris - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 16 Sep 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 21 Sep 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+    <title>headscale 部署使用</title>
+    <link>http://www.jobcher.com/headscale/</link>
+    <pubDate>Wed, 21 Sep 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/headscale/</guid>
+    <description><![CDATA[Headscale Tailscale 的控制服务器是不开源的，而且对免费用户有诸多限制，这是人家的摇钱树，可以理解。好在目前有一款开源的实现叫 Headscale，这也是唯一的]]></description>
+</item><item>
     <title>羊了个羊小程序 破解通关</title>
     <link>http://www.jobcher.com/ylgy/</link>
     <pubDate>Fri, 16 Sep 2022 00:00:00 &#43;0000</pubDate>
@@ -67,12 +74,5 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/bench/</guid>
     <description><![CDATA[linux 网络测速 一键测试脚本bench.sh 适用于各种 Linux 发行版的网络（下行）和 IO 测试： 显示当前测试的各种系统信息 取自世界多处的知名数据中心的测试点]]></description>
-</item><item>
-    <title>网心云挂机教程 | 轻松实现睡后收入~</title>
-    <link>http://www.jobcher.com/wxyun/</link>
-    <pubDate>Fri, 11 Feb 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/wxyun/</guid>
-    <description><![CDATA[网心云挂机教程 | 轻松实现睡后收入~ 首先，本文章只是分享，造成一切的后果，博主概不负责！都是成年人了…… 我采用docker 容器魔方来挂载网心云]]></description>
 </item></channel>
 </rss>
