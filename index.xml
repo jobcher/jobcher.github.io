@@ -4,9 +4,16 @@
         <link>http://www.jobcher.com/</link>
         <description>书山有路钱为径，学海无涯没有舟。分享一些自己的技术笔记和心得，说得不好我也不接受，反正我就写给自己看……</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 21 Sep 2022 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 23 Sep 2022 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://www.jobcher.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>k8s CNI 问题 连接认证失效</title>
+    <link>http://www.jobcher.com/k8s-error2/</link>
+    <pubDate>Fri, 23 Sep 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/k8s-error2/</guid>
+    <description><![CDATA[k8s CNI 问题 连接认证失效 删除 calico 换成 flannel 后，容器没有正常启动 network: error getting ClusterInformation: connection is unauthorized: Unauthorized] 解决问题 删除掉 /etc/cni/net.d/ 目录下的 calico 配置文件即可。 要删除所有节点的配置文件 1 sudo rm -rf]]></description>
+</item><item>
     <title>Golang 初识（安装、使用）</title>
     <link>http://www.jobcher.com/golang/</link>
     <pubDate>Wed, 21 Sep 2022 00:00:00 &#43;0000</pubDate>
@@ -69,12 +76,5 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/sql-index/</guid>
     <description><![CDATA[索引 在关系数据库中，如果有上万甚至上亿条记录，在查找记录的时候，想要获得非常快的速度，就需要使用索引。 索引是关系数据库中对某一列或多个列的值]]></description>
-</item><item>
-    <title>RocketMQ docker-compose部署 4主4从集群</title>
-    <link>http://www.jobcher.com/rocketmq2/</link>
-    <pubDate>Mon, 15 Aug 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/rocketmq2/</guid>
-    <description><![CDATA[RocketMQ docker-compose部署 4主4从集群 V 4.8.0 采用4主4从，同步模式。HA实现上采用Master/Slave+Failover组件方式 每]]></description>
 </item></channel>
 </rss>
