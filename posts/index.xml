@@ -12,6 +12,13 @@
     <guid>http://www.jobcher.com/k8s-error2/</guid>
     <description><![CDATA[k8s CNI 问题 连接认证失效 删除 calico 换成 flannel 后，容器没有正常启动 network: error getting ClusterInformation: connection is unauthorized: Unauthorized] 解决问题 删除掉 /etc/cni/net.d/ 目录下的 calico 配置文件即可。 要删除所有节点的配置文件 1 sudo rm -rf]]></description>
 </item><item>
+    <title>k8s.gcr.io国内无法连接解决方法</title>
+    <link>http://www.jobcher.com/k8s-error3/</link>
+    <pubDate>Thu, 22 Sep 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/k8s-error3/</guid>
+    <description><![CDATA[k8s.gcr.io国内无法连接解决方法 Get https://k8s.gcr.io/v2/: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers) 这个一看知道什么原因了，应该GFW！那好吧，只能给docker加个代理了]]></description>
+</item><item>
     <title>Golang 初识（安装、使用）</title>
     <link>http://www.jobcher.com/golang/</link>
     <pubDate>Wed, 21 Sep 2022 00:00:00 &#43;0000</pubDate>
@@ -67,12 +74,5 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/planet/</guid>
     <description><![CDATA[Planet 下载及安装 官网下载 Planet 是一款用于发布和关注 Web 内容的免费开源软件，它不需要集中式服务器或服务。它使用 IPFS 来实现点对点的内容分发。此外，您可以将您]]></description>
-</item><item>
-    <title>关系数据库 索引操作</title>
-    <link>http://www.jobcher.com/sql-index/</link>
-    <pubDate>Tue, 16 Aug 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/sql-index/</guid>
-    <description><![CDATA[索引 在关系数据库中，如果有上万甚至上亿条记录，在查找记录的时候，想要获得非常快的速度，就需要使用索引。 索引是关系数据库中对某一列或多个列的值]]></description>
 </item></channel>
 </rss>
