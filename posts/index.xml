@@ -5,19 +5,12 @@
         <description>所有文章 | 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
             <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 26 Sep 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>hugo 添加视频测试</title>
-    <link>http://www.jobcher.com/video-test/</link>
+    <title>懒人烧排骨</title>
+    <link>http://www.jobcher.com/paigu/</link>
     <pubDate>Mon, 26 Sep 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.jobcher.com/video-test/</guid>
-    <description><![CDATA[hugo 添加视频测试 bilibili B站测试 <!DOCTYPE HTML>]]></description>
-</item><item>
-    <title>hugo 添加视频测试2</title>
-    <link>http://www.jobcher.com/video-test2/</link>
-    <pubDate>Mon, 26 Sep 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/video-test2/</guid>
-    <description><![CDATA[hugo 添加视频测试 youtube 油管测试]]></description>
+    <guid>http://www.jobcher.com/paigu/</guid>
+    <description><![CDATA[【主料】 精排骨（500克） 【辅料】 食用面碱（约2克） 柠檬（半个） 生姜（1小块） 小葱（2根） 八角（1颗） 桂皮（1小块） 香叶（半片） 冰糖（约50]]></description>
 </item><item>
     <title>k8s CNI 问题 连接认证失效</title>
     <link>http://www.jobcher.com/k8s-error2/</link>
@@ -74,5 +67,12 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/rocketmq3/</guid>
     <description><![CDATA[RocketMQ k8s部署 4主4从集群 使用NFS配置StatefulSet的动态持久化存储 安装NFS服务端 1 2 sudo apt update sudo apt install nfs-kernel-server nfs-common 安装NFS客户端 所有的节点都]]></description>
+</item><item>
+    <title>contained 安装及使用</title>
+    <link>http://www.jobcher.com/contained/</link>
+    <pubDate>Wed, 17 Aug 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/contained/</guid>
+    <description><![CDATA[contained 安装及使用 containerd 是一个行业标准的容器运行时，强调简单性、健壮性和可移植性。它可作为 Linux 和 Windows 的守护进程使用，可以管理其主机系统的完整容器生命周期：]]></description>
 </item></channel>
 </rss>
