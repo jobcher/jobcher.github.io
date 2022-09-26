@@ -4,7 +4,21 @@
         <link>http://www.jobcher.com/series/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97/</link>
         <description>基础知识系列 - seris - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 08 Aug 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 26 Sep 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+    <title>hugo 添加视频测试</title>
+    <link>http://www.jobcher.com/video-test/</link>
+    <pubDate>Mon, 26 Sep 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/video-test/</guid>
+    <description><![CDATA[hugo 添加视频测试 bilibili B站测试 <!DOCTYPE HTML>]]></description>
+</item><item>
+    <title>hugo 添加视频测试2</title>
+    <link>http://www.jobcher.com/video-test2/</link>
+    <pubDate>Mon, 26 Sep 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/video-test2/</guid>
+    <description><![CDATA[hugo 添加视频测试 youtube 油管测试]]></description>
+</item><item>
     <title>systemd 守护命令</title>
     <link>http://www.jobcher.com/systemd/</link>
     <pubDate>Mon, 08 Aug 2022 00:00:00 &#43;0000</pubDate>
@@ -39,20 +53,6 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/yaml/</guid>
     <description><![CDATA[yaml 语法 我们使用 YAML 是因为它像 XML 或 JSON 是一种利于人们读写的数据格式. 此外在大多数变成语言中有使用 YAML 的库.YAML 语法的基本概述, 它被用来描述一个 p]]></description>
-</item><item>
-    <title>hugo 添加视频测试</title>
-    <link>http://www.jobcher.com/video-test/</link>
-    <pubDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/video-test/</guid>
-    <description><![CDATA[hugo 添加视频测试 bilibili B站测试 <!DOCTYPE HTML>]]></description>
-</item><item>
-    <title>hugo 添加视频测试2</title>
-    <link>http://www.jobcher.com/video-test2/</link>
-    <pubDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/video-test2/</guid>
-    <description><![CDATA[hugo 添加视频测试 youtube 油管测试]]></description>
 </item><item>
     <title>iptables 基础知识</title>
     <link>http://www.jobcher.com/iptable/</link>
