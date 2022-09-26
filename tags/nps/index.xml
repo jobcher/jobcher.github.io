@@ -10,6 +10,85 @@
     <pubDate>Wed, 08 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/nps/</guid>
-    <description><![CDATA[内网穿透 文章中使用的内网穿透前提是必须具有公网IP的云服务器，不符合条件的同学可以跳过了。 nps内网穿透 nps是一款轻量级、高性能、功能强大]]></description>
+    <description><![CDATA[<h1 id="内网穿透">内网穿透</h1>
+<p>文章中使用的内网穿透前提是必须具有公网IP的云服务器，不符合条件的同学可以跳过了。</p>
+<h2 id="nps内网穿透">nps内网穿透</h2>
+<p>nps是一款轻量级、高性能、功能强大的内网穿透代理服务器。</p>
+<h3 id="在公网服务器上安装nps-sever端">在公网服务器上安装nps sever端</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    wget https://github.com/ehang-io/nps/releases/download/v0.26.10/linux_amd64_server.tar.gz
+</span></span><span class="line"><span class="cl">    tar -zxvf linux_amd64_server.tar.gz
+</span></span><span class="line"><span class="cl">    sudo ./nps install
+</span></span><span class="line"><span class="cl">    sudo nps start
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="在控制端安装npc-client端">在控制端安装npc client端</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    wget https://github.com/ehang-io/nps/releases/download/v0.26.10/linux_amd64_client.tar.gz
+</span></span><span class="line"><span class="cl">    tar -zxvf linux_amd64_client.tar.gz
+</span></span><span class="line"><span class="cl">    sudo ./npc -server<span class="o">=</span>ip:port -vkey<span class="o">=</span>web界面中显示的密钥
+</span></span><span class="line"><span class="cl">    sudo npc start
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>npc安装完成可以进入web页面穿透端口和域名<br>
+http://localhost:8080</p>
+<h2 id="frps内网穿透">frps内网穿透</h2>
+<p>frps 相对于nps的劣势是有断流的风险<br>
+frps 相对于nps的优势是对于高流量的媒体服务能够提供更可靠的支持</p>
+<h3 id="安装frps">安装frps</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    wget https://code.aliyun.com/MvsCode/frps-onekey/raw/master/install-frps.sh -O ./install-frps.sh
+</span></span><span class="line"><span class="cl">    chmod <span class="m">700</span> ./install-frps.sh
+</span></span><span class="line"><span class="cl">    ./install-frps.sh install
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>卸载 frps服务</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    ./install-frps.sh uninstall
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>更新 frps服务</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    ./install-frps.sh update
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Server management（服务管理器）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    Usage: /etc/init.d/frps <span class="o">{</span>start<span class="p">|</span>stop<span class="p">|</span>restart<span class="p">|</span>status<span class="p">|</span>config<span class="p">|</span>version<span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
 </item></channel>
 </rss>

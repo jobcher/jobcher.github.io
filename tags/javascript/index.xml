@@ -10,20 +10,230 @@
     <pubDate>Thu, 14 Apr 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/ant/</guid>
-    <description><![CDATA[Ant中如何添加第三方jar包依赖 如果使用ant进行java项目的编译部署，那怎么添加第三方jar包的依赖呢？方法如下： 在项目的根目录下创建]]></description>
+    <description><![CDATA[<h1 id="ant中如何添加第三方jar包依赖">Ant中如何添加第三方jar包依赖</h1>
+<p>如果使用ant进行java项目的编译部署，那怎么添加第三方jar包的依赖呢？方法如下：</p>
+<ol>
+<li>在项目的根目录下创建lib目录，并把所有需要的第三方jar包放到此目录下。</li>
+<li>在build.xml中依次添加：path、property，并在javac中添加classpath，添加unjar。完整配置如下：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;project</span> <span class="na">name=</span><span class="s">&#34;MyTool&#34;</span> <span class="na">default=</span><span class="s">&#34;build&#34;</span> <span class="na">basedir=</span><span class="s">&#34;.&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;description&gt;</span>The ant project to build MyTool.<span class="nt">&lt;/description&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;srcDir&#34;</span> <span class="na">location=</span><span class="s">&#34;src&#34;</span> <span class="na">description=</span><span class="s">&#34;源文件的存放目录&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;libDir&#34;</span> <span class="na">location=</span><span class="s">&#34;lib&#34;</span> <span class="na">description=</span><span class="s">&#34;第三方jar包的存放目录&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;antDir&#34;</span> <span class="na">location=</span><span class="s">&#34;ant&#34;</span> <span class="na">description=</span><span class="s">&#34;编译后所有文件存放的根目录&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;binDir&#34;</span> <span class="na">location=</span><span class="s">&#34;${antDir}/bin&#34;</span> <span class="na">description=</span><span class="s">&#34;编译后class文件的存放目录&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;jarDir&#34;</span> <span class="na">location=</span><span class="s">&#34;${antDir}/jar&#34;</span> <span class="na">description=</span><span class="s">&#34;打包后jar包的存放目录&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;jarFile&#34;</span> <span class="na">location=</span><span class="s">&#34;${jarDir}/MyTool.jar&#34;</span> <span class="na">description=</span><span class="s">&#34;打包后jar包存放的完整路径&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;package&#34;</span> <span class="na">value=</span><span class="s">&#34;com.xiboliya.mytool&#34;</span> <span class="na">description=</span><span class="s">&#34;包名&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;mainClass&#34;</span> <span class="na">value=</span><span class="s">&#34;MyTool&#34;</span> <span class="na">description=</span><span class="s">&#34;主类名&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;resFromDir&#34;</span> <span class="na">location=</span><span class="s">&#34;res&#34;</span> <span class="na">description=</span><span class="s">&#34;资源文件的源目录&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;resToDir&#34;</span> <span class="na">location=</span><span class="s">&#34;${binDir}/res&#34;</span> <span class="na">description=</span><span class="s">&#34;资源文件的目标目录&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;path</span> <span class="na">id=</span><span class="s">&#34;libPath&#34;</span> <span class="na">description=</span><span class="s">&#34;编译时依赖的第三方jar包的存放路径&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;fileset</span> <span class="na">dir=</span><span class="s">&#34;${libDir}&#34;</span> <span class="na">erroronmissingdir=</span><span class="s">&#34;false&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;include</span> <span class="na">name=</span><span class="s">&#34;*.jar&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/fileset&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/path&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;classpath&#34;</span> <span class="na">refid=</span><span class="s">&#34;libPath&#34;</span> <span class="na">description=</span><span class="s">&#34;编译时依赖的第三方jar包的存放路径&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&#34;init&#34;</span> <span class="na">description=</span><span class="s">&#34;初始化&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;delete</span> <span class="na">dir=</span><span class="s">&#34;${binDir}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;delete</span> <span class="na">dir=</span><span class="s">&#34;${jarDir}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;mkdir</span> <span class="na">dir=</span><span class="s">&#34;${binDir}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;mkdir</span> <span class="na">dir=</span><span class="s">&#34;${jarDir}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;copy</span> <span class="na">todir=</span><span class="s">&#34;${resToDir}&#34;</span> <span class="na">description=</span><span class="s">&#34;复制资源文件&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;fileset</span> <span class="na">dir=</span><span class="s">&#34;${resFromDir}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/copy&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/target&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&#34;compile&#34;</span> <span class="na">depends=</span><span class="s">&#34;init&#34;</span> <span class="na">description=</span><span class="s">&#34;编译代码&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;javac</span> <span class="na">srcdir=</span><span class="s">&#34;${srcDir}&#34;</span> <span class="na">destdir=</span><span class="s">&#34;${binDir}&#34;</span> <span class="na">classpath=</span><span class="s">&#34;${classpath}&#34;</span> <span class="na">includeAntRuntime=</span><span class="s">&#34;false&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;compilerarg</span> <span class="na">value=</span><span class="s">&#34;-Xlint:unchecked&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;compilerarg</span> <span class="na">value=</span><span class="s">&#34;-Xlint:deprecation&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/javac&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/target&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&#34;unjarLib&#34;</span> <span class="na">depends=</span><span class="s">&#34;init&#34;</span> <span class="na">description=</span><span class="s">&#34;解压第三方jar包，以便于重新打包入程序jar包中&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;unjar</span> <span class="na">dest=</span><span class="s">&#34;${binDir}&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;fileset</span> <span class="na">dir=</span><span class="s">&#34;${libDir}&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;include</span> <span class="na">name=</span><span class="s">&#34;**/*.jar&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/fileset&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;patternset&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;exclude</span> <span class="na">name=</span><span class="s">&#34;META-INF&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;exclude</span> <span class="na">name=</span><span class="s">&#34;META-INF/MANIFEST.MF&#34;</span><span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/patternset&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/unjar&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/target&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&#34;makeJar&#34;</span> <span class="na">depends=</span><span class="s">&#34;init,compile,unjarLib&#34;</span> <span class="na">description=</span><span class="s">&#34;生成jar包&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;jar</span> <span class="na">destfile=</span><span class="s">&#34;${jarFile}&#34;</span> <span class="na">basedir=</span><span class="s">&#34;${binDir}&#34;</span> <span class="na">excludes=</span><span class="s">&#34;**/Thumbs.db&#34;</span> <span class="na">description=</span><span class="s">&#34;打包为jar文件，并排除Thumbs.db文件&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;manifest&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;attribute</span> <span class="na">name=</span><span class="s">&#34;Main-Class&#34;</span> <span class="na">value=</span><span class="s">&#34;${package}.${mainClass}&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/manifest&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/jar&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/target&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&#34;build&#34;</span> <span class="na">depends=</span><span class="s">&#34;init,compile,makeJar&#34;</span> <span class="na">description=</span><span class="s">&#34;编译并打包&#34;</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;echo</span> <span class="na">message=</span><span class="s">&#34;Ant is building the project.&#34;</span> <span class="nt">/&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/target&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/project&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
 </item><item>
     <title>linux 网络测速</title>
     <link>http://www.jobcher.com/bench/</link>
     <pubDate>Tue, 22 Feb 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/bench/</guid>
-    <description><![CDATA[linux 网络测速 一键测试脚本bench.sh 适用于各种 Linux 发行版的网络（下行）和 IO 测试： 显示当前测试的各种系统信息 取自世界多处的知名数据中心的测试点]]></description>
+    <description><![CDATA[<h1 id="linux-网络测速">linux 网络测速</h1>
+<h2 id="一键测试脚本benchsh">一键测试脚本<code>bench.sh</code></h2>
+<p>适用于各种 Linux 发行版的网络（下行）和 IO 测试：</p>
+<ol>
+<li>显示当前测试的各种系统信息</li>
+<li>取自世界多处的知名数据中心的测试点，下载测试比较全面</li>
+<li>支持 IPv6 下载测速</li>
+<li>IO 测试三次，并显示平均值</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">wget -qO- bench.sh <span class="p">|</span> bash
+</span></span><span class="line"><span class="cl"><span class="c1">#或者下面这命令下载执行</span>
+</span></span><span class="line"><span class="cl">curl -Lso- bench.sh <span class="p">|</span> bash
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
 </item><item>
     <title>获取用户浏览器默认语言设置，自动判断跳转不同网站</title>
     <link>http://www.jobcher.com/auto/</link>
     <pubDate>Thu, 16 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/auto/</guid>
-    <description><![CDATA[自动判断跳转不同网站 根据用户目前的浏览器配置语言进行显示 供语言切换按钮，用户自定义选择不同的语言显示 根据识别用户的浏览器语言，自动判断并跳转]]></description>
+    <description><![CDATA[<h1 id="自动判断跳转不同网站">自动判断跳转不同网站</h1>
+<ol>
+<li>根据用户目前的浏览器配置语言进行显示</li>
+<li>供语言切换按钮，用户自定义选择不同的语言显示</li>
+</ol>
+<p>根据识别用户的浏览器语言，自动判断并跳转到相应的语言网页，让你的网站更加灵动。<br>
+以下需要将代码放在 HTML 的内即可，然后自行制作多语言页面。<br>
+代码如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//获取用户语言的顺序是
+</span></span></span><span class="line"><span class="cl"><span class="c1">//1.获取本地缓存里的内容
+</span></span></span><span class="line"><span class="cl"><span class="c1">//2.用户浏览器的语言设置
+</span></span></span><span class="line"><span class="cl"><span class="c1">//如果上面2个都没有获取到，就直接使用&#39;en&#39;作为用户选择的语言
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">language</span> <span class="o">=</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;locale&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="nb">window</span><span class="p">.</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">language</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span> <span class="o">||</span> <span class="s1">&#39;en&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//把用户的语言写入缓存，供下次获取使用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">&#39;locale&#39;</span><span class="p">,</span> <span class="nx">language</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">//判断用户的语言，跳转到不同的地方
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="nx">language</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&#34;zh-&#34;</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s1">&#39;/zh-cn/index.html&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">language</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;en&#39;</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s1">&#39;/en/index.html&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//其它的都使用英文
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s1">&#39;/en/index.html&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>核心代码<br>
+其实核心代码就是利用 navigator 的 language 属性</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">navigator.language
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="第二种解决方案">第二种解决方案</h2>
+<p>可以通过获取用户的 IP，然后把 IP 放到 IP 库里查询所在地，从而加载对应的资源，这样的方案回更加准确！有的第三方会直接返回所在国家的编码，比如 cn / en 等就更好了</p>
+<p>但是这样的方案也有一个弊端：如果用户通过科学上网，全局模式下，会被认为属于美国 / 日本等等（看梯子的 IP 而定了），那么会导致访问非常慢；但是这种偏差，很多翻墙的人都是了解的，没人会故意用美国的 IP 访问国内的淘宝 / 百度等网站的，除非是忘记切换回来了；</p>
+<p>IP 判断<br>
+市场上有很多 IP 判断的，拿 IP 倒是非常好做的一件事；比如我现在可以拿到用户访问本网站时候的 IP；</p>
+]]></description>
 </item></channel>
 </rss>

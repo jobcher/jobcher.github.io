@@ -10,6 +10,88 @@
     <pubDate>Tue, 19 Jul 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/logstash/</guid>
-    <description><![CDATA[logstash 多管道部署 找到logstash 目录位置，一般来说在 /etc/logstash 路径下,修改 logstash.yml 1 2 #增加 日志记录 path.logs: /var/log/logstash 增加管道 增加 conf.d目录下 test.conf 1 2 3 4 5 6 7 8 9]]></description>
+    <description><![CDATA[<h1 id="logstash-多管道部署">logstash 多管道部署</h1>
+<p>找到logstash 目录位置，一般来说在 <code>/etc/logstash</code> 路径下,修改 <code>logstash.yml</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c">#增加 日志记录</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">path.logs</span><span class="p">:</span><span class="w"> </span><span class="l">/var/log/logstash</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="增加管道">增加管道</h2>
+<p>增加 <code>conf.d</code>目录下 test.conf</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">input {
+</span></span><span class="line"><span class="cl">    beats {
+</span></span><span class="line"><span class="cl">        host =&gt; &#34;0.0.0.0&#34;
+</span></span><span class="line"><span class="cl">        port =&gt; 23000 # 修改端口IP
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">filter {
+</span></span><span class="line"><span class="cl">    mutate{
+</span></span><span class="line"><span class="cl">        add_field =&gt; {
+</span></span><span class="line"><span class="cl">            &#34;cluster&#34; =&gt; &#34;test&#34; # 修改标签
+</span></span><span class="line"><span class="cl">            &#34;job&#34; =&gt; &#34;logstash&#34;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">output {
+</span></span><span class="line"><span class="cl">        file {
+</span></span><span class="line"><span class="cl">            path =&gt; &#34;/data/路径名称&#34; # 路径名称
+</span></span><span class="line"><span class="cl">            gzip =&gt; false  #匹配以空格开头的行
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>修改 <code>pipelines.yml</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl">- <span class="nt">pipeline.id</span><span class="p">:</span><span class="w"> </span><span class="l">名称</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">path.config</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;/etc/logstash/conf.d/配置文件.conf&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">queue.type</span><span class="p">:</span><span class="w"> </span><span class="l">persisted</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="启动logstash文件">启动logstash文件</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">/usr/share/logstash/bin/logstash <span class="p">&amp;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
 </item></channel>
 </rss>

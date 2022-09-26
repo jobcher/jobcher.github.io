@@ -10,20 +10,212 @@
     <pubDate>Sun, 20 Mar 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/shell1/</guid>
-    <description><![CDATA[shell脚本之变量 变量替换 语法 说明 ${变量名#匹配规则} 从变量开头进行规则匹配，将符合最短的数据删除 ${变量名##匹配规则} 从变量开头进行]]></description>
+    <description><![CDATA[<h1 id="shell脚本之变量">shell脚本之<code>变量</code></h1>
+<h2 id="变量替换">变量替换</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">语法</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">${变量名#匹配规则}</td>
+<td style="text-align:left">从变量<code>开头</code>进行规则匹配，将符合最<code>短</code>的数据删除</td>
+</tr>
+<tr>
+<td style="text-align:left">${变量名##匹配规则}</td>
+<td style="text-align:left">从变量<code>开头</code>进行规则匹配，将符合最<code>长</code>的数据删除</td>
+</tr>
+<tr>
+<td style="text-align:left">${变量名%匹配规则}</td>
+<td style="text-align:left">从变量<code>尾部</code>进行规则匹配，将符合最<code>短</code>的数据删除</td>
+</tr>
+<tr>
+<td style="text-align:left">${变量名%%匹配规则}</td>
+<td style="text-align:left">从变量<code>尾部</code>进行规则匹配，将符合最<code>长</code>的数据删除</td>
+</tr>
+<tr>
+<td style="text-align:left">${变量名/旧字符串/新字符串}</td>
+<td style="text-align:left">变量内容符合旧字符串则，则<code>第一个</code>旧字符串会被新字符串取代</td>
+</tr>
+<tr>
+<td style="text-align:left">${变量名//旧字符串/新字符串}</td>
+<td style="text-align:left">变量内容符合旧字符串则，则<code>全部的</code>旧字符串会被新字符串取代</td>
+</tr>
+</tbody>
+</table>
+<h2 id="字符串处理">字符串处理</h2>
+<ol>
+<li>计算字符串长度</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">-</th>
+<th style="text-align:left">语法</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">方法一</td>
+<td style="text-align:left">${#string}</td>
+<td style="text-align:left">无</td>
+</tr>
+<tr>
+<td style="text-align:left">方法二</td>
+<td style="text-align:left">expr length &ldquo;$string&rdquo;</td>
+<td style="text-align:left">string有空格，则必须加双引号</td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>
+<p>获取子串在字符串中的索引位置<br>
+语法： expr index $string $substring</p>
+</li>
+<li>
+<p>计算子串长度<br>
+语法： expr match $string substr</p>
+</li>
+<li>
+<p>抽取子串</p>
+</li>
+</ol>
+<ul>
+<li>${string:position} ：从string中的position开始</li>
+<li>${string:position:length}：从position开始，匹配长度为length</li>
+<li>${string:-position}：从右边开始匹配</li>
+<li>${string:(position)}：从左边开始匹配</li>
+<li>expr substr $string $position $length：从position开始，匹配长度为length</li>
+</ul>
+]]></description>
 </item><item>
     <title>Maven 安装编译</title>
     <link>http://www.jobcher.com/maven/</link>
     <pubDate>Thu, 03 Mar 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/maven/</guid>
-    <description><![CDATA[Maven 安装编译 Maven就是专门为Java项目打造的管理和构建工具，它的主要功能有： 提供了一套标准化的项目结构； 提供了一套标准化的构建流程（编译]]></description>
+    <description><![CDATA[<h1 id="maven-安装编译">Maven 安装编译</h1>
+<p>Maven就是专门为Java项目打造的管理和构建工具，它的主要功能有：</p>
+<ul>
+<li>提供了一套标准化的项目结构；</li>
+<li>提供了一套标准化的构建流程（编译，测试，打包，发布……）；</li>
+<li>提供了一套依赖管理机制。</li>
+</ul>
+<p>默认结构：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">a-maven-project
+</span></span><span class="line"><span class="cl">├── pom.xml
+</span></span><span class="line"><span class="cl">├── src
+</span></span><span class="line"><span class="cl">│   ├── main
+</span></span><span class="line"><span class="cl">│   │   ├── java
+</span></span><span class="line"><span class="cl">│   │   └── resources
+</span></span><span class="line"><span class="cl">│   └── <span class="nb">test</span>
+</span></span><span class="line"><span class="cl">│       ├── java
+</span></span><span class="line"><span class="cl">│       └── resources
+</span></span><span class="line"><span class="cl">└── target
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>项目的根目录<code>a-maven-project</code>是项目名，<br>
+它有一个<code>项目描述</code>文件<code>pom.xml</code>，<br>
+存放<code>Java源码</code>的目录是<code>src/main/java</code>，<br>
+存放<code>资源文件</code>的目录是<code>src/main/resources</code>，<br>
+存放<code>测试源码</code>的目录是<code>src/test/java</code>，<br>
+存放<code>测试资源</code>的目录是<code>src/test/resources</code>，<br>
+最后，所有编译、<code>打包生成的文件</code>都放在<code>target</code>目录里。<br>
+这些就是一个Maven项目的标准目录结构。</p>
+<p>pom.xml文件:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;project</span> <span class="err">...</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;groupId&gt;</span>com.itranswarp.learnjava<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;artifactId&gt;</span>hello<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">        ...
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;dependencies&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;groupId&gt;</span>commons-logging<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>commons-logging<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;version&gt;</span>1.2<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;/dependencies&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/project&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>groupId</code>类似于Java的包名，通常是公司或组织名称，<br>
+<code>artifactId</code>类似于Java的类名，通常是项目名称，<br>
+<code>version</code>，一个Maven工程就是由<code>groupId，artifactId和version</code>作为唯一标识。<br>
+我们在引用其他第三方库的时候，也是通过这3个变量确定。</p>
+<p>依赖<code>commons-logging</code>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>commons-logging<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>commons-logging<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;version&gt;</span>1.2<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>使用<code>&lt;dependency&gt;</code>声明一个依赖后，Maven就会自动下载这个依赖包并把它放到<code>classpath</code>中。</p>
+<h2 id="安装maven">安装Maven</h2>
+]]></description>
 </item><item>
     <title>Nodejs 安装编译</title>
     <link>http://www.jobcher.com/nodejs/</link>
     <pubDate>Thu, 03 Mar 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/nodejs/</guid>
-    <description><![CDATA[Nodejs 安装编译 Node.js平台是在后端运行JavaScript代码，必须首先在本机安装Node环境。 安装Node.js 安装npm npm其实是N]]></description>
+    <description><![CDATA[<h1 id="nodejs-安装编译">Nodejs 安装编译</h1>
+<p>Node.js平台是在后端运行JavaScript代码，必须首先在本机安装Node环境。</p>
+<h2 id="安装nodejs">安装Node.js</h2>
+<h2 id="安装npm">安装npm</h2>
+<p>npm其实是Node.js的包管理工具（package manager）。</p>
+]]></description>
 </item></channel>
 </rss>

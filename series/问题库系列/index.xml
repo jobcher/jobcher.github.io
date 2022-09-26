@@ -10,62 +10,646 @@
     <pubDate>Fri, 23 Sep 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/k8s-error2/</guid>
-    <description><![CDATA[k8s CNI 问题 连接认证失效 删除 calico 换成 flannel 后，容器没有正常启动 network: error getting ClusterInformation: connection is unauthorized: Unauthorized] 解决问题 删除掉 /etc/cni/net.d/ 目录下的 calico 配置文件即可。 要删除所有节点的配置文件 1 sudo rm -rf]]></description>
+    <description><![CDATA[<h1 id="k8s-cni-问题-连接认证失效">k8s CNI 问题 连接认证失效</h1>
+<p>删除 <code>calico</code> 换成 <code>flannel</code> 后，容器没有正常启动<br>
+network: error getting ClusterInformation: connection is unauthorized: Unauthorized]</p>
+<h2 id="解决问题">解决问题</h2>
+<p>删除掉 <code>/etc/cni/net.d/</code> 目录下的 calico 配置文件即可。<br>
+要删除<code>所有节点</code>的配置文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo rm -rf /etc/cni/net.d/*calico*
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="不要重复网络插件">不要重复网络插件</h2>
+<p></p>
+]]></description>
 </item><item>
     <title>k8s.gcr.io国内无法连接解决方法</title>
     <link>http://www.jobcher.com/k8s-error3/</link>
     <pubDate>Thu, 22 Sep 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/k8s-error3/</guid>
-    <description><![CDATA[k8s.gcr.io国内无法连接解决方法 Get https://k8s.gcr.io/v2/: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers) 这个一看知道什么原因了，应该GFW！那好吧，只能给docker加个代理了]]></description>
+    <description><![CDATA[<h1 id="k8sgcrio国内无法连接解决方法">k8s.gcr.io国内无法连接解决方法</h1>
+<p>Get <a href="https://k8s.gcr.io/v2/" target="_blank" rel="noopener noreffer">https://k8s.gcr.io/v2/</a>: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)<br>
+这个一看知道什么原因了，应该GFW！那好吧，只能给docker加个代理了。</p>
+<h2 id="解决问题">解决问题</h2>
+<p>添加mirror站点</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">registry.cn-hangzhou.aliyuncs.com/google_containers
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
 </item><item>
     <title>K8S 问题排查：cgroup 内存泄露问题</title>
     <link>http://www.jobcher.com/k8s-error/</link>
     <pubDate>Tue, 30 Aug 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/k8s-error/</guid>
-    <description><![CDATA[K8S 问题排查：cgroup 内存泄露问题 1 unable to ensure pod container exists: failed to create container for [kubepods besteffort pod5f26dae8-0421-4eab-a3f7-aa51c6848e2b] : mkdir /sys/fs/cgroup/memory/kubepods/besteffort/pod5f26dae8-0421-4eab-a3f7-aa51c6848e2b: cannot allocate memory 查看linux内核 1 2 cat /proc/version uname -a 可以发现 linux版本是3.0版]]></description>
+    <description><![CDATA[<h1 id="k8s-问题排查cgroup-内存泄露问题">K8S 问题排查：cgroup 内存泄露问题</h1>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">unable to ensure pod container exists: failed to create container for [kubepods besteffort pod5f26dae8-0421-4eab-a3f7-aa51c6848e2b] : mkdir /sys/fs/cgroup/memory/kubepods/besteffort/pod5f26dae8-0421-4eab-a3f7-aa51c6848e2b: cannot allocate memory
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="查看linux内核">查看linux内核</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cat /proc/version
+</span></span><span class="line"><span class="cl">uname -a
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以发现 linux版本是3.0版本</p>
+<h2 id="原因">原因</h2>
+<blockquote>
+<p><code>cgroup</code> 的 <code>kmem account</code> 特性在 <code>Linux 3.x</code> 内核上有内存泄露问题，然后<code>k8s</code>用了这个特性，导致后面创建不出新的<code>pod</code>来了</p>
+</blockquote>
+<h2 id="解决方法">解决方法</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 修改/etc/default/grub 为</span>
+</span></span><span class="line"><span class="cl"><span class="nv">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s2">&#34;crashkernel=auto rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb quiet cgroup.memory=nokmem&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#加上了 cgroup.memory=nokmem</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 生成配置</span>
+</span></span><span class="line"><span class="cl">/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 重启机器</span>
+</span></span><span class="line"><span class="cl">reboot
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="验证">验证</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cat /sys/fs/cgroup/memory/kubepods/burstable/pod*/*/memory.kmem.slabinfo
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>输出信息</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod0fe273ca-42e0-4223-9fe8-16d8dd1774e9/0fdd5d9c16929fd600dbdf313b5c3ebabad912dc0cb076ed6e7799e028b31481/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod0fe273ca-42e0-4223-9fe8-16d8dd1774e9/aa30198d0c5413b70bf488c9daa350a85c7fc6b677235c5adaf2dde6caf95ec4/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod5be86c5d-d012-4cc2-b693-4882a15eda90/059b26b00f4f286b0f52e759b83dad79c7676e1705ee0f3f175a277fd1e5ea5a/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod5be86c5d-d012-4cc2-b693-4882a15eda90/bfa9db0c23fd056a0c05ee5b2b377dd551451cc0f18ddd5db82f9693674a4677/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod8f588e3d-fe89-4716-ab36-3ef606c70367/6fab9f4f7a83bf4c79a68277b214807bd566a8f13212a0fdb5742e4eee4d75d5/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod8f588e3d-fe89-4716-ab36-3ef606c70367/b04594732f7e38a47500ffe1150705110cfa683b585aa7eaf0965cc48ba2a46d/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod9c449bdf-492b-4adc-a623-4ced323ac6d4/c9e73e56ddae0c6c301e43852a51165419eb293b05fa65407f8cb3fe449daf5d/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod9c449bdf-492b-4adc-a623-4ced323ac6d4/d7392b1e4be1728fd739dc7117e6efc723a4727f143b91a1b386ad35dc1d3a2e/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/podd316acd7-69fe-4ad5-963a-6e19174b7cb0/0ec18ac0509e6ab454ebe637bde002330afc9eb70eff6f23fe8caa12880e82f6/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/podd316acd7-69fe-4ad5-963a-6e19174b7cb0/dc5be82c01802c349c9505375c37dc054898b9b84e57cb4e671044e8a6459aac/memory.kmem.slabinfo: 输入/输出错误
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
 </item><item>
     <title>docker 问题处理</title>
     <link>http://www.jobcher.com/docker-error/</link>
     <pubDate>Thu, 04 Aug 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/docker-error/</guid>
-    <description><![CDATA[docker 无法启动 打开服务器输入docker ps,输出错误 Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running? 怀疑是不是docker.services 部署没成功，system]]></description>
+    <description><![CDATA[<h3 id="docker-无法启动">docker 无法启动</h3>
+<p>打开服务器输入<code>docker ps</code>,输出错误<br>
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?</p>
+<p>怀疑是不是<code>docker.services</code> 部署没成功，<code>systemctl start docker</code> 启动docker，结果服务器还是报错</p>
+<p>Job for docker.service failed because the control process exited with error code.<br>
+See &ldquo;systemctl status docker.service&rdquo; and &ldquo;journalctl -xe&rdquo; for details.</p>
+<p><code>systemctl status docker.service</code> 输出日志：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">● docker.service - Docker Application Container Engine
+</span></span><span class="line"><span class="cl">     Loaded: loaded <span class="o">(</span>/lib/systemd/system/docker.service<span class="p">;</span> enabled<span class="p">;</span> vendor preset: enabled<span class="o">)</span>
+</span></span><span class="line"><span class="cl">     Active: failed <span class="o">(</span>Result: exit-code<span class="o">)</span> since Thu 2022-08-04 11:43:05 CST<span class="p">;</span> 2min 57s ago
+</span></span><span class="line"><span class="cl">TriggeredBy: ● docker.socket
+</span></span><span class="line"><span class="cl">       Docs: https://docs.docker.com
+</span></span><span class="line"><span class="cl">    Process: <span class="m">30432</span> <span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/dockerd -H fd:// --containerd<span class="o">=</span>/run/containerd/containerd.sock <span class="o">(</span><span class="nv">code</span><span class="o">=</span>exited, <span class="nv">status</span><span class="o">=</span>1/FAILURE<span class="o">)</span>
+</span></span><span class="line"><span class="cl">   Main PID: <span class="m">30432</span> <span class="o">(</span><span class="nv">code</span><span class="o">=</span>exited, <span class="nv">status</span><span class="o">=</span>1/FAILURE<span class="o">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Aug <span class="m">04</span> 11:43:05 master01 systemd<span class="o">[</span>1<span class="o">]</span>: docker.service: Scheduled restart job, restart counter is at 3.
+</span></span><span class="line"><span class="cl">Aug <span class="m">04</span> 11:43:05 master01 systemd<span class="o">[</span>1<span class="o">]</span>: Stopped Docker Application Container Engine.
+</span></span><span class="line"><span class="cl">Aug <span class="m">04</span> 11:43:05 master01 systemd<span class="o">[</span>1<span class="o">]</span>: docker.service: Start request repeated too quickly.
+</span></span><span class="line"><span class="cl">Aug <span class="m">04</span> 11:43:05 master01 systemd<span class="o">[</span>1<span class="o">]</span>: docker.service: Failed with result <span class="s1">&#39;exit-code&#39;</span>.
+</span></span><span class="line"><span class="cl">Aug <span class="m">04</span> 11:43:05 master01 systemd<span class="o">[</span>1<span class="o">]</span>: Failed to start Docker Application Container Engine.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>journalctl -xe</code> 输出日志：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 systemd<span class="o">[</span>1<span class="o">]</span>: Starting Docker Socket <span class="k">for</span> the API.
+</span></span><span class="line"><span class="cl">-- Subject: A start job <span class="k">for</span> unit docker.socket has begun execution
+</span></span><span class="line"><span class="cl">-- Defined-By: systemd
+</span></span><span class="line"><span class="cl">-- Support: http://www.ubuntu.com/support
+</span></span><span class="line"><span class="cl">-- 
+</span></span><span class="line"><span class="cl">-- A start job <span class="k">for</span> unit docker.socket has begun execution.
+</span></span><span class="line"><span class="cl">-- 
+</span></span><span class="line"><span class="cl">-- The job identifier is 58900.
+</span></span><span class="line"><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 systemd<span class="o">[</span>1<span class="o">]</span>: Listening on Docker Socket <span class="k">for</span> the API.
+</span></span><span class="line"><span class="cl">-- Subject: A start job <span class="k">for</span> unit docker.socket has finished successfully
+</span></span><span class="line"><span class="cl">-- Defined-By: systemd
+</span></span><span class="line"><span class="cl">-- Support: http://www.ubuntu.com/support
+</span></span><span class="line"><span class="cl">-- 
+</span></span><span class="line"><span class="cl">-- A start job <span class="k">for</span> unit docker.socket has finished successfully.
+</span></span><span class="line"><span class="cl">-- 
+</span></span><span class="line"><span class="cl">-- The job identifier is 58900.
+</span></span><span class="line"><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 systemd<span class="o">[</span>1<span class="o">]</span>: Starting Docker Application Container Engine...
+</span></span><span class="line"><span class="cl">-- Subject: A start job <span class="k">for</span> unit docker.service has begun execution
+</span></span><span class="line"><span class="cl">-- Defined-By: systemd
+</span></span><span class="line"><span class="cl">-- Support: http://www.ubuntu.com/support
+</span></span><span class="line"><span class="cl">-- 
+</span></span><span class="line"><span class="cl">-- A start job <span class="k">for</span> unit docker.service has begun execution.
+</span></span><span class="line"><span class="cl">-- 
+</span></span><span class="line"><span class="cl">-- The job identifier is 58830.
+</span></span><span class="line"><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 dockerd<span class="o">[</span>30544<span class="o">]</span>: unable to configure the Docker daemon with file /etc/docker/daemon.json: EOF
+</span></span><span class="line"><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 systemd<span class="o">[</span>1<span class="o">]</span>: docker.service: Main process exited, <span class="nv">code</span><span class="o">=</span>exited, <span class="nv">status</span><span class="o">=</span>1/FAILURE
+</span></span><span class="line"><span class="cl">-- Subject: Unit process exited
+</span></span><span class="line"><span class="cl">-- Defined-By: systemd
+</span></span><span class="line"><span class="cl">-- Support: http://www.ubuntu.com/support
+</span></span><span class="line"><span class="cl">-- 
+</span></span><span class="line"><span class="cl">-- An <span class="nv">ExecStart</span><span class="o">=</span> process belonging to unit docker.service has exited.
+</span></span><span class="line"><span class="cl">-- 
+</span></span><span class="line"><span class="cl">-- The process<span class="s1">&#39; exit code is &#39;</span>exited<span class="s1">&#39; and its exit status is 1.
+</span></span></span><span class="line"><span class="cl"><span class="s1">Aug 04 11:46:49 master01 systemd[1]: docker.service: Failed with result &#39;</span>exit-code<span class="s1">&#39;.
+</span></span></span><span class="line"><span class="cl"><span class="s1">-- Subject: Unit failed
+</span></span></span><span class="line"><span class="cl"><span class="s1">-- Defined-By: systemd
+</span></span></span><span class="line"><span class="cl"><span class="s1">-- Support: http://www.ubuntu.com/support
+</span></span></span><span class="line"><span class="cl"><span class="s1">-- 
+</span></span></span><span class="line"><span class="cl"><span class="s1">-- The unit docker.service has entered the &#39;</span>failed<span class="s1">&#39; state with result &#39;</span>exit-code<span class="err">&#39;</span>.
+</span></span><span class="line"><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 systemd<span class="o">[</span>1<span class="o">]</span>: Failed to start Docker Application Container Engine.
+</span></span><span class="line"><span class="cl">-- Subject: A start job <span class="k">for</span> unit docker.service has failed
+</span></span><span class="line"><span class="cl">-- Defined-By: systemd
+</span></span><span class="line"><span class="cl">-- Support: http://www.ubuntu.com/support
+</span></span><span class="line"><span class="cl">-- 
+</span></span><span class="line"><span class="cl">-- A start job <span class="k">for</span> unit docker.service has finished with a failure.
+</span></span><span class="line"><span class="cl">-- 
+</span></span><span class="line"><span class="cl">-- The job identifier is <span class="m">58830</span> and the job result is failed.
+</span></span><span class="line"><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 sudo<span class="o">[</span>30535<span class="o">]</span>: pam_unix<span class="o">(</span>sudo:session<span class="o">)</span>: session closed <span class="k">for</span> user root
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>我运行了:</p>
+<blockquote>
+<p>sudo dockerd &ndash;debug</p>
+</blockquote>
+<p>输出日志：<br>
+unable to configure the Docker daemon with file /etc/docker/daemon.json: EOF</p>
+<ul>
+<li>解决方法：</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1">#如果 /etc/docker/daemon.json 为空</span>
+</span></span><span class="line"><span class="cl">vim /etc/docker/daemon.json
+</span></span><span class="line"><span class="cl"><span class="c1"># 添加</span>
+</span></span><span class="line"><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#保存退出</span>
+</span></span><span class="line"><span class="cl">:wq
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>重启docker</p>
+<blockquote>
+<p>systemctl restart docker</p>
+</blockquote>
+]]></description>
 </item><item>
     <title>shell 脚本（1）</title>
     <link>http://www.jobcher.com/shell1/</link>
     <pubDate>Sun, 20 Mar 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/shell1/</guid>
-    <description><![CDATA[shell脚本之变量 变量替换 语法 说明 ${变量名#匹配规则} 从变量开头进行规则匹配，将符合最短的数据删除 ${变量名##匹配规则} 从变量开头进行]]></description>
+    <description><![CDATA[<h1 id="shell脚本之变量">shell脚本之<code>变量</code></h1>
+<h2 id="变量替换">变量替换</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">语法</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">${变量名#匹配规则}</td>
+<td style="text-align:left">从变量<code>开头</code>进行规则匹配，将符合最<code>短</code>的数据删除</td>
+</tr>
+<tr>
+<td style="text-align:left">${变量名##匹配规则}</td>
+<td style="text-align:left">从变量<code>开头</code>进行规则匹配，将符合最<code>长</code>的数据删除</td>
+</tr>
+<tr>
+<td style="text-align:left">${变量名%匹配规则}</td>
+<td style="text-align:left">从变量<code>尾部</code>进行规则匹配，将符合最<code>短</code>的数据删除</td>
+</tr>
+<tr>
+<td style="text-align:left">${变量名%%匹配规则}</td>
+<td style="text-align:left">从变量<code>尾部</code>进行规则匹配，将符合最<code>长</code>的数据删除</td>
+</tr>
+<tr>
+<td style="text-align:left">${变量名/旧字符串/新字符串}</td>
+<td style="text-align:left">变量内容符合旧字符串则，则<code>第一个</code>旧字符串会被新字符串取代</td>
+</tr>
+<tr>
+<td style="text-align:left">${变量名//旧字符串/新字符串}</td>
+<td style="text-align:left">变量内容符合旧字符串则，则<code>全部的</code>旧字符串会被新字符串取代</td>
+</tr>
+</tbody>
+</table>
+<h2 id="字符串处理">字符串处理</h2>
+<ol>
+<li>计算字符串长度</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">-</th>
+<th style="text-align:left">语法</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">方法一</td>
+<td style="text-align:left">${#string}</td>
+<td style="text-align:left">无</td>
+</tr>
+<tr>
+<td style="text-align:left">方法二</td>
+<td style="text-align:left">expr length &ldquo;$string&rdquo;</td>
+<td style="text-align:left">string有空格，则必须加双引号</td>
+</tr>
+</tbody>
+</table>
+<ol start="2">
+<li>
+<p>获取子串在字符串中的索引位置<br>
+语法： expr index $string $substring</p>
+</li>
+<li>
+<p>计算子串长度<br>
+语法： expr match $string substr</p>
+</li>
+<li>
+<p>抽取子串</p>
+</li>
+</ol>
+<ul>
+<li>${string:position} ：从string中的position开始</li>
+<li>${string:position:length}：从position开始，匹配长度为length</li>
+<li>${string:-position}：从右边开始匹配</li>
+<li>${string:(position)}：从左边开始匹配</li>
+<li>expr substr $string $position $length：从position开始，匹配长度为length</li>
+</ul>
+]]></description>
 </item><item>
     <title>Maven 安装编译</title>
     <link>http://www.jobcher.com/maven/</link>
     <pubDate>Thu, 03 Mar 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/maven/</guid>
-    <description><![CDATA[Maven 安装编译 Maven就是专门为Java项目打造的管理和构建工具，它的主要功能有： 提供了一套标准化的项目结构； 提供了一套标准化的构建流程（编译]]></description>
+    <description><![CDATA[<h1 id="maven-安装编译">Maven 安装编译</h1>
+<p>Maven就是专门为Java项目打造的管理和构建工具，它的主要功能有：</p>
+<ul>
+<li>提供了一套标准化的项目结构；</li>
+<li>提供了一套标准化的构建流程（编译，测试，打包，发布……）；</li>
+<li>提供了一套依赖管理机制。</li>
+</ul>
+<p>默认结构：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">a-maven-project
+</span></span><span class="line"><span class="cl">├── pom.xml
+</span></span><span class="line"><span class="cl">├── src
+</span></span><span class="line"><span class="cl">│   ├── main
+</span></span><span class="line"><span class="cl">│   │   ├── java
+</span></span><span class="line"><span class="cl">│   │   └── resources
+</span></span><span class="line"><span class="cl">│   └── <span class="nb">test</span>
+</span></span><span class="line"><span class="cl">│       ├── java
+</span></span><span class="line"><span class="cl">│       └── resources
+</span></span><span class="line"><span class="cl">└── target
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>项目的根目录<code>a-maven-project</code>是项目名，<br>
+它有一个<code>项目描述</code>文件<code>pom.xml</code>，<br>
+存放<code>Java源码</code>的目录是<code>src/main/java</code>，<br>
+存放<code>资源文件</code>的目录是<code>src/main/resources</code>，<br>
+存放<code>测试源码</code>的目录是<code>src/test/java</code>，<br>
+存放<code>测试资源</code>的目录是<code>src/test/resources</code>，<br>
+最后，所有编译、<code>打包生成的文件</code>都放在<code>target</code>目录里。<br>
+这些就是一个Maven项目的标准目录结构。</p>
+<p>pom.xml文件:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;project</span> <span class="err">...</span><span class="nt">&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;groupId&gt;</span>com.itranswarp.learnjava<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;artifactId&gt;</span>hello<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;properties&gt;</span>
+</span></span><span class="line"><span class="cl">        ...
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;/properties&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;dependencies&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;groupId&gt;</span>commons-logging<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>commons-logging<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">            <span class="nt">&lt;version&gt;</span>1.2<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>
+</span></span><span class="line"><span class="cl">	<span class="nt">&lt;/dependencies&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/project&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><code>groupId</code>类似于Java的包名，通常是公司或组织名称，<br>
+<code>artifactId</code>类似于Java的类名，通常是项目名称，<br>
+<code>version</code>，一个Maven工程就是由<code>groupId，artifactId和version</code>作为唯一标识。<br>
+我们在引用其他第三方库的时候，也是通过这3个变量确定。</p>
+<p>依赖<code>commons-logging</code>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>commons-logging<span class="nt">&lt;/groupId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>commons-logging<span class="nt">&lt;/artifactId&gt;</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&lt;version&gt;</span>1.2<span class="nt">&lt;/version&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>使用<code>&lt;dependency&gt;</code>声明一个依赖后，Maven就会自动下载这个依赖包并把它放到<code>classpath</code>中。</p>
+<h2 id="安装maven">安装Maven</h2>
+]]></description>
 </item><item>
     <title>Nodejs 安装编译</title>
     <link>http://www.jobcher.com/nodejs/</link>
     <pubDate>Thu, 03 Mar 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/nodejs/</guid>
-    <description><![CDATA[Nodejs 安装编译 Node.js平台是在后端运行JavaScript代码，必须首先在本机安装Node环境。 安装Node.js 安装npm npm其实是N]]></description>
+    <description><![CDATA[<h1 id="nodejs-安装编译">Nodejs 安装编译</h1>
+<p>Node.js平台是在后端运行JavaScript代码，必须首先在本机安装Node环境。</p>
+<h2 id="安装nodejs">安装Node.js</h2>
+<h2 id="安装npm">安装npm</h2>
+<p>npm其实是Node.js的包管理工具（package manager）。</p>
+]]></description>
 </item><item>
     <title>ProXmoX VE升级 apt-get update 报错</title>
     <link>http://www.jobcher.com/pveupdate/</link>
     <pubDate>Sun, 30 Jan 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/pveupdate/</guid>
-    <description><![CDATA[ProXmoX VE升级 apt-get update 报错 解决方法 1 2 3 vim /etc/apt/sources.list.d/pve-enterprise.list #注释掉 #deb https://enterprise.proxmox.com/debian/pve stretch pve-enterprise 添加内容 1 2 echo &#34;deb http://download.proxmox.com/debian/pve stretch pve-no-subscription&#34; &gt; /etc/apt/sources.list.d/pve-install-repo.list wget http://download.proxmox.com/debian/proxmox-ve-release-5.x.gpg -O /etc/apt/trusted.gpg.d/proxmox-ve-release-5.x.gpg 更新系统 1 apt update &amp;&amp; apt dist-upgrade 结尾 升级完成后，可以执行pveve]]></description>
+    <description><![CDATA[<h1 id="proxmox-ve升级-apt-get-update-报错">ProXmoX VE升级 apt-get update 报错</h1>
+<h2 id="解决方法">解决方法</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">vim /etc/apt/sources.list.d/pve-enterprise.list
+</span></span><span class="line"><span class="cl"><span class="c1">#注释掉</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#deb https://enterprise.proxmox.com/debian/pve stretch pve-enterprise</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="添加内容">添加内容</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;deb http://download.proxmox.com/debian/pve stretch pve-no-subscription&#34;</span> &gt; /etc/apt/sources.list.d/pve-install-repo.list
+</span></span><span class="line"><span class="cl">wget http://download.proxmox.com/debian/proxmox-ve-release-5.x.gpg -O /etc/apt/trusted.gpg.d/proxmox-ve-release-5.x.gpg
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="更新系统">更新系统</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apt update <span class="o">&amp;&amp;</span> apt dist-upgrade
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="结尾">结尾</h2>
+<p>升级完成后，可以执行<code>pveversion -v</code>查看下最新的软件版本。然后执行<code>reboot</code>重启物理服务器</p>
+]]></description>
 </item><item>
     <title>安装 docker 出现 ERROR: Unsupported distribution &#39;ol&#39; 问题</title>
     <link>http://www.jobcher.com/error1/</link>
     <pubDate>Tue, 11 Jan 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/error1/</guid>
-    <description><![CDATA[安装 docker 出现 ERROR: Unsupported distribution &lsquo;ol&rsquo; 问题 部署docker 安装出现 ERROR: Unsupported distribution &lsquo;ol&rsquo; 确认是不是arm架构 1 uname -r 确认使用的是不是oracle服务器系统,如果是请继续操作，安]]></description>
+    <description><![CDATA[<h1 id="安装-docker-出现-error-unsupported-distribution-ol-问题">安装 docker 出现 ERROR: Unsupported distribution &lsquo;ol&rsquo; 问题</h1>
+<p>部署docker 安装出现 ERROR: Unsupported distribution &lsquo;ol&rsquo;</p>
+<ol>
+<li>确认是不是arm架构</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">uname -r
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>确认使用的是不是oracle服务器系统,如果是请继续操作，安装依赖：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">dnf install -y dnf-utils zip unzip
+</span></span><span class="line"><span class="cl">dnf config-manager --add-repo<span class="o">=</span>https://download.docker.com/linux/centos/docker-ce.repo
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>安装docker</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">dnf remove -y runc
+</span></span><span class="line"><span class="cl">dnf install -y docker-ce --nobest
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li>完成docker 安装并检查</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">systemctl <span class="nb">enable</span> docker.service
+</span></span><span class="line"><span class="cl">systemctl start docker.service
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1">#检查</span>
+</span></span><span class="line"><span class="cl">systemctl status docker.service
+</span></span><span class="line"><span class="cl">docker info 
+</span></span><span class="line"><span class="cl">docker version
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="结尾">结尾</h2>
+<p>该问题主要是oracle没有支持依赖导致的~oracle还是很不错的~</p>
+]]></description>
 </item></channel>
 </rss>

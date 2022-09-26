@@ -10,6 +10,171 @@
     <pubDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/skywalking/</guid>
-    <description><![CDATA[skywalking 基于OpenTracing规范，专门为微服务架构以及云原生服务。 APM 监控 一个基于微服务架构的电商系统 APM (Application Performance Management) 即应用性能管理，属于IT运维管理]]></description>
+    <description><![CDATA[<h1 id="skywalking">skywalking</h1>
+<p>基于OpenTracing规范，专门为微服务架构以及云原生服务。</p>
+<h2 id="apm-监控">APM 监控</h2>
+<p>一个基于微服务架构的电商系统<br>
+<br>
+<code>APM </code>(Application Performance Management) 即应用性能管理，属于IT运维管理（ITOM)范畴.<br>
+分为一下三个方面：</p>
+<ul>
+<li>Logging<br>
+服务在处理某个请求时打印的错误日志，可以将这些日志信息记录到<code>Elasticsearch</code>或是其他存储中。通过Kibana或是其他工具来分析这些日志了解服务的行为和状态，大多数情况下。日志记录的数据很分散，并且相互独立。例如错误日志，请求处理过程中关键步骤的日志等等。</li>
+<li>Metrics<br>
+<code>Metric</code>是可以聚合的，例如为电商系统中每个HTTP接口添加一个计数器，计算每个接口的QPS，可以通过简单的加和计算得到系统的总负载情况。</li>
+<li>Tracing<br>
+在微服务架构系统中一请求会经过很多服务处理，调用链路会非常长，要确定中间哪个服务出现异常是非常麻烦的事情，通过分布式链路追踪，运维人员就可以构建一个请求的视图。视图上战术了一个请求从进入系统开始到返回响应的整个流程。</li>
+</ul>
+<blockquote>
+<p><code>系统交互图</code><br>
+</p>
+</blockquote>
+<blockquote>
+<p><code>系统加载图</code>
+</p>
+</blockquote>
+<h2 id="目前流行的apm监控">目前流行的<code>APM监控</code></h2>
+<ul>
+<li>Zipkin
+<ul>
+<li>对web.xml 进行修改，代码侵入</li>
+<li>twitter开源</li>
+</ul>
+</li>
+<li>Cat
+<ul>
+<li>支持Java、C/C++、Node.Js、Python、go</li>
+<li>代码侵入，埋点</li>
+<li>美团开源</li>
+</ul>
+</li>
+<li>Pinpoint
+<ul>
+<li>基于字节码注入技术，代码无侵入</li>
+<li>韩国公司开发，社区交流滞后</li>
+<li>只支持hbase</li>
+<li>颗粒度更细</li>
+</ul>
+</li>
+<li>Skywalking<br>
+观测性分析平台
+<ul>
+<li>基于字节码注入技术，代码无侵入</li>
+<li>服务、服务实例、端点指标分析</li>
+<li>服务拓扑图分析</li>
+<li>服务、服务实例和端点（Endpont）SLA分析</li>
+<li>支持es，h2,mysql,TiDb,sharding-sphere</li>
+</ul>
+</li>
+</ul>
+<h1 id="skywalking-整体框架">skywalking 整体框架</h1>
+  
+<ul>
+<li>上部分 <code>Agent</code> ：负责从应用中，收集链路信息，发送给 SkyWalking OAP 服务器。目前支持 SkyWalking、Zikpin、Jaeger 等提供的 Tracing 数据信息。而我们目前采用的是，SkyWalking Agent 收集 SkyWalking Tracing 数据，传递给服务器。</li>
+<li>下部分 <code>SkyWalking OAP</code> ：负责接收 Agent 发送的 Tracing 数据信息，然后进行分析(Analysis Core) ，存储到外部存储器( Storage )，最终提供查询( Query )功能。</li>
+<li>右部分 <code>Storage</code> ：Tracing 数据存储。目前支持 ES、MySQL、Sharding Sphere、TiDB、H2 多种存储器。而我们目前采用的是 ES ，主要考虑是 SkyWalking 开发团队自己的生产环境采用 ES 为主。</li>
+<li>左部分 <code>SkyWalking UI</code> ：负责提供控台，查看链路等等。</li>
+</ul>
+<h2 id="skywalking-配置">skywalking 配置</h2>
+<h2 id="使用docker-compose安装">使用docker-compose安装</h2>
+<p>使用mysql作为存储<br>
+下载 <code>mysql-connector-java-8.0.30.jar</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mkdir ./libs/
+</span></span><span class="line"><span class="cl">mv mysql-connector-java-8.0.30.jar ./libs/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>创建带mysql驱动的基础镜像</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> apache/skywalking-oap-server:9.1.0</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">LABEL</span> <span class="nv">maintainer</span><span class="o">=</span><span class="s2">&#34;nb@nbtyfood.com&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> ./libs/* /skywalking/oap-libs<span class="err">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>上传dockerhub或者自己的镜像仓库，这里我是上传到自己的仓库</p>
+<ol>
+<li>创建镜像</li>
+</ol>
+<blockquote>
+<p>docker build -t skywalking-mysql-server:v1.0 .</p>
+</blockquote>
+<ol start="2">
+<li>打tag，选择上传位置</li>
+</ol>
+<blockquote>
+<p>docker tag skywalking-mysql-server:v1.0 &lt;仓库地址&gt;/blog/skywalking-mysql-server:v1.0</p>
+</blockquote>
+<ol start="3">
+<li>上传镜像</li>
+</ol>
+<blockquote>
+<p>docker push &lt;仓库地址&gt;/blog/skywalking-mysql-server:v1.0</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">skywalking-oap-server</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;hub.docker.com/jobcher/skywalking-mysql-server:v1.0&#34;</span><span class="w"> </span><span class="c">#docker iamge 地址</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;oap-server&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;always&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">SW_STORAGE=mysql</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">SW_JDBC_URL=&#34;jdbc:mysql://10.12.12.4:3306/sk&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">SW_DATA_SOURCE_USER=user</span><span class="w"> </span><span class="c"># mysql用户名</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">SW_DATA_SOURCE_PASSWORD=password</span><span class="w"> </span><span class="c"># mysql密码</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;10.12.12.16:12800:12800&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;10.12.12.16:1234:1234&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;10.12.12.16:11800:11800&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">skywalking-oap-ui</span><span class="p">:</span><span class="w"> </span><span class="c">#UI界面</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;apache/skywalking-ui:9.1.0&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;oap-ui&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;always&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">SW_OAP_ADDRESS=http://10.12.12.16:12800</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;8180:8080&#34;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
 </item></channel>
 </rss>

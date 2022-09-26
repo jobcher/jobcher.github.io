@@ -10,6 +10,74 @@
     <pubDate>Wed, 19 Jan 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/pve1/</guid>
-    <description><![CDATA[Proxmox VE 在线扩容磁盘分区 添加磁盘大小 在VM上做扩容操作 安装 growpart 1 2 yum install -y epel-release yum install -y cloud-utils 查看系统盘 路径 1 2 fdisk -l df -h 扩容设备并重启 1 2 growpart /dev/sda 2 #2代表是第二]]></description>
+    <description><![CDATA[<h1 id="proxmox-ve-在线扩容磁盘分区">Proxmox VE 在线扩容磁盘分区</h1>
+<h2 id="添加磁盘大小">添加磁盘大小</h2>
+<p></p>
+<h2 id="在vm上做扩容操作">在VM上做扩容操作</h2>
+<ol>
+<li>安装 growpart</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">yum install -y epel-release
+</span></span><span class="line"><span class="cl">yum install -y cloud-utils
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>查看系统盘 路径</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">fdisk -l
+</span></span><span class="line"><span class="cl">df -h
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p></p>
+<ol start="3">
+<li>扩容设备并重启</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">growpart /dev/sda <span class="m">2</span> <span class="c1">#2代表是第二块系统分区，不是sda2,中间有空格</span>
+</span></span><span class="line"><span class="cl">reboot
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li>重启执行命令</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">xfs_growfs /dev/sda2 <span class="c1">#(xfs 文件系统)</span>
+</span></span><span class="line"><span class="cl">resize2fs /dev/sda2 <span class="c1">#(ext4 文件系统)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="5">
+<li>更新完成</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">df -h
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
 </item></channel>
 </rss>

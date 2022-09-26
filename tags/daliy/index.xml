@@ -10,41 +10,370 @@
     <pubDate>Wed, 21 Sep 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/headscale/</guid>
-    <description><![CDATA[Headscale Tailscale 的控制服务器是不开源的，而且对免费用户有诸多限制，这是人家的摇钱树，可以理解。好在目前有一款开源的实现叫 Headscale，这也是唯一的]]></description>
+    <description><![CDATA[<h1 id="headscale">Headscale</h1>
+<p><code>Tailscale</code> 的控制服务器是不开源的，而且对免费用户有诸多限制，这是人家的摇钱树，可以理解。好在目前有一款开源的实现叫 <code>Headscale</code>，这也是唯一的一款，希望能发展壮大。</p>
+<p><code>Headscale</code> 由欧洲航天局的 <code>Juan Font</code> 使用 Go 语言开发，在 BSD 许可下发布，实现了 <code>Tailscale</code> 控制服务器的所有主要功能，可以部署在企业内部，<code>没有任何设备数量的限制，且所有的网络流量都由自己控制</code>。</p>
+<h1 id="headscale-部署">Headscale 部署</h1>
+<p>我决定使用<code>docker-compose</code>进行部署</p>
+<h2 id="创建存储">创建存储</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>mkdir -p /opt/headscale
+</span></span><span class="line"><span class="cl">mkdir -p ./config
+</span></span><span class="line"><span class="cl">touch ./config/db.sqlite
+</span></span><span class="line"><span class="cl">curl https://raw.githubusercontent.com/juanfont/headscale/main/config-example.yaml -o ./config/config.yaml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="运行docker-compose文件">运行docker-compose文件</h2>
+<p>创建docker-compose.yaml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">headscale</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">headscale/headscale:latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./config:/etc/headscale/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./data:/var/lib/headscale</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">8080</span><span class="p">:</span><span class="m">8080</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">9090</span><span class="p">:</span><span class="m">9090</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">50443</span><span class="p">:</span><span class="m">50443</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">headscale serve</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">unless-stopped</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行</p>
+<blockquote>
+<p>docker-compose up -d</p>
+</blockquote>
+<h1 id="headscale-使用">Headscale 使用</h1>
+<h2 id="linux使用">Linux使用</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">wget https://pkgs.tailscale.com/stable/tailscale_1.22.2_amd64.tgz
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>解压</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">tar zxvf tailscale_1.22.2_amd64.tgz
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>将二进制文件复制到官方软件包默认的路径下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cp tailscale_1.22.2_amd64/tailscaled /usr/sbin/tailscaled
+</span></span><span class="line"><span class="cl">cp tailscale_1.22.2_amd64/tailscale /usr/bin/tailscale
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>将 systemD service 配置文件复制到系统路径下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cp tailscale_1.22.2_amd64/systemd/tailscaled.service /lib/systemd/system/tailscaled.service
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>启动 tailscaled.service 并设置开机自启：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">systemctl <span class="nb">enable</span> --now tailscaled
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>查看服务状态：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">systemctl status tailscaled
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
 </item><item>
     <title>羊了个羊小程序 破解通关</title>
     <link>http://www.jobcher.com/ylgy/</link>
     <pubDate>Fri, 16 Sep 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/ylgy/</guid>
-    <description><![CDATA[注意此教程需要通过电脑端完成 操作步骤 1、微信打开羊了个羊小程序，玩第一关 2、进入当前登录的微信数据文件夹 微信左下角 -&gt; 设置 -&gt; 文件管理 -&gt; 打开文件]]></description>
+    <description><![CDATA[<p>注意此教程需要通过电脑端完成</p>
+<h1 id="操作步骤">操作步骤</h1>
+<h2 id="1微信打开羊了个羊小程序玩第一关">1、微信打开羊了个羊小程序，玩第一关</h2>
+<h2 id="2进入当前登录的微信数据文件夹">2、进入当前登录的微信数据文件夹</h2>
+<p>微信左下角 -&gt; 设置 -&gt; 文件管理 -&gt; 打开文件夹<br>
+</p>
+<hr>
+<p>打开后进入当前登录的微信数据文件夹<br>
+</p>
+<h2 id="3进入当前登录微信数据文件夹后依次进入">3、进入当前登录微信数据文件夹后，依次进入</h2>
+<p>\Applet\wx141bfb9b73c970a9\usr\gamecaches\resources</p>
+<blockquote>
+<p>注意wx141bfb9b73c970a9文件名可能不同，但以a9结尾</p>
+</blockquote>
+<h2 id="4修改游戏配置文件">4、修改游戏配置文件</h2>
+<p>在此文件夹下，有很多json文件，找到默认排序的第三个，大小2k的文件</p>
+<p></p>
+<p>我的电脑是16632884479734.json文件，用记事本打开，清空里面内容，将new.txt文件中的代码复制进此json文件，保存关闭</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">[</span>1,0,0,<span class="o">[[</span><span class="s2">&#34;cc.JsonAsset&#34;</span>,<span class="o">[</span><span class="s2">&#34;_name&#34;</span>,<span class="s2">&#34;json&#34;</span><span class="o">]</span>,1<span class="o">]]</span>,<span class="o">[[</span>0,0,1,3<span class="o">]]</span>,<span class="o">[[</span>0,<span class="s2">&#34;levelConfigData&#34;</span>,<span class="o">{</span><span class="s2">&#34;dailyLevel&#34;</span>:<span class="o">[[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]]</span>,<span class="s2">&#34;topicLevel&#34;</span>:<span class="o">[[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]]}]]</span>,0,0,<span class="o">[]</span>,<span class="o">[]</span>,<span class="o">[]]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>之后打开游戏，仅需要完成4次第一关九宫格样式即可加入羊群！</p>
+<p></p>
+]]></description>
 </item><item>
     <title>logrotate 日志滚动的使用</title>
     <link>http://www.jobcher.com/logrotate/</link>
     <pubDate>Wed, 29 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/logrotate/</guid>
-    <description><![CDATA[logrotate 日志滚动的使用 logrotate 日志滚动切割工具，是linux默认安装的工具，配置文件位置： 1 2 /etc/logrotate.conf /etc/logrotate.d/ 参数 以nginx 配置为例 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15]]></description>
+    <description><![CDATA[<h1 id="logrotate-日志滚动的使用">logrotate 日志滚动的使用</h1>
+<p>logrotate 日志滚动切割工具，是linux默认安装的工具，配置文件位置：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">/etc/logrotate.conf
+</span></span><span class="line"><span class="cl">/etc/logrotate.d/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="参数">参数</h2>
+<p>以nginx 配置为例</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">/opt/log/nginx/*.log <span class="o">{</span>
+</span></span><span class="line"><span class="cl">	daily
+</span></span><span class="line"><span class="cl">	missingok
+</span></span><span class="line"><span class="cl">	rotate <span class="m">14</span>
+</span></span><span class="line"><span class="cl">    errors <span class="s2">&#34;nb@nbtyfood.com&#34;</span>
+</span></span><span class="line"><span class="cl">	compress
+</span></span><span class="line"><span class="cl">	delaycompress
+</span></span><span class="line"><span class="cl">	notifempty
+</span></span><span class="line"><span class="cl">	create <span class="m">0640</span> www-data adm
+</span></span><span class="line"><span class="cl">	sharedscripts
+</span></span><span class="line"><span class="cl">	prerotate
+</span></span><span class="line"><span class="cl">		<span class="k">if</span> <span class="o">[</span> -d /etc/logrotate.d/httpd-prerotate <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>			run-parts /etc/logrotate.d/httpd-prerotate<span class="p">;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>		<span class="k">fi</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>	endscript
+</span></span><span class="line"><span class="cl">	postrotate
+</span></span><span class="line"><span class="cl">		invoke-rc.d nginx rotate &gt;/dev/null 2&gt;<span class="p">&amp;</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl">	endscript
+</span></span><span class="line"><span class="cl"><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">compress</td>
+<td style="text-align:left">压缩日志文件的所有非当前版本</td>
+</tr>
+<tr>
+<td style="text-align:left">daily,weekly,monthly</td>
+<td style="text-align:left">按指定计划轮换日志文件</td>
+</tr>
+<tr>
+<td style="text-align:left">delaycompress</td>
+<td style="text-align:left">压缩所有版本，除了当前和下一个最近的</td>
+</tr>
+<tr>
+<td style="text-align:left">endscript</td>
+<td style="text-align:left">标记 prerotate 或 postrotate 脚本的结束</td>
+</tr>
+<tr>
+<td style="text-align:left">errors &ldquo;emailid&rdquo;</td>
+<td style="text-align:left">给指定邮箱发送错误通知</td>
+</tr>
+<tr>
+<td style="text-align:left">missingok</td>
+<td style="text-align:left">如果日志文件丢失，不要显示错误</td>
+</tr>
+<tr>
+<td style="text-align:left">notifempty</td>
+<td style="text-align:left">如果日志文件为空，则不轮换日志文件</td>
+</tr>
+<tr>
+<td style="text-align:left">olddir &ldquo;dir&rdquo;</td>
+<td style="text-align:left">指定日志文件的旧版本放在 “dir” 中</td>
+</tr>
+<tr>
+<td style="text-align:left">postrotate</td>
+<td style="text-align:left">引入一个在日志被轮换后执行的脚本</td>
+</tr>
+<tr>
+<td style="text-align:left">prerotate</td>
+<td style="text-align:left">引入一个在日志被轮换前执行的脚本</td>
+</tr>
+<tr>
+<td style="text-align:left">rotate &rsquo;n'</td>
+<td style="text-align:left">在轮换方案中包含日志的 n 个版本</td>
+</tr>
+<tr>
+<td style="text-align:left">sharedscripts</td>
+<td style="text-align:left">对于整个日志组只运行一次脚本</td>
+</tr>
+<tr>
+<td style="text-align:left">size=&lsquo;logsize&rsquo;</td>
+<td style="text-align:left">在日志大小大于 logsize（例如 100K，4M）时轮换</td>
+</tr>
+</tbody>
+</table>
+]]></description>
 </item><item>
     <title>rsync 文件同步</title>
     <link>http://www.jobcher.com/rsync/</link>
     <pubDate>Mon, 20 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/rsync/</guid>
-    <description><![CDATA[rsync 文件同步 rsync 是一个常用的Linux应用程序，用于文件同步 安装 1 2 3 4 5 6 7 8 # Debian or Ubuntu $ sudo apt-get install rsync # Red Hat $ sudo yum install rsync # Arch Linux $ sudo pacman -S rsync 基本用法 使用 rsync]]></description>
+    <description><![CDATA[<h1 id="rsync-文件同步">rsync 文件同步</h1>
+<p>rsync 是一个常用的Linux应用程序，用于文件同步</p>
+<h2 id="安装">安装</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># Debian or Ubuntu</span>
+</span></span><span class="line"><span class="cl">$ sudo apt-get install rsync
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Red Hat</span>
+</span></span><span class="line"><span class="cl">$ sudo yum install rsync
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Arch Linux</span>
+</span></span><span class="line"><span class="cl">$ sudo pacman -S rsync
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="基本用法">基本用法</h2>
+<p>使用 rsync 命令时，可以作为cp和mv命令的替代方法，将源目录同步到目标目录。<br>
+-r 表示递归，即包含子目录。注意，-r是必须的，否则 rsync 运行不会成功。source目录表示源目录，destination表示目标目录。<br>
+-a 参数可以替代-r，除了可以递归同步以外，还可以同步元信息（比如修改时间、权限等）。由于 rsync 默认使用文件大小和修改时间决定文件是否需要更新</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">rsync -r <span class="nb">source</span> destination
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>远程同步</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">rsync -av &lt;源地址&gt;/ &lt;用户名&gt;@&lt;ip地址&gt;:/&lt;目标地址&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol>
+<li>友情地址：<a href="https://www.jobcher.com/mysqldump/" target="_blank" rel="noopener noreffer">mysql迁移</a></li>
+</ol>
+]]></description>
 </item><item>
     <title>163企业邮箱设置教程</title>
     <link>http://www.jobcher.com/qyyemail163/</link>
     <pubDate>Fri, 10 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/qyyemail163/</guid>
-    <description><![CDATA[163企业邮箱设置教程 请进入这个网站 https://qiye.163.com/help/l-11.html]]></description>
+    <description><![CDATA[<h1 id="163企业邮箱设置教程">163企业邮箱设置教程</h1>
+<p>请进入这个网站
+<a href="https://qiye.163.com/help/l-11.html" target="_blank" rel="noopener noreffer">https://qiye.163.com/help/l-11.html</a></p>
+]]></description>
 </item><item>
     <title>2021年第50周记</title>
     <link>http://www.jobcher.com/20211210/</link>
     <pubDate>Wed, 08 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/20211210/</guid>
-    <description><![CDATA[2021年第50周周记 这周完成了以下任务 搭建hugo博客 使用docker封装了blog 搭建k3s环境 计划： 学习k8s 总结：没啥好总结，刚开始]]></description>
+    <description><![CDATA[<h1 id="2021年第50周周记">2021年第50周周记</h1>
+<p>这周完成了以下任务</p>
+<ol>
+<li>搭建hugo博客</li>
+<li>使用docker封装了blog</li>
+<li>搭建k3s环境</li>
+</ol>
+<p>计划：</p>
+<ol>
+<li>学习k8s</li>
+</ol>
+<p>总结：没啥好总结，刚开始写周记，就随便写一点吧</p>
+]]></description>
 </item></channel>
 </rss>

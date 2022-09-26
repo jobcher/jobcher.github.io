@@ -10,6 +10,88 @@
     <pubDate>Fri, 03 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/brew/</guid>
-    <description><![CDATA[brew 安装配置 一.安装 1.在ubuntu上安装 brew 1 /bin/bash -c &#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&#34; 2.在centos上安装 brew 1 /bin/bash -c &#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&#34; 3.在MacOS上安装 brew 1 /bin/bash -c &#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&#34; 二、使用 1]]></description>
+    <description><![CDATA[<h1 id="brew-安装配置">brew 安装配置</h1>
+<h2 id="一安装">一.安装</h2>
+<h3 id="1在ubuntu上安装-brew">1.在ubuntu上安装 brew</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    /bin/bash -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2在centos上安装-brew">2.在centos上安装 brew</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    /bin/bash -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3在macos上安装-brew">3.在MacOS上安装 brew</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    /bin/bash -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="二使用">二、使用</h2>
+<h3 id="1安装-wget">1.安装 wget</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    brew install wget
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Homebrew 会将软件包安装到独立目录，并将其文件软链接至 /usr/local</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    $ <span class="nb">cd</span> /usr/local
+</span></span><span class="line"><span class="cl">    $ find Cellar
+</span></span><span class="line"><span class="cl">    Cellar/wget/1.16.1
+</span></span><span class="line"><span class="cl">    Cellar/wget/1.16.1/bin/wget
+</span></span><span class="line"><span class="cl">    Cellar/wget/1.16.1/share/man/man1/wget.1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    $ ls -l bin
+</span></span><span class="line"><span class="cl">    bin/wget -&gt; ../Cellar/wget/1.16.1/bin/wget
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2创建你自己的-homebrew-包">2.创建你自己的 Homebrew 包</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    $ brew create https://foo.com/bar-1.0.tgz
+</span></span><span class="line"><span class="cl">    Created /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/bar.rb
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3撤销你的变更或与上游更新合并">3.撤销你的变更或与上游更新合并</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    $ brew edit wget <span class="c1"># 使用 $EDITOR 编辑!</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
 </item></channel>
 </rss>
