@@ -40,6 +40,13 @@
     <guid>http://www.jobcher.com/yaml/</guid>
     <description><![CDATA[yaml 语法 我们使用 YAML 是因为它像 XML 或 JSON 是一种利于人们读写的数据格式. 此外在大多数变成语言中有使用 YAML 的库.YAML 语法的基本概述, 它被用来描述一个 p]]></description>
 </item><item>
+    <title>hugo 添加视频测试</title>
+    <link>http://www.jobcher.com/video-test/</link>
+    <pubDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/video-test/</guid>
+    <description><![CDATA[hugo 添加视频测试 bilibili B站测试 <!DOCTYPE HTML> youtube 油管测试]]></description>
+</item><item>
     <title>iptables 基础知识</title>
     <link>http://www.jobcher.com/iptable/</link>
     <pubDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</pubDate>
@@ -67,12 +74,5 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/mysql/</guid>
     <description><![CDATA[mysql基础知识 1、库表student.report,有3个字段，姓名、学科、成绩，记录如下，根据要求完成SQL语句： Name Subject Result 李白 Math 95 张三 English]]></description>
-</item><item>
-    <title>shell基础知识</title>
-    <link>http://www.jobcher.com/shell/</link>
-    <pubDate>Wed, 15 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/shell/</guid>
-    <description><![CDATA[shell基础知识 1、有一个b.txt文本(内容如下)，要求将所有域名截取出来，并统计重复域名出现的次数： http://www.baidu.com/index.html https://www.atguigu.com/index.html http://www.sina.com.cn/1024.html https://www.atguigu.com/2048.html http://www.sina.com.cn/4096.html https://www.atguigu.com/8192.html 2、统计当前服务器正在]]></description>
 </item></channel>
 </rss>
