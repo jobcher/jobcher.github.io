@@ -27,7 +27,44 @@
 <li>区块链开发</li>
 </ul>
 <h2 id="环境安装">环境安装</h2>
-]]></description>
+<h3 id="安装环境">安装环境</h3>
+<p>安装包下载<br>
+<a href="https://golang.google.cn/dl/" target="_blank" rel="noopener noreffer">https://golang.google.cn/dl/</a></p>
+<h3 id="windows-部署">windows 部署</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">wget https://golang.google.cn/dl/go1.19.1.windows-amd64.msi
+</span></span><span class="line"><span class="cl"><span class="c1"># 直接安装</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="gopath-设置">GOPATH 设置</h3>
+<p>在环境变量 <code>PATH</code> 上直接配置安装地址</p>
+<h2 id="编写第一个程序">编写第一个程序</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
 </item><item>
     <title>go Struct 结构体</title>
     <link>http://www.jobcher.com/go3/</link>
