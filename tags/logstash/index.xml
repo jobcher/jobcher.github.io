@@ -11,7 +11,7 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/suzhou/</guid>
     <description><![CDATA[<h1 id="苏州旅行">苏州旅行</h1>
-<table><tr><td bgcolor=#ff0000><font color="#ffffff">新冠肺炎 COVID-19 警告 </font></td></tr></table>  
+<table width="180"><tr><td bgcolor=#ff0000><font color="#ffffff">新冠肺炎 COVID-19 警告 </font></td></tr></table>  
 <p>苏州，古称吴，现简称苏，是中华人民共和国江苏省东南部的一个地级市，位于长江三角洲和太湖平原的中心地带，著名的鱼米之乡、状元之乡、院士之乡、经济重镇、历史文化名城，自古与杭州共享有“上有天堂、下有苏杭”美誉。</p>
 <h2 id="苏州景点">苏州景点</h2>
 <h3 id="day1">day1</h3>
@@ -51,7 +51,48 @@
 <li>蟹黄面</li>
 </ul>
 <h2 id="vlog系列">vlog系列</h2>
-<p>{{ bilibili BV1Xi4y1y7Si }}</p>
+<!DOCTYPE HTML>
+<html>
+
+  <head>
+    
+    <style type="text/css">
+      .aspect-ratio {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 75%;
+      }
+
+      .aspect-ratio iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="aspect-ratio">
+      <iframe
+              src="https://player.bilibili.com/player.html?bvid=BV1Xi4y1y7Si&page=1&high_quality=1&danmaku=0"
+              scrolling="no" 
+              border="0" 
+              frameborder="no" 
+              framespacing="0" 
+              allowfullscreen="true"
+              sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"
+              >
+      </iframe>
+      
+      
+    </div>
+  </body>
+
+</html>
+
 ]]></description>
 </item><item>
     <title>logstash 多管道部署</title>
