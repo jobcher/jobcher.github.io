@@ -4,7 +4,56 @@
         <link>http://www.jobcher.com/tags/logstash/</link>
         <description>logstash - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 19 Jul 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/logstash/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 27 Sep 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/logstash/" rel="self" type="application/rss+xml" /><item>
+    <title>苏州旅行</title>
+    <link>http://www.jobcher.com/suzhou/</link>
+    <pubDate>Tue, 27 Sep 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/suzhou/</guid>
+    <description><![CDATA[<h1 id="苏州旅行">苏州旅行</h1>
+<table><tr><td bgcolor=#ff0000>新冠肺炎 COVID-19 警告 </td></tr></table>
+苏州，古称吴，现简称苏，是中华人民共和国江苏省东南部的一个地级市，位于长江三角洲和太湖平原的中心地带，著名的鱼米之乡、状元之乡、院士之乡、经济重镇、历史文化名城，自古与杭州共享有“上有天堂、下有苏杭”美誉。  
+<h2 id="苏州景点">苏州景点</h2>
+<h3 id="day1">day1</h3>
+<ul>
+<li>金鸡湖</li>
+</ul>
+<h3 id="day2">day2</h3>
+<ul>
+<li>苏州博物馆
+<ul>
+<li></li>
+<li>地址：姑苏区东北街204号</li>
+<li>交通：乘坐游1、游2、游5、55、178、202、309、313、518、529路等到苏州博物馆</li>
+<li>门票：免费(可在官网提前预约)</li>
+<li>开放时间：每星期二至星期日- 9:00~17:00（16:00停止入馆）
+◆建议用时：2-3小时</li>
+</ul>
+</li>
+</ul>
+<h3 id="day3">day3</h3>
+<ul>
+<li>虎丘
+<ul>
+<li></li>
+<li>地址：姑苏区山塘街虎丘山门内8号</li>
+<li>交通：南门入口：146、游1、游2路虎丘首末站；北门入口：32、快线3号虎丘北门站</li>
+<li>门票：淡季：60.00元 旺季：80.00元</li>
+<li>开放时间： 7:30-17:30/17：00</li>
+<li>建议用时：2-3小时</li>
+</ul>
+</li>
+</ul>
+<h2 id="苏州美食">苏州美食</h2>
+<h3 id="饭店">饭店</h3>
+<h3 id="小吃">小吃</h3>
+<ul>
+<li>蟹黄面</li>
+</ul>
+<h2 id="vlog系列">vlog系列</h2>
+<p>{{ bilibili BV1Xi4y1y7Si }}</p>
+]]></description>
+</item><item>
     <title>logstash 多管道部署</title>
     <link>http://www.jobcher.com/logstash/</link>
     <pubDate>Tue, 19 Jul 2022 00:00:00 &#43;0000</pubDate>
