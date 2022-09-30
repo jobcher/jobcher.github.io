@@ -4,7 +4,121 @@
         <link>http://www.jobcher.com/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/</link>
         <description>日常系列 - seris - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 21 Sep 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 30 Sep 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+    <title>Cloudflare Zero Trust 内网穿透</title>
+    <link>http://www.jobcher.com/cloudflaretrust/</link>
+    <pubDate>Fri, 30 Sep 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/cloudflaretrust/</guid>
+    <description><![CDATA[<h1 id="cloudflare-zero-trust-内网穿透">Cloudflare Zero Trust 内网穿透</h1>
+<p><br>
+最快的 <code>Zero Trust</code> 应用访问和互联网浏览平台<br>
+增加可见性，消除复杂性，降低远程和办公室用户的风险。杜绝数据丢失、恶意软件和网络钓鱼，保护用户、应用程序和设备安全。<br>
+使用 Tunnel隧道来实现内网传统，实现内网访问各类应用</p>
+<h2 id="安装部署">安装部署</h2>
+<p><a href="https://dash.teams.cloudflare.com/" target="_blank" rel="noopener noreffer">https://dash.teams.cloudflare.com/</a></p>
+<h3 id="docker-部署">Docker 部署</h3>
+<p>在docker环境运行 <code>&lt;token&gt;</code> 是你个人令牌</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker run -d --name cloudflared cloudflare/cloudflared:latest tunnel --no-autoupdate run --token &lt;token&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="linux部署">Linux部署</h3>
+<ol>
+<li>X86-64位</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-x86_64.rpm <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>sudo cloudflared service install &lt;token&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>X86-32位</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386.rpm <span class="o">&amp;&amp;</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo cloudflared service install &lt;token&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>arm64</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-aarch64.rpm <span class="o">&amp;&amp;</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo cloudflared service install &lt;token&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li>arm32</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm.rpm <span class="o">&amp;&amp;</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">sudo cloudflared service install &lt;token&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="windows部署">windows部署</h3>
+<ol>
+<li>下载 <a href="https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.msi" target="_blank" rel="noopener noreffer">https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.msi</a></li>
+<li>运行安装程序</li>
+<li>以管理员身份打开命令提示符</li>
+<li>运行以下命令</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cloudflared.exe service install &lt;token&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="在cloudflare里配置内网穿透">在cloudflare里配置内网穿透</h2>
+<p></p>
+]]></description>
+</item><item>
     <title>headscale 部署使用</title>
     <link>http://www.jobcher.com/headscale/</link>
     <pubDate>Wed, 21 Sep 2022 00:00:00 &#43;0000</pubDate>
@@ -4314,34 +4428,6 @@ kubectl get sc -n sanjiang</p>
 </span></span><span class="line"><span class="cl">    <span class="nt">&lt;echo</span> <span class="na">message=</span><span class="s">&#34;Ant is building the project.&#34;</span> <span class="nt">/&gt;</span>
 </span></span><span class="line"><span class="cl">  <span class="nt">&lt;/target&gt;</span>
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/project&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description>
-</item><item>
-    <title>linux 网络测速</title>
-    <link>http://www.jobcher.com/bench/</link>
-    <pubDate>Tue, 22 Feb 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/bench/</guid>
-    <description><![CDATA[<h1 id="linux-网络测速">linux 网络测速</h1>
-<h2 id="一键测试脚本benchsh">一键测试脚本<code>bench.sh</code></h2>
-<p>适用于各种 Linux 发行版的网络（下行）和 IO 测试：</p>
-<ol>
-<li>显示当前测试的各种系统信息</li>
-<li>取自世界多处的知名数据中心的测试点，下载测试比较全面</li>
-<li>支持 IPv6 下载测速</li>
-<li>IO 测试三次，并显示平均值</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">wget -qO- bench.sh <span class="p">|</span> bash
-</span></span><span class="line"><span class="cl"><span class="c1">#或者下面这命令下载执行</span>
-</span></span><span class="line"><span class="cl">curl -Lso- bench.sh <span class="p">|</span> bash
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
