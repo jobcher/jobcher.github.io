@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller) - 打工人日志 - jobcher</title><meta name="Description" content="书山有路钱为径，学海无涯没有舟。分享一些自己的技术笔记和心得，说得不好我也不接受，反正我就写给自己看……"><meta property="og:title" content="kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)" />
+<meta property="og:description" content="k8s部署插件 Kubernetes 是高度可配置且可扩展的。因此，大多数情况下， 你不需要派生自己的 Kubernetes 副本或者向项目代码提交补丁，本文会介绍几种常用的k8s插件，" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.jobcher.com/k8s11/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-10-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-10-07T00:00:00+00:00" />
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://www.jobcher.com/avatar1.png"/>
+
+<meta name="twitter:title" content="kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)"/>
+<meta name="twitter:description" content="k8s部署插件 Kubernetes 是高度可配置且可扩展的。因此，大多数情况下， 你不需要派生自己的 Kubernetes 副本或者向项目代码提交补丁，本文会介绍几种常用的k8s插件，"/>
+<meta name="application-name" content="jobcher">
+<meta name="apple-mobile-web-app-title" content="jobcher"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"><link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../site.webmanifest"><link rel="canonical" href="http://www.jobcher.com/k8s11/" /><link rel="prev" href="http://www.jobcher.com/cloudflaretrust/" /><link rel="stylesheet" href="../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../css/style.min.css"><link rel="stylesheet" href="../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/www.jobcher.com\/k8s11\/"
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "k8s","wordcount":  1352 ,
+        "url": "http:\/\/www.jobcher.com\/k8s11\/","datePublished": "2022-10-07T00:00:00+00:00","dateModified": "2022-10-07T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "jobcher"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+<script async defer data-website-id="1b6a7e9b-a775-47cf-8ecd-a6bac64a1ec9" src="https://umami.jobcher.com/umami.js"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3185871258903631"
+     crossorigin="anonymous"></script>
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="../" title="打工人日志 - jobcher"><img
+        class="lazyload logo"
+        src="../svg/loading.min.svg"
+        data-src="https://www.jobcher.com/avatar1.png"
+        data-srcset="https://www.jobcher.com/avatar1.png, https://www.jobcher.com/avatar1.png 1.5x, https://www.jobcher.com/avatar1.png 2x"
+        data-sizes="auto"
+        alt="https://www.jobcher.com/avatar1.png"
+        title="https://www.jobcher.com/avatar1.png" />打工人日志</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="../posts/"> 文章 </a><a class="menu-item" href="../tags/"> 标签 </a><a class="menu-item" href="../categories/"> 分类 </a><a class="menu-item" href="../about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+<script async defer data-website-id="1b6a7e9b-a775-47cf-8ecd-a6bac64a1ec9" src="https://umami.jobcher.com/umami.js"></script>
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="../" title="打工人日志 - jobcher"><img
+        class="lazyload logo"
+        src="../svg/loading.min.svg"
+        data-src="https://www.jobcher.com/avatar1.png"
+        data-srcset="https://www.jobcher.com/avatar1.png, https://www.jobcher.com/avatar1.png 1.5x, https://www.jobcher.com/avatar1.png 2x"
+        data-sizes="auto"
+        alt="https://www.jobcher.com/avatar1.png"
+        title="https://www.jobcher.com/avatar1.png" />打工人日志</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="../posts/" title="">文章</a><a class="menu-item" href="../tags/" title="">标签</a><a class="menu-item" href="../categories/" title="">分类</a><a class="menu-item" href="../about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/k8s/"><i class="far fa-folder fa-fw"></i>k8s</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-10-07">2022-10-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1352 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-flannel-网络插件">1. Flannel 网络插件</a>
+      <ul>
+        <li><a href="#下载并安装">下载并安装</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-ingress-controller">2. Ingress Controller</a>
+      <ul>
+        <li><a href="#其他">其他</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-coredns">3. CoreDNS</a></li>
+    <li><a href="#4-web-ui">4. Web UI</a>
+      <ul>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#暴露外部连接">暴露外部连接</a></li>
+        <li><a href="#创建并获取token">创建并获取token</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="k8s部署插件">k8s部署插件</h1>
+<p><code>Kubernetes</code> 是高度可配置且可扩展的。因此，大多数情况下， 你不需要派生自己的 Kubernetes 副本或者向项目代码提交补丁，本文会介绍几种常用的k8s插件，如果大家喜欢的话，希望大家点赞支持。</p>
+<h2 id="1-flannel-网络插件">1. Flannel 网络插件</h2>
+<p><code>Flannel</code>是由go语言开发，是一种基于Overlay 网络的<code>跨主机容器网络解决方案</code>，也就是将<code>TCP数据包</code>封装在另一种网络包里面进行<code>路由转发和通信</code>，Flannel 是CoreOS 开发，专门用于docker多主机互联的一个工具，简单来说，它的功能是<code>让集群中的不同节点主机创建的容器都具有全局唯一的虚拟IP地址</code><br>
+主要功能：</p>
+<ul>
+<li>为每个 node 分配 subnet，容器将自动从该子网中获取 IP 地址</li>
+<li>当有 node 加入到网络中时，为每个 node 增加路由配置</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="../svg/loading.min.svg"
+        data-src="../images/flannel-networking.png"
+        data-srcset="../images/flannel-networking.png, ../images/flannel-networking.png 1.5x, ../images/flannel-networking.png 2x"
+        data-sizes="auto"
+        alt="/images/flannel-networking.png"
+        title="flannel" /></p>
+<h3 id="下载并安装">下载并安装</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">wget https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+</span></span><span class="line"><span class="cl">kubectl apply -f kube-flannel.yml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果yml中的&quot;Network&quot;: <code>10.244.0.0/16</code>和<code>kubeadm init xxx --pod-network-cidr</code>不一样，就需要修改成一样的。不然可能会使得<code>Node</code>间<code>Cluster IP</code>不通。</p>
+<h2 id="2-ingress-controller">2. Ingress Controller</h2>
+<p><code>Ingress</code> 是对集群中服务的外部访问进行管理的 API 对象，典型的访问方式是 HTTP。<br>
+<code>Ingress</code> 可以提供负载均衡、SSL 终结和基于名称的虚拟托管<br>
+下面是一个将所有流量都发送到同一 Service 的简单 Ingress 示例：<br>
+<img
+        class="lazyload"
+        src="../svg/loading.min.svg"
+        data-src="../images/ingress.svg"
+        data-srcset="../images/ingress.svg, ../images/ingress.svg 1.5x, ../images/ingress.svg 2x"
+        data-sizes="auto"
+        alt="/images/ingress.svg"
+        title="image" /></p>
+<p><code>Ingress</code> 可为 <code>Service</code> 提供外部可访问的 URL、负载均衡流量、终止 SSL/TLS，以及基于名称的虚拟托管。 <code>Ingress 控制器</code> 通常负责通过负载均衡器来实现 Ingress，尽管它也可以配置边缘路由器或其他前端来帮助处理流量。</p>
+<p><code>Ingress 不会公开</code>任意端口或协议。 将 <code>HTTP</code> 和 <code>HTTPS</code> 以外的服务公开到 <code>Internet</code> 时，通常使用 <code>Service</code>.<code>Type=NodePort</code> 或 Service.<code>Type=LoadBalancer</code> 类型的 Service</p>
+<h3 id="其他">其他</h3>
+<p>为了让 <code>Ingress</code> 资源工作，集群必须有一个正在运行的 <code>Ingress 控制器</code>。</p>
+<p>与作为 <code>kube-controller-manager</code> 可执行文件的一部分运行的其他类型的控制器不同， Ingress 控制器不是随集群自动启动的。 基于此页面，你可选择最适合你的集群的 ingress 控制器实现。</p>
+<h2 id="3-coredns">3. CoreDNS</h2>
+<p><code>CoreDNS</code> 是一个灵活可扩展的 <code>DNS 服务器</code>，可以作为 <code>Kubernetes 集群 DNS</code>。 与 Kubernetes 一样，CoreDNS 项目由 CNCF 托管。<br>
+在 <code>Kubernetes 1.21</code> 版本中，<code>kubeadm</code> 移除了对将 <code>kube-dns</code> 作为 DNS 应用的支持。 对于 <code>kubeadm v1.25</code>，所支持的唯一的集群 DNS 应用是 <code>CoreDNS</code>。</p>
+<p>当你使用 <code>kubeadm</code> 升级使用 <code>kube-dns</code> 的集群时，你还可以执行到 <code>CoreDNS</code> 的迁移。 在这种场景中，<code>kubeadm</code> 将基于 <code>kube-dns ConfigMap</code> 生成 <code>CoreDNS</code> 配置<code>（&quot;Corefile&quot;）</code>， 保存存根域和上游名称服务器的配置。</p>
+<p>通过替换现有集群部署中的 <code>kube-dns</code>，或者使用 kubeadm 等工具来为你部署和升级集群， 可以在你的集群中使用 CoreDNS 而非 kube-dns
+你必须拥有一个 <code>Kubernetes 的集群</code>，同时你的 Kubernetes 集群必须带有 <code>kubectl 命令行工具</code>。 建议在至少有两个节点的集群上运行本教程，且这些节点不作为控制平面主机。</p>
+<h2 id="4-web-ui">4. Web UI</h2>
+<p><code>Dashboard</code> 是基于网页的 <code>Kubernetes</code> 用户界面。 你可以使用 <code>Dashboard</code> 将容器应用部署到 <code>Kubernetes</code> 集群中，也可以对容器应用排错，还能管理集群资源。 你可以使用 <code>Dashboard</code> 获取运行在集群中的应用的概览信息，也可以创建或者修改 <code>Kubernetes</code> 资源 （如 <code>Deployment，Job，DaemonSet</code> 等等）。 例如，你可以对 <code>Deployment</code> 实现弹性伸缩、发起滚动升级、重启 <code>Pod</code> 或者使用向导创建新的应用<br>
+<img
+        class="lazyload"
+        src="../svg/loading.min.svg"
+        data-src="../images/ui-dashboard.png"
+        data-srcset="../images/ui-dashboard.png, ../images/ui-dashboard.png 1.5x, ../images/ui-dashboard.png 2x"
+        data-sizes="auto"
+        alt="/images/ui-dashboard.png"
+        title="image" /></p>
+<h3 id="安装">安装</h3>
+<p>默认情况下不会部署 <code>Dashboard</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1">#https 方式</span>
+</span></span><span class="line"><span class="cl">kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.6.1/aio/deploy/recommended.yaml
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 或者 http方式 </span>
+</span></span><span class="line"><span class="cl">kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.6.1/aio/deploy/alternative.yaml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="暴露外部连接">暴露外部连接</h3>
+<p>创建 <code>webUIservice.yaml</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">vim webUIservice.yaml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">k8s-app</span><span class="p">:</span><span class="w"> </span><span class="l">kubernetes-dashboard</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">kubernetes-dashboard</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">kubernetes-dashboard</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">443</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="m">8443</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">k8s-app</span><span class="p">:</span><span class="w"> </span><span class="l">kubernetes-dashboard</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>kubectl apply -f webUIservice.yaml</p>
+</blockquote>
+<h3 id="创建并获取token">创建并获取token</h3>
+<p>创建管理员</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl create serviceaccount dashboard-admin -n kube-system
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl create clusterrolebinding dashboard-admin --clusterrole<span class="o">=</span>cluster-admin --serviceaccount<span class="o">=</span>kube-system:dashboard-admin
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>获取token</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl describe secrets -n kube-system <span class="k">$(</span>kubectl -n kube-system get secret <span class="p">|</span> grep dashboard-admin <span class="p">|</span> awk <span class="s1">&#39;{print $1}&#39;</span><span class="k">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-10-07</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="../k8s11/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://www.jobcher.com/k8s11/" data-title="kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)" data-hashtags="k8s"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://www.jobcher.com/k8s11/" data-hashtag="k8s"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="http://www.jobcher.com/k8s11/" data-title="kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://www.jobcher.com/k8s11/" data-title="kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)"><i data-svg-src="../lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://www.jobcher.com/k8s11/" data-title="kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)" data-ralateuid="6090738003"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://www.jobcher.com/k8s11/" data-title="kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)" data-description=""><i data-svg-src="../lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://www.jobcher.com/k8s11/" data-title="kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://www.jobcher.com/k8s11/" data-title="kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="../tags/k8s/">k8s</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="../">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="../cloudflaretrust/" class="prev" rel="prev" title="Cloudflare Zero Trust 内网穿透"><i class="fas fa-angle-left fa-fw"></i>Cloudflare Zero Trust 内网穿透</a></div>
+</div>
+<div id="comments"><div id="utterances"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><a href="https://www.foreverblog.cn/go.html" target="_blank" > <img src="https://img.foreverblog.cn/wormhole_3.gif" alt="" style="width:auto;height:32px;" title="穿梭虫洞-随机访问十年之约友链博客"> </a></div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="../" target="_blank">jobcher</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp">copyright by sjt</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="../lib/katex/katex.min.css"><link rel="stylesheet" href="../lib/katex/copy-tex.min.css"><link rel="stylesheet" href="../lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="../lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="../lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="../lib/lunr/lunr.min.js"></script><script type="text/javascript" src="../lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="../lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="../lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="../lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="../lib/sharer/sharer.min.js"></script><script type="text/javascript" src="../lib/katex/katex.min.js"></script><script type="text/javascript" src="../lib/katex/auto-render.min.js"></script><script type="text/javascript" src="../lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="../lib/katex/mhchem.min.js"></script><script type="text/javascript" src="../lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"pathname","label":"","lightTheme":"github-light","repo":"jobcher/jobcher.github.io"}},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="../js/theme.min.js"></script></body>
+</html>

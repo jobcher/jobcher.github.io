@@ -4,7 +4,145 @@
         <link>http://www.jobcher.com/posts/</link>
         <description>所有文章 | 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 30 Sep 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 07 Oct 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)</title>
+    <link>http://www.jobcher.com/k8s11/</link>
+    <pubDate>Fri, 07 Oct 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/k8s11/</guid>
+    <description><![CDATA[<h1 id="k8s部署插件">k8s部署插件</h1>
+<p><code>Kubernetes</code> 是高度可配置且可扩展的。因此，大多数情况下， 你不需要派生自己的 Kubernetes 副本或者向项目代码提交补丁，本文会介绍几种常用的k8s插件，如果大家喜欢的话，希望大家点赞支持。</p>
+<h2 id="1-flannel-网络插件">1. Flannel 网络插件</h2>
+<p><code>Flannel</code>是由go语言开发，是一种基于Overlay 网络的<code>跨主机容器网络解决方案</code>，也就是将<code>TCP数据包</code>封装在另一种网络包里面进行<code>路由转发和通信</code>，Flannel 是CoreOS 开发，专门用于docker多主机互联的一个工具，简单来说，它的功能是<code>让集群中的不同节点主机创建的容器都具有全局唯一的虚拟IP地址</code><br>
+主要功能：</p>
+<ul>
+<li>为每个 node 分配 subnet，容器将自动从该子网中获取 IP 地址</li>
+<li>当有 node 加入到网络中时，为每个 node 增加路由配置</li>
+</ul>
+<p></p>
+<h3 id="下载并安装">下载并安装</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">wget https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+</span></span><span class="line"><span class="cl">kubectl apply -f kube-flannel.yml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果yml中的&quot;Network&quot;: <code>10.244.0.0/16</code>和<code>kubeadm init xxx --pod-network-cidr</code>不一样，就需要修改成一样的。不然可能会使得<code>Node</code>间<code>Cluster IP</code>不通。</p>
+<h2 id="2-ingress-controller">2. Ingress Controller</h2>
+<p><code>Ingress</code> 是对集群中服务的外部访问进行管理的 API 对象，典型的访问方式是 HTTP。<br>
+<code>Ingress</code> 可以提供负载均衡、SSL 终结和基于名称的虚拟托管<br>
+下面是一个将所有流量都发送到同一 Service 的简单 Ingress 示例：<br>
+</p>
+<p><code>Ingress</code> 可为 <code>Service</code> 提供外部可访问的 URL、负载均衡流量、终止 SSL/TLS，以及基于名称的虚拟托管。 <code>Ingress 控制器</code> 通常负责通过负载均衡器来实现 Ingress，尽管它也可以配置边缘路由器或其他前端来帮助处理流量。</p>
+<p><code>Ingress 不会公开</code>任意端口或协议。 将 <code>HTTP</code> 和 <code>HTTPS</code> 以外的服务公开到 <code>Internet</code> 时，通常使用 <code>Service</code>.<code>Type=NodePort</code> 或 Service.<code>Type=LoadBalancer</code> 类型的 Service</p>
+<h3 id="其他">其他</h3>
+<p>为了让 <code>Ingress</code> 资源工作，集群必须有一个正在运行的 <code>Ingress 控制器</code>。</p>
+<p>与作为 <code>kube-controller-manager</code> 可执行文件的一部分运行的其他类型的控制器不同， Ingress 控制器不是随集群自动启动的。 基于此页面，你可选择最适合你的集群的 ingress 控制器实现。</p>
+<h2 id="3-coredns">3. CoreDNS</h2>
+<p><code>CoreDNS</code> 是一个灵活可扩展的 <code>DNS 服务器</code>，可以作为 <code>Kubernetes 集群 DNS</code>。 与 Kubernetes 一样，CoreDNS 项目由 CNCF 托管。<br>
+在 <code>Kubernetes 1.21</code> 版本中，<code>kubeadm</code> 移除了对将 <code>kube-dns</code> 作为 DNS 应用的支持。 对于 <code>kubeadm v1.25</code>，所支持的唯一的集群 DNS 应用是 <code>CoreDNS</code>。</p>
+<p>当你使用 <code>kubeadm</code> 升级使用 <code>kube-dns</code> 的集群时，你还可以执行到 <code>CoreDNS</code> 的迁移。 在这种场景中，<code>kubeadm</code> 将基于 <code>kube-dns ConfigMap</code> 生成 <code>CoreDNS</code> 配置<code>（&quot;Corefile&quot;）</code>， 保存存根域和上游名称服务器的配置。</p>
+<p>通过替换现有集群部署中的 <code>kube-dns</code>，或者使用 kubeadm 等工具来为你部署和升级集群， 可以在你的集群中使用 CoreDNS 而非 kube-dns
+你必须拥有一个 <code>Kubernetes 的集群</code>，同时你的 Kubernetes 集群必须带有 <code>kubectl 命令行工具</code>。 建议在至少有两个节点的集群上运行本教程，且这些节点不作为控制平面主机。</p>
+<h2 id="4-web-ui">4. Web UI</h2>
+<p><code>Dashboard</code> 是基于网页的 <code>Kubernetes</code> 用户界面。 你可以使用 <code>Dashboard</code> 将容器应用部署到 <code>Kubernetes</code> 集群中，也可以对容器应用排错，还能管理集群资源。 你可以使用 <code>Dashboard</code> 获取运行在集群中的应用的概览信息，也可以创建或者修改 <code>Kubernetes</code> 资源 （如 <code>Deployment，Job，DaemonSet</code> 等等）。 例如，你可以对 <code>Deployment</code> 实现弹性伸缩、发起滚动升级、重启 <code>Pod</code> 或者使用向导创建新的应用<br>
+</p>
+<h3 id="安装">安装</h3>
+<p>默认情况下不会部署 <code>Dashboard</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1">#https 方式</span>
+</span></span><span class="line"><span class="cl">kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.6.1/aio/deploy/recommended.yaml
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 或者 http方式 </span>
+</span></span><span class="line"><span class="cl">kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.6.1/aio/deploy/alternative.yaml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="暴露外部连接">暴露外部连接</h3>
+<p>创建 <code>webUIservice.yaml</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">vim webUIservice.yaml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">k8s-app</span><span class="p">:</span><span class="w"> </span><span class="l">kubernetes-dashboard</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">kubernetes-dashboard</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">kubernetes-dashboard</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">443</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="m">8443</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">k8s-app</span><span class="p">:</span><span class="w"> </span><span class="l">kubernetes-dashboard</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>kubectl apply -f webUIservice.yaml</p>
+</blockquote>
+<h3 id="创建并获取token">创建并获取token</h3>
+<p>创建管理员</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl create serviceaccount dashboard-admin -n kube-system
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl create clusterrolebinding dashboard-admin --clusterrole<span class="o">=</span>cluster-admin --serviceaccount<span class="o">=</span>kube-system:dashboard-admin
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>获取token</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl describe secrets -n kube-system <span class="k">$(</span>kubectl -n kube-system get secret <span class="p">|</span> grep dashboard-admin <span class="p">|</span> awk <span class="s1">&#39;{print $1}&#39;</span><span class="k">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
+</item><item>
     <title>Cloudflare Zero Trust 内网穿透</title>
     <link>http://www.jobcher.com/cloudflaretrust/</link>
     <pubDate>Fri, 30 Sep 2022 00:00:00 &#43;0000</pubDate>
@@ -775,96 +913,5 @@ network: error getting ClusterInformation: connection is unauthorized: Unauthori
 </div><p>之后打开游戏，仅需要完成4次第一关九宫格样式即可加入羊群！</p>
 <p></p>
 ]]></description>
-</item><item>
-    <title>K8S 问题排查：cgroup 内存泄露问题</title>
-    <link>http://www.jobcher.com/k8s-error/</link>
-    <pubDate>Tue, 30 Aug 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/k8s-error/</guid>
-    <description><![CDATA[<h1 id="k8s-问题排查cgroup-内存泄露问题">K8S 问题排查：cgroup 内存泄露问题</h1>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">unable to ensure pod container exists: failed to create container for [kubepods besteffort pod5f26dae8-0421-4eab-a3f7-aa51c6848e2b] : mkdir /sys/fs/cgroup/memory/kubepods/besteffort/pod5f26dae8-0421-4eab-a3f7-aa51c6848e2b: cannot allocate memory
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="查看linux内核">查看linux内核</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cat /proc/version
-</span></span><span class="line"><span class="cl">uname -a
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>可以发现 linux版本是3.0版本</p>
-<h2 id="原因">原因</h2>
-<blockquote>
-<p><code>cgroup</code> 的 <code>kmem account</code> 特性在 <code>Linux 3.x</code> 内核上有内存泄露问题，然后<code>k8s</code>用了这个特性，导致后面创建不出新的<code>pod</code>来了</p>
-</blockquote>
-<h2 id="解决方法">解决方法</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 修改/etc/default/grub 为</span>
-</span></span><span class="line"><span class="cl"><span class="nv">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s2">&#34;crashkernel=auto rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb quiet cgroup.memory=nokmem&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#加上了 cgroup.memory=nokmem</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 生成配置</span>
-</span></span><span class="line"><span class="cl">/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 重启机器</span>
-</span></span><span class="line"><span class="cl">reboot
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="验证">验证</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cat /sys/fs/cgroup/memory/kubepods/burstable/pod*/*/memory.kmem.slabinfo
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>输出信息</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod0fe273ca-42e0-4223-9fe8-16d8dd1774e9/0fdd5d9c16929fd600dbdf313b5c3ebabad912dc0cb076ed6e7799e028b31481/memory.kmem.slabinfo: 输入/输出错误
-</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod0fe273ca-42e0-4223-9fe8-16d8dd1774e9/aa30198d0c5413b70bf488c9daa350a85c7fc6b677235c5adaf2dde6caf95ec4/memory.kmem.slabinfo: 输入/输出错误
-</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod5be86c5d-d012-4cc2-b693-4882a15eda90/059b26b00f4f286b0f52e759b83dad79c7676e1705ee0f3f175a277fd1e5ea5a/memory.kmem.slabinfo: 输入/输出错误
-</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod5be86c5d-d012-4cc2-b693-4882a15eda90/bfa9db0c23fd056a0c05ee5b2b377dd551451cc0f18ddd5db82f9693674a4677/memory.kmem.slabinfo: 输入/输出错误
-</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod8f588e3d-fe89-4716-ab36-3ef606c70367/6fab9f4f7a83bf4c79a68277b214807bd566a8f13212a0fdb5742e4eee4d75d5/memory.kmem.slabinfo: 输入/输出错误
-</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod8f588e3d-fe89-4716-ab36-3ef606c70367/b04594732f7e38a47500ffe1150705110cfa683b585aa7eaf0965cc48ba2a46d/memory.kmem.slabinfo: 输入/输出错误
-</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod9c449bdf-492b-4adc-a623-4ced323ac6d4/c9e73e56ddae0c6c301e43852a51165419eb293b05fa65407f8cb3fe449daf5d/memory.kmem.slabinfo: 输入/输出错误
-</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod9c449bdf-492b-4adc-a623-4ced323ac6d4/d7392b1e4be1728fd739dc7117e6efc723a4727f143b91a1b386ad35dc1d3a2e/memory.kmem.slabinfo: 输入/输出错误
-</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/podd316acd7-69fe-4ad5-963a-6e19174b7cb0/0ec18ac0509e6ab454ebe637bde002330afc9eb70eff6f23fe8caa12880e82f6/memory.kmem.slabinfo: 输入/输出错误
-</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/podd316acd7-69fe-4ad5-963a-6e19174b7cb0/dc5be82c01802c349c9505375c37dc054898b9b84e57cb4e671044e8a6459aac/memory.kmem.slabinfo: 输入/输出错误
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description>
 </item></channel>
 </rss>
