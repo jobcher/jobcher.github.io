@@ -297,6 +297,56 @@
 </div>
 </div>]]></description>
 </item><item>
+    <title>菠萝油条虾</title>
+    <link>http://www.jobcher.com/youtiaoxia/</link>
+    <pubDate>Fri, 07 Oct 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/youtiaoxia/</guid>
+    <description><![CDATA[<h1 id="菠萝油条虾">菠萝油条虾</h1>
+<!DOCTYPE HTML>
+<html>
+
+  <head>
+    
+    <style type="text/css">
+      .aspect-ratio {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 75%;
+      }
+
+      .aspect-ratio iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="aspect-ratio">
+      <iframe
+              src="https://player.bilibili.com/player.html?bvid=BV1CJ411K7LV&page=1&high_quality=1&danmaku=0"
+              scrolling="no" 
+              border="0" 
+              frameborder="no" 
+              framespacing="0" 
+              allowfullscreen="true"
+              sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"
+              >
+      </iframe>
+      
+      
+    </div>
+  </body>
+
+</html>
+
+]]></description>
+</item><item>
     <title>Cloudflare Zero Trust 内网穿透</title>
     <link>http://www.jobcher.com/cloudflaretrust/</link>
     <pubDate>Fri, 30 Sep 2022 00:00:00 &#43;0000</pubDate>
@@ -937,100 +987,5 @@ network: error getting ClusterInformation: connection is unauthorized: Unauthori
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
-    <title>清理Docker容器日志</title>
-    <link>http://www.jobcher.com/cleandocker/</link>
-    <pubDate>Mon, 19 Sep 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/cleandocker/</guid>
-    <description><![CDATA[<h1 id="清理docker容器日志">清理Docker容器日志</h1>
-<p>如果docker容器正在运行，那么使用<code>rm -rf</code>方式删除日志后，通过<code>df -h</code>会发现磁盘空间并没有释放。原因是在Linux或者Unix系统中，通过<code>rm -rf</code>或者文件管理器删除文件，将会从文件系统的目录结构上解除链接（unlink）。如果文件是被打开的（有一个进程正在使用），那么进程将仍然可以读取该文件，磁盘空间也一直被占用。正确姿势是<code>cat /dev/null &gt; *-json.log</code>，当然你也可以通过<code>rm -rf</code>删除后重启docker。</p>
-<h2 id="日志清理脚本clean_docker_logsh">日志清理脚本clean_docker_log.sh</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/sh 
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;======== start clean docker containers logs ========&#34;</span>  
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl"><span class="nv">logs</span><span class="o">=</span><span class="k">$(</span>find /var/lib/docker/containers/ -name *-json.log<span class="k">)</span>  
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl"><span class="k">for</span> log in <span class="nv">$logs</span>  
-</span></span><span class="line"><span class="cl">        <span class="k">do</span>  
-</span></span><span class="line"><span class="cl">                <span class="nb">echo</span> <span class="s2">&#34;clean logs : </span><span class="nv">$log</span><span class="s2">&#34;</span>  
-</span></span><span class="line"><span class="cl">                cat /dev/null &gt; <span class="nv">$log</span>  
-</span></span><span class="line"><span class="cl">        <span class="k">done</span>  
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;======== end clean docker containers logs ========&#34;</span>  
-</span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
-<p>chmod +x clean_docker_log.sh &amp;&amp; ./clean_docker_log.sh</p>
-</blockquote>
-<h2 id="设置docker容器日志大小">设置Docker容器日志大小</h2>
-<p>设置一个容器服务的日志大小上限<br>
-上述方法，日志文件迟早又会涨回来。要从根本上解决问题，需要限制容器服务的日志大小上限。这个通过配置容器<code>docker-compose</code>的<code>max-size</code>选项来实现</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">nginx</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx:1.12.1 </span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always </span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">logging</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l">“json-file” </span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">options</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">max-size</span><span class="p">:</span><span class="w"> </span><span class="l">“5g” </span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="全局设置">全局设置</h3>
-<p>新建<code>/etc/docker/daemon.json</code>，若有就不用新建了。添加<code>log-dirver</code>和<code>log-opts</code>参数</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">#</span> <span class="err">vim</span> <span class="err">/etc/docker/daemon.json</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">{</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;log-driver&#34;</span><span class="p">:</span><span class="s2">&#34;json-file&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&#34;log-opts&#34;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&#34;max-size&#34;</span><span class="p">:</span><span class="s2">&#34;500m&#34;</span><span class="p">,</span> <span class="nt">&#34;max-file&#34;</span><span class="p">:</span><span class="s2">&#34;3&#34;</span><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>max-size=500m</code>，意味着一个容器日志大小上限是<code>500M</code><br>
-<code>max-file=3</code>，意味着一个容器有三个日志，分别是<code>id+.json</code>、<code>id+1.json</code>、<code>id+2.json</code>。</p>
-<blockquote>
-<p>注意：设置的日志大小，只对新建的容器有效。</p>
-</blockquote>
-]]></description>
 </item></channel>
 </rss>
