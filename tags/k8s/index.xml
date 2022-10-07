@@ -5,6 +5,147 @@
         <description>k8s - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
             <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 07 Oct 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/k8s/" rel="self" type="application/rss+xml" /><item>
+    <title>Kubernetes — 开放标准（OCI、CRI、CNI、CSI、SMI、CPI）概述</title>
+    <link>http://www.jobcher.com/k8s12/</link>
+    <pubDate>Fri, 07 Oct 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/k8s12/</guid>
+    <description><![CDATA[<h1 id="kubernetes--开放标准ocicricnicsismicpi概述">Kubernetes — 开放标准（OCI、CRI、CNI、CSI、SMI、CPI）概述</h1>
+<p>什么是 Kubernetes 开放标准？— K8s 开放标准简介<br>
+<code>开放标准</code>有助于和补充像 <code>Kubernetes</code> 这样的系统，Kubernetes 是用于<code>编排容器</code>的事实上的标准平台。开放标准定义了实施 <code>Kubernetes</code> 的<code>最佳实践</code>，并在支持此实施方面发挥着至关重要的作用。开放标准由开源 <code>Kubernetes 社区</code>而非某个特定供应商制定，以确保更高的效率、避免供应商锁定以及更轻松地将其他软件集成到技术堆栈中。<br>
+</p>
+<h2 id="oci">OCI</h2>
+<p>容器开放接口规范，由多家公司共同组成于2015年6月成立的项目（Docker, Google, CoreOS等公司），并由Linux基金会运行管理，旨在围绕容器格式和运行时制定一个开放的工业化标准，目前主要有两个标准文档：容器运行时标准 （runtime spec）和 容器镜像标准（image spec）</p>
+<ul>
+<li><code>OCI</code> 是一个开放的治理结构，其明确目的是围绕容器格式和运行时创建开放的行业标准。</li>
+<li>它提供了必须由容器运行时引擎实现的规范。两个重要的规格是：
+<ul>
+<li><code>runC</code>：种子容器运行时引擎。大多数现代容器运行时环境都使用 <code>runC</code> 并围绕这个种子引擎开发附加功能。</li>
+<li>这种低级运行时用于启动容器的各种工具，包括 <code>Docker</code> 本身。</li>
+</ul>
+</li>
+<li><code>OCI 规范</code>：关于如何运行、构建和分发容器的映像、运行时和分发规范。</li>
+<li>虽然 <code>Docker</code> 经常与容器技术同步使用，但社区一直致力于 OCI 的开放行业标准。</li>
+</ul>
+<h3 id="image-spec">Image-Spec</h3>
+<ul>
+<li>image-spec 定义了如何构建和打包容器镜像。</li>
+<li>本规范的目标是创建可互操作的工具，用于构建、传输和准备要运行的容器映像。</li>
+</ul>
+<h3 id="runtime-spec">Runtime-Spec</h3>
+<ul>
+<li><code>runtime-spec</code> 指定容器的配置、执行环境和生命周期。</li>
+<li>这概述了如何运行在磁盘上解压的“文件系统包(filesystem bundle)”。概括地说，OCI 实现会下载一个 OCI 映像，然后将该映像解压缩到一个 OCI 运行时文件系统包中。</li>
+</ul>
+<h3 id="distribution-spec">Distribution-Spec</h3>
+<p><code>Distribution-Spec</code> 提供了一个标准，用于一般内容的分发，特别是容器图像的分发。它是 OCI 项目的<code>最新补充</code>。
+实现分发规范的容器注册表为容器映像提供可靠、高度可扩展、安全的存储服务。
+客户要么使用云提供商实施、供应商实施，要么使用分发的开源实施。</p>
+<h2 id="cri">CRI</h2>
+<p><code>CRI</code>（Container Runtime Interface）：容器运行时接口，提供计算资源。​ ​kubernetes1.5​​版本之后，kubernetes项目推出了自己的运行时接口api–CRI(container runtime interface)。</p>
+<ul>
+<li><code>CRI</code> 是关于如何在容器编排系统中实现容器运行时的规范。它在容器运行时的集成之上提供了一个抽象层。</li>
+<li>它是一个插件接口，使 <code>kubelet</code> 能够使用各种容器运行时。 CRI 的核心机制是每个容器项目都可以自己实现一个 <code>CRI shim</code> 并自己处理 CRI 请求。</li>
+</ul>
+<blockquote>
+<p>为了允许使用 Docker 以外的其他容器运行时，Kubernetes 在 2016 年引入了 CRI。</p>
+</blockquote>
+<h3 id="docker">Docker</h3>
+<ul>
+<li><code>Docker</code> 长期以来一直是标准，但从未真正为容器编排而生。</li>
+<li>它是数百万正在构建容器化应用程序的开发人员的首选。</li>
+</ul>
+<blockquote>
+<p>使用 Docker 作为 Kubernetes 的运行时已被弃用，并将在 Kubernetes 1.23 中删除。</p>
+</blockquote>
+<h3 id="containerd">containerd</h3>
+<ul>
+<li><code>containerd</code> 是运行容器的轻量级和高性能实现。</li>
+<li>它被所有主要的云提供商用于 <code>Kubernetes</code> 即服务产品。</li>
+<li>使用 <code>containerd</code> 创建容器比使用 Docker 简单得多。它最近越来越受欢迎。</li>
+</ul>
+<h3 id="cri-o">CRI-O</h3>
+<ul>
+<li><code>CRI-O</code> 是 <code>Kubernetes CRI</code> 的一种实现，可以使用 <code>OCI</code> 兼容的运行时。它是使用 <code>Docker</code> 作为 <code>Kubernetes</code> 运行时的轻量级替代方案。</li>
+<li>它由 <code>Red Hat</code> 创建，并具有与 <code>podman</code> 和 <code>buildah</code> 密切相关的类似代码库。</li>
+</ul>
+<blockquote>
+<p><code>containerd</code> 和 <code>CRI-O</code> 的想法非常简单：提供一个只包含运行容器的绝对必需品的运行时。</p>
+</blockquote>
+<h2 id="cni">CNI</h2>
+<p><code>CNI</code>（Container Network Interface）：容器网络接口，提供网络资源。是和 CoreOS 主导制定的容器网络标准，它本身并不是实现或者代码，可以理解成一个协议。CNI旨在为容器平台提供网络的标准化。容器平台可以从CNI获取到满足网络互通条件的网络参数(如IP地址、网关、路由、DNS等)。</p>
+<ul>
+<li><code>CNI</code> 是关于如何<code>为容器实现网络的标准</code>，可用于编写或配置网络插件，并且可以很容易地在各种容器编排平台中交换不同的插件。</li>
+<li>每个 <code>CNI 插件</code>都必须实现为由<code>容器管理系统</code>调用的可执行文件。 CNI 插件负责将网络接口插入容器网络命名空间并在主机上进行任何必要的更改。然后它应该将 IP 分配给接口，并通过调用适当的 IPAM 插件来设置与 IP 地址管理部分一致的路由。</li>
+<li><code>Kubernetes</code> 支持各种不同的网络解决方案和插件，可以在各种不同的环境中实现 Kubernetes 网络。请参阅下面的一些 CNI 实现：</li>
+</ul>
+<h3 id="calico">Calico</h3>
+<ul>
+<li><code>Calico</code> 是另一个可用于 Kubernetes 生态系统的流行开源 CNI 插件。 <code>Calico</code> 由 Tigera 维护，定位于网络性能、灵活性和功率等因素至关重要的环境。</li>
+<li>与 <code>Flannel</code> 不同，<code>Calico</code> 提供高级网络管理安全功能，同时提供主机和 Pod 之间连接的整体概览。</li>
+<li>在标准的 Kubernetes 集群上，<code>Calico</code> 可以很容易地部署为每个节点上的 <code>DaemonSet</code>。集群中的每个节点都将安装三个 <code>Calico</code> 组件：<code>Felix</code>、<code>BIRD</code> 和 <code>confd</code>，用于管理多个网络任务。</li>
+</ul>
+<h3 id="flannel">Flannel</h3>
+<ul>
+<li><code>Flannel</code> 是一种为容器配置第 3 层网络结构的简单方法，专为 Kubernetes 设计。</li>
+<li><code>Flannel</code> 由 CoreOS 开发，是可用于 Kubernetes 的最成熟的开源 CNI 项目之一。</li>
+<li>它在每台主机上运行一个名为 <code>flanneld</code> 的小型单一二进制<code>代理</code>，并负责从更大的预配置地址空间中为每台主机分配子网租约。</li>
+</ul>
+<h3 id="cilium">Cilium</h3>
+<ul>
+<li><code>Cilium</code> 是由 Linux 内核开发人员开发的开源、高度可扩展的 <code>Kubernetes CNI</code> 解决方案。</li>
+<li>它作为守护进程 <code>cilium-agent</code> 部署在 <code>Kubernetes</code> 集群的每个节点上，以管理操作并将网络定义转换为 <code>eBPF 程序</code>。</li>
+<li><code>Pod</code> 之间的通信通过覆盖网络或使用路由协议进行。案例支持 IPv4 和 IPv6 地址。它还通过 HTTP 请求过滤器支持 Kubernetes 网络策略。</li>
+</ul>
+<h3 id="weavenet">WeaveNet</h3>
+<ul>
+<li><code>Weavescope</code> 开发的 <code>Weave Net</code> 是一个支持 CNI 的网络解决方案，允许在 Kubernetes 集群中进行灵活的网络连接。</li>
+<li>它可以在 <code>Kubernetes</code> 集群上轻松安装和配置为守护程序集，在每个节点上安装必要的网络组件。</li>
+<li>它利用内核系统在节点之间传输数据包。内核利用的协议被称为<code>快速数据路径</code>，它将数据包直接传输到目标 pod，而无需多次进出用户空间。</li>
+</ul>
+<h2 id="csi">CSI</h2>
+<p><code>CSI</code>（Container Storage Interface）：容器存储接口，提供存储资源。由 kubernetes、Mesos、Docker 等社区成员联合制定的一个行业标准接口规范，旨在将任意存储系统暴露给容器化应用程序。</p>
+<ul>
+<li><code>CSI</code> 是关于如何在容器编排系统中实现存储的规范。</li>
+<li>它是一种标准，用于将任意块和文件存储系统暴露给 <code>Kubernetes</code> 等容器编排系统上的容器化工作负载。</li>
+<li>第三方存储提供商使用 <code>CSI</code> 公开他们的新存储系统变得非常可扩展，而无需实际接触 <code>Kubernetes</code> 代码。</li>
+</ul>
+<h3 id="请参阅下面的一些-csi-实现">请参阅下面的一些 CSI 实现：</h3>
+<ul>
+<li>Rook</li>
+<li>Ceph</li>
+<li>OpenEBS</li>
+</ul>
+<h2 id="smi">SMI</h2>
+<ul>
+<li><code>SMI</code>(Service Mesh Interface) : 是关于如何在容器编排系统中实现 Service Mesh 的应用规范，重点关注 Kubernetes 和最常见的服务网格用例的基本功能集，而无需担心锁定。它涵盖了最常见的服务网格功能：</li>
+<li>流量策略——跨服务应用身份和传输加密等策略</li>
+<li>流量遥测——捕获关键指标，如错误率和服务之间的延迟</li>
+<li>流量管理——在不同服务之间转移流量</li>
+</ul>
+<h3 id="istio">Istio</h3>
+<ul>
+<li><code>Istio</code> 是一个开源服务网格，它透明地分层到现有的分布式应用程序上。它提供了一种统一且更有效的方式来保护、连接和监控服务。</li>
+<li>它是负载平衡、服务到服务身份验证和监控的途径——几乎不需要更改服务代码。</li>
+<li><code>Istio</code> 通过<code>分布式</code>或<code>微服务架构</code>解决了开发人员和运营商面临的挑战。</li>
+</ul>
+<h3 id="linkerd">Linkerd</h3>
+<ul>
+<li><code>Linkerd</code> 是 <code>Kubernetes</code>的服务网格，它通过为您提供运行时调试、可观察性、可靠性和安全性，使运行服务更容易、更安全——所有这些都不需要对代码进行任何更改。</li>
+<li>它通过在每个服务实例旁边安装一组超轻、透明的<code>代理</code>来工作。这些代理会自动处理进出服务的所有流量。</li>
+</ul>
+<h2 id="cpi">CPI</h2>
+<ul>
+<li><code>CPI</code> (Cloud Provider Interface) :是关于如何实现 Kubernetes 集群的规范。它将底层云基础设施功能的智能与核心 <code>Kubernetes</code> 分离。</li>
+</ul>
+<h3 id="请参阅下面的一些-cpi-实现">请参阅下面的一些 CPI 实现：</h3>
+<ul>
+<li>AWS</li>
+<li>Azure</li>
+<li>GCP</li>
+</ul>
+]]></description>
+</item><item>
     <title>kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)</title>
     <link>http://www.jobcher.com/k8s11/</link>
     <pubDate>Fri, 07 Oct 2022 00:00:00 &#43;0000</pubDate>
@@ -913,380 +1054,5 @@ k8s集群内部的服务网络怎么和我们本地网络打通。kt-connect就�
 <li>修改Node连接VIP</li>
 </ol>
 ]]></description>
-</item><item>
-    <title>kubernetes 脚本快速安装</title>
-    <link>http://www.jobcher.com/k8s4/</link>
-    <pubDate>Thu, 10 Mar 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/k8s4/</guid>
-    <description><![CDATA[<h1 id="kubernetes-脚本快速安装">kubernetes 脚本快速安装</h1>
-<ul>
-<li>1、三台机器设置自己的hostname（不能是localhost）</li>
-</ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 修改 hostname;  k8s-01要变为自己的hostname</span>
-</span></span><span class="line"><span class="cl">hostnamectl set-hostname k8s-01
-</span></span><span class="line"><span class="cl"><span class="c1"># 设置 hostname 解析</span>
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;127.0.0.1   </span><span class="k">$(</span>hostname<span class="k">)</span><span class="s2">&#34;</span> &gt;&gt; /etc/hosts
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>
-<p>2、所有机器批量执行如下脚本</p>
-</li>
-<li>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1">#先在所有机器执行 vi k8s.sh</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 进入编辑模式（输入i），把如下脚本复制</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 所有机器给脚本权限  chmod +x k8s.sh</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#执行脚本 ./k8s.sh</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div></li>
-</ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span><span class="lnt">71
-</span><span class="lnt">72
-</span><span class="lnt">73
-</span><span class="lnt">74
-</span><span class="lnt">75
-</span><span class="lnt">76
-</span><span class="lnt">77
-</span><span class="lnt">78
-</span><span class="lnt">79
-</span><span class="lnt">80
-</span><span class="lnt">81
-</span><span class="lnt">82
-</span><span class="lnt">83
-</span><span class="lnt">84
-</span><span class="lnt">85
-</span><span class="lnt">86
-</span><span class="lnt">87
-</span><span class="lnt">88
-</span><span class="lnt">89
-</span><span class="lnt">90
-</span><span class="lnt">91
-</span><span class="lnt">92
-</span><span class="lnt">93
-</span><span class="lnt">94
-</span><span class="lnt">95
-</span><span class="lnt">96
-</span><span class="lnt">97
-</span><span class="lnt">98
-</span><span class="lnt">99
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1">#/bin/sh</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#######################开始设置环境##################################### \n</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">printf</span> <span class="s2">&#34;##################正在配置所有基础环境信息################## \n&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">printf</span> <span class="s2">&#34;##################关闭selinux################## \n&#34;</span>
-</span></span><span class="line"><span class="cl">sed -i <span class="s1">&#39;s/enforcing/disabled/&#39;</span> /etc/selinux/config
-</span></span><span class="line"><span class="cl">setenforce <span class="m">0</span>
-</span></span><span class="line"><span class="cl"><span class="nb">printf</span> <span class="s2">&#34;##################关闭swap################## \n&#34;</span>
-</span></span><span class="line"><span class="cl">swapoff -a  
-</span></span><span class="line"><span class="cl">sed -ri <span class="s1">&#39;s/.*swap.*/#&amp;/&#39;</span> /etc/fstab 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">printf</span> <span class="s2">&#34;##################配置路由转发################## \n&#34;</span>
-</span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt;EOF | sudo tee /etc/modules-load.d/k8s.conf
-</span></span></span><span class="line"><span class="cl"><span class="s">br_netfilter
-</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;net.ipv4.ip_forward = 1&#39;</span> &gt;&gt; /etc/sysctl.d/k8s.conf
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">## 必须 ipv6流量桥接</span>
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;net.bridge.bridge-nf-call-ip6tables = 1&#39;</span> &gt;&gt; /etc/sysctl.d/k8s.conf
-</span></span><span class="line"><span class="cl"><span class="c1">## 必须 ipv4流量桥接</span>
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;net.bridge.bridge-nf-call-iptables = 1&#39;</span> &gt;&gt; /etc/sysctl.d/k8s.conf
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;net.ipv6.conf.all.disable_ipv6 = 1&#34;</span> &gt;&gt; /etc/sysctl.d/k8s.conf
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;net.ipv6.conf.default.disable_ipv6 = 1&#34;</span> &gt;&gt; /etc/sysctl.d/k8s.conf
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;net.ipv6.conf.lo.disable_ipv6 = 1&#34;</span> &gt;&gt; /etc/sysctl.d/k8s.conf
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;net.ipv6.conf.all.forwarding = 1&#34;</span>  &gt;&gt; /etc/sysctl.d/k8s.conf
-</span></span><span class="line"><span class="cl">modprobe br_netfilter
-</span></span><span class="line"><span class="cl">sudo sysctl --system
-</span></span><span class="line"><span class="cl">	
-</span></span><span class="line"><span class="cl">	
-</span></span><span class="line"><span class="cl"><span class="nb">printf</span> <span class="s2">&#34;##################配置ipvs################## \n&#34;</span>
-</span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt;EOF | sudo tee /etc/sysconfig/modules/ipvs.modules
-</span></span></span><span class="line"><span class="cl"><span class="s">#!/bin/bash
-</span></span></span><span class="line"><span class="cl"><span class="s">modprobe -- ip_vs
-</span></span></span><span class="line"><span class="cl"><span class="s">modprobe -- ip_vs_rr
-</span></span></span><span class="line"><span class="cl"><span class="s">modprobe -- ip_vs_wrr
-</span></span></span><span class="line"><span class="cl"><span class="s">modprobe -- ip_vs_sh
-</span></span></span><span class="line"><span class="cl"><span class="s">modprobe -- nf_conntrack_ipv4
-</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">chmod <span class="m">755</span> /etc/sysconfig/modules/ipvs.modules 
-</span></span><span class="line"><span class="cl">sh /etc/sysconfig/modules/ipvs.modules
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">printf</span> <span class="s2">&#34;##################安装ipvsadm相关软件################## \n&#34;</span>
-</span></span><span class="line"><span class="cl">yum install -y ipset ipvsadm
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">printf</span> <span class="s2">&#34;##################安装docker容器环境################## \n&#34;</span>
-</span></span><span class="line"><span class="cl">sudo yum remove docker*
-</span></span><span class="line"><span class="cl">sudo yum install -y yum-utils
-</span></span><span class="line"><span class="cl">sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
-</span></span><span class="line"><span class="cl">yum install -y docker-ce-19.03.9  docker-ce-cli-19.03.9 containerd.io
-</span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> docker
-</span></span><span class="line"><span class="cl">systemctl start docker
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">sudo systemctl daemon-reload
-</span></span><span class="line"><span class="cl">sudo systemctl restart docker
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">printf</span> <span class="s2">&#34;##################安装k8s核心包 kubeadm kubelet kubectl################## \n&#34;</span>
-</span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo
-</span></span></span><span class="line"><span class="cl"><span class="s">[kubernetes]
-</span></span></span><span class="line"><span class="cl"><span class="s">name=Kubernetes
-</span></span></span><span class="line"><span class="cl"><span class="s">baseurl=http://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64
-</span></span></span><span class="line"><span class="cl"><span class="s">enabled=1
-</span></span></span><span class="line"><span class="cl"><span class="s">gpgcheck=0
-</span></span></span><span class="line"><span class="cl"><span class="s">repo_gpgcheck=0
-</span></span></span><span class="line"><span class="cl"><span class="s">gpgkey=http://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg
-</span></span></span><span class="line"><span class="cl"><span class="s">   http://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
-</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">###指定k8s安装版本</span>
-</span></span><span class="line"><span class="cl">yum install -y kubelet-1.21.0 kubeadm-1.21.0 kubectl-1.21.0
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">###要把kubelet立即启动。</span>
-</span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> kubelet
-</span></span><span class="line"><span class="cl">systemctl start kubelet
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">printf</span> <span class="s2">&#34;##################下载api-server等核心镜像################## \n&#34;</span>
-</span></span><span class="line"><span class="cl">sudo tee ./images.sh <span class="s">&lt;&lt;-&#39;EOF&#39;
-</span></span></span><span class="line"><span class="cl"><span class="s">#!/bin/bash
-</span></span></span><span class="line"><span class="cl"><span class="s">docker pull k8s.gcr.io/kube-apiserver:v1.21.9
-</span></span></span><span class="line"><span class="cl"><span class="s">docker pull k8s.gcr.io/kube-controller-manager:v1.21.9
-</span></span></span><span class="line"><span class="cl"><span class="s">docker pull k8s.gcr.io/kube-scheduler:v1.21.9
-</span></span></span><span class="line"><span class="cl"><span class="s">docker pull k8s.gcr.io/kube-proxy:v1.21.9
-</span></span></span><span class="line"><span class="cl"><span class="s">docker pull k8s.gcr.io/pause:3.4.1
-</span></span></span><span class="line"><span class="cl"><span class="s">docker pull k8s.gcr.io/etcd:3.4.13-0
-</span></span></span><span class="line"><span class="cl"><span class="s">docker pull k8s.gcr.io/coredns/coredns:v1.8.0
-</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
-</span></span><span class="line"><span class="cl">   
-</span></span><span class="line"><span class="cl">chmod +x ./images.sh <span class="o">&amp;&amp;</span> ./images.sh
-</span></span><span class="line"><span class="cl">   
-</span></span><span class="line"><span class="cl"><span class="c1">### k8s的所有基本环境全部完成</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>3、使用kubeadm引导集群（参照初始化master继续做）</li>
-</ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">#### --apiserver-advertise-address 的地址一定写成自己master机器的ip地址</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#### 虚拟机或者其他云厂商给你的机器ip  10.96  192.168</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#### 以下的只在master节点执行</span>
-</span></span><span class="line"><span class="cl">kubeadm init <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>--apiserver-advertise-address<span class="o">=</span>10.12.12.24 <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>--kubernetes-version v1.21.0 <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>--service-cidr<span class="o">=</span>10.96.0.0/16 <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>--pod-network-cidr<span class="o">=</span>10.124.0.0/16
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>4、master结束以后，按照控制台引导继续往下</li>
-</ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1">## 第一步</span>
-</span></span><span class="line"><span class="cl">mkdir -p <span class="nv">$HOME</span>/.kube
-</span></span><span class="line"><span class="cl">sudo cp -i /etc/kubernetes/admin.conf <span class="nv">$HOME</span>/.kube/config
-</span></span><span class="line"><span class="cl">sudo chown <span class="k">$(</span>id -u<span class="k">)</span>:<span class="k">$(</span>id -g<span class="k">)</span> <span class="nv">$HOME</span>/.kube/config
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">##第二步</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">KUBECONFIG</span><span class="o">=</span>/etc/kubernetes/admin.conf
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">##第三步 部署网络插件</span>
-</span></span><span class="line"><span class="cl">kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">##第四步，用控制台打印的kubeadm join 去其他node节点执行</span>
-</span></span><span class="line"><span class="cl">kubeadm join 10.170.11.8:6443 --token cnb7x2.lzgz7mfzcjutn0nk <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>	--discovery-token-ca-cert-hash sha256:00c9e977ee52632098aadb515c90076603daee94a167728110ef8086d0d5b37d
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="初始化worker节点worker执行">初始化worker节点（worker执行）</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1">##过期怎么办</span>
-</span></span><span class="line"><span class="cl">kubeadm token create --print-join-command
-</span></span><span class="line"><span class="cl">kubeadm join --token y1eyw5.ylg568kvohfdsfco --discovery-token-ca-cert-hash sha256: 6c35e4f73f72afd89bf1c8c303ee55677d2cdb1342d67bb23c852aba2efc7c73
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>5、验证集群</li>
-</ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1">#等一会，在master节点执行</span>
-</span></span><span class="line"><span class="cl">kubectl get nodes
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ul>
-<li>6、设置kube-proxy的ipvs模式</li>
-</ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1">##修改kube-proxy默认的配置</span>
-</span></span><span class="line"><span class="cl">kubectl edit cm kube-proxy -n kube-system
-</span></span><span class="line"><span class="cl"><span class="c1">## 修改mode: &#34;ipvs&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">##改完以后重启kube-proxy</span>
-</span></span><span class="line"><span class="cl"><span class="c1">### 查到所有的kube-proxy</span>
-</span></span><span class="line"><span class="cl">kubectl get pod -n kube-system <span class="p">|</span>grep kube-proxy
-</span></span><span class="line"><span class="cl"><span class="c1">### 删除之前的即可</span>
-</span></span><span class="line"><span class="cl">kubectl delete pod 【用自己查出来的kube-proxy-dw5sf kube-proxy-hsrwp kube-proxy-vqv7n】  -n kube-system
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1">###</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description>
 </item></channel>
 </rss>
