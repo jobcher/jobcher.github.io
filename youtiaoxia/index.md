@@ -2,4 +2,4 @@
 
 
 # 菠萝油条虾
-{{<bilibili BV1CJ411K7LV >}}
+{{< bilibili BV1CJ411K7LV >}}

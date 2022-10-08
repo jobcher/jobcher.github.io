@@ -146,6 +146,38 @@
 </ul>
 ]]></description>
 </item><item>
+    <title>Kubernetes — 探针和生命周期</title>
+    <link>http://www.jobcher.com/k8s13/</link>
+    <pubDate>Fri, 07 Oct 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/k8s13/</guid>
+    <description><![CDATA[<h1 id="kubernetes--探针和生命周期">Kubernetes — 探针和生命周期</h1>
+<p>用于判断容器内应用程序是否已经启动。</p>
+<ul>
+<li>存活（Liveness）探针
+<ul>
+<li>用于探测容器是否运行，如果探测失败，kubelet会根据配置的重启策略进行相应的处理，若没有配置探针该返回值默认为success</li>
+</ul>
+</li>
+<li>就绪（Readiness）探针
+<ul>
+<li>用于探测容器内的程序是否健康，如果返回值为success，那么代表这个容器已经完全启动，并且程序已经是可以接受流量的状态</li>
+</ul>
+</li>
+<li>启动（Startup）探针
+<ul>
+<li>用于探测容器是否启动，如果配置了startup 就会先禁止其他探测，直到它成功，成功后将不在运行探测</li>
+</ul>
+</li>
+</ul>
+<h2 id="pod检测方式">Pod检测方式</h2>
+<ul>
+<li>ExecAction：在容器执行命令，返回值为0，则认为容器健康</li>
+<li>TCPSocketAction：通过TCP连接检查容器是否联通，通的话，则认为容器正常</li>
+<li>HTTPGetAction：通过应用程序暴露的API地址来检查程序是否正常的，如果状态码为200-400之间，则认为容器健康</li>
+</ul>
+]]></description>
+</item><item>
     <title>kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)</title>
     <link>http://www.jobcher.com/k8s11/</link>
     <pubDate>Fri, 07 Oct 2022 00:00:00 &#43;0000</pubDate>
@@ -860,130 +892,6 @@ network: error getting ClusterInformation: connection is unauthorized: Unauthori
 </span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description>
-</item><item>
-    <title>headscale 部署使用</title>
-    <link>http://www.jobcher.com/headscale/</link>
-    <pubDate>Wed, 21 Sep 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/headscale/</guid>
-    <description><![CDATA[<h1 id="headscale">Headscale</h1>
-<p><code>Tailscale</code> 的控制服务器是不开源的，而且对免费用户有诸多限制，这是人家的摇钱树，可以理解。好在目前有一款开源的实现叫 <code>Headscale</code>，这也是唯一的一款，希望能发展壮大。</p>
-<p><code>Headscale</code> 由欧洲航天局的 <code>Juan Font</code> 使用 Go 语言开发，在 BSD 许可下发布，实现了 <code>Tailscale</code> 控制服务器的所有主要功能，可以部署在企业内部，<code>没有任何设备数量的限制，且所有的网络流量都由自己控制</code>。</p>
-<h1 id="headscale-部署">Headscale 部署</h1>
-<p>我决定使用<code>docker-compose</code>进行部署</p>
-<h2 id="创建存储">创建存储</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>mkdir -p /opt/headscale
-</span></span><span class="line"><span class="cl">mkdir -p ./config
-</span></span><span class="line"><span class="cl">touch ./config/db.sqlite
-</span></span><span class="line"><span class="cl">curl https://raw.githubusercontent.com/juanfont/headscale/main/config-example.yaml -o ./config/config.yaml
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="运行docker-compose文件">运行docker-compose文件</h2>
-<p>创建docker-compose.yaml</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">headscale</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">headscale/headscale:latest</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./config:/etc/headscale/</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./data:/var/lib/headscale</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">8080</span><span class="p">:</span><span class="m">8080</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">9090</span><span class="p">:</span><span class="m">9090</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">50443</span><span class="p">:</span><span class="m">50443</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">headscale serve</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">unless-stopped</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>运行</p>
-<blockquote>
-<p>docker-compose up -d</p>
-</blockquote>
-<h1 id="headscale-使用">Headscale 使用</h1>
-<h2 id="linux使用">Linux使用</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">wget https://pkgs.tailscale.com/stable/tailscale_1.22.2_amd64.tgz
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>解压</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">tar zxvf tailscale_1.22.2_amd64.tgz
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>将二进制文件复制到官方软件包默认的路径下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cp tailscale_1.22.2_amd64/tailscaled /usr/sbin/tailscaled
-</span></span><span class="line"><span class="cl">cp tailscale_1.22.2_amd64/tailscale /usr/bin/tailscale
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>将 systemD service 配置文件复制到系统路径下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cp tailscale_1.22.2_amd64/systemd/tailscaled.service /lib/systemd/system/tailscaled.service
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>启动 tailscaled.service 并设置开机自启：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">systemctl <span class="nb">enable</span> --now tailscaled
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>查看服务状态：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">systemctl status tailscaled
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>

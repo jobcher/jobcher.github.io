@@ -146,6 +146,38 @@
 </ul>
 ]]></description>
 </item><item>
+    <title>Kubernetes — 探针和生命周期</title>
+    <link>http://www.jobcher.com/k8s13/</link>
+    <pubDate>Fri, 07 Oct 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/k8s13/</guid>
+    <description><![CDATA[<h1 id="kubernetes--探针和生命周期">Kubernetes — 探针和生命周期</h1>
+<p>用于判断容器内应用程序是否已经启动。</p>
+<ul>
+<li>存活（Liveness）探针
+<ul>
+<li>用于探测容器是否运行，如果探测失败，kubelet会根据配置的重启策略进行相应的处理，若没有配置探针该返回值默认为success</li>
+</ul>
+</li>
+<li>就绪（Readiness）探针
+<ul>
+<li>用于探测容器内的程序是否健康，如果返回值为success，那么代表这个容器已经完全启动，并且程序已经是可以接受流量的状态</li>
+</ul>
+</li>
+<li>启动（Startup）探针
+<ul>
+<li>用于探测容器是否启动，如果配置了startup 就会先禁止其他探测，直到它成功，成功后将不在运行探测</li>
+</ul>
+</li>
+</ul>
+<h2 id="pod检测方式">Pod检测方式</h2>
+<ul>
+<li>ExecAction：在容器执行命令，返回值为0，则认为容器健康</li>
+<li>TCPSocketAction：通过TCP连接检查容器是否联通，通的话，则认为容器正常</li>
+<li>HTTPGetAction：通过应用程序暴露的API地址来检查程序是否正常的，如果状态码为200-400之间，则认为容器健康</li>
+</ul>
+]]></description>
+</item><item>
     <title>kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)</title>
     <link>http://www.jobcher.com/k8s11/</link>
     <pubDate>Fri, 07 Oct 2022 00:00:00 &#43;0000</pubDate>
@@ -963,96 +995,5 @@ k8s集群内部的服务网络怎么和我们本地网络打通。kt-connect就�
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
-    <title>kubernetes ansible自动化部署</title>
-    <link>http://www.jobcher.com/k8s5/</link>
-    <pubDate>Fri, 08 Apr 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/k8s5/</guid>
-    <description><![CDATA[<h1 id="kubernetes-ansible-自动化部署">kubernetes ansible 自动化部署</h1>
-<h2 id="服务器规划">服务器规划</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">角色</th>
-<th style="text-align:left">IP</th>
-<th style="text-align:left">组件</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">k8s-master1</td>
-<td style="text-align:left">10.12.12.15</td>
-<td style="text-align:left">kube-apiserver kube-controller-manager kube-scheduler etcd</td>
-</tr>
-<tr>
-<td style="text-align:left">k8s-master2</td>
-<td style="text-align:left">10.12.12.17</td>
-<td style="text-align:left">kube-apiserver kube-controller-manager kube-scheduler etcd</td>
-</tr>
-<tr>
-<td style="text-align:left">k8s-02</td>
-<td style="text-align:left">10.12.12.22</td>
-<td style="text-align:left">kubelet kube-proxy docker etcd</td>
-</tr>
-<tr>
-<td style="text-align:left">k8s-03</td>
-<td style="text-align:left">10.12.12.21</td>
-<td style="text-align:left">kubelet kube-proxy docker etcd</td>
-</tr>
-<tr>
-<td style="text-align:left">load Balancer(master)</td>
-<td style="text-align:left">10.12.12.15 10.12.12.23(VIP)</td>
-<td style="text-align:left">nginx keepalived</td>
-</tr>
-<tr>
-<td style="text-align:left">load Balancer(backup)</td>
-<td style="text-align:left">10.12.12.17</td>
-<td style="text-align:left">nginx keepalived</td>
-</tr>
-</tbody>
-</table>
-<h2 id="系统初始化">系统初始化</h2>
-<ol>
-<li>关闭selinux，firewalld</li>
-<li>关闭swap</li>
-<li>时间同步</li>
-<li>写hosts</li>
-<li>ssh免密（可选）</li>
-</ol>
-<h2 id="etcd集群部署">etcd集群部署</h2>
-<ol>
-<li>生成etcd证书</li>
-<li>部署三个ETC集群</li>
-<li>查看集群状态</li>
-</ol>
-<h2 id="部署masterß">部署Masterß</h2>
-<ol>
-<li>生成apiserver证书</li>
-<li>部署apiserver、controller-manager和scheduler组件</li>
-<li>启动TLS Bootstrapping</li>
-</ol>
-<h2 id="部署node">部署Node</h2>
-<ol>
-<li>安装Docker</li>
-<li>部署Kubelet和kube-proxy</li>
-<li>在Master上运行为新Node颁发证书</li>
-<li>授权apiserver访问kubelet</li>
-</ol>
-<h2 id="部署插件准备好镜像">部署插件（准备好镜像）</h2>
-<ol>
-<li>Flannel</li>
-<li>Web UI</li>
-<li>CoreDNS</li>
-<li>Ingress Controller</li>
-</ol>
-<h2 id="master高可用">Master高可用</h2>
-<ol>
-<li>增加Master节点（与Master1一致）</li>
-<li>部署nginx负载均衡器</li>
-<li>Nginx+Keepalived 高可用</li>
-<li>修改Node连接VIP</li>
-</ol>
-]]></description>
 </item></channel>
 </rss>
