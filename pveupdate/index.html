@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>ProXmoX VE升级 apt-get update 报错 - 打工人日志 - jobcher</title><meta name="Description" content="书山有路钱为径，学海无涯没有舟。分享一些自己的技术笔记和心得，说得不好我也不接受，反正我就写给自己看……"><meta property="og:title" content="ProXmoX VE升级 apt-get update 报错" />
+        <title>ProXmoX VE升级 apt-get update 报错 - 打工人日志 - jobcher</title><meta name="Description" content="打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通"><meta property="og:title" content="ProXmoX VE升级 apt-get update 报错" />
 <meta property="og:description" content="ProXmoX VE升级 apt-get update 报错 解决方法 1 2 3 vim /etc/apt/sources.list.d/pve-enterprise.list #注释掉 #deb https://enterprise.proxmox.com/debian/pve stretch pve-enterprise 添加内容 1 2 echo &#34;deb http://download.proxmox.com/debian/pve stretch pve-no-subscription&#34; &gt; /etc/apt/sources.list.d/pve-install-repo.list wget http://download.proxmox.com/debian/proxmox-ve-release-5.x.gpg -O /etc/apt/trusted.gpg.d/proxmox-ve-release-5.x.gpg 更新系统 1 apt update &amp;&amp; apt dist-upgrade 结尾 升级完成后，可以执行pveve" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.jobcher.com/pveupdate/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
