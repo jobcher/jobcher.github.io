@@ -4,7 +4,104 @@
         <link>http://www.jobcher.com/tags/skywalking/</link>
         <description>skywalking - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/skywalking/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Sat, 08 Oct 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/skywalking/" rel="self" type="application/rss+xml" /><item>
+    <title>windows-exporter 监控</title>
+    <link>http://www.jobcher.com/windows-exporter/</link>
+    <pubDate>Sat, 08 Oct 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/windows-exporter/</guid>
+    <description><![CDATA[<h1 id="windows-exporter-监控安装">windows-exporter 监控安装</h1>
+<h3 id="windows_exporterhttpsgithubcomprometheus-communitywindows_exporter"><a href="https://github.com/prometheus-community/windows_exporter" target="_blank" rel="noopener noreffer">windows_exporter</a></h3>
+<h3 id="下载安装httpsgithubcomprometheus-communitywindows_exporterreleasesdownloadv0200windows_exporter-0200-amd64msi"><a href="https://github.com/prometheus-community/windows_exporter/releases/download/v0.20.0/windows_exporter-0.20.0-amd64.msi" target="_blank" rel="noopener noreffer">下载安装</a></h3>
+<h2 id="启动">启动</h2>
+<p>下载msi版本，输入一下命令启动</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">msiexec /i C:<span class="se">\U</span>sers<span class="se">\A</span>dministrator<span class="se">\D</span>ownloads<span class="se">\w</span>indows_exporter.msi <span class="nv">ENABLED_COLLECTORS</span><span class="o">=</span><span class="s2">&#34;ad,iis,logon,memory,process,tcp,scheduled_task&#34;</span> <span class="nv">TEXTFILE_DIR</span><span class="o">=</span><span class="s2">&#34;C:\custom_metrics\&#34;
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>卸载</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">msiexec /uninstall C:<span class="se">\U</span>sers<span class="se">\A</span>dministrator<span class="se">\D</span>ownloads<span class="se">\w</span>indows_exporter.msi
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="添加prometheus-监控">添加prometheus 监控</h2>
+<p>prometheus.yaml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="c"># 新增 windows-exporter</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;windows-exporter&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">file_sd_configs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">files</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;./file_sd/windows-exporter.yaml&#34;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>./file_sd/windows-exporter.yaml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="c"># 新增 windows-exporter</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">targets</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;192.168.0.6:9182&#39;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">instance</span><span class="p">:</span><span class="w"> </span><span class="l">windows-task</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="添加alertmanager-告警">添加alertmanager 告警</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="c"># 告警信息</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">groups</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">sanjiang windows 任务计划程序告警</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">rules</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l">windows实例任务告警</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l">windows_scheduled_task_state{state=&#34;disabled&#34;,task=~&#34;/ETL_kettle_tasks/.*&#34;}==1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">for</span><span class="p">:</span><span class="w"> </span><span class="l">30s</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l">critical</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{$labels.job}}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">annotations</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;sanjiang: {{$labels.job}} windows 任务异常&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{$labels.task}} of job {{$labels.job}} 该任务断联已超过1分钟&#34;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
+</item><item>
     <title>skywalking APM 监控</title>
     <link>http://www.jobcher.com/skywalking/</link>
     <pubDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</pubDate>

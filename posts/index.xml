@@ -4,7 +4,138 @@
         <link>http://www.jobcher.com/posts/</link>
         <description>所有文章 | 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 07 Oct 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Sat, 08 Oct 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Kubernetes — 探针和生命周期</title>
+    <link>http://www.jobcher.com/k8s13/</link>
+    <pubDate>Sat, 08 Oct 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/k8s13/</guid>
+    <description><![CDATA[<h1 id="kubernetes--探针和生命周期">Kubernetes — 探针和生命周期</h1>
+<p>用于判断容器内应用程序是否已经启动。</p>
+<ul>
+<li>存活（Liveness）探针
+<ul>
+<li>用于探测容器是否运行，如果探测失败，kubelet会根据配置的重启策略进行相应的处理，若没有配置探针该返回值默认为success</li>
+</ul>
+</li>
+<li>就绪（Readiness）探针
+<ul>
+<li>用于探测容器内的程序是否健康，如果返回值为success，那么代表这个容器已经完全启动，并且程序已经是可以接受流量的状态</li>
+</ul>
+</li>
+<li>启动（Startup）探针
+<ul>
+<li>用于探测容器是否启动，如果配置了startup 就会先禁止其他探测，直到它成功，成功后将不在运行探测</li>
+</ul>
+</li>
+</ul>
+<h2 id="pod检测方式">Pod检测方式</h2>
+<ul>
+<li>ExecAction：在容器执行一个命令，返回值为0，则认为容器健康</li>
+<li>TCPSocketAction：通过TCP连接检查容器是否联通，通的话，则认为容器正常</li>
+<li>HTTPGetAction：通过应用程序暴露的API地址来检查程序是否正常的，如果状态码为200-400之间，则认为容器健康</li>
+</ul>
+<h2 id="startupprobe-启动探针">StartupProbe 启动探针</h2>
+<p>&ndash;collector.scheduled_task.whitelist</p>
+]]></description>
+</item><item>
+    <title>windows-exporter 监控</title>
+    <link>http://www.jobcher.com/windows-exporter/</link>
+    <pubDate>Sat, 08 Oct 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/windows-exporter/</guid>
+    <description><![CDATA[<h1 id="windows-exporter-监控安装">windows-exporter 监控安装</h1>
+<h3 id="windows_exporterhttpsgithubcomprometheus-communitywindows_exporter"><a href="https://github.com/prometheus-community/windows_exporter" target="_blank" rel="noopener noreffer">windows_exporter</a></h3>
+<h3 id="下载安装httpsgithubcomprometheus-communitywindows_exporterreleasesdownloadv0200windows_exporter-0200-amd64msi"><a href="https://github.com/prometheus-community/windows_exporter/releases/download/v0.20.0/windows_exporter-0.20.0-amd64.msi" target="_blank" rel="noopener noreffer">下载安装</a></h3>
+<h2 id="启动">启动</h2>
+<p>下载msi版本，输入一下命令启动</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">msiexec /i C:<span class="se">\U</span>sers<span class="se">\A</span>dministrator<span class="se">\D</span>ownloads<span class="se">\w</span>indows_exporter.msi <span class="nv">ENABLED_COLLECTORS</span><span class="o">=</span><span class="s2">&#34;ad,iis,logon,memory,process,tcp,scheduled_task&#34;</span> <span class="nv">TEXTFILE_DIR</span><span class="o">=</span><span class="s2">&#34;C:\custom_metrics\&#34;
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>卸载</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">msiexec /uninstall C:<span class="se">\U</span>sers<span class="se">\A</span>dministrator<span class="se">\D</span>ownloads<span class="se">\w</span>indows_exporter.msi
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="添加prometheus-监控">添加prometheus 监控</h2>
+<p>prometheus.yaml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="c"># 新增 windows-exporter</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;windows-exporter&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">file_sd_configs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">files</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;./file_sd/windows-exporter.yaml&#34;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>./file_sd/windows-exporter.yaml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="c"># 新增 windows-exporter</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">targets</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;192.168.0.6:9182&#39;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">instance</span><span class="p">:</span><span class="w"> </span><span class="l">windows-task</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="添加alertmanager-告警">添加alertmanager 告警</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="c"># 告警信息</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">groups</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">sanjiang windows 任务计划程序告警</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">rules</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l">windows实例任务告警</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l">windows_scheduled_task_state{state=&#34;disabled&#34;,task=~&#34;/ETL_kettle_tasks/.*&#34;}==1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">for</span><span class="p">:</span><span class="w"> </span><span class="l">30s</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l">critical</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{$labels.job}}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">annotations</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;sanjiang: {{$labels.job}} windows 任务异常&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{$labels.task}} of job {{$labels.job}} 该任务断联已超过1分钟&#34;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
+</item><item>
     <title>Kubernetes — 开放标准（OCI、CRI、CNI、CSI、SMI、CPI）概述</title>
     <link>http://www.jobcher.com/k8s12/</link>
     <pubDate>Fri, 07 Oct 2022 00:00:00 &#43;0000</pubDate>
@@ -143,38 +274,6 @@
 <li>AWS</li>
 <li>Azure</li>
 <li>GCP</li>
-</ul>
-]]></description>
-</item><item>
-    <title>Kubernetes — 探针和生命周期</title>
-    <link>http://www.jobcher.com/k8s13/</link>
-    <pubDate>Fri, 07 Oct 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/k8s13/</guid>
-    <description><![CDATA[<h1 id="kubernetes--探针和生命周期">Kubernetes — 探针和生命周期</h1>
-<p>用于判断容器内应用程序是否已经启动。</p>
-<ul>
-<li>存活（Liveness）探针
-<ul>
-<li>用于探测容器是否运行，如果探测失败，kubelet会根据配置的重启策略进行相应的处理，若没有配置探针该返回值默认为success</li>
-</ul>
-</li>
-<li>就绪（Readiness）探针
-<ul>
-<li>用于探测容器内的程序是否健康，如果返回值为success，那么代表这个容器已经完全启动，并且程序已经是可以接受流量的状态</li>
-</ul>
-</li>
-<li>启动（Startup）探针
-<ul>
-<li>用于探测容器是否启动，如果配置了startup 就会先禁止其他探测，直到它成功，成功后将不在运行探测</li>
-</ul>
-</li>
-</ul>
-<h2 id="pod检测方式">Pod检测方式</h2>
-<ul>
-<li>ExecAction：在容器执行命令，返回值为0，则认为容器健康</li>
-<li>TCPSocketAction：通过TCP连接检查容器是否联通，通的话，则认为容器正常</li>
-<li>HTTPGetAction：通过应用程序暴露的API地址来检查程序是否正常的，如果状态码为200-400之间，则认为容器健康</li>
 </ul>
 ]]></description>
 </item><item>
@@ -831,67 +930,6 @@ network: error getting ClusterInformation: connection is unauthorized: Unauthori
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">registry.cn-hangzhou.aliyuncs.com/google_containers
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description>
-</item><item>
-    <title>Golang 初识（安装、使用）</title>
-    <link>http://www.jobcher.com/golang/</link>
-    <pubDate>Wed, 21 Sep 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/golang/</guid>
-    <description><![CDATA[<h1 id="golang-初识安装使用">Golang 初识（安装、使用）</h1>
-<h2 id="go-导学">Go 导学</h2>
-<p>go语言由google公司推出。</p>
-<ul>
-<li>运行速度快，简单易学</li>
-<li>适合区块链开发</li>
-<li>拥有丰富指令</li>
-<li>可以直接包含C语言</li>
-<li>语言层面支持并发</li>
-</ul>
-<h3 id="go-方向">Go 方向</h3>
-<ul>
-<li>网络编程</li>
-<li>服务器编程</li>
-<li>区块链开发</li>
-</ul>
-<h2 id="环境安装">环境安装</h2>
-<h3 id="安装环境">安装环境</h3>
-<p>安装包下载<br>
-<a href="https://golang.google.cn/dl/" target="_blank" rel="noopener noreffer">https://golang.google.cn/dl/</a></p>
-<h3 id="windows-部署">windows 部署</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">wget https://golang.google.cn/dl/go1.19.1.windows-amd64.msi
-</span></span><span class="line"><span class="cl"><span class="c1"># 直接安装</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="gopath-设置">GOPATH 设置</h3>
-<p>在环境变量 <code>PATH</code> 上直接配置安装地址</p>
-<h2 id="编写第一个程序">编写第一个程序</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="s">&#34;fmt&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;Hello World!&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>

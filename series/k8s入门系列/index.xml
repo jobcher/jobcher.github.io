@@ -4,7 +4,41 @@
         <link>http://www.jobcher.com/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/</link>
         <description>k8s入门系列 - seris - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 07 Oct 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Sat, 08 Oct 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+    <title>Kubernetes — 探针和生命周期</title>
+    <link>http://www.jobcher.com/k8s13/</link>
+    <pubDate>Sat, 08 Oct 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/k8s13/</guid>
+    <description><![CDATA[<h1 id="kubernetes--探针和生命周期">Kubernetes — 探针和生命周期</h1>
+<p>用于判断容器内应用程序是否已经启动。</p>
+<ul>
+<li>存活（Liveness）探针
+<ul>
+<li>用于探测容器是否运行，如果探测失败，kubelet会根据配置的重启策略进行相应的处理，若没有配置探针该返回值默认为success</li>
+</ul>
+</li>
+<li>就绪（Readiness）探针
+<ul>
+<li>用于探测容器内的程序是否健康，如果返回值为success，那么代表这个容器已经完全启动，并且程序已经是可以接受流量的状态</li>
+</ul>
+</li>
+<li>启动（Startup）探针
+<ul>
+<li>用于探测容器是否启动，如果配置了startup 就会先禁止其他探测，直到它成功，成功后将不在运行探测</li>
+</ul>
+</li>
+</ul>
+<h2 id="pod检测方式">Pod检测方式</h2>
+<ul>
+<li>ExecAction：在容器执行一个命令，返回值为0，则认为容器健康</li>
+<li>TCPSocketAction：通过TCP连接检查容器是否联通，通的话，则认为容器正常</li>
+<li>HTTPGetAction：通过应用程序暴露的API地址来检查程序是否正常的，如果状态码为200-400之间，则认为容器健康</li>
+</ul>
+<h2 id="startupprobe-启动探针">StartupProbe 启动探针</h2>
+<p>&ndash;collector.scheduled_task.whitelist</p>
+]]></description>
+</item><item>
     <title>Kubernetes — 开放标准（OCI、CRI、CNI、CSI、SMI、CPI）概述</title>
     <link>http://www.jobcher.com/k8s12/</link>
     <pubDate>Fri, 07 Oct 2022 00:00:00 &#43;0000</pubDate>
@@ -143,38 +177,6 @@
 <li>AWS</li>
 <li>Azure</li>
 <li>GCP</li>
-</ul>
-]]></description>
-</item><item>
-    <title>Kubernetes — 探针和生命周期</title>
-    <link>http://www.jobcher.com/k8s13/</link>
-    <pubDate>Fri, 07 Oct 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/k8s13/</guid>
-    <description><![CDATA[<h1 id="kubernetes--探针和生命周期">Kubernetes — 探针和生命周期</h1>
-<p>用于判断容器内应用程序是否已经启动。</p>
-<ul>
-<li>存活（Liveness）探针
-<ul>
-<li>用于探测容器是否运行，如果探测失败，kubelet会根据配置的重启策略进行相应的处理，若没有配置探针该返回值默认为success</li>
-</ul>
-</li>
-<li>就绪（Readiness）探针
-<ul>
-<li>用于探测容器内的程序是否健康，如果返回值为success，那么代表这个容器已经完全启动，并且程序已经是可以接受流量的状态</li>
-</ul>
-</li>
-<li>启动（Startup）探针
-<ul>
-<li>用于探测容器是否启动，如果配置了startup 就会先禁止其他探测，直到它成功，成功后将不在运行探测</li>
-</ul>
-</li>
-</ul>
-<h2 id="pod检测方式">Pod检测方式</h2>
-<ul>
-<li>ExecAction：在容器执行命令，返回值为0，则认为容器健康</li>
-<li>TCPSocketAction：通过TCP连接检查容器是否联通，通的话，则认为容器正常</li>
-<li>HTTPGetAction：通过应用程序暴露的API地址来检查程序是否正常的，如果状态码为200-400之间，则认为容器健康</li>
 </ul>
 ]]></description>
 </item><item>
