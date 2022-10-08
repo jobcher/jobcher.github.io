@@ -16,4 +16,3 @@
 
 ## StartupProbe 启动探针
 
---collector.scheduled_task.whitelist

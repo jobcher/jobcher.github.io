@@ -36,7 +36,6 @@
 <li>HTTPGetAction：通过应用程序暴露的API地址来检查程序是否正常的，如果状态码为200-400之间，则认为容器健康</li>
 </ul>
 <h2 id="startupprobe-启动探针">StartupProbe 启动探针</h2>
-<p>&ndash;collector.scheduled_task.whitelist</p>
 ]]></description>
 </item><item>
     <title>Kubernetes — 开放标准（OCI、CRI、CNI、CSI、SMI、CPI）概述</title>
