@@ -217,5 +217,102 @@
 <h2 id="安装npm">安装npm</h2>
 <p>npm其实是Node.js的包管理工具（package manager）。</p>
 ]]></description>
+</item><item>
+    <title>ruoyi-cloud docker部署</title>
+    <link>http://www.jobcher.com/ruoyi/</link>
+    <pubDate>Thu, 03 Mar 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/ruoyi/</guid>
+    <description><![CDATA[<h2 id="基础环境安装">基础环境安装</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># docker 脚本安装</span>
+</span></span><span class="line"><span class="cl">curl -sSL https://get.daocloud.io/docker <span class="p">|</span> sh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#docker compose 脚本安装</span>
+</span></span><span class="line"><span class="cl">curl -L https://get.daocloud.io/docker/compose/releases/download/v2.4.1/docker-compose-<span class="sb">`</span>uname -s<span class="sb">`</span>-<span class="sb">`</span>uname -m<span class="sb">`</span> &gt; /usr/local/bin/docker-compose 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#可执行权限</span>
+</span></span><span class="line"><span class="cl">sudo chmod +x /usr/local/bin/docker-compose
+</span></span><span class="line"><span class="cl"><span class="c1">#创建软链：</span>
+</span></span><span class="line"><span class="cl">sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+</span></span><span class="line"><span class="cl"><span class="c1">#测试是否安装成功</span>
+</span></span><span class="line"><span class="cl">docker-compose --version
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="下载安装">下载安装</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git clone https://gitlab.sanjiang.com/it-group/ruoyi-cloud.git
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="编译">编译</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">cd</span> ruoyi-cloud
+</span></span><span class="line"><span class="cl">mvn clean install -DskipTests
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="复制jar包">复制jar包</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">cd</span> ./docker
+</span></span><span class="line"><span class="cl">./copy.sh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="部署docker">部署docker</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">./deploy.sh base
+</span></span><span class="line"><span class="cl">./deploy.sh modules
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="检查docker">检查docker</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker ps -a <span class="p">|</span> grep ruoyi
+</span></span><span class="line"><span class="cl">docker logs -f ruoyi-auth
+</span></span><span class="line"><span class="cl">docker logs -f ruoyi-gateway
+</span></span><span class="line"><span class="cl">docker logs -f ruoyi-modules-system
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
 </item></channel>
 </rss>
