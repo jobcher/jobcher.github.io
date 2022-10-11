@@ -431,6 +431,105 @@
 </div><p>如果使用 <code>yaml</code> 文件直接部署，则使用 <code>kubectl delete -f</code> 加当初使用的 <code>yaml</code> 文件即可删除集群。</p>
 ]]></description>
 </item><item>
+    <title>Kubernetes — 基于K8S搭建Ceph分布式存储</title>
+    <link>http://www.jobcher.com/k8s15/</link>
+    <pubDate>Tue, 11 Oct 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/k8s15/</guid>
+    <description><![CDATA[<h1 id="基于k8s搭建ceph分布式存储">基于K8S搭建Ceph分布式存储</h1>
+<h2 id="前提">前提</h2>
+<ul>
+<li>正常运行的多节点K8S集群，可以是两个节点也可以是更多。</li>
+<li>每一个节点需要一个<code>没有被分区</code>的<code>硬盘</code>，最好大小一致不然会浪费。
+没错其实就是一个要求，必须有集群才能进行容器管理，必须有硬盘才能做存储这些都是基础。</li>
+</ul>
+<h2 id="添加硬盘">添加硬盘</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">主机</th>
+<th style="text-align:left">IP</th>
+<th style="text-align:left">磁盘</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">master01</td>
+<td style="text-align:left">10.12.12.51</td>
+<td style="text-align:left">SATA 20G</td>
+</tr>
+<tr>
+<td style="text-align:left">master02</td>
+<td style="text-align:left">10.12.12.52</td>
+<td style="text-align:left">SATA 20G</td>
+</tr>
+<tr>
+<td style="text-align:left">master03</td>
+<td style="text-align:left">10.12.12.53</td>
+<td style="text-align:left">SATA 20G</td>
+</tr>
+<tr>
+<td style="text-align:left">worker01</td>
+<td style="text-align:left">10.12.12.54</td>
+<td style="text-align:left">SATA 20G</td>
+</tr>
+<tr>
+<td style="text-align:left">worker02</td>
+<td style="text-align:left">10.12.12.55</td>
+<td style="text-align:left">SATA 20G</td>
+</tr>
+</tbody>
+</table>
+<p></p>
+<blockquote>
+<p>在5个节点都加20g存储</p>
+</blockquote>
+<h3 id="重启k8s节点">重启k8s节点</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl cordon &lt;节点&gt;
+</span></span><span class="line"><span class="cl">kubectl drain &lt;节点&gt; --ignore-daemonsets --delete-emptydir-data
+</span></span><span class="line"><span class="cl"><span class="c1"># 虚拟机重启后</span>
+</span></span><span class="line"><span class="cl">kubectl uncordon &lt;节点&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="查看新增存储">查看新增存储</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">fdisk -l
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>看到新增20g存储</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">Disk /dev/sdb: <span class="m">20</span> GiB, <span class="m">21474836480</span> bytes, <span class="m">41943040</span> sectors
+</span></span><span class="line"><span class="cl">Disk model: QEMU HARDDISK   
+</span></span><span class="line"><span class="cl">Units: sectors of <span class="m">1</span> * <span class="nv">512</span> <span class="o">=</span> <span class="m">512</span> bytes
+</span></span><span class="line"><span class="cl">Sector size <span class="o">(</span>logical/physical<span class="o">)</span>: <span class="m">512</span> bytes / <span class="m">512</span> bytes
+</span></span><span class="line"><span class="cl">I/O size <span class="o">(</span>minimum/optimal<span class="o">)</span>: <span class="m">512</span> bytes / <span class="m">512</span> bytes
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="heading"></h2>
+]]></description>
+</item><item>
     <title>Kubernetes — 探针和生命周期</title>
     <link>http://www.jobcher.com/k8s13/</link>
     <pubDate>Sat, 08 Oct 2022 00:00:00 &#43;0000</pubDate>
@@ -1616,45 +1715,6 @@ systemctl status kubelet</p>
 <blockquote>
 <p>kubectl rollout restart deployment jobcher-blog-deployment</p>
 </blockquote>
-]]></description>
-</item><item>
-    <title>k8s本地联调神器kt-connect</title>
-    <link>http://www.jobcher.com/kt-connect/</link>
-    <pubDate>Thu, 14 Apr 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/kt-connect/</guid>
-    <description><![CDATA[<h1 id="k8s本地联调神器kt-connect">k8s本地联调神器kt-connect</h1>
-<p><a href="https://www.bboy.app/2022/04/11/k8s%E6%9C%AC%E5%9C%B0%E8%81%94%E8%B0%83%E7%A5%9E%E5%99%A8kt-connect/" target="_blank" rel="noopener noreffer">转载自Bboysoul&rsquo;sBlog</a><br>
-k8s集群内部的服务网络怎么和我们本地网络打通。kt-connect就是用来解决这个问题的</p>
-<h2 id="使用方法">使用方法</h2>
-<p>下载安装什么的都很简单，一个二进制而已</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">https://github.com/alibaba/kt-connect
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>如果你安装好了，那么直接使用下面的命令使用就好了</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo ktctl connect
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>当然也可以指定配置文件</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo ktctl --kubeconfig ~/.kube/local connect
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>执行完成之后，这个集群的所有<code>svc</code>都可以直接在本地解析，当然直接ping pod的ip也是可以的</p>
 ]]></description>
 </item></channel>
 </rss>
