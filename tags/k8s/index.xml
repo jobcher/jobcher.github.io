@@ -509,7 +509,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>看到新增20g存储</p>
+<p>看到新增20g存储,不要格式化分区硬盘！！！</p>
 </blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -527,7 +527,25 @@
 </span></span><span class="line"><span class="cl">I/O size <span class="o">(</span>minimum/optimal<span class="o">)</span>: <span class="m">512</span> bytes / <span class="m">512</span> bytes
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="heading"></h2>
+</div><h2 id="rook-自动创建">ROOK 自动创建</h2>
+<p></p>
+<ul>
+<li>Rook 是一个开源的<code>cloud-native storage</code>编排, 提供平台和框架；为各种存储解决方案提供平台、框架和支持，以便与云原生环境本地集成。</li>
+<li>Rook 将存储软件转变为自我管理、自我扩展和自我修复的存储服务，它通过自动化部署、引导、配置、置备、扩展、升级、迁移、灾难恢复、监控和资源管理来实现此目的。</li>
+<li>Rook 使用底层云本机容器管理、调度和编排平台提供的工具来实现它自身的功能。</li>
+<li>Rook 目前支持<code>Ceph</code>、<code>NFS</code>、<code>Minio Object Store</code>和<code>CockroachDB</code>。</li>
+<li>Rook使用<code>Kubernetes</code>原语使<code>Ceph存储系统</code>能够在<code>Kubernetes</code>上运行。</li>
+</ul>
+<h3 id="下载">下载</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git clone https://github.com/rook/rook.git
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="安装">安装</h3>
 ]]></description>
 </item><item>
     <title>Kubernetes — 探针和生命周期</title>
