@@ -4,9 +4,50 @@
         <link>http://www.jobcher.com/</link>
         <description>打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 11 Oct 2022 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 21 Oct 2022 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://www.jobcher.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>打开web 3.0的大门——IPFS使用</title>
+    <link>http://www.jobcher.com/ipfs/</link>
+    <pubDate>Fri, 21 Oct 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/ipfs/</guid>
+    <description><![CDATA[<h2 id="背景">背景</h2>
+<p>有很多朋友问我什么是web3.0，web3.0似乎离我们非常远。有人会说web3.0是未来下一代的技术很有前景！但是举出一个具体的例子，似乎又非常困难。使用web3.0是一件非常高科技的事情。本文就是通过各IPFS给各位初学者和对web3.0感兴趣的人使用介绍，看完本篇文章，你就能进入web3.0的世界了~</p>
+<h2 id="ipfs">IPFS</h2>
+<p><code>星际文件系统</code>(InterPlanetary File System). IPFS 是一个分布式的web, 点到点超媒体协议. 可以让我们的互联网速度更快, 更加安全, 并且更加开放. <code>IPFS协议</code>的目标是取代传统的<code>互联网协议HTTP</code></p>
+<h2 id="下载安装">下载安装</h2>
+<blockquote>
+<p>本文不会对技术做更深入探讨，只在应用层面上介绍</p>
+</blockquote>
+<h3 id="下载">下载</h3>
+<p><a href="https://docs.ipfs.tech/install/ipfs-desktop/#windows" target="_blank" rel="noopener noreffer">官网</a><br>
+<a href="https://github.com/ipfs/ipfs-desktop/releases/download/v0.24.0/IPFS-Desktop-Setup-0.24.0.exe" target="_blank" rel="noopener noreffer">下载windows</a><br>
+<a href="https://github.com/ipfs/ipfs-desktop/releases/download/v0.24.0/IPFS-Desktop-0.24.0.dmg" target="_blank" rel="noopener noreffer">下载MAC</a></p>
+<h3 id="安装">安装</h3>
+<ol>
+<li>运行 .exe 文件开始安装，选择是要为您自己还是为计算机上的所有用户安装应用程序。点击下一步：<br>
+</li>
+<li>选择应用程序的安装位置。默认位置通常很好。点击下一步：<br>
+</li>
+<li>等待安装完成，然后单击完成：
+</li>
+<li>您现在可以在状态栏中找到 IPFS 图标：
+</li>
+</ol>
+<h2 id="使用">使用</h2>
+<ol>
+<li>打开软件
+
+可以<code>正常使用</code>了！是不是很简单接下来浏览器直接查看web3.0站点</li>
+</ol>
+<h2 id="站点">站点</h2>
+<p>我的 <code>web3.0</code> blog： <a href="ipfs.jobcher.com" rel="">ipfs.jobcher.com</a><br>
+对标youdTube的视频网站: <a href="https://ipfs.io/ipfs/QmbMtArYSo3DPjVFiyPdiJu1wsWFeFAEMikD8EMGwdNZwt/" target="_blank" rel="noopener noreffer">d.tube</a>
+Orbit，QQ 在 IPFS上的替代者: <a href="orbit.chat" rel="">orbit.chat</a>
+Akasha，对标 facebook，微信等社交工具：<a href="akasha.world" rel="">akasha.world</a></p>
+]]></description>
+</item><item>
     <title>Kubernetes — Rook云存储介绍和部署</title>
     <link>http://www.jobcher.com/k8s14/</link>
     <pubDate>Tue, 11 Oct 2022 00:00:00 &#43;0000</pubDate>
@@ -1626,78 +1667,6 @@
     <div class="aspect-ratio">
       <iframe
               src="https://player.bilibili.com/player.html?bvid=BV1Xi4y1y7Si&page=1&high_quality=1&danmaku=0"
-              scrolling="no" 
-              border="0" 
-              frameborder="no" 
-              framespacing="0" 
-              allowfullscreen="true"
-              sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"
-              >
-      </iframe>
-      
-      
-    </div>
-  </body>
-
-</html>
-
-]]></description>
-</item><item>
-    <title>懒人烧排骨</title>
-    <link>http://www.jobcher.com/paigu/</link>
-    <pubDate>Mon, 26 Sep 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/paigu/</guid>
-    <description><![CDATA[<h3 id="主料">【主料】</h3>
-<ul>
-<li>精排骨（500克）</li>
-</ul>
-<h3 id="辅料">【辅料】</h3>
-<ul>
-<li>食用面碱（约2克）</li>
-<li>柠檬（半个）</li>
-<li>生姜（1小块）</li>
-<li>小葱（2根）</li>
-<li>八角（1颗）</li>
-<li>桂皮（1小块）</li>
-<li>香叶（半片）</li>
-<li>冰糖（约50克）</li>
-<li>可乐（1000克）</li>
-</ul>
-<h3 id="调味料">【调味料】</h3>
-<ul>
-<li>食用盐（适量）</li>
-<li>料酒（适量）</li>
-<li>生抽酱油（20克）</li>
-</ul>
-<h2 id="教学视频">教学视频</h2>
-<!DOCTYPE HTML>
-<html>
-
-  <head>
-    
-    <style type="text/css">
-      .aspect-ratio {
-        position: relative;
-        width: 100%;
-        height: 0;
-        padding-bottom: 75%;
-      }
-
-      .aspect-ratio iframe {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
-      }
-    </style>
-  </head>
-
-  <body>
-    <div class="aspect-ratio">
-      <iframe
-              src="https://player.bilibili.com/player.html?bvid=BV1Jk4y1R7Ka&page=1&high_quality=1&danmaku=0"
               scrolling="no" 
               border="0" 
               frameborder="no" 
