@@ -4,7 +4,50 @@
         <link>http://www.jobcher.com/categories/%E9%97%AE%E9%A2%98%E5%BA%93/</link>
         <description>问题库 - 分类 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 23 Sep 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/%E9%97%AE%E9%A2%98%E5%BA%93/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 21 Oct 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/%E9%97%AE%E9%A2%98%E5%BA%93/" rel="self" type="application/rss+xml" /><item>
+    <title>githubAction set-output弃用错误</title>
+    <link>http://www.jobcher.com/github-error/</link>
+    <pubDate>Fri, 21 Oct 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/github-error/</guid>
+    <description><![CDATA[<h1 id="githubaction-set-output弃用错误">githubAction set-output弃用错误</h1>
+<p>The <code>set-output</code> command is deprecated and will be disabled soon. Please upgrade to using Environment Files. For more information see: <a href="https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/" target="_blank" rel="noopener noreffer">https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/</a></p>
+<h2 id="原因">原因</h2>
+<p>如果您有一个使用 设置输出的<code>GitHub Actionsecho ::set-output key=value</code>工作流程，您已经开始看到无用的弃用警告。这是修复它的方法。查看官方链接基本上得不到什么帮助！</p>
+<h2 id="修复方法">修复方法</h2>
+<ol>
+<li>更新其它人的action方法</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">将 @actions/core 提升到 1.10.0
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>修改自己的aciton方法</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">run: <span class="nb">echo</span> <span class="s2">&#34;::set-output name=KEY::VALUE&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">## 改为</span>
+</span></span><span class="line"><span class="cl">run: <span class="nb">echo</span> <span class="s2">&#34;KEY=VALUE&#34;</span> &gt;&gt;<span class="nv">$GITHUB_OUTPUT</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>建议：使用自己的方法</p>
+</blockquote>
+<h2 id="总结">总结</h2>
+<p>平台经营者非常肆意妄为的修改自己的代码内容弃用功能，无限的权力滋生傲慢……我相信大部分开发这并没有注意到这个告警，知道流水线服务报错之后才会注意到，希望微软可以对能更加包容不同的开发者，尊重开发者社区。</p>
+]]></description>
+</item><item>
     <title>k8s CNI 问题 连接认证失效</title>
     <link>http://www.jobcher.com/k8s-error2/</link>
     <pubDate>Fri, 23 Sep 2022 00:00:00 &#43;0000</pubDate>
