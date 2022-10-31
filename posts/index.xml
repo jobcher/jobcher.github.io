@@ -4,7 +4,64 @@
         <link>http://www.jobcher.com/posts/</link>
         <description>所有文章 | 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 21 Oct 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 31 Oct 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Logstash 自动重载配置文件</title>
+    <link>http://www.jobcher.com/logstash1/</link>
+    <pubDate>Mon, 31 Oct 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/logstash1/</guid>
+    <description><![CDATA[<h2 id="工作原理">工作原理</h2>
+<ol>
+<li>检测到配置文件变化</li>
+<li>通过停止所有输入停止当前<code>pipline</code></li>
+<li>用新的配置创建一个新的管道</li>
+<li>检查配置文件语法是否正确</li>
+<li>检查所有的输入和输出是否可以初始化</li>
+<li>检查成功使用新的pipeline替换当前的<code>pipeline</code></li>
+<li>检查失败,使用旧的继续工作.</li>
+<li>在重载过程中,jvm没有重启.</li>
+</ol>
+<h2 id="logstash-自动重新加载配置">Logstash 自动重新加载配置</h2>
+<p>为了可以<code>自动检测</code>配置文件的变动和自动重新加载配置文件,需要在启动的时候使用以下命令:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">./bin/lagstash -f configfile.conf --config.reload.automatic
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>启动Logstash的时候使用<code>--config.reload.automatic</code>或<code>-r</code>选项来开启自动重载配置。</p>
+</blockquote>
+<h2 id="修改检测间隔时间">修改检测间隔时间</h2>
+<p>默认检测配置文件的间隔时间是<code>3秒</code>,可以通过以下命令改变</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">--config.reload.interval &lt;second&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>如果Logstash已经运行并且没有开启自动重载，你可以强制Logstash重新载入配置文件并且重启管道通过发送一个SIGHUP信号。比如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">kill</span> -1 &lt;pid&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其中<pid>是正在运行的Logstash的进程号。</p>
+<h2 id="注意">注意！！！</h2>
+<blockquote>
+<p><code>stdin</code>输入插件不支持自动重启.<br>
+<code>syslog</code>作为输入源,当重载配置文件时,会崩溃.<br>
+<a href="https://github.com/logstash-plugins/logstash-input-syslog/issues/40" target="_blank" rel="noopener noreffer">解决方法</a></p>
+</blockquote>
+]]></description>
+</item><item>
     <title>githubAction set-output弃用错误</title>
     <link>http://www.jobcher.com/github-error/</link>
     <pubDate>Fri, 21 Oct 2022 00:00:00 &#43;0000</pubDate>
@@ -1382,120 +1439,6 @@ Akasha，对标 facebook，微信等社交工具：<a href="https://akasha.world
 
 </html>
 
-]]></description>
-</item><item>
-    <title>Cloudflare Zero Trust 内网穿透</title>
-    <link>http://www.jobcher.com/cloudflaretrust/</link>
-    <pubDate>Fri, 30 Sep 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/cloudflaretrust/</guid>
-    <description><![CDATA[<h1 id="cloudflare-zero-trust-内网穿透">Cloudflare Zero Trust 内网穿透</h1>
-<p><br>
-最快的 <code>Zero Trust</code> 应用访问和互联网浏览平台<br>
-增加可见性，消除复杂性，降低远程和办公室用户的风险。杜绝数据丢失、恶意软件和网络钓鱼，保护用户、应用程序和设备安全。<br>
-使用 Tunnel隧道来实现内网传统，实现内网访问各类应用</p>
-<h2 id="安装部署">安装部署</h2>
-<p><a href="https://dash.teams.cloudflare.com/" target="_blank" rel="noopener noreffer">https://dash.teams.cloudflare.com/</a></p>
-<h3 id="docker-部署">Docker 部署</h3>
-<p>在docker环境运行 <code>&lt;token&gt;</code> 是你个人令牌</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker run -d --name cloudflared cloudflare/cloudflared:latest tunnel --no-autoupdate run --token &lt;token&gt;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="linux部署">Linux部署</h3>
-<ol>
-<li>X86-64位</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-x86_64.rpm <span class="o">&amp;&amp;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>sudo cloudflared service install &lt;token&gt;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="2">
-<li>X86-32位</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386.rpm <span class="o">&amp;&amp;</span> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">sudo cloudflared service install &lt;token&gt;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="3">
-<li>arm64</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-aarch64.rpm <span class="o">&amp;&amp;</span> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">sudo cloudflared service install &lt;token&gt;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="4">
-<li>arm32</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm.rpm <span class="o">&amp;&amp;</span> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span> 
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">sudo cloudflared service install &lt;token&gt;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="windows部署">windows部署</h3>
-<ol>
-<li>下载 <a href="https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.msi" target="_blank" rel="noopener noreffer">https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.msi</a></li>
-<li>运行安装程序</li>
-<li>以管理员身份打开命令提示符</li>
-<li>运行以下命令</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cloudflared.exe service install &lt;token&gt;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="在cloudflare里配置内网穿透">在cloudflare里配置内网穿透</h2>
-<p></p>
 ]]></description>
 </item></channel>
 </rss>
