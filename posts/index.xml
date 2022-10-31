@@ -5,40 +5,6 @@
         <description>所有文章 | 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
             <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 31 Oct 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
-    <title>brew 安装配置</title>
-    <link>http://www.jobcher.com/macos13/</link>
-    <pubDate>Mon, 31 Oct 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/macos13/</guid>
-    <description><![CDATA[<h1 id="关于macos-13-brew软件失效">关于macOS 13 brew软件失效</h1>
-<p>Warning: You are using macOS 13.<br>
-We do not provide support for this pre-release version.<br>
-You will encounter build failures with some formulae.<br>
-Please create pull requests instead of asking for help on Homebrew&rsquo;s GitHub,
-Twitter or any other official channels. You are responsible for resolving
-any issues you experience while you are running this
-pre-release version.</p>
-<blockquote>
-<p>简单来说就是macOS13版本 暂时不提供技术支持</p>
-</blockquote>
-<h2 id="解决方法">解决方法</h2>
-<p>升级完macos13之后发现了比较麻烦的问题，很多软件出现了不兼容，这真的很无奈，对于我们这些做IT的人来说，这是致命的。我以git软件举例，有以下几个方法。</p>
-<h3 id="1-使用时间机器恢复备份">1. 使用时间机器恢复备份</h3>
-<blockquote>
-<p>使用前提：你之前备份了系统，并且系统正常
-这个方法更加一劳永逸，因为我们并不确定还有什么软件不支持macos13</p>
-</blockquote>
-<h3 id="2-重新安装xcode-select">2. 重新安装xcode-select</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">xcode-select --install
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description>
-</item><item>
     <title>Logstash 自动重载配置文件</title>
     <link>http://www.jobcher.com/logstash1/</link>
     <pubDate>Mon, 31 Oct 2022 00:00:00 &#43;0000</pubDate>
@@ -95,6 +61,40 @@ pre-release version.</p>
 <a href="https://github.com/logstash-plugins/logstash-input-syslog/issues/40" target="_blank" rel="noopener noreffer">解决方法</a></p>
 </blockquote>
 ]]></description>
+</item><item>
+    <title>macOS 13 升级 软件失效</title>
+    <link>http://www.jobcher.com/macos13/</link>
+    <pubDate>Mon, 31 Oct 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/macos13/</guid>
+    <description><![CDATA[<h1 id="关于macos-13-软件失效">关于macOS 13 软件失效</h1>
+<p>Warning: You are using macOS 13.<br>
+We do not provide support for this pre-release version.<br>
+You will encounter build failures with some formulae.<br>
+Please create pull requests instead of asking for help on Homebrew&rsquo;s GitHub,
+Twitter or any other official channels. You are responsible for resolving
+any issues you experience while you are running this
+pre-release version.</p>
+<blockquote>
+<p>简单来说就是macOS13版本 暂时不提供技术支持</p>
+</blockquote>
+<h2 id="解决方法">解决方法</h2>
+<p>升级完macos13之后发现了比较麻烦的问题，很多软件出现了不兼容，这真的很无奈，对于我们这些做IT的人来说，这是致命的。我以git软件举例，有以下几个方法。</p>
+<h3 id="1-使用时间机器恢复备份">1. 使用时间机器恢复备份</h3>
+<blockquote>
+<p>使用前提：你之前备份了系统，并且系统正常
+这个方法更加一劳永逸，因为我们并不确定还有什么软件不支持macos13</p>
+</blockquote>
+<h3 id="2-重新安装xcode-select">2. 重新安装xcode-select</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">xcode-select --install
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
 </item><item>
     <title>githubAction set-output弃用错误</title>
     <link>http://www.jobcher.com/github-error/</link>

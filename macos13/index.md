@@ -1,7 +1,7 @@
-# brew 安装配置
+# macOS 13 升级 软件失效
 
 
-# 关于macOS 13 brew软件失效
+# 关于macOS 13 软件失效
 Warning: You are using macOS 13.  
 We do not provide support for this pre-release version.  
 You will encounter build failures with some formulae.  
