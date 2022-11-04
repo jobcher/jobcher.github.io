@@ -77,6 +77,16 @@
 </span></span><span class="line"><span class="cl">terraform -help
 </span></span></code></pre></td></tr></table>
 </div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">wget -O- https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo <span class="p">|</span> sudo tee /etc/yum.repos.d/hashicorp.repo
+</span></span><span class="line"><span class="cl">sudo yum install terraform -y
+</span></span></code></pre></td></tr></table>
+</div>
 </div><h2 id="terrafrom-控制proxmox虚拟机">terrafrom 控制proxmox虚拟机</h2>
 <p>来源：https://github.com/Telmate/terraform-provider-proxmox</p>
 <h3 id="首先你要有一台pve主机">首先你要有一台pve主机</h3>
