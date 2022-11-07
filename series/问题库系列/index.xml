@@ -4,7 +4,68 @@
         <link>http://www.jobcher.com/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/</link>
         <description>问题库系列 - seris - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 21 Oct 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 31 Oct 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+    <title>Nexus3 使用和部署</title>
+    <link>http://www.jobcher.com/nexus/</link>
+    <pubDate>Mon, 31 Oct 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/nexus/</guid>
+    <description><![CDATA[<h2 id="nexus3-docker-compose-安装">Nexus3 docker-compose 安装</h2>
+<p>创建外部存储</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mkdir -p /data/nexus
+</span></span><span class="line"><span class="cl">chmod +777 -R /data/nexus
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行docker-compose</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">version: <span class="s1">&#39;3&#39;</span>
+</span></span><span class="line"><span class="cl">services:
+</span></span><span class="line"><span class="cl">  nexus3:
+</span></span><span class="line"><span class="cl">    image: sonatype/nexus3:3.42.0
+</span></span><span class="line"><span class="cl">    container_name: nexus3
+</span></span><span class="line"><span class="cl">    ports:
+</span></span><span class="line"><span class="cl">      - 8081:8081
+</span></span><span class="line"><span class="cl">      - 5000:5000
+</span></span><span class="line"><span class="cl">    volumes:
+</span></span><span class="line"><span class="cl">      - /data/nexus:/nexus-data
+</span></span><span class="line"><span class="cl">    environment:
+</span></span><span class="line"><span class="cl">      - <span class="nv">INSTALL4J_ADD_VM_PARAMS</span><span class="o">=</span>-Xms1024m -Xmx1024m -XX:MaxDirectMemorySize<span class="o">=</span>1024m -Djava.util.prefs.userRoot<span class="o">=</span>/some-other-dir
+</span></span><span class="line"><span class="cl">    restart: always
+</span></span><span class="line"><span class="cl">    <span class="c1"># 赋予外部root权限</span>
+</span></span><span class="line"><span class="cl">    privileged: <span class="nb">true</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>docker-compose up -d
+运行docker-compose</p>
+</blockquote>
+<h2 id="heading"></h2>
+]]></description>
+</item><item>
     <title>githubAction set-output弃用错误</title>
     <link>http://www.jobcher.com/github-error/</link>
     <pubDate>Fri, 21 Oct 2022 00:00:00 &#43;0000</pubDate>
@@ -673,48 +734,5 @@ unable to configure the Docker daemon with file /etc/docker/daemon.json: EOF</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
-    <title>ProXmoX VE升级 apt-get update 报错</title>
-    <link>http://www.jobcher.com/pveupdate/</link>
-    <pubDate>Sun, 30 Jan 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/pveupdate/</guid>
-    <description><![CDATA[<h1 id="proxmox-ve升级-apt-get-update-报错">ProXmoX VE升级 apt-get update 报错</h1>
-<h2 id="解决方法">解决方法</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">vim /etc/apt/sources.list.d/pve-enterprise.list
-</span></span><span class="line"><span class="cl"><span class="c1">#注释掉</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#deb https://enterprise.proxmox.com/debian/pve stretch pve-enterprise</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="添加内容">添加内容</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;deb http://download.proxmox.com/debian/pve stretch pve-no-subscription&#34;</span> &gt; /etc/apt/sources.list.d/pve-install-repo.list
-</span></span><span class="line"><span class="cl">wget http://download.proxmox.com/debian/proxmox-ve-release-5.x.gpg -O /etc/apt/trusted.gpg.d/proxmox-ve-release-5.x.gpg
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="更新系统">更新系统</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apt update <span class="o">&amp;&amp;</span> apt dist-upgrade
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="结尾">结尾</h2>
-<p>升级完成后，可以执行<code>pveversion -v</code>查看下最新的软件版本。然后执行<code>reboot</code>重启物理服务器</p>
-]]></description>
 </item></channel>
 </rss>

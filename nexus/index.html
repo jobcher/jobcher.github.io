@@ -5,10 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>macOS 13 升级 软件失效 - 打工人日志 - jobcher</title><meta name="Description" content="打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通"><meta property="og:title" content="macOS 13 升级 软件失效" />
-<meta property="og:description" content="关于macOS 13 软件失效 Warning: You are using macOS 13. We do not provide support for this pre-release version. You will encounter build failures with some formulae. Please create pull requests instead of asking for help on Homebrew&rsquo;s GitHub, Twitter or any other official channels. You are responsible for resolving any issues you experience while you are running this pre-release version. 简" />
+        <title>Nexus3 使用和部署 - 打工人日志 - jobcher</title><meta name="Description" content="打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通"><meta property="og:title" content="Nexus3 使用和部署" />
+<meta property="og:description" content="Nexus3 docker-compose 安装 创建外部存储 1 2 mkdir -p /data/nexus chmod &#43;777 -R /data/nexus 运行docker-compose 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 version: &#39;3&#39; services: nexus3: image: sonatype/nexus3:3.42.0 container_name: nexus3 ports: - 8081:8081 - 5000:5000 volumes: - /data/nexus:/nexus-data environment: - INSTALL4J_ADD_VM_PARAMS=-Xms1024m -Xmx1024m" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://www.jobcher.com/macos13/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="http://www.jobcher.com/nexus/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-10-31T00:00:00+00:00" />
 <meta property="article:modified_time" content="2022-10-31T00:00:00+00:00" />
 
@@ -16,22 +16,22 @@
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="http://www.jobcher.com/avatar1.png"/>
 
-<meta name="twitter:title" content="macOS 13 升级 软件失效"/>
-<meta name="twitter:description" content="关于macOS 13 软件失效 Warning: You are using macOS 13. We do not provide support for this pre-release version. You will encounter build failures with some formulae. Please create pull requests instead of asking for help on Homebrew&rsquo;s GitHub, Twitter or any other official channels. You are responsible for resolving any issues you experience while you are running this pre-release version. 简"/>
+<meta name="twitter:title" content="Nexus3 使用和部署"/>
+<meta name="twitter:description" content="Nexus3 docker-compose 安装 创建外部存储 1 2 mkdir -p /data/nexus chmod &#43;777 -R /data/nexus 运行docker-compose 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 version: &#39;3&#39; services: nexus3: image: sonatype/nexus3:3.42.0 container_name: nexus3 ports: - 8081:8081 - 5000:5000 volumes: - /data/nexus:/nexus-data environment: - INSTALL4J_ADD_VM_PARAMS=-Xms1024m -Xmx1024m"/>
 <meta name="application-name" content="jobcher">
 <meta name="apple-mobile-web-app-title" content="jobcher"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"><link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../site.webmanifest"><link rel="canonical" href="http://www.jobcher.com/macos13/" /><link rel="prev" href="http://www.jobcher.com/nexus/" /><link rel="next" href="http://www.jobcher.com/logstash1/" /><link rel="stylesheet" href="../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../css/style.min.css"><link rel="stylesheet" href="../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"><link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../site.webmanifest"><link rel="canonical" href="http://www.jobcher.com/nexus/" /><link rel="prev" href="http://www.jobcher.com/github-error/" /><link rel="next" href="http://www.jobcher.com/macos13/" /><link rel="stylesheet" href="../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../css/style.min.css"><link rel="stylesheet" href="../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "macOS 13 升级 软件失效",
+        "headline": "Nexus3 使用和部署",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "http:\/\/www.jobcher.com\/macos13\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "brew","wordcount":  262 ,
-        "url": "http:\/\/www.jobcher.com\/macos13\/","datePublished": "2022-10-31T00:00:00+00:00","dateModified": "2022-10-31T00:00:00+00:00","publisher": {
+            "@id": "http:\/\/www.jobcher.com\/nexus\/"
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "work","wordcount":  106 ,
+        "url": "http:\/\/www.jobcher.com\/nexus\/","datePublished": "2022-10-31T00:00:00+00:00","dateModified": "2022-10-31T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -122,9 +122,9 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">macOS 13 升级 软件失效</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/mac/"><i class="far fa-folder fa-fw"></i>Mac</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-10-31">2022-10-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 262 字&nbsp;
+        </div><article class="page single"><h1 class="single-title animated flipInX">Nexus3 使用和部署</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/work/"><i class="far fa-folder fa-fw"></i>work</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-10-31">2022-10-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 106 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -133,42 +133,65 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#解决方法">解决方法</a>
-      <ul>
-        <li><a href="#1-使用时间机器恢复备份">1. 使用时间机器恢复备份</a></li>
-        <li><a href="#2-重新安装xcode-select">2. 重新安装xcode-select</a></li>
-      </ul>
-    </li>
+    <li><a href="#nexus3-docker-compose-安装">Nexus3 docker-compose 安装</a></li>
+    <li><a href="#heading"></a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="关于macos-13-软件失效">关于macOS 13 软件失效</h1>
-<p>Warning: You are using macOS 13.<br>
-We do not provide support for this pre-release version.<br>
-You will encounter build failures with some formulae.<br>
-Please create pull requests instead of asking for help on Homebrew&rsquo;s GitHub,
-Twitter or any other official channels. You are responsible for resolving
-any issues you experience while you are running this
-pre-release version.</p>
-<blockquote>
-<p>简单来说就是macOS13版本 暂时不提供技术支持</p>
-</blockquote>
-<h2 id="解决方法">解决方法</h2>
-<p>升级完macos13之后发现了比较麻烦的问题，很多软件出现了不兼容，这真的很无奈，对于我们这些做IT的人来说，这是致命的。我以git软件举例，有以下几个方法。</p>
-<h3 id="1-使用时间机器恢复备份">1. 使用时间机器恢复备份</h3>
-<blockquote>
-<p>使用前提：你之前备份了系统，并且系统正常
-这个方法更加一劳永逸，因为我们并不确定还有什么软件不支持macos13</p>
-</blockquote>
-<h3 id="2-重新安装xcode-select">2. 重新安装xcode-select</h3>
+            </div><div class="content" id="content"><h2 id="nexus3-docker-compose-安装">Nexus3 docker-compose 安装</h2>
+<p>创建外部存储</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">xcode-select --install
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mkdir -p /data/nexus
+</span></span><span class="line"><span class="cl">chmod +777 -R /data/nexus
 </span></span></code></pre></td></tr></table>
 </div>
-</div></div><div class="post-footer" id="post-footer">
+</div><p>运行docker-compose</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">version: <span class="s1">&#39;3&#39;</span>
+</span></span><span class="line"><span class="cl">services:
+</span></span><span class="line"><span class="cl">  nexus3:
+</span></span><span class="line"><span class="cl">    image: sonatype/nexus3:3.42.0
+</span></span><span class="line"><span class="cl">    container_name: nexus3
+</span></span><span class="line"><span class="cl">    ports:
+</span></span><span class="line"><span class="cl">      - 8081:8081
+</span></span><span class="line"><span class="cl">      - 5000:5000
+</span></span><span class="line"><span class="cl">    volumes:
+</span></span><span class="line"><span class="cl">      - /data/nexus:/nexus-data
+</span></span><span class="line"><span class="cl">    environment:
+</span></span><span class="line"><span class="cl">      - <span class="nv">INSTALL4J_ADD_VM_PARAMS</span><span class="o">=</span>-Xms1024m -Xmx1024m -XX:MaxDirectMemorySize<span class="o">=</span>1024m -Djava.util.prefs.userRoot<span class="o">=</span>/some-other-dir
+</span></span><span class="line"><span class="cl">    restart: always
+</span></span><span class="line"><span class="cl">    <span class="c1"># 赋予外部root权限</span>
+</span></span><span class="line"><span class="cl">    privileged: <span class="nb">true</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>docker-compose up -d
+运行docker-compose</p>
+</blockquote>
+<h2 id="heading"></h2>
+</div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
@@ -178,23 +201,23 @@ pre-release version.</p>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="../macos13/index.md" target="_blank">阅读原始文档</a>
+                            <a class="link-to-markdown" href="../nexus/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://www.jobcher.com/macos13/" data-title="macOS 13 升级 软件失效" data-hashtags="brew"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://www.jobcher.com/macos13/" data-hashtag="brew"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="http://www.jobcher.com/macos13/" data-title="macOS 13 升级 软件失效" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://www.jobcher.com/macos13/" data-title="macOS 13 升级 软件失效"><i data-svg-src="../lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://www.jobcher.com/macos13/" data-title="macOS 13 升级 软件失效" data-ralateuid="6090738003"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://www.jobcher.com/macos13/" data-title="macOS 13 升级 软件失效" data-description=""><i data-svg-src="../lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://www.jobcher.com/macos13/" data-title="macOS 13 升级 软件失效" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://www.jobcher.com/macos13/" data-title="macOS 13 升级 软件失效"><i class="fab fa-evernote fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://www.jobcher.com/nexus/" data-title="Nexus3 使用和部署" data-hashtags="work"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://www.jobcher.com/nexus/" data-hashtag="work"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="http://www.jobcher.com/nexus/" data-title="Nexus3 使用和部署" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://www.jobcher.com/nexus/" data-title="Nexus3 使用和部署"><i data-svg-src="../lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://www.jobcher.com/nexus/" data-title="Nexus3 使用和部署" data-ralateuid="6090738003"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://www.jobcher.com/nexus/" data-title="Nexus3 使用和部署" data-description=""><i data-svg-src="../lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://www.jobcher.com/nexus/" data-title="Nexus3 使用和部署" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://www.jobcher.com/nexus/" data-title="Nexus3 使用和部署"><i class="fab fa-evernote fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="../tags/brew/">brew</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="../tags/work/">work</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="../">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="../nexus/" class="prev" rel="prev" title="Nexus3 使用和部署"><i class="fas fa-angle-left fa-fw"></i>Nexus3 使用和部署</a>
-            <a href="../logstash1/" class="next" rel="next" title="Logstash 自动重载配置文件">Logstash 自动重载配置文件<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="../github-error/" class="prev" rel="prev" title="githubAction set-output弃用错误"><i class="fas fa-angle-left fa-fw"></i>githubAction set-output弃用错误</a>
+            <a href="../macos13/" class="next" rel="next" title="macOS 13 升级 软件失效">macOS 13 升级 软件失效<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="utterances"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
