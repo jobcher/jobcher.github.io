@@ -4,7 +4,25 @@
         <link>http://www.jobcher.com/posts/</link>
         <description>所有文章 | 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 31 Oct 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 07 Nov 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>zlibary 无法下载 解决方案</title>
+    <link>http://www.jobcher.com/zlibary/</link>
+    <pubDate>Mon, 07 Nov 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/zlibary/</guid>
+    <description><![CDATA[<h1 id="zlibary-无法下载">zlibary 无法下载</h1>
+<p>因为 zlib 最近被封，导致现在通过正常方法下载不了电子书，但是不要慌，我们可以通过暗网进行下载~</p>
+<h2 id="安装brave-浏览器">安装brave 浏览器</h2>
+<p><a href="https://brave.com/" target="_blank" rel="noopener noreffer">官网下载</a><br>
+下载你需要的版本，这个下载浏览器很简单，我就不多说了</p>
+<h2 id="配置tor配置">配置tor配置</h2>
+<p>编辑tor配置
+</p>
+<h2 id="使用tor浏览">使用tor浏览</h2>
+<p></p>
+<p><a href="http://zlibrary24tuxziyiyfr7zd46ytefdqbqd2axkmxm4o5374ptpc52fad.onion/" target="_blank" rel="noopener noreffer">zlibary tor 暗网版</a></p>
+]]></description>
+</item><item>
     <title>Logstash 自动重载配置文件</title>
     <link>http://www.jobcher.com/logstash1/</link>
     <pubDate>Mon, 31 Oct 2022 00:00:00 &#43;0000</pubDate>
@@ -1273,156 +1291,5 @@ Akasha，对标 facebook，微信等社交工具：<a href="https://akasha.world
 <li>GCP</li>
 </ul>
 ]]></description>
-</item><item>
-    <title>kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)</title>
-    <link>http://www.jobcher.com/k8s11/</link>
-    <pubDate>Fri, 07 Oct 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/k8s11/</guid>
-    <description><![CDATA[<h1 id="k8s部署插件">k8s部署插件</h1>
-<p><code>Kubernetes</code> 是高度可配置且可扩展的。因此，大多数情况下， 你不需要派生自己的 Kubernetes 副本或者向项目代码提交补丁，本文会介绍几种常用的k8s插件，如果大家喜欢的话，希望大家点赞支持。</p>
-<h2 id="1-flannel-网络插件">1. Flannel 网络插件</h2>
-<p><code>Flannel</code>是由go语言开发，是一种基于Overlay 网络的<code>跨主机容器网络解决方案</code>，也就是将<code>TCP数据包</code>封装在另一种网络包里面进行<code>路由转发和通信</code>，Flannel 是CoreOS 开发，专门用于docker多主机互联的一个工具，简单来说，它的功能是<code>让集群中的不同节点主机创建的容器都具有全局唯一的虚拟IP地址</code><br>
-主要功能：</p>
-<ul>
-<li>为每个 node 分配 subnet，容器将自动从该子网中获取 IP 地址</li>
-<li>当有 node 加入到网络中时，为每个 node 增加路由配置</li>
-</ul>
-<p></p>
-<h3 id="下载并安装">下载并安装</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">wget https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
-</span></span><span class="line"><span class="cl">kubectl apply -f kube-flannel.yml
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>如果yml中的&quot;Network&quot;: <code>10.244.0.0/16</code>和<code>kubeadm init xxx --pod-network-cidr</code>不一样，就需要修改成一样的。不然可能会使得<code>Node</code>间<code>Cluster IP</code>不通。</p>
-<h2 id="2-ingress-controller">2. Ingress Controller</h2>
-<p><code>Ingress</code> 是对集群中服务的外部访问进行管理的 API 对象，典型的访问方式是 HTTP。<br>
-<code>Ingress</code> 可以提供负载均衡、SSL 终结和基于名称的虚拟托管<br>
-下面是一个将所有流量都发送到同一 Service 的简单 Ingress 示例：<br>
-</p>
-<p><code>Ingress</code> 可为 <code>Service</code> 提供外部可访问的 URL、负载均衡流量、终止 SSL/TLS，以及基于名称的虚拟托管。 <code>Ingress 控制器</code> 通常负责通过负载均衡器来实现 Ingress，尽管它也可以配置边缘路由器或其他前端来帮助处理流量。</p>
-<p><code>Ingress 不会公开</code>任意端口或协议。 将 <code>HTTP</code> 和 <code>HTTPS</code> 以外的服务公开到 <code>Internet</code> 时，通常使用 <code>Service</code>.<code>Type=NodePort</code> 或 Service.<code>Type=LoadBalancer</code> 类型的 Service</p>
-<h3 id="其他">其他</h3>
-<p>为了让 <code>Ingress</code> 资源工作，集群必须有一个正在运行的 <code>Ingress 控制器</code>。</p>
-<p>与作为 <code>kube-controller-manager</code> 可执行文件的一部分运行的其他类型的控制器不同， Ingress 控制器不是随集群自动启动的。 基于此页面，你可选择最适合你的集群的 ingress 控制器实现。</p>
-<h2 id="3-coredns">3. CoreDNS</h2>
-<p><code>CoreDNS</code> 是一个灵活可扩展的 <code>DNS 服务器</code>，可以作为 <code>Kubernetes 集群 DNS</code>。 与 Kubernetes 一样，CoreDNS 项目由 CNCF 托管。<br>
-在 <code>Kubernetes 1.21</code> 版本中，<code>kubeadm</code> 移除了对将 <code>kube-dns</code> 作为 DNS 应用的支持。 对于 <code>kubeadm v1.25</code>，所支持的唯一的集群 DNS 应用是 <code>CoreDNS</code>。</p>
-<p>当你使用 <code>kubeadm</code> 升级使用 <code>kube-dns</code> 的集群时，你还可以执行到 <code>CoreDNS</code> 的迁移。 在这种场景中，<code>kubeadm</code> 将基于 <code>kube-dns ConfigMap</code> 生成 <code>CoreDNS</code> 配置<code>（&quot;Corefile&quot;）</code>， 保存存根域和上游名称服务器的配置。</p>
-<p>通过替换现有集群部署中的 <code>kube-dns</code>，或者使用 kubeadm 等工具来为你部署和升级集群， 可以在你的集群中使用 CoreDNS 而非 kube-dns
-你必须拥有一个 <code>Kubernetes 的集群</code>，同时你的 Kubernetes 集群必须带有 <code>kubectl 命令行工具</code>。 建议在至少有两个节点的集群上运行本教程，且这些节点不作为控制平面主机。</p>
-<h2 id="4-web-ui">4. Web UI</h2>
-<p><code>Dashboard</code> 是基于网页的 <code>Kubernetes</code> 用户界面。 你可以使用 <code>Dashboard</code> 将容器应用部署到 <code>Kubernetes</code> 集群中，也可以对容器应用排错，还能管理集群资源。 你可以使用 <code>Dashboard</code> 获取运行在集群中的应用的概览信息，也可以创建或者修改 <code>Kubernetes</code> 资源 （如 <code>Deployment，Job，DaemonSet</code> 等等）。 例如，你可以对 <code>Deployment</code> 实现弹性伸缩、发起滚动升级、重启 <code>Pod</code> 或者使用向导创建新的应用<br>
-</p>
-<h3 id="安装">安装</h3>
-<p>默认情况下不会部署 <code>Dashboard</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1">#https 方式</span>
-</span></span><span class="line"><span class="cl">kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.6.1/aio/deploy/recommended.yaml
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 或者 http方式 </span>
-</span></span><span class="line"><span class="cl">kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.6.1/aio/deploy/alternative.yaml
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="暴露外部连接">暴露外部连接</h3>
-<p>创建 <code>webUIservice.yaml</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">vim webUIservice.yaml
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>使用loadBalancer</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">k8s-app</span><span class="p">:</span><span class="w"> </span><span class="l">kubernetes-dashboard</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">kubernetes-dashboard</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">kubernetes-dashboard</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">annotations</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">lb.kubesphere.io/v1alpha1</span><span class="p">:</span><span class="w"> </span><span class="l">openelb</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">protocol.openelb.kubesphere.io/v1alpha1</span><span class="p">:</span><span class="w"> </span><span class="l">layer2</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">eip.openelb.kubesphere.io/v1alpha2</span><span class="p">:</span><span class="w"> </span><span class="l">layer2-eip</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l">TCP</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="m">9090</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">k8s-app</span><span class="p">:</span><span class="w"> </span><span class="l">kubernetes-dashboard</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">LoadBalancer</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
-<p>kubectl apply -f webUIservice.yaml</p>
-</blockquote>
-<h3 id="创建并获取token">创建并获取token</h3>
-<p>创建管理员</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl create serviceaccount dashboard-admin -n kube-system
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl create clusterrolebinding dashboard-admin --clusterrole<span class="o">=</span>cluster-admin --serviceaccount<span class="o">=</span>kube-system:dashboard-admin
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>获取token</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl describe secrets -n kube-system <span class="k">$(</span>kubectl -n kube-system get secret <span class="p">|</span> grep dashboard-admin <span class="p">|</span> awk <span class="s1">&#39;{print $1}&#39;</span><span class="k">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description>
 </item></channel>
 </rss>
