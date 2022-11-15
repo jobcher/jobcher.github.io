@@ -4,7 +4,122 @@
         <link>http://www.jobcher.com/categories/k8s/</link>
         <description>k8s - 分类 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 11 Oct 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/k8s/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 15 Nov 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/k8s/" rel="self" type="application/rss+xml" /><item>
+    <title>Kubernetes — 更新证书</title>
+    <link>http://www.jobcher.com/k8s16/</link>
+    <pubDate>Tue, 15 Nov 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/k8s16/</guid>
+    <description><![CDATA[<h2 id="背景">背景</h2>
+<p>使用 <code>kubeadm</code> 安装 <code>kubernetes</code> 集群非常方便，但是也有一个比较烦人的问题就是默认的证书有效期只有<code>一年</code>时间，所以需要考虑<code>证书升级</code>的问题</p>
+<h2 id="检查证书">检查证书</h2>
+<p>由 kubeadm 生成的客户端证书默认只有一年有效期，我们可以通过 check-expiration 命令来检查证书是否过期：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubeadm alpha certs check-expiration
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>该命令显示 <code>/etc/kubernetes/pki</code> 文件夹中的客户端证书以及 <code>kubeadm</code> 使用的 <code>KUBECONFIG</code> 文件中嵌入的客户端证书的<code>到期时间</code>/<code>剩余时间</code>。</p>
+<h2 id="手动更新">手动更新</h2>
+<blockquote>
+<p>kubeadm alpha certs renew<br>
+这个命令用 CA（或者 front-proxy-CA ）证书和存储在 <code>/etc/kubernetes/pki</code> 中的密钥执行更新。<br>
+高可用的集群，这个命令需要在所有控制面板节点上执行</p>
+</blockquote>
+<h3 id="具体执行">具体执行</h3>
+<p>接下来我们来更新我们的集群证书，下面的操作都是在 master 节点上进行</p>
+<ol>
+<li>备份节点</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ mkdir /etc/kubernetes.bak
+</span></span><span class="line"><span class="cl">$ cp -r /etc/kubernetes/pki/ /etc/kubernetes.bak
+</span></span><span class="line"><span class="cl">$ cp /etc/kubernetes/*.conf /etc/kubernetes.bak
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>备份 etcd 数据目录</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ cp -r /var/lib/etcd /var/lib/etcd.bak
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>执行更新证书的命令</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubeadm alpha certs renew all --config<span class="o">=</span>kubeadm.yaml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li>检查更新</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubeadm alpha certs check-expiration
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="5">
+<li>更新下 kubeconfig 文件</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubeadm init phase kubeconfig all --config kubeadm.yaml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="6">
+<li>覆盖掉原本的 admin 文件</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ mv <span class="nv">$HOME</span>/.kube/config <span class="nv">$HOME</span>/.kube/config.old
+</span></span><span class="line"><span class="cl">$ cp -i /etc/kubernetes/admin.conf <span class="nv">$HOME</span>/.kube/config
+</span></span><span class="line"><span class="cl">$ chown <span class="k">$(</span>id -u<span class="k">)</span>:<span class="k">$(</span>id -g<span class="k">)</span> <span class="nv">$HOME</span>/.kube/config
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="7">
+<li>重启 kube-apiserver、kube-controller、kube-scheduler、etcd ,查看 apiserver 的证书的有效期</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="p">|</span> openssl s_client -showcerts -connect 127.0.0.1:6443 -servername api 2&gt;/dev/null <span class="p">|</span> openssl x509 -noout -enddate
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="总结">总结</h2>
+<p>可以看到现在的有效期是一年过后的，证明已经更新成功了。</p>
+]]></description>
+</item><item>
     <title>Kubernetes — Rook云存储介绍和部署</title>
     <link>http://www.jobcher.com/k8s14/</link>
     <pubDate>Tue, 11 Oct 2022 00:00:00 &#43;0000</pubDate>
@@ -1661,78 +1776,5 @@ systemctl status kubelet</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
-    <title>kubernetes 调度过程</title>
-    <link>http://www.jobcher.com/k8s6/</link>
-    <pubDate>Thu, 21 Apr 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/k8s6/</guid>
-    <description><![CDATA[<h1 id="k8s-调度过程">k8s 调度过程</h1>
-<p></p>
-<h2 id="执行滚动升级">执行滚动升级</h2>
-<p>修改deployment.yml文件，追加rollingUpdate</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># 部署应用</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Deployment</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">jobcher-blog-deployment</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">jobcher-blog	</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">spec:	        </span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">jobcher-blog</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">minReadySeconds</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="c">#准备10s</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">strategy</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">RollingUpdate</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">rollingUpdate</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">maxUnavailable</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="c">#更新期间不少于3-1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">maxSurge</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="c">#更新期间不超过3+1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">template</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">jobcher-blog</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">jobcher-blog-pod</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">hub.docker.com/blog/hugo:latest</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>执行命令</p>
-<blockquote>
-<p>kubectl rollout restart deployment jobcher-blog-deployment</p>
-</blockquote>
-]]></description>
 </item></channel>
 </rss>

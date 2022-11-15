@@ -7,6 +7,121 @@
             <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 15 Nov 2022 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://www.jobcher.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Kubernetes — 更新证书</title>
+    <link>http://www.jobcher.com/k8s16/</link>
+    <pubDate>Tue, 15 Nov 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/k8s16/</guid>
+    <description><![CDATA[<h2 id="背景">背景</h2>
+<p>使用 <code>kubeadm</code> 安装 <code>kubernetes</code> 集群非常方便，但是也有一个比较烦人的问题就是默认的证书有效期只有<code>一年</code>时间，所以需要考虑<code>证书升级</code>的问题</p>
+<h2 id="检查证书">检查证书</h2>
+<p>由 kubeadm 生成的客户端证书默认只有一年有效期，我们可以通过 check-expiration 命令来检查证书是否过期：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubeadm alpha certs check-expiration
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>该命令显示 <code>/etc/kubernetes/pki</code> 文件夹中的客户端证书以及 <code>kubeadm</code> 使用的 <code>KUBECONFIG</code> 文件中嵌入的客户端证书的<code>到期时间</code>/<code>剩余时间</code>。</p>
+<h2 id="手动更新">手动更新</h2>
+<blockquote>
+<p>kubeadm alpha certs renew<br>
+这个命令用 CA（或者 front-proxy-CA ）证书和存储在 <code>/etc/kubernetes/pki</code> 中的密钥执行更新。<br>
+高可用的集群，这个命令需要在所有控制面板节点上执行</p>
+</blockquote>
+<h3 id="具体执行">具体执行</h3>
+<p>接下来我们来更新我们的集群证书，下面的操作都是在 master 节点上进行</p>
+<ol>
+<li>备份节点</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ mkdir /etc/kubernetes.bak
+</span></span><span class="line"><span class="cl">$ cp -r /etc/kubernetes/pki/ /etc/kubernetes.bak
+</span></span><span class="line"><span class="cl">$ cp /etc/kubernetes/*.conf /etc/kubernetes.bak
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>备份 etcd 数据目录</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ cp -r /var/lib/etcd /var/lib/etcd.bak
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>执行更新证书的命令</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubeadm alpha certs renew all --config<span class="o">=</span>kubeadm.yaml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li>检查更新</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubeadm alpha certs check-expiration
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="5">
+<li>更新下 kubeconfig 文件</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubeadm init phase kubeconfig all --config kubeadm.yaml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="6">
+<li>覆盖掉原本的 admin 文件</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ mv <span class="nv">$HOME</span>/.kube/config <span class="nv">$HOME</span>/.kube/config.old
+</span></span><span class="line"><span class="cl">$ cp -i /etc/kubernetes/admin.conf <span class="nv">$HOME</span>/.kube/config
+</span></span><span class="line"><span class="cl">$ chown <span class="k">$(</span>id -u<span class="k">)</span>:<span class="k">$(</span>id -g<span class="k">)</span> <span class="nv">$HOME</span>/.kube/config
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="7">
+<li>重启 kube-apiserver、kube-controller、kube-scheduler、etcd ,查看 apiserver 的证书的有效期</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="p">|</span> openssl s_client -showcerts -connect 127.0.0.1:6443 -servername api 2&gt;/dev/null <span class="p">|</span> openssl x509 -noout -enddate
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="总结">总结</h2>
+<p>可以看到现在的有效期是一年过后的，证明已经更新成功了。</p>
+]]></description>
+</item><item>
     <title>Oracle Instant Client 安装配置实现远程连接oracle</title>
     <link>http://www.jobcher.com/oracle-client/</link>
     <pubDate>Tue, 15 Nov 2022 00:00:00 &#43;0000</pubDate>
@@ -949,318 +1064,5 @@ Akasha，对标 facebook，微信等社交工具：<a href="https://akasha.world
 </div>
 </div><h3 id="安装">安装</h3>
 ]]></description>
-</item><item>
-    <title>Kubernetes — 探针和生命周期</title>
-    <link>http://www.jobcher.com/k8s13/</link>
-    <pubDate>Sat, 08 Oct 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/k8s13/</guid>
-    <description><![CDATA[<h1 id="kubernetes--探针和生命周期">Kubernetes — 探针和生命周期</h1>
-<p>用于判断容器内应用程序是否已经启动。</p>
-<ul>
-<li>存活（Liveness）探针
-<ul>
-<li>用于探测容器是否运行，如果探测失败，kubelet会根据配置的重启策略进行相应的处理，若没有配置探针该返回值默认为success</li>
-</ul>
-</li>
-<li>就绪（Readiness）探针
-<ul>
-<li>用于探测容器内的程序是否健康，如果返回值为success，那么代表这个容器已经完全启动，并且程序已经是可以接受流量的状态</li>
-</ul>
-</li>
-<li>启动（Startup）探针
-<ul>
-<li>用于探测容器是否启动，如果配置了startup 就会先禁止其他探测，直到它成功，成功后将不在运行探测</li>
-</ul>
-</li>
-</ul>
-<h2 id="pod检测方式">Pod检测方式</h2>
-<ul>
-<li>ExecAction：在容器执行一个命令，返回值为0，则认为容器健康</li>
-<li>TCPSocketAction：通过TCP连接检查容器是否联通，通的话，则认为容器正常</li>
-<li>HTTPGetAction：通过应用程序暴露的API地址来检查程序是否正常的，如果状态码为200-400之间，则认为容器健康</li>
-<li>gRPCAction：通过 gRPC 的检查机制，判断容器是不是正常</li>
-</ul>
-<h2 id="startupprobe-启动探针">StartupProbe 启动探针</h2>
-<p>有时候，会有一些现有的应用在启动时需要<code>较长的初始化时间</code>。 要这种情况下，若要不影响对<code>死锁</code>作出快速响应的探测，设置存活探测参数是要技巧的。 技巧就是使用相同的命令来设置启动探测，针对 HTTP 或 TCP 检测，可以通过将 <code>failureThreshold * periodSeconds</code> 参数设置为足够长的时间来应对糟糕情况下的启动时间。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">ports</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">liveness-port</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hostPort</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">livenessProbe</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">httpGet</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/healthz</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l">liveness-port</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">failureThreshold</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">startupProbe</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">httpGet</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/healthz</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="l">liveness-port</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">failureThreshold</span><span class="p">:</span><span class="w"> </span><span class="m">30</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>幸亏有启动探测，应用程序将会有最多 <code>5 分钟（30 * 10 = 300s）</code>的时间来完成其启动过程。 一旦启动探测成功一次，存活探测任务就会接管对容器的探测，对容器死锁作出快速响应。 如果启动探测一直没有成功，容器会在 300 秒后被杀死，并且根据<code>restartPolicy</code>来执行进一步处置。</p>
-<h2 id="livenessprobe-存活探针">LivenessProbe 存活探针</h2>
-<h3 id="execaction">ExecAction</h3>
-<p>许多长时间运行的应用最终会进入损坏状态，除非重新启动，否则无法被恢复。 <code>Kubernetes</code> 提供了存活探针来发现并处理这种情况。<br>
-在本练习中，你会创建一个 <code>Pod</code>，其中运行一个基于 <code>registry.k8s.io/busybox</code> 镜像的容器。 下面是这个 <code>Pod</code> 的配置文件。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Pod</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l">liveness</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">liveness-exec</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">containers</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">liveness</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">registry.k8s.io/busybox</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">args</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">/bin/sh</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- -<span class="l">c</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">touch /tmp/healthy; sleep 30; rm -f /tmp/healthy; sleep 600</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">livenessProbe</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">exec</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">command</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">cat</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">/tmp/healthy</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>在这个配置文件中，可以看到 <code>Pod</code> 中只有一个 <code>Container</code>。 <code>periodSeconds</code> 字段指定了 <code>kubelet</code> 应该每 <code>5</code> 秒执行一次存活探测。 <code>initialDelaySeconds</code> 字段告诉 <code>kubelet</code> 在执行第一次探测前应该等待 <code>5</code> 秒。 kubelet 在容器内执行命令 <code>cat /tmp/healthy</code> 来进行探测。 如果命令执行成功并且返回值为 <code>0</code>，<code>kubelet</code> 就会认为这个容器是健康存活的。 如果这个命令返回<code>非 0</code> 值，<code>kubelet</code> 会杀死这个容器并重新启动它。</p>
-<p>当容器启动时，执行如下的命令：</p>
-<blockquote>
-<p>/bin/sh -c &ldquo;touch /tmp/healthy; sleep 30; rm -f /tmp/healthy; sleep 600&rdquo;</p>
-</blockquote>
-<p>这个容器生命的前 30 秒，<code>/tmp/healthy</code> 文件是存在的。 所以在这最开始的 30 秒内，执行命令 <code>cat /tmp/healthy</code> 会返回成功代码。 30 秒之后，执行命令 <code>cat /tmp/healthy</code> 就会返回失败代码。<br>
-在 30 秒内，查看 Pod 的事件：</p>
-<blockquote>
-<p>kubectl describe pod liveness-exec</p>
-</blockquote>
-<h3 id="httpgetaction">HTTPGetAction</h3>
-<p>另外一种类型的存活探测方式是使用 <code>HTTP GET</code> 请求。 下面是一个 <code>Pod</code> 的配置文件，其中运行一个基于 <code>registry.k8s.io/liveness</code> 镜像的容器。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Pod</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l">liveness</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">liveness-http</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">containers</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">liveness</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">registry.k8s.io/liveness</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">args</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">/server</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">livenessProbe</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">httpGet</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/healthz</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">httpHeaders</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Custom-Header</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l">Awesome</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>在这个配置文件中，你可以看到 <code>Pod</code> 也只有一个容器。 <code>periodSeconds</code> 字段指定了 <code>kubelet</code> 每隔 3 秒执行一次存活探测。 <code>initialDelaySeconds</code> 字段告诉 <code>kubelet</code> 在执行第一次探测前应该等待 3 秒。 <code>kubelet</code> 会向容器内运行的服务（服务在监听 <code>8080 端口</code>）发送一个 <code>HTTP GET</code> 请求来执行探测。 如果服务器上 <code>/healthz</code> 路径下的处理程序返回成功代码，则 <code>kubelet</code> 认为容器是健康存活的。 如果处理程序返回失败代码，则 <code>kubelet</code> 会杀死这个容器并将其重启。</p>
-<p>返回大于或等于 <code>200</code> 并且小于 <code>400</code> 的任何代码都标示成功，其它返回代码都标示失败。</p>
-<p>你可以访问 <code>server.go</code>。 阅读服务的源码。 容器存活期间的最开始 <code>10 秒中</code>，<code>/healthz</code> 处理程序返回 <code>200</code> 的状态码。 之后处理程序返回 <code>500</code> 的状态码。</p>
-<h3 id="tcpsocketaction">TCPSocketAction</h3>
-<p>第三种类型的存活探测是使用 <code>TCP 套接字</code>。 使用这种配置时，<code>kubelet</code> 会尝试在指定端口和容器建立套接字链接。 如果<code>能建立连接</code>，这个容器就被看作是<code>健康</code>的，如果<code>不能</code>则这个容器就被看作是<code>有问题</code>的。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Pod</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">goproxy</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">goproxy</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">containers</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">goproxy</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">registry.k8s.io/goproxy:0.1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">readinessProbe</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">tcpSocket</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">livenessProbe</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">tcpSocket</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8080</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="m">15</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">20</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>如是汝闻，<code>TCP 检测</code>的配置和 <code>HTTP 检测</code>非常相似。 下面这个例子同时使用就绪和存活探针。<code>kubelet</code> 会在容器启动 <code>5 秒</code>后发送第一个就绪探针。 探针会尝试连接 <code>goproxy</code> 容器的 8080 端口。 如果探测成功，这个 <code>Pod</code> 会被标记为就绪状态，kubelet 将继续每隔 <code>10 秒</code>运行一次探测。</p>
-<p>除了就绪探针，这个配置包括了一个存活探针。 <code>kubelet</code> 会在容器启动 <code>15 秒</code>后进行第一次存活探测。 与就绪探针类似，存活探针会尝试连接 <code>goproxy 容器</code>的 <code>8080 端口</code>。 如果存活探测失败，容器会被重新启动。</p>
-<h3 id="grpcaction">gRPCAction</h3>
-<p>如果你的应用实现了 gRPC 健康检查协议， <code>kubelet</code> 可以配置为使用该协议来执行应用存活性检查。 你必须启用 <code>GRPCContainerProbe</code> 特性门控 才能配置依赖于 <code>gRPC 的检查机制</code>。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Pod</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">etcd-with-grpc</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">containers</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">etcd</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">registry.k8s.io/etcd:3.5.1-0</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="s2">&#34;/usr/local/bin/etcd&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;--data-dir&#34;</span><span class="p">,</span><span class="w">  </span><span class="s2">&#34;/var/lib/etcd&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;--listen-client-urls&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;http://0.0.0.0:2379&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;--advertise-client-urls&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;http://127.0.0.1:2379&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;--log-level&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;debug&#34;</span><span class="p">]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">2379</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">livenessProbe</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">grpc</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">2379</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>要使用 <code>gRPC 探针</code>，必须<code>配置 port 属性</code>。如果健康状态端点配置在非默认服务之上， 你还必须设置 <code>service 属性</code>。</p>
-<p>在 <code>Kubernetes 1.23</code> 之前，<code>gRPC 健康探测</code>通常使用 <code>grpc-health-probe</code> 来实现，如博客 <code>Health checking gRPC servers on Kubernetes</code>（对 <code>Kubernetes</code> 上的 <code>gRPC 服务器</code>执行健康检查）所描述。 内置的 <code>gRPC 探针</code>行为与 <code>grpc-health-probe</code> 所实现的行为类似。 从 <code>grpc-health-probe</code> 迁移到内置探针时，请注意以下差异：</p>
-<p>内置探针运行时针对的是 Pod 的 IP 地址，不像 <code>grpc-health-probe</code> 那样通常针对 127.0.0.1 执行探测； 请一定配置你的 gRPC 端点使之监听于 Pod 的 IP 地址之上。
-内置探针不支持任何身份认证参数（例如 -tls）。
-对于内置的探针而言，不存在错误代码。所有错误都被视作探测失败。
-如果 <code>ExecProbeTimeout</code> 特性门控被设置为 <code>false</code>，则 <code>grpc-health-probe</code> 不会考虑 <code>timeoutSeconds</code> 设置状态（默认值为 1s）， 而内置探针则会在超时时返回失败。</p>
-<h2 id="readinessprobe-就绪探针">ReadinessProbe 就绪探针</h2>
-<p>有时候，应用会暂时性地无法为请求提供服务。 例如，应用在启动时可能需要加载大量的数据或配置文件，或是启动后要依赖等待外部服务。 在这种情况下，<code>既不想杀死应用</code>，也不想给它发送请求。 <code>Kubernetes</code> 提供了就绪探针来发现并缓解这些情况。 容器所在 Pod 上报还未就绪的信息，并且不接受通过 <code>Kubernetes Service</code> 的流量。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">readinessProbe</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">exec</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">cat</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">/tmp/healthy</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description>
 </item></channel>
 </rss>
