@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Oracle Instant Client 安装配置实现远程连接oracle - 打工人日志 - jobcher</title><meta name="Description" content="打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通"><meta property="og:title" content="Oracle Instant Client 安装配置实现远程连接oracle" />
+<meta property="og:description" content="背景 关于Oracle 数据库一直是许多初学者比较头疼的地方，一方面受限于线上文档比较少，令一方面在企业中不得不接触和使用Oracle数据库，这" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.jobcher.com/oracle-client/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-11-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-11-15T00:00:00+00:00" />
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://www.jobcher.com/avatar1.png"/>
+
+<meta name="twitter:title" content="Oracle Instant Client 安装配置实现远程连接oracle"/>
+<meta name="twitter:description" content="背景 关于Oracle 数据库一直是许多初学者比较头疼的地方，一方面受限于线上文档比较少，令一方面在企业中不得不接触和使用Oracle数据库，这"/>
+<meta name="application-name" content="jobcher">
+<meta name="apple-mobile-web-app-title" content="jobcher"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"><link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../site.webmanifest"><link rel="canonical" href="http://www.jobcher.com/oracle-client/" /><link rel="prev" href="http://www.jobcher.com/zlibary/" /><link rel="stylesheet" href="../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../css/style.min.css"><link rel="stylesheet" href="../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Oracle Instant Client 安装配置实现远程连接oracle",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/www.jobcher.com\/oracle-client\/"
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "oracle","wordcount":  484 ,
+        "url": "http:\/\/www.jobcher.com\/oracle-client\/","datePublished": "2022-11-15T00:00:00+00:00","dateModified": "2022-11-15T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "jobcher"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+<script async defer data-website-id="1b6a7e9b-a775-47cf-8ecd-a6bac64a1ec9" src="https://umami.jobcher.com/umami.js"></script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3185871258903631"
+     crossorigin="anonymous"></script>
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="../" title="打工人日志 - jobcher"><img
+        class="lazyload logo"
+        src="../svg/loading.min.svg"
+        data-src="../avatar1.png"
+        data-srcset="../avatar1.png, ../avatar1.png 1.5x, ../avatar1.png 2x"
+        data-sizes="auto"
+        alt="/avatar1.png"
+        title="/avatar1.png" />打工人日志</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="https://nav.jobcher.com/" rel="noopener noreffer" target="_blank"> 导航 </a><a class="menu-item" href="../posts/"> 文章 </a><a class="menu-item" href="../tags/"> 标签 </a><a class="menu-item" href="../categories/"> 分类 </a><a class="menu-item" href="../about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+<script async defer data-website-id="1b6a7e9b-a775-47cf-8ecd-a6bac64a1ec9" src="https://umami.jobcher.com/umami.js"></script>
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="../" title="打工人日志 - jobcher"><img
+        class="lazyload logo"
+        src="../svg/loading.min.svg"
+        data-src="../avatar1.png"
+        data-srcset="../avatar1.png, ../avatar1.png 1.5x, ../avatar1.png 2x"
+        data-sizes="auto"
+        alt="/avatar1.png"
+        title="/avatar1.png" />打工人日志</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="https://nav.jobcher.com/" title="" rel="noopener noreffer" target="_blank">导航</a><a class="menu-item" href="../posts/" title="">文章</a><a class="menu-item" href="../tags/" title="">标签</a><a class="menu-item" href="../categories/" title="">分类</a><a class="menu-item" href="../about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Oracle Instant Client 安装配置实现远程连接oracle</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><i class="far fa-folder fa-fw"></i>数据库</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-11-15">2022-11-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 484 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#背景">背景</a></li>
+    <li><a href="#下载oracle客户端">下载oracle客户端</a>
+      <ul>
+        <li><a href="#安装">安装</a></li>
+        <li><a href="#配置环境变量">配置环境变量</a></li>
+      </ul>
+    </li>
+    <li><a href="#下载cx_oracle">下载cx_Oracle</a></li>
+    <li><a href="#执行文件">执行文件</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="背景">背景</h2>
+<p>关于Oracle 数据库一直是许多初学者比较头疼的地方，一方面受限于线上文档比较少，令一方面在企业中不得不接触和使用Oracle数据库，这篇文章是教大家如何通过配置oracle client来远程访问Oracle数据库。本文会通过python3和cx_Oracle来实现对Oracle的访问和增删改查</p>
+<h2 id="下载oracle客户端">下载oracle客户端</h2>
+<p><a href="https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html" target="_blank" rel="noopener noreffer">官方地址下载</a></p>
+<h3 id="安装">安装</h3>
+<p>下载并安装你的oracle client，因为我连接的11g oracle，所以下载11.2版本</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 下载</span>
+</span></span><span class="line"><span class="cl">wget https://download.oracle.com/otn/linux/instantclient/11204/oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm
+</span></span><span class="line"><span class="cl"><span class="c1"># 安装</span>
+</span></span><span class="line"><span class="cl">rpm -ivh oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="配置环境变量">配置环境变量</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 直接运行</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ORACLE_HOME</span><span class="o">=</span>/usr/lib/oracle/11.2/client64
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ORABIN</span><span class="o">=</span>/usr/lib/oracle/11.2/client64/bin
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 编辑环境变量配置文件</span>
+</span></span><span class="line"><span class="cl">vim /etc/profile
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 底部增加内容</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ORACLE_HOME</span><span class="o">=</span>/usr/lib/oracle/11.2/client64
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TNS_ADMIN</span><span class="o">=</span>/usr/lib/oracle/11.2/client64
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/usr/lib/oracle/11.2/client64/lib
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ORABIN</span><span class="o">=</span>/usr/lib/oracle/11.2/client64/bin
+</span></span><span class="line"><span class="cl"><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$ORABIN</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> PATH
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$ORACLE_HOME</span>:<span class="nv">$PATH</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HOME</span>/bin:<span class="nv">$ORACLE_HOME</span>/bin
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 刷新环境变量</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> /etc/profile
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="下载cx_oracle">下载cx_Oracle</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">pip3 install cx_Oracle
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>创建Oracle.py文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/python3</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">使用python 对oracle数据进行操作
+</span></span></span><span class="line"><span class="cl"><span class="s2">提前安装好 cx_Oracle
+</span></span></span><span class="line"><span class="cl"><span class="s2">pip3 install cx_Oracle
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">cx_Oracle</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">conn</span> <span class="o">=</span> <span class="n">cx_Oracle</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;用户名&#39;</span><span class="p">,</span><span class="s1">&#39;密码&#39;</span><span class="p">,</span><span class="s1">&#39;IP/SN&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;SELECT * FROM test_table&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span> <span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="执行文件">执行文件</h2>
+<blockquote>
+<p>python3 oracle.py</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1">#输出内容</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>none,0<span class="o">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-11-15</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="../oracle-client/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://www.jobcher.com/oracle-client/" data-title="Oracle Instant Client 安装配置实现远程连接oracle" data-hashtags="oracle"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://www.jobcher.com/oracle-client/" data-hashtag="oracle"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="http://www.jobcher.com/oracle-client/" data-title="Oracle Instant Client 安装配置实现远程连接oracle" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://www.jobcher.com/oracle-client/" data-title="Oracle Instant Client 安装配置实现远程连接oracle"><i data-svg-src="../lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://www.jobcher.com/oracle-client/" data-title="Oracle Instant Client 安装配置实现远程连接oracle" data-ralateuid="6090738003"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://www.jobcher.com/oracle-client/" data-title="Oracle Instant Client 安装配置实现远程连接oracle" data-description=""><i data-svg-src="../lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://www.jobcher.com/oracle-client/" data-title="Oracle Instant Client 安装配置实现远程连接oracle" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://www.jobcher.com/oracle-client/" data-title="Oracle Instant Client 安装配置实现远程连接oracle"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="../tags/oracle/">oracle</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="../">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="../zlibary/" class="prev" rel="prev" title="zlibary 无法下载 解决方案"><i class="fas fa-angle-left fa-fw"></i>zlibary 无法下载 解决方案</a></div>
+</div>
+<div id="comments"><div id="utterances"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><a href="https://www.foreverblog.cn/go.html" target="_blank" > <img src="https://img.foreverblog.cn/wormhole_3.gif" alt="" style="width:auto;height:32px;" title="穿梭虫洞-随机访问十年之约友链博客"> </a></div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="../" target="_blank">jobcher</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp">copyright by sjt</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="../lib/katex/katex.min.css"><link rel="stylesheet" href="../lib/katex/copy-tex.min.css"><link rel="stylesheet" href="../lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="../lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="../lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="../lib/lunr/lunr.min.js"></script><script type="text/javascript" src="../lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="../lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="../lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="../lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="../lib/sharer/sharer.min.js"></script><script type="text/javascript" src="../lib/katex/katex.min.js"></script><script type="text/javascript" src="../lib/katex/auto-render.min.js"></script><script type="text/javascript" src="../lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="../lib/katex/mhchem.min.js"></script><script type="text/javascript" src="../lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"pathname","label":"","lightTheme":"github-light","repo":"jobcher/jobcher.github.io"}},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="../js/theme.min.js"></script></body>
+</html>

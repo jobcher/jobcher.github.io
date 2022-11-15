@@ -4,7 +4,153 @@
         <link>http://www.jobcher.com/posts/</link>
         <description>所有文章 | 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 07 Nov 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 15 Nov 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Oracle Instant Client 安装配置实现远程连接oracle</title>
+    <link>http://www.jobcher.com/oracle-client/</link>
+    <pubDate>Tue, 15 Nov 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/oracle-client/</guid>
+    <description><![CDATA[<h2 id="背景">背景</h2>
+<p>关于Oracle 数据库一直是许多初学者比较头疼的地方，一方面受限于线上文档比较少，令一方面在企业中不得不接触和使用Oracle数据库，这篇文章是教大家如何通过配置oracle client来远程访问Oracle数据库。本文会通过python3和cx_Oracle来实现对Oracle的访问和增删改查</p>
+<h2 id="下载oracle客户端">下载oracle客户端</h2>
+<p><a href="https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html" target="_blank" rel="noopener noreffer">官方地址下载</a></p>
+<h3 id="安装">安装</h3>
+<p>下载并安装你的oracle client，因为我连接的11g oracle，所以下载11.2版本</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 下载</span>
+</span></span><span class="line"><span class="cl">wget https://download.oracle.com/otn/linux/instantclient/11204/oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm
+</span></span><span class="line"><span class="cl"><span class="c1"># 安装</span>
+</span></span><span class="line"><span class="cl">rpm -ivh oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="配置环境变量">配置环境变量</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 直接运行</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ORACLE_HOME</span><span class="o">=</span>/usr/lib/oracle/11.2/client64
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ORABIN</span><span class="o">=</span>/usr/lib/oracle/11.2/client64/bin
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 编辑环境变量配置文件</span>
+</span></span><span class="line"><span class="cl">vim /etc/profile
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 底部增加内容</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ORACLE_HOME</span><span class="o">=</span>/usr/lib/oracle/11.2/client64
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TNS_ADMIN</span><span class="o">=</span>/usr/lib/oracle/11.2/client64
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/usr/lib/oracle/11.2/client64/lib
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ORABIN</span><span class="o">=</span>/usr/lib/oracle/11.2/client64/bin
+</span></span><span class="line"><span class="cl"><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$ORABIN</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> PATH
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$ORACLE_HOME</span>:<span class="nv">$PATH</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HOME</span>/bin:<span class="nv">$ORACLE_HOME</span>/bin
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 刷新环境变量</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> /etc/profile
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="下载cx_oracle">下载cx_Oracle</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">pip3 install cx_Oracle
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>创建Oracle.py文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/python3</span>
+</span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s2">使用python 对oracle数据进行操作
+</span></span></span><span class="line"><span class="cl"><span class="s2">提前安装好 cx_Oracle
+</span></span></span><span class="line"><span class="cl"><span class="s2">pip3 install cx_Oracle
+</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">cx_Oracle</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">conn</span> <span class="o">=</span> <span class="n">cx_Oracle</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;用户名&#39;</span><span class="p">,</span><span class="s1">&#39;密码&#39;</span><span class="p">,</span><span class="s1">&#39;IP/SN&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;SELECT * FROM test_table&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span> <span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="执行文件">执行文件</h2>
+<blockquote>
+<p>python3 oracle.py</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1">#输出内容</span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>none,0<span class="o">]</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
+</item><item>
     <title>zlibary 无法下载 解决方案</title>
     <link>http://www.jobcher.com/zlibary/</link>
     <pubDate>Mon, 07 Nov 2022 00:00:00 &#43;0000</pubDate>
@@ -1111,103 +1257,6 @@ Akasha，对标 facebook，微信等社交工具：<a href="https://akasha.world
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">/tmp/healthy</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description>
-</item><item>
-    <title>windows-exporter 监控</title>
-    <link>http://www.jobcher.com/windows-exporter/</link>
-    <pubDate>Sat, 08 Oct 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/windows-exporter/</guid>
-    <description><![CDATA[<h1 id="windows-exporter-监控安装">windows-exporter 监控安装</h1>
-<h3 id="windows_exporterhttpsgithubcomprometheus-communitywindows_exporter"><a href="https://github.com/prometheus-community/windows_exporter" target="_blank" rel="noopener noreffer">windows_exporter</a></h3>
-<h3 id="下载安装httpsgithubcomprometheus-communitywindows_exporterreleasesdownloadv0200windows_exporter-0200-amd64msi"><a href="https://github.com/prometheus-community/windows_exporter/releases/download/v0.20.0/windows_exporter-0.20.0-amd64.msi" target="_blank" rel="noopener noreffer">下载安装</a></h3>
-<h2 id="启动">启动</h2>
-<p>下载msi版本，输入一下命令启动</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">msiexec /i C:<span class="se">\U</span>sers<span class="se">\A</span>dministrator<span class="se">\D</span>ownloads<span class="se">\w</span>indows_exporter.msi <span class="nv">ENABLED_COLLECTORS</span><span class="o">=</span><span class="s2">&#34;ad,iis,logon,memory,process,tcp,scheduled_task&#34;</span> <span class="nv">TEXTFILE_DIR</span><span class="o">=</span><span class="s2">&#34;C:\custom_metrics\&#34;
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>卸载</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">msiexec /uninstall C:<span class="se">\U</span>sers<span class="se">\A</span>dministrator<span class="se">\D</span>ownloads<span class="se">\w</span>indows_exporter.msi
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="添加prometheus-监控">添加prometheus 监控</h2>
-<p>prometheus.yaml</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="c"># 新增 windows-exporter</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;windows-exporter&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">file_sd_configs</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">files</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;./file_sd/windows-exporter.yaml&#34;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>./file_sd/windows-exporter.yaml</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="c"># 新增 windows-exporter</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">targets</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;192.168.0.6:9182&#39;</span><span class="p">]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">instance</span><span class="p">:</span><span class="w"> </span><span class="l">windows-task</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="添加alertmanager-告警">添加alertmanager 告警</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="c"># 告警信息</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">groups</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">sanjiang windows 任务计划程序告警</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">rules</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l">windows实例任务告警</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l">windows_scheduled_task_state{state=&#34;disabled&#34;,task=~&#34;/ETL_kettle_tasks/.*&#34;}==1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">for</span><span class="p">:</span><span class="w"> </span><span class="l">30s</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">labels</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l">critical</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{$labels.job}}&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">annotations</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;sanjiang: {{$labels.job}} windows 任务异常&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{$labels.task}} of job {{$labels.job}} 该任务断联已超过1分钟&#34;</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
