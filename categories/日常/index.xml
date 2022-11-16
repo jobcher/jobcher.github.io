@@ -4,7 +4,66 @@
         <link>http://www.jobcher.com/categories/%E6%97%A5%E5%B8%B8/</link>
         <description>日常 - 分类 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 30 Sep 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/%E6%97%A5%E5%B8%B8/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 10 Nov 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/%E6%97%A5%E5%B8%B8/" rel="self" type="application/rss+xml" /><item>
+    <title>shell功能脚本集合</title>
+    <link>http://www.jobcher.com/shell-test/</link>
+    <pubDate>Thu, 10 Nov 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/shell-test/</guid>
+    <description><![CDATA[<h2 id="28合1多功能脚本">28合1多功能脚本</h2>
+<ul>
+<li>脚本说明: 多合一脚本，DD系统，BBR，xray,TG搭建等等·常用的各种脚本基本都有！</li>
+<li>系统支持: CentOS6+ / Debian6+ / Ubuntu14+</li>
+<li>支持安装BBR，搭建KCPtun，ssr多用户版</li>
+<li>安装V2ary，Tg专用代理（Go版），安装Goflyway</li>
+<li>小鸡性能测试，回程线路测试，云监控</li>
+<li>傻瓜式一键DD包</li>
+<li>一键开启默认bbr</li>
+<li>Netflix解锁检测</li>
+<li>xray安装</li>
+<li>宝塔面板，闲蛋面板，x-ui面板，WARP 一键配置</li>
+</ul>
+<h4 id="脚本特点">脚本特点:</h4>
+<p>目前网上的各个一键脚本基本都是只有 安装/启动/重启 等基础功能，对于小白来说还是不够简单方便。常用的各种脚本基本都有！</p>
+<h4 id="下载安装">下载安装:</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash &lt;<span class="o">(</span>curl -s -L https://git.io/JPj82<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="gfw_push一键安装">gfw_push一键安装</h2>
+<ul>
+<li>脚本说明: 监测服务器IP是否被墙并推送至 Telegram 一键脚本</li>
+<li>系统支持: CentOS6+ / Debian6+ / Ubuntu14+</li>
+</ul>
+<h4 id="下载安装-1">下载安装:</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash &lt;<span class="o">(</span>curl -s -L git.io/JPjzm<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="服务器测速">服务器测速</h2>
+<ul>
+<li>脚本说明: 服务器一键测速脚本</li>
+<li>系统支持: CentOS7 / Debian7+ / Ubuntu14+</li>
+</ul>
+<h4 id="下载安装-2">下载安装:</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash &lt;<span class="o">(</span>curl -s -L git.io/JPjzE<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
+</item><item>
     <title>Cloudflare Zero Trust 内网穿透</title>
     <link>http://www.jobcher.com/cloudflaretrust/</link>
     <pubDate>Fri, 30 Sep 2022 00:00:00 &#43;0000</pubDate>
@@ -4300,136 +4359,5 @@ kubectl get sc -n sanjiang</p>
 <h2 id="感谢">感谢</h2>
 <p>感谢朋友，给我这次项目实践和锻炼的机会让我认识到了自己的能力的不足～</p>
 ]]></description>
-</item><item>
-    <title>Ant中如何添加第三方jar包依赖</title>
-    <link>http://www.jobcher.com/ant/</link>
-    <pubDate>Thu, 14 Apr 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/ant/</guid>
-    <description><![CDATA[<h1 id="ant中如何添加第三方jar包依赖">Ant中如何添加第三方jar包依赖</h1>
-<p>如果使用ant进行java项目的编译部署，那怎么添加第三方jar包的依赖呢？方法如下：</p>
-<ol>
-<li>在项目的根目录下创建lib目录，并把所有需要的第三方jar包放到此目录下。</li>
-<li>在build.xml中依次添加：path、property，并在javac中添加classpath，添加unjar。完整配置如下：</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="nt">&lt;project</span> <span class="na">name=</span><span class="s">&#34;MyTool&#34;</span> <span class="na">default=</span><span class="s">&#34;build&#34;</span> <span class="na">basedir=</span><span class="s">&#34;.&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;description&gt;</span>The ant project to build MyTool.<span class="nt">&lt;/description&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;srcDir&#34;</span> <span class="na">location=</span><span class="s">&#34;src&#34;</span> <span class="na">description=</span><span class="s">&#34;源文件的存放目录&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;libDir&#34;</span> <span class="na">location=</span><span class="s">&#34;lib&#34;</span> <span class="na">description=</span><span class="s">&#34;第三方jar包的存放目录&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;antDir&#34;</span> <span class="na">location=</span><span class="s">&#34;ant&#34;</span> <span class="na">description=</span><span class="s">&#34;编译后所有文件存放的根目录&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;binDir&#34;</span> <span class="na">location=</span><span class="s">&#34;${antDir}/bin&#34;</span> <span class="na">description=</span><span class="s">&#34;编译后class文件的存放目录&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;jarDir&#34;</span> <span class="na">location=</span><span class="s">&#34;${antDir}/jar&#34;</span> <span class="na">description=</span><span class="s">&#34;打包后jar包的存放目录&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;jarFile&#34;</span> <span class="na">location=</span><span class="s">&#34;${jarDir}/MyTool.jar&#34;</span> <span class="na">description=</span><span class="s">&#34;打包后jar包存放的完整路径&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;package&#34;</span> <span class="na">value=</span><span class="s">&#34;com.xiboliya.mytool&#34;</span> <span class="na">description=</span><span class="s">&#34;包名&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;mainClass&#34;</span> <span class="na">value=</span><span class="s">&#34;MyTool&#34;</span> <span class="na">description=</span><span class="s">&#34;主类名&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;resFromDir&#34;</span> <span class="na">location=</span><span class="s">&#34;res&#34;</span> <span class="na">description=</span><span class="s">&#34;资源文件的源目录&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;resToDir&#34;</span> <span class="na">location=</span><span class="s">&#34;${binDir}/res&#34;</span> <span class="na">description=</span><span class="s">&#34;资源文件的目标目录&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;path</span> <span class="na">id=</span><span class="s">&#34;libPath&#34;</span> <span class="na">description=</span><span class="s">&#34;编译时依赖的第三方jar包的存放路径&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;fileset</span> <span class="na">dir=</span><span class="s">&#34;${libDir}&#34;</span> <span class="na">erroronmissingdir=</span><span class="s">&#34;false&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;include</span> <span class="na">name=</span><span class="s">&#34;*.jar&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/fileset&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/path&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;classpath&#34;</span> <span class="na">refid=</span><span class="s">&#34;libPath&#34;</span> <span class="na">description=</span><span class="s">&#34;编译时依赖的第三方jar包的存放路径&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&#34;init&#34;</span> <span class="na">description=</span><span class="s">&#34;初始化&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;delete</span> <span class="na">dir=</span><span class="s">&#34;${binDir}&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;delete</span> <span class="na">dir=</span><span class="s">&#34;${jarDir}&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;mkdir</span> <span class="na">dir=</span><span class="s">&#34;${binDir}&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;mkdir</span> <span class="na">dir=</span><span class="s">&#34;${jarDir}&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;copy</span> <span class="na">todir=</span><span class="s">&#34;${resToDir}&#34;</span> <span class="na">description=</span><span class="s">&#34;复制资源文件&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;fileset</span> <span class="na">dir=</span><span class="s">&#34;${resFromDir}&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/copy&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/target&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&#34;compile&#34;</span> <span class="na">depends=</span><span class="s">&#34;init&#34;</span> <span class="na">description=</span><span class="s">&#34;编译代码&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;javac</span> <span class="na">srcdir=</span><span class="s">&#34;${srcDir}&#34;</span> <span class="na">destdir=</span><span class="s">&#34;${binDir}&#34;</span> <span class="na">classpath=</span><span class="s">&#34;${classpath}&#34;</span> <span class="na">includeAntRuntime=</span><span class="s">&#34;false&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;compilerarg</span> <span class="na">value=</span><span class="s">&#34;-Xlint:unchecked&#34;</span><span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;compilerarg</span> <span class="na">value=</span><span class="s">&#34;-Xlint:deprecation&#34;</span><span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/javac&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/target&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&#34;unjarLib&#34;</span> <span class="na">depends=</span><span class="s">&#34;init&#34;</span> <span class="na">description=</span><span class="s">&#34;解压第三方jar包，以便于重新打包入程序jar包中&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;unjar</span> <span class="na">dest=</span><span class="s">&#34;${binDir}&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;fileset</span> <span class="na">dir=</span><span class="s">&#34;${libDir}&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;include</span> <span class="na">name=</span><span class="s">&#34;**/*.jar&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/fileset&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;patternset&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;exclude</span> <span class="na">name=</span><span class="s">&#34;META-INF&#34;</span><span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;exclude</span> <span class="na">name=</span><span class="s">&#34;META-INF/MANIFEST.MF&#34;</span><span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/patternset&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/unjar&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/target&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&#34;makeJar&#34;</span> <span class="na">depends=</span><span class="s">&#34;init,compile,unjarLib&#34;</span> <span class="na">description=</span><span class="s">&#34;生成jar包&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;jar</span> <span class="na">destfile=</span><span class="s">&#34;${jarFile}&#34;</span> <span class="na">basedir=</span><span class="s">&#34;${binDir}&#34;</span> <span class="na">excludes=</span><span class="s">&#34;**/Thumbs.db&#34;</span> <span class="na">description=</span><span class="s">&#34;打包为jar文件，并排除Thumbs.db文件&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;manifest&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;attribute</span> <span class="na">name=</span><span class="s">&#34;Main-Class&#34;</span> <span class="na">value=</span><span class="s">&#34;${package}.${mainClass}&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">      <span class="nt">&lt;/manifest&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;/jar&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/target&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&#34;build&#34;</span> <span class="na">depends=</span><span class="s">&#34;init,compile,makeJar&#34;</span> <span class="na">description=</span><span class="s">&#34;编译并打包&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;echo</span> <span class="na">message=</span><span class="s">&#34;Ant is building the project.&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">  <span class="nt">&lt;/target&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="nt">&lt;/project&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description>
 </item></channel>
 </rss>

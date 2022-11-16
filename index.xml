@@ -268,6 +268,65 @@
 </div>
 </div>]]></description>
 </item><item>
+    <title>shell功能脚本集合</title>
+    <link>http://www.jobcher.com/shell-test/</link>
+    <pubDate>Thu, 10 Nov 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/shell-test/</guid>
+    <description><![CDATA[<h2 id="28合1多功能脚本">28合1多功能脚本</h2>
+<ul>
+<li>脚本说明: 多合一脚本，DD系统，BBR，xray,TG搭建等等·常用的各种脚本基本都有！</li>
+<li>系统支持: CentOS6+ / Debian6+ / Ubuntu14+</li>
+<li>支持安装BBR，搭建KCPtun，ssr多用户版</li>
+<li>安装V2ary，Tg专用代理（Go版），安装Goflyway</li>
+<li>小鸡性能测试，回程线路测试，云监控</li>
+<li>傻瓜式一键DD包</li>
+<li>一键开启默认bbr</li>
+<li>Netflix解锁检测</li>
+<li>xray安装</li>
+<li>宝塔面板，闲蛋面板，x-ui面板，WARP 一键配置</li>
+</ul>
+<h4 id="脚本特点">脚本特点:</h4>
+<p>目前网上的各个一键脚本基本都是只有 安装/启动/重启 等基础功能，对于小白来说还是不够简单方便。常用的各种脚本基本都有！</p>
+<h4 id="下载安装">下载安装:</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash &lt;<span class="o">(</span>curl -s -L https://git.io/JPj82<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="gfw_push一键安装">gfw_push一键安装</h2>
+<ul>
+<li>脚本说明: 监测服务器IP是否被墙并推送至 Telegram 一键脚本</li>
+<li>系统支持: CentOS6+ / Debian6+ / Ubuntu14+</li>
+</ul>
+<h4 id="下载安装-1">下载安装:</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash &lt;<span class="o">(</span>curl -s -L git.io/JPjzm<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="服务器测速">服务器测速</h2>
+<ul>
+<li>脚本说明: 服务器一键测速脚本</li>
+<li>系统支持: CentOS7 / Debian7+ / Ubuntu14+</li>
+</ul>
+<h4 id="下载安装-2">下载安装:</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash &lt;<span class="o">(</span>curl -s -L git.io/JPjzE<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
+</item><item>
     <title>zlibary 无法下载 解决方案</title>
     <link>http://www.jobcher.com/zlibary/</link>
     <pubDate>Mon, 07 Nov 2022 00:00:00 &#43;0000</pubDate>
@@ -946,123 +1005,6 @@ Akasha，对标 facebook，微信等社交工具：<a href="https://akasha.world
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果使用 <code>yaml</code> 文件直接部署，则使用 <code>kubectl delete -f</code> 加当初使用的 <code>yaml</code> 文件即可删除集群。</p>
-]]></description>
-</item><item>
-    <title>Kubernetes — 基于K8S搭建Ceph分布式存储</title>
-    <link>http://www.jobcher.com/k8s15/</link>
-    <pubDate>Tue, 11 Oct 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/k8s15/</guid>
-    <description><![CDATA[<h1 id="基于k8s搭建ceph分布式存储">基于K8S搭建Ceph分布式存储</h1>
-<h2 id="前提">前提</h2>
-<ul>
-<li>正常运行的多节点K8S集群，可以是两个节点也可以是更多。</li>
-<li>每一个节点需要一个<code>没有被分区</code>的<code>硬盘</code>，最好大小一致不然会浪费。
-没错其实就是一个要求，必须有集群才能进行容器管理，必须有硬盘才能做存储这些都是基础。</li>
-</ul>
-<h2 id="添加硬盘">添加硬盘</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">主机</th>
-<th style="text-align:left">IP</th>
-<th style="text-align:left">磁盘</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">master01</td>
-<td style="text-align:left">10.12.12.51</td>
-<td style="text-align:left">SATA 20G</td>
-</tr>
-<tr>
-<td style="text-align:left">master02</td>
-<td style="text-align:left">10.12.12.52</td>
-<td style="text-align:left">SATA 20G</td>
-</tr>
-<tr>
-<td style="text-align:left">master03</td>
-<td style="text-align:left">10.12.12.53</td>
-<td style="text-align:left">SATA 20G</td>
-</tr>
-<tr>
-<td style="text-align:left">worker01</td>
-<td style="text-align:left">10.12.12.54</td>
-<td style="text-align:left">SATA 20G</td>
-</tr>
-<tr>
-<td style="text-align:left">worker02</td>
-<td style="text-align:left">10.12.12.55</td>
-<td style="text-align:left">SATA 20G</td>
-</tr>
-</tbody>
-</table>
-<p></p>
-<blockquote>
-<p>在5个节点都加20g存储</p>
-</blockquote>
-<h3 id="重启k8s节点">重启k8s节点</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl cordon &lt;节点&gt;
-</span></span><span class="line"><span class="cl">kubectl drain &lt;节点&gt; --ignore-daemonsets --delete-emptydir-data
-</span></span><span class="line"><span class="cl"><span class="c1"># 虚拟机重启后</span>
-</span></span><span class="line"><span class="cl">kubectl uncordon &lt;节点&gt;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="查看新增存储">查看新增存储</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">fdisk -l
-</span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
-<p>看到新增20g存储,不要格式化分区硬盘！！！</p>
-</blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">Disk /dev/sdb: <span class="m">20</span> GiB, <span class="m">21474836480</span> bytes, <span class="m">41943040</span> sectors
-</span></span><span class="line"><span class="cl">Disk model: QEMU HARDDISK   
-</span></span><span class="line"><span class="cl">Units: sectors of <span class="m">1</span> * <span class="nv">512</span> <span class="o">=</span> <span class="m">512</span> bytes
-</span></span><span class="line"><span class="cl">Sector size <span class="o">(</span>logical/physical<span class="o">)</span>: <span class="m">512</span> bytes / <span class="m">512</span> bytes
-</span></span><span class="line"><span class="cl">I/O size <span class="o">(</span>minimum/optimal<span class="o">)</span>: <span class="m">512</span> bytes / <span class="m">512</span> bytes
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="rook-自动创建">ROOK 自动创建</h2>
-<p></p>
-<ul>
-<li>Rook 是一个开源的<code>cloud-native storage</code>编排, 提供平台和框架；为各种存储解决方案提供平台、框架和支持，以便与云原生环境本地集成。</li>
-<li>Rook 将存储软件转变为自我管理、自我扩展和自我修复的存储服务，它通过自动化部署、引导、配置、置备、扩展、升级、迁移、灾难恢复、监控和资源管理来实现此目的。</li>
-<li>Rook 使用底层云本机容器管理、调度和编排平台提供的工具来实现它自身的功能。</li>
-<li>Rook 目前支持<code>Ceph</code>、<code>NFS</code>、<code>Minio Object Store</code>和<code>CockroachDB</code>。</li>
-<li>Rook使用<code>Kubernetes</code>原语使<code>Ceph存储系统</code>能够在<code>Kubernetes</code>上运行。</li>
-</ul>
-<h3 id="下载">下载</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git clone https://github.com/rook/rook.git
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="安装">安装</h3>
 ]]></description>
 </item></channel>
 </rss>

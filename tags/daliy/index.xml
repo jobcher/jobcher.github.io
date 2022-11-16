@@ -4,7 +4,66 @@
         <link>http://www.jobcher.com/tags/daliy/</link>
         <description>daliy - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 21 Sep 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/daliy/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 10 Nov 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/daliy/" rel="self" type="application/rss+xml" /><item>
+    <title>shell功能脚本集合</title>
+    <link>http://www.jobcher.com/shell-test/</link>
+    <pubDate>Thu, 10 Nov 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/shell-test/</guid>
+    <description><![CDATA[<h2 id="28合1多功能脚本">28合1多功能脚本</h2>
+<ul>
+<li>脚本说明: 多合一脚本，DD系统，BBR，xray,TG搭建等等·常用的各种脚本基本都有！</li>
+<li>系统支持: CentOS6+ / Debian6+ / Ubuntu14+</li>
+<li>支持安装BBR，搭建KCPtun，ssr多用户版</li>
+<li>安装V2ary，Tg专用代理（Go版），安装Goflyway</li>
+<li>小鸡性能测试，回程线路测试，云监控</li>
+<li>傻瓜式一键DD包</li>
+<li>一键开启默认bbr</li>
+<li>Netflix解锁检测</li>
+<li>xray安装</li>
+<li>宝塔面板，闲蛋面板，x-ui面板，WARP 一键配置</li>
+</ul>
+<h4 id="脚本特点">脚本特点:</h4>
+<p>目前网上的各个一键脚本基本都是只有 安装/启动/重启 等基础功能，对于小白来说还是不够简单方便。常用的各种脚本基本都有！</p>
+<h4 id="下载安装">下载安装:</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash &lt;<span class="o">(</span>curl -s -L https://git.io/JPj82<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="gfw_push一键安装">gfw_push一键安装</h2>
+<ul>
+<li>脚本说明: 监测服务器IP是否被墙并推送至 Telegram 一键脚本</li>
+<li>系统支持: CentOS6+ / Debian6+ / Ubuntu14+</li>
+</ul>
+<h4 id="下载安装-1">下载安装:</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash &lt;<span class="o">(</span>curl -s -L git.io/JPjzm<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="服务器测速">服务器测速</h2>
+<ul>
+<li>脚本说明: 服务器一键测速脚本</li>
+<li>系统支持: CentOS7 / Debian7+ / Ubuntu14+</li>
+</ul>
+<h4 id="下载安装-2">下载安装:</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash &lt;<span class="o">(</span>curl -s -L git.io/JPjzE<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
+</item><item>
     <title>headscale 部署使用</title>
     <link>http://www.jobcher.com/headscale/</link>
     <pubDate>Wed, 21 Sep 2022 00:00:00 &#43;0000</pubDate>
