@@ -4,9 +4,383 @@
         <link>http://www.jobcher.com/</link>
         <description>打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 15 Nov 2022 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 25 Nov 2022 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://www.jobcher.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Jenkins 编译Android apk 流水线</title>
+    <link>http://www.jobcher.com/gradle-apk/</link>
+    <pubDate>Fri, 25 Nov 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/gradle-apk/</guid>
+    <description><![CDATA[<h2 id="背景">背景</h2>
+<p>Jenkins 编译Android apk，上传apk包，生成下载二维码，并推送钉钉</p>
+<h2 id="安装android-环境">安装Android 环境</h2>
+<h3 id="安装jdk">安装JDK</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 这里使用的是openjdk 1.8.0版本，有需要的话需要到java官网上进行下载对应的JDK版本。</span>
+</span></span><span class="line"><span class="cl">$ yum install java -y
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1"># 其他版本JDK的安装方式</span>
+</span></span><span class="line"><span class="cl">$ mv jdk1.8.0_161 /usr/local/
+</span></span><span class="line"><span class="cl">$ ln -s /usr/local/jdk1.8.0_161 /usr/local/jdk
+</span></span><span class="line"><span class="cl">$ vim /etc/profile     <span class="c1">#配置JDK的环境变量</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/local/jdk
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$JAVA_HOME</span>/bin:<span class="nv">$JAVA_HOME</span>/jre/bin:<span class="nv">$PATH</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">CLASSPATH</span><span class="o">=</span>.<span class="nv">$CLASSPATH</span>:<span class="nv">$JAVA_HOME</span>/lib:<span class="nv">$JAVA_HOME</span>/jre/lib:<span class="nv">$JAVA_HOME</span>/lib/tools.jar
+</span></span><span class="line"><span class="cl">$ <span class="nb">source</span> /etc/profile    <span class="c1">#重新加载系统环境变量</span>
+</span></span><span class="line"><span class="cl">$ java -version    <span class="c1">#查看java版本</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="android-sdk安装">Android SDK安装</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 下载sdk工具包</span>
+</span></span><span class="line"><span class="cl">$ wget https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建sdk工具文件夹和解压工具包</span>
+</span></span><span class="line"><span class="cl">$ mkdir  -p /opt/android/sdk
+</span></span><span class="line"><span class="cl">$ unzip sdk-tools-linux-3859397.zip -d /opt/android/sdk
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用sdkmanager工具配置构建工具和平台版本</span>
+</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> /opt/android/sdk/tools/bin/
+</span></span><span class="line"><span class="cl">$ ./sdkmanager <span class="s2">&#34;build-tools;29.0.6&#34;</span> <span class="s2">&#34;platforms;android-29&#34;</span> <span class="s2">&#34;platform-tools&#34;</span> 
+</span></span><span class="line"><span class="cl">$ ./sdkmanager --list    <span class="c1">#可以查看有哪些版本，自行选择对应的版本</span>
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl"><span class="c1"># 增加系统环境变量</span>
+</span></span><span class="line"><span class="cl">$ vim /etc/profile
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ANDROID_HOME</span><span class="o">=</span>/opt/android/sdk
+</span></span><span class="line"><span class="cl"><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$ANDROID_HOME</span>:<span class="nv">$ANDROID_HOME</span>/tools:<span class="nv">$ANDROID_HOME</span>/platform-tools:<span class="nv">$ANDROID_HOME</span>/emulator:<span class="nv">$ANDROID_HOME</span>/tools/bin
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">$ adb version
+</span></span><span class="line"><span class="cl">Android Debug Bridge version 1.0.41
+</span></span><span class="line"><span class="cl">Version 29.0.6-6198805
+</span></span><span class="line"><span class="cl">Installed as /opt/android/sdk/platform-tools/adb
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="安装gradle">安装gradle</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ wget https://downloads.gradle-dn.com/distributions/gradle-6.3-all.zip
+</span></span><span class="line"><span class="cl">$ mkdir /opt/gradle
+</span></span><span class="line"><span class="cl">$ unzip gradle-6.3-all.zip -d /opt/gradle/
+</span></span><span class="line"><span class="cl">$ vim /etc/profile
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/opt/gradle/gradle-6.3/bin
+</span></span><span class="line"><span class="cl">$ <span class="nb">source</span> /etc/profile
+</span></span><span class="line"><span class="cl">$ gradle -v
+</span></span><span class="line"><span class="cl">------------------------------------------------------------
+</span></span><span class="line"><span class="cl">Gradle 6.3
+</span></span><span class="line"><span class="cl">------------------------------------------------------------
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">Build time:   2020-03-24 19:52:07 UTC
+</span></span><span class="line"><span class="cl">Revision:     bacd40b727b0130eeac8855ae3f9fd9a0b207c60
+</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">Kotlin:       1.3.70
+</span></span><span class="line"><span class="cl">Groovy:       2.5.10
+</span></span><span class="line"><span class="cl">Ant:          Apache Ant<span class="o">(</span>TM<span class="o">)</span> version 1.10.7 compiled on September <span class="m">1</span> <span class="m">2019</span>
+</span></span><span class="line"><span class="cl">JVM:          1.8.0_201 <span class="o">(</span>Oracle Corporation 25.201-b09<span class="o">)</span>
+</span></span><span class="line"><span class="cl">OS:           Linux 3.10.0-693.el7.x86_64 amd64
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="jenkins-流水线配置">jenkins 流水线配置</h2>
+<h3 id="gradle-jdksh-打包脚本">gradle-jdk.sh 打包脚本</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nb">source</span> /etc/profile
+</span></span><span class="line"><span class="cl"><span class="c1"># /home/编译目录</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /home/编译目录 <span class="o">&amp;&amp;</span> gradle clean
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /home/编译目录 <span class="o">&amp;&amp;</span> gradle assembleRelease
+</span></span><span class="line"><span class="cl"><span class="c1"># 打包编译完成，在项目的app/build/outputs/apk中可以找到debug版本或者是release版本。</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="jenkinsfile-脚本">JenkinsFile 脚本</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">pipeline</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//使用标签 &#39;master&#39; 的节点
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="err">agent</span> <span class="err">{label</span> <span class="err">&#39;master&#39;</span><span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">//环境变量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="err">environment</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//成功运行特征
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="err">JEN_FEATURE</span> <span class="err">=</span> <span class="err">&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">//日志路径
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="err">JEN_LOG</span> <span class="err">=</span> <span class="err">&#39;&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> 
+</span></span><span class="line"><span class="cl">    
+</span></span><span class="line"><span class="cl">    <span class="err">stages</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="err">stage</span> <span class="err">(&#39;编译打包&#39;){</span>
+</span></span><span class="line"><span class="cl">            <span class="err">steps</span> <span class="err">{</span>
+</span></span><span class="line"><span class="cl">                <span class="err">sh</span> <span class="err">&#39;cd</span> <span class="err">/home/编译目录</span> <span class="err">&amp;&amp;</span> <span class="err">sudo</span> <span class="err">git</span> <span class="err">pull&#39;</span>
+</span></span><span class="line"><span class="cl">                <span class="err">sh</span> <span class="err">&#39;sh</span> <span class="err">gradle-apk.sh&#39;</span>
+</span></span><span class="line"><span class="cl">                
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="err">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="err">stage</span> <span class="err">(&#39;上传&#39;)</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="err">steps</span> <span class="err">{</span>
+</span></span><span class="line"><span class="cl">                <span class="err">sh</span> <span class="err">&#39;sshpass</span> <span class="err">-p</span> <span class="nt">&#34;password&#34;</span> <span class="err">scp</span> <span class="err">/home/编译目录/app/build/outputs/apk/release/app-release.apk</span> <span class="err">user@www.nginx.com</span><span class="p">:</span><span class="err">/home/上传目录/app-release.apk&#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="err">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="err">stage</span> <span class="err">(&#39;生成qr&#39;)</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="err">steps</span> <span class="err">{</span>
+</span></span><span class="line"><span class="cl">                <span class="err">echo</span> <span class="nt">&#34;生成test qr&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="err">sh</span> <span class="s2">&#34;pwd &amp;&amp; myqr &#39;https://www.nginx.com/app-release.apk&#39; -n qrcode-`date +&#39;%Y-%m-%d-%H%M%S&#39;`.png -d /home/code/image&#34;</span> 
+</span></span><span class="line"><span class="cl">                <span class="err">sh</span> <span class="s2">&#34;cd /home/code/image &amp;&amp; git add .&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="err">sh</span> <span class="s2">&#34;cd /home/code/image &amp;&amp; git commit -m &#39;new images&#39;&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="err">sh</span> <span class="s2">&#34;cd /home/code/image &amp;&amp; git push origin main&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="err">echo</span> <span class="s2">&#34;结束 end&#34;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="err">}</span>
+</span></span><span class="line"><span class="cl">    <span class="err">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="err">post</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="err">success</span> <span class="err">{</span>
+</span></span><span class="line"><span class="cl">            <span class="err">script</span> <span class="err">{</span>
+</span></span><span class="line"><span class="cl">                <span class="err">env.DATETIME</span> <span class="err">=</span> <span class="err">sh(script:</span><span class="nt">&#34;date&#34;</span><span class="p">,</span> <span class="err">returnStdout:</span> <span class="err">true).trim()</span>
+</span></span><span class="line"><span class="cl">                <span class="err">env.QRCODE</span> <span class="err">=</span> <span class="err">sh(script:</span><span class="nt">&#34;ls -lhst /home/code/image | awk &#39;NR==2&#39; | awk &#39;{print \$10}&#39;&#34;</span><span class="p">,</span><span class="err">returnStdout:</span> <span class="err">true).trim()</span>
+</span></span><span class="line"><span class="cl">                <span class="err">def</span> <span class="err">job_name</span> <span class="err">=</span> <span class="nt">&#34;# ${JOB_NAME} 流水线 执行成功&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="err">def</span> <span class="err">jenkinsid</span> <span class="err">=</span> <span class="s2">&#34;&#34;&#34;构建:  第 ${BUILD_ID} 次执行&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="err">def</span> <span class="err">JEN_production</span> <span class="err">=</span> <span class="s2">&#34;&gt; 部署节点： jenkins&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="err">def</span> <span class="err">build_url</span> <span class="err">=</span> <span class="s2">&#34;&gt; 部署详情： [详情](${BUILD_URL})&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="err">def</span> <span class="err">jen_date</span> <span class="err">=</span> <span class="s2">&#34;&gt; 执行时间： ${env.DATETIME}&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="err">def</span> <span class="err">jen_qrcode</span> <span class="err">=</span> <span class="s2">&#34;![qr](https://gitlab.com/jobcher/image/-/raw/main/${env.QRCODE})&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="err">dingtalk</span> <span class="err">(</span>
+</span></span><span class="line"><span class="cl">                    <span class="err">robot</span><span class="p">:</span> <span class="err">&#39;e</span><span class="mi">3999649</span><span class="err">-d</span><span class="mi">3</span><span class="err">f-钉钉key</span><span class="mi">-4</span><span class="err">c</span><span class="mi">57333</span><span class="err">a</span><span class="mi">327</span><span class="err">b&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="err">type:</span> <span class="err">&#39;MARKDOWN&#39;,</span>
+</span></span><span class="line"><span class="cl">                    <span class="err">title:</span> <span class="err">job_name,</span>
+</span></span><span class="line"><span class="cl">                    <span class="err">text:</span> <span class="err">[</span>
+</span></span><span class="line"><span class="cl">                        <span class="err">job_name,</span>
+</span></span><span class="line"><span class="cl">                        <span class="err">jenkinsid,</span>
+</span></span><span class="line"><span class="cl">                        <span class="err">&#39;&#39;,</span>
+</span></span><span class="line"><span class="cl">                        <span class="err">&#39;---&#39;,</span>
+</span></span><span class="line"><span class="cl">                        <span class="err">jen_qrcode,</span>
+</span></span><span class="line"><span class="cl">                        <span class="err">JEN_production,</span>
+</span></span><span class="line"><span class="cl">                        <span class="err">&#39;&#39;,</span>
+</span></span><span class="line"><span class="cl">                        <span class="err">build_url,</span>
+</span></span><span class="line"><span class="cl">                        <span class="err">&#39;&#39;,</span>
+</span></span><span class="line"><span class="cl">                        <span class="err">jen_date</span>
+</span></span><span class="line"><span class="cl">                        <span class="err">],</span>
+</span></span><span class="line"><span class="cl">                    <span class="err">at:</span> <span class="err">[</span>
+</span></span><span class="line"><span class="cl">                        <span class="err">&#39;手机号&#39;</span>
+</span></span><span class="line"><span class="cl">                        <span class="err">]</span>
+</span></span><span class="line"><span class="cl">                <span class="err">)</span>            
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="err">}</span>
+</span></span><span class="line"><span class="cl">        
+</span></span><span class="line"><span class="cl">        <span class="err">failure</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="err">script</span> <span class="err">{</span>
+</span></span><span class="line"><span class="cl">                <span class="err">env.DATETIME</span> <span class="err">=</span> <span class="err">sh(script:</span><span class="nt">&#34;date&#34;</span><span class="p">,</span> <span class="err">returnStdout:</span> <span class="err">true).trim()</span>
+</span></span><span class="line"><span class="cl">                <span class="err">def</span> <span class="err">job_name</span> <span class="err">=</span> <span class="nt">&#34;# ${JOB_NAME} 流水线 执行失败&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="err">def</span> <span class="err">jenkinsid</span> <span class="err">=</span> <span class="s2">&#34;&#34;&#34;构建:  第 ${BUILD_ID} 次执行&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="err">def</span> <span class="err">JEN_production</span> <span class="err">=</span> <span class="s2">&#34;&gt; 部署节点： jenkins&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="err">def</span> <span class="err">build_url</span> <span class="err">=</span> <span class="s2">&#34;&gt; 部署详情： [详情](${BUILD_URL})&#34;</span>
+</span></span><span class="line"><span class="cl">                <span class="err">def</span> <span class="err">jen_date</span> <span class="err">=</span> <span class="s2">&#34;&gt; 执行时间： ${env.DATETIME}&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">                <span class="err">dingtalk</span> <span class="err">(</span>
+</span></span><span class="line"><span class="cl">                    <span class="err">robot</span><span class="p">:</span> <span class="err">&#39;e</span><span class="mi">3999649</span><span class="err">-d</span><span class="mi">3</span><span class="err">f-钉钉key</span><span class="mi">-4</span><span class="err">c</span><span class="mi">57333</span><span class="err">a</span><span class="mi">327</span><span class="err">b&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">                    <span class="err">type:</span> <span class="err">&#39;MARKDOWN&#39;,</span>
+</span></span><span class="line"><span class="cl">                    <span class="err">title:</span> <span class="err">job_name,</span>
+</span></span><span class="line"><span class="cl">                    <span class="err">text:</span> <span class="err">[</span>
+</span></span><span class="line"><span class="cl">                        <span class="err">job_name,</span>
+</span></span><span class="line"><span class="cl">                        <span class="err">jenkinsid,</span>
+</span></span><span class="line"><span class="cl">                        <span class="err">&#39;&#39;,</span>
+</span></span><span class="line"><span class="cl">                        <span class="err">&#39;---&#39;,</span>
+</span></span><span class="line"><span class="cl">                        <span class="err">JEN_production,</span>
+</span></span><span class="line"><span class="cl">                        <span class="err">&#39;&#39;,</span>
+</span></span><span class="line"><span class="cl">                        <span class="err">build_url,</span>
+</span></span><span class="line"><span class="cl">                        <span class="err">&#39;&#39;,</span>
+</span></span><span class="line"><span class="cl">                        <span class="err">jen_date</span>
+</span></span><span class="line"><span class="cl">                        <span class="err">],</span>
+</span></span><span class="line"><span class="cl">                    <span class="err">at:</span> <span class="err">[</span>
+</span></span><span class="line"><span class="cl">                        <span class="err">&#39;手机号&#39;</span>
+</span></span><span class="line"><span class="cl">                        <span class="err">]</span>
+</span></span><span class="line"><span class="cl">                <span class="err">)</span>            
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="err">}</span>
+</span></span><span class="line"><span class="cl">    <span class="err">}</span>
+</span></span><span class="line"><span class="cl"><span class="err">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
+</item><item>
     <title>Kubernetes — 更新证书</title>
     <link>http://www.jobcher.com/k8s16/</link>
     <pubDate>Tue, 15 Nov 2022 00:00:00 &#43;0000</pubDate>
@@ -579,432 +953,6 @@ pre-release version.</p>
 对标youdTube的视频网站: <a href="https://ipfs.io/ipfs/QmbMtArYSo3DPjVFiyPdiJu1wsWFeFAEMikD8EMGwdNZwt/" target="_blank" rel="noopener noreffer">d.tube</a><br>
 Orbit，QQ 在 IPFS上的替代者: <a href="https://orbit.chat" target="_blank" rel="noopener noreffer">orbit.chat</a><br>
 Akasha，对标 facebook，微信等社交工具：<a href="https://akasha.world" target="_blank" rel="noopener noreffer">akasha.world</a></p>
-]]></description>
-</item><item>
-    <title>Kubernetes — Rook云存储介绍和部署</title>
-    <link>http://www.jobcher.com/k8s14/</link>
-    <pubDate>Tue, 11 Oct 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/k8s14/</guid>
-    <description><![CDATA[<h1 id="rook云存储介绍和部署">Rook云存储介绍和部署</h1>
-<p><code>Rook </code>将<code>分布式存储软件</code>转变为<code>自我管理</code>，<code>自我缩放</code>和<code>自我修复</code>的<code>存储服务</code>。它通过自动化部署，引导、配置、供应、扩展、升级、迁移、灾难恢复、监控和资源管理来实现。 <code>Rook</code> 使用基础的云原生容器管理、调度和编排平台提供的功能来履行其职责。</p>
-<p><code>Rook</code> 利用扩展点深入融入<code>云原生环境</code>，为调度、生命周期管理、资源管理、安全性、监控和用户体验提供无缝体验。</p>
-<h2 id="部署">部署</h2>
-<h3 id="使用-helm-部署">使用 helm 部署</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">helm init -i jimmysong/kubernetes-helm-tiller:v2.8.1
-</span></span><span class="line"><span class="cl">helm repo add rook-alpha https://charts.rook.io/alpha
-</span></span><span class="line"><span class="cl">helm install rook-alpha/rook --name rook --namespace rook-system
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="直接使用-yaml-文件部署">直接使用 yaml 文件部署</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl apply -f rook-operator.yaml
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>不论使用那种方式部署的 rook operator，都会在 rook-agent 中看到 rook-agent 用户无法列出集群中某些资源的错误，可以通过为 rook-agent 的分配 cluster-admin 权限临时解决，详见 <a href="https://github.com/rook/rook/issues/1472" target="_blank" rel="noopener noreffer">Issue 1472</a>。</p>
-<p>使用如下 yaml 文件创建一个 <code>ClusterRoleBinding</code> 并应用到集群中。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ClusterRoleBinding</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">rbac.authorization.k8s.io/v1beta1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">rookagent-clusterrolebinding</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">subjects</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ServiceAccount</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">rook-agent</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">rook-system</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">roleRef</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ClusterRole</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">cluster-admin</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">apiGroup</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;&#34;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="部署-rook-cluster">部署 rook cluster</h3>
-<p>创建完 <code>rook operator</code> 后，我们再部署 <code>rook cluster</code>。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Namespace</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">rook</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">rook.io/v1alpha1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Cluster</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">rook</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">rook</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">versionTag</span><span class="p">:</span><span class="w"> </span><span class="l">v0.6.2</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">dataDirHostPath</span><span class="p">:</span><span class="w"> </span><span class="l">/var/lib/rook</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">storage</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">useAllNodes</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">useAllDevices</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">storeConfig</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">storeType</span><span class="p">:</span><span class="w"> </span><span class="l">bluestore</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">databaseSizeMB</span><span class="p">:</span><span class="w"> </span><span class="m">1024</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">journalSizeMB</span><span class="p">:</span><span class="w"> </span><span class="m">1024</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
-<p><code>注意</code>：需要手动指定 <code>versionTag</code>，因为该镜像 <code>repo</code> 中没有 <code>latest</code> 标签，如不指定的话 Pod 将出现镜像拉取错误。</p>
-</blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl apply -f rook-cluster.yaml
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>rook 集群运行在<code>rook</code> namespace 下，查看 rook 集群中的 pod：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ kubectl -n rook get pod
-</span></span><span class="line"><span class="cl">NAME                             READY     STATUS    RESTARTS   AGE
-</span></span><span class="line"><span class="cl">rook-api-848df956bf-q6zf2        1/1       Running   <span class="m">0</span>          4m
-</span></span><span class="line"><span class="cl">rook-ceph-mgr0-cfccfd6b8-cpk5p   1/1       Running   <span class="m">0</span>          4m
-</span></span><span class="line"><span class="cl">rook-ceph-mon0-t496l             1/1       Running   <span class="m">0</span>          6m
-</span></span><span class="line"><span class="cl">rook-ceph-mon1-zcn7v             1/1       Running   <span class="m">0</span>          5m
-</span></span><span class="line"><span class="cl">rook-ceph-mon3-h97qx             1/1       Running   <span class="m">0</span>          3m
-</span></span><span class="line"><span class="cl">rook-ceph-osd-557tn              1/1       Running   <span class="m">0</span>          4m
-</span></span><span class="line"><span class="cl">rook-ceph-osd-74frb              1/1       Running   <span class="m">0</span>          4m
-</span></span><span class="line"><span class="cl">rook-ceph-osd-zf7rg              1/1       Running   <span class="m">1</span>          4m
-</span></span><span class="line"><span class="cl">rook-tools                       1/1       Running   <span class="m">0</span>          2m
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="部署-storageclass">部署 StorageClass</h3>
-<p>StorageClass <code>rook-block</code> 的 yaml 文件（rook-storage.yaml）如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">rook.io/v1alpha1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Pool</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">replicapool</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">rook</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">replicated</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># For an erasure-coded pool, comment out the replication size above and uncomment the following settings.</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Make sure you have enough OSDs to support the replica size or erasure code chunks.</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c">#erasureCoded:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c">#  dataChunks: 2</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c">#  codingChunks: 1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">storage.k8s.io/v1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">StorageClass</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">   </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">rook-block</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">provisioner</span><span class="p">:</span><span class="w"> </span><span class="l">rook.io/block</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">parameters</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pool</span><span class="p">:</span><span class="w"> </span><span class="l">replicapool</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Specify the Rook cluster from which to create volumes.</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># If not specified, it will use `rook` as the name of the cluster.</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># This is also the namespace where the cluster will be</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">clusterName</span><span class="p">:</span><span class="w"> </span><span class="l">rook</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Specify the filesystem type of the volume. If not specified, it will use `ext4`.</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># fstype: ext4</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="工具">工具</h2>
-<p>部署 <code>Rook</code> 操作工具 pod，该工具 pod 的 yaml 文件（<code>rook-tools.yaml</code>）如下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Pod</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">rook-tools</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">rook-system</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">dnsPolicy</span><span class="p">:</span><span class="w"> </span><span class="l">ClusterFirstWithHostNet</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">serviceAccountName</span><span class="p">:</span><span class="w"> </span><span class="l">rook-operator</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">containers</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">rook-tools</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">rook/toolbox:master</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">imagePullPolicy</span><span class="p">:</span><span class="w"> </span><span class="l">IfNotPresent</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">env</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">ROOK_ADMIN_SECRET</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">valueFrom</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">secretKeyRef</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">rook-ceph-mon</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l">admin-secret</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">securityContext</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">privileged</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumeMounts</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l">/dev</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">dev</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l">/sys/bus</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">sysbus</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l">/lib/modules</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">libmodules</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">mon-endpoint-volume</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l">/etc/rook</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hostNetwork</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">dev</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">hostPath</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/dev</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">sysbus</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">hostPath</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/sys/bus</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">libmodules</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">hostPath</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/lib/modules</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">mon-endpoint-volume</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">configMap</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">rook-ceph-mon-endpoints</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">items</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l">endpoint</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">mon-endpoints</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
-<p><code>ConfigMap</code> 和 <code>Secret</code> 中的配置项内容是自定义的。
-使用下面的命令部署工具 <code>pod</code>：</p>
-</blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl apply -f rook-tools.yaml
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>这是一个独立的 pod，没有使用其他高级的 <code>controller</code> 来管理，我们将它部署在 <code>rook-system</code> 的 <code>namespace</code> 下。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl -n rook <span class="nb">exec</span> -it rook-tools bash
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>使用下面的命令查看 <code>rook</code> 集群状态。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ rookctl status
-</span></span><span class="line"><span class="cl">OVERALL STATUS: OK
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">USAGE:
-</span></span><span class="line"><span class="cl">TOTAL       USED       DATA      AVAILABLE
-</span></span><span class="line"><span class="cl">37.95 GiB   1.50 GiB   <span class="m">0</span> B       36.45 GiB
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">MONITORS:
-</span></span><span class="line"><span class="cl">NAME             ADDRESS                IN QUORUM   STATUS
-</span></span><span class="line"><span class="cl">rook-ceph-mon0   10.254.162.99:6790/0   <span class="nb">true</span>        UNKNOWN
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">MGRs:
-</span></span><span class="line"><span class="cl">NAME             STATUS
-</span></span><span class="line"><span class="cl">rook-ceph-mgr0   Active
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">OSDs:
-</span></span><span class="line"><span class="cl">TOTAL     UP        IN        FULL      NEAR FULL
-</span></span><span class="line"><span class="cl"><span class="m">1</span>         <span class="m">1</span>         <span class="m">1</span>         <span class="nb">false</span>     <span class="nb">false</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">PLACEMENT GROUPS <span class="o">(</span><span class="m">0</span> total<span class="o">)</span>:
-</span></span><span class="line"><span class="cl">STATE     COUNT
-</span></span><span class="line"><span class="cl">none
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">$ ceph df
-</span></span><span class="line"><span class="cl">GLOBAL:
-</span></span><span class="line"><span class="cl">    SIZE       AVAIL      RAW USED     %RAW USED
-</span></span><span class="line"><span class="cl">    38861M     37323M        1537M          3.96
-</span></span><span class="line"><span class="cl">POOLS:
-</span></span><span class="line"><span class="cl">    NAME     ID     USED     %USED     MAX AVAIL     OBJECTS
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="示例">示例</h2>
-<p>官方提供了使用 Rook 作为典型的 LAMP（<code>Linux + Apache + MySQL + PHP</code>）应用 Wordpress 的存储后端的示例的 yaml 文件 <code>mysql.yaml</code> 和 <code>wordpress.yaml</code>，使用下面的命令创建。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl apply -f mysql.yaml
-</span></span><span class="line"><span class="cl">kubectl apply -f wordpress.yaml
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="清理">清理</h2>
-<p>如果使用 <code>helm</code> 部署，则执行下面的命令：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">helm delete --purge rook
-</span></span><span class="line"><span class="cl">helm delete daemonset rook-agent
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>如果使用 <code>yaml</code> 文件直接部署，则使用 <code>kubectl delete -f</code> 加当初使用的 <code>yaml</code> 文件即可删除集群。</p>
 ]]></description>
 </item></channel>
 </rss>
