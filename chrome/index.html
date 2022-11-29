@@ -1,18 +1,144 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>打工人日志 - jobcher</title>
-        <link>http://www.jobcher.com/</link>
-        <description>打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通</description>
-        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 29 Nov 2022 00:00:00 &#43;0000</lastBuildDate>
-            <atom:link href="http://www.jobcher.com/index.xml" rel="self" type="application/rss+xml" />
-        <item>
-    <title>Chrome浏览器启动参数大全（命令行参数）</title>
-    <link>http://www.jobcher.com/chrome/</link>
-    <pubDate>Tue, 29 Nov 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/chrome/</guid>
-    <description><![CDATA[<h2 id="背景">背景</h2>
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Chrome浏览器启动参数大全（命令行参数） - 打工人日志 - jobcher</title><meta name="Description" content="打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通"><meta property="og:title" content="Chrome浏览器启动参数大全（命令行参数）" />
+<meta property="og:description" content="背景 在开发Web项目当中，浏览器必不可少，而浏览器的启动参数可以帮我们实现很多功能。 常用参数 序号 参数 说明 1 &ndash;allow- ted-plugins 2 &ndash;allow-running-insecure-content 默认情况下，https 页面" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.jobcher.com/chrome/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2022-11-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-11-29T00:00:00+00:00" />
+
+
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://www.jobcher.com/avatar1.png"/>
+
+<meta name="twitter:title" content="Chrome浏览器启动参数大全（命令行参数）"/>
+<meta name="twitter:description" content="背景 在开发Web项目当中，浏览器必不可少，而浏览器的启动参数可以帮我们实现很多功能。 常用参数 序号 参数 说明 1 &ndash;allow- ted-plugins 2 &ndash;allow-running-insecure-content 默认情况下，https 页面"/>
+<meta name="application-name" content="jobcher">
+<meta name="apple-mobile-web-app-title" content="jobcher"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"><link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../site.webmanifest"><link rel="canonical" href="http://www.jobcher.com/chrome/" /><link rel="prev" href="http://www.jobcher.com/gradle-apk/" /><link rel="stylesheet" href="../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../css/style.min.css"><link rel="stylesheet" href="../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Chrome浏览器启动参数大全（命令行参数）",
+        "inLanguage": "zh-CN",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/www.jobcher.com\/chrome\/"
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "work","wordcount":  40497 ,
+        "url": "http:\/\/www.jobcher.com\/chrome\/","datePublished": "2022-11-29T00:00:00+00:00","dateModified": "2022-11-29T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "jobcher"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="fixed" header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3185871258903631"
+     crossorigin="anonymous"></script>
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="../" title="打工人日志 - jobcher"><img
+        class="lazyload logo"
+        src="../svg/loading.min.svg"
+        data-src="../avatar1.png"
+        data-srcset="../avatar1.png, ../avatar1.png 1.5x, ../avatar1.png 2x"
+        data-sizes="auto"
+        alt="/avatar1.png"
+        title="/avatar1.png" />打工人日志</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="https://nav.jobcher.com/" rel="noopener noreffer" target="_blank"> 导航 </a><a class="menu-item" href="../posts/"> 文章 </a><a class="menu-item" href="../tags/"> 标签 </a><a class="menu-item" href="../categories/"> 分类 </a><a class="menu-item" href="../about/"> 关于 </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="../" title="打工人日志 - jobcher"><img
+        class="lazyload logo"
+        src="../svg/loading.min.svg"
+        data-src="../avatar1.png"
+        data-srcset="../avatar1.png, ../avatar1.png 1.5x, ../avatar1.png 2x"
+        data-sizes="auto"
+        alt="/avatar1.png"
+        title="/avatar1.png" />打工人日志</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="搜索文章标题或内容..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="搜索">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="清空">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        取消
+                    </a>
+                </div><a class="menu-item" href="https://nav.jobcher.com/" title="" rel="noopener noreffer" target="_blank">导航</a><a class="menu-item" href="../posts/" title="">文章</a><a class="menu-item" href="../tags/" title="">标签</a><a class="menu-item" href="../categories/" title="">分类</a><a class="menu-item" href="../about/" title="">关于</a><a href="javascript:void(0);" class="menu-item theme-switch" title="切换主题">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">目录</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Chrome浏览器启动参数大全（命令行参数）</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/work/"><i class="far fa-folder fa-fw"></i>work</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-11-29">2022-11-29</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 40497 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 81 分钟&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="true">
+                <div class="details-summary toc-title">
+                    <span>目录</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#背景">背景</a></li>
+    <li><a href="#常用参数">常用参数</a></li>
+    <li><a href="#更多参数">更多参数</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="背景">背景</h2>
 <p>在开发Web项目当中，浏览器必不可少，而浏览器的启动参数可以帮我们实现很多功能。</p>
 <h2 id="常用参数">常用参数</h2>
 <table>
@@ -5729,913 +5855,46 @@
 </tr>
 </tbody>
 </table>
-]]></description>
-</item><item>
-    <title>Jenkins 编译Android apk 流水线</title>
-    <link>http://www.jobcher.com/gradle-apk/</link>
-    <pubDate>Fri, 25 Nov 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/gradle-apk/</guid>
-    <description><![CDATA[<h2 id="背景">背景</h2>
-<p>Jenkins 编译Android apk，上传apk包，生成下载二维码，并推送钉钉</p>
-<h2 id="安装android-环境">安装Android 环境</h2>
-<h3 id="安装jdk">安装JDK</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 这里使用的是openjdk 1.8.0版本，有需要的话需要到java官网上进行下载对应的JDK版本。</span>
-</span></span><span class="line"><span class="cl">$ yum install java -y
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl"><span class="c1"># 其他版本JDK的安装方式</span>
-</span></span><span class="line"><span class="cl">$ mv jdk1.8.0_161 /usr/local/
-</span></span><span class="line"><span class="cl">$ ln -s /usr/local/jdk1.8.0_161 /usr/local/jdk
-</span></span><span class="line"><span class="cl">$ vim /etc/profile     <span class="c1">#配置JDK的环境变量</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">JAVA_HOME</span><span class="o">=</span>/usr/local/jdk
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$JAVA_HOME</span>/bin:<span class="nv">$JAVA_HOME</span>/jre/bin:<span class="nv">$PATH</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">CLASSPATH</span><span class="o">=</span>.<span class="nv">$CLASSPATH</span>:<span class="nv">$JAVA_HOME</span>/lib:<span class="nv">$JAVA_HOME</span>/jre/lib:<span class="nv">$JAVA_HOME</span>/lib/tools.jar
-</span></span><span class="line"><span class="cl">$ <span class="nb">source</span> /etc/profile    <span class="c1">#重新加载系统环境变量</span>
-</span></span><span class="line"><span class="cl">$ java -version    <span class="c1">#查看java版本</span>
-</span></span></code></pre></td></tr></table>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>更新于 2022-11-29</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"><span>
+                            <a class="link-to-markdown" href="../chrome/index.md" target="_blank">阅读原始文档</a>
+                        </span></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="http://www.jobcher.com/chrome/" data-title="Chrome浏览器启动参数大全（命令行参数）" data-hashtags="work"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="http://www.jobcher.com/chrome/" data-hashtag="work"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="http://www.jobcher.com/chrome/" data-title="Chrome浏览器启动参数大全（命令行参数）" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="http://www.jobcher.com/chrome/" data-title="Chrome浏览器启动参数大全（命令行参数）"><i data-svg-src="../lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="http://www.jobcher.com/chrome/" data-title="Chrome浏览器启动参数大全（命令行参数）" data-ralateuid="6090738003"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="http://www.jobcher.com/chrome/" data-title="Chrome浏览器启动参数大全（命令行参数）" data-description=""><i data-svg-src="../lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="http://www.jobcher.com/chrome/" data-title="Chrome浏览器启动参数大全（命令行参数）" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="http://www.jobcher.com/chrome/" data-title="Chrome浏览器启动参数大全（命令行参数）"><i class="fab fa-evernote fa-fw"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="../tags/work/">work</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="../">主页</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="../gradle-apk/" class="prev" rel="prev" title="Jenkins 编译Android apk 流水线"><i class="fas fa-angle-left fa-fw"></i>Jenkins 编译Android apk 流水线</a></div>
 </div>
-</div><h3 id="android-sdk安装">Android SDK安装</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 下载sdk工具包</span>
-</span></span><span class="line"><span class="cl">$ wget https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl"><span class="c1"># 创建sdk工具文件夹和解压工具包</span>
-</span></span><span class="line"><span class="cl">$ mkdir  -p /opt/android/sdk
-</span></span><span class="line"><span class="cl">$ unzip sdk-tools-linux-3859397.zip -d /opt/android/sdk
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl"><span class="c1"># 使用sdkmanager工具配置构建工具和平台版本</span>
-</span></span><span class="line"><span class="cl">$ <span class="nb">cd</span> /opt/android/sdk/tools/bin/
-</span></span><span class="line"><span class="cl">$ ./sdkmanager <span class="s2">&#34;build-tools;29.0.6&#34;</span> <span class="s2">&#34;platforms;android-29&#34;</span> <span class="s2">&#34;platform-tools&#34;</span> 
-</span></span><span class="line"><span class="cl">$ ./sdkmanager --list    <span class="c1">#可以查看有哪些版本，自行选择对应的版本</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl"><span class="c1"># 增加系统环境变量</span>
-</span></span><span class="line"><span class="cl">$ vim /etc/profile
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ANDROID_HOME</span><span class="o">=</span>/opt/android/sdk
-</span></span><span class="line"><span class="cl"><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$ANDROID_HOME</span>:<span class="nv">$ANDROID_HOME</span>/tools:<span class="nv">$ANDROID_HOME</span>/platform-tools:<span class="nv">$ANDROID_HOME</span>/emulator:<span class="nv">$ANDROID_HOME</span>/tools/bin
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">$ adb version
-</span></span><span class="line"><span class="cl">Android Debug Bridge version 1.0.41
-</span></span><span class="line"><span class="cl">Version 29.0.6-6198805
-</span></span><span class="line"><span class="cl">Installed as /opt/android/sdk/platform-tools/adb
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="安装gradle">安装gradle</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ wget https://downloads.gradle-dn.com/distributions/gradle-6.3-all.zip
-</span></span><span class="line"><span class="cl">$ mkdir /opt/gradle
-</span></span><span class="line"><span class="cl">$ unzip gradle-6.3-all.zip -d /opt/gradle/
-</span></span><span class="line"><span class="cl">$ vim /etc/profile
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:/opt/gradle/gradle-6.3/bin
-</span></span><span class="line"><span class="cl">$ <span class="nb">source</span> /etc/profile
-</span></span><span class="line"><span class="cl">$ gradle -v
-</span></span><span class="line"><span class="cl">------------------------------------------------------------
-</span></span><span class="line"><span class="cl">Gradle 6.3
-</span></span><span class="line"><span class="cl">------------------------------------------------------------
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">Build time:   2020-03-24 19:52:07 UTC
-</span></span><span class="line"><span class="cl">Revision:     bacd40b727b0130eeac8855ae3f9fd9a0b207c60
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">Kotlin:       1.3.70
-</span></span><span class="line"><span class="cl">Groovy:       2.5.10
-</span></span><span class="line"><span class="cl">Ant:          Apache Ant<span class="o">(</span>TM<span class="o">)</span> version 1.10.7 compiled on September <span class="m">1</span> <span class="m">2019</span>
-</span></span><span class="line"><span class="cl">JVM:          1.8.0_201 <span class="o">(</span>Oracle Corporation 25.201-b09<span class="o">)</span>
-</span></span><span class="line"><span class="cl">OS:           Linux 3.10.0-693.el7.x86_64 amd64
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="jenkins-流水线配置">jenkins 流水线配置</h2>
-<h3 id="gradle-jdksh-打包脚本">gradle-jdk.sh 打包脚本</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nb">source</span> /etc/profile
-</span></span><span class="line"><span class="cl"><span class="c1"># /home/编译目录</span>
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /home/编译目录 <span class="o">&amp;&amp;</span> gradle clean
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /home/编译目录 <span class="o">&amp;&amp;</span> gradle assembleRelease
-</span></span><span class="line"><span class="cl"><span class="c1"># 打包编译完成，在项目的app/build/outputs/apk中可以找到debug版本或者是release版本。</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="jenkinsfile-脚本">JenkinsFile 脚本</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">  1
-</span><span class="lnt">  2
-</span><span class="lnt">  3
-</span><span class="lnt">  4
-</span><span class="lnt">  5
-</span><span class="lnt">  6
-</span><span class="lnt">  7
-</span><span class="lnt">  8
-</span><span class="lnt">  9
-</span><span class="lnt"> 10
-</span><span class="lnt"> 11
-</span><span class="lnt"> 12
-</span><span class="lnt"> 13
-</span><span class="lnt"> 14
-</span><span class="lnt"> 15
-</span><span class="lnt"> 16
-</span><span class="lnt"> 17
-</span><span class="lnt"> 18
-</span><span class="lnt"> 19
-</span><span class="lnt"> 20
-</span><span class="lnt"> 21
-</span><span class="lnt"> 22
-</span><span class="lnt"> 23
-</span><span class="lnt"> 24
-</span><span class="lnt"> 25
-</span><span class="lnt"> 26
-</span><span class="lnt"> 27
-</span><span class="lnt"> 28
-</span><span class="lnt"> 29
-</span><span class="lnt"> 30
-</span><span class="lnt"> 31
-</span><span class="lnt"> 32
-</span><span class="lnt"> 33
-</span><span class="lnt"> 34
-</span><span class="lnt"> 35
-</span><span class="lnt"> 36
-</span><span class="lnt"> 37
-</span><span class="lnt"> 38
-</span><span class="lnt"> 39
-</span><span class="lnt"> 40
-</span><span class="lnt"> 41
-</span><span class="lnt"> 42
-</span><span class="lnt"> 43
-</span><span class="lnt"> 44
-</span><span class="lnt"> 45
-</span><span class="lnt"> 46
-</span><span class="lnt"> 47
-</span><span class="lnt"> 48
-</span><span class="lnt"> 49
-</span><span class="lnt"> 50
-</span><span class="lnt"> 51
-</span><span class="lnt"> 52
-</span><span class="lnt"> 53
-</span><span class="lnt"> 54
-</span><span class="lnt"> 55
-</span><span class="lnt"> 56
-</span><span class="lnt"> 57
-</span><span class="lnt"> 58
-</span><span class="lnt"> 59
-</span><span class="lnt"> 60
-</span><span class="lnt"> 61
-</span><span class="lnt"> 62
-</span><span class="lnt"> 63
-</span><span class="lnt"> 64
-</span><span class="lnt"> 65
-</span><span class="lnt"> 66
-</span><span class="lnt"> 67
-</span><span class="lnt"> 68
-</span><span class="lnt"> 69
-</span><span class="lnt"> 70
-</span><span class="lnt"> 71
-</span><span class="lnt"> 72
-</span><span class="lnt"> 73
-</span><span class="lnt"> 74
-</span><span class="lnt"> 75
-</span><span class="lnt"> 76
-</span><span class="lnt"> 77
-</span><span class="lnt"> 78
-</span><span class="lnt"> 79
-</span><span class="lnt"> 80
-</span><span class="lnt"> 81
-</span><span class="lnt"> 82
-</span><span class="lnt"> 83
-</span><span class="lnt"> 84
-</span><span class="lnt"> 85
-</span><span class="lnt"> 86
-</span><span class="lnt"> 87
-</span><span class="lnt"> 88
-</span><span class="lnt"> 89
-</span><span class="lnt"> 90
-</span><span class="lnt"> 91
-</span><span class="lnt"> 92
-</span><span class="lnt"> 93
-</span><span class="lnt"> 94
-</span><span class="lnt"> 95
-</span><span class="lnt"> 96
-</span><span class="lnt"> 97
-</span><span class="lnt"> 98
-</span><span class="lnt"> 99
-</span><span class="lnt">100
-</span><span class="lnt">101
-</span><span class="lnt">102
-</span><span class="lnt">103
-</span><span class="lnt">104
-</span><span class="lnt">105
-</span><span class="lnt">106
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="err">pipeline</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">//使用标签 &#39;master&#39; 的节点
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="err">agent</span> <span class="err">{label</span> <span class="err">&#39;master&#39;</span><span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">//环境变量
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="err">environment</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">//成功运行特征
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="err">JEN_FEATURE</span> <span class="err">=</span> <span class="err">&#39;&#39;</span>
-</span></span><span class="line"><span class="cl">        <span class="c1">//日志路径
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="err">JEN_LOG</span> <span class="err">=</span> <span class="err">&#39;&#39;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span> 
-</span></span><span class="line"><span class="cl">    
-</span></span><span class="line"><span class="cl">    <span class="err">stages</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="err">stage</span> <span class="err">(&#39;编译打包&#39;){</span>
-</span></span><span class="line"><span class="cl">            <span class="err">steps</span> <span class="err">{</span>
-</span></span><span class="line"><span class="cl">                <span class="err">sh</span> <span class="err">&#39;cd</span> <span class="err">/home/编译目录</span> <span class="err">&amp;&amp;</span> <span class="err">sudo</span> <span class="err">git</span> <span class="err">pull&#39;</span>
-</span></span><span class="line"><span class="cl">                <span class="err">sh</span> <span class="err">&#39;sh</span> <span class="err">gradle-apk.sh&#39;</span>
-</span></span><span class="line"><span class="cl">                
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="err">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="err">stage</span> <span class="err">(&#39;上传&#39;)</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="err">steps</span> <span class="err">{</span>
-</span></span><span class="line"><span class="cl">                <span class="err">sh</span> <span class="err">&#39;sshpass</span> <span class="err">-p</span> <span class="nt">&#34;password&#34;</span> <span class="err">scp</span> <span class="err">/home/编译目录/app/build/outputs/apk/release/app-release.apk</span> <span class="err">user@www.nginx.com</span><span class="p">:</span><span class="err">/home/上传目录/app-release.apk&#39;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="err">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">        <span class="err">stage</span> <span class="err">(&#39;生成qr&#39;)</span><span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="err">steps</span> <span class="err">{</span>
-</span></span><span class="line"><span class="cl">                <span class="err">echo</span> <span class="nt">&#34;生成test qr&#34;</span>
-</span></span><span class="line"><span class="cl">                <span class="err">sh</span> <span class="s2">&#34;pwd &amp;&amp; myqr &#39;https://www.nginx.com/app-release.apk&#39; -n qrcode-`date +&#39;%Y-%m-%d-%H%M%S&#39;`.png -d /home/code/image&#34;</span> 
-</span></span><span class="line"><span class="cl">                <span class="err">sh</span> <span class="s2">&#34;cd /home/code/image &amp;&amp; git add .&#34;</span>
-</span></span><span class="line"><span class="cl">                <span class="err">sh</span> <span class="s2">&#34;cd /home/code/image &amp;&amp; git commit -m &#39;new images&#39;&#34;</span>
-</span></span><span class="line"><span class="cl">                <span class="err">sh</span> <span class="s2">&#34;cd /home/code/image &amp;&amp; git push origin main&#34;</span>
-</span></span><span class="line"><span class="cl">                <span class="err">echo</span> <span class="s2">&#34;结束 end&#34;</span>
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="err">}</span>
-</span></span><span class="line"><span class="cl">    <span class="err">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="err">post</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="err">success</span> <span class="err">{</span>
-</span></span><span class="line"><span class="cl">            <span class="err">script</span> <span class="err">{</span>
-</span></span><span class="line"><span class="cl">                <span class="err">env.DATETIME</span> <span class="err">=</span> <span class="err">sh(script:</span><span class="nt">&#34;date&#34;</span><span class="p">,</span> <span class="err">returnStdout:</span> <span class="err">true).trim()</span>
-</span></span><span class="line"><span class="cl">                <span class="err">env.QRCODE</span> <span class="err">=</span> <span class="err">sh(script:</span><span class="nt">&#34;ls -lhst /home/code/image | awk &#39;NR==2&#39; | awk &#39;{print \$10}&#39;&#34;</span><span class="p">,</span><span class="err">returnStdout:</span> <span class="err">true).trim()</span>
-</span></span><span class="line"><span class="cl">                <span class="err">def</span> <span class="err">job_name</span> <span class="err">=</span> <span class="nt">&#34;# ${JOB_NAME} 流水线 执行成功&#34;</span>
-</span></span><span class="line"><span class="cl">                <span class="err">def</span> <span class="err">jenkinsid</span> <span class="err">=</span> <span class="s2">&#34;&#34;&#34;构建:  第 ${BUILD_ID} 次执行&#34;&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">                <span class="err">def</span> <span class="err">JEN_production</span> <span class="err">=</span> <span class="s2">&#34;&gt; 部署节点： jenkins&#34;</span>
-</span></span><span class="line"><span class="cl">                <span class="err">def</span> <span class="err">build_url</span> <span class="err">=</span> <span class="s2">&#34;&gt; 部署详情： [详情](${BUILD_URL})&#34;</span>
-</span></span><span class="line"><span class="cl">                <span class="err">def</span> <span class="err">jen_date</span> <span class="err">=</span> <span class="s2">&#34;&gt; 执行时间： ${env.DATETIME}&#34;</span>
-</span></span><span class="line"><span class="cl">                <span class="err">def</span> <span class="err">jen_qrcode</span> <span class="err">=</span> <span class="s2">&#34;![qr](https://gitlab.com/jobcher/image/-/raw/main/${env.QRCODE})&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">                <span class="err">dingtalk</span> <span class="err">(</span>
-</span></span><span class="line"><span class="cl">                    <span class="err">robot</span><span class="p">:</span> <span class="err">&#39;e</span><span class="mi">3999649</span><span class="err">-d</span><span class="mi">3</span><span class="err">f-钉钉key</span><span class="mi">-4</span><span class="err">c</span><span class="mi">57333</span><span class="err">a</span><span class="mi">327</span><span class="err">b&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                    <span class="err">type:</span> <span class="err">&#39;MARKDOWN&#39;,</span>
-</span></span><span class="line"><span class="cl">                    <span class="err">title:</span> <span class="err">job_name,</span>
-</span></span><span class="line"><span class="cl">                    <span class="err">text:</span> <span class="err">[</span>
-</span></span><span class="line"><span class="cl">                        <span class="err">job_name,</span>
-</span></span><span class="line"><span class="cl">                        <span class="err">jenkinsid,</span>
-</span></span><span class="line"><span class="cl">                        <span class="err">&#39;&#39;,</span>
-</span></span><span class="line"><span class="cl">                        <span class="err">&#39;---&#39;,</span>
-</span></span><span class="line"><span class="cl">                        <span class="err">jen_qrcode,</span>
-</span></span><span class="line"><span class="cl">                        <span class="err">JEN_production,</span>
-</span></span><span class="line"><span class="cl">                        <span class="err">&#39;&#39;,</span>
-</span></span><span class="line"><span class="cl">                        <span class="err">build_url,</span>
-</span></span><span class="line"><span class="cl">                        <span class="err">&#39;&#39;,</span>
-</span></span><span class="line"><span class="cl">                        <span class="err">jen_date</span>
-</span></span><span class="line"><span class="cl">                        <span class="err">],</span>
-</span></span><span class="line"><span class="cl">                    <span class="err">at:</span> <span class="err">[</span>
-</span></span><span class="line"><span class="cl">                        <span class="err">&#39;手机号&#39;</span>
-</span></span><span class="line"><span class="cl">                        <span class="err">]</span>
-</span></span><span class="line"><span class="cl">                <span class="err">)</span>            
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="err">}</span>
-</span></span><span class="line"><span class="cl">        
-</span></span><span class="line"><span class="cl">        <span class="err">failure</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">            <span class="err">script</span> <span class="err">{</span>
-</span></span><span class="line"><span class="cl">                <span class="err">env.DATETIME</span> <span class="err">=</span> <span class="err">sh(script:</span><span class="nt">&#34;date&#34;</span><span class="p">,</span> <span class="err">returnStdout:</span> <span class="err">true).trim()</span>
-</span></span><span class="line"><span class="cl">                <span class="err">def</span> <span class="err">job_name</span> <span class="err">=</span> <span class="nt">&#34;# ${JOB_NAME} 流水线 执行失败&#34;</span>
-</span></span><span class="line"><span class="cl">                <span class="err">def</span> <span class="err">jenkinsid</span> <span class="err">=</span> <span class="s2">&#34;&#34;&#34;构建:  第 ${BUILD_ID} 次执行&#34;&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">                <span class="err">def</span> <span class="err">JEN_production</span> <span class="err">=</span> <span class="s2">&#34;&gt; 部署节点： jenkins&#34;</span>
-</span></span><span class="line"><span class="cl">                <span class="err">def</span> <span class="err">build_url</span> <span class="err">=</span> <span class="s2">&#34;&gt; 部署详情： [详情](${BUILD_URL})&#34;</span>
-</span></span><span class="line"><span class="cl">                <span class="err">def</span> <span class="err">jen_date</span> <span class="err">=</span> <span class="s2">&#34;&gt; 执行时间： ${env.DATETIME}&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">                <span class="err">dingtalk</span> <span class="err">(</span>
-</span></span><span class="line"><span class="cl">                    <span class="err">robot</span><span class="p">:</span> <span class="err">&#39;e</span><span class="mi">3999649</span><span class="err">-d</span><span class="mi">3</span><span class="err">f-钉钉key</span><span class="mi">-4</span><span class="err">c</span><span class="mi">57333</span><span class="err">a</span><span class="mi">327</span><span class="err">b&#39;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">                    <span class="err">type:</span> <span class="err">&#39;MARKDOWN&#39;,</span>
-</span></span><span class="line"><span class="cl">                    <span class="err">title:</span> <span class="err">job_name,</span>
-</span></span><span class="line"><span class="cl">                    <span class="err">text:</span> <span class="err">[</span>
-</span></span><span class="line"><span class="cl">                        <span class="err">job_name,</span>
-</span></span><span class="line"><span class="cl">                        <span class="err">jenkinsid,</span>
-</span></span><span class="line"><span class="cl">                        <span class="err">&#39;&#39;,</span>
-</span></span><span class="line"><span class="cl">                        <span class="err">&#39;---&#39;,</span>
-</span></span><span class="line"><span class="cl">                        <span class="err">JEN_production,</span>
-</span></span><span class="line"><span class="cl">                        <span class="err">&#39;&#39;,</span>
-</span></span><span class="line"><span class="cl">                        <span class="err">build_url,</span>
-</span></span><span class="line"><span class="cl">                        <span class="err">&#39;&#39;,</span>
-</span></span><span class="line"><span class="cl">                        <span class="err">jen_date</span>
-</span></span><span class="line"><span class="cl">                        <span class="err">],</span>
-</span></span><span class="line"><span class="cl">                    <span class="err">at:</span> <span class="err">[</span>
-</span></span><span class="line"><span class="cl">                        <span class="err">&#39;手机号&#39;</span>
-</span></span><span class="line"><span class="cl">                        <span class="err">]</span>
-</span></span><span class="line"><span class="cl">                <span class="err">)</span>            
-</span></span><span class="line"><span class="cl">            <span class="p">}</span>
-</span></span><span class="line"><span class="cl">        <span class="err">}</span>
-</span></span><span class="line"><span class="cl">    <span class="err">}</span>
-</span></span><span class="line"><span class="cl"><span class="err">}</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description>
-</item><item>
-    <title>Kubernetes — 更新证书</title>
-    <link>http://www.jobcher.com/k8s16/</link>
-    <pubDate>Tue, 15 Nov 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/k8s16/</guid>
-    <description><![CDATA[<h2 id="背景">背景</h2>
-<p>使用 <code>kubeadm</code> 安装 <code>kubernetes</code> 集群非常方便，但是也有一个比较烦人的问题就是默认的证书有效期只有<code>一年</code>时间，所以需要考虑<code>证书升级</code>的问题</p>
-<h2 id="检查证书">检查证书</h2>
-<p>由 kubeadm 生成的客户端证书默认只有一年有效期，我们可以通过 check-expiration 命令来检查证书是否过期：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubeadm alpha certs check-expiration
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>该命令显示 <code>/etc/kubernetes/pki</code> 文件夹中的客户端证书以及 <code>kubeadm</code> 使用的 <code>KUBECONFIG</code> 文件中嵌入的客户端证书的<code>到期时间</code>/<code>剩余时间</code>。</p>
-<h2 id="手动更新">手动更新</h2>
-<blockquote>
-<p>kubeadm alpha certs renew<br>
-这个命令用 CA（或者 front-proxy-CA ）证书和存储在 <code>/etc/kubernetes/pki</code> 中的密钥执行更新。<br>
-高可用的集群，这个命令需要在所有控制面板节点上执行</p>
-</blockquote>
-<h3 id="具体执行">具体执行</h3>
-<p>接下来我们来更新我们的集群证书，下面的操作都是在 master 节点上进行</p>
-<ol>
-<li>备份节点</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ mkdir /etc/kubernetes.bak
-</span></span><span class="line"><span class="cl">$ cp -r /etc/kubernetes/pki/ /etc/kubernetes.bak
-</span></span><span class="line"><span class="cl">$ cp /etc/kubernetes/*.conf /etc/kubernetes.bak
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="2">
-<li>备份 etcd 数据目录</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ cp -r /var/lib/etcd /var/lib/etcd.bak
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="3">
-<li>执行更新证书的命令</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubeadm alpha certs renew all --config<span class="o">=</span>kubeadm.yaml
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="4">
-<li>检查更新</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubeadm alpha certs check-expiration
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="5">
-<li>更新下 kubeconfig 文件</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubeadm init phase kubeconfig all --config kubeadm.yaml
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="6">
-<li>覆盖掉原本的 admin 文件</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ mv <span class="nv">$HOME</span>/.kube/config <span class="nv">$HOME</span>/.kube/config.old
-</span></span><span class="line"><span class="cl">$ cp -i /etc/kubernetes/admin.conf <span class="nv">$HOME</span>/.kube/config
-</span></span><span class="line"><span class="cl">$ chown <span class="k">$(</span>id -u<span class="k">)</span>:<span class="k">$(</span>id -g<span class="k">)</span> <span class="nv">$HOME</span>/.kube/config
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="7">
-<li>重启 kube-apiserver、kube-controller、kube-scheduler、etcd ,查看 apiserver 的证书的有效期</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="p">|</span> openssl s_client -showcerts -connect 127.0.0.1:6443 -servername api 2&gt;/dev/null <span class="p">|</span> openssl x509 -noout -enddate
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="总结">总结</h2>
-<p>可以看到现在的有效期是一年过后的，证明已经更新成功了。</p>
-]]></description>
-</item><item>
-    <title>Oracle Instant Client 安装配置实现远程连接oracle</title>
-    <link>http://www.jobcher.com/oracle-client/</link>
-    <pubDate>Tue, 15 Nov 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/oracle-client/</guid>
-    <description><![CDATA[<h2 id="背景">背景</h2>
-<p>关于Oracle 数据库一直是许多初学者比较头疼的地方，一方面受限于线上文档比较少，令一方面在企业中不得不接触和使用Oracle数据库，这篇文章是教大家如何通过配置oracle client来远程访问Oracle数据库。本文会通过python3和cx_Oracle来实现对Oracle的访问和增删改查</p>
-<h2 id="下载oracle客户端">下载oracle客户端</h2>
-<p><a href="https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html" target="_blank" rel="noopener noreffer">官方地址下载</a></p>
-<h3 id="安装">安装</h3>
-<p>下载并安装你的oracle client，因为我连接的11g oracle，所以下载11.2版本</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 下载</span>
-</span></span><span class="line"><span class="cl">wget https://download.oracle.com/otn/linux/instantclient/11204/oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm
-</span></span><span class="line"><span class="cl"><span class="c1"># 安装</span>
-</span></span><span class="line"><span class="cl">rpm -ivh oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="配置环境变量">配置环境变量</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 直接运行</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ORACLE_HOME</span><span class="o">=</span>/usr/lib/oracle/11.2/client64
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ORABIN</span><span class="o">=</span>/usr/lib/oracle/11.2/client64/bin
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 编辑环境变量配置文件</span>
-</span></span><span class="line"><span class="cl">vim /etc/profile
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 底部增加内容</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ORACLE_HOME</span><span class="o">=</span>/usr/lib/oracle/11.2/client64
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">TNS_ADMIN</span><span class="o">=</span>/usr/lib/oracle/11.2/client64
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/usr/lib/oracle/11.2/client64/lib
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ORABIN</span><span class="o">=</span>/usr/lib/oracle/11.2/client64/bin
-</span></span><span class="line"><span class="cl"><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$ORABIN</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> PATH
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$ORACLE_HOME</span>:<span class="nv">$PATH</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HOME</span>/bin:<span class="nv">$ORACLE_HOME</span>/bin
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 刷新环境变量</span>
-</span></span><span class="line"><span class="cl"><span class="nb">source</span> /etc/profile
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="下载cx_oracle">下载cx_Oracle</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">pip3 install cx_Oracle
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>创建Oracle.py文件</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="cl"><span class="ch">#!/usr/bin/python3</span>
-</span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;
-</span></span></span><span class="line"><span class="cl"><span class="s2">使用python 对oracle数据进行操作
-</span></span></span><span class="line"><span class="cl"><span class="s2">提前安装好 cx_Oracle
-</span></span></span><span class="line"><span class="cl"><span class="s2">pip3 install cx_Oracle
-</span></span></span><span class="line"><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">cx_Oracle</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">conn</span> <span class="o">=</span> <span class="n">cx_Oracle</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;用户名&#39;</span><span class="p">,</span><span class="s1">&#39;密码&#39;</span><span class="p">,</span><span class="s1">&#39;IP/SN&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;SELECT * FROM test_table&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span> <span class="p">(</span><span class="n">res</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="执行文件">执行文件</h2>
-<blockquote>
-<p>python3 oracle.py</p>
-</blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1">#输出内容</span>
-</span></span><span class="line"><span class="cl"><span class="o">[</span>none,0<span class="o">]</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description>
-</item><item>
-    <title>shell功能脚本集合</title>
-    <link>http://www.jobcher.com/shell-test/</link>
-    <pubDate>Thu, 10 Nov 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/shell-test/</guid>
-    <description><![CDATA[<h2 id="28合1多功能脚本">28合1多功能脚本</h2>
-<ul>
-<li>脚本说明: 多合一脚本，DD系统，BBR，xray,TG搭建等等·常用的各种脚本基本都有！</li>
-<li>系统支持: CentOS6+ / Debian6+ / Ubuntu14+</li>
-<li>支持安装BBR，搭建KCPtun，ssr多用户版</li>
-<li>安装V2ary，Tg专用代理（Go版），安装Goflyway</li>
-<li>小鸡性能测试，回程线路测试，云监控</li>
-<li>傻瓜式一键DD包</li>
-<li>一键开启默认bbr</li>
-<li>Netflix解锁检测</li>
-<li>xray安装</li>
-<li>宝塔面板，闲蛋面板，x-ui面板，WARP 一键配置</li>
-</ul>
-<h4 id="脚本特点">脚本特点:</h4>
-<p>目前网上的各个一键脚本基本都是只有 安装/启动/重启 等基础功能，对于小白来说还是不够简单方便。常用的各种脚本基本都有！</p>
-<h4 id="下载安装">下载安装:</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash &lt;<span class="o">(</span>curl -s -L https://git.io/JPj82<span class="o">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="gfw_push一键安装">gfw_push一键安装</h2>
-<ul>
-<li>脚本说明: 监测服务器IP是否被墙并推送至 Telegram 一键脚本</li>
-<li>系统支持: CentOS6+ / Debian6+ / Ubuntu14+</li>
-</ul>
-<h4 id="下载安装-1">下载安装:</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash &lt;<span class="o">(</span>curl -s -L git.io/JPjzm<span class="o">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="服务器测速">服务器测速</h2>
-<ul>
-<li>脚本说明: 服务器一键测速脚本</li>
-<li>系统支持: CentOS7 / Debian7+ / Ubuntu14+</li>
-</ul>
-<h4 id="下载安装-2">下载安装:</h4>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash &lt;<span class="o">(</span>curl -s -L git.io/JPjzE<span class="o">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description>
-</item><item>
-    <title>zlibary 无法下载 解决方案</title>
-    <link>http://www.jobcher.com/zlibary/</link>
-    <pubDate>Mon, 07 Nov 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/zlibary/</guid>
-    <description><![CDATA[<h1 id="zlibary-无法下载">zlibary 无法下载</h1>
-<p>因为 zlib 最近被封，导致现在通过正常方法下载不了电子书，但是不要慌，我们可以通过暗网进行下载~</p>
-<h2 id="安装brave-浏览器">安装brave 浏览器</h2>
-<p><a href="https://brave.com/" target="_blank" rel="noopener noreffer">官网下载</a><br>
-下载你需要的版本，这个下载浏览器很简单，我就不多说了</p>
-<h2 id="配置tor配置">配置tor配置</h2>
-<p>编辑tor配置
-</p>
-<h2 id="使用tor浏览">使用tor浏览</h2>
-<p></p>
-<p><a href="http://zlibrary24tuxziyiyfr7zd46ytefdqbqd2axkmxm4o5374ptpc52fad.onion/" target="_blank" rel="noopener noreffer">zlibary tor 暗网版</a></p>
-]]></description>
-</item><item>
-    <title>Logstash 自动重载配置文件</title>
-    <link>http://www.jobcher.com/logstash1/</link>
-    <pubDate>Mon, 31 Oct 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/logstash1/</guid>
-    <description><![CDATA[<h2 id="工作原理">工作原理</h2>
-<ol>
-<li>检测到配置文件变化</li>
-<li>通过停止所有输入停止当前<code>pipline</code></li>
-<li>用新的配置创建一个新的管道</li>
-<li>检查配置文件语法是否正确</li>
-<li>检查所有的输入和输出是否可以初始化</li>
-<li>检查成功使用新的pipeline替换当前的<code>pipeline</code></li>
-<li>检查失败,使用旧的继续工作.</li>
-<li>在重载过程中,jvm没有重启.</li>
-</ol>
-<h2 id="logstash-自动重新加载配置">Logstash 自动重新加载配置</h2>
-<p>为了可以<code>自动检测</code>配置文件的变动和自动重新加载配置文件,需要在启动的时候使用以下命令:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">./bin/lagstash -f configfile.conf --config.reload.automatic
-</span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
-<p>启动Logstash的时候使用<code>--config.reload.automatic</code>或<code>-r</code>选项来开启自动重载配置。</p>
-</blockquote>
-<h2 id="修改检测间隔时间">修改检测间隔时间</h2>
-<p>默认检测配置文件的间隔时间是<code>3秒</code>,可以通过以下命令改变</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">--config.reload.interval &lt;second&gt;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>如果Logstash已经运行并且没有开启自动重载，你可以强制Logstash重新载入配置文件并且重启管道通过发送一个SIGHUP信号。比如：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">kill</span> -1 &lt;pid&gt;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>其中<pid>是正在运行的Logstash的进程号。</p>
-<h2 id="注意">注意！！！</h2>
-<blockquote>
-<p><code>stdin</code>输入插件不支持自动重启.<br>
-<code>syslog</code>作为输入源,当重载配置文件时,会崩溃.<br>
-<a href="https://github.com/logstash-plugins/logstash-input-syslog/issues/40" target="_blank" rel="noopener noreffer">解决方法</a></p>
-</blockquote>
-]]></description>
-</item><item>
-    <title>macOS 13 升级 软件失效</title>
-    <link>http://www.jobcher.com/macos13/</link>
-    <pubDate>Mon, 31 Oct 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/macos13/</guid>
-    <description><![CDATA[<h1 id="关于macos-13-软件失效">关于macOS 13 软件失效</h1>
-<p>Warning: You are using macOS 13.<br>
-We do not provide support for this pre-release version.<br>
-You will encounter build failures with some formulae.<br>
-Please create pull requests instead of asking for help on Homebrew&rsquo;s GitHub,
-Twitter or any other official channels. You are responsible for resolving
-any issues you experience while you are running this
-pre-release version.</p>
-<blockquote>
-<p>简单来说就是macOS13版本 暂时不提供技术支持</p>
-</blockquote>
-<h2 id="解决方法">解决方法</h2>
-<p>升级完macos13之后发现了比较麻烦的问题，很多软件出现了不兼容，这真的很无奈，对于我们这些做IT的人来说，这是致命的。我以git软件举例，有以下几个方法。</p>
-<h3 id="1-使用时间机器恢复备份">1. 使用时间机器恢复备份</h3>
-<blockquote>
-<p>使用前提：你之前备份了系统，并且系统正常
-这个方法更加一劳永逸，因为我们并不确定还有什么软件不支持macos13</p>
-</blockquote>
-<h3 id="2-重新安装xcode-select">2. 重新安装xcode-select</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">xcode-select --install
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description>
-</item><item>
-    <title>Nexus3 使用和部署</title>
-    <link>http://www.jobcher.com/nexus/</link>
-    <pubDate>Mon, 31 Oct 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/nexus/</guid>
-    <description><![CDATA[<h2 id="nexus3-docker-compose-安装">Nexus3 docker-compose 安装</h2>
-<p>创建外部存储</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mkdir -p /data/nexus
-</span></span><span class="line"><span class="cl">chmod +777 -R /data/nexus
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>运行docker-compose</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">version: <span class="s1">&#39;3&#39;</span>
-</span></span><span class="line"><span class="cl">services:
-</span></span><span class="line"><span class="cl">  nexus3:
-</span></span><span class="line"><span class="cl">    image: sonatype/nexus3:3.42.0
-</span></span><span class="line"><span class="cl">    container_name: nexus3
-</span></span><span class="line"><span class="cl">    ports:
-</span></span><span class="line"><span class="cl">      - 8081:8081
-</span></span><span class="line"><span class="cl">      - 5000:5000
-</span></span><span class="line"><span class="cl">    volumes:
-</span></span><span class="line"><span class="cl">      - /data/nexus:/nexus-data
-</span></span><span class="line"><span class="cl">    environment:
-</span></span><span class="line"><span class="cl">      - <span class="nv">INSTALL4J_ADD_VM_PARAMS</span><span class="o">=</span>-Xms1024m -Xmx1024m -XX:MaxDirectMemorySize<span class="o">=</span>1024m -Djava.util.prefs.userRoot<span class="o">=</span>/some-other-dir
-</span></span><span class="line"><span class="cl">    restart: always
-</span></span><span class="line"><span class="cl">    <span class="c1"># 赋予外部root权限</span>
-</span></span><span class="line"><span class="cl">    privileged: <span class="nb">true</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
-<p>docker-compose up -d
-运行docker-compose</p>
-</blockquote>
-<h2 id="heading"></h2>
-]]></description>
-</item><item>
-    <title>githubAction set-output弃用错误</title>
-    <link>http://www.jobcher.com/github-error/</link>
-    <pubDate>Fri, 21 Oct 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/github-error/</guid>
-    <description><![CDATA[<h1 id="githubaction-set-output弃用错误">githubAction set-output弃用错误</h1>
-<p>The <code>set-output</code> command is deprecated and will be disabled soon. Please upgrade to using Environment Files. For more information see: <a href="https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/" target="_blank" rel="noopener noreffer">https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/</a></p>
-<h2 id="原因">原因</h2>
-<p>如果您有一个使用 设置输出的<code>GitHub Actionsecho ::set-output key=value</code>工作流程，您已经开始看到无用的弃用警告。这是修复它的方法。查看官方链接基本上得不到什么帮助！</p>
-<h2 id="修复方法">修复方法</h2>
-<ol>
-<li>更新其它人的action方法</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">将 @actions/core 提升到 1.10.0
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="2">
-<li>修改自己的aciton方法</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">run: <span class="nb">echo</span> <span class="s2">&#34;::set-output name=KEY::VALUE&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="c1">## 改为</span>
-</span></span><span class="line"><span class="cl">run: <span class="nb">echo</span> <span class="s2">&#34;KEY=VALUE&#34;</span> &gt;&gt;<span class="nv">$GITHUB_OUTPUT</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
-<p>建议：使用自己的方法</p>
-</blockquote>
-<h2 id="总结">总结</h2>
-<p>平台经营者非常肆意妄为的修改自己的代码内容弃用功能，无限的权力滋生傲慢……我相信大部分开发这并没有注意到这个告警，知道流水线服务报错之后才会注意到，希望微软可以对能更加包容不同的开发者，尊重开发者社区。</p>
-]]></description>
-</item></channel>
-</rss>
+<div id="comments"><div id="utterances"></div><noscript>
+                Please enable JavaScript to view the comments powered by <a href="https://utteranc.es/">Utterances</a>.
+            </noscript></div></article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><a href="https://www.foreverblog.cn/go.html" target="_blank" > <img src="https://img.foreverblog.cn/wormhole_3.gif" alt="" style="width:auto;height:32px;" title="穿梭虫洞-随机访问十年之约友链博客"> </a></div><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021 - 2022</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="../" target="_blank">jobcher</a></span>&nbsp;|&nbsp;<span class="license"><a rel="license external nofollow noopener noreffer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span><span class="icp-splitter">&nbsp;|&nbsp;</span><br class="icp-br"/>
+                    <span class="icp">copyright by sjt</span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="回到顶部">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="查看评论">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><link rel="stylesheet" href="../lib/katex/katex.min.css"><link rel="stylesheet" href="../lib/katex/copy-tex.min.css"><link rel="stylesheet" href="../lib/cookieconsent/cookieconsent.min.css"><script type="text/javascript" src="../lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="../lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="../lib/lunr/lunr.min.js"></script><script type="text/javascript" src="../lib/lunr/lunr.stemmer.support.min.js"></script><script type="text/javascript" src="../lib/lunr/lunr.zh.min.js"></script><script type="text/javascript" src="../lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="../lib/clipboard/clipboard.min.js"></script><script type="text/javascript" src="../lib/sharer/sharer.min.js"></script><script type="text/javascript" src="../lib/katex/katex.min.js"></script><script type="text/javascript" src="../lib/katex/auto-render.min.js"></script><script type="text/javascript" src="../lib/katex/copy-tex.min.js"></script><script type="text/javascript" src="../lib/katex/mhchem.min.js"></script><script type="text/javascript" src="../lib/cookieconsent/cookieconsent.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"复制到剪贴板","maxShownLines":10},"comment":{"utterances":{"darkTheme":"github-dark","issueTerm":"pathname","label":"","lightTheme":"github-light","repo":"jobcher/jobcher.github.io"}},"cookieconsent":{"content":{"dismiss":"同意","link":"了解更多","message":"本网站使用 Cookies 来改善您的浏览体验."},"enable":true,"palette":{"button":{"background":"#f0f0f0"},"popup":{"background":"#1aa3ff"}},"theme":"edgeless"},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","lunrLanguageCode":"zh","lunrSegmentitURL":"/lib/lunr/lunr.segmentit.js","maxResultLength":10,"noResultsFound":"没有找到结果","snippetLength":50,"type":"lunr"}};</script><script type="text/javascript" src="../js/theme.min.js"></script></body>
+</html>
