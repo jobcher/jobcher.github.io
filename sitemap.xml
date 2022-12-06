@@ -2,38 +2,38 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml"
     ><url>
-            <loc>http://www.jobcher.com/categories/</loc><lastmod>2022-11-29T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://www.jobcher.com/chrome/</loc><lastmod>2022-11-29T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://www.jobcher.com/posts/</loc><lastmod>2022-11-29T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://www.jobcher.com/series/</loc><lastmod>2022-11-29T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://www.jobcher.com/tags/</loc><lastmod>2022-11-29T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://www.jobcher.com/tags/work/</loc><lastmod>2022-11-29T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://www.jobcher.com/categories/work/</loc><lastmod>2022-11-29T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://www.jobcher.com/</loc><lastmod>2022-11-29T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://www.jobcher.com/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/</loc><lastmod>2022-11-29T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://www.jobcher.com/gradle-apk/</loc><lastmod>2022-11-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
-            <loc>http://www.jobcher.com/tags/k8s/</loc><lastmod>2022-11-15T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>http://www.jobcher.com/categories/k8s/</loc><lastmod>2022-11-15T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>http://www.jobcher.com/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/</loc><lastmod>2022-11-15T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>http://www.jobcher.com/k8s16/</loc><lastmod>2022-11-15T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>http://www.jobcher.com/tags/oracle/</loc><lastmod>2022-11-15T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>http://www.jobcher.com/oracle-client/</loc><lastmod>2022-11-15T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>http://www.jobcher.com/series/oracle%E7%B3%BB%E5%88%97/</loc><lastmod>2022-11-15T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
-            <loc>http://www.jobcher.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc><lastmod>2022-11-15T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url><url>
+            <loc>http://www.jobcher.com/categories/</loc><lastmod>2022-11-29T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>http://www.jobcher.com/chrome/</loc><lastmod>2022-11-29T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>http://www.jobcher.com/posts/</loc><lastmod>2022-11-29T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>http://www.jobcher.com/series/</loc><lastmod>2022-11-29T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>http://www.jobcher.com/tags/</loc><lastmod>2022-11-29T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>http://www.jobcher.com/tags/work/</loc><lastmod>2022-11-29T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>http://www.jobcher.com/categories/work/</loc><lastmod>2022-11-29T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>http://www.jobcher.com/</loc><lastmod>2022-11-29T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>http://www.jobcher.com/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/</loc><lastmod>2022-11-29T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>http://www.jobcher.com/gradle-apk/</loc><lastmod>2022-11-25T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url><url>
+            <loc>http://www.jobcher.com/tags/k8s/</loc><lastmod>2022-11-15T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
+            <loc>http://www.jobcher.com/categories/k8s/</loc><lastmod>2022-11-15T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
+            <loc>http://www.jobcher.com/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/</loc><lastmod>2022-11-15T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
+            <loc>http://www.jobcher.com/k8s16/</loc><lastmod>2022-11-15T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
+            <loc>http://www.jobcher.com/tags/oracle/</loc><lastmod>2022-11-15T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
+            <loc>http://www.jobcher.com/oracle-client/</loc><lastmod>2022-11-15T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
+            <loc>http://www.jobcher.com/series/oracle%E7%B3%BB%E5%88%97/</loc><lastmod>2022-11-15T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
+            <loc>http://www.jobcher.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc><lastmod>2022-11-15T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
             <loc>http://www.jobcher.com/tags/daliy/</loc><lastmod>2022-11-10T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
             <loc>http://www.jobcher.com/shell-test/</loc><lastmod>2022-11-10T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
             <loc>http://www.jobcher.com/categories/%E6%97%A5%E5%B8%B8/</loc><lastmod>2022-11-10T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
             <loc>http://www.jobcher.com/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/</loc><lastmod>2022-11-10T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
-            <loc>http://www.jobcher.com/tags/brew/</loc><lastmod>2022-11-07T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
-            <loc>http://www.jobcher.com/categories/mac/</loc><lastmod>2022-11-07T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
-            <loc>http://www.jobcher.com/series/mac%E7%B3%BB%E5%88%97/</loc><lastmod>2022-11-07T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
-            <loc>http://www.jobcher.com/zlibary/</loc><lastmod>2022-11-07T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url><url>
-            <loc>http://www.jobcher.com/tags/logstash/</loc><lastmod>2022-10-31T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-            <loc>http://www.jobcher.com/logstash1/</loc><lastmod>2022-10-31T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-            <loc>http://www.jobcher.com/macos13/</loc><lastmod>2022-10-31T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-            <loc>http://www.jobcher.com/nexus/</loc><lastmod>2022-10-31T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-            <loc>http://www.jobcher.com/categories/%E7%9B%91%E6%8E%A7/</loc><lastmod>2022-10-31T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
-            <loc>http://www.jobcher.com/series/%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7%E7%B3%BB%E5%88%97/</loc><lastmod>2022-10-31T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>http://www.jobcher.com/tags/brew/</loc><lastmod>2022-11-07T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>http://www.jobcher.com/categories/mac/</loc><lastmod>2022-11-07T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>http://www.jobcher.com/series/mac%E7%B3%BB%E5%88%97/</loc><lastmod>2022-11-07T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>http://www.jobcher.com/zlibary/</loc><lastmod>2022-11-07T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.6</priority></url><url>
+            <loc>http://www.jobcher.com/tags/logstash/</loc><lastmod>2022-10-31T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://www.jobcher.com/logstash1/</loc><lastmod>2022-10-31T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://www.jobcher.com/macos13/</loc><lastmod>2022-10-31T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://www.jobcher.com/nexus/</loc><lastmod>2022-10-31T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://www.jobcher.com/categories/%E7%9B%91%E6%8E%A7/</loc><lastmod>2022-10-31T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
+            <loc>http://www.jobcher.com/series/%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7%E7%B3%BB%E5%88%97/</loc><lastmod>2022-10-31T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/tags/error/</loc><lastmod>2022-10-21T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/github-error/</loc><lastmod>2022-10-21T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/tags/ipfs/</loc><lastmod>2022-10-21T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
