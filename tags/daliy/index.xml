@@ -4,7 +4,91 @@
         <link>http://www.jobcher.com/tags/daliy/</link>
         <description>daliy - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 10 Nov 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/daliy/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 14 Dec 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/daliy/" rel="self" type="application/rss+xml" /><item>
+    <title>优雅的使用Conda管理python环境</title>
+    <link>http://www.jobcher.com/conda/</link>
+    <pubDate>Wed, 14 Dec 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/conda/</guid>
+    <description><![CDATA[<h2 id="背景">背景</h2>
+<p>很多时候,避免不了同时使用python2和python3的环境,也避免不了不同的工作所需要不同版本的库文件,比如在想用TensorFlow较早版本的同时;还想运行Pytorch最新版；还想顺便学习Nao机器人编程,学习Django后台,这个时候,一款非常好用的包管理工具就显得十分重要了,这就是我写这篇博客的原因,这篇博客将会讲解：</p>
+<ul>
+<li>如何安装conda;</li>
+<li>如何更换conda的下载源;</li>
+<li>如何使用canda;</li>
+</ul>
+<h2 id="安装conda">安装conda</h2>
+<p>在安装时这两个选项需要点上：<br>
+</p>
+<h3 id="更换conda的下载源">更换conda的下载源</h3>
+<p><code>Conda官方</code>的下载源太慢了,而且经常会出现HTTPERROR之类的错误,如果想要用Conda愉快的创建不同工作环境,愉快的下载安装各种库,那么换下载源是必不可少的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+</span></span><span class="line"><span class="cl">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+</span></span><span class="line"><span class="cl">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">conda config --set show_channel_urls yes
+</span></span><span class="line"><span class="cl"><span class="c1"># 设置搜索时显示通道地址</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>具体操作同时按Win+R键打开运行窗口,输入cmd,回车：<br>
+</p>
+<p>将上面的命令全部复制,到命令行里单击右键就会自动执行复制的命令,添加清华源</p>
+<h2 id="使用conda">使用conda</h2>
+<p>查看环境</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">conda info -e
+</span></span><span class="line"><span class="cl">conda info --envs
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>创建环境</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">conda create -n name <span class="nv">python</span><span class="o">=</span>3.6
+</span></span><span class="line"><span class="cl"><span class="c1"># name参数指定虚拟环境的名字,python参数指定要安装python的版本,但注意至少需要指定python版本或者要安装的包,在后一种情况下,自动安装最新python版本</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 例如</span>
+</span></span><span class="line"><span class="cl">conda create -n jobcher pillow numpy <span class="nv">python</span><span class="o">=</span>2.7.14
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建名字为naoqi,Python版本为2.7.14的虚拟环境,同时还会安装上pillow numpy这两个库</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>环境切换</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">conda activate jobcher
+</span></span><span class="line"><span class="cl"><span class="c1"># 切换到jobcher环境下,在切换环境后,所执行的Pip命令,Python命令,都是更改当前环境下的,不会影响到其他的环境</span>
+</span></span><span class="line"><span class="cl">conda deactivate
+</span></span><span class="line"><span class="cl"><span class="c1"># 退出当前环境</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
+</item><item>
     <title>shell功能脚本集合</title>
     <link>http://www.jobcher.com/shell-test/</link>
     <pubDate>Thu, 10 Nov 2022 00:00:00 &#43;0000</pubDate>

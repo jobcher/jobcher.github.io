@@ -4,7 +4,91 @@
         <link>http://www.jobcher.com/posts/</link>
         <description>所有文章 | 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 29 Nov 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 14 Dec 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>优雅的使用Conda管理python环境</title>
+    <link>http://www.jobcher.com/conda/</link>
+    <pubDate>Wed, 14 Dec 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/conda/</guid>
+    <description><![CDATA[<h2 id="背景">背景</h2>
+<p>很多时候,避免不了同时使用python2和python3的环境,也避免不了不同的工作所需要不同版本的库文件,比如在想用TensorFlow较早版本的同时;还想运行Pytorch最新版；还想顺便学习Nao机器人编程,学习Django后台,这个时候,一款非常好用的包管理工具就显得十分重要了,这就是我写这篇博客的原因,这篇博客将会讲解：</p>
+<ul>
+<li>如何安装conda;</li>
+<li>如何更换conda的下载源;</li>
+<li>如何使用canda;</li>
+</ul>
+<h2 id="安装conda">安装conda</h2>
+<p>在安装时这两个选项需要点上：<br>
+</p>
+<h3 id="更换conda的下载源">更换conda的下载源</h3>
+<p><code>Conda官方</code>的下载源太慢了,而且经常会出现HTTPERROR之类的错误,如果想要用Conda愉快的创建不同工作环境,愉快的下载安装各种库,那么换下载源是必不可少的</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+</span></span><span class="line"><span class="cl">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
+</span></span><span class="line"><span class="cl">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">conda config --set show_channel_urls yes
+</span></span><span class="line"><span class="cl"><span class="c1"># 设置搜索时显示通道地址</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>具体操作同时按Win+R键打开运行窗口,输入cmd,回车：<br>
+</p>
+<p>将上面的命令全部复制,到命令行里单击右键就会自动执行复制的命令,添加清华源</p>
+<h2 id="使用conda">使用conda</h2>
+<p>查看环境</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">conda info -e
+</span></span><span class="line"><span class="cl">conda info --envs
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>创建环境</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">conda create -n name <span class="nv">python</span><span class="o">=</span>3.6
+</span></span><span class="line"><span class="cl"><span class="c1"># name参数指定虚拟环境的名字,python参数指定要安装python的版本,但注意至少需要指定python版本或者要安装的包,在后一种情况下,自动安装最新python版本</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 例如</span>
+</span></span><span class="line"><span class="cl">conda create -n jobcher pillow numpy <span class="nv">python</span><span class="o">=</span>2.7.14
+</span></span><span class="line"><span class="cl"><span class="c1"># 创建名字为naoqi,Python版本为2.7.14的虚拟环境,同时还会安装上pillow numpy这两个库</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>环境切换</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">conda activate jobcher
+</span></span><span class="line"><span class="cl"><span class="c1"># 切换到jobcher环境下,在切换环境后,所执行的Pip命令,Python命令,都是更改当前环境下的,不会影响到其他的环境</span>
+</span></span><span class="line"><span class="cl">conda deactivate
+</span></span><span class="line"><span class="cl"><span class="c1"># 退出当前环境</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
+</item><item>
     <title>Chrome浏览器启动参数大全（命令行参数）</title>
     <link>http://www.jobcher.com/chrome/</link>
     <pubDate>Tue, 29 Nov 2022 00:00:00 &#43;0000</pubDate>
@@ -6591,49 +6675,6 @@ pre-release version.</p>
 运行docker-compose</p>
 </blockquote>
 <h2 id="heading"></h2>
-]]></description>
-</item><item>
-    <title>githubAction set-output弃用错误</title>
-    <link>http://www.jobcher.com/github-error/</link>
-    <pubDate>Fri, 21 Oct 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/github-error/</guid>
-    <description><![CDATA[<h1 id="githubaction-set-output弃用错误">githubAction set-output弃用错误</h1>
-<p>The <code>set-output</code> command is deprecated and will be disabled soon. Please upgrade to using Environment Files. For more information see: <a href="https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/" target="_blank" rel="noopener noreffer">https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/</a></p>
-<h2 id="原因">原因</h2>
-<p>如果您有一个使用 设置输出的<code>GitHub Actionsecho ::set-output key=value</code>工作流程，您已经开始看到无用的弃用警告。这是修复它的方法。查看官方链接基本上得不到什么帮助！</p>
-<h2 id="修复方法">修复方法</h2>
-<ol>
-<li>更新其它人的action方法</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">将 @actions/core 提升到 1.10.0
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="2">
-<li>修改自己的aciton方法</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">run: <span class="nb">echo</span> <span class="s2">&#34;::set-output name=KEY::VALUE&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="c1">## 改为</span>
-</span></span><span class="line"><span class="cl">run: <span class="nb">echo</span> <span class="s2">&#34;KEY=VALUE&#34;</span> &gt;&gt;<span class="nv">$GITHUB_OUTPUT</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
-<p>建议：使用自己的方法</p>
-</blockquote>
-<h2 id="总结">总结</h2>
-<p>平台经营者非常肆意妄为的修改自己的代码内容弃用功能，无限的权力滋生傲慢……我相信大部分开发这并没有注意到这个告警，知道流水线服务报错之后才会注意到，希望微软可以对能更加包容不同的开发者，尊重开发者社区。</p>
 ]]></description>
 </item></channel>
 </rss>
