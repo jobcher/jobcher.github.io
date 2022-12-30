@@ -4,7 +4,21 @@
         <link>http://www.jobcher.com/posts/</link>
         <description>所有文章 | 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 14 Dec 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 30 Dec 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>逆境和成长-2022年终总结</title>
+    <link>http://www.jobcher.com/20221230/</link>
+    <pubDate>Fri, 30 Dec 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/20221230/</guid>
+    <description><![CDATA[<blockquote>
+<p>转眼间来到了2022年的尾声，2022年不仅仅对于世界来说，还是对于我个人来说都是意义非凡的一年。</p>
+</blockquote>
+<h2 id="逆境和成长">逆境和成长</h2>
+<p>2022年初在中国大陆仍然实行着最为严格的清零政策并愈演愈烈，城市居民被限制人身自由，就连农村地区也被大量要求居家隔离，严重损害了中国经济和社会活力。中国失业人口再创新高，大量的毕业生找不到工作。在美国，最为严重的通货膨胀席卷全国，高昂的加息政策，损害了底层人民和工薪阶层。在中东，塔利班武装重新占领阿富汗，重新实行政教合一的暴力统治。在俄罗斯，爆发了乌克兰战争，将俄罗斯真正从苏联的阴影中脱离出来。在世界各地发生了太多的变化，2022年注定是要被载入史册的一年。<br>
+对于我个人来说，2022年也是成长非常大的一年，我经历了自工作来最大的变化，我从一家工作了多年的企业毕业，再次进入了社会的试炼场中求职，接触了更多的人，碰到了更多的事，也有了更多的感悟。曾经的我会讲工作看的比一切都重要，通过勤奋和努力可以改变一切，但是，社会的规则并不是这样的。决定你的个人价值并不是这些外在的东西，决定你个人价值的是你自己对自己的看法。你认为自己有价值，你就是你能够做到有价值。你觉得自己不重要，别人自然觉得你不重要。<br>
+在🆕的2023年，希望世界和平，人人幸福，愿生活在苦难中的人们，能够早日远离苦难，让幸福来敲门……</p>
+]]></description>
+</item><item>
     <title>优雅的使用Conda管理python环境</title>
     <link>http://www.jobcher.com/conda/</link>
     <pubDate>Wed, 14 Dec 2022 00:00:00 &#43;0000</pubDate>
@@ -6615,66 +6629,5 @@ pre-release version.</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
-    <title>Nexus3 使用和部署</title>
-    <link>http://www.jobcher.com/nexus/</link>
-    <pubDate>Mon, 31 Oct 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/nexus/</guid>
-    <description><![CDATA[<h2 id="nexus3-docker-compose-安装">Nexus3 docker-compose 安装</h2>
-<p>创建外部存储</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mkdir -p /data/nexus
-</span></span><span class="line"><span class="cl">chmod +777 -R /data/nexus
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>运行docker-compose</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">version: <span class="s1">&#39;3&#39;</span>
-</span></span><span class="line"><span class="cl">services:
-</span></span><span class="line"><span class="cl">  nexus3:
-</span></span><span class="line"><span class="cl">    image: sonatype/nexus3:3.42.0
-</span></span><span class="line"><span class="cl">    container_name: nexus3
-</span></span><span class="line"><span class="cl">    ports:
-</span></span><span class="line"><span class="cl">      - 8081:8081
-</span></span><span class="line"><span class="cl">      - 5000:5000
-</span></span><span class="line"><span class="cl">    volumes:
-</span></span><span class="line"><span class="cl">      - /data/nexus:/nexus-data
-</span></span><span class="line"><span class="cl">    environment:
-</span></span><span class="line"><span class="cl">      - <span class="nv">INSTALL4J_ADD_VM_PARAMS</span><span class="o">=</span>-Xms1024m -Xmx1024m -XX:MaxDirectMemorySize<span class="o">=</span>1024m -Djava.util.prefs.userRoot<span class="o">=</span>/some-other-dir
-</span></span><span class="line"><span class="cl">    restart: always
-</span></span><span class="line"><span class="cl">    <span class="c1"># 赋予外部root权限</span>
-</span></span><span class="line"><span class="cl">    privileged: <span class="nb">true</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
-<p>docker-compose up -d
-运行docker-compose</p>
-</blockquote>
-<h2 id="heading"></h2>
-]]></description>
 </item></channel>
 </rss>

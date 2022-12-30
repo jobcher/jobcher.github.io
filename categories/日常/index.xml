@@ -4,7 +4,21 @@
         <link>http://www.jobcher.com/categories/%E6%97%A5%E5%B8%B8/</link>
         <description>日常 - 分类 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 14 Dec 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/%E6%97%A5%E5%B8%B8/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 30 Dec 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/%E6%97%A5%E5%B8%B8/" rel="self" type="application/rss+xml" /><item>
+    <title>逆境和成长-2022年终总结</title>
+    <link>http://www.jobcher.com/20221230/</link>
+    <pubDate>Fri, 30 Dec 2022 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/20221230/</guid>
+    <description><![CDATA[<blockquote>
+<p>转眼间来到了2022年的尾声，2022年不仅仅对于世界来说，还是对于我个人来说都是意义非凡的一年。</p>
+</blockquote>
+<h2 id="逆境和成长">逆境和成长</h2>
+<p>2022年初在中国大陆仍然实行着最为严格的清零政策并愈演愈烈，城市居民被限制人身自由，就连农村地区也被大量要求居家隔离，严重损害了中国经济和社会活力。中国失业人口再创新高，大量的毕业生找不到工作。在美国，最为严重的通货膨胀席卷全国，高昂的加息政策，损害了底层人民和工薪阶层。在中东，塔利班武装重新占领阿富汗，重新实行政教合一的暴力统治。在俄罗斯，爆发了乌克兰战争，将俄罗斯真正从苏联的阴影中脱离出来。在世界各地发生了太多的变化，2022年注定是要被载入史册的一年。<br>
+对于我个人来说，2022年也是成长非常大的一年，我经历了自工作来最大的变化，我从一家工作了多年的企业毕业，再次进入了社会的试炼场中求职，接触了更多的人，碰到了更多的事，也有了更多的感悟。曾经的我会讲工作看的比一切都重要，通过勤奋和努力可以改变一切，但是，社会的规则并不是这样的。决定你的个人价值并不是这些外在的东西，决定你个人价值的是你自己对自己的看法。你认为自己有价值，你就是你能够做到有价值。你觉得自己不重要，别人自然觉得你不重要。<br>
+在🆕的2023年，希望世界和平，人人幸福，愿生活在苦难中的人们，能够早日远离苦难，让幸福来敲门……</p>
+]]></description>
+</item><item>
     <title>优雅的使用Conda管理python环境</title>
     <link>http://www.jobcher.com/conda/</link>
     <pubDate>Wed, 14 Dec 2022 00:00:00 &#43;0000</pubDate>
@@ -4194,228 +4208,5 @@ kubectl get sc -n sanjiang</p>
 <li>右上角的运行<code>小三角按钮</code></li>
 </ul>
 ]]></description>
-</item><item>
-    <title>ant build.xml 编写</title>
-    <link>http://www.jobcher.com/ant1/</link>
-    <pubDate>Thu, 21 Apr 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/ant1/</guid>
-    <description><![CDATA[<h1 id="ant-buildxml-编写">ant build.xml 编写</h1>
-<h2 id="生成buildxml">生成build.xml</h2>
-<p><code>Eclipse</code> 自动生成 Ant的<code>Build.xml</code> 配置文件,生成的方法很隐蔽<br>
-选择你要生成<code>Build.xml</code>文件的项目,右键. <code>Export-&gt; General -&gt; Ant Buildfiles .</code><br>
-点Next,选择项目，再点<code>Finish</code>.</p>
-<h2 id="编写buildxml">编写build.xml</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">  1
-</span><span class="lnt">  2
-</span><span class="lnt">  3
-</span><span class="lnt">  4
-</span><span class="lnt">  5
-</span><span class="lnt">  6
-</span><span class="lnt">  7
-</span><span class="lnt">  8
-</span><span class="lnt">  9
-</span><span class="lnt"> 10
-</span><span class="lnt"> 11
-</span><span class="lnt"> 12
-</span><span class="lnt"> 13
-</span><span class="lnt"> 14
-</span><span class="lnt"> 15
-</span><span class="lnt"> 16
-</span><span class="lnt"> 17
-</span><span class="lnt"> 18
-</span><span class="lnt"> 19
-</span><span class="lnt"> 20
-</span><span class="lnt"> 21
-</span><span class="lnt"> 22
-</span><span class="lnt"> 23
-</span><span class="lnt"> 24
-</span><span class="lnt"> 25
-</span><span class="lnt"> 26
-</span><span class="lnt"> 27
-</span><span class="lnt"> 28
-</span><span class="lnt"> 29
-</span><span class="lnt"> 30
-</span><span class="lnt"> 31
-</span><span class="lnt"> 32
-</span><span class="lnt"> 33
-</span><span class="lnt"> 34
-</span><span class="lnt"> 35
-</span><span class="lnt"> 36
-</span><span class="lnt"> 37
-</span><span class="lnt"> 38
-</span><span class="lnt"> 39
-</span><span class="lnt"> 40
-</span><span class="lnt"> 41
-</span><span class="lnt"> 42
-</span><span class="lnt"> 43
-</span><span class="lnt"> 44
-</span><span class="lnt"> 45
-</span><span class="lnt"> 46
-</span><span class="lnt"> 47
-</span><span class="lnt"> 48
-</span><span class="lnt"> 49
-</span><span class="lnt"> 50
-</span><span class="lnt"> 51
-</span><span class="lnt"> 52
-</span><span class="lnt"> 53
-</span><span class="lnt"> 54
-</span><span class="lnt"> 55
-</span><span class="lnt"> 56
-</span><span class="lnt"> 57
-</span><span class="lnt"> 58
-</span><span class="lnt"> 59
-</span><span class="lnt"> 60
-</span><span class="lnt"> 61
-</span><span class="lnt"> 62
-</span><span class="lnt"> 63
-</span><span class="lnt"> 64
-</span><span class="lnt"> 65
-</span><span class="lnt"> 66
-</span><span class="lnt"> 67
-</span><span class="lnt"> 68
-</span><span class="lnt"> 69
-</span><span class="lnt"> 70
-</span><span class="lnt"> 71
-</span><span class="lnt"> 72
-</span><span class="lnt"> 73
-</span><span class="lnt"> 74
-</span><span class="lnt"> 75
-</span><span class="lnt"> 76
-</span><span class="lnt"> 77
-</span><span class="lnt"> 78
-</span><span class="lnt"> 79
-</span><span class="lnt"> 80
-</span><span class="lnt"> 81
-</span><span class="lnt"> 82
-</span><span class="lnt"> 83
-</span><span class="lnt"> 84
-</span><span class="lnt"> 85
-</span><span class="lnt"> 86
-</span><span class="lnt"> 87
-</span><span class="lnt"> 88
-</span><span class="lnt"> 89
-</span><span class="lnt"> 90
-</span><span class="lnt"> 91
-</span><span class="lnt"> 92
-</span><span class="lnt"> 93
-</span><span class="lnt"> 94
-</span><span class="lnt"> 95
-</span><span class="lnt"> 96
-</span><span class="lnt"> 97
-</span><span class="lnt"> 98
-</span><span class="lnt"> 99
-</span><span class="lnt">100
-</span><span class="lnt">101
-</span><span class="lnt">102
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; standalone=&#34;no&#34;?&gt;</span>
-</span></span><span class="line"><span class="cl">	
-</span></span><span class="line"><span class="cl"><span class="c">&lt;!-- 每个构建文件对应一个项目。&lt;project&gt;标签时构建文件的根标签。它可以有多个内在属性，就如代码中所示，其各个属性的含义分别如下。
-</span></span></span><span class="line"><span class="cl"><span class="c">(1) default表示默认的运行目标，这个属性是必须的。 
-</span></span></span><span class="line"><span class="cl"><span class="c">(2) basedir表示项目的基准目录。 
-</span></span></span><span class="line"><span class="cl"><span class="c">(3) name表示项目名。 
-</span></span></span><span class="line"><span class="cl"><span class="c">(4) description表示项目的描述。 
-</span></span></span><span class="line"><span class="cl"><span class="c"> --&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="nt">&lt;project</span> <span class="na">default=</span><span class="s">&#34;build&#34;</span> <span class="na">name=</span><span class="s">&#34;Sort&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">	<span class="c">&lt;!-- 设置属性或文件路径，读取属性使用${property}，value路径默认项目根目录 --&gt;</span>
-</span></span><span class="line"><span class="cl">	<span class="nt">&lt;property</span> <span class="na">file=</span><span class="s">&#34;ant/builds.properties&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;src.dir&#34;</span> <span class="na">value=</span><span class="s">&#34;src/statics&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">	
-</span></span><span class="line"><span class="cl">	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;classes.dir&#34;</span> <span class="na">value=</span><span class="s">&#34;ant/classes&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;lib.dir&#34;</span> <span class="na">value=</span><span class="s">&#34;lib&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">	<span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&#34;dist.dir&#34;</span> <span class="na">value=</span><span class="s">&#34;ant/dist&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">	
-</span></span><span class="line"><span class="cl">	<span class="c">&lt;!-- 定义classpath --&gt;</span>
-</span></span><span class="line"><span class="cl">	<span class="nt">&lt;path</span> <span class="na">id=</span><span class="s">&#34;master-classpath&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">		<span class="nt">&lt;fileset</span> <span class="na">file=</span><span class="s">&#34;${lib.dir}/*.jar&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">		<span class="nt">&lt;pathelement</span> <span class="na">path=</span><span class="s">&#34;${classes.dir}&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">	<span class="nt">&lt;/path&gt;</span>
-</span></span><span class="line"><span class="cl">	
-</span></span><span class="line"><span class="cl">	<span class="c">&lt;!--一个项目标签Project包含多个target标签，一个target标签可以依赖其他的target标签
-</span></span></span><span class="line"><span class="cl"><span class="c">		在生成可执行文件之前必须先编译该文件，因策可执行文件的target依赖于编译程序的 target。
-</span></span></span><span class="line"><span class="cl"><span class="c">		
-</span></span></span><span class="line"><span class="cl"><span class="c">		(1).name表示标明，这个属性是必须的。 
-</span></span></span><span class="line"><span class="cl"><span class="c">		(2).depends表示依赖的目标。 
-</span></span></span><span class="line"><span class="cl"><span class="c">		(3)if表示仅当属性设置时才执行。 
-</span></span></span><span class="line"><span class="cl"><span class="c">		(4)unless表示当属性没有设置时才执行。 
-</span></span></span><span class="line"><span class="cl"><span class="c">		(5)description表示项目的描述。  
-</span></span></span><span class="line"><span class="cl"><span class="c">		Ant的depends属性指定了target的执行顺序。Ant会依照depends属性中target出现顺序依次执行每个target。在执行之前，首先需要执行它所依赖的target。
-</span></span></span><span class="line"><span class="cl"><span class="c">	 --&gt;</span>
-</span></span><span class="line"><span class="cl">	<span class="c">&lt;!-- 初始化任务 --&gt;</span>
-</span></span><span class="line"><span class="cl">	<span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&#34;init&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">		<span class="c">&lt;!-- 输出标签 ，${init}是builds.properties中的属性 --&gt;</span>
-</span></span><span class="line"><span class="cl">		<span class="nt">&lt;echo</span> <span class="na">message=</span><span class="s">&#34;  Available Targets:&#34;</span><span class="nt">/&gt;</span>  
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;echo</span> <span class="na">message=</span><span class="s">&#34;-------------------------------------------------------&#34;</span><span class="nt">/&gt;</span>  
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;echo</span> <span class="na">message=</span><span class="s">&#34;  init ${init}   ...&#34;</span><span class="nt">/&gt;</span>  
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;echo</span> <span class="na">message=</span><span class="s">&#34;-------------------------------------------------------&#34;</span><span class="nt">/&gt;</span> 
-</span></span><span class="line"><span class="cl">	<span class="nt">&lt;/target&gt;</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">	<span class="c">&lt;!-- 编译 --&gt;</span>
-</span></span><span class="line"><span class="cl">	<span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&#34;compile&#34;</span> <span class="na">depends=</span><span class="s">&#34;init&#34;</span> <span class="na">description=</span><span class="s">&#34;compile the source files&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">		<span class="c">&lt;!-- 删除文件夹 --&gt;</span>
-</span></span><span class="line"><span class="cl">		<span class="nt">&lt;delete</span> <span class="na">dir=</span><span class="s">&#34;${classes.dir}&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">		<span class="c">&lt;!-- 创建文件夹 --&gt;</span>
-</span></span><span class="line"><span class="cl">		<span class="nt">&lt;mkdir</span> <span class="na">dir=</span><span class="s">&#34;${classes.dir}&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">		<span class="c">&lt;!-- 编译java生成class文件 ，其属性如下
-</span></span></span><span class="line"><span class="cl"><span class="c">			(1).srcdir表示源程序的目录。 
-</span></span></span><span class="line"><span class="cl"><span class="c">			(2).destdir表示class文件的输出目录。 
-</span></span></span><span class="line"><span class="cl"><span class="c">			(3).include表示被编译的文件的模式。 
-</span></span></span><span class="line"><span class="cl"><span class="c">			(4).excludes表示被排除的文件的模式。 
-</span></span></span><span class="line"><span class="cl"><span class="c">			(5).classpath表示所使用的类路径。 
-</span></span></span><span class="line"><span class="cl"><span class="c">			(6).debug表示包含的调试信息。 
-</span></span></span><span class="line"><span class="cl"><span class="c">			(7).optimize表示是否使用优化。 
-</span></span></span><span class="line"><span class="cl"><span class="c">			(8).verbose 表示提供详细的输出信息。 
-</span></span></span><span class="line"><span class="cl"><span class="c">			(9).fileonerror表示当碰到错误就自动停止。
-</span></span></span><span class="line"><span class="cl"><span class="c">		 --&gt;</span>
-</span></span><span class="line"><span class="cl">		<span class="nt">&lt;javac</span> <span class="na">srcdir=</span><span class="s">&#34;${src.dir}&#34;</span> <span class="na">destdir=</span><span class="s">&#34;${classes.dir}&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">			<span class="c">&lt;!-- 编译需要的jar包 引用前面设置的class-path --&gt;</span>
-</span></span><span class="line"><span class="cl">			<span class="nt">&lt;classpath</span> <span class="na">refid=</span><span class="s">&#34;master-classpath&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">		<span class="nt">&lt;/javac&gt;</span>
-</span></span><span class="line"><span class="cl">	<span class="nt">&lt;/target&gt;</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">	<span class="c">&lt;!-- 打包成jar --&gt;</span>
-</span></span><span class="line"><span class="cl">	<span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&#34;pack&#34;</span> <span class="na">description=</span><span class="s">&#34;make .jar file&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">		<span class="nt">&lt;delete</span> <span class="na">dir=</span><span class="s">&#34;${dist.dir}&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">		<span class="nt">&lt;mkdir</span> <span class="na">dir=</span><span class="s">&#34;${dist.dir}&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">		<span class="c">&lt;!-- 该标签用来生成一个JAR文件，其属性如下
-</span></span></span><span class="line"><span class="cl"><span class="c">			(1) destfile表示JAR文件名。 
-</span></span></span><span class="line"><span class="cl"><span class="c">			(2) basedir表示被归档的文件名。要操作的文件路径 
-</span></span></span><span class="line"><span class="cl"><span class="c">			(3) includes表示别归档的文件模式。 
-</span></span></span><span class="line"><span class="cl"><span class="c">			(4) exchudes表示被排除的文件模式。 
-</span></span></span><span class="line"><span class="cl"><span class="c">		 --&gt;</span>
-</span></span><span class="line"><span class="cl">		<span class="nt">&lt;jar</span> <span class="na">destfile=</span><span class="s">&#34;${dist.dir}/hello.jar&#34;</span> <span class="na">basedir=</span><span class="s">&#34;${classes.dir}&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">			<span class="c">&lt;!-- 不包含的类或内容 --&gt;</span>
-</span></span><span class="line"><span class="cl">			<span class="nt">&lt;exclude</span> <span class="na">name=</span><span class="s">&#34;**/*Test.*&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">		<span class="nt">&lt;/jar&gt;</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">	<span class="nt">&lt;/target&gt;</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl">	<span class="c">&lt;!-- 生成zip压缩包 --&gt;</span>
-</span></span><span class="line"><span class="cl">	<span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&#34;zip&#34;</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">	    <span class="nt">&lt;delete</span> <span class="na">dir=</span><span class="s">&#34;${release-dir}&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">		<span class="nt">&lt;mkdir</span> <span class="na">dir=</span><span class="s">&#34;${release-dir}&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">		<span class="c">&lt;!-- 该标签用来生成一个zip文件，其属性如下
-</span></span></span><span class="line"><span class="cl"><span class="c">			(1) destfile表示zip文件名。 
-</span></span></span><span class="line"><span class="cl"><span class="c">			(2) basedir表示被归档的文件名。 要操作的文件路径
-</span></span></span><span class="line"><span class="cl"><span class="c">			(3) includes表示别归档的文件模式。 
-</span></span></span><span class="line"><span class="cl"><span class="c">			(4) exchudes表示被排除的文件模式。 
-</span></span></span><span class="line"><span class="cl"><span class="c">		 --&gt;</span>
-</span></span><span class="line"><span class="cl">		<span class="nt">&lt;zip</span> <span class="na">destfile=</span><span class="s">&#34;${release-dir}/antTest.zip&#34;</span> <span class="na">update=</span><span class="s">&#34;true&#34;</span> 
-</span></span><span class="line"><span class="cl">			       <span class="na">basedir=</span><span class="s">&#34;ant&#34;</span> <span class="nt">/&gt;</span>
-</span></span><span class="line"><span class="cl">	<span class="nt">&lt;/target&gt;</span>	
-</span></span><span class="line"><span class="cl"><span class="nt">&lt;/project&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description>
 </item></channel>
 </rss>
