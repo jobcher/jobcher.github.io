@@ -6335,7 +6335,9 @@
     <pubDate>Tue, 15 Nov 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/oracle-client/</guid>
-    <description><![CDATA[<h2 id="背景">背景</h2>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/oracle.png" referrerpolicy="no-referrer">
+            </div><h2 id="背景">背景</h2>
 <p>关于Oracle 数据库一直是许多初学者比较头疼的地方，一方面受限于线上文档比较少，令一方面在企业中不得不接触和使用Oracle数据库，这篇文章是教大家如何通过配置oracle client来远程访问Oracle数据库。本文会通过python3和cx_Oracle来实现对Oracle的访问和增删改查</p>
 <h2 id="下载oracle客户端">下载oracle客户端</h2>
 <p><a href="https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html" target="_blank" rel="noopener noreffer">官方地址下载</a></p>
@@ -6481,7 +6483,9 @@
     <pubDate>Thu, 10 Nov 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/shell-test/</guid>
-    <description><![CDATA[<h2 id="28合1多功能脚本">28合1多功能脚本</h2>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/linux.webp" referrerpolicy="no-referrer">
+            </div><h2 id="28合1多功能脚本">28合1多功能脚本</h2>
 <ul>
 <li>脚本说明: 多合一脚本，DD系统，BBR，xray,TG搭建等等·常用的各种脚本基本都有！</li>
 <li>系统支持: CentOS6+ / Debian6+ / Ubuntu14+</li>
