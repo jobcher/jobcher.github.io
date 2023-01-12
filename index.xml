@@ -6544,7 +6544,9 @@
     <pubDate>Mon, 07 Nov 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/zlibary/</guid>
-    <description><![CDATA[<h1 id="zlibary-无法下载">zlibary 无法下载</h1>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/Z-Library_1.webp" referrerpolicy="no-referrer">
+            </div><h1 id="zlibary-无法下载">zlibary 无法下载</h1>
 <p>因为 zlib 最近被封，导致现在通过正常方法下载不了电子书，但是不要慌，我们可以通过暗网进行下载~</p>
 <h2 id="安装brave-浏览器">安装brave 浏览器</h2>
 <p><a href="https://brave.com/" target="_blank" rel="noopener noreffer">官网下载</a><br>
@@ -6562,7 +6564,9 @@
     <pubDate>Mon, 31 Oct 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/logstash1/</guid>
-    <description><![CDATA[<h2 id="工作原理">工作原理</h2>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/lostash.png" referrerpolicy="no-referrer">
+            </div><h2 id="工作原理">工作原理</h2>
 <ol>
 <li>检测到配置文件变化</li>
 <li>通过停止所有输入停止当前<code>pipline</code></li>
@@ -6619,7 +6623,9 @@
     <pubDate>Mon, 31 Oct 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/macos13/</guid>
-    <description><![CDATA[<h1 id="关于macos-13-软件失效">关于macOS 13 软件失效</h1>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/macOS_13.jpg" referrerpolicy="no-referrer">
+            </div><h1 id="关于macos-13-软件失效">关于macOS 13 软件失效</h1>
 <p>Warning: You are using macOS 13.<br>
 We do not provide support for this pre-release version.<br>
 You will encounter build failures with some formulae.<br>

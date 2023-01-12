@@ -10,7 +10,9 @@
     <pubDate>Mon, 31 Oct 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/logstash1/</guid>
-    <description><![CDATA[<h2 id="工作原理">工作原理</h2>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/lostash.png" referrerpolicy="no-referrer">
+            </div><h2 id="工作原理">工作原理</h2>
 <ol>
 <li>检测到配置文件变化</li>
 <li>通过停止所有输入停止当前<code>pipline</code></li>
