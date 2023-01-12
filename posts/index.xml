@@ -114,7 +114,9 @@
     <pubDate>Tue, 29 Nov 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/chrome/</guid>
-    <description><![CDATA[<h2 id="背景">背景</h2>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/chrome1.png" referrerpolicy="no-referrer">
+            </div><h2 id="背景">背景</h2>
 <p>在开发Web项目当中，浏览器必不可少，而浏览器的启动参数可以帮我们实现很多功能。</p>
 <h2 id="常用参数">常用参数</h2>
 <table>
@@ -5838,7 +5840,9 @@
     <pubDate>Fri, 25 Nov 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/gradle-apk/</guid>
-    <description><![CDATA[<h2 id="背景">背景</h2>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/logo-jenkins.png" referrerpolicy="no-referrer">
+            </div><h2 id="背景">背景</h2>
 <p>Jenkins 编译Android apk，上传apk包，生成下载二维码，并推送钉钉</p>
 <h2 id="安装android-环境">安装Android 环境</h2>
 <h3 id="安装jdk">安装JDK</h3>
@@ -6212,7 +6216,9 @@
     <pubDate>Tue, 15 Nov 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/k8s16/</guid>
-    <description><![CDATA[<h2 id="背景">背景</h2>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/k8s.png" referrerpolicy="no-referrer">
+            </div><h2 id="背景">背景</h2>
 <p>使用 <code>kubeadm</code> 安装 <code>kubernetes</code> 集群非常方便，但是也有一个比较烦人的问题就是默认的证书有效期只有<code>一年</code>时间，所以需要考虑<code>证书升级</code>的问题</p>
 <h2 id="检查证书">检查证书</h2>
 <p>由 kubeadm 生成的客户端证书默认只有一年有效期，我们可以通过 check-expiration 命令来检查证书是否过期：</p>
