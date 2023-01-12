@@ -12,3 +12,5 @@
 1. 学习k8s
   
 总结：没啥好总结，刚开始写周记，就随便写一点吧
+  
+欢迎关注我的博客[www.jobcher.com](https://www.jobcher.com/)

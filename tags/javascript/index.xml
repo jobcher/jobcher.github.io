@@ -134,7 +134,8 @@
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/project&gt;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description>
+</div><p>欢迎关注我的博客<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer">www.jobcher.com</a></p>
+]]></description>
 </item><item>
     <title>linux 网络测速</title>
     <link>http://www.jobcher.com/bench/</link>
@@ -162,7 +163,8 @@
 </span></span><span class="line"><span class="cl">curl -Lso- bench.sh <span class="p">|</span> bash
 </span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description>
+</div><p>欢迎关注我的博客<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer">www.jobcher.com</a></p>
+]]></description>
 </item><item>
     <title>获取用户浏览器默认语言设置，自动判断跳转不同网站</title>
     <link>http://www.jobcher.com/auto/</link>
@@ -234,6 +236,7 @@
 <p>但是这样的方案也有一个弊端：如果用户通过科学上网，全局模式下，会被认为属于美国 / 日本等等（看梯子的 IP 而定了），那么会导致访问非常慢；但是这种偏差，很多翻墙的人都是了解的，没人会故意用美国的 IP 访问国内的淘宝 / 百度等网站的，除非是忘记切换回来了；</p>
 <p>IP 判断<br>
 市场上有很多 IP 判断的，拿 IP 倒是非常好做的一件事；比如我现在可以拿到用户访问本网站时候的 IP；</p>
+<p>欢迎关注我的博客<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer">www.jobcher.com</a></p>
 ]]></description>
 </item></channel>
 </rss>
