@@ -18,8 +18,15 @@
 <h2 id="逆境和成长">逆境和成长</h2>
 <p>2022年初在中国大陆仍然实行着最为严格的清零政策并愈演愈烈，城市居民被限制人身自由，就连农村地区也被大量要求居家隔离，严重损害了中国经济和社会活力。中国失业人口再创新高，大量的毕业生找不到工作。在美国，最为严重的通货膨胀席卷全国，高昂的加息政策，损害了底层人民和工薪阶层。在中东，塔利班武装重新占领阿富汗，重新实行政教合一的暴力统治。在俄罗斯，爆发了乌克兰战争，将俄罗斯真正从苏联的阴影中脱离出来。在世界各地发生了太多的变化，2022年注定是要被载入史册的一年。<br>
 对于我个人来说，2022年也是成长非常大的一年，我经历了自工作来最大的变化，我从一家工作了多年的企业毕业，再次进入了社会的试炼场中求职，接触了更多的人，碰到了更多的事，也有了更多的感悟。曾经的我会讲工作看的比一切都重要，通过勤奋和努力可以改变一切，但是，社会的规则并不是这样的。决定你的个人价值并不是这些外在的东西，决定你个人价值的是你自己对自己的看法。你认为自己有价值，你就是你能够做到有价值。你觉得自己不重要，别人自然觉得你不重要。<br>
-在🆕的2023年，希望世界和平，人人幸福，愿生活在苦难中的人们，能够早日远离苦难，让幸福来敲门……</p>
-<p>欢迎关注我的博客<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer">www.jobcher.com</a></p>
+在🆕的2023年，希望世界和平，人人幸福，愿生活在苦难中的人们，能够早日远离苦难，让幸福来敲门……<br>
+<div class="details admonition success open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-check-circle fa-fw"></i>关注<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">欢迎关注我的博客<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer">www.jobcher.com</a></div>
+        </div>
+    </div></p>
 ]]></description>
 </item><item>
     <title>优雅的使用Conda管理python环境</title>
@@ -30,12 +37,20 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/python-conda.png" referrerpolicy="no-referrer">
             </div><h2 id="背景">背景</h2>
-<p>很多时候,避免不了同时使用python2和python3的环境,也避免不了不同的工作所需要不同版本的库文件,比如在想用TensorFlow较早版本的同时;还想运行Pytorch最新版；还想顺便学习Nao机器人编程,学习Django后台,这个时候,一款非常好用的包管理工具就显得十分重要了,这就是我写这篇博客的原因,这篇博客将会讲解：</p>
+<div class="details admonition tip open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>摘要<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content"><p>很多时候,避免不了同时使用python2和python3的环境,也避免不了不同的工作所需要不同版本的库文件,比如在想用TensorFlow较早版本的同时;还想运行Pytorch最新版；还想顺便学习Nao机器人编程,学习Django后台,这个时候,一款非常好用的包管理工具就显得十分重要了,这就是我写这篇博客的原因,这篇博客将会讲解：</p>
 <ul>
 <li>如何安装conda;</li>
 <li>如何更换conda的下载源;</li>
 <li>如何使用canda;</li>
 </ul>
+</div>
+        </div>
+    </div>
 <h2 id="安装conda">安装conda</h2>
 <p>在安装时这两个选项需要点上：<br>
 </p>
@@ -106,7 +121,14 @@
 </span></span><span class="line"><span class="cl"><span class="c1"># 退出当前环境</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>欢迎关注我的博客<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer">www.jobcher.com</a></p>
+</div><div class="details admonition success open">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-check-circle fa-fw"></i>关注<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">欢迎关注我的博客<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer">www.jobcher.com</a></div>
+        </div>
+    </div>
 ]]></description>
 </item><item>
     <title>shell功能脚本集合</title>
