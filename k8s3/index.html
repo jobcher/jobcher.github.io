@@ -488,7 +488,7 @@ maxUnavailable：此参数控制滚动更新过程中，不可用的 Pod 的数�
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">matchExpressions</span><span class="p">:</span><span class="w"> </span><span class="c">#基于集合</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- {<span class="w"> </span><span class="nt">key: name, operator: In, values</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">zhangsan, lisi] }</span><span class="w"> </span><span class="c">#key、operator、values这三个字段是固定的</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- {<span class="w"> </span><span class="nt">key: age, operator: Exists, values</span><span class="p">:</span><span class="w"> </span>}<span class="w"> </span><span class="c">#如果指定为exists，那么values的值一定要为空</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- {<span class="w"> </span><span class="nt">key: age, operator</span><span class="p">:</span><span class="w"> </span><span class="l">Exists, values }</span><span class="w"> </span><span class="c">#如果指定为exists，那么values的值一定要为空</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="12-常用的标签分类有哪些">12、 常用的标签分类有哪些？</h2>
