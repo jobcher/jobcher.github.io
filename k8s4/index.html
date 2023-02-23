@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>kubernetes 脚本快速安装 - 打工人日志 - jobcher</title><meta name="Description" content="打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通"><meta property="og:title" content="kubernetes 脚本快速安装" />
-<meta property="og:description" content="kubernetes 脚本快速安装 1、三台机器设置自己的hostname（不能是localhost） 1 2 3 4 # 修改 hostname; k8s-01要变为自己的hostname hostnamectl set-hostname" />
+<meta property="og:description" content="kubernetes 脚本快速安装 1、三台机器设置自己的 hostname（不能是 localhost） 1 2 3 4 # 修改 hostname; k8s-01要变为自己的hostname hostnamectl set-hostname" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.jobcher.com/k8s4/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-03-10T00:00:00+00:00" />
@@ -17,7 +17,7 @@
 <meta name="twitter:image" content="http://www.jobcher.com/avatar1.png"/>
 
 <meta name="twitter:title" content="kubernetes 脚本快速安装"/>
-<meta name="twitter:description" content="kubernetes 脚本快速安装 1、三台机器设置自己的hostname（不能是localhost） 1 2 3 4 # 修改 hostname; k8s-01要变为自己的hostname hostnamectl set-hostname"/>
+<meta name="twitter:description" content="kubernetes 脚本快速安装 1、三台机器设置自己的 hostname（不能是 localhost） 1 2 3 4 # 修改 hostname; k8s-01要变为自己的hostname hostnamectl set-hostname"/>
 <meta name="application-name" content="jobcher">
 <meta name="apple-mobile-web-app-title" content="jobcher"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/k8s4\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "k8s","wordcount":  1496 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "k8s","wordcount":  1468 ,
         "url": "http:\/\/www.jobcher.com\/k8s4\/","datePublished": "2022-03-10T00:00:00+00:00","dateModified": "2022-03-10T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,7 +124,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">kubernetes 脚本快速安装</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/k8s/"><i class="far fa-folder fa-fw"></i>k8s</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-10">2022-03-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1496 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-10">2022-03-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1468 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -133,12 +133,12 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#初始化worker节点worker执行">初始化worker节点（worker执行）</a></li>
+    <li><a href="#初始化-worker-节点worker-执行">初始化 worker 节点（worker 执行）</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="kubernetes-脚本快速安装">kubernetes 脚本快速安装</h1>
 <ul>
-<li>1、三台机器设置自己的hostname（不能是localhost）</li>
+<li>1、三台机器设置自己的 hostname（不能是 localhost）</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -290,8 +290,8 @@
 </span></span><span class="line"><span class="cl">sed -i <span class="s1">&#39;s/enforcing/disabled/&#39;</span> /etc/selinux/config
 </span></span><span class="line"><span class="cl">setenforce <span class="m">0</span>
 </span></span><span class="line"><span class="cl"><span class="nb">printf</span> <span class="s2">&#34;##################关闭swap################## \n&#34;</span>
-</span></span><span class="line"><span class="cl">swapoff -a  
-</span></span><span class="line"><span class="cl">sed -ri <span class="s1">&#39;s/.*swap.*/#&amp;/&#39;</span> /etc/fstab 
+</span></span><span class="line"><span class="cl">swapoff -a
+</span></span><span class="line"><span class="cl">sed -ri <span class="s1">&#39;s/.*swap.*/#&amp;/&#39;</span> /etc/fstab
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nb">printf</span> <span class="s2">&#34;##################配置路由转发################## \n&#34;</span>
 </span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt;EOF | sudo tee /etc/modules-load.d/k8s.conf
@@ -309,8 +309,8 @@
 </span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;net.ipv6.conf.all.forwarding = 1&#34;</span>  &gt;&gt; /etc/sysctl.d/k8s.conf
 </span></span><span class="line"><span class="cl">modprobe br_netfilter
 </span></span><span class="line"><span class="cl">sudo sysctl --system
-</span></span><span class="line"><span class="cl">	
-</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nb">printf</span> <span class="s2">&#34;##################配置ipvs################## \n&#34;</span>
 </span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt;EOF | sudo tee /etc/sysconfig/modules/ipvs.modules
 </span></span></span><span class="line"><span class="cl"><span class="s">#!/bin/bash
@@ -321,7 +321,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="s">modprobe -- nf_conntrack_ipv4
 </span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">chmod <span class="m">755</span> /etc/sysconfig/modules/ipvs.modules 
+</span></span><span class="line"><span class="cl">chmod <span class="m">755</span> /etc/sysconfig/modules/ipvs.modules
 </span></span><span class="line"><span class="cl">sh /etc/sysconfig/modules/ipvs.modules
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
@@ -373,14 +373,14 @@
 </span></span></span><span class="line"><span class="cl"><span class="s">docker pull k8s.gcr.io/etcd:3.4.13-0
 </span></span></span><span class="line"><span class="cl"><span class="s">docker pull k8s.gcr.io/coredns/coredns:v1.8.0
 </span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
-</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">chmod +x ./images.sh <span class="o">&amp;&amp;</span> ./images.sh
-</span></span><span class="line"><span class="cl">   
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">### k8s的所有基本环境全部完成</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
-<li>3、使用kubeadm引导集群（参照初始化master继续做）</li>
+<li>3、使用 kubeadm 引导集群（参照初始化 master 继续做）</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -407,7 +407,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
-<li>4、master结束以后，按照控制台引导继续往下</li>
+<li>4、master 结束以后，按照控制台引导继续往下</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -447,7 +447,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>	--discovery-token-ca-cert-hash sha256:00c9e977ee52632098aadb515c90076603daee94a167728110ef8086d0d5b37d
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="初始化worker节点worker执行">初始化worker节点（worker执行）</h2>
+</div><h2 id="初始化-worker-节点worker-执行">初始化 worker 节点（worker 执行）</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -474,7 +474,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ul>
-<li>6、设置kube-proxy的ipvs模式</li>
+<li>6、设置 kube-proxy 的 ipvs 模式</li>
 </ul>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

@@ -1,8 +1,10 @@
 # k8s 部署loki日志
 
-# k8s 部署loki日志
 
-## helm 拉取loki
+# k8s 部署 loki 日志
+
+## helm 拉取 loki
+
 ```sh
 #加源
 helm repo add grafana https://grafana.github.io/helm-charts
@@ -15,3 +17,4 @@ helm template loki . > loki.yaml
 # 部署（如果要修改默认配置必须要修改一下yaml）
 k3s kubectl apply -f loki.yaml
 ```
+

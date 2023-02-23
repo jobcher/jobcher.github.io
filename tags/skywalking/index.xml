@@ -14,7 +14,7 @@
 <h3 id="windows_exporterhttpsgithubcomprometheus-communitywindows_exporter"><a href="https://github.com/prometheus-community/windows_exporter" target="_blank" rel="noopener noreffer">windows_exporter</a></h3>
 <h3 id="下载安装httpsgithubcomprometheus-communitywindows_exporterreleasesdownloadv0200windows_exporter-0200-amd64msi"><a href="https://github.com/prometheus-community/windows_exporter/releases/download/v0.20.0/windows_exporter-0.20.0-amd64.msi" target="_blank" rel="noopener noreffer">下载安装</a></h3>
 <h2 id="启动">启动</h2>
-<p>下载msi版本，输入一下命令启动</p>
+<p>下载 msi 版本，输入一下命令启动</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -32,7 +32,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">msiexec /uninstall C:<span class="se">\U</span>sers<span class="se">\A</span>dministrator<span class="se">\D</span>ownloads<span class="se">\w</span>indows_exporter.msi
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="添加prometheus-监控">添加prometheus 监控</h2>
+</div><h2 id="添加-prometheus-监控">添加 prometheus 监控</h2>
 <p>prometheus.yaml</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -44,10 +44,10 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="c"># 新增 windows-exporter</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;windows-exporter&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">file_sd_configs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;windows-exporter&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">file_sd_configs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">files</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;./file_sd/windows-exporter.yaml&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="s2">&#34;./file_sd/windows-exporter.yaml&#34;</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>./file_sd/windows-exporter.yaml</p>
@@ -60,12 +60,12 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="c"># 新增 windows-exporter</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">targets</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;192.168.0.6:9182&#39;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">targets</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;192.168.0.6:9182&#34;</span><span class="p">]</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">instance</span><span class="p">:</span><span class="w"> </span><span class="l">windows-task</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="添加alertmanager-告警">添加alertmanager 告警</h2>
+</div><h2 id="添加-alertmanager-告警">添加 alertmanager 告警</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -81,23 +81,21 @@
 </span><span class="lnt">11
 </span><span class="lnt">12
 </span><span class="lnt">13
-</span><span class="lnt">14
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="c"># 告警信息</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">groups</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">sanjiang windows 任务计划程序告警</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">rules</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l">windows实例任务告警</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l">windows_scheduled_task_state{state=&#34;disabled&#34;,task=~&#34;/ETL_kettle_tasks/.*&#34;}==1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">for</span><span class="p">:</span><span class="w"> </span><span class="l">30s</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">labels</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l">critical</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{$labels.job}}&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">annotations</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;sanjiang: {{$labels.job}} windows 任务异常&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{$labels.task}} of job {{$labels.job}} 该任务断联已超过1分钟&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">sanjiang windows 任务计划程序告警</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">rules</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l">windows实例任务告警</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l">windows_scheduled_task_state{state=&#34;disabled&#34;,task=~&#34;/ETL_kettle_tasks/.*&#34;}==1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">for</span><span class="p">:</span><span class="w"> </span><span class="l">30s</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l">critical</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{$labels.job}}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">annotations</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;sanjiang: {{$labels.job}} windows 任务异常&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{$labels.task}} of job {{$labels.job}} 该任务断联已超过1分钟&#34;</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
@@ -108,17 +106,17 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/skywalking/</guid>
     <description><![CDATA[<h1 id="skywalking">skywalking</h1>
-<p>基于OpenTracing规范，专门为微服务架构以及云原生服务。</p>
+<p>基于 OpenTracing 规范，专门为微服务架构以及云原生服务。</p>
 <h2 id="apm-监控">APM 监控</h2>
 <p>一个基于微服务架构的电商系统<br>
 <br>
-<code>APM </code>(Application Performance Management) 即应用性能管理，属于IT运维管理（ITOM)范畴.<br>
+<code>APM </code>(Application Performance Management) 即应用性能管理，属于 IT 运维管理（ITOM)范畴.<br>
 分为一下三个方面：</p>
 <ul>
 <li>Logging<br>
-服务在处理某个请求时打印的错误日志，可以将这些日志信息记录到<code>Elasticsearch</code>或是其他存储中。通过Kibana或是其他工具来分析这些日志了解服务的行为和状态，大多数情况下。日志记录的数据很分散，并且相互独立。例如错误日志，请求处理过程中关键步骤的日志等等。</li>
+服务在处理某个请求时打印的错误日志，可以将这些日志信息记录到<code>Elasticsearch</code>或是其他存储中。通过 Kibana 或是其他工具来分析这些日志了解服务的行为和状态，大多数情况下。日志记录的数据很分散，并且相互独立。例如错误日志，请求处理过程中关键步骤的日志等等。</li>
 <li>Metrics<br>
-<code>Metric</code>是可以聚合的，例如为电商系统中每个HTTP接口添加一个计数器，计算每个接口的QPS，可以通过简单的加和计算得到系统的总负载情况。</li>
+<code>Metric</code>是可以聚合的，例如为电商系统中每个 HTTP 接口添加一个计数器，计算每个接口的 QPS，可以通过简单的加和计算得到系统的总负载情况。</li>
 <li>Tracing<br>
 在微服务架构系统中一请求会经过很多服务处理，调用链路会非常长，要确定中间哪个服务出现异常是非常麻烦的事情，通过分布式链路追踪，运维人员就可以构建一个请求的视图。视图上战术了一个请求从进入系统开始到返回响应的整个流程。</li>
 </ul>
@@ -134,13 +132,13 @@
 <ul>
 <li>Zipkin
 <ul>
-<li>对web.xml 进行修改，代码侵入</li>
-<li>twitter开源</li>
+<li>对 web.xml 进行修改，代码侵入</li>
+<li>twitter 开源</li>
 </ul>
 </li>
 <li>Cat
 <ul>
-<li>支持Java、C/C++、Node.Js、Python、go</li>
+<li>支持 Java、C/C++、Node.Js、Python、go</li>
 <li>代码侵入，埋点</li>
 <li>美团开源</li>
 </ul>
@@ -149,7 +147,7 @@
 <ul>
 <li>基于字节码注入技术，代码无侵入</li>
 <li>韩国公司开发，社区交流滞后</li>
-<li>只支持hbase</li>
+<li>只支持 hbase</li>
 <li>颗粒度更细</li>
 </ul>
 </li>
@@ -159,8 +157,8 @@
 <li>基于字节码注入技术，代码无侵入</li>
 <li>服务、服务实例、端点指标分析</li>
 <li>服务拓扑图分析</li>
-<li>服务、服务实例和端点（Endpont）SLA分析</li>
-<li>支持es，h2,mysql,TiDb,sharding-sphere</li>
+<li>服务、服务实例和端点（Endpont）SLA 分析</li>
+<li>支持 es，h2,mysql,TiDb,sharding-sphere</li>
 </ul>
 </li>
 </ul>
@@ -173,8 +171,8 @@
 <li>左部分 <code>SkyWalking UI</code> ：负责提供控台，查看链路等等。</li>
 </ul>
 <h2 id="skywalking-配置">skywalking 配置</h2>
-<h2 id="使用docker-compose安装">使用docker-compose安装</h2>
-<p>使用mysql作为存储<br>
+<h2 id="使用-docker-compose-安装">使用 docker-compose 安装</h2>
+<p>使用 mysql 作为存储<br>
 下载 <code>mysql-connector-java-8.0.30.jar</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -186,7 +184,7 @@
 </span></span><span class="line"><span class="cl">mv mysql-connector-java-8.0.30.jar ./libs/
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>创建带mysql驱动的基础镜像</p>
+</div><p>创建带 mysql 驱动的基础镜像</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -199,25 +197,24 @@
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> ./libs/* /skywalking/oap-libs<span class="err">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>上传dockerhub或者自己的镜像仓库，这里我是上传到自己的仓库</p>
+</div><p>上传 dockerhub 或者自己的镜像仓库，这里我是上传到自己的仓库</p>
 <ol>
-<li>创建镜像</li>
-</ol>
+<li>创建镜像
 <blockquote>
 <p>docker build -t skywalking-mysql-server:v1.0 .</p>
 </blockquote>
-<ol start="2">
-<li>打tag，选择上传位置</li>
-</ol>
+</li>
+<li>打 tag，选择上传位置
 <blockquote>
 <p>docker tag skywalking-mysql-server:v1.0 &lt;仓库地址&gt;/blog/skywalking-mysql-server:v1.0</p>
 </blockquote>
-<ol start="3">
-<li>上传镜像</li>
-</ol>
+</li>
+<li>上传镜像
 <blockquote>
 <p>docker push &lt;仓库地址&gt;/blog/skywalking-mysql-server:v1.0</p>
 </blockquote>
+</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1

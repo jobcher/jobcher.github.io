@@ -12,10 +12,10 @@
     <guid>http://www.jobcher.com/ansible1/</guid>
     <description><![CDATA[<h1 id="ansible-命令">ansible 命令</h1>
 <ul>
-<li><code>Inventory</code>：Ansible管理的主机信息，包括IP地址、SSH端口、账号、密码等</li>
+<li><code>Inventory</code>：Ansible 管理的主机信息，包括 IP 地址、SSH 端口、账号、密码等</li>
 <li><code>Modules</code>：任务均有模块完成，也可以自定义模块，例如经常用的脚本。</li>
-<li><code>Plugins</code>：使用插件增加Ansible核心功能，自身提供了很多插件，也可以自定义插件。例如connection插件，用于连接目标主机。</li>
-<li><code>Playbooks</code>：“剧本”，模块化定义一系列任务，供外部统一调用。Ansible核心功能。</li>
+<li><code>Plugins</code>：使用插件增加 Ansible 核心功能，自身提供了很多插件，也可以自定义插件。例如 connection 插件，用于连接目标主机。</li>
+<li><code>Playbooks</code>：“剧本”，模块化定义一系列任务，供外部统一调用。Ansible 核心功能。</li>
 </ul>
 <h2 id="编辑主机清单">编辑主机清单</h2>
 <div class="highlight"><div class="chroma">
@@ -56,11 +56,11 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ansible all -m ping
-</span></span><span class="line"><span class="cl">ansible all -m shell -a <span class="s2">&#34;ls /root&#34;</span> -u root -k 
+</span></span><span class="line"><span class="cl">ansible all -m shell -a <span class="s2">&#34;ls /root&#34;</span> -u root -k
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="常用模块">常用模块</h2>
-<p>在目标主机执行shell命令。</p>
+<p>在目标主机执行 shell 命令。</p>
 <ol>
 <li>shell</li>
 </ol>
@@ -91,11 +91,11 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">chdir</span><span class="p">:</span><span class="w"> </span><span class="l">somedir/</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">编写脚本</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
-</span></span></span><span class="line"><span class="cl"><span class="sd">      if [ 0 -eq 0 ]; then
-</span></span></span><span class="line"><span class="cl"><span class="sd">         echo yes &gt; /tmp/result
-</span></span></span><span class="line"><span class="cl"><span class="sd">      else
-</span></span></span><span class="line"><span class="cl"><span class="sd">         echo no &gt; /tmp/result
-</span></span></span><span class="line"><span class="cl"><span class="sd">      fi</span><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="sd">    if [ 0 -eq 0 ]; then
+</span></span></span><span class="line"><span class="cl"><span class="sd">       echo yes &gt; /tmp/result
+</span></span></span><span class="line"><span class="cl"><span class="sd">    else
+</span></span></span><span class="line"><span class="cl"><span class="sd">       echo no &gt; /tmp/result
+</span></span></span><span class="line"><span class="cl"><span class="sd">    fi</span><span class="w">    
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">args</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">executable</span><span class="p">:</span><span class="w"> </span><span class="l">/bin/bash</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
@@ -155,7 +155,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">file</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/etc/some_directory</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l">directory</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;0755&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;0755&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">删除文件</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">file</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/etc/foo.txt</span><span class="w">
@@ -216,10 +216,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">卸载apache包</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">yum</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">httpd</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l">absent </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l">absent</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">更新所有包</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">yum</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;*&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l">latest</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">安装nginx来自远程repo</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">yum</span><span class="p">:</span><span class="w">
@@ -269,12 +269,10 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl">- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">解压</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">unarchive</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">src=test.tar.gz </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">unarchive</span><span class="p">:</span><span class="w"> </span><span class="l">src=test.tar.gz</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">dest=/tmp</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
@@ -310,8 +308,8 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/ansible/</guid>
     <description><![CDATA[<h1 id="ansible-安装和部署">ansible 安装和部署</h1>
-<p>Ansible默认通过 SSH 协议管理机器.</p>
-<h2 id="安装ansible">安装ansible</h2>
+<p>Ansible 默认通过 SSH 协议管理机器.</p>
+<h2 id="安装-ansible">安装 ansible</h2>
 <ol>
 <li>下载安装</li>
 </ol>
@@ -363,7 +361,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
-<li>配置SSH key授权访问</li>
+<li>配置 SSH key 授权访问</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -386,7 +384,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="3">
-<li>更改ansible 配置</li>
+<li>更改 ansible 配置</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -467,7 +465,7 @@
 </tr>
 <tr>
 <td style="text-align:left">ansible_ssh_port</td>
-<td style="text-align:left">ssh端口号.如果不是默认的端口号,通过此变量设置.</td>
+<td style="text-align:left">ssh 端口号.如果不是默认的端口号,通过此变量设置.</td>
 </tr>
 <tr>
 <td style="text-align:left">ansible_ssh_user</td>
@@ -483,7 +481,7 @@
 </tr>
 <tr>
 <td style="text-align:left">ansible_sudo_exe (new in version 1.8)</td>
-<td style="text-align:left">sudo 命令路径(适用于1.8及以上版本)</td>
+<td style="text-align:left">sudo 命令路径(适用于 1.8 及以上版本)</td>
 </tr>
 <tr>
 <td style="text-align:left">ansible_connection</td>
@@ -495,16 +493,16 @@
 </tr>
 <tr>
 <td style="text-align:left">ansible_shell_type</td>
-<td style="text-align:left">目标系统的shell类型.默认情况下,命令的执行使用 &lsquo;sh&rsquo; 语法,可设置为 &lsquo;csh&rsquo; 或 &lsquo;fish&rsquo;.</td>
+<td style="text-align:left">目标系统的 shell 类型.默认情况下,命令的执行使用 &lsquo;sh&rsquo; 语法,可设置为 &lsquo;csh&rsquo; 或 &lsquo;fish&rsquo;.</td>
 </tr>
 <tr>
 <td style="text-align:left">ansible_python_interpreter</td>
-<td style="text-align:left">目标主机的 python 路径.适用于的情况: 系统中有多个 Python, 或者命令路径不是&quot;/usr/bin/python&quot;,比如  *BSD, 或者 /usr/bin/python</td>
+<td style="text-align:left">目标主机的 python 路径.适用于的情况: 系统中有多个 Python, 或者命令路径不是&quot;/usr/bin/python&quot;,比如 *BSD, 或者 /usr/bin/python</td>
 </tr>
 </tbody>
 </table>
 <h2 id="roles">Roles</h2>
-<p>Roles是基于已知文件结构自动加载某些变量文件，任务和处理程序的方法。按角色对内容进行分组，适合构建复杂的部署环境
+<p>Roles 是基于已知文件结构自动加载某些变量文件，任务和处理程序的方法。按角色对内容进行分组，适合构建复杂的部署环境
 Roles 目录结构：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -530,18 +528,18 @@ Roles 目录结构：</p>
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">webservers.yml</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">fooservers.yml</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">roles/</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">common/</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">tasks/</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">handlers/</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">files/</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">templates/</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">vars/</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">defaults/</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">meta/</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">webservers/</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">tasks/</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">defaults/</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="l">meta/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">common/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">tasks/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">handlers/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">files/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">templates/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">vars/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">defaults/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">meta/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">webservers/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">tasks/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">defaults/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">meta/</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><ul>

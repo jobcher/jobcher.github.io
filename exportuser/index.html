@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Gitlab批量导出用户 - 打工人日志 - jobcher</title><meta name="Description" content="打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通"><meta property="og:title" content="Gitlab批量导出用户" />
-<meta property="og:description" content="Gitlab批量导出用户 登陆Gitlab服务器进行数据库登陆、数据查询及信息导出操作。 操作步骤 根据配置文件，定位数据库相关信息 1 cat /var/opt/gitlab/gitlab-rails/etc/database.yml 查看Gi" />
+<meta property="og:description" content="Gitlab 批量导出用户 登陆 Gitlab 服务器进行数据库登陆、数据查询及信息导出操作。 操作步骤 根据配置文件，定位数据库相关信息 1 cat /var/opt/gitlab/gitlab-rails/etc/database.yml 查看 Gitlab 对应的系统用户 1 cat /etc/passwd |" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.jobcher.com/exportuser/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-01-14T00:00:00+00:00" />
@@ -17,7 +17,7 @@
 <meta name="twitter:image" content="http://www.jobcher.com/avatar1.png"/>
 
 <meta name="twitter:title" content="Gitlab批量导出用户"/>
-<meta name="twitter:description" content="Gitlab批量导出用户 登陆Gitlab服务器进行数据库登陆、数据查询及信息导出操作。 操作步骤 根据配置文件，定位数据库相关信息 1 cat /var/opt/gitlab/gitlab-rails/etc/database.yml 查看Gi"/>
+<meta name="twitter:description" content="Gitlab 批量导出用户 登陆 Gitlab 服务器进行数据库登陆、数据查询及信息导出操作。 操作步骤 根据配置文件，定位数据库相关信息 1 cat /var/opt/gitlab/gitlab-rails/etc/database.yml 查看 Gitlab 对应的系统用户 1 cat /etc/passwd |"/>
 <meta name="application-name" content="jobcher">
 <meta name="apple-mobile-web-app-title" content="jobcher"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/exportuser\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "自动化","wordcount":  359 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "自动化","wordcount":  319 ,
         "url": "http:\/\/www.jobcher.com\/exportuser\/","datePublished": "2022-01-14T00:00:00+00:00","dateModified": "2022-01-14T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,7 +124,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Gitlab批量导出用户</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/gitlab/"><i class="far fa-folder fa-fw"></i>gitlab</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-14">2022-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 359 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-14">2022-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 319 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -136,8 +136,8 @@
     <li><a href="#操作步骤">操作步骤</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="gitlab批量导出用户">Gitlab批量导出用户</h1>
-<p>登陆Gitlab服务器进行数据库登陆、数据查询及信息导出操作。</p>
+            </div><div class="content" id="content"><h1 id="gitlab-批量导出用户">Gitlab 批量导出用户</h1>
+<p>登陆 Gitlab 服务器进行数据库登陆、数据查询及信息导出操作。</p>
 <h2 id="操作步骤">操作步骤</h2>
 <ol>
 <li>根据配置文件，定位数据库相关信息</li>
@@ -159,7 +159,7 @@
         alt="/images/exportuser1.png"
         title="exportuser1" /></p>
 <ol start="2">
-<li>查看Gitlab对应的系统用户</li>
+<li>查看 Gitlab 对应的系统用户</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -178,7 +178,7 @@
         alt="/images/exportuser2.png"
         title="exportuser2" /></p>
 <ol start="3">
-<li>切换用户gitlab-psql</li>
+<li>切换用户 gitlab-psql</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -189,7 +189,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="4">
-<li>登陆数据库（-h指定host，-d指定数据库） 使用第1步获取的信息</li>
+<li>登陆数据库（-h 指定 host，-d 指定数据库） 使用第 1 步获取的信息</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -226,7 +226,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">gitlabhq_production</span><span class="o">=</span><span class="c1"># \dt</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>(4) 通过筛查，可在库中找到users表，相关用户信息都记录在表中！</p>
+</div><p>(4) 通过筛查，可在库中找到 users 表，相关用户信息都记录在表中！</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -244,7 +244,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">gitlabhq_production</span><span class="o">=</span><span class="c1"># SELECT * FROM users;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>(6) 查看users表中的name字段</p>
+</div><p>(6) 查看 users 表中的 name 字段</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -263,7 +263,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="5">
-<li>根据需要提取的信息，确定表users中的字段，进行导出操作</li>
+<li>根据需要提取的信息，确定表 users 中的字段，进行导出操作</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

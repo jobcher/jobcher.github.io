@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>RocketMQ docker-compose部署 4主4从集群 - 打工人日志 - jobcher</title><meta name="Description" content="打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通"><meta property="og:title" content="RocketMQ docker-compose部署 4主4从集群" />
-<meta property="og:description" content="RocketMQ docker-compose部署 4主4从集群 V 4.8.0 采用4主4从，同步模式。HA实现上采用Master/Slave&#43;Failover组件方式 每" />
+<meta property="og:description" content="RocketMQ docker-compose 部署 4 主 4 从集群 V 4.8.0 采用4主4从，同步模式。HA 实现上采用Master/Slave&#43;Failover组件方式 每台主机运行三个容器，分别为" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.jobcher.com/rocketmq2/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-08-15T00:00:00+00:00" />
@@ -17,7 +17,7 @@
 <meta name="twitter:image" content="http://www.jobcher.com/avatar1.png"/>
 
 <meta name="twitter:title" content="RocketMQ docker-compose部署 4主4从集群"/>
-<meta name="twitter:description" content="RocketMQ docker-compose部署 4主4从集群 V 4.8.0 采用4主4从，同步模式。HA实现上采用Master/Slave&#43;Failover组件方式 每"/>
+<meta name="twitter:description" content="RocketMQ docker-compose 部署 4 主 4 从集群 V 4.8.0 采用4主4从，同步模式。HA 实现上采用Master/Slave&#43;Failover组件方式 每台主机运行三个容器，分别为"/>
 <meta name="application-name" content="jobcher">
 <meta name="apple-mobile-web-app-title" content="jobcher"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/rocketmq2\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "RocketMQ","wordcount":  2747 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "RocketMQ","wordcount":  2681 ,
         "url": "http:\/\/www.jobcher.com\/rocketmq2\/","datePublished": "2022-08-15T00:00:00+00:00","dateModified": "2022-08-15T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,7 +124,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">RocketMQ docker-compose部署 4主4从集群</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/%E6%97%A5%E5%B8%B8/"><i class="far fa-folder fa-fw"></i>日常</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-08-15">2022-08-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2747 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-08-15">2022-08-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2681 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -136,17 +136,17 @@
     <li><a href="#架构">架构</a></li>
     <li><a href="#部署">部署</a>
       <ul>
-        <li><a href="#安装docker-compose">安装docker-compose</a></li>
+        <li><a href="#安装-docker-compose">安装 docker-compose</a></li>
         <li><a href="#生成配置文件">生成配置文件</a></li>
-        <li><a href="#执行docker-composeyaml-文件">执行docker-compose.yaml 文件</a></li>
+        <li><a href="#执行-docker-composeyaml-文件">执行 docker-compose.yaml 文件</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="rocketmq-docker-compose部署-4主4从集群">RocketMQ docker-compose部署 4主4从集群</h1>
+            </div><div class="content" id="content"><h1 id="rocketmq-docker-compose-部署-4-主-4-从集群">RocketMQ docker-compose 部署 4 主 4 从集群</h1>
 <p>V 4.8.0<br>
-采用<code>4主4从</code>，<code>同步模式</code>。HA实现上采用<code>Master/Slave+Failover</code>组件方式
-每台主机运行<code>三个容器</code>，分别为<code>NameServer</code>、<code>BrokerMaster</code>、<code>SlaveMaster</code>，每个Master和Slave分别存放在不同的机器上</p>
+采用<code>4主4从</code>，<code>同步模式</code>。HA 实现上采用<code>Master/Slave+Failover</code>组件方式
+每台主机运行<code>三个容器</code>，分别为<code>NameServer</code>、<code>BrokerMaster</code>、<code>SlaveMaster</code>，每个 Master 和 Slave 分别存放在不同的机器上</p>
 <h2 id="架构">架构</h2>
 <p><img
         class="lazyload"
@@ -213,7 +213,7 @@
 </tbody>
 </table>
 <h2 id="部署">部署</h2>
-<h3 id="安装docker-compose">安装docker-compose</h3>
+<h3 id="安装-docker-compose">安装 docker-compose</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -708,7 +708,7 @@
 <blockquote>
 <p>tree /rocketmq</p>
 </blockquote>
-<h3 id="执行docker-composeyaml-文件">执行docker-compose.yaml 文件</h3>
+<h3 id="执行-docker-composeyaml-文件">执行 docker-compose.yaml 文件</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">  1
@@ -936,7 +936,7 @@
 </span><span class="lnt">223
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">rocketmq-namesv1</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">apache/rocketmq:4.8.0</span><span class="w">
@@ -999,7 +999,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">11909</span><span class="p">:</span><span class="m">10909</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">11911</span><span class="p">:</span><span class="m">11911</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">11912</span><span class="p">:</span><span class="m">10912</span><span class="w">    
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">11912</span><span class="p">:</span><span class="m">10912</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">TZ</span><span class="p">:</span><span class="w"> </span><span class="l">Asia/Shanghai</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">NAMESRV_ADDR</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;rocketmq-namesv1:9876&#34;</span><span class="w">
@@ -1161,7 +1161,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l">bridge</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>执行docker-compose 部署</p>
+</div><p>执行 docker-compose 部署</p>
 <blockquote>
 <p>docker-compose up -d</p>
 </blockquote>

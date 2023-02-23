@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Golang go build 编译不同版本 - 打工人日志 - jobcher</title><meta name="Description" content="打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通"><meta property="og:title" content="Golang go build 编译不同版本" />
-<meta property="og:description" content="Golang go build 编译不同系统下的可执行文件 Mac系统编译 1 2 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build test.go CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build test.go Linux系统编译 1 2 CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build test.go CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build test.go windows系统编" />
+<meta property="og:description" content="Golang go build 编译不同系统下的可执行文件 Mac 系统编译 1 2 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build test.go CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build test.go Linux 系统编译 1 2 CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build test.go CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build test.go windows 系统编译 1 2 SET CGO_ENABLED=0 SET GOOS=darwin3 SET GOARCH=amd64 go build test.go" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.jobcher.com/go/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-04-17T00:00:00+00:00" />
@@ -17,7 +17,7 @@
 <meta name="twitter:image" content="http://www.jobcher.com/avatar1.png"/>
 
 <meta name="twitter:title" content="Golang go build 编译不同版本"/>
-<meta name="twitter:description" content="Golang go build 编译不同系统下的可执行文件 Mac系统编译 1 2 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build test.go CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build test.go Linux系统编译 1 2 CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build test.go CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build test.go windows系统编"/>
+<meta name="twitter:description" content="Golang go build 编译不同系统下的可执行文件 Mac 系统编译 1 2 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build test.go CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build test.go Linux 系统编译 1 2 CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build test.go CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build test.go windows 系统编译 1 2 SET CGO_ENABLED=0 SET GOOS=darwin3 SET GOARCH=amd64 go build test.go"/>
 <meta name="application-name" content="jobcher">
 <meta name="apple-mobile-web-app-title" content="jobcher"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/go\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "golang","wordcount":  176 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "golang","wordcount":  164 ,
         "url": "http:\/\/www.jobcher.com\/go\/","datePublished": "2022-04-17T00:00:00+00:00","dateModified": "2022-04-17T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,7 +124,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Golang go build 编译不同版本</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/go/"><i class="far fa-folder fa-fw"></i>go</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-04-17">2022-04-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 176 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-04-17">2022-04-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 164 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -133,13 +133,13 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#mac系统编译">Mac系统编译</a></li>
-    <li><a href="#linux系统编译">Linux系统编译</a></li>
-    <li><a href="#windows系统编译">windows系统编译</a></li>
+    <li><a href="#mac-系统编译">Mac 系统编译</a></li>
+    <li><a href="#linux-系统编译">Linux 系统编译</a></li>
+    <li><a href="#windows-系统编译">windows 系统编译</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="golang-go-build-编译不同系统下的可执行文件">Golang go build 编译不同系统下的可执行文件</h1>
-<h2 id="mac系统编译">Mac系统编译</h2>
+<h2 id="mac-系统编译">Mac 系统编译</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -150,7 +150,7 @@
 </span></span><span class="line"><span class="cl"><span class="nv">CGO_ENABLED</span><span class="o">=</span><span class="m">0</span> <span class="nv">GOOS</span><span class="o">=</span>windows <span class="nv">GOARCH</span><span class="o">=</span>amd64 go build test.go
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="linux系统编译">Linux系统编译</h2>
+</div><h2 id="linux-系统编译">Linux 系统编译</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -161,7 +161,7 @@
 </span></span><span class="line"><span class="cl"><span class="nv">CGO_ENABLED</span><span class="o">=</span><span class="m">0</span> <span class="nv">GOOS</span><span class="o">=</span>windows <span class="nv">GOARCH</span><span class="o">=</span>amd64 go build test.go
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="windows系统编译">windows系统编译</h2>
+</div><h2 id="windows-系统编译">windows 系统编译</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1

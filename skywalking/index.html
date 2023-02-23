@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>skywalking APM 监控 - 打工人日志 - jobcher</title><meta name="Description" content="打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通"><meta property="og:title" content="skywalking APM 监控" />
-<meta property="og:description" content="skywalking 基于OpenTracing规范，专门为微服务架构以及云原生服务。 APM 监控 一个基于微服务架构的电商系统 APM (Application Performance Management) 即应用性能管理，属于IT运维管理" />
+<meta property="og:description" content="skywalking 基于 OpenTracing 规范，专门为微服务架构以及云原生服务。 APM 监控 一个基于微服务架构的电商系统 APM (Application Performance Management) 即应用性能管理，属于 IT 运维管理（ITOM)范畴. 分为" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.jobcher.com/skywalking/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-08-10T00:00:00+00:00" />
@@ -17,7 +17,7 @@
 <meta name="twitter:image" content="http://www.jobcher.com/avatar1.png"/>
 
 <meta name="twitter:title" content="skywalking APM 监控"/>
-<meta name="twitter:description" content="skywalking 基于OpenTracing规范，专门为微服务架构以及云原生服务。 APM 监控 一个基于微服务架构的电商系统 APM (Application Performance Management) 即应用性能管理，属于IT运维管理"/>
+<meta name="twitter:description" content="skywalking 基于 OpenTracing 规范，专门为微服务架构以及云原生服务。 APM 监控 一个基于微服务架构的电商系统 APM (Application Performance Management) 即应用性能管理，属于 IT 运维管理（ITOM)范畴. 分为"/>
 <meta name="application-name" content="jobcher">
 <meta name="apple-mobile-web-app-title" content="jobcher"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/skywalking\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "skywalking","wordcount":  1223 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "skywalking","wordcount":  1159 ,
         "url": "http:\/\/www.jobcher.com\/skywalking\/","datePublished": "2022-08-10T00:00:00+00:00","dateModified": "2022-08-10T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,7 +124,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">skywalking APM 监控</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/%E7%9B%91%E6%8E%A7/"><i class="far fa-folder fa-fw"></i>监控</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-08-10">2022-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1223 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-08-10">2022-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1159 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -139,21 +139,21 @@
 
   <ul>
     <li><a href="#skywalking-配置">skywalking 配置</a></li>
-    <li><a href="#使用docker-compose安装">使用docker-compose安装</a></li>
+    <li><a href="#使用-docker-compose-安装">使用 docker-compose 安装</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="skywalking">skywalking</h1>
-<p>基于OpenTracing规范，专门为微服务架构以及云原生服务。</p>
+<p>基于 OpenTracing 规范，专门为微服务架构以及云原生服务。</p>
 <h2 id="apm-监控">APM 监控</h2>
 <p>一个基于微服务架构的电商系统<br>
 <img src="https://www.jobcher.com/images/skywalkning.png" width="100%"><br>
-<code>APM </code>(Application Performance Management) 即应用性能管理，属于IT运维管理（ITOM)范畴.<br>
+<code>APM </code>(Application Performance Management) 即应用性能管理，属于 IT 运维管理（ITOM)范畴.<br>
 分为一下三个方面：</p>
 <ul>
 <li>Logging<br>
-服务在处理某个请求时打印的错误日志，可以将这些日志信息记录到<code>Elasticsearch</code>或是其他存储中。通过Kibana或是其他工具来分析这些日志了解服务的行为和状态，大多数情况下。日志记录的数据很分散，并且相互独立。例如错误日志，请求处理过程中关键步骤的日志等等。</li>
+服务在处理某个请求时打印的错误日志，可以将这些日志信息记录到<code>Elasticsearch</code>或是其他存储中。通过 Kibana 或是其他工具来分析这些日志了解服务的行为和状态，大多数情况下。日志记录的数据很分散，并且相互独立。例如错误日志，请求处理过程中关键步骤的日志等等。</li>
 <li>Metrics<br>
-<code>Metric</code>是可以聚合的，例如为电商系统中每个HTTP接口添加一个计数器，计算每个接口的QPS，可以通过简单的加和计算得到系统的总负载情况。</li>
+<code>Metric</code>是可以聚合的，例如为电商系统中每个 HTTP 接口添加一个计数器，计算每个接口的 QPS，可以通过简单的加和计算得到系统的总负载情况。</li>
 <li>Tracing<br>
 在微服务架构系统中一请求会经过很多服务处理，调用链路会非常长，要确定中间哪个服务出现异常是非常麻烦的事情，通过分布式链路追踪，运维人员就可以构建一个请求的视图。视图上战术了一个请求从进入系统开始到返回响应的整个流程。</li>
 </ul>
@@ -169,13 +169,13 @@
 <ul>
 <li>Zipkin
 <ul>
-<li>对web.xml 进行修改，代码侵入</li>
-<li>twitter开源</li>
+<li>对 web.xml 进行修改，代码侵入</li>
+<li>twitter 开源</li>
 </ul>
 </li>
 <li>Cat
 <ul>
-<li>支持Java、C/C++、Node.Js、Python、go</li>
+<li>支持 Java、C/C++、Node.Js、Python、go</li>
 <li>代码侵入，埋点</li>
 <li>美团开源</li>
 </ul>
@@ -184,7 +184,7 @@
 <ul>
 <li>基于字节码注入技术，代码无侵入</li>
 <li>韩国公司开发，社区交流滞后</li>
-<li>只支持hbase</li>
+<li>只支持 hbase</li>
 <li>颗粒度更细</li>
 </ul>
 </li>
@@ -194,8 +194,8 @@
 <li>基于字节码注入技术，代码无侵入</li>
 <li>服务、服务实例、端点指标分析</li>
 <li>服务拓扑图分析</li>
-<li>服务、服务实例和端点（Endpont）SLA分析</li>
-<li>支持es，h2,mysql,TiDb,sharding-sphere</li>
+<li>服务、服务实例和端点（Endpont）SLA 分析</li>
+<li>支持 es，h2,mysql,TiDb,sharding-sphere</li>
 </ul>
 </li>
 </ul>
@@ -208,8 +208,8 @@
 <li>左部分 <code>SkyWalking UI</code> ：负责提供控台，查看链路等等。</li>
 </ul>
 <h2 id="skywalking-配置">skywalking 配置</h2>
-<h2 id="使用docker-compose安装">使用docker-compose安装</h2>
-<p>使用mysql作为存储<br>
+<h2 id="使用-docker-compose-安装">使用 docker-compose 安装</h2>
+<p>使用 mysql 作为存储<br>
 下载 <code>mysql-connector-java-8.0.30.jar</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -221,7 +221,7 @@
 </span></span><span class="line"><span class="cl">mv mysql-connector-java-8.0.30.jar ./libs/
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>创建带mysql驱动的基础镜像</p>
+</div><p>创建带 mysql 驱动的基础镜像</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -234,25 +234,24 @@
 </span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">COPY</span> ./libs/* /skywalking/oap-libs<span class="err">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>上传dockerhub或者自己的镜像仓库，这里我是上传到自己的仓库</p>
+</div><p>上传 dockerhub 或者自己的镜像仓库，这里我是上传到自己的仓库</p>
 <ol>
-<li>创建镜像</li>
-</ol>
+<li>创建镜像
 <blockquote>
 <p>docker build -t skywalking-mysql-server:v1.0 .</p>
 </blockquote>
-<ol start="2">
-<li>打tag，选择上传位置</li>
-</ol>
+</li>
+<li>打 tag，选择上传位置
 <blockquote>
 <p>docker tag skywalking-mysql-server:v1.0 &lt;仓库地址&gt;/blog/skywalking-mysql-server:v1.0</p>
 </blockquote>
-<ol start="3">
-<li>上传镜像</li>
-</ol>
+</li>
+<li>上传镜像
 <blockquote>
 <p>docker push &lt;仓库地址&gt;/blog/skywalking-mysql-server:v1.0</p>
 </blockquote>
+</li>
+</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1

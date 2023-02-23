@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>ansible 命令 - 打工人日志 - jobcher</title><meta name="Description" content="打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通"><meta property="og:title" content="ansible 命令" />
-<meta property="og:description" content="ansible 命令 Inventory：Ansible管理的主机信息，包括IP地址、SSH端口、账号、密码等 Modules：任务均有模块完成，也可以自定义" />
+<meta property="og:description" content="ansible 命令 Inventory：Ansible 管理的主机信息，包括 IP 地址、SSH 端口、账号、密码等 Modules：任务均有模块完成，也可以自定义模" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.jobcher.com/ansible1/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-04-14T00:00:00+00:00" />
@@ -17,7 +17,7 @@
 <meta name="twitter:image" content="http://www.jobcher.com/avatar1.png"/>
 
 <meta name="twitter:title" content="ansible 命令"/>
-<meta name="twitter:description" content="ansible 命令 Inventory：Ansible管理的主机信息，包括IP地址、SSH端口、账号、密码等 Modules：任务均有模块完成，也可以自定义"/>
+<meta name="twitter:description" content="ansible 命令 Inventory：Ansible 管理的主机信息，包括 IP 地址、SSH 端口、账号、密码等 Modules：任务均有模块完成，也可以自定义模"/>
 <meta name="application-name" content="jobcher">
 <meta name="apple-mobile-web-app-title" content="jobcher"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/ansible1\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "ansible","wordcount":  801 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "ansible","wordcount":  780 ,
         "url": "http:\/\/www.jobcher.com\/ansible1\/","datePublished": "2022-04-14T00:00:00+00:00","dateModified": "2022-04-14T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,7 +124,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">ansible 命令</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/gitlab/"><i class="far fa-folder fa-fw"></i>gitlab</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-04-14">2022-04-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 801 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-04-14">2022-04-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 780 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -140,10 +140,10 @@
 </nav></div>
             </div><div class="content" id="content"><h1 id="ansible-命令">ansible 命令</h1>
 <ul>
-<li><code>Inventory</code>：Ansible管理的主机信息，包括IP地址、SSH端口、账号、密码等</li>
+<li><code>Inventory</code>：Ansible 管理的主机信息，包括 IP 地址、SSH 端口、账号、密码等</li>
 <li><code>Modules</code>：任务均有模块完成，也可以自定义模块，例如经常用的脚本。</li>
-<li><code>Plugins</code>：使用插件增加Ansible核心功能，自身提供了很多插件，也可以自定义插件。例如connection插件，用于连接目标主机。</li>
-<li><code>Playbooks</code>：“剧本”，模块化定义一系列任务，供外部统一调用。Ansible核心功能。</li>
+<li><code>Plugins</code>：使用插件增加 Ansible 核心功能，自身提供了很多插件，也可以自定义插件。例如 connection 插件，用于连接目标主机。</li>
+<li><code>Playbooks</code>：“剧本”，模块化定义一系列任务，供外部统一调用。Ansible 核心功能。</li>
 </ul>
 <h2 id="编辑主机清单">编辑主机清单</h2>
 <div class="highlight"><div class="chroma">
@@ -184,11 +184,11 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ansible all -m ping
-</span></span><span class="line"><span class="cl">ansible all -m shell -a <span class="s2">&#34;ls /root&#34;</span> -u root -k 
+</span></span><span class="line"><span class="cl">ansible all -m shell -a <span class="s2">&#34;ls /root&#34;</span> -u root -k
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="常用模块">常用模块</h2>
-<p>在目标主机执行shell命令。</p>
+<p>在目标主机执行 shell 命令。</p>
 <ol>
 <li>shell</li>
 </ol>
@@ -219,11 +219,11 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">chdir</span><span class="p">:</span><span class="w"> </span><span class="l">somedir/</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">编写脚本</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">shell</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
-</span></span></span><span class="line"><span class="cl"><span class="sd">      if [ 0 -eq 0 ]; then
-</span></span></span><span class="line"><span class="cl"><span class="sd">         echo yes &gt; /tmp/result
-</span></span></span><span class="line"><span class="cl"><span class="sd">      else
-</span></span></span><span class="line"><span class="cl"><span class="sd">         echo no &gt; /tmp/result
-</span></span></span><span class="line"><span class="cl"><span class="sd">      fi</span><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="sd">    if [ 0 -eq 0 ]; then
+</span></span></span><span class="line"><span class="cl"><span class="sd">       echo yes &gt; /tmp/result
+</span></span></span><span class="line"><span class="cl"><span class="sd">    else
+</span></span></span><span class="line"><span class="cl"><span class="sd">       echo no &gt; /tmp/result
+</span></span></span><span class="line"><span class="cl"><span class="sd">    fi</span><span class="w">    
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">args</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">executable</span><span class="p">:</span><span class="w"> </span><span class="l">/bin/bash</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
@@ -283,7 +283,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">file</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/etc/some_directory</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l">directory</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;0755&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;0755&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">删除文件</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">file</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/etc/foo.txt</span><span class="w">
@@ -344,10 +344,10 @@
 </span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">卸载apache包</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">yum</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">httpd</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l">absent </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l">absent</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">更新所有包</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">yum</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;*&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;*&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">state</span><span class="p">:</span><span class="w"> </span><span class="l">latest</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">安装nginx来自远程repo</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">yum</span><span class="p">:</span><span class="w">
@@ -397,12 +397,10 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
-</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl">- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">解压</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">unarchive</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">src=test.tar.gz </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">unarchive</span><span class="p">:</span><span class="w"> </span><span class="l">src=test.tar.gz</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">dest=/tmp</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>

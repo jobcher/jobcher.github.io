@@ -10,11 +10,11 @@
     <pubDate>Thu, 14 Apr 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/ant/</guid>
-    <description><![CDATA[<h1 id="ant中如何添加第三方jar包依赖">Ant中如何添加第三方jar包依赖</h1>
-<p>如果使用ant进行java项目的编译部署，那怎么添加第三方jar包的依赖呢？方法如下：</p>
+    <description><![CDATA[<h1 id="ant-中如何添加第三方-jar-包依赖">Ant 中如何添加第三方 jar 包依赖</h1>
+<p>如果使用 ant 进行 java 项目的编译部署，那怎么添加第三方 jar 包的依赖呢？方法如下：</p>
 <ol>
-<li>在项目的根目录下创建lib目录，并把所有需要的第三方jar包放到此目录下。</li>
-<li>在build.xml中依次添加：path、property，并在javac中添加classpath，添加unjar。完整配置如下：</li>
+<li>在项目的根目录下创建 lib 目录，并把所有需要的第三方 jar 包放到此目录下。</li>
+<li>在 build.xml 中依次添加：path、property，并在 javac 中添加 classpath，添加 unjar。完整配置如下：</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -199,25 +199,31 @@
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="c1">//获取用户语言的顺序是
-</span></span></span><span class="line"><span class="cl"><span class="c1">//1.获取本地缓存里的内容
-</span></span></span><span class="line"><span class="cl"><span class="c1">//2.用户浏览器的语言设置
-</span></span></span><span class="line"><span class="cl"><span class="c1">//如果上面2个都没有获取到，就直接使用&#39;en&#39;作为用户选择的语言
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">language</span> <span class="o">=</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;locale&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="nb">window</span><span class="p">.</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">language</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span> <span class="o">||</span> <span class="s1">&#39;en&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="c1">//把用户的语言写入缓存，供下次获取使用
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">&#39;locale&#39;</span><span class="p">,</span> <span class="nx">language</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1">//判断用户的语言，跳转到不同的地方
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="nx">language</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&#34;zh-&#34;</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s1">&#39;/zh-cn/index.html&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">language</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;en&#39;</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s1">&#39;/en/index.html&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">//获取用户语言的顺序是
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">//1.获取本地缓存里的内容
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">//2.用户浏览器的语言设置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">//如果上面2个都没有获取到，就直接使用&#39;en&#39;作为用户选择的语言
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kd">var</span> <span class="nx">language</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s2">&#34;locale&#34;</span><span class="p">)</span> <span class="o">||</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">language</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span> <span class="o">||</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;en&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">//把用户的语言写入缓存，供下次获取使用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s2">&#34;locale&#34;</span><span class="p">,</span> <span class="nx">language</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">//判断用户的语言，跳转到不同的地方
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">if</span> <span class="p">(</span><span class="nx">language</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&#34;zh-&#34;</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s2">&#34;/zh-cn/index.html&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">language</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&#34;en&#34;</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s2">&#34;/en/index.html&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">//其它的都使用英文
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s1">&#39;/en/index.html&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s2">&#34;/en/index.html&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span></code></pre></td></tr></table>
 </div>

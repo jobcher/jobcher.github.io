@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/mysql02\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "mysql","wordcount":  906 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "mysql","wordcount":  845 ,
         "url": "http:\/\/www.jobcher.com\/mysql02\/","datePublished": "2022-01-21T00:00:00+00:00","dateModified": "2022-01-21T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,7 +124,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">mysql 笔记（2）</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><i class="far fa-folder fa-fw"></i>数据库</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-21">2022-01-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 906 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-21">2022-01-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 845 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -149,7 +149,7 @@
 <li>架构扩展</li>
 </ol>
 <h2 id="mysql-主从复制的原理">MySQL 主从复制的原理</h2>
-<p>MySQL主从复制涉及到三个线程，一个运行在主节点（log dump thread），其余两个(I/O thread, SQL thread)运行在从节点，如下图所示:<br>
+<p>MySQL 主从复制涉及到三个线程，一个运行在主节点（log dump thread），其余两个(I/O thread, SQL thread)运行在从节点，如下图所示:<br>
 <img
         class="lazyload"
         src="../svg/loading.min.svg"
@@ -161,16 +161,16 @@
 <ol>
 <li>
 <p>主节点 log dump 线程<br>
-当从节点连接主节点时，主节点会为其创建一个log dump 线程，用于发送和读取bin-log的内容。在读取bin-log中的操作时，log dump线程会对主节点上的bin-log加锁，当读取完成，在发送给从节点之前，锁会被释放。<code>主节点会为自己的每一个从节点创建一个log dump 线程</code>。</p>
+当从节点连接主节点时，主节点会为其创建一个 log dump 线程，用于发送和读取 bin-log 的内容。在读取 bin-log 中的操作时，log dump 线程会对主节点上的 bin-log 加锁，当读取完成，在发送给从节点之前，锁会被释放。<code>主节点会为自己的每一个从节点创建一个log dump 线程</code>。</p>
 </li>
 <li>
-<p>从节点 I/O线程<br>
-当从节点上执行<code>start slave</code>命令之后，从节点会创建一个I/O线程用来连接主节点，请求主库中更新的bin-log。I/O线程接收到主节点的blog dump进程发来的更新之后，保存在本地<code>relay-log（中继日志）</code>中。</p>
+<p>从节点 I/O 线程<br>
+当从节点上执行<code>start slave</code>命令之后，从节点会创建一个 I/O 线程用来连接主节点，请求主库中更新的 bin-log。I/O 线程接收到主节点的 blog dump 进程发来的更新之后，保存在本地<code>relay-log（中继日志）</code>中。</p>
 </li>
 <li>
-<p>从节点 SQL线程<br>
-SQL线程负责读取relay-log中的内容，解析成具体的操作并执行，最终保证主从数据的一致性。<br>
-对于每一个主从连接，都需要这三个进程来完成。当主节点有多个从节点时，主节点会为每一个当前连接的从节点建一个<code>log dump 进程</code>，而每个从节点都有自己的<code>I/O进程，SQL进程</code>。从节点用两个线程将从主库拉取更新和执行分成独立的任务，这样在执行同步数据任务的时候，不会降低读操作的性能。比如，如果从节点没有运行，此时I/O进程可以很快从主节点获取更新，尽管SQL进程还没有执行。如果在SQL进程执行之前从节点服务停止，至少I/O进程已经从主节点拉取到了最新的变更并且保存在本地relay日志中，当服务再次起来之后，就可以完成数据的同步。<br>
+<p>从节点 SQL 线程<br>
+SQL 线程负责读取 relay-log 中的内容，解析成具体的操作并执行，最终保证主从数据的一致性。<br>
+对于每一个主从连接，都需要这三个进程来完成。当主节点有多个从节点时，主节点会为每一个当前连接的从节点建一个<code>log dump 进程</code>，而每个从节点都有自己的<code>I/O进程，SQL进程</code>。从节点用两个线程将从主库拉取更新和执行分成独立的任务，这样在执行同步数据任务的时候，不会降低读操作的性能。比如，如果从节点没有运行，此时 I/O 进程可以很快从主节点获取更新，尽管 SQL 进程还没有执行。如果在 SQL 进程执行之前从节点服务停止，至少 I/O 进程已经从主节点拉取到了最新的变更并且保存在本地 relay 日志中，当服务再次起来之后，就可以完成数据的同步。<br>
 要实施复制，首先<code>必须打开Master 端的binary log（bin-log）功能，否则无法实现。</code></p>
 </li>
 </ol>

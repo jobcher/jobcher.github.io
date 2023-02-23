@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>nginx 汇总 - 打工人日志 - jobcher</title><meta name="Description" content="打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通"><meta property="og:title" content="nginx 汇总" />
-<meta property="og:description" content="nginx 汇总 各类nginx 问题汇总 安装nginx 1 2 3 4 #centos yum install nginx #ubuntu apt install nginx http代理 正向代理 1 2 3 4 5 6 7 8 server { listen 80; server_name www.nbtyfood.com; location / { proxy_pass http://127.0.0.1:8080; } } 反向代理 负载" />
+<meta property="og:description" content="nginx 汇总 各类 nginx 问题汇总 安装 nginx 1 2 3 4 #centos yum install nginx #ubuntu apt install nginx http 代理 正向代理 1 2 3 4 5 6 7 8 server { listen 80; server_name www.nbtyfood.com; location / { proxy_pass http://127.0.0.1:8080; } } 反向代理 负载均衡 1 2 3 4 5 6 7 8 9" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.jobcher.com/nginx/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-12-08T00:00:00+00:00" />
@@ -17,7 +17,7 @@
 <meta name="twitter:image" content="http://www.jobcher.com/avatar1.png"/>
 
 <meta name="twitter:title" content="nginx 汇总"/>
-<meta name="twitter:description" content="nginx 汇总 各类nginx 问题汇总 安装nginx 1 2 3 4 #centos yum install nginx #ubuntu apt install nginx http代理 正向代理 1 2 3 4 5 6 7 8 server { listen 80; server_name www.nbtyfood.com; location / { proxy_pass http://127.0.0.1:8080; } } 反向代理 负载"/>
+<meta name="twitter:description" content="nginx 汇总 各类 nginx 问题汇总 安装 nginx 1 2 3 4 #centos yum install nginx #ubuntu apt install nginx http 代理 正向代理 1 2 3 4 5 6 7 8 server { listen 80; server_name www.nbtyfood.com; location / { proxy_pass http://127.0.0.1:8080; } } 反向代理 负载均衡 1 2 3 4 5 6 7 8 9"/>
 <meta name="application-name" content="jobcher">
 <meta name="apple-mobile-web-app-title" content="jobcher"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/nginx\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "nginx, linux","wordcount":  448 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "nginx, linux","wordcount":  426 ,
         "url": "http:\/\/www.jobcher.com\/nginx\/","datePublished": "2021-12-08T00:00:00+00:00","dateModified": "2021-12-08T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,7 +124,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">nginx 汇总</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/web-%E6%9C%8D%E5%8A%A1%E5%99%A8/"><i class="far fa-folder fa-fw"></i>web 服务器</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-08">2021-12-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 448 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-08">2021-12-08</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 426 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -133,21 +133,21 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#安装nginx">安装nginx</a></li>
-    <li><a href="#http代理">http代理</a>
+    <li><a href="#安装-nginx">安装 nginx</a></li>
+    <li><a href="#http-代理">http 代理</a>
       <ul>
         <li><a href="#正向代理">正向代理</a></li>
         <li><a href="#反向代理">反向代理</a></li>
       </ul>
     </li>
     <li><a href="#负载均衡">负载均衡</a></li>
-    <li><a href="#web缓存">web缓存</a></li>
+    <li><a href="#web-缓存">web 缓存</a></li>
     <li><a href="#重定向">重定向</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="nginx-汇总">nginx 汇总</h1>
-<p>各类nginx 问题汇总</p>
-<h2 id="安装nginx">安装nginx</h2>
+<p>各类 nginx 问题汇总</p>
+<h2 id="安装-nginx">安装 nginx</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -162,7 +162,7 @@
 </span></span><span class="line"><span class="cl">    apt install nginx
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="http代理">http代理</h2>
+</div><h2 id="http-代理">http 代理</h2>
 <h3 id="正向代理">正向代理</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -179,7 +179,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    server <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        listen       80<span class="p">;</span>
 </span></span><span class="line"><span class="cl">        server_name  www.nbtyfood.com<span class="p">;</span>
-</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        location / <span class="o">{</span>
 </span></span><span class="line"><span class="cl">            proxy_pass http://127.0.0.1:8080<span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
@@ -202,21 +202,21 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    upstream mysvr <span class="o">{</span> 
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    upstream mysvr <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    server 192.168.10.121:3333<span class="p">;</span>
 </span></span><span class="line"><span class="cl">    server 192.168.10.122:3333<span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">    server <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        ....
-</span></span><span class="line"><span class="cl">        location  ~*^.+$ <span class="o">{</span>         
-</span></span><span class="line"><span class="cl">            proxy_pass  http://mysvr<span class="p">;</span>  <span class="c1">#请求转向mysvr 定义的服务器列表         </span>
+</span></span><span class="line"><span class="cl">        location  ~*^.+$ <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            proxy_pass  http://mysvr<span class="p">;</span>  <span class="c1">#请求转向mysvr 定义的服务器列表</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ol>
 <li>热备<br>
-如果你有2台服务器，当一台服务器发生事故时，才启用第二台服务器给提供服务。服务器处理请求的顺序：AAAAAA突然A挂啦，BBBBBBBBBBBBBB&hellip;..</li>
+如果你有 2 台服务器，当一台服务器发生事故时，才启用第二台服务器给提供服务。服务器处理请求的顺序：AAAAAA 突然 A 挂啦，BBBBBBBBBBBBBB&hellip;..</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -226,15 +226,15 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    upstream mysvr <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">    server 127.0.0.1:7878<span class="p">;</span> 
-</span></span><span class="line"><span class="cl">    server 192.168.10.121:3333 backup<span class="p">;</span>  <span class="c1">#热备     </span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    upstream mysvr <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    server 127.0.0.1:7878<span class="p">;</span>
+</span></span><span class="line"><span class="cl">    server 192.168.10.121:3333 backup<span class="p">;</span>  <span class="c1">#热备</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>轮询<br>
-nginx默认就是轮询其权重都默认为1，服务器处理请求的顺序：ABABABABAB&hellip;.</li>
+nginx 默认就是轮询其权重都默认为 1，服务器处理请求的顺序：ABABABABAB&hellip;.</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -244,15 +244,15 @@ nginx默认就是轮询其权重都默认为1，服务器处理请求的顺序�
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    upstream mysvr <span class="o">{</span> 
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    upstream mysvr <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    server 127.0.0.1:7878<span class="p">;</span>
-</span></span><span class="line"><span class="cl">    server 192.168.10.121:3333<span class="p">;</span>       
+</span></span><span class="line"><span class="cl">    server 192.168.10.121:3333<span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="3">
 <li>加权轮询<br>
-跟据配置的权重的大小而分发给不同服务器不同数量的请求。如果不设置，则默认为1。下面服务器的请求顺序为：ABBABBABBABBABB&hellip;.</li>
+跟据配置的权重的大小而分发给不同服务器不同数量的请求。如果不设置，则默认为 1。下面服务器的请求顺序为：ABBABBABBABBABB&hellip;.</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -262,7 +262,7 @@ nginx默认就是轮询其权重都默认为1，服务器处理请求的顺序�
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    upstream mysvr <span class="o">{</span> 
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    upstream mysvr <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    server 127.0.0.1:7878 <span class="nv">weight</span><span class="o">=</span>1<span class="p">;</span>w
 </span></span><span class="line"><span class="cl">    server 192.168.10.121:3333 <span class="nv">weight</span><span class="o">=</span>2<span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
@@ -270,7 +270,7 @@ nginx默认就是轮询其权重都默认为1，服务器处理请求的顺序�
 </div>
 </div><ol start="4">
 <li>ip_hash
-nginx会让相同的客户端ip请求相同的服务器。</li>
+nginx 会让相同的客户端 ip 请求相同的服务器。</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -281,14 +281,14 @@ nginx会让相同的客户端ip请求相同的服务器。</li>
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    upstream mysvr <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">    server 127.0.0.1:7878<span class="p">;</span> 
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    upstream mysvr <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    server 127.0.0.1:7878<span class="p">;</span>
 </span></span><span class="line"><span class="cl">    server 192.168.10.121:3333<span class="p">;</span>
 </span></span><span class="line"><span class="cl">    ip_hash<span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="web缓存">web缓存</h2>
+</div><h2 id="web-缓存">web 缓存</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1

@@ -200,12 +200,12 @@
 </span></span><span class="line"><span class="cl">error_log logs/error.log notice<span class="p">;</span> <span class="c1"># 错误日志路径</span>
 </span></span><span class="line"><span class="cl">pid logs/nginx.pid<span class="p">;</span> <span class="c1"># pid 路径</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">events 
+</span></span><span class="line"><span class="cl">events
 </span></span><span class="line"><span class="cl"><span class="o">{</span>
 </span></span><span class="line"><span class="cl">    worker_connections 1024<span class="p">;</span> <span class="c1"># 一个进程能同时处理 1024 个请求</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">http 
+</span></span><span class="line"><span class="cl">http
 </span></span><span class="line"><span class="cl"><span class="o">{</span>
 </span></span><span class="line"><span class="cl">    include mime.types<span class="p">;</span>
 </span></span><span class="line"><span class="cl">    default_type application/octet-stream<span class="p">;</span>
@@ -217,14 +217,14 @@
 </span></span><span class="line"><span class="cl">    sendfile on<span class="p">;</span>
 </span></span><span class="line"><span class="cl">    keepalive_timeout 65<span class="p">;</span> <span class="c1"># keepalive 超市时间</span>
 </span></span><span class="line"><span class="cl">    <span class="c1"># 开始配置一个域名,一个 server 配置段一般对应一个域名</span>
-</span></span><span class="line"><span class="cl">    server 
+</span></span><span class="line"><span class="cl">    server
 </span></span><span class="line"><span class="cl">    <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        listen 80<span class="p">;</span> <span class="c1">#</span>
 </span></span><span class="line"><span class="cl">        <span class="c1"># 在本机所有 ip 上监听 80,也可以写为 192.168.1.202:80,这样的话,就只监听 192.168.1.202 上的 80 口</span>
 </span></span><span class="line"><span class="cl">        server_name www.nbtyfood.com<span class="p">;</span> <span class="c1"># 域名</span>
 </span></span><span class="line"><span class="cl">        root /www/html/www.nbtyfood.com<span class="p">;</span> <span class="c1"># 站点根目录（程序目录）</span>
 </span></span><span class="line"><span class="cl">        index index.html index.htm<span class="p">;</span> <span class="c1"># 索引文件</span>
-</span></span><span class="line"><span class="cl">        location / 
+</span></span><span class="line"><span class="cl">        location /
 </span></span><span class="line"><span class="cl">        <span class="o">{</span> <span class="c1"># 可以有多个 location</span>
 </span></span><span class="line"><span class="cl">            root /www/html/www.nbtyfood.com<span class="p">;</span> <span class="c1"># 站点根目录（程序目录）</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
@@ -235,13 +235,13 @@
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 开始配置站点 bbs.nbtyfood.com</span>
-</span></span><span class="line"><span class="cl">    server 
+</span></span><span class="line"><span class="cl">    server
 </span></span><span class="line"><span class="cl">    <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        listen 80<span class="p">;</span>
 </span></span><span class="line"><span class="cl">        server_name bbs.nbtyfood.com<span class="p">;</span>
 </span></span><span class="line"><span class="cl">        root /www/html/bbs.nbtyfood.com<span class="p">;</span>
 </span></span><span class="line"><span class="cl">        index index.html index.htm<span class="p">;</span> <span class="c1"># 索引文件</span>
-</span></span><span class="line"><span class="cl">        location / 
+</span></span><span class="line"><span class="cl">        location /
 </span></span><span class="line"><span class="cl">        <span class="o">{</span>
 </span></span><span class="line"><span class="cl">            root /www/html/bbs.nbtyfood.com<span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>

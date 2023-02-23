@@ -12,12 +12,12 @@
     <guid>http://www.jobcher.com/golang/</guid>
     <description><![CDATA[<h1 id="golang-初识安装使用">Golang 初识（安装、使用）</h1>
 <h2 id="go-导学">Go 导学</h2>
-<p>go语言由google公司推出。</p>
+<p>go 语言由 google 公司推出。</p>
 <ul>
 <li>运行速度快，简单易学</li>
 <li>适合区块链开发</li>
 <li>拥有丰富指令</li>
-<li>可以直接包含C语言</li>
+<li>可以直接包含 C 语言</li>
 <li>语言层面支持并发</li>
 </ul>
 <h3 id="go-方向">Go 方向</h3>
@@ -132,7 +132,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="nx">p3</span> <span class="o">:=</span> <span class="nx">Person</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span><span class="s">&#34;Aaron&#34;</span><span class="p">,</span> <span class="nx">Age</span><span class="p">:</span><span class="mi">32</span><span class="p">}</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;p2 =&#34;</span><span class="p">,</span> <span class="nx">p3</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="c1">//匿名结构体
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span>	<span class="nx">p4</span> <span class="o">:=</span> <span class="kd">struct</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">		<span class="nx">Name</span> <span class="kt">string</span>
@@ -273,7 +273,7 @@
 </span></span><span class="line"><span class="cl">	<span class="nx">res</span><span class="p">.</span><span class="nx">Code</span>    <span class="p">=</span> <span class="mi">200</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">res</span><span class="p">.</span><span class="nx">Message</span> <span class="p">=</span> <span class="s">&#34;success&#34;</span>
 </span></span><span class="line"><span class="cl">	<span class="nf">toJson</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">res</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="nf">setData</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">res</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">	<span class="nf">toJson</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">res</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
@@ -299,7 +299,7 @@
     <pubDate>Mon, 25 Apr 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/go2/</guid>
-    <description><![CDATA[<h1 id="go-slice切片语法">go Slice切片语法</h1>
+    <description><![CDATA[<h1 id="go-slice-切片语法">go Slice 切片语法</h1>
 <p><code>切片</code>是一种<code>动态数组</code>，比数组操作灵活，长度不是固定的，可以进行追加和删除。<br>
 <code>len()</code> 和 <code>cap()</code> 返回结果可相同和不同。</p>
 <h2 id="声明切片">声明切片</h2>
@@ -403,7 +403,7 @@
 </span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;sli[:] ==&#34;</span><span class="p">,</span> <span class="nx">sli</span><span class="p">[:])</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;sli[1:] ==&#34;</span><span class="p">,</span> <span class="nx">sli</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;sli[:4] ==&#34;</span><span class="p">,</span> <span class="nx">sli</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span>
-</span></span><span class="line"><span class="cl">	
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;sli[0:3] ==&#34;</span><span class="p">,</span> <span class="nx">sli</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
 </span></span><span class="line"><span class="cl">	<span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;len=%d cap=%d slice=%v\n&#34;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="nx">sli</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]),</span><span class="nb">cap</span><span class="p">(</span><span class="nx">sli</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]),</span><span class="nx">sli</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
 </span></span><span class="line"><span class="cl">
@@ -624,7 +624,7 @@
 <tr>
 <td style="text-align:left">浮点型</td>
 <td style="text-align:left">float32 float64</td>
-<td></td>
+<td style="text-align:left"></td>
 </tr>
 </tbody>
 </table>
@@ -978,7 +978,7 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/go/</guid>
     <description><![CDATA[<h1 id="golang-go-build-编译不同系统下的可执行文件">Golang go build 编译不同系统下的可执行文件</h1>
-<h2 id="mac系统编译">Mac系统编译</h2>
+<h2 id="mac-系统编译">Mac 系统编译</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -989,7 +989,7 @@
 </span></span><span class="line"><span class="cl"><span class="nv">CGO_ENABLED</span><span class="o">=</span><span class="m">0</span> <span class="nv">GOOS</span><span class="o">=</span>windows <span class="nv">GOARCH</span><span class="o">=</span>amd64 go build test.go
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="linux系统编译">Linux系统编译</h2>
+</div><h2 id="linux-系统编译">Linux 系统编译</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1000,7 +1000,7 @@
 </span></span><span class="line"><span class="cl"><span class="nv">CGO_ENABLED</span><span class="o">=</span><span class="m">0</span> <span class="nv">GOOS</span><span class="o">=</span>windows <span class="nv">GOARCH</span><span class="o">=</span>amd64 go build test.go
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="windows系统编译">windows系统编译</h2>
+</div><h2 id="windows-系统编译">windows 系统编译</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1

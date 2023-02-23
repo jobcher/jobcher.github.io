@@ -13,11 +13,11 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/oracle.png" referrerpolicy="no-referrer">
             </div><h2 id="背景">背景</h2>
-<p>关于Oracle 数据库一直是许多初学者比较头疼的地方，一方面受限于线上文档比较少，令一方面在企业中不得不接触和使用Oracle数据库，这篇文章是教大家如何通过配置oracle client来远程访问Oracle数据库。本文会通过python3和cx_Oracle来实现对Oracle的访问和增删改查</p>
-<h2 id="下载oracle客户端">下载oracle客户端</h2>
+<p>关于 Oracle 数据库一直是许多初学者比较头疼的地方，一方面受限于线上文档比较少，令一方面在企业中不得不接触和使用 Oracle 数据库，这篇文章是教大家如何通过配置 oracle client 来远程访问 Oracle 数据库。本文会通过 python3 和 cx_Oracle 来实现对 Oracle 的访问和增删改查</p>
+<h2 id="下载-oracle-客户端">下载 oracle 客户端</h2>
 <p><a href="https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html" target="_blank" rel="noopener noreffer">官方地址下载</a></p>
 <h3 id="安装">安装</h3>
-<p>下载并安装你的oracle client，因为我连接的11g oracle，所以下载11.2版本</p>
+<p>下载并安装你的 oracle client，因为我连接的 11g oracle，所以下载 11.2 版本</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -93,7 +93,7 @@
 </span></span><span class="line"><span class="cl"><span class="nb">source</span> /etc/profile
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="下载cx_oracle">下载cx_Oracle</h2>
+</div><h2 id="下载-cx_oracle">下载 cx_Oracle</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -102,7 +102,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">pip3 install cx_Oracle
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>创建Oracle.py文件</p>
+</div><p>创建 Oracle.py 文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1

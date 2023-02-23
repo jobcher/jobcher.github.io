@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>iptables 基础知识 - 打工人日志 - jobcher</title><meta name="Description" content="打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通"><meta property="og:title" content="iptables 基础知识" />
-<meta property="og:description" content="iptables 基础知识 内核包过滤与NAT管理工具.是linux系统中在用户空间中运行的运来配置内核防火墙的工具。它可以设置，维护和检查linux内核中的" />
+<meta property="og:description" content="iptables 基础知识 内核包过滤与 NAT 管理工具.是 linux 系统中在用户空间中运行的运来配置内核防火墙的工具。它可以设置，维护和检查 linux 内核中的 ipv4 包过滤规则和管理网" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.jobcher.com/iptable/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-12-27T00:00:00+00:00" />
@@ -17,7 +17,7 @@
 <meta name="twitter:image" content="http://www.jobcher.com/avatar1.png"/>
 
 <meta name="twitter:title" content="iptables 基础知识"/>
-<meta name="twitter:description" content="iptables 基础知识 内核包过滤与NAT管理工具.是linux系统中在用户空间中运行的运来配置内核防火墙的工具。它可以设置，维护和检查linux内核中的"/>
+<meta name="twitter:description" content="iptables 基础知识 内核包过滤与 NAT 管理工具.是 linux 系统中在用户空间中运行的运来配置内核防火墙的工具。它可以设置，维护和检查 linux 内核中的 ipv4 包过滤规则和管理网"/>
 <meta name="application-name" content="jobcher">
 <meta name="apple-mobile-web-app-title" content="jobcher"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/iptable\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "运维","wordcount":  580 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "运维","wordcount":  526 ,
         "url": "http:\/\/www.jobcher.com\/iptable\/","datePublished": "2021-12-27T00:00:00+00:00","dateModified": "2021-12-27T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,7 +124,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">iptables 基础知识</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/%E5%9F%BA%E7%A1%80/"><i class="far fa-folder fa-fw"></i>基础</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-27">2021-12-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 580 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-27">2021-12-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 526 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -138,8 +138,8 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="iptables-基础知识">iptables 基础知识</h1>
-<p>内核包过滤与NAT管理工具.是linux系统中在用户空间中运行的运来配置内核防火墙的工具。它可以设置，维护和检查linux内核中的ipv4包过滤规则和管理网络地址转换（NAT）。<br>
-ipatbles命令仅支持ipv4，如果使用的IP协议是ipv6则需要使用专门的管理工具ip6tables。</p>
+<p>内核包过滤与 NAT 管理工具.是 linux 系统中在用户空间中运行的运来配置内核防火墙的工具。它可以设置，维护和检查 linux 内核中的 ipv4 包过滤规则和管理网络地址转换（NAT）。<br>
+ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使用专门的管理工具 ip6tables。</p>
 <h2 id="常用参数">常用参数</h2>
 <table>
 <thead>
@@ -199,7 +199,7 @@ ipatbles命令仅支持ipv4，如果使用的IP协议是ipv6则需要使用专�
 </tr>
 <tr>
 <td style="text-align:left">-s&lt;源地址&gt;</td>
-<td style="text-align:left">指定要匹配的数据包的源IP地址</td>
+<td style="text-align:left">指定要匹配的数据包的源 IP 地址</td>
 </tr>
 <tr>
 <td style="text-align:left">-j&lt;目标&gt;</td>
@@ -220,7 +220,7 @@ ipatbles命令仅支持ipv4，如果使用的IP协议是ipv6则需要使用专�
 </tbody>
 </table>
 <h2 id="参考实例">参考实例</h2>
-<p>显示内核当前的filter表：</p>
+<p>显示内核当前的 filter 表：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -229,7 +229,7 @@ ipatbles命令仅支持ipv4，如果使用的IP协议是ipv6则需要使用专�
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">iptables -L
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>显示内核当前的nat表：</p>
+</div><p>显示内核当前的 nat 表：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -238,7 +238,7 @@ ipatbles命令仅支持ipv4，如果使用的IP协议是ipv6则需要使用专�
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">iptables -L -t nat
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>禁止本机对192.168.20.20地址的访问：</p>
+</div><p>禁止本机对 192.168.20.20 地址的访问：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -247,7 +247,7 @@ ipatbles命令仅支持ipv4，如果使用的IP协议是ipv6则需要使用专�
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">iptables -t filter -A OUTPUT -d 192.168.20.20 -j DROP
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>显示filter表的OUTPUT链：</p>
+</div><p>显示 filter 表的 OUTPUT 链：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1

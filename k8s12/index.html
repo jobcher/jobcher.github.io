@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/k8s12\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "k8s","wordcount":  2848 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "k8s","wordcount":  2833 ,
         "url": "http:\/\/www.jobcher.com\/k8s12\/","datePublished": "2022-10-07T00:00:00+00:00","dateModified": "2022-10-07T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,7 +124,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Kubernetes — 开放标准（OCI、CRI、CNI、CSI、SMI、CPI）概述</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/k8s/"><i class="far fa-folder fa-fw"></i>k8s</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-10-07">2022-10-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2848 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-10-07">2022-10-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2833 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -185,7 +185,7 @@
         alt="https://miro.medium.com/max/720/1*YUMhWTm6QGKVAygl3UiSYw.png"
         title="k8s" /></p>
 <h2 id="oci">OCI</h2>
-<p>容器开放接口规范，由多家公司共同组成于2015年6月成立的项目（Docker, Google, CoreOS等公司），并由Linux基金会运行管理，旨在围绕容器格式和运行时制定一个开放的工业化标准，目前主要有两个标准文档：容器运行时标准 （runtime spec）和 容器镜像标准（image spec）</p>
+<p>容器开放接口规范，由多家公司共同组成于 2015 年 6 月成立的项目（Docker, Google, CoreOS 等公司），并由 Linux 基金会运行管理，旨在围绕容器格式和运行时制定一个开放的工业化标准，目前主要有两个标准文档：容器运行时标准 （runtime spec）和 容器镜像标准（image spec）</p>
 <ul>
 <li><code>OCI</code> 是一个开放的治理结构，其明确目的是围绕容器格式和运行时创建开放的行业标准。</li>
 <li>它提供了必须由容器运行时引擎实现的规范。两个重要的规格是：
@@ -212,22 +212,24 @@
 实现分发规范的容器注册表为容器映像提供可靠、高度可扩展、安全的存储服务。
 客户要么使用云提供商实施、供应商实施，要么使用分发的开源实施。</p>
 <h2 id="cri">CRI</h2>
-<p><code>CRI</code>（Container Runtime Interface）：容器运行时接口，提供计算资源。​ ​kubernetes1.5​​版本之后，kubernetes项目推出了自己的运行时接口api–CRI(container runtime interface)。</p>
+<p><code>CRI</code>（Container Runtime Interface）：容器运行时接口，提供计算资源。​ ​kubernetes1.5​​ 版本之后，kubernetes 项目推出了自己的运行时接口 api–CRI(container runtime interface)。</p>
 <ul>
 <li><code>CRI</code> 是关于如何在容器编排系统中实现容器运行时的规范。它在容器运行时的集成之上提供了一个抽象层。</li>
-<li>它是一个插件接口，使 <code>kubelet</code> 能够使用各种容器运行时。 CRI 的核心机制是每个容器项目都可以自己实现一个 <code>CRI shim</code> 并自己处理 CRI 请求。</li>
-</ul>
+<li>它是一个插件接口，使 <code>kubelet</code> 能够使用各种容器运行时。 CRI 的核心机制是每个容器项目都可以自己实现一个 <code>CRI shim</code> 并自己处理 CRI 请求。
 <blockquote>
 <p>为了允许使用 Docker 以外的其他容器运行时，Kubernetes 在 2016 年引入了 CRI。</p>
 </blockquote>
+</li>
+</ul>
 <h3 id="docker">Docker</h3>
 <ul>
 <li><code>Docker</code> 长期以来一直是标准，但从未真正为容器编排而生。</li>
-<li>它是数百万正在构建容器化应用程序的开发人员的首选。</li>
-</ul>
+<li>它是数百万正在构建容器化应用程序的开发人员的首选。
 <blockquote>
 <p>使用 Docker 作为 Kubernetes 的运行时已被弃用，并将在 Kubernetes 1.23 中删除。</p>
 </blockquote>
+</li>
+</ul>
 <h3 id="containerd">containerd</h3>
 <ul>
 <li><code>containerd</code> 是运行容器的轻量级和高性能实现。</li>
@@ -237,13 +239,14 @@
 <h3 id="cri-o">CRI-O</h3>
 <ul>
 <li><code>CRI-O</code> 是 <code>Kubernetes CRI</code> 的一种实现，可以使用 <code>OCI</code> 兼容的运行时。它是使用 <code>Docker</code> 作为 <code>Kubernetes</code> 运行时的轻量级替代方案。</li>
-<li>它由 <code>Red Hat</code> 创建，并具有与 <code>podman</code> 和 <code>buildah</code> 密切相关的类似代码库。</li>
-</ul>
+<li>它由 <code>Red Hat</code> 创建，并具有与 <code>podman</code> 和 <code>buildah</code> 密切相关的类似代码库。
 <blockquote>
 <p><code>containerd</code> 和 <code>CRI-O</code> 的想法非常简单：提供一个只包含运行容器的绝对必需品的运行时。</p>
 </blockquote>
+</li>
+</ul>
 <h2 id="cni">CNI</h2>
-<p><code>CNI</code>（Container Network Interface）：容器网络接口，提供网络资源。是和 CoreOS 主导制定的容器网络标准，它本身并不是实现或者代码，可以理解成一个协议。CNI旨在为容器平台提供网络的标准化。容器平台可以从CNI获取到满足网络互通条件的网络参数(如IP地址、网关、路由、DNS等)。</p>
+<p><code>CNI</code>（Container Network Interface）：容器网络接口，提供网络资源。是和 CoreOS 主导制定的容器网络标准，它本身并不是实现或者代码，可以理解成一个协议。CNI 旨在为容器平台提供网络的标准化。容器平台可以从 CNI 获取到满足网络互通条件的网络参数(如 IP 地址、网关、路由、DNS 等)。</p>
 <ul>
 <li><code>CNI</code> 是关于如何<code>为容器实现网络的标准</code>，可用于编写或配置网络插件，并且可以很容易地在各种容器编排平台中交换不同的插件。</li>
 <li>每个 <code>CNI 插件</code>都必须实现为由<code>容器管理系统</code>调用的可执行文件。 CNI 插件负责将网络接口插入容器网络命名空间并在主机上进行任何必要的更改。然后它应该将 IP 分配给接口，并通过调用适当的 IPAM 插件来设置与 IP 地址管理部分一致的路由。</li>

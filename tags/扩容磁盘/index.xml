@@ -13,7 +13,7 @@
     <description><![CDATA[<h1 id="proxmox-ve-在线扩容磁盘分区">Proxmox VE 在线扩容磁盘分区</h1>
 <h2 id="添加磁盘大小">添加磁盘大小</h2>
 <p></p>
-<h2 id="在vm上做扩容操作">在VM上做扩容操作</h2>
+<h2 id="在-vm-上做扩容操作">在 VM 上做扩容操作</h2>
 <ol>
 <li>安装 growpart</li>
 </ol>

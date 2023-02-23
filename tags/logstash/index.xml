@@ -19,9 +19,9 @@
 <li>用新的配置创建一个新的管道</li>
 <li>检查配置文件语法是否正确</li>
 <li>检查所有的输入和输出是否可以初始化</li>
-<li>检查成功使用新的pipeline替换当前的<code>pipeline</code></li>
+<li>检查成功使用新的 pipeline 替换当前的<code>pipeline</code></li>
 <li>检查失败,使用旧的继续工作.</li>
-<li>在重载过程中,jvm没有重启.</li>
+<li>在重载过程中,jvm 没有重启.</li>
 </ol>
 <h2 id="logstash-自动重新加载配置">Logstash 自动重新加载配置</h2>
 <p>为了可以<code>自动检测</code>配置文件的变动和自动重新加载配置文件,需要在启动的时候使用以下命令:</p>
@@ -34,7 +34,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>启动Logstash的时候使用<code>--config.reload.automatic</code>或<code>-r</code>选项来开启自动重载配置。</p>
+<p>启动 Logstash 的时候使用<code>--config.reload.automatic</code>或<code>-r</code>选项来开启自动重载配置。</p>
 </blockquote>
 <h2 id="修改检测间隔时间">修改检测间隔时间</h2>
 <p>默认检测配置文件的间隔时间是<code>3秒</code>,可以通过以下命令改变</p>
@@ -46,7 +46,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">--config.reload.interval &lt;second&gt;
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>如果Logstash已经运行并且没有开启自动重载，你可以强制Logstash重新载入配置文件并且重启管道通过发送一个SIGHUP信号。比如：</p>
+</div><p>如果 Logstash 已经运行并且没有开启自动重载，你可以强制 Logstash 重新载入配置文件并且重启管道通过发送一个 SIGHUP 信号。比如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -55,7 +55,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">kill</span> -1 &lt;pid&gt;
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>其中<pid>是正在运行的Logstash的进程号。</p>
+</div><p>其中<pid>是正在运行的 Logstash 的进程号。</p>
 <h2 id="注意">注意！！！</h2>
 <blockquote>
 <p><code>stdin</code>输入插件不支持自动重启.<br>
@@ -163,11 +163,11 @@
 <li>苏帮菜——浓油赤酱里的姑苏风情
 <ul>
 <li><code>鲃肺汤</code>是取生长于太湖一带的鲃鱼，将其肉与肝加入火腿、香菇、笋片等辅料，在鸡汤中共同熬煮，汤鲜味美，是一道不可多得的汤品。</li>
-<li><code>酱方</code>是采用上乘猪五花为原料，经24小时腌制后，加入卤汁炖煮3小时而成。肉的色泽鲜亮诱人，入口外皮Q弹、肉质紧实。</li>
+<li><code>酱方</code>是采用上乘猪五花为原料，经 24 小时腌制后，加入卤汁炖煮 3 小时而成。肉的色泽鲜亮诱人，入口外皮 Q 弹、肉质紧实。</li>
 <li><code>响油鳝糊</code>是以将新鲜鳝鱼切成段，加酱油等佐料爆炒。因鳝糊上桌时油滋滋作响，而得名“响油鳝糊”。菜色深红，口味鲜甜，油而不腻。</li>
 <li><code>樱桃肉</code>因肉形状及色泽极似樱桃而得名，是将优质的五花肉切成小块，以文火炖煮七八小时而成。肥而不腻，满口精华。</li>
 <li><code>松鼠鳜鱼</code>是将鳜鱼在油锅内炸至金黄，再淋上由番茄酱等熬制的酱汁而成。因炸开的鱼肉形似松鼠而得名，入口酥脆酸甜。</li>
-<li><code>碧螺虾仁</code>是将新鲜虾仁配以碧螺春为佐料烹制而成，色泽清淡雅致，虾肉饱满Q弹，鲜甜中夹杂了茶叶的香味。</li>
+<li><code>碧螺虾仁</code>是将新鲜虾仁配以碧螺春为佐料烹制而成，色泽清淡雅致，虾肉饱满 Q 弹，鲜甜中夹杂了茶叶的香味。</li>
 <li>推荐餐厅：
 <ul>
 <li>珍珠饭店：蚌肉金花菜</li>
@@ -228,7 +228,7 @@
 <li>推荐餐厅：
 <ul>
 <li>王氏林记烧饼(双塔菜场店)：大饼油条、豆浆</li>
-<li>阊门姚记豆浆：24小时通宵营业，咸豆浆、荷叶包美人</li>
+<li>阊门姚记豆浆：24 小时通宵营业，咸豆浆、荷叶包美人</li>
 </ul>
 </li>
 </ul>
@@ -246,7 +246,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="vlog系列">vlog系列</h2>
+<h2 id="vlog-系列">vlog 系列</h2>
 <!DOCTYPE HTML>
 <html>
 
@@ -297,7 +297,7 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/logstash/</guid>
     <description><![CDATA[<h1 id="logstash-多管道部署">logstash 多管道部署</h1>
-<p>找到logstash 目录位置，一般来说在 <code>/etc/logstash</code> 路径下,修改 <code>logstash.yml</code></p>
+<p>找到 logstash 目录位置，一般来说在 <code>/etc/logstash</code> 路径下,修改 <code>logstash.yml</code></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -369,7 +369,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">queue.type</span><span class="p">:</span><span class="w"> </span><span class="l">persisted</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="启动logstash文件">启动logstash文件</h2>
+</div><h2 id="启动-logstash-文件">启动 logstash 文件</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1

@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>树莓派搭建k3s - 打工人日志 - jobcher</title><meta name="Description" content="打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通"><meta property="og:title" content="树莓派搭建k3s" />
-<meta property="og:description" content="树莓派安装k3s 1.安装k3s 控制节点 1 2 curl -sfL https://get.k3s.io | sh - cat /var/lib/rancher/k3s/server/node-token 工作节点 1 curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetoken sh - 树莓派特别要注意一个坑，就是关于内存的问题这个之后再讲 1" />
+<meta property="og:description" content="树莓派安装 k3s 1.安装 k3s 控制节点 1 2 curl -sfL https://get.k3s.io | sh - cat /var/lib/rancher/k3s/server/node-token 工作节点 1 curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetoken sh - 树莓派特别要注意一个坑，就是关于内存的问题这个之后再讲 1 2 k3s kubectl get" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.jobcher.com/rasberry/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-12-06T00:00:00+00:00" />
@@ -17,7 +17,7 @@
 <meta name="twitter:image" content="http://www.jobcher.com/avatar1.png"/>
 
 <meta name="twitter:title" content="树莓派搭建k3s"/>
-<meta name="twitter:description" content="树莓派安装k3s 1.安装k3s 控制节点 1 2 curl -sfL https://get.k3s.io | sh - cat /var/lib/rancher/k3s/server/node-token 工作节点 1 curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetoken sh - 树莓派特别要注意一个坑，就是关于内存的问题这个之后再讲 1"/>
+<meta name="twitter:description" content="树莓派安装 k3s 1.安装 k3s 控制节点 1 2 curl -sfL https://get.k3s.io | sh - cat /var/lib/rancher/k3s/server/node-token 工作节点 1 curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetoken sh - 树莓派特别要注意一个坑，就是关于内存的问题这个之后再讲 1 2 k3s kubectl get"/>
 <meta name="application-name" content="jobcher">
 <meta name="apple-mobile-web-app-title" content="jobcher"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/rasberry\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "树莓派, k3s","wordcount":  422 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "树莓派, k3s","wordcount":  383 ,
         "url": "http:\/\/www.jobcher.com\/rasberry\/","datePublished": "2021-12-06T00:00:00+00:00","dateModified": "2021-12-06T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,7 +124,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">树莓派搭建k3s</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/%E6%97%A5%E5%B8%B8/"><i class="far fa-folder fa-fw"></i>日常</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-06">2021-12-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 422 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-06">2021-12-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 383 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -133,18 +133,18 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#1安装k3s">1.安装k3s</a>
+    <li><a href="#1安装-k3s">1.安装 k3s</a>
       <ul>
         <li><a href="#控制节点">控制节点</a></li>
         <li><a href="#工作节点">工作节点</a></li>
         <li><a href="#卸载-k3s">卸载 k3s</a></li>
       </ul>
     </li>
-    <li><a href="#2安装dashboard-k3s面板">2.安装dashboard k3s面板</a>
+    <li><a href="#2安装-dashboard-k3s-面板">2.安装 dashboard k3s 面板</a>
       <ul>
         <li><a href="#部署-kubernetes-仪表盘">部署 Kubernetes 仪表盘</a></li>
         <li><a href="#仪表盘-rbac-配置">仪表盘 RBAC 配置</a></li>
-        <li><a href="#连接lens">连接lens</a></li>
+        <li><a href="#连接-lens">连接 lens</a></li>
       </ul>
     </li>
     <li><a href="#3安装-kubeprometheus-监控">3.安装 kube—prometheus 监控</a>
@@ -153,12 +153,12 @@
         <li><a href="#一键卸载">一键卸载</a></li>
       </ul>
     </li>
-    <li><a href="#4安装-nfs外部驱动挂载storageclass">4.安装 nfs外部驱动挂载storageclass</a></li>
-    <li><a href="#5创建有状态podsmysql">5.创建有状态pods（mysql）</a></li>
+    <li><a href="#4安装-nfs-外部驱动挂载-storageclass">4.安装 nfs 外部驱动挂载 storageclass</a></li>
+    <li><a href="#5创建有状态-podsmysql">5.创建有状态 pods（mysql）</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="树莓派安装k3s">树莓派安装k3s</h1>
-<h2 id="1安装k3s">1.安装k3s</h2>
+            </div><div class="content" id="content"><h1 id="树莓派安装-k3s">树莓派安装 k3s</h1>
+<h2 id="1安装-k3s">1.安装 k3s</h2>
 <h3 id="控制节点">控制节点</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -205,7 +205,7 @@
 </span></span><span class="line"><span class="cl">    /usr/local/bin/k3s-agent-uninstall.sh
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="2安装dashboard-k3s面板">2.安装dashboard k3s面板</h2>
+</div><h2 id="2安装-dashboard-k3s-面板">2.安装 dashboard k3s 面板</h2>
 <h3 id="部署-kubernetes-仪表盘">部署 Kubernetes 仪表盘</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -231,11 +231,11 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">    </span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ServiceAccount</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">admin-user</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">kubernetes-dashboard</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ServiceAccount</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">admin-user</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">kubernetes-dashboard</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>dashboard.admin-user-role.yml</p>
@@ -255,21 +255,21 @@
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="w">    </span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">rbac.authorization.k8s.io/v1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ClusterRoleBinding</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">admin-user</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">roleRef</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">apiGroup</span><span class="p">:</span><span class="w"> </span><span class="l">rbac.authorization.k8s.io</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ClusterRole</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">cluster-admin</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">subjects</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ServiceAccount</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">admin-user</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">kubernetes-dashboard</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">rbac.authorization.k8s.io/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ClusterRoleBinding</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">admin-user</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">roleRef</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">apiGroup</span><span class="p">:</span><span class="w"> </span><span class="l">rbac.authorization.k8s.io</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ClusterRole</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">cluster-admin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">subjects</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ServiceAccount</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">admin-user</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">kubernetes-dashboard</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>部署admin-user 配置：</p>
+</div><p>部署 admin-user 配置：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -297,7 +297,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/</p>
-<h3 id="连接lens">连接lens</h3>
+<h3 id="连接-lens">连接 lens</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -343,8 +343,8 @@
 </span></span><span class="line"><span class="cl">    k3s kubectl delete -f setup/
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="4安装-nfs外部驱动挂载storageclass">4.安装 nfs外部驱动挂载storageclass</h2>
-<h2 id="5创建有状态podsmysql">5.创建有状态pods（mysql）</h2>
+</div><h2 id="4安装-nfs-外部驱动挂载-storageclass">4.安装 nfs 外部驱动挂载 storageclass</h2>
+<h2 id="5创建有状态-podsmysql">5.创建有状态 pods（mysql）</h2>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">

@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/docker-error\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "error","wordcount":  654 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "error","wordcount":  649 ,
         "url": "http:\/\/www.jobcher.com\/docker-error\/","datePublished": "2022-08-04T00:00:00+00:00","dateModified": "2022-08-04T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,7 +124,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">docker 问题处理</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/%E9%97%AE%E9%A2%98%E5%BA%93/"><i class="far fa-folder fa-fw"></i>问题库</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-08-04">2022-08-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 654 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-08-04">2022-08-04</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 649 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -143,7 +143,7 @@
             </div><div class="content" id="content"><h3 id="docker-无法启动">docker 无法启动</h3>
 <p>打开服务器输入<code>docker ps</code>,输出错误<br>
 Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?</p>
-<p>怀疑是不是<code>docker.services</code> 部署没成功，<code>systemctl start docker</code> 启动docker，结果服务器还是报错</p>
+<p>怀疑是不是<code>docker.services</code> 部署没成功，<code>systemctl start docker</code> 启动 docker，结果服务器还是报错</p>
 <p>Job for docker.service failed because the control process exited with error code.<br>
 See &ldquo;systemctl status docker.service&rdquo; and &ldquo;journalctl -xe&rdquo; for details.</p>
 <p><code>systemctl status docker.service</code> 输出日志：</p>
@@ -236,48 +236,48 @@ See &ldquo;systemctl status docker.service&rdquo; and &ldquo;journalctl -xe&rdqu
 </span></span><span class="line"><span class="cl">-- Subject: A start job <span class="k">for</span> unit docker.socket has begun execution
 </span></span><span class="line"><span class="cl">-- Defined-By: systemd
 </span></span><span class="line"><span class="cl">-- Support: http://www.ubuntu.com/support
-</span></span><span class="line"><span class="cl">-- 
+</span></span><span class="line"><span class="cl">--
 </span></span><span class="line"><span class="cl">-- A start job <span class="k">for</span> unit docker.socket has begun execution.
-</span></span><span class="line"><span class="cl">-- 
+</span></span><span class="line"><span class="cl">--
 </span></span><span class="line"><span class="cl">-- The job identifier is 58900.
 </span></span><span class="line"><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 systemd<span class="o">[</span>1<span class="o">]</span>: Listening on Docker Socket <span class="k">for</span> the API.
 </span></span><span class="line"><span class="cl">-- Subject: A start job <span class="k">for</span> unit docker.socket has finished successfully
 </span></span><span class="line"><span class="cl">-- Defined-By: systemd
 </span></span><span class="line"><span class="cl">-- Support: http://www.ubuntu.com/support
-</span></span><span class="line"><span class="cl">-- 
+</span></span><span class="line"><span class="cl">--
 </span></span><span class="line"><span class="cl">-- A start job <span class="k">for</span> unit docker.socket has finished successfully.
-</span></span><span class="line"><span class="cl">-- 
+</span></span><span class="line"><span class="cl">--
 </span></span><span class="line"><span class="cl">-- The job identifier is 58900.
 </span></span><span class="line"><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 systemd<span class="o">[</span>1<span class="o">]</span>: Starting Docker Application Container Engine...
 </span></span><span class="line"><span class="cl">-- Subject: A start job <span class="k">for</span> unit docker.service has begun execution
 </span></span><span class="line"><span class="cl">-- Defined-By: systemd
 </span></span><span class="line"><span class="cl">-- Support: http://www.ubuntu.com/support
-</span></span><span class="line"><span class="cl">-- 
+</span></span><span class="line"><span class="cl">--
 </span></span><span class="line"><span class="cl">-- A start job <span class="k">for</span> unit docker.service has begun execution.
-</span></span><span class="line"><span class="cl">-- 
+</span></span><span class="line"><span class="cl">--
 </span></span><span class="line"><span class="cl">-- The job identifier is 58830.
 </span></span><span class="line"><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 dockerd<span class="o">[</span>30544<span class="o">]</span>: unable to configure the Docker daemon with file /etc/docker/daemon.json: EOF
 </span></span><span class="line"><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 systemd<span class="o">[</span>1<span class="o">]</span>: docker.service: Main process exited, <span class="nv">code</span><span class="o">=</span>exited, <span class="nv">status</span><span class="o">=</span>1/FAILURE
 </span></span><span class="line"><span class="cl">-- Subject: Unit process exited
 </span></span><span class="line"><span class="cl">-- Defined-By: systemd
 </span></span><span class="line"><span class="cl">-- Support: http://www.ubuntu.com/support
-</span></span><span class="line"><span class="cl">-- 
+</span></span><span class="line"><span class="cl">--
 </span></span><span class="line"><span class="cl">-- An <span class="nv">ExecStart</span><span class="o">=</span> process belonging to unit docker.service has exited.
-</span></span><span class="line"><span class="cl">-- 
+</span></span><span class="line"><span class="cl">--
 </span></span><span class="line"><span class="cl">-- The process<span class="s1">&#39; exit code is &#39;</span>exited<span class="s1">&#39; and its exit status is 1.
 </span></span></span><span class="line"><span class="cl"><span class="s1">Aug 04 11:46:49 master01 systemd[1]: docker.service: Failed with result &#39;</span>exit-code<span class="s1">&#39;.
 </span></span></span><span class="line"><span class="cl"><span class="s1">-- Subject: Unit failed
 </span></span></span><span class="line"><span class="cl"><span class="s1">-- Defined-By: systemd
 </span></span></span><span class="line"><span class="cl"><span class="s1">-- Support: http://www.ubuntu.com/support
-</span></span></span><span class="line"><span class="cl"><span class="s1">-- 
+</span></span></span><span class="line"><span class="cl"><span class="s1">--
 </span></span></span><span class="line"><span class="cl"><span class="s1">-- The unit docker.service has entered the &#39;</span>failed<span class="s1">&#39; state with result &#39;</span>exit-code<span class="err">&#39;</span>.
 </span></span><span class="line"><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 systemd<span class="o">[</span>1<span class="o">]</span>: Failed to start Docker Application Container Engine.
 </span></span><span class="line"><span class="cl">-- Subject: A start job <span class="k">for</span> unit docker.service has failed
 </span></span><span class="line"><span class="cl">-- Defined-By: systemd
 </span></span><span class="line"><span class="cl">-- Support: http://www.ubuntu.com/support
-</span></span><span class="line"><span class="cl">-- 
+</span></span><span class="line"><span class="cl">--
 </span></span><span class="line"><span class="cl">-- A start job <span class="k">for</span> unit docker.service has finished with a failure.
-</span></span><span class="line"><span class="cl">-- 
+</span></span><span class="line"><span class="cl">--
 </span></span><span class="line"><span class="cl">-- The job identifier is <span class="m">58830</span> and the job result is failed.
 </span></span><span class="line"><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 sudo<span class="o">[</span>30535<span class="o">]</span>: pam_unix<span class="o">(</span>sudo:session<span class="o">)</span>: session closed <span class="k">for</span> user root
 </span></span></code></pre></td></tr></table>
@@ -311,7 +311,7 @@ unable to configure the Docker daemon with file /etc/docker/daemon.json: EOF</p>
 </span></span><span class="line"><span class="cl">:wq
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>重启docker</p>
+</div><p>重启 docker</p>
 <blockquote>
 <p>systemctl restart docker</p>
 </blockquote>

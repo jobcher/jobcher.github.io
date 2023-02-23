@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/cloudflaretrust\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "内网穿透, nps","wordcount":  342 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "内网穿透, nps","wordcount":  303 ,
         "url": "http:\/\/www.jobcher.com\/cloudflaretrust\/","datePublished": "2022-09-30T00:00:00+00:00","dateModified": "2022-09-30T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,7 +124,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Cloudflare Zero Trust 内网穿透</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/%E6%97%A5%E5%B8%B8/"><i class="far fa-folder fa-fw"></i>日常</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-09-30">2022-09-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 342 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-09-30">2022-09-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 303 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -143,11 +143,11 @@
     <li><a href="#安装部署">安装部署</a>
       <ul>
         <li><a href="#docker-部署">Docker 部署</a></li>
-        <li><a href="#linux部署">Linux部署</a></li>
-        <li><a href="#windows部署">windows部署</a></li>
+        <li><a href="#linux-部署">Linux 部署</a></li>
+        <li><a href="#windows-部署">windows 部署</a></li>
       </ul>
     </li>
-    <li><a href="#在cloudflare里配置内网穿透">在cloudflare里配置内网穿透</a></li>
+    <li><a href="#在-cloudflare-里配置内网穿透">在 cloudflare 里配置内网穿透</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="cloudflare-zero-trust-内网穿透">Cloudflare Zero Trust 内网穿透</h1>
@@ -161,11 +161,11 @@
         title="cloud" /><br>
 最快的 <code>Zero Trust</code> 应用访问和互联网浏览平台<br>
 增加可见性，消除复杂性，降低远程和办公室用户的风险。杜绝数据丢失、恶意软件和网络钓鱼，保护用户、应用程序和设备安全。<br>
-使用 Tunnel隧道来实现内网传统，实现内网访问各类应用</p>
+使用 Tunnel 隧道来实现内网传统，实现内网访问各类应用</p>
 <h2 id="安装部署">安装部署</h2>
 <p><a href="https://dash.teams.cloudflare.com/" target="_blank" rel="noopener noreffer">https://dash.teams.cloudflare.com/</a></p>
 <h3 id="docker-部署">Docker 部署</h3>
-<p>在docker环境运行 <code>&lt;token&gt;</code> 是你个人令牌</p>
+<p>在 docker 环境运行 <code>&lt;token&gt;</code> 是你个人令牌</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -174,9 +174,9 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker run -d --name cloudflared cloudflare/cloudflared:latest tunnel --no-autoupdate run --token &lt;token&gt;
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="linux部署">Linux部署</h3>
+</div><h3 id="linux-部署">Linux 部署</h3>
 <ol>
-<li>X86-64位</li>
+<li>X86-64 位</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -191,7 +191,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
-<li>X86-32位</li>
+<li>X86-32 位</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -202,9 +202,9 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386.rpm <span class="o">&amp;&amp;</span> 
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386.rpm <span class="o">&amp;&amp;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span> 
+</span></span><span class="line"><span class="cl">sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">sudo cloudflared service install &lt;token&gt;
 </span></span></code></pre></td></tr></table>
@@ -221,9 +221,9 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-aarch64.rpm <span class="o">&amp;&amp;</span> 
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-aarch64.rpm <span class="o">&amp;&amp;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span> 
+</span></span><span class="line"><span class="cl">sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">sudo cloudflared service install &lt;token&gt;
 </span></span></code></pre></td></tr></table>
@@ -240,14 +240,14 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm.rpm <span class="o">&amp;&amp;</span> 
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm.rpm <span class="o">&amp;&amp;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span> 
+</span></span><span class="line"><span class="cl">sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">sudo cloudflared service install &lt;token&gt;
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="windows部署">windows部署</h3>
+</div><h3 id="windows-部署">windows 部署</h3>
 <ol>
 <li>下载 <a href="https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.msi" target="_blank" rel="noopener noreffer">https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.msi</a></li>
 <li>运行安装程序</li>
@@ -262,7 +262,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cloudflared.exe service install &lt;token&gt;
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="在cloudflare里配置内网穿透">在cloudflare里配置内网穿透</h2>
+</div><h2 id="在-cloudflare-里配置内网穿透">在 cloudflare 里配置内网穿透</h2>
 <p><img
         class="lazyload"
         src="../svg/loading.min.svg"

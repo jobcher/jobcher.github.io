@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/ruoyi\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "work","wordcount":  148 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "work","wordcount":  136 ,
         "url": "http:\/\/www.jobcher.com\/ruoyi\/","datePublished": "2022-03-03T00:00:00+00:00","dateModified": "2022-03-03T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,7 +124,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">ruoyi-cloud docker部署</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/work/"><i class="far fa-folder fa-fw"></i>work</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-03">2022-03-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 148 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-03">2022-03-03</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 136 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -136,9 +136,9 @@
     <li><a href="#基础环境安装">基础环境安装</a></li>
     <li><a href="#下载安装">下载安装</a></li>
     <li><a href="#编译">编译</a></li>
-    <li><a href="#复制jar包">复制jar包</a></li>
-    <li><a href="#部署docker">部署docker</a></li>
-    <li><a href="#检查docker">检查docker</a></li>
+    <li><a href="#复制-jar-包">复制 jar 包</a></li>
+    <li><a href="#部署-docker">部署 docker</a></li>
+    <li><a href="#检查-docker">检查 docker</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="基础环境安装">基础环境安装</h2>
@@ -163,7 +163,7 @@
 </span></span><span class="line"><span class="cl">curl -sSL https://get.daocloud.io/docker <span class="p">|</span> sh
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">#docker compose 脚本安装</span>
-</span></span><span class="line"><span class="cl">curl -L https://get.daocloud.io/docker/compose/releases/download/v2.4.1/docker-compose-<span class="sb">`</span>uname -s<span class="sb">`</span>-<span class="sb">`</span>uname -m<span class="sb">`</span> &gt; /usr/local/bin/docker-compose 
+</span></span><span class="line"><span class="cl">curl -L https://get.daocloud.io/docker/compose/releases/download/v2.4.1/docker-compose-<span class="sb">`</span>uname -s<span class="sb">`</span>-<span class="sb">`</span>uname -m<span class="sb">`</span> &gt; /usr/local/bin/docker-compose
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">#可执行权限</span>
@@ -194,7 +194,7 @@
 </span></span><span class="line"><span class="cl">mvn clean install -DskipTests
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="复制jar包">复制jar包</h2>
+</div><h2 id="复制-jar-包">复制 jar 包</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -205,7 +205,7 @@
 </span></span><span class="line"><span class="cl">./copy.sh
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="部署docker">部署docker</h2>
+</div><h2 id="部署-docker">部署 docker</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -216,7 +216,7 @@
 </span></span><span class="line"><span class="cl">./deploy.sh modules
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="检查docker">检查docker</h2>
+</div><h2 id="检查-docker">检查 docker</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1

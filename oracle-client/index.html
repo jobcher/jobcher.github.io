@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Oracle Instant Client 安装配置实现远程连接oracle - 打工人日志 - jobcher</title><meta name="Description" content="打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通"><meta property="og:title" content="Oracle Instant Client 安装配置实现远程连接oracle" />
-<meta property="og:description" content="背景 关于Oracle 数据库一直是许多初学者比较头疼的地方，一方面受限于线上文档比较少，令一方面在企业中不得不接触和使用Oracle数据库，这" />
+<meta property="og:description" content="背景 关于 Oracle 数据库一直是许多初学者比较头疼的地方，一方面受限于线上文档比较少，令一方面在企业中不得不接触和使用 Oracle 数据库，这篇文章是教大家如何通" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.jobcher.com/oracle-client/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-11-15T00:00:00+00:00" />
@@ -17,7 +17,7 @@
 <meta name="twitter:image" content="http://www.jobcher.com/avatar1.png"/>
 
 <meta name="twitter:title" content="Oracle Instant Client 安装配置实现远程连接oracle"/>
-<meta name="twitter:description" content="背景 关于Oracle 数据库一直是许多初学者比较头疼的地方，一方面受限于线上文档比较少，令一方面在企业中不得不接触和使用Oracle数据库，这"/>
+<meta name="twitter:description" content="背景 关于 Oracle 数据库一直是许多初学者比较头疼的地方，一方面受限于线上文档比较少，令一方面在企业中不得不接触和使用 Oracle 数据库，这篇文章是教大家如何通"/>
 <meta name="application-name" content="jobcher">
 <meta name="apple-mobile-web-app-title" content="jobcher"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/oracle-client\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "oracle","wordcount":  484 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "oracle","wordcount":  409 ,
         "url": "http:\/\/www.jobcher.com\/oracle-client\/","datePublished": "2022-11-15T00:00:00+00:00","dateModified": "2022-11-15T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,7 +124,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Oracle Instant Client 安装配置实现远程连接oracle</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><i class="far fa-folder fa-fw"></i>数据库</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-11-15">2022-11-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 484 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-11-15">2022-11-15</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 409 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -141,22 +141,22 @@
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#背景">背景</a></li>
-    <li><a href="#下载oracle客户端">下载oracle客户端</a>
+    <li><a href="#下载-oracle-客户端">下载 oracle 客户端</a>
       <ul>
         <li><a href="#安装">安装</a></li>
         <li><a href="#配置环境变量">配置环境变量</a></li>
       </ul>
     </li>
-    <li><a href="#下载cx_oracle">下载cx_Oracle</a></li>
+    <li><a href="#下载-cx_oracle">下载 cx_Oracle</a></li>
     <li><a href="#执行文件">执行文件</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="背景">背景</h2>
-<p>关于Oracle 数据库一直是许多初学者比较头疼的地方，一方面受限于线上文档比较少，令一方面在企业中不得不接触和使用Oracle数据库，这篇文章是教大家如何通过配置oracle client来远程访问Oracle数据库。本文会通过python3和cx_Oracle来实现对Oracle的访问和增删改查</p>
-<h2 id="下载oracle客户端">下载oracle客户端</h2>
+<p>关于 Oracle 数据库一直是许多初学者比较头疼的地方，一方面受限于线上文档比较少，令一方面在企业中不得不接触和使用 Oracle 数据库，这篇文章是教大家如何通过配置 oracle client 来远程访问 Oracle 数据库。本文会通过 python3 和 cx_Oracle 来实现对 Oracle 的访问和增删改查</p>
+<h2 id="下载-oracle-客户端">下载 oracle 客户端</h2>
 <p><a href="https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html" target="_blank" rel="noopener noreffer">官方地址下载</a></p>
 <h3 id="安装">安装</h3>
-<p>下载并安装你的oracle client，因为我连接的11g oracle，所以下载11.2版本</p>
+<p>下载并安装你的 oracle client，因为我连接的 11g oracle，所以下载 11.2 版本</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -232,7 +232,7 @@
 </span></span><span class="line"><span class="cl"><span class="nb">source</span> /etc/profile
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="下载cx_oracle">下载cx_Oracle</h2>
+</div><h2 id="下载-cx_oracle">下载 cx_Oracle</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -241,7 +241,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">pip3 install cx_Oracle
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>创建Oracle.py文件</p>
+</div><p>创建 Oracle.py 文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1

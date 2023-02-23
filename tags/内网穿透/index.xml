@@ -16,11 +16,11 @@
 <p><br>
 最快的 <code>Zero Trust</code> 应用访问和互联网浏览平台<br>
 增加可见性，消除复杂性，降低远程和办公室用户的风险。杜绝数据丢失、恶意软件和网络钓鱼，保护用户、应用程序和设备安全。<br>
-使用 Tunnel隧道来实现内网传统，实现内网访问各类应用</p>
+使用 Tunnel 隧道来实现内网传统，实现内网访问各类应用</p>
 <h2 id="安装部署">安装部署</h2>
 <p><a href="https://dash.teams.cloudflare.com/" target="_blank" rel="noopener noreffer">https://dash.teams.cloudflare.com/</a></p>
 <h3 id="docker-部署">Docker 部署</h3>
-<p>在docker环境运行 <code>&lt;token&gt;</code> 是你个人令牌</p>
+<p>在 docker 环境运行 <code>&lt;token&gt;</code> 是你个人令牌</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -29,9 +29,9 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker run -d --name cloudflared cloudflare/cloudflared:latest tunnel --no-autoupdate run --token &lt;token&gt;
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="linux部署">Linux部署</h3>
+</div><h3 id="linux-部署">Linux 部署</h3>
 <ol>
-<li>X86-64位</li>
+<li>X86-64 位</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -46,7 +46,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
-<li>X86-32位</li>
+<li>X86-32 位</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -57,9 +57,9 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386.rpm <span class="o">&amp;&amp;</span> 
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386.rpm <span class="o">&amp;&amp;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span> 
+</span></span><span class="line"><span class="cl">sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">sudo cloudflared service install &lt;token&gt;
 </span></span></code></pre></td></tr></table>
@@ -76,9 +76,9 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-aarch64.rpm <span class="o">&amp;&amp;</span> 
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-aarch64.rpm <span class="o">&amp;&amp;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span> 
+</span></span><span class="line"><span class="cl">sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">sudo cloudflared service install &lt;token&gt;
 </span></span></code></pre></td></tr></table>
@@ -95,14 +95,14 @@
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm.rpm <span class="o">&amp;&amp;</span> 
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm.rpm <span class="o">&amp;&amp;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span> 
+</span></span><span class="line"><span class="cl">sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">sudo cloudflared service install &lt;token&gt;
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="windows部署">windows部署</h3>
+</div><h3 id="windows-部署">windows 部署</h3>
 <ol>
 <li>下载 <a href="https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.msi" target="_blank" rel="noopener noreffer">https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.msi</a></li>
 <li>运行安装程序</li>
@@ -117,7 +117,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cloudflared.exe service install &lt;token&gt;
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="在cloudflare里配置内网穿透">在cloudflare里配置内网穿透</h2>
+</div><h2 id="在-cloudflare-里配置内网穿透">在 cloudflare 里配置内网穿透</h2>
 <p></p>
 <p>欢迎关注我的博客<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer">www.jobcher.com</a></p>
 ]]></description>
@@ -128,10 +128,10 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/nps/</guid>
     <description><![CDATA[<h1 id="内网穿透">内网穿透</h1>
-<p>文章中使用的内网穿透前提是必须具有公网IP的云服务器，不符合条件的同学可以跳过了。</p>
-<h2 id="nps内网穿透">nps内网穿透</h2>
-<p>nps是一款轻量级、高性能、功能强大的内网穿透代理服务器。</p>
-<h3 id="在公网服务器上安装nps-sever端">在公网服务器上安装nps sever端</h3>
+<p>文章中使用的内网穿透前提是必须具有公网 IP 的云服务器，不符合条件的同学可以跳过了。</p>
+<h2 id="nps-内网穿透">nps 内网穿透</h2>
+<p>nps 是一款轻量级、高性能、功能强大的内网穿透代理服务器。</p>
+<h3 id="在公网服务器上安装-nps-sever-端">在公网服务器上安装 nps sever 端</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -146,7 +146,7 @@
 </span></span><span class="line"><span class="cl">    sudo nps start
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="在控制端安装npc-client端">在控制端安装npc client端</h3>
+</div><h3 id="在控制端安装-npc-client-端">在控制端安装 npc client 端</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -161,12 +161,12 @@
 </span></span><span class="line"><span class="cl">    sudo npc start
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>npc安装完成可以进入web页面穿透端口和域名<br>
+</div><p>npc 安装完成可以进入 web 页面穿透端口和域名<br>
 http://localhost:8080</p>
-<h2 id="frps内网穿透">frps内网穿透</h2>
-<p>frps 相对于nps的劣势是有断流的风险<br>
-frps 相对于nps的优势是对于高流量的媒体服务能够提供更可靠的支持</p>
-<h3 id="安装frps">安装frps</h3>
+<h2 id="frps-内网穿透">frps 内网穿透</h2>
+<p>frps 相对于 nps 的劣势是有断流的风险<br>
+frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可靠的支持</p>
+<h3 id="安装-frps">安装 frps</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -179,7 +179,7 @@ frps 相对于nps的优势是对于高流量的媒体服务能够提供更可靠
 </span></span><span class="line"><span class="cl">    ./install-frps.sh install
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>卸载 frps服务</p>
+</div><p>卸载 frps 服务</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -188,7 +188,7 @@ frps 相对于nps的优势是对于高流量的媒体服务能够提供更可靠
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    ./install-frps.sh uninstall
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>更新 frps服务</p>
+</div><p>更新 frps 服务</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1

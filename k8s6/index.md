@@ -1,10 +1,14 @@
 # kubernetes 调度过程
 
+
 # k8s 调度过程
+
 ![k8s](/images/schedule.jpg)
 
 ## 执行滚动升级
-修改deployment.yml文件，追加rollingUpdate
+
+修改 deployment.yml 文件，追加 rollingUpdate
+
 ```yaml
 # 部署应用
 apiVersion: apps/v1
@@ -12,8 +16,8 @@ kind: Deployment
 metadata:
   name: jobcher-blog-deployment
   labels:
-    app: jobcher-blog	
-spec:	        
+    app: jobcher-blog
+spec:
   replicas: 3
   selector:
     matchLabels:
@@ -30,8 +34,11 @@ spec:
         app: jobcher-blog
     spec:
       containers:
-      - name: jobcher-blog-pod
-        image: hub.docker.com/blog/hugo:latest
+        - name: jobcher-blog-pod
+          image: hub.docker.com/blog/hugo:latest
 ```
+
 执行命令
+
 > kubectl rollout restart deployment jobcher-blog-deployment
+

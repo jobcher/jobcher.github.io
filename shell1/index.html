@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>shell 脚本（1） - 打工人日志 - jobcher</title><meta name="Description" content="打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通"><meta property="og:title" content="shell 脚本（1）" />
-<meta property="og:description" content="shell脚本之变量 变量替换 语法 说明 ${变量名#匹配规则} 从变量开头进行规则匹配，将符合最短的数据删除 ${变量名##匹配规则} 从变量开头进行" />
+<meta property="og:description" content="shell 脚本之变量 变量替换 语法 说明 ${变量名#匹配规则} 从变量开头进行规则匹配，将符合最短的数据删除 ${变量名##匹配规则} 从变量开头进行规则匹配" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.jobcher.com/shell1/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-03-20T00:00:00+00:00" />
@@ -17,7 +17,7 @@
 <meta name="twitter:image" content="http://www.jobcher.com/avatar1.png"/>
 
 <meta name="twitter:title" content="shell 脚本（1）"/>
-<meta name="twitter:description" content="shell脚本之变量 变量替换 语法 说明 ${变量名#匹配规则} 从变量开头进行规则匹配，将符合最短的数据删除 ${变量名##匹配规则} 从变量开头进行"/>
+<meta name="twitter:description" content="shell 脚本之变量 变量替换 语法 说明 ${变量名#匹配规则} 从变量开头进行规则匹配，将符合最短的数据删除 ${变量名##匹配规则} 从变量开头进行规则匹配"/>
 <meta name="application-name" content="jobcher">
 <meta name="apple-mobile-web-app-title" content="jobcher"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/shell1\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "work","wordcount":  484 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "work","wordcount":  439 ,
         "url": "http:\/\/www.jobcher.com\/shell1\/","datePublished": "2022-03-20T00:00:00+00:00","dateModified": "2022-03-20T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,7 +124,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">shell 脚本（1）</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/work/"><i class="far fa-folder fa-fw"></i>work</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-20">2022-03-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 484 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-20">2022-03-20</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 439 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -137,7 +137,7 @@
     <li><a href="#字符串处理">字符串处理</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="shell脚本之变量">shell脚本之<code>变量</code></h1>
+            </div><div class="content" id="content"><h1 id="shell-脚本之变量">shell 脚本之<code>变量</code></h1>
 <h2 id="变量替换">变量替换</h2>
 <table>
 <thead>
@@ -194,7 +194,7 @@
 <tr>
 <td style="text-align:left">方法二</td>
 <td style="text-align:left">expr length &ldquo;$string&rdquo;</td>
-<td style="text-align:left">string有空格，则必须加双引号</td>
+<td style="text-align:left">string 有空格，则必须加双引号</td>
 </tr>
 </tbody>
 </table>
@@ -212,11 +212,11 @@
 </li>
 </ol>
 <ul>
-<li>${string:position} ：从string中的position开始</li>
-<li>${string:position:length}：从position开始，匹配长度为length</li>
+<li>${string:position} ：从 string 中的 position 开始</li>
+<li>${string:position:length}：从 position 开始，匹配长度为 length</li>
 <li>${string:-position}：从右边开始匹配</li>
 <li>${string:(position)}：从左边开始匹配</li>
-<li>expr substr $string $position $length：从position开始，匹配长度为length</li>
+<li>expr substr $string $position $length：从 position 开始，匹配长度为 length</li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">

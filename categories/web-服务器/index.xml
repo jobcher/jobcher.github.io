@@ -67,7 +67,7 @@
 <table>
 <thead>
 <tr>
-<th style="text-align:left">nginx编译参数</th>
+<th style="text-align:left">nginx 编译参数</th>
 <th style="text-align:left">作用</th>
 </tr>
 </thead>
@@ -178,7 +178,7 @@
 </tr>
 <tr>
 <td style="text-align:left">–with-http_degradation_module</td>
-<td style="text-align:left">启用 ngx_http_degradation_module 支持（允许在内存不足的情况下返回204 或 444 码）</td>
+<td style="text-align:left">启用 ngx_http_degradation_module 支持（允许在内存不足的情况下返回 204 或 444 码）</td>
 </tr>
 <tr>
 <td style="text-align:left">–with-http_stub_status_module</td>
@@ -206,7 +206,7 @@
 </tr>
 <tr>
 <td style="text-align:left">–without-http_auth_basic_module</td>
-<td style="text-align:left">禁用 ngx_http_auth_basic_module（该模块是可以使用用户名和密码基于http 基本认证方法来保护你的站点或其部分内容）</td>
+<td style="text-align:left">禁用 ngx_http_auth_basic_module（该模块是可以使用用户名和密码基于 http 基本认证方法来保护你的站点或其部分内容）</td>
 </tr>
 <tr>
 <td style="text-align:left">–without-http_autoindex_module</td>
@@ -234,7 +234,7 @@
 </tr>
 <tr>
 <td style="text-align:left">–without-http_rewrite_module</td>
-<td style="text-align:left">禁用 ngx_http_rewrite_module 支持（该模块允许使用正则表达式改变 URI，并且根据变量来转向以及选择配置。如果在 server 级别设置该选项，那么他们将在 location 之前生效。如果在location 还有更进一步的重写规则，location 部分的规则依然会被执行。如果这个 URI 重写是因为 location 部分的规则造成的，那么 location 部分会再次被执行作为新的 URI。 这个循环会执行 10 次，然后 Nginx 会返回一个 500 错误。）</td>
+<td style="text-align:left">禁用 ngx_http_rewrite_module 支持（该模块允许使用正则表达式改变 URI，并且根据变量来转向以及选择配置。如果在 server 级别设置该选项，那么他们将在 location 之前生效。如果在 location 还有更进一步的重写规则，location 部分的规则依然会被执行。如果这个 URI 重写是因为 location 部分的规则造成的，那么 location 部分会再次被执行作为新的 URI。 这个循环会执行 10 次，然后 Nginx 会返回一个 500 错误。）</td>
 </tr>
 <tr>
 <td style="text-align:left">–without-http_proxy_module</td>
@@ -250,7 +250,7 @@
 </tr>
 <tr>
 <td style="text-align:left">–without-http_scgi_module</td>
-<td style="text-align:left">禁用 ngx_http_scgi_module 支持（该模块用来启用 SCGI 协议支持，SCGI 协议是CGI 协议的替代。它是一种应用程序与 HTTP 服务接口标准。它有些像 FastCGI 但他的设计 更容易实现。）</td>
+<td style="text-align:left">禁用 ngx_http_scgi_module 支持（该模块用来启用 SCGI 协议支持，SCGI 协议是 CGI 协议的替代。它是一种应用程序与 HTTP 服务接口标准。它有些像 FastCGI 但他的设计 更容易实现。）</td>
 </tr>
 <tr>
 <td style="text-align:left">–without-http_memcached_module</td>
@@ -334,7 +334,7 @@
 </tr>
 <tr>
 <td style="text-align:left">–without-mail_imap_module</td>
-<td style="text-align:left">禁用 imap 协议（一种邮件获取协议。它的主要作用是邮件客户端可以通过这种协议从邮件服务器上获取邮件的信息，下载邮件等。IMAP 协议运行在 TCP/IP 协议之上， 使用的端口是 143。它与POP3 协议的主要区别是用户可以不用把所有的邮件全部下载，可以通过客户端直接对服务器上的邮件进行操作。）</td>
+<td style="text-align:left">禁用 imap 协议（一种邮件获取协议。它的主要作用是邮件客户端可以通过这种协议从邮件服务器上获取邮件的信息，下载邮件等。IMAP 协议运行在 TCP/IP 协议之上， 使用的端口是 143。它与 POP3 协议的主要区别是用户可以不用把所有的邮件全部下载，可以通过客户端直接对服务器上的邮件进行操作。）</td>
 </tr>
 <tr>
 <td style="text-align:left">–without-mail_smtp_module</td>
@@ -362,7 +362,7 @@
 </tr>
 <tr>
 <td style="text-align:left">–with-cc-opt=</td>
-<td style="text-align:left">设置 C 编译器参数（PCRE 库，需要指定–with-cc-opt=”-I /usr/local/include”，如果使用select()函数则需要同时增加文件描述符数量，可以通过–with-cc- opt=”-D FD_SETSIZE=2048”指定。）</td>
+<td style="text-align:left">设置 C 编译器参数（PCRE 库，需要指定–with-cc-opt=”-I /usr/local/include”，如果使用 select()函数则需要同时增加文件描述符数量，可以通过–with-cc- opt=”-D FD_SETSIZE=2048”指定。）</td>
 </tr>
 <tr>
 <td style="text-align:left">–with-ld-opt=</td>
@@ -453,7 +453,7 @@
     <pubDate>Fri, 24 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/nginx04/</guid>
-    <description><![CDATA[<h1 id="nginx-重写规则-rewrite模块">nginx 重写规则 rewrite模块</h1>
+    <description><![CDATA[<h1 id="nginx-重写规则-rewrite-模块">nginx 重写规则 rewrite 模块</h1>
 <h2 id="语法">语法</h2>
 <table>
 <thead>
@@ -481,7 +481,7 @@
 <td style="text-align:left">return code</td>
 <td style="text-align:left">none</td>
 <td style="text-align:left">server, location, if</td>
-<td style="text-align:left">停止处理并为客户端返回状态码。非标准的 444 状态码将关闭连接，不发送任何响应头。可以使用的状态码有：204，400，402-406，408，410, 411, 413, 416 与 500-504。如果状态码附带文字段落，该文本将被放置在响应主体。相反，如果状态码后面是一个 URL，该 URL 将成为 location 头补值。没有状态码的 URL 将被视为一个 302状态码。</td>
+<td style="text-align:left">停止处理并为客户端返回状态码。非标准的 444 状态码将关闭连接，不发送任何响应头。可以使用的状态码有：204，400，402-406，408，410, 411, 413, 416 与 500-504。如果状态码附带文字段落，该文本将被放置在响应主体。相反，如果状态码后面是一个 URL，该 URL 将成为 location 头补值。没有状态码的 URL 将被视为一个 302 状态码。</td>
 </tr>
 <tr>
 <td style="text-align:left">rewrite_log on</td>
@@ -589,12 +589,12 @@
 </span></span><span class="line"><span class="cl">error_log logs/error.log notice<span class="p">;</span> <span class="c1"># 错误日志路径</span>
 </span></span><span class="line"><span class="cl">pid logs/nginx.pid<span class="p">;</span> <span class="c1"># pid 路径</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">events 
+</span></span><span class="line"><span class="cl">events
 </span></span><span class="line"><span class="cl"><span class="o">{</span>
 </span></span><span class="line"><span class="cl">    worker_connections 1024<span class="p">;</span> <span class="c1"># 一个进程能同时处理 1024 个请求</span>
 </span></span><span class="line"><span class="cl"><span class="o">}</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">http 
+</span></span><span class="line"><span class="cl">http
 </span></span><span class="line"><span class="cl"><span class="o">{</span>
 </span></span><span class="line"><span class="cl">    include mime.types<span class="p">;</span>
 </span></span><span class="line"><span class="cl">    default_type application/octet-stream<span class="p">;</span>
@@ -606,14 +606,14 @@
 </span></span><span class="line"><span class="cl">    sendfile on<span class="p">;</span>
 </span></span><span class="line"><span class="cl">    keepalive_timeout 65<span class="p">;</span> <span class="c1"># keepalive 超市时间</span>
 </span></span><span class="line"><span class="cl">    <span class="c1"># 开始配置一个域名,一个 server 配置段一般对应一个域名</span>
-</span></span><span class="line"><span class="cl">    server 
+</span></span><span class="line"><span class="cl">    server
 </span></span><span class="line"><span class="cl">    <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        listen 80<span class="p">;</span> <span class="c1">#</span>
 </span></span><span class="line"><span class="cl">        <span class="c1"># 在本机所有 ip 上监听 80,也可以写为 192.168.1.202:80,这样的话,就只监听 192.168.1.202 上的 80 口</span>
 </span></span><span class="line"><span class="cl">        server_name www.nbtyfood.com<span class="p">;</span> <span class="c1"># 域名</span>
 </span></span><span class="line"><span class="cl">        root /www/html/www.nbtyfood.com<span class="p">;</span> <span class="c1"># 站点根目录（程序目录）</span>
 </span></span><span class="line"><span class="cl">        index index.html index.htm<span class="p">;</span> <span class="c1"># 索引文件</span>
-</span></span><span class="line"><span class="cl">        location / 
+</span></span><span class="line"><span class="cl">        location /
 </span></span><span class="line"><span class="cl">        <span class="o">{</span> <span class="c1"># 可以有多个 location</span>
 </span></span><span class="line"><span class="cl">            root /www/html/www.nbtyfood.com<span class="p">;</span> <span class="c1"># 站点根目录（程序目录）</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
@@ -624,13 +624,13 @@
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># 开始配置站点 bbs.nbtyfood.com</span>
-</span></span><span class="line"><span class="cl">    server 
+</span></span><span class="line"><span class="cl">    server
 </span></span><span class="line"><span class="cl">    <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        listen 80<span class="p">;</span>
 </span></span><span class="line"><span class="cl">        server_name bbs.nbtyfood.com<span class="p">;</span>
 </span></span><span class="line"><span class="cl">        root /www/html/bbs.nbtyfood.com<span class="p">;</span>
 </span></span><span class="line"><span class="cl">        index index.html index.htm<span class="p">;</span> <span class="c1"># 索引文件</span>
-</span></span><span class="line"><span class="cl">        location / 
+</span></span><span class="line"><span class="cl">        location /
 </span></span><span class="line"><span class="cl">        <span class="o">{</span>
 </span></span><span class="line"><span class="cl">            root /www/html/bbs.nbtyfood.com<span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
@@ -672,8 +672,8 @@
 </span></span><span class="line"><span class="cl">access_log /var/logs/nginx-access.log buffer=32k gzip flush=1m
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="使用log_format-自定义日志格式">使用log_format 自定义日志格式</h2>
-<p>Nginx预定义了名为combined日志格式，如果没有明确指定日志格式默认使用该格式：</p>
+</div><h2 id="使用-log_format-自定义日志格式">使用 log_format 自定义日志格式</h2>
+<p>Nginx 预定义了名为 combined 日志格式，如果没有明确指定日志格式默认使用该格式：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -686,7 +686,7 @@
 </span></span><span class="line"><span class="cl">                    &#39;&#34;$http_referer&#34; &#34;$http_user_agent&#34;&#39;;
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>如果不想使用Nginx预定义的格式，可以通过log_format指令来自定义。</p>
+</div><p>如果不想使用 Nginx 预定义的格式，可以通过 log_format 指令来自定义。</p>
 <h3 id="语法-1">语法</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -726,7 +726,7 @@
 </tr>
 <tr>
 <td style="text-align:left">$pipe</td>
-<td style="text-align:left">如果请求是通过http流水线发送，则其值为&quot;p&quot;，否则为“.&quot;</td>
+<td style="text-align:left">如果请求是通过 http 流水线发送，则其值为&quot;p&quot;，否则为“.&quot;</td>
 </tr>
 <tr>
 <td style="text-align:left">$request_length</td>
@@ -750,7 +750,7 @@
 </tr>
 <tr>
 <td style="text-align:left">$http_referer</td>
-<td style="text-align:left">请求的referer地址。</td>
+<td style="text-align:left">请求的 referer 地址。</td>
 </tr>
 <tr>
 <td style="text-align:left">$http_user_agent</td>
@@ -758,11 +758,11 @@
 </tr>
 <tr>
 <td style="text-align:left">$remote_addr</td>
-<td style="text-align:left">客户端IP</td>
+<td style="text-align:left">客户端 IP</td>
 </tr>
 <tr>
 <td style="text-align:left">$http_x_forwarded_for</td>
-<td style="text-align:left">当前端有代理服务器时，设置web节点记录客户端地址的配置，此参数生效的前提是代理服务器也要进行相关的x_forwarded_for设置。</td>
+<td style="text-align:left">当前端有代理服务器时，设置 web 节点记录客户端地址的配置，此参数生效的前提是代理服务器也要进行相关的 x_forwarded_for 设置。</td>
 </tr>
 <tr>
 <td style="text-align:left">$request</td>
@@ -776,12 +776,9 @@
 <td style="text-align:left">$request_uri</td>
 <td style="text-align:left">完整的请求地址，如 &ldquo;<a href="https://daojia.com/%22" target="_blank" rel="noopener noreffer">https://daojia.com/"</a></td>
 </tr>
-<tr>
-<td style="text-align:left">例子：</td>
-<td></td>
-</tr>
 </tbody>
 </table>
+<p>例子：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -804,8 +801,8 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/nginx/</guid>
     <description><![CDATA[<h1 id="nginx-汇总">nginx 汇总</h1>
-<p>各类nginx 问题汇总</p>
-<h2 id="安装nginx">安装nginx</h2>
+<p>各类 nginx 问题汇总</p>
+<h2 id="安装-nginx">安装 nginx</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -820,7 +817,7 @@
 </span></span><span class="line"><span class="cl">    apt install nginx
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="http代理">http代理</h2>
+</div><h2 id="http-代理">http 代理</h2>
 <h3 id="正向代理">正向代理</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -837,7 +834,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    server <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        listen       80<span class="p">;</span>
 </span></span><span class="line"><span class="cl">        server_name  www.nbtyfood.com<span class="p">;</span>
-</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        location / <span class="o">{</span>
 </span></span><span class="line"><span class="cl">            proxy_pass http://127.0.0.1:8080<span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
@@ -860,21 +857,21 @@
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    upstream mysvr <span class="o">{</span> 
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    upstream mysvr <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    server 192.168.10.121:3333<span class="p">;</span>
 </span></span><span class="line"><span class="cl">    server 192.168.10.122:3333<span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span><span class="line"><span class="cl">    server <span class="o">{</span>
 </span></span><span class="line"><span class="cl">        ....
-</span></span><span class="line"><span class="cl">        location  ~*^.+$ <span class="o">{</span>         
-</span></span><span class="line"><span class="cl">            proxy_pass  http://mysvr<span class="p">;</span>  <span class="c1">#请求转向mysvr 定义的服务器列表         </span>
+</span></span><span class="line"><span class="cl">        location  ~*^.+$ <span class="o">{</span>
+</span></span><span class="line"><span class="cl">            proxy_pass  http://mysvr<span class="p">;</span>  <span class="c1">#请求转向mysvr 定义的服务器列表</span>
 </span></span><span class="line"><span class="cl">        <span class="o">}</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ol>
 <li>热备<br>
-如果你有2台服务器，当一台服务器发生事故时，才启用第二台服务器给提供服务。服务器处理请求的顺序：AAAAAA突然A挂啦，BBBBBBBBBBBBBB&hellip;..</li>
+如果你有 2 台服务器，当一台服务器发生事故时，才启用第二台服务器给提供服务。服务器处理请求的顺序：AAAAAA 突然 A 挂啦，BBBBBBBBBBBBBB&hellip;..</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -884,15 +881,15 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    upstream mysvr <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">    server 127.0.0.1:7878<span class="p">;</span> 
-</span></span><span class="line"><span class="cl">    server 192.168.10.121:3333 backup<span class="p">;</span>  <span class="c1">#热备     </span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    upstream mysvr <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    server 127.0.0.1:7878<span class="p">;</span>
+</span></span><span class="line"><span class="cl">    server 192.168.10.121:3333 backup<span class="p">;</span>  <span class="c1">#热备</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
 <li>轮询<br>
-nginx默认就是轮询其权重都默认为1，服务器处理请求的顺序：ABABABABAB&hellip;.</li>
+nginx 默认就是轮询其权重都默认为 1，服务器处理请求的顺序：ABABABABAB&hellip;.</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -902,15 +899,15 @@ nginx默认就是轮询其权重都默认为1，服务器处理请求的顺序�
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    upstream mysvr <span class="o">{</span> 
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    upstream mysvr <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    server 127.0.0.1:7878<span class="p">;</span>
-</span></span><span class="line"><span class="cl">    server 192.168.10.121:3333<span class="p">;</span>       
+</span></span><span class="line"><span class="cl">    server 192.168.10.121:3333<span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="3">
 <li>加权轮询<br>
-跟据配置的权重的大小而分发给不同服务器不同数量的请求。如果不设置，则默认为1。下面服务器的请求顺序为：ABBABBABBABBABB&hellip;.</li>
+跟据配置的权重的大小而分发给不同服务器不同数量的请求。如果不设置，则默认为 1。下面服务器的请求顺序为：ABBABBABBABBABB&hellip;.</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -920,7 +917,7 @@ nginx默认就是轮询其权重都默认为1，服务器处理请求的顺序�
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    upstream mysvr <span class="o">{</span> 
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    upstream mysvr <span class="o">{</span>
 </span></span><span class="line"><span class="cl">    server 127.0.0.1:7878 <span class="nv">weight</span><span class="o">=</span>1<span class="p">;</span>w
 </span></span><span class="line"><span class="cl">    server 192.168.10.121:3333 <span class="nv">weight</span><span class="o">=</span>2<span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
@@ -928,7 +925,7 @@ nginx默认就是轮询其权重都默认为1，服务器处理请求的顺序�
 </div>
 </div><ol start="4">
 <li>ip_hash
-nginx会让相同的客户端ip请求相同的服务器。</li>
+nginx 会让相同的客户端 ip 请求相同的服务器。</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -939,14 +936,14 @@ nginx会让相同的客户端ip请求相同的服务器。</li>
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    upstream mysvr <span class="o">{</span> 
-</span></span><span class="line"><span class="cl">    server 127.0.0.1:7878<span class="p">;</span> 
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    upstream mysvr <span class="o">{</span>
+</span></span><span class="line"><span class="cl">    server 127.0.0.1:7878<span class="p">;</span>
 </span></span><span class="line"><span class="cl">    server 192.168.10.121:3333<span class="p">;</span>
 </span></span><span class="line"><span class="cl">    ip_hash<span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="web缓存">web缓存</h2>
+</div><h2 id="web-缓存">web 缓存</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1

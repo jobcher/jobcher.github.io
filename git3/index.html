@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Git 规则 - 打工人日志 - jobcher</title><meta name="Description" content="打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通"><meta property="og:title" content="Git 规则" />
-<meta property="og:description" content="Git飞行规则(Flight Rules) 编辑提交(editting commits) 我刚才提交了什么? 我的提交信息(commit message)写错了 我提交(comm" />
+<meta property="og:description" content="Git 飞行规则(Flight Rules) 编辑提交(editting commits) 我刚才提交了什么? 我的提交信息(commit message)写错了 我提交(commit" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.jobcher.com/git3/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-03-24T00:00:00+00:00" />
@@ -17,7 +17,7 @@
 <meta name="twitter:image" content="http://www.jobcher.com/avatar1.png"/>
 
 <meta name="twitter:title" content="Git 规则"/>
-<meta name="twitter:description" content="Git飞行规则(Flight Rules) 编辑提交(editting commits) 我刚才提交了什么? 我的提交信息(commit message)写错了 我提交(comm"/>
+<meta name="twitter:description" content="Git 飞行规则(Flight Rules) 编辑提交(editting commits) 我刚才提交了什么? 我的提交信息(commit message)写错了 我提交(commit"/>
 <meta name="application-name" content="jobcher">
 <meta name="apple-mobile-web-app-title" content="jobcher"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/git3\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "gitlab","wordcount":  10226 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "gitlab","wordcount":  9793 ,
         "url": "http:\/\/www.jobcher.com\/git3\/","datePublished": "2022-03-24T00:00:00+00:00","dateModified": "2022-03-24T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,8 +124,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Git 规则</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/gitlab/"><i class="far fa-folder fa-fw"></i>gitlab</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-24">2022-03-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 10226 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 21 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-03-24">2022-03-24</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 9793 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 20 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -165,8 +165,8 @@
       <ul>
         <li><a href="#我从错误的分支拉取了内容或把内容拉取到了错误的分支">我从错误的分支拉取了内容，或把内容拉取到了错误的分支</a></li>
         <li><a href="#我想扔掉本地的提交commit以便我的分支与远程的保持一致">我想扔掉本地的提交(commit)，以便我的分支与远程的保持一致</a></li>
-        <li><a href="#我需要提交到一个新分支但错误的提交到了main">我需要提交到一个新分支，但错误的提交到了main</a></li>
-        <li><a href="#我想保留来自另外一个ref-ish的整个文件">我想保留来自另外一个ref-ish的整个文件</a></li>
+        <li><a href="#我需要提交到一个新分支但错误的提交到了-main">我需要提交到一个新分支，但错误的提交到了 main</a></li>
+        <li><a href="#我想保留来自另外一个-ref-ish-的整个文件">我想保留来自另外一个 ref-ish 的整个文件</a></li>
         <li><a href="#我把几个提交commit提交到了同一个分支而这些提交应该分布在不同的分支里">我把几个提交(commit)提交到了同一个分支，而这些提交应该分布在不同的分支里</a></li>
         <li><a href="#我想删除上游upstream分支被删除了的本地分支">我想删除上游(upstream)分支被删除了的本地分支</a></li>
         <li><a href="#我不小心删除了我的分支">我不小心删除了我的分支</a></li>
@@ -176,8 +176,8 @@
     </li>
     <li><a href="#rebasing-和合并merging">Rebasing 和合并(Merging)</a>
       <ul>
-        <li><a href="#我想撤销rebasemerge">我想撤销rebase/merge</a></li>
-        <li><a href="#我已经rebase过-但是我不想强推force-push">我已经rebase过, 但是我不想强推(force push)</a></li>
+        <li><a href="#我想撤销-rebasemerge">我想撤销 rebase/merge</a></li>
+        <li><a href="#我已经-rebase-过-但是我不想强推force-push">我已经 rebase 过, 但是我不想强推(force push)</a></li>
         <li><a href="#我需要组合combine几个提交commit">我需要组合(combine)几个提交(commit)</a>
           <ul>
             <li><a href="#安全合并merging策略">安全合并(merging)策略</a></li>
@@ -186,9 +186,9 @@
           </ul>
         </li>
         <li><a href="#检查是否分支上的所有提交commit都合并merge过了">检查是否分支上的所有提交(commit)都合并(merge)过了</a></li>
-        <li><a href="#交互式rebaseinteractive-rebase可能出现的问题">交互式rebase(interactive rebase)可能出现的问题</a>
+        <li><a href="#交互式-rebaseinteractive-rebase可能出现的问题">交互式 rebase(interactive rebase)可能出现的问题</a>
           <ul>
-            <li><a href="#这个rebase-编辑屏幕出现noop">这个rebase 编辑屏幕出现&rsquo;noop&rsquo;</a></li>
+            <li><a href="#这个-rebase-编辑屏幕出现noop">这个 rebase 编辑屏幕出现&rsquo;noop&rsquo;</a></li>
             <li><a href="#有冲突的情况">有冲突的情况</a></li>
           </ul>
         </li>
@@ -214,12 +214,12 @@
     <li><a href="#跟踪文件tracking-files">跟踪文件(Tracking Files)</a>
       <ul>
         <li><a href="#我只想改变一个文件名字的大小写而不修改内容">我只想改变一个文件名字的大小写，而不修改内容</a></li>
-        <li><a href="#我想从git删除一个文件但保留该文件">我想从Git删除一个文件，但保留该文件</a></li>
+        <li><a href="#我想从-git-删除一个文件但保留该文件">我想从 Git 删除一个文件，但保留该文件</a></li>
       </ul>
     </li>
     <li><a href="#配置configuration">配置(Configuration)</a>
       <ul>
-        <li><a href="#我想给一些git命令添加别名alias">我想给一些Git命令添加别名(alias)</a></li>
+        <li><a href="#我想给一些-git-命令添加别名alias">我想给一些 Git 命令添加别名(alias)</a></li>
         <li><a href="#我想缓存一个仓库repository的用户名和密码">我想缓存一个仓库(repository)的用户名和密码</a></li>
       </ul>
     </li>
@@ -230,10 +230,10 @@
     <li><a href="#书books">书(Books)</a></li>
     <li><a href="#教程tutorials">教程(Tutorials)</a></li>
     <li><a href="#脚本和工具scripts-and-tools">脚本和工具(Scripts and Tools)</a></li>
-    <li><a href="#gui客户端gui-clients">GUI客户端(GUI Clients)</a></li>
+    <li><a href="#gui-客户端gui-clients">GUI 客户端(GUI Clients)</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="git飞行规则flight-rules">Git飞行规则(Flight Rules)</h1>
+            </div><div class="content" id="content"><h1 id="git-飞行规则flight-rules">Git 飞行规则(Flight Rules)</h1>
 <ul>
 <li><a href="#%E7%BC%96%E8%BE%91%E6%8F%90%E4%BA%A4editting-commits" rel="">编辑提交(editting commits)</a>
 <ul>
@@ -267,8 +267,8 @@
 <ul>
 <li><a href="#%E6%88%91%E4%BB%8E%E9%94%99%E8%AF%AF%E7%9A%84%E5%88%86%E6%94%AF%E6%8B%89%E5%8F%96%E4%BA%86%E5%86%85%E5%AE%B9%E6%88%96%E6%8A%8A%E5%86%85%E5%AE%B9%E6%8B%89%E5%8F%96%E5%88%B0%E4%BA%86%E9%94%99%E8%AF%AF%E7%9A%84%E5%88%86%E6%94%AF" rel="">我从错误的分支拉取了内容，或把内容拉取到了错误的分支</a></li>
 <li><a href="#%E6%88%91%E6%83%B3%E6%89%94%E6%8E%89%E6%9C%AC%E5%9C%B0%E7%9A%84%E6%8F%90%E4%BA%A4commit%E4%BB%A5%E4%BE%BF%E6%88%91%E7%9A%84%E5%88%86%E6%94%AF%E4%B8%8E%E8%BF%9C%E7%A8%8B%E7%9A%84%E4%BF%9D%E6%8C%81%E4%B8%80%E8%87%B4" rel="">我想扔掉本地的提交(commit)，以便我的分支与远程的保持一致</a></li>
-<li><a href="#%E6%88%91%E9%9C%80%E8%A6%81%E6%8F%90%E4%BA%A4%E5%88%B0%E4%B8%80%E4%B8%AA%E6%96%B0%E5%88%86%E6%94%AF%E4%BD%86%E9%94%99%E8%AF%AF%E7%9A%84%E6%8F%90%E4%BA%A4%E5%88%B0%E4%BA%86main" rel="">我需要提交到一个新分支，但错误的提交到了main</a></li>
-<li><a href="#%E6%88%91%E6%83%B3%E4%BF%9D%E7%95%99%E6%9D%A5%E8%87%AA%E5%8F%A6%E5%A4%96%E4%B8%80%E4%B8%AAref-ish%E7%9A%84%E6%95%B4%E4%B8%AA%E6%96%87%E4%BB%B6" rel="">我想保留来自另外一个ref-ish的整个文件</a></li>
+<li><a href="#%E6%88%91%E9%9C%80%E8%A6%81%E6%8F%90%E4%BA%A4%E5%88%B0%E4%B8%80%E4%B8%AA%E6%96%B0%E5%88%86%E6%94%AF%E4%BD%86%E9%94%99%E8%AF%AF%E7%9A%84%E6%8F%90%E4%BA%A4%E5%88%B0%E4%BA%86main" rel="">我需要提交到一个新分支，但错误的提交到了 main</a></li>
+<li><a href="#%E6%88%91%E6%83%B3%E4%BF%9D%E7%95%99%E6%9D%A5%E8%87%AA%E5%8F%A6%E5%A4%96%E4%B8%80%E4%B8%AAref-ish%E7%9A%84%E6%95%B4%E4%B8%AA%E6%96%87%E4%BB%B6" rel="">我想保留来自另外一个 ref-ish 的整个文件</a></li>
 <li><a href="#%E6%88%91%E6%8A%8A%E5%87%A0%E4%B8%AA%E6%8F%90%E4%BA%A4commit%E6%8F%90%E4%BA%A4%E5%88%B0%E4%BA%86%E5%90%8C%E4%B8%80%E4%B8%AA%E5%88%86%E6%94%AF%E8%80%8C%E8%BF%99%E4%BA%9B%E6%8F%90%E4%BA%A4%E5%BA%94%E8%AF%A5%E5%88%86%E5%B8%83%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E5%88%86%E6%94%AF%E9%87%8C" rel="">我把几个提交(commit)提交到了同一个分支，而这些提交应该分布在不同的分支里</a></li>
 <li><a href="#%E6%88%91%E6%83%B3%E5%88%A0%E9%99%A4%E4%B8%8A%E6%B8%B8upstream%E5%88%86%E6%94%AF%E8%A2%AB%E5%88%A0%E9%99%A4%E4%BA%86%E7%9A%84%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF" rel="">我想删除上游(upstream)分支被删除了的本地分支</a></li>
 <li><a href="#%E6%88%91%E4%B8%8D%E5%B0%8F%E5%BF%83%E5%88%A0%E9%99%A4%E4%BA%86%E6%88%91%E7%9A%84%E5%88%86%E6%94%AF" rel="">我不小心删除了我的分支</a></li>
@@ -278,8 +278,8 @@
 </li>
 <li><a href="#rebasing-%E5%92%8C%E5%90%88%E5%B9%B6merging" rel="">Rebasing 和合并(Merging)</a>
 <ul>
-<li><a href="#%E6%88%91%E6%83%B3%E6%92%A4%E9%94%80rebasemerge" rel="">我想撤销rebase/merge</a></li>
-<li><a href="#%E6%88%91%E5%B7%B2%E7%BB%8Frebase%E8%BF%87-%E4%BD%86%E6%98%AF%E6%88%91%E4%B8%8D%E6%83%B3%E5%BC%BA%E6%8E%A8force-push" rel="">我已经rebase过, 但是我不想强推(force push)</a></li>
+<li><a href="#%E6%88%91%E6%83%B3%E6%92%A4%E9%94%80rebasemerge" rel="">我想撤销 rebase/merge</a></li>
+<li><a href="#%E6%88%91%E5%B7%B2%E7%BB%8Frebase%E8%BF%87-%E4%BD%86%E6%98%AF%E6%88%91%E4%B8%8D%E6%83%B3%E5%BC%BA%E6%8E%A8force-push" rel="">我已经 rebase 过, 但是我不想强推(force push)</a></li>
 <li><a href="#%E6%88%91%E9%9C%80%E8%A6%81%E7%BB%84%E5%90%88combine%E5%87%A0%E4%B8%AA%E6%8F%90%E4%BA%A4commit" rel="">我需要组合(combine)几个提交(commit)</a>
 <ul>
 <li><a href="#%E5%AE%89%E5%85%A8%E5%90%88%E5%B9%B6merging%E7%AD%96%E7%95%A5" rel="">安全合并(merging)策略</a></li>
@@ -288,9 +288,9 @@
 </ul>
 </li>
 <li><a href="#%E6%A3%80%E6%9F%A5%E6%98%AF%E5%90%A6%E5%88%86%E6%94%AF%E4%B8%8A%E7%9A%84%E6%89%80%E6%9C%89%E6%8F%90%E4%BA%A4commit%E9%83%BD%E5%90%88%E5%B9%B6merge%E8%BF%87%E4%BA%86" rel="">检查是否分支上的所有提交(commit)都合并(merge)过了</a></li>
-<li><a href="#%E4%BA%A4%E4%BA%92%E5%BC%8Frebaseinteractive-rebase%E5%8F%AF%E8%83%BD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98" rel="">交互式rebase(interactive rebase)可能出现的问题</a>
+<li><a href="#%E4%BA%A4%E4%BA%92%E5%BC%8Frebaseinteractive-rebase%E5%8F%AF%E8%83%BD%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98" rel="">交互式 rebase(interactive rebase)可能出现的问题</a>
 <ul>
-<li><a href="#%E8%BF%99%E4%B8%AArebase-%E7%BC%96%E8%BE%91%E5%B1%8F%E5%B9%95%E5%87%BA%E7%8E%B0noop" rel="">这个rebase 编辑屏幕出现&rsquo;noop&rsquo;</a></li>
+<li><a href="#%E8%BF%99%E4%B8%AArebase-%E7%BC%96%E8%BE%91%E5%B1%8F%E5%B9%95%E5%87%BA%E7%8E%B0noop" rel="">这个 rebase 编辑屏幕出现&rsquo;noop&rsquo;</a></li>
 <li><a href="#%E6%9C%89%E5%86%B2%E7%AA%81%E7%9A%84%E6%83%85%E5%86%B5" rel="">有冲突的情况</a></li>
 </ul>
 </li>
@@ -316,12 +316,12 @@
 <li><a href="#%E8%B7%9F%E8%B8%AA%E6%96%87%E4%BB%B6tracking-files" rel="">跟踪文件(Tracking Files)</a>
 <ul>
 <li><a href="#%E6%88%91%E5%8F%AA%E6%83%B3%E6%94%B9%E5%8F%98%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E5%90%8D%E5%AD%97%E7%9A%84%E5%A4%A7%E5%B0%8F%E5%86%99%E8%80%8C%E4%B8%8D%E4%BF%AE%E6%94%B9%E5%86%85%E5%AE%B9" rel="">我只想改变一个文件名字的大小写，而不修改内容</a></li>
-<li><a href="#%E6%88%91%E6%83%B3%E4%BB%8Egit%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E4%BD%86%E4%BF%9D%E7%95%99%E8%AF%A5%E6%96%87%E4%BB%B6" rel="">我想从Git删除一个文件，但保留该文件</a></li>
+<li><a href="#%E6%88%91%E6%83%B3%E4%BB%8Egit%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E4%BD%86%E4%BF%9D%E7%95%99%E8%AF%A5%E6%96%87%E4%BB%B6" rel="">我想从 Git 删除一个文件，但保留该文件</a></li>
 </ul>
 </li>
 <li><a href="#%E9%85%8D%E7%BD%AEconfiguration" rel="">配置(Configuration)</a>
 <ul>
-<li><a href="#%E6%88%91%E6%83%B3%E7%BB%99%E4%B8%80%E4%BA%9Bgit%E5%91%BD%E4%BB%A4%E6%B7%BB%E5%8A%A0%E5%88%AB%E5%90%8Dalias" rel="">我想给一些Git命令添加别名(alias)</a></li>
+<li><a href="#%E6%88%91%E6%83%B3%E7%BB%99%E4%B8%80%E4%BA%9Bgit%E5%91%BD%E4%BB%A4%E6%B7%BB%E5%8A%A0%E5%88%AB%E5%90%8Dalias" rel="">我想给一些 Git 命令添加别名(alias)</a></li>
 <li><a href="#%E6%88%91%E6%83%B3%E7%BC%93%E5%AD%98%E4%B8%80%E4%B8%AA%E4%BB%93%E5%BA%93repository%E7%9A%84%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E5%AF%86%E7%A0%81" rel="">我想缓存一个仓库(repository)的用户名和密码</a></li>
 </ul>
 </li>
@@ -331,7 +331,7 @@
 <li><a href="#%E4%B9%A6books" rel="">书(Books)</a></li>
 <li><a href="#%E6%95%99%E7%A8%8Btutorials" rel="">教程(Tutorials)</a></li>
 <li><a href="#%E8%84%9A%E6%9C%AC%E5%92%8C%E5%B7%A5%E5%85%B7scripts-and-tools" rel="">脚本和工具(Scripts and Tools)</a></li>
-<li><a href="#gui%E5%AE%A2%E6%88%B7%E7%AB%AFgui-clients" rel="">GUI客户端(GUI Clients)</a></li>
+<li><a href="#gui%E5%AE%A2%E6%88%B7%E7%AB%AFgui-clients" rel="">GUI 客户端(GUI Clients)</a></li>
 </ul>
 </li>
 </ul>
@@ -419,7 +419,7 @@
 </span></span><span class="line"><span class="cl">$ git push -f <span class="o">[</span>remote<span class="o">]</span> <span class="o">[</span>branch<span class="o">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>如果你还没有推到远程, 把Git重置(reset)到你最后一次提交前的状态就可以了(同时保存暂存的变化):</p>
+</div><p>如果你还没有推到远程, 把 Git 重置(reset)到你最后一次提交前的状态就可以了(同时保存暂存的变化):</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -428,7 +428,7 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">(my-branch*)$ git reset --soft HEAD@{1}
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>这只能在没有推送之前有用. 如果你已经推了, 唯一安全能做的是 <code>git revert SHAofBadCommit</code>， 那会创建一个新的提交(commit)用于撤消前一个提交的所有变化(changes)； 或者, 如果你推的这个分支是rebase-safe的 (例如： 其它开发者不会从这个分支拉), 只需要使用 <code>git push -f</code>； 更多, 请参考 <a href="#deleteremove-last-pushed-commit" rel="">the above section</a>。</p>
+</div><p>这只能在没有推送之前有用. 如果你已经推了, 唯一安全能做的是 <code>git revert SHAofBadCommit</code>， 那会创建一个新的提交(commit)用于撤消前一个提交的所有变化(changes)； 或者, 如果你推的这个分支是 rebase-safe 的 (例如： 其它开发者不会从这个分支拉), 只需要使用 <code>git push -f</code>； 更多, 请参考 <a href="#deleteremove-last-pushed-commit" rel="">the above section</a>。</p>
 <p><a name="delete-any-commit"></a></p>
 <h3 id="删除任意提交commit">删除任意提交(commit)</h3>
 <p>同样的警告：不到万不得已的时候不要这么做.</p>
@@ -442,7 +442,7 @@
 </span></span><span class="line"><span class="cl">$ git push -f <span class="o">[</span>remote<span class="o">]</span> <span class="o">[</span>branch<span class="o">]</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>或者做一个 <a href="#interactive-rebase" rel="">交互式rebase</a> 删除那些你想要删除的提交(commit)里所对应的行。</p>
+</div><p>或者做一个 <a href="#interactive-rebase" rel="">交互式 rebase</a> 删除那些你想要删除的提交(commit)里所对应的行。</p>
 <p><a name="#force-push"></a></p>
 <h3 id="我尝试推一个修正后的提交amended-commit到远程但是报错">我尝试推一个修正后的提交(amended commit)到远程，但是报错：</h3>
 <div class="highlight"><div class="chroma">
@@ -477,7 +477,7 @@
 </div><p>一般来说, <strong>要避免强推</strong>. 最好是创建和推(push)一个新的提交(commit)，而不是强推一个修正后的提交。后者会使那些与该分支或该分支的子分支工作的开发者，在源历史中产生冲突。</p>
 <p><a href="undo-git-reset-hard"></a></p>
 <h3 id="我意外的做了一次硬重置hard-reset我想找回我的内容">我意外的做了一次硬重置(hard reset)，我想找回我的内容</h3>
-<p>如果你意外的做了 <code>git reset --hard</code>, 你通常能找回你的提交(commit), 因为Git对每件事都会有日志，且都会保存几天。</p>
+<p>如果你意外的做了 <code>git reset --hard</code>, 你通常能找回你的提交(commit), 因为 Git 对每件事都会有日志，且都会保存几天。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -486,7 +486,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">(</span>main<span class="o">)</span>$ git reflog
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>你将会看到一个你过去提交(commit)的列表, 和一个重置的提交。 选择你想要回到的提交(commit)的SHA，再重置一次:</p>
+</div><p>你将会看到一个你过去提交(commit)的列表, 和一个重置的提交。 选择你想要回到的提交(commit)的 SHA，再重置一次:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -533,8 +533,8 @@
 <p><code>git add</code> 会把整个文件加入到一个提交. <code>git add -p</code> 允许交互式的选择你想要提交的部分.</p>
 <p><a href="unstaging-edits-and-staging-the-unstaged"></a></p>
 <h3 id="我想把暂存的内容变成未暂存把未暂存的内容暂存起来">我想把暂存的内容变成未暂存，把未暂存的内容暂存起来</h3>
-<p>多数情况下，你应该将所有的内容变为未暂存，然后再选择你想要的内容进行commit。
-但假定你就是想要这么做，这里你可以创建一个临时的commit来保存你已暂存的内容，然后暂存你的未暂存的内容并进行stash。然后reset最后一个commit将原本暂存的内容变为未暂存，最后stash pop回来。</p>
+<p>多数情况下，你应该将所有的内容变为未暂存，然后再选择你想要的内容进行 commit。
+但假定你就是想要这么做，这里你可以创建一个临时的 commit 来保存你已暂存的内容，然后暂存你的未暂存的内容并进行 stash。然后 reset 最后一个 commit 将原本暂存的内容变为未暂存，最后 stash pop 回来。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -551,8 +551,8 @@
 </span></span><span class="line"><span class="cl">$ git stash pop --index <span class="m">0</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>注意1: 这里使用<code>pop</code>仅仅是因为想尽可能保持幂等。
-注意2: 假如你不加上<code>--index</code>你会把暂存的文件标记为为存储.这个<a href="https://stackoverflow.com/questions/31595873/git-stash-with-staged-files-does-stash-convert-staged-files-to-unstaged?answertab=active#tab-top" target="_blank" rel="noopener noreffer">链接</a> 解释得比较清楚。（不过是英文的，其大意是说，这是一个较为底层的问题，stash时会做2个commit，其中一个会记录index状态，staged的文件等东西，另一个记录worktree和其他的一些东西，如果你不在apply时加index，git会把两个一起销毁，所以staged里就空了）。</p>
+</div><p>注意 1: 这里使用<code>pop</code>仅仅是因为想尽可能保持幂等。
+注意 2: 假如你不加上<code>--index</code>你会把暂存的文件标记为为存储.这个<a href="https://stackoverflow.com/questions/31595873/git-stash-with-staged-files-does-stash-convert-staged-files-to-unstaged?answertab=active#tab-top" target="_blank" rel="noopener noreffer">链接</a> 解释得比较清楚。（不过是英文的，其大意是说，这是一个较为底层的问题，stash 时会做 2 个 commit，其中一个会记录 index 状态，staged 的文件等东西，另一个记录 worktree 和其他的一些东西，如果你不在 apply 时加 index，git 会把两个一起销毁，所以 staged 里就空了）。</p>
 <h2 id="未暂存unstaged的内容">未暂存(Unstaged)的内容</h2>
 <p><a href="move-unstaged-edits-to-new-branch"></a></p>
 <h3 id="我想把未暂存的内容移动到一个新分支">我想把未暂存的内容移动到一个新分支</h3>
@@ -626,7 +626,7 @@
 </span></span><span class="line"><span class="cl"><span class="c1"># Answer y to all of the snippets you want to drop</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>另外一个方法是使用 <code>stash</code>， Stash所有要保留下的内容, 重置工作拷贝, 重新应用保留的部分。</p>
+</div><p>另外一个方法是使用 <code>stash</code>， Stash 所有要保留下的内容, 重置工作拷贝, 重新应用保留的部分。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -641,7 +641,7 @@
 </span></span><span class="line"><span class="cl">$ git stash pop
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>或者, stash 你不需要的部分, 然后stash drop。</p>
+</div><p>或者, stash 你不需要的部分, 然后 stash drop。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -657,7 +657,7 @@
 </div><h2 id="分支branches">分支(Branches)</h2>
 <p><a name="pull-wrong-branch"></a></p>
 <h3 id="我从错误的分支拉取了内容或把内容拉取到了错误的分支">我从错误的分支拉取了内容，或把内容拉取到了错误的分支</h3>
-<p>这是另外一种使用 <code>git reflog</code> 情况，找到在这次错误拉(pull) 之前HEAD的指向。</p>
+<p>这是另外一种使用 <code>git reflog</code> 情况，找到在这次错误拉(pull) 之前 HEAD 的指向。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -710,8 +710,8 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><a name="commit-wrong-branch"></a></p>
-<h3 id="我需要提交到一个新分支但错误的提交到了main">我需要提交到一个新分支，但错误的提交到了main</h3>
-<p>在main下创建一个新分支，不切换到新分支,仍在main下:</p>
+<h3 id="我需要提交到一个新分支但错误的提交到了-main">我需要提交到一个新分支，但错误的提交到了 main</h3>
+<p>在 main 下创建一个新分支，不切换到新分支,仍在 main 下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -720,7 +720,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">(</span>main<span class="o">)</span>$ git branch my-branch
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>把main分支重置到前一个提交:</p>
+</div><p>把 main 分支重置到前一个提交:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -730,8 +730,8 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><code>HEAD^</code> 是 <code>HEAD^1</code> 的简写，你可以通过指定要设置的<code>HEAD</code>来进一步重置。</p>
-<p>或者, 如果你不想使用 <code>HEAD^</code>, 找到你想重置到的提交(commit)的hash(<code>git log</code> 能够完成)， 然后重置到这个hash。 使用<code>git push</code> 同步内容到远程。</p>
-<p>例如, main分支想重置到的提交的hash为<code>a13b85e</code>:</p>
+<p>或者, 如果你不想使用 <code>HEAD^</code>, 找到你想重置到的提交(commit)的 hash(<code>git log</code> 能够完成)， 然后重置到这个 hash。 使用<code>git push</code> 同步内容到远程。</p>
+<p>例如, main 分支想重置到的提交的 hash 为<code>a13b85e</code>:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -752,8 +752,8 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><a name="keep-whole-file"></a></p>
-<h3 id="我想保留来自另外一个ref-ish的整个文件">我想保留来自另外一个ref-ish的整个文件</h3>
-<p>假设你正在做一个原型方案(原文为working spike (see note)), 有成百的内容，每个都工作得很好。现在, 你提交到了一个分支，保存工作内容:</p>
+<h3 id="我想保留来自另外一个-ref-ish-的整个文件">我想保留来自另外一个 ref-ish 的整个文件</h3>
+<p>假设你正在做一个原型方案(原文为 working spike (see note)), 有成百的内容，每个都工作得很好。现在, 你提交到了一个分支，保存工作内容:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -833,7 +833,7 @@
 </span></span><span class="line"><span class="cl">    First commit
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>让我们用提交hash(commit hash)标记bug (<code>e3851e8</code> for #21, <code>5ea5173</code> for #14).</p>
+</div><p>让我们用提交 hash(commit hash)标记 bug (<code>e3851e8</code> for #21, <code>5ea5173</code> for #14).</p>
 <p>首先, 我们把<code>main</code>分支重置到正确的提交(<code>a13b85e</code>):</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -856,7 +856,7 @@
 </span></span><span class="line"><span class="cl"><span class="o">(</span>21<span class="o">)</span>$
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>接着, 我们用 <em>cherry-pick</em> 把对bug #21的提交放入当前分支。 这意味着我们将应用(apply)这个提交(commit)，仅仅这一个提交(commit)，直接在HEAD上面。</p>
+</div><p>接着, 我们用 <em>cherry-pick</em> 把对 bug #21 的提交放入当前分支。 这意味着我们将应用(apply)这个提交(commit)，仅仅这一个提交(commit)，直接在 HEAD 上面。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -866,7 +866,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>这时候, 这里可能会产生冲突， 参见<a href="#interactive-rebase" rel="">交互式 rebasing 章</a> <a href="#merge-conflict" rel=""><strong>冲突节</strong></a> 解决冲突.</p>
-<p>再者， 我们为bug #14 创建一个新的分支, 也基于<code>main</code>分支</p>
+<p>再者， 我们为 bug #14 创建一个新的分支, 也基于<code>main</code>分支</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -890,7 +890,7 @@
 </div>
 </div><p><a name="delete-stale-local-branches"></a></p>
 <h3 id="我想删除上游upstream分支被删除了的本地分支">我想删除上游(upstream)分支被删除了的本地分支</h3>
-<p>一旦你在github 上面合并(merge)了一个pull request, 你就可以删除你fork里被合并的分支。 如果你不准备继续在这个分支里工作, 删除这个分支的本地拷贝会更干净，使你不会陷入工作分支和一堆陈旧分支的混乱之中。</p>
+<p>一旦你在 github 上面合并(merge)了一个 pull request, 你就可以删除你 fork 里被合并的分支。 如果你不准备继续在这个分支里工作, 删除这个分支的本地拷贝会更干净，使你不会陷入工作分支和一堆陈旧分支的混乱之中。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -989,7 +989,7 @@
 </span></span><span class="line"><span class="cl">69204cd HEAD@{2}: checkout: moving from main to my-branch
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>正如你所见，我们有一个来自删除分支的提交hash(commit hash)，接下来看看是否能恢复删除了的分支。</p>
+</div><p>正如你所见，我们有一个来自删除分支的提交 hash(commit hash)，接下来看看是否能恢复删除了的分支。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1008,7 +1008,7 @@
 </span></span><span class="line"><span class="cl">README.md foo.txt
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>看! 我们把删除的文件找回来了。 Git的 <code>reflog</code> 在rebasing出错的时候也是同样有用的。</p>
+</div><p>看! 我们把删除的文件找回来了。 Git 的 <code>reflog</code> 在 rebasing 出错的时候也是同样有用的。</p>
 <p><a name="i-want-to-delete-a-branch"></a></p>
 <h3 id="我想删除一个分支">我想删除一个分支</h3>
 <p>删除一个远程分支:</p>
@@ -1066,8 +1066,8 @@
 <p>这样就得到了一个<code>daves</code>分支的本地拷贝, 任何推过(pushed)的更新，远程都能看到.</p>
 <h2 id="rebasing-和合并merging">Rebasing 和合并(Merging)</h2>
 <p><a name="undo-rebase"></a></p>
-<h3 id="我想撤销rebasemerge">我想撤销rebase/merge</h3>
-<p>你可以合并(merge)或rebase了一个错误的分支, 或者完成不了一个进行中的rebase/merge。 Git 在进行危险操作的时候会把原始的HEAD保存在一个叫ORIG_HEAD的变量里, 所以要把分支恢复到rebase/merge前的状态是很容易的。</p>
+<h3 id="我想撤销-rebasemerge">我想撤销 rebase/merge</h3>
+<p>你可以合并(merge)或 rebase 了一个错误的分支, 或者完成不了一个进行中的 rebase/merge。 Git 在进行危险操作的时候会把原始的 HEAD 保存在一个叫 ORIG_HEAD 的变量里, 所以要把分支恢复到 rebase/merge 前的状态是很容易的。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1077,8 +1077,8 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><a name="force-push-rebase"></a></p>
-<h3 id="我已经rebase过-但是我不想强推force-push">我已经rebase过, 但是我不想强推(force push)</h3>
-<p>不幸的是，如果你想把这些变化(changes)反应到远程分支上，你就必须得强推(force push)。 是因你快进(Fast forward)了提交，改变了Git历史, 远程分支不会接受变化(changes)，除非强推(force push)。这就是许多人使用 merge 工作流, 而不是 rebasing 工作流的主要原因之一， 开发者的强推(force push)会使大的团队陷入麻烦。使用时需要注意，一种安全使用 rebase 的方法是，不要把你的变化(changes)反映到远程分支上, 而是按下面的做:</p>
+<h3 id="我已经-rebase-过-但是我不想强推force-push">我已经 rebase 过, 但是我不想强推(force push)</h3>
+<p>不幸的是，如果你想把这些变化(changes)反应到远程分支上，你就必须得强推(force push)。 是因你快进(Fast forward)了提交，改变了 Git 历史, 远程分支不会接受变化(changes)，除非强推(force push)。这就是许多人使用 merge 工作流, 而不是 rebasing 工作流的主要原因之一， 开发者的强推(force push)会使大的团队陷入麻烦。使用时需要注意，一种安全使用 rebase 的方法是，不要把你的变化(changes)反映到远程分支上, 而是按下面的做:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1096,7 +1096,7 @@
 </div><p>更多, 参见 <a href="http://stackoverflow.com/questions/11058312/how-can-i-use-git-rebase-without-requiring-a-forced-push" target="_blank" rel="noopener noreffer">this SO thread</a>.</p>
 <p><a name="interactive-rebase"></a></p>
 <h3 id="我需要组合combine几个提交commit">我需要组合(combine)几个提交(commit)</h3>
-<p>假设你的工作分支将会做对于 <code>main</code> 的pull-request。 一般情况下你不关心提交(commit)的时间戳，只想组合 <em>所有</em> 提交(commit) 到一个单独的里面, 然后重置(reset)重提交(recommit)。 确保主(main)分支是最新的和你的变化都已经提交了, 然后:</p>
+<p>假设你的工作分支将会做对于 <code>main</code> 的 pull-request。 一般情况下你不关心提交(commit)的时间戳，只想组合 <em>所有</em> 提交(commit) 到一个单独的里面, 然后重置(reset)重提交(recommit)。 确保主(main)分支是最新的和你的变化都已经提交了, 然后:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1107,7 +1107,7 @@
 </span></span><span class="line"><span class="cl"><span class="o">(</span>my-branch<span class="o">)</span>$ git commit -am <span class="s2">&#34;New awesome feature&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>如果你想要更多的控制, 想要保留时间戳, 你需要做交互式rebase (interactive rebase):</p>
+</div><p>如果你想要更多的控制, 想要保留时间戳, 你需要做交互式 rebase (interactive rebase):</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1116,7 +1116,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">(</span>my-branch<span class="o">)</span>$ git rebase -i main
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>如果没有相对的其它分支， 你将不得不相对自己的<code>HEAD</code> 进行 rebase。 例如：你想组合最近的两次提交(commit), 你将相对于<code>HEAD~2</code> 进行rebase， 组合最近3次提交(commit), 相对于<code>HEAD~3</code>, 等等。</p>
+</div><p>如果没有相对的其它分支， 你将不得不相对自己的<code>HEAD</code> 进行 rebase。 例如：你想组合最近的两次提交(commit), 你将相对于<code>HEAD~2</code> 进行 rebase， 组合最近 3 次提交(commit), 相对于<code>HEAD~3</code>, 等等。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1125,7 +1125,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">(</span>main<span class="o">)</span>$ git rebase -i HEAD~2
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>在你执行了交互式 rebase的命令(interactive rebase command)后, 你将在你的编辑器里看到类似下面的内容:</p>
+</div><p>在你执行了交互式 rebase 的命令(interactive rebase command)后, 你将在你的编辑器里看到类似下面的内容:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -1270,10 +1270,10 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">(</span>main<span class="o">)</span>$ git rebase -i @<span class="o">{</span>u<span class="o">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>这会产生一次交互式的rebase(interactive rebase), 只会列出没有推(push)的提交(commit)， 在这个列表时进行reorder/fix/squash 都是安全的。</p>
+</div><p>这会产生一次交互式的 rebase(interactive rebase), 只会列出没有推(push)的提交(commit)， 在这个列表时进行 reorder/fix/squash 都是安全的。</p>
 <p><a name="check-if-all-commits-on-a-branch-are-merged"></a></p>
 <h3 id="检查是否分支上的所有提交commit都合并merge过了">检查是否分支上的所有提交(commit)都合并(merge)过了</h3>
-<p>检查一个分支上的所有提交(commit)是否都已经合并(merge)到了其它分支, 你应该在这些分支的head(或任何 commits)之间做一次diff:</p>
+<p>检查一个分支上的所有提交(commit)是否都已经合并(merge)到了其它分支, 你应该在这些分支的 head(或任何 commits)之间做一次 diff:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1291,9 +1291,9 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">(</span>main<span class="o">)</span>$ git log main ^feature/120-on-scroll --no-merges
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="交互式rebaseinteractive-rebase可能出现的问题">交互式rebase(interactive rebase)可能出现的问题</h3>
+</div><h3 id="交互式-rebaseinteractive-rebase可能出现的问题">交互式 rebase(interactive rebase)可能出现的问题</h3>
 <p><a name="noop"></a></p>
-<h4 id="这个rebase-编辑屏幕出现noop">这个rebase 编辑屏幕出现&rsquo;noop&rsquo;</h4>
+<h4 id="这个-rebase-编辑屏幕出现noop">这个 rebase 编辑屏幕出现&rsquo;noop&rsquo;</h4>
 <p>如果你看到的是这样:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1303,14 +1303,14 @@
 <pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">noop
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>这意味着你rebase的分支和当前分支在同一个提交(commit)上, 或者 <em>领先(ahead)</em> 当前分支。 你可以尝试:</p>
+</div><p>这意味着你 rebase 的分支和当前分支在同一个提交(commit)上, 或者 <em>领先(ahead)</em> 当前分支。 你可以尝试:</p>
 <ul>
 <li>检查确保主(main)分支没有问题</li>
-<li>rebase  <code>HEAD~2</code> 或者更早</li>
+<li>rebase <code>HEAD~2</code> 或者更早</li>
 </ul>
 <p><a name="merge-conflict"></a></p>
 <h4 id="有冲突的情况">有冲突的情况</h4>
-<p>如果你不能成功的完成rebase, 你可能必须要解决冲突。</p>
+<p>如果你不能成功的完成 rebase, 你可能必须要解决冲突。</p>
 <p>首先执行 <code>git status</code> 找出哪些文件有冲突:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1357,7 +1357,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">(</span>main*<span class="o">)</span>$ git mergetool -t opendiff
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>在你解决完所有冲突和测试过后, <code>git add</code> 变化了的(changed)文件, 然后用<code>git rebase --continue</code> 继续rebase。</p>
+</div><p>在你解决完所有冲突和测试过后, <code>git add</code> 变化了的(changed)文件, 然后用<code>git rebase --continue</code> 继续 rebase。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1369,7 +1369,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果在解决完所有的冲突过后，得到了与提交前一样的结果, 可以执行<code>git rebase --skip</code>。</p>
-<p>任何时候你想结束整个rebase 过程，回来rebase前的分支状态, 你可以做:</p>
+<p>任何时候你想结束整个 rebase 过程，回来 rebase 前的分支状态, 你可以做:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1458,7 +1458,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ git stash apply <span class="s2">&#34;stash@{n}&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>此处， &rsquo;n&rsquo;是<code>stash</code>在栈中的位置，最上层的<code>stash</code>会是0</p>
+</div><p>此处， &rsquo;n&rsquo;是<code>stash</code>在栈中的位置，最上层的<code>stash</code>会是 0</p>
 <p>除此之外，也可以使用时间标记(假如你能记得的话)。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -1470,7 +1470,7 @@
 </div>
 </div><p><a href="stage-and-keep-unstaged"></a></p>
 <h3 id="暂存时保留未暂存的内容">暂存时保留未暂存的内容</h3>
-<p>你需要手动create一个<code>stash commit</code>， 然后使用<code>git stash store</code>。</p>
+<p>你需要手动 create 一个<code>stash commit</code>， 然后使用<code>git stash store</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1525,7 +1525,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ git fsck --unreachable <span class="p">|</span> grep tag
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>记下这个标签(tag)的hash，然后用Git的 <a href="http://git-scm.com/docs/git-update-ref" target="_blank" rel="noopener noreffer">update-ref</a>:</p>
+</div><p>记下这个标签(tag)的 hash，然后用 Git 的 <a href="http://git-scm.com/docs/git-update-ref" target="_blank" rel="noopener noreffer">update-ref</a>:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1537,8 +1537,8 @@
 </div><p>这时你的标签(tag)应该已经恢复了。</p>
 <p><a name="deleted-patch"></a></p>
 <h3 id="已删除补丁patch">已删除补丁(patch)</h3>
-<p>如果某人在 GitHub 上给你发了一个pull request, 但是然后他删除了他自己的原始 fork, 你将没法克隆他们的提交(commit)或使用 <code>git am</code>。在这种情况下, 最好手动的查看他们的提交(commit)，并把它们拷贝到一个本地新分支，然后做提交。</p>
-<p>做完提交后, 再修改作者，参见<a href="#commit-wrong-author" rel="">变更作者</a>。 然后, 应用变化, 再发起一个新的pull request。</p>
+<p>如果某人在 GitHub 上给你发了一个 pull request, 但是然后他删除了他自己的原始 fork, 你将没法克隆他们的提交(commit)或使用 <code>git am</code>。在这种情况下, 最好手动的查看他们的提交(commit)，并把它们拷贝到一个本地新分支，然后做提交。</p>
+<p>做完提交后, 再修改作者，参见<a href="#commit-wrong-author" rel="">变更作者</a>。 然后, 应用变化, 再发起一个新的 pull request。</p>
 <h2 id="跟踪文件tracking-files">跟踪文件(Tracking Files)</h2>
 <p><a href="i-want-to-change-a-file-names-capitalization-without-changing-the-contents-of-the-file"></a></p>
 <h3 id="我只想改变一个文件名字的大小写而不修改内容">我只想改变一个文件名字的大小写，而不修改内容</h3>
@@ -1551,7 +1551,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p><a href="remove-from-git"></a></p>
-<h3 id="我想从git删除一个文件但保留该文件">我想从Git删除一个文件，但保留该文件</h3>
+<h3 id="我想从-git-删除一个文件但保留该文件">我想从 Git 删除一个文件，但保留该文件</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1562,8 +1562,8 @@
 </div>
 </div><h2 id="配置configuration">配置(Configuration)</h2>
 <p><a name="adding-command-aliases"></a></p>
-<h3 id="我想给一些git命令添加别名alias">我想给一些Git命令添加别名(alias)</h3>
-<p>在 OS X 和 Linux 下, 你的 Git的配置文件储存在 <code>~/.gitconfig</code>。我在<code>[alias]</code> 部分添加了一些快捷别名(和一些我容易拼写错误的)，如下:</p>
+<h3 id="我想给一些-git-命令添加别名alias">我想给一些 Git 命令添加别名(alias)</h3>
+<p>在 OS X 和 Linux 下, 你的 Git 的配置文件储存在 <code>~/.gitconfig</code>。我在<code>[alias]</code> 部分添加了一些快捷别名(和一些我容易拼写错误的)，如下:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -1612,7 +1612,7 @@
 </div>
 </div><p><a name="credential-helper"></a></p>
 <h3 id="我想缓存一个仓库repository的用户名和密码">我想缓存一个仓库(repository)的用户名和密码</h3>
-<p>你可能有一个仓库需要授权，这时你可以缓存用户名和密码，而不用每次推/拉(push/pull)的时候都输入，Credential helper能帮你。</p>
+<p>你可能有一个仓库需要授权，这时你可以缓存用户名和密码，而不用每次推/拉(push/pull)的时候都输入，Credential helper 能帮你。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1636,7 +1636,7 @@
 </div><p><a href="#ive-no-idea-what-i-did-wrong"></a></p>
 <h2 id="我不知道我做错了些什么">我不知道我做错了些什么</h2>
 <p>你把事情搞砸了：你 <code>重置(reset)</code> 了一些东西, 或者你合并了错误的分支, 亦或你强推了后找不到你自己的提交(commit)了。有些时候, 你一直都做得很好, 但你想回到以前的某个状态。</p>
-<p>这就是 <code>git reflog</code> 的目的， <code>reflog</code> 记录对分支顶端(the tip of a branch)的任何改变, 即使那个顶端没有被任何分支或标签引用。基本上, 每次HEAD的改变, 一条新的记录就会增加到<code>reflog</code>。遗憾的是，这只对本地分支起作用，且它只跟踪动作 (例如，不会跟踪一个没有被记录的文件的任何改变)。</p>
+<p>这就是 <code>git reflog</code> 的目的， <code>reflog</code> 记录对分支顶端(the tip of a branch)的任何改变, 即使那个顶端没有被任何分支或标签引用。基本上, 每次 HEAD 的改变, 一条新的记录就会增加到<code>reflog</code>。遗憾的是，这只对本地分支起作用，且它只跟踪动作 (例如，不会跟踪一个没有被记录的文件的任何改变)。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1651,8 +1651,8 @@
 </span></span><span class="line"><span class="cl">c10f740 HEAD@<span class="o">{</span>2<span class="o">}</span>: checkout: moving from main to 2.2
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>上面的reflog展示了从main分支签出(checkout)到2.2 分支，然后再签回。 那里，还有一个硬重置(hard reset)到一个较旧的提交。最新的动作出现在最上面以 <code>HEAD@{0}</code>标识.</p>
-<p>如果事实证明你不小心回移(move back)了提交(commit), reflog 会包含你不小心回移前main上指向的提交(0254ea7)。</p>
+</div><p>上面的 reflog 展示了从 main 分支签出(checkout)到 2.2 分支，然后再签回。 那里，还有一个硬重置(hard reset)到一个较旧的提交。最新的动作出现在最上面以 <code>HEAD@{0}</code>标识.</p>
+<p>如果事实证明你不小心回移(move back)了提交(commit), reflog 会包含你不小心回移前 main 上指向的提交(0254ea7)。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1661,7 +1661,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ git reset --hard 0254ea7
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>然后使用git reset就可以把main改回到之前的commit，这提供了一个在历史被意外更改情况下的安全网。</p>
+</div><p>然后使用 git reset 就可以把 main 改回到之前的 commit，这提供了一个在历史被意外更改情况下的安全网。</p>
 <p>(<a href="https://www.atlassian.com/git/tutorials/rewriting-history/git-reflog" target="_blank" rel="noopener noreffer">摘自</a>).</p>
 <h1 id="其它资源other-resources">其它资源(Other Resources)</h1>
 <h2 id="书books">书(Books)</h2>
@@ -1673,26 +1673,26 @@
 <ul>
 <li><a href="https://learngitbranching.js.org/" target="_blank" rel="noopener noreffer">Learn Git branching</a> 一个基于网页的交互式 branching/merging/rebasing 教程</li>
 <li><a href="https://medium.com/@porteneuve/getting-solid-at-git-rebase-vs-merge-4fa1a48c53aa" target="_blank" rel="noopener noreffer">Getting solid at Git rebase vs. merge</a></li>
-<li><a href="https://github.com/asmeurer/git-workflow" target="_blank" rel="noopener noreffer">git-workflow</a> - <a href="https://github.com/asmeurer" target="_blank" rel="noopener noreffer">Aaron Meurer</a>的怎么使用Git为开源仓库贡献</li>
-<li><a href="http://hugogiraudel.com/2015/08/13/github-as-a-workflow/" target="_blank" rel="noopener noreffer">GitHub as a workflow</a> - 使用GitHub做为工作流的趣事, 尤其是空PRs</li>
+<li><a href="https://github.com/asmeurer/git-workflow" target="_blank" rel="noopener noreffer">git-workflow</a> - <a href="https://github.com/asmeurer" target="_blank" rel="noopener noreffer">Aaron Meurer</a>的怎么使用 Git 为开源仓库贡献</li>
+<li><a href="http://hugogiraudel.com/2015/08/13/github-as-a-workflow/" target="_blank" rel="noopener noreffer">GitHub as a workflow</a> - 使用 GitHub 做为工作流的趣事, 尤其是空 PRs</li>
 </ul>
 <h2 id="脚本和工具scripts-and-tools">脚本和工具(Scripts and Tools)</h2>
 <ul>
-<li><a href="http://firstaidgit.io/" target="_blank" rel="noopener noreffer">firstaidgit.io</a> 一个可搜索的最常被问到的Git的问题</li>
-<li><a href="https://github.com/unixorn/git-extra-commands" target="_blank" rel="noopener noreffer">git-extra-commands</a> - 一堆有用的额外的Git脚本</li>
+<li><a href="http://firstaidgit.io/" target="_blank" rel="noopener noreffer">firstaidgit.io</a> 一个可搜索的最常被问到的 Git 的问题</li>
+<li><a href="https://github.com/unixorn/git-extra-commands" target="_blank" rel="noopener noreffer">git-extra-commands</a> - 一堆有用的额外的 Git 脚本</li>
 <li><a href="https://github.com/tj/git-extras" target="_blank" rel="noopener noreffer">git-extras</a> - GIT 工具集 &ndash; repo summary, repl, changelog population, author commit percentages and more</li>
 <li><a href="https://github.com/qw3rtman/git-fire" target="_blank" rel="noopener noreffer">git-fire</a> - git-fire 是一个 Git 插件，用于帮助在紧急情况下添加所有当前文件, 做提交(committing), 和推(push)到一个新分支(阻止合并冲突)。</li>
-<li><a href="https://github.com/git-tips/tips" target="_blank" rel="noopener noreffer">git-tips</a> - Git小提示</li>
-<li><a href="https://github.com/Originate/git-town" target="_blank" rel="noopener noreffer">git-town</a> - 通用，高级Git工作流支持！ <a href="http://www.git-town.com" target="_blank" rel="noopener noreffer">http://www.git-town.com</a></li>
+<li><a href="https://github.com/git-tips/tips" target="_blank" rel="noopener noreffer">git-tips</a> - Git 小提示</li>
+<li><a href="https://github.com/Originate/git-town" target="_blank" rel="noopener noreffer">git-town</a> - 通用，高级 Git 工作流支持！ <a href="http://www.git-town.com" target="_blank" rel="noopener noreffer">http://www.git-town.com</a></li>
 </ul>
-<h2 id="gui客户端gui-clients">GUI客户端(GUI Clients)</h2>
+<h2 id="gui-客户端gui-clients">GUI 客户端(GUI Clients)</h2>
 <ul>
-<li><a href="https://www.gitkraken.com/" target="_blank" rel="noopener noreffer">GitKraken</a> - 豪华的Git客户端 Windows, Mac &amp; Linux</li>
-<li><a href="https://git-cola.github.io/" target="_blank" rel="noopener noreffer">git-cola</a> - 另外一个Git客户端 Windows &amp; OS X</li>
-<li><a href="https://github.com/git-up/GitUp" target="_blank" rel="noopener noreffer">GitUp</a> - 一个新的Git客户端，在处理Git的复杂性上有自己的特点</li>
-<li><a href="https://rowanj.github.io/gitx/" target="_blank" rel="noopener noreffer">gitx-dev</a> - 图形化的Git客户端 OS X</li>
-<li><a href="https://www.sourcetreeapp.com/" target="_blank" rel="noopener noreffer">Source Tree</a> - 免费的图形化Git客户端 Windows &amp; OS X</li>
-<li><a href="http://www.git-tower.com/" target="_blank" rel="noopener noreffer">Tower</a> - 图形化Git客户端 OS X(付费)</li>
+<li><a href="https://www.gitkraken.com/" target="_blank" rel="noopener noreffer">GitKraken</a> - 豪华的 Git 客户端 Windows, Mac &amp; Linux</li>
+<li><a href="https://git-cola.github.io/" target="_blank" rel="noopener noreffer">git-cola</a> - 另外一个 Git 客户端 Windows &amp; OS X</li>
+<li><a href="https://github.com/git-up/GitUp" target="_blank" rel="noopener noreffer">GitUp</a> - 一个新的 Git 客户端，在处理 Git 的复杂性上有自己的特点</li>
+<li><a href="https://rowanj.github.io/gitx/" target="_blank" rel="noopener noreffer">gitx-dev</a> - 图形化的 Git 客户端 OS X</li>
+<li><a href="https://www.sourcetreeapp.com/" target="_blank" rel="noopener noreffer">Source Tree</a> - 免费的图形化 Git 客户端 Windows &amp; OS X</li>
+<li><a href="http://www.git-tower.com/" target="_blank" rel="noopener noreffer">Tower</a> - 图形化 Git 客户端 OS X(付费)</li>
 </ul>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">

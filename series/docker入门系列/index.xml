@@ -10,9 +10,9 @@
     <pubDate>Mon, 19 Sep 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/cleandocker/</guid>
-    <description><![CDATA[<h1 id="清理docker容器日志">清理Docker容器日志</h1>
-<p>如果docker容器正在运行，那么使用<code>rm -rf</code>方式删除日志后，通过<code>df -h</code>会发现磁盘空间并没有释放。原因是在Linux或者Unix系统中，通过<code>rm -rf</code>或者文件管理器删除文件，将会从文件系统的目录结构上解除链接（unlink）。如果文件是被打开的（有一个进程正在使用），那么进程将仍然可以读取该文件，磁盘空间也一直被占用。正确姿势是<code>cat /dev/null &gt; *-json.log</code>，当然你也可以通过<code>rm -rf</code>删除后重启docker。</p>
-<h2 id="日志清理脚本clean_docker_logsh">日志清理脚本clean_docker_log.sh</h2>
+    <description><![CDATA[<h1 id="清理-docker-容器日志">清理 Docker 容器日志</h1>
+<p>如果 docker 容器正在运行，那么使用<code>rm -rf</code>方式删除日志后，通过<code>df -h</code>会发现磁盘空间并没有释放。原因是在 Linux 或者 Unix 系统中，通过<code>rm -rf</code>或者文件管理器删除文件，将会从文件系统的目录结构上解除链接（unlink）。如果文件是被打开的（有一个进程正在使用），那么进程将仍然可以读取该文件，磁盘空间也一直被占用。正确姿势是<code>cat /dev/null &gt; *-json.log</code>，当然你也可以通过<code>rm -rf</code>删除后重启 docker。</p>
+<h2 id="日志清理脚本-clean_docker_logsh">日志清理脚本 clean_docker_log.sh</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -30,25 +30,25 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/sh 
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;======== start clean docker containers logs ========&#34;</span>  
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl"><span class="nv">logs</span><span class="o">=</span><span class="k">$(</span>find /var/lib/docker/containers/ -name *-json.log<span class="k">)</span>  
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl"><span class="k">for</span> log in <span class="nv">$logs</span>  
-</span></span><span class="line"><span class="cl">        <span class="k">do</span>  
-</span></span><span class="line"><span class="cl">                <span class="nb">echo</span> <span class="s2">&#34;clean logs : </span><span class="nv">$log</span><span class="s2">&#34;</span>  
-</span></span><span class="line"><span class="cl">                cat /dev/null &gt; <span class="nv">$log</span>  
-</span></span><span class="line"><span class="cl">        <span class="k">done</span>  
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;======== start clean docker containers logs ========&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;======== end clean docker containers logs ========&#34;</span>  
+</span></span><span class="line"><span class="cl"><span class="nv">logs</span><span class="o">=</span><span class="k">$(</span>find /var/lib/docker/containers/ -name *-json.log<span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> log in <span class="nv">$logs</span>
+</span></span><span class="line"><span class="cl">        <span class="k">do</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">echo</span> <span class="s2">&#34;clean logs : </span><span class="nv">$log</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">                cat /dev/null &gt; <span class="nv">$log</span>
+</span></span><span class="line"><span class="cl">        <span class="k">done</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;======== end clean docker containers logs ========&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>chmod +x clean_docker_log.sh &amp;&amp; ./clean_docker_log.sh</p>
 </blockquote>
-<h2 id="设置docker容器日志大小">设置Docker容器日志大小</h2>
+<h2 id="设置-docker-容器日志大小">设置 Docker 容器日志大小</h2>
 <p>设置一个容器服务的日志大小上限<br>
 上述方法，日志文件迟早又会涨回来。要从根本上解决问题，需要限制容器服务的日志大小上限。这个通过配置容器<code>docker-compose</code>的<code>max-size</code>选项来实现</p>
 <div class="highlight"><div class="chroma">
@@ -62,13 +62,13 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">nginx</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx:1.12.1 </span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always </span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">logging</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l">“json-file” </span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">options</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">max-size</span><span class="p">:</span><span class="w"> </span><span class="l">“5g” </span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">nginx</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx:1.12.1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">logging</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l">“json-file”</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">options</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">max-size</span><span class="p">:</span><span class="w"> </span><span class="l">“5g”</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="全局设置">全局设置</h3>
@@ -110,12 +110,11 @@
 containerd 是一个行业标准的容器运行时，强调简单性、健壮性和可移植性。它可作为 Linux 和 Windows 的守护进程使用，可以管理其主机系统的完整容器生命周期：图像传输和存储、容器执行和监督、低级存储和网络附件等。<br>
 <code>containerd</code> is a member of <code>CNCF</code> with <code>graduated</code> status.</p>
 <ol>
-<li>早在2016年3月，<code>Docker 1.11</code>的<code>Docker Engine</code>里就包含了<code>containerd</code>，而现在则是把<code>containerd</code>从<code>Docker Engine</code>里彻底剥离出来，作为一个独立的开源项目独立发展，目标是提供一个更加开放、稳定的容器运行基础设施。和原先包含在Docker Engine里<code>containerd</code>相比，独立的<code>containerd</code>将具有更多的功能，可以涵盖整个容器运行时管理的所有需求。</li>
+<li>早在 2016 年 3 月，<code>Docker 1.11</code>的<code>Docker Engine</code>里就包含了<code>containerd</code>，而现在则是把<code>containerd</code>从<code>Docker Engine</code>里彻底剥离出来，作为一个独立的开源项目独立发展，目标是提供一个更加开放、稳定的容器运行基础设施。和原先包含在 Docker Engine 里<code>containerd</code>相比，独立的<code>containerd</code>将具有更多的功能，可以涵盖整个容器运行时管理的所有需求。</li>
 <li><code>containerd</code>并不是直接面向最终用户的，而是主要用于集成到更上层的系统里，比如<code>Swarm</code>, <code>Kubernetes</code>, <code>Mesos</code>等容器编排系统。</li>
 <li><code>containerd</code>以<code>Daemon</code>的形式运行在系统上，通过暴露底层的<code>gRPC API</code>，上层系统可以通过这些<code>API</code>管理机器上的容器。</li>
-<li>每个<code>containerd</code>只负责<code>一台机器</code>，Pull镜像，对容器的操作（启动、停止等），网络，存储都是由containerd完成。具体运行容器由<code>runC</code>负责，实际上只要是符合<code>OCI规范</code>的容器都可以支持。</li>
-<li>对于容器编排服务来说，运行时只需要使用<code>containerd+runC</code>，更加轻量，容易管理。
-5.独立之后<code>containerd</code>的特性演进可以和<code>Docker Engine</code>分开，专注容器运行时管理，可以更稳定。</li>
+<li>每个<code>containerd</code>只负责<code>一台机器</code>，Pull 镜像，对容器的操作（启动、停止等），网络，存储都是由 containerd 完成。具体运行容器由<code>runC</code>负责，实际上只要是符合<code>OCI规范</code>的容器都可以支持。</li>
+<li>对于容器编排服务来说，运行时只需要使用<code>containerd+runC</code>，更加轻量，容易管理。 5.独立之后<code>containerd</code>的特性演进可以和<code>Docker Engine</code>分开，专注容器运行时管理，可以更稳定。</li>
 </ol>
 <h2 id="安装">安装</h2>
 <p>centos</p>
@@ -146,7 +145,7 @@ containerd 是一个行业标准的容器运行时，强调简单性、健壮性
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">systemctl <span class="nb">enable</span> containerd
 </span></span><span class="line"><span class="cl">systemctl start containerd
-</span></span><span class="line"><span class="cl">systemctl status containerd 
+</span></span><span class="line"><span class="cl">systemctl status containerd
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>验证</p>
@@ -225,7 +224,7 @@ containerd 是一个行业标准的容器运行时，强调简单性、健壮性
 </tr>
 <tr>
 <td style="text-align:left">shim</td>
-<td style="text-align:left">直接与shim交互</td>
+<td style="text-align:left">直接与 shim 交互</td>
 </tr>
 <tr>
 <td style="text-align:left">help, h</td>
@@ -240,8 +239,8 @@ containerd 是一个行业标准的容器运行时，强调简单性、健壮性
     <pubDate>Tue, 28 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/docker/</guid>
-    <description><![CDATA[<h1 id="安装docker">安装docker</h1>
-<p>通过docker 脚本安装</p>
+    <description><![CDATA[<h1 id="安装-docker">安装 docker</h1>
+<p>通过 docker 脚本安装</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -275,8 +274,8 @@ containerd 是一个行业标准的容器运行时，强调简单性、健壮性
 </span></span><span class="line"><span class="cl">docker-compose --version
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="docker命令">docker命令</h2>
-<p>常用docker命令</p>
+</div><h2 id="docker-命令">docker 命令</h2>
+<p>常用 docker 命令</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -310,7 +309,7 @@ containerd 是一个行业标准的容器运行时，强调简单性、健壮性
     <pubDate>Wed, 22 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/docker-kong/</guid>
-    <description><![CDATA[<h1 id="docker-安装kong-网关">docker 安装kong 网关</h1>
+    <description><![CDATA[<h1 id="docker-安装-kong-网关">docker 安装 kong 网关</h1>
 <h2 id="建立数据库">建立数据库</h2>
 <ol>
 <li>创建网络</li>
@@ -347,7 +346,7 @@ containerd 是一个行业标准的容器运行时，强调简单性、健壮性
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="3">
-<li>创建kong数据</li>
+<li>创建 kong 数据</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -369,7 +368,7 @@ containerd 是一个行业标准的容器运行时，强调简单性、健壮性
 </div>
 </div><h2 id="创建-kong">创建 kong</h2>
 <ol>
-<li>创建kong gateway</li>
+<li>创建 kong gateway</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -411,7 +410,7 @@ containerd 是一个行业标准的容器运行时，强调简单性、健壮性
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  kong:latest
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="安装konga">安装konga</h2>
+</div><h2 id="安装-konga">安装 konga</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -461,7 +460,7 @@ containerd 是一个行业标准的容器运行时，强调简单性、健壮性
     <pubDate>Wed, 22 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/docker-registry/</guid>
-    <description><![CDATA[<h1 id="搭建docker-registry-镜像仓库">搭建docker registry 镜像仓库</h1>
+    <description><![CDATA[<h1 id="搭建-docker-registry-镜像仓库">搭建 docker registry 镜像仓库</h1>
 <h2 id="获取镜像">获取镜像</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -536,8 +535,8 @@ containerd 是一个行业标准的容器运行时，强调简单性、健壮性
     <pubDate>Thu, 09 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/dockerimage/</guid>
-    <description><![CDATA[<h1 id="docker-image镜像上传">docker image镜像上传</h1>
-<p>登入docker hub，在https://hub.docker.com上注册你的账号。</p>
+    <description><![CDATA[<h1 id="docker-image-镜像上传">docker image 镜像上传</h1>
+<p>登入 docker hub，在https://hub.docker.com上注册你的账号。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1

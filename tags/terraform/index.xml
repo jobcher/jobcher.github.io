@@ -87,9 +87,9 @@
 </span></span><span class="line"><span class="cl">sudo yum install terraform -y
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="terrafrom-控制proxmox虚拟机">terrafrom 控制proxmox虚拟机</h2>
+</div><h2 id="terrafrom-控制-proxmox-虚拟机">terrafrom 控制 proxmox 虚拟机</h2>
 <p>来源：https://github.com/Telmate/terraform-provider-proxmox</p>
-<h3 id="首先你要有一台pve主机">首先你要有一台pve主机</h3>
+<h3 id="首先你要有一台-pve-主机">首先你要有一台 pve 主机</h3>
 <p>安装过程本篇文章就不想了，主要是要写一下关于他的配置<br>
 <a href="https://pve.proxmox.com/pve-docs/" target="_blank" rel="noopener noreffer">https://pve.proxmox.com/pve-docs/</a></p>
 <ol>
@@ -105,9 +105,9 @@
 </span></span><span class="line"><span class="cl">unzip terraform-provider-proxmox_2.9.3_linux_amd64.zip
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="编写terrafrom程序">编写terrafrom程序</h3>
+</div><h3 id="编写-terrafrom-程序">编写 terrafrom 程序</h3>
 <ol>
-<li>虚拟机main.tf</li>
+<li>虚拟机 main.tf</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -240,7 +240,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
-<li>运行terrafrom</li>
+<li>运行 terrafrom</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -261,10 +261,10 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="配置">配置</h2>
-<p>配置这个terraform我们这个需要持续更新，首先我们先配置Azure吧</p>
+<p>配置这个 terraform 我们这个需要持续更新，首先我们先配置 Azure 吧</p>
 <h3 id="azure-配置">Azure 配置</h3>
 <ol>
-<li>安装azurecli</li>
+<li>安装 azurecli</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -283,7 +283,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
-<li>登录azure</li>
+<li>登录 azure</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -306,8 +306,8 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="3">
-<li>创建terrafrom代码
-创建main.tf</li>
+<li>创建 terrafrom 代码
+创建 main.tf</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -367,7 +367,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>创建variable.tf</p>
+</div><p>创建 variable.tf</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1

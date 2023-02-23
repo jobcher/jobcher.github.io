@@ -1,9 +1,13 @@
 # go Slice切片语法
 
-# go Slice切片语法
+
+# go Slice 切片语法
+
 `切片`是一种`动态数组`，比数组操作灵活，长度不是固定的，可以进行追加和删除。  
-`len()` 和 `cap()` 返回结果可相同和不同。  
+`len()` 和 `cap()` 返回结果可相同和不同。
+
 ## 声明切片
+
 ```go
 //demo_7.go
 package main
@@ -32,7 +36,9 @@ func main() {
 	fmt.Printf("len=%d cap=%d slice=%v\n",len(sli_6),cap(sli_6),sli_6)
 }
 ```
+
 ## 截取切片
+
 ```go
 //demo_8.go
 package main
@@ -49,7 +55,7 @@ func main() {
 	fmt.Println("sli[:] ==", sli[:])
 	fmt.Println("sli[1:] ==", sli[1:])
 	fmt.Println("sli[:4] ==", sli[:4])
-	
+
 	fmt.Println("sli[0:3] ==", sli[0:3])
 	fmt.Printf("len=%d cap=%d slice=%v\n",len(sli[0:3]),cap(sli[0:3]),sli[0:3])
 
@@ -60,6 +66,7 @@ func main() {
 ```
 
 ## 追加切片
+
 ```go
 //demo_9.go
 package main
@@ -88,6 +95,7 @@ func main() {
 ```
 
 ## 删除切片
+
 ```go
 //demo_10.go
 package main
@@ -111,3 +119,4 @@ func main() {
 	fmt.Printf("len=%d cap=%d slice=%v\n",len(sli),cap(sli),sli)
 }
 ```
+

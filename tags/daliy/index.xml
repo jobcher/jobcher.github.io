@@ -13,12 +13,12 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/20221230.gif" referrerpolicy="no-referrer">
             </div><blockquote>
-<p>转眼间来到了2022年的尾声，2022年不仅仅对于世界来说，还是对于我个人来说都是意义非凡的一年。</p>
+<p>转眼间来到了 2022 年的尾声，2022 年不仅仅对于世界来说，还是对于我个人来说都是意义非凡的一年。</p>
 </blockquote>
 <h2 id="逆境和成长">逆境和成长</h2>
-<p>2022年初在中国大陆仍然实行着最为严格的清零政策并愈演愈烈，城市居民被限制人身自由，就连农村地区也被大量要求居家隔离，严重损害了中国经济和社会活力。中国失业人口再创新高，大量的毕业生找不到工作。在美国，最为严重的通货膨胀席卷全国，高昂的加息政策，损害了底层人民和工薪阶层。在中东，塔利班武装重新占领阿富汗，重新实行政教合一的暴力统治。在俄罗斯，爆发了乌克兰战争，将俄罗斯真正从苏联的阴影中脱离出来。在世界各地发生了太多的变化，2022年注定是要被载入史册的一年。<br>
-对于我个人来说，2022年也是成长非常大的一年，我经历了自工作来最大的变化，我从一家工作了多年的企业毕业，再次进入了社会的试炼场中求职，接触了更多的人，碰到了更多的事，也有了更多的感悟。曾经的我会讲工作看的比一切都重要，通过勤奋和努力可以改变一切，但是，社会的规则并不是这样的。决定你的个人价值并不是这些外在的东西，决定你个人价值的是你自己对自己的看法。你认为自己有价值，你就是你能够做到有价值。你觉得自己不重要，别人自然觉得你不重要。<br>
-在🆕的2023年，希望世界和平，人人幸福，愿生活在苦难中的人们，能够早日远离苦难，让幸福来敲门……<br>
+<p>2022 年初在中国大陆仍然实行着最为严格的清零政策并愈演愈烈，城市居民被限制人身自由，就连农村地区也被大量要求居家隔离，严重损害了中国经济和社会活力。中国失业人口再创新高，大量的毕业生找不到工作。在美国，最为严重的通货膨胀席卷全国，高昂的加息政策，损害了底层人民和工薪阶层。在中东，塔利班武装重新占领阿富汗，重新实行政教合一的暴力统治。在俄罗斯，爆发了乌克兰战争，将俄罗斯真正从苏联的阴影中脱离出来。在世界各地发生了太多的变化，2022 年注定是要被载入史册的一年。<br>
+对于我个人来说，2022 年也是成长非常大的一年，我经历了自工作来最大的变化，我从一家工作了多年的企业毕业，再次进入了社会的试炼场中求职，接触了更多的人，碰到了更多的事，也有了更多的感悟。曾经的我会讲工作看的比一切都重要，通过勤奋和努力可以改变一切，但是，社会的规则并不是这样的。决定你的个人价值并不是这些外在的东西，决定你个人价值的是你自己对自己的看法。你认为自己有价值，你就是你能够做到有价值。你觉得自己不重要，别人自然觉得你不重要。<br>
+在 🆕 的 2023 年，希望世界和平，人人幸福，愿生活在苦难中的人们，能够早日远离苦难，让幸福来敲门……<br>
 <div class="details admonition success open">
         <div class="details-summary admonition-title">
             <i class="icon fas fa-check-circle fa-fw"></i>关注<i class="details-icon fas fa-angle-right fa-fw"></i>
@@ -42,20 +42,20 @@
             <i class="icon fas fa-lightbulb fa-fw"></i>摘要<i class="details-icon fas fa-angle-right fa-fw"></i>
         </div>
         <div class="details-content">
-            <div class="admonition-content"><p>很多时候,避免不了同时使用python2和python3的环境,也避免不了不同的工作所需要不同版本的库文件,比如在想用TensorFlow较早版本的同时;还想运行Pytorch最新版；还想顺便学习Nao机器人编程,学习Django后台,这个时候,一款非常好用的包管理工具就显得十分重要了,这就是我写这篇博客的原因,这篇博客将会讲解：</p>
+            <div class="admonition-content"><p>很多时候,避免不了同时使用 python2 和 python3 的环境,也避免不了不同的工作所需要不同版本的库文件,比如在想用 TensorFlow 较早版本的同时;还想运行 Pytorch 最新版；还想顺便学习 Nao 机器人编程,学习 Django 后台,这个时候,一款非常好用的包管理工具就显得十分重要了,这就是我写这篇博客的原因,这篇博客将会讲解：</p>
 <ul>
-<li><i class="far fa-check-square fa-fw"></i> 如何安装conda;</li>
-<li><i class="far fa-check-square fa-fw"></i> 如何更换conda的下载源;</li>
-<li><i class="far fa-check-square fa-fw"></i> 如何使用canda;</li>
+<li><i class="far fa-check-square fa-fw"></i> 如何安装 conda;</li>
+<li><i class="far fa-check-square fa-fw"></i> 如何更换 conda 的下载源;</li>
+<li><i class="far fa-check-square fa-fw"></i> 如何使用 canda;</li>
 </ul>
 </div>
         </div>
     </div>
-<h2 id="安装conda">安装conda</h2>
+<h2 id="安装-conda">安装 conda</h2>
 <p>在安装时这两个选项需要点上：<br>
 </p>
-<h3 id="更换conda的下载源">更换conda的下载源</h3>
-<p><code>Conda官方</code>的下载源太慢了,而且经常会出现HTTPERROR之类的错误,如果想要用Conda愉快的创建不同工作环境,愉快的下载安装各种库,那么换下载源是必不可少的</p>
+<h3 id="更换-conda-的下载源">更换 conda 的下载源</h3>
+<p><code>Conda官方</code>的下载源太慢了,而且经常会出现 HTTPERROR 之类的错误,如果想要用 Conda 愉快的创建不同工作环境,愉快的下载安装各种库,那么换下载源是必不可少的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -74,10 +74,10 @@
 </span></span><span class="line"><span class="cl"><span class="c1"># 设置搜索时显示通道地址</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>具体操作同时按Win+R键打开运行窗口,输入cmd,回车：<br>
+</div><p>具体操作同时按 Win+R 键打开运行窗口,输入 cmd,回车：<br>
 </p>
 <p>将上面的命令全部复制,到命令行里单击右键就会自动执行复制的命令,添加清华源</p>
-<h2 id="使用conda">使用conda</h2>
+<h2 id="使用-conda">使用 conda</h2>
 <p>查看环境</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -138,18 +138,18 @@
     <guid>http://www.jobcher.com/shell-test/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/linux.webp" referrerpolicy="no-referrer">
-            </div><h2 id="28合1多功能脚本">28合1多功能脚本</h2>
+            </div><h2 id="28-合-1-多功能脚本">28 合 1 多功能脚本</h2>
 <ul>
-<li>脚本说明: 多合一脚本，DD系统，BBR，xray,TG搭建等等·常用的各种脚本基本都有！</li>
+<li>脚本说明: 多合一脚本，DD 系统，BBR，xray,TG 搭建等等·常用的各种脚本基本都有！</li>
 <li>系统支持: CentOS6+ / Debian6+ / Ubuntu14+</li>
-<li>支持安装BBR，搭建KCPtun，ssr多用户版</li>
-<li>安装V2ary，Tg专用代理（Go版），安装Goflyway</li>
+<li>支持安装 BBR，搭建 KCPtun，ssr 多用户版</li>
+<li>安装 V2ary，Tg 专用代理（Go 版），安装 Goflyway</li>
 <li>小鸡性能测试，回程线路测试，云监控</li>
-<li>傻瓜式一键DD包</li>
-<li>一键开启默认bbr</li>
-<li>Netflix解锁检测</li>
-<li>xray安装</li>
-<li>宝塔面板，闲蛋面板，x-ui面板，WARP 一键配置</li>
+<li>傻瓜式一键 DD 包</li>
+<li>一键开启默认 bbr</li>
+<li>Netflix 解锁检测</li>
+<li>xray 安装</li>
+<li>宝塔面板，闲蛋面板，x-ui 面板，WARP 一键配置</li>
 </ul>
 <h4 id="脚本特点">脚本特点:</h4>
 <p>目前网上的各个一键脚本基本都是只有 安装/启动/重启 等基础功能，对于小白来说还是不够简单方便。常用的各种脚本基本都有！</p>
@@ -162,9 +162,9 @@
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash &lt;<span class="o">(</span>curl -s -L https://git.io/JPj82<span class="o">)</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="gfw_push一键安装">gfw_push一键安装</h2>
+</div><h2 id="gfw_push-一键安装">gfw_push 一键安装</h2>
 <ul>
-<li>脚本说明: 监测服务器IP是否被墙并推送至 Telegram 一键脚本</li>
+<li>脚本说明: 监测服务器 IP 是否被墙并推送至 Telegram 一键脚本</li>
 <li>系统支持: CentOS6+ / Debian6+ / Ubuntu14+</li>
 </ul>
 <h4 id="下载安装-1">下载安装:</h4>
@@ -219,8 +219,8 @@
 </span></span><span class="line"><span class="cl">curl https://raw.githubusercontent.com/juanfont/headscale/main/config-example.yaml -o ./config/config.yaml
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="运行docker-compose文件">运行docker-compose文件</h2>
-<p>创建docker-compose.yaml</p>
+</div><h2 id="运行-docker-compose-文件">运行 docker-compose 文件</h2>
+<p>创建 docker-compose.yaml</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -238,7 +238,7 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">headscale</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">headscale/headscale:latest</span><span class="w">
@@ -258,7 +258,7 @@
 <p>docker-compose up -d</p>
 </blockquote>
 <h1 id="headscale-使用">Headscale 使用</h1>
-<h2 id="linux使用">Linux使用</h2>
+<h2 id="linux-使用">Linux 使用</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -333,12 +333,12 @@
 <h2 id="3进入当前登录微信数据文件夹后依次进入">3、进入当前登录微信数据文件夹后，依次进入</h2>
 <p>\Applet\wx141bfb9b73c970a9\usr\gamecaches\resources</p>
 <blockquote>
-<p>注意wx141bfb9b73c970a9文件名可能不同，但以a9结尾</p>
+<p>注意 wx141bfb9b73c970a9 文件名可能不同，但以 a9 结尾</p>
 </blockquote>
 <h2 id="4修改游戏配置文件">4、修改游戏配置文件</h2>
-<p>在此文件夹下，有很多json文件，找到默认排序的第三个，大小2k的文件</p>
+<p>在此文件夹下，有很多 json 文件，找到默认排序的第三个，大小 2k 的文件</p>
 <p></p>
-<p>我的电脑是16632884479734.json文件，用记事本打开，清空里面内容，将new.txt文件中的代码复制进此json文件，保存关闭</p>
+<p>我的电脑是 16632884479734.json 文件，用记事本打开，清空里面内容，将 new.txt 文件中的代码复制进此 json 文件，保存关闭</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -347,7 +347,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">[</span>1,0,0,<span class="o">[[</span><span class="s2">&#34;cc.JsonAsset&#34;</span>,<span class="o">[</span><span class="s2">&#34;_name&#34;</span>,<span class="s2">&#34;json&#34;</span><span class="o">]</span>,1<span class="o">]]</span>,<span class="o">[[</span>0,0,1,3<span class="o">]]</span>,<span class="o">[[</span>0,<span class="s2">&#34;levelConfigData&#34;</span>,<span class="o">{</span><span class="s2">&#34;dailyLevel&#34;</span>:<span class="o">[[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]</span>,<span class="o">[</span>80001,80001<span class="o">]]</span>,<span class="s2">&#34;topicLevel&#34;</span>:<span class="o">[[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]</span>,<span class="o">[</span>10017,10017<span class="o">]]}]]</span>,0,0,<span class="o">[]</span>,<span class="o">[]</span>,<span class="o">[]]</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>之后打开游戏，仅需要完成4次第一关九宫格样式即可加入羊群！</p>
+</div><p>之后打开游戏，仅需要完成 4 次第一关九宫格样式即可加入羊群！</p>
 <p></p>
 ]]></description>
 </item><item>
@@ -357,7 +357,7 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/logrotate/</guid>
     <description><![CDATA[<h1 id="logrotate-日志滚动的使用">logrotate 日志滚动的使用</h1>
-<p>logrotate 日志滚动切割工具，是linux默认安装的工具，配置文件位置：</p>
+<p>logrotate 日志滚动切割工具，是 linux 默认安装的工具，配置文件位置：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -369,7 +369,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="参数">参数</h2>
-<p>以nginx 配置为例</p>
+<p>以 nginx 配置为例</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -484,7 +484,7 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/rsync/</guid>
     <description><![CDATA[<h1 id="rsync-文件同步">rsync 文件同步</h1>
-<p>rsync 是一个常用的Linux应用程序，用于文件同步</p>
+<p>rsync 是一个常用的 Linux 应用程序，用于文件同步</p>
 <h2 id="安装">安装</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -509,8 +509,8 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="基本用法">基本用法</h2>
-<p>使用 rsync 命令时，可以作为cp和mv命令的替代方法，将源目录同步到目标目录。<br>
--r 表示递归，即包含子目录。注意，-r是必须的，否则 rsync 运行不会成功。source目录表示源目录，destination表示目标目录。<br>
+<p>使用 rsync 命令时，可以作为 cp 和 mv 命令的替代方法，将源目录同步到目标目录。<br>
+-r 表示递归，即包含子目录。注意，-r 是必须的，否则 rsync 运行不会成功。source 目录表示源目录，destination 表示目标目录。<br>
 -a 参数可以替代-r，除了可以递归同步以外，还可以同步元信息（比如修改时间、权限等）。由于 rsync 默认使用文件大小和修改时间决定文件是否需要更新</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -530,7 +530,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ol>
-<li>友情地址：<a href="https://www.jobcher.com/mysqldump/" target="_blank" rel="noopener noreffer">mysql迁移</a></li>
+<li>友情地址：<a href="https://www.jobcher.com/mysqldump/" target="_blank" rel="noopener noreffer">mysql 迁移</a></li>
 </ol>
 ]]></description>
 </item><item>
@@ -539,7 +539,7 @@
     <pubDate>Fri, 10 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/qyyemail163/</guid>
-    <description><![CDATA[<h1 id="163企业邮箱设置教程">163企业邮箱设置教程</h1>
+    <description><![CDATA[<h1 id="163-企业邮箱设置教程">163 企业邮箱设置教程</h1>
 <p>请进入这个网站
 <a href="https://qiye.163.com/help/l-11.html" target="_blank" rel="noopener noreffer">https://qiye.163.com/help/l-11.html</a></p>
 ]]></description>
@@ -549,16 +549,16 @@
     <pubDate>Wed, 08 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/20211210/</guid>
-    <description><![CDATA[<h1 id="2021年第50周周记">2021年第50周周记</h1>
+    <description><![CDATA[<h1 id="2021-年第-50-周周记">2021 年第 50 周周记</h1>
 <p>这周完成了以下任务</p>
 <ol>
-<li>搭建hugo博客</li>
-<li>使用docker封装了blog</li>
-<li>搭建k3s环境</li>
+<li>搭建 hugo 博客</li>
+<li>使用 docker 封装了 blog</li>
+<li>搭建 k3s 环境</li>
 </ol>
 <p>计划：</p>
 <ol>
-<li>学习k8s</li>
+<li>学习 k8s</li>
 </ol>
 <p>总结：没啥好总结，刚开始写周记，就随便写一点吧</p>
 <p>欢迎关注我的博客<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer">www.jobcher.com</a></p>

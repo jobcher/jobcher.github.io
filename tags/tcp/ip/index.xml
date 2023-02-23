@@ -10,13 +10,13 @@
     <pubDate>Wed, 08 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/tcpip/</guid>
-    <description><![CDATA[<h1 id="tcpip协议">TCP/IP协议</h1>
-<h2 id="什么是tcpip协议">什么是TCP/IP协议</h2>
+    <description><![CDATA[<h1 id="tcpip-协议">TCP/IP 协议</h1>
+<h2 id="什么是-tcpip-协议">什么是 TCP/IP 协议</h2>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">OSI七层架构</th>
-<th style="text-align:left">TCP/IP四层模型</th>
+<th style="text-align:left">OSI 七层架构</th>
+<th style="text-align:left">TCP/IP 四层模型</th>
 <th style="text-align:left">协议</th>
 </tr>
 </thead>
@@ -59,7 +59,7 @@
 </tbody>
 </table>
 <h3 id="报文结构">报文结构</h3>
-<p>TCP报文段首部格式<br>
+<p>TCP 报文段首部格式<br>
 </p>
 <ol>
 <li>
@@ -73,23 +73,23 @@
 <p>确认号 ack：期望收到对方下一个报文段的第一个数据字节的序号。若确认号为 N，则表明：到序号 N-1 为止的所有数据都已正确收到。</p>
 </li>
 <li>
-<p>数据偏移（首部长度）：它指出 TCP 报文段的数据起始处距离 TCP 报文段的起始处有多远。这个字段实际上是指出TCP报文段的首部长度。</p>
+<p>数据偏移（首部长度）：它指出 TCP 报文段的数据起始处距离 TCP 报文段的起始处有多远。这个字段实际上是指出 TCP 报文段的首部长度。</p>
 </li>
 <li>
 <p>保留：占 6 位，应置为 0，保留为今后使用。</p>
 </li>
 </ol>
-<h2 id="tcp三次握手">TCP三次握手</h2>
+<h2 id="tcp-三次握手">TCP 三次握手</h2>
 <p></p>
-<h2 id="tcp四次挥手">TCP四次挥手</h2>
+<h2 id="tcp-四次挥手">TCP 四次挥手</h2>
 <p></p>
-<h2 id="tcpip其他问题">TCP/IP其他问题</h2>
+<h2 id="tcpip-其他问题">TCP/IP 其他问题</h2>
 <ol>
-<li>TCP与UDP的区别<br>
+<li>TCP 与 UDP 的区别<br>
 （1）TCP：面向连接，可靠的，速度慢，效率低。<br>
 （2）UDP：无连接、不可靠、速度快、效率高。</li>
 </ol>
-<p>当进程需要传输可靠的数据时应使用TCP，当进程需要高效传输数据，可以忽略可靠性时应使用UDP协议。</p>
+<p>当进程需要传输可靠的数据时应使用 TCP，当进程需要高效传输数据，可以忽略可靠性时应使用 UDP 协议。</p>
 ]]></description>
 </item></channel>
 </rss>

@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>kubernetes面试题汇总 - 打工人日志 - jobcher</title><meta name="Description" content="打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通"><meta property="og:title" content="kubernetes面试题汇总" />
-<meta property="og:description" content="kubernetes面试题汇总 1、 k8s是什么？请说出你的了解？ 答：Kubenetes是一个针对容器应用，进行自动部署，弹性伸缩和管理的开源" />
+<meta property="og:description" content="kubernetes 面试题汇总 1、 k8s 是什么？请说出你的了解？ 答：Kubenetes 是一个针对容器应用，进行自动部署，弹性伸缩和管理的开源系统。主要功能是生产环" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.jobcher.com/k8s3/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-02-16T00:00:00+00:00" />
@@ -17,7 +17,7 @@
 <meta name="twitter:image" content="http://www.jobcher.com/avatar1.png"/>
 
 <meta name="twitter:title" content="kubernetes面试题汇总"/>
-<meta name="twitter:description" content="kubernetes面试题汇总 1、 k8s是什么？请说出你的了解？ 答：Kubenetes是一个针对容器应用，进行自动部署，弹性伸缩和管理的开源"/>
+<meta name="twitter:description" content="kubernetes 面试题汇总 1、 k8s 是什么？请说出你的了解？ 答：Kubenetes 是一个针对容器应用，进行自动部署，弹性伸缩和管理的开源系统。主要功能是生产环"/>
 <meta name="application-name" content="jobcher">
 <meta name="apple-mobile-web-app-title" content="jobcher"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/k8s3\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "k8s","wordcount":  8327 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "k8s","wordcount":  7760 ,
         "url": "http:\/\/www.jobcher.com\/k8s3\/","datePublished": "2022-02-16T00:00:00+00:00","dateModified": "2022-02-16T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,8 +124,8 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">kubernetes面试题汇总</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/k8s/"><i class="far fa-folder fa-fw"></i>k8s</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-16">2022-02-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 8327 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 17 分钟&nbsp;</div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-16">2022-02-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 7760 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 16 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
                     <span>目录</span>
@@ -133,40 +133,40 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#1-k8s是什么请说出你的了解">1、 k8s是什么？请说出你的了解？</a></li>
-    <li><a href="#2-k8s架构的组成是什么">2、 K8s架构的组成是什么？</a></li>
+    <li><a href="#1-k8s-是什么请说出你的了解">1、 k8s 是什么？请说出你的了解？</a></li>
+    <li><a href="#2-k8s-架构的组成是什么">2、 K8s 架构的组成是什么？</a></li>
     <li><a href="#3-容器和主机部署应用的区别是什么">3、 容器和主机部署应用的区别是什么？</a></li>
-    <li><a href="#4请你说一下kubenetes针对pod资源对象的健康监测机制">4、请你说一下kubenetes针对pod资源对象的健康监测机制？</a></li>
+    <li><a href="#4请你说一下-kubenetes-针对-pod-资源对象的健康监测机制">4、请你说一下 kubenetes 针对 pod 资源对象的健康监测机制？</a></li>
     <li><a href="#上面两种探针都支持以下三种探测方法">上面两种探针都支持以下三种探测方法：</a></li>
     <li><a href="#5-如何控制滚动更新过程">5、 如何控制滚动更新过程？</a></li>
-    <li><a href="#6k8s中镜像的下载策略是什么">6、K8s中镜像的下载策略是什么？</a></li>
-    <li><a href="#7-image的状态有哪些">7、 image的状态有哪些？</a></li>
-    <li><a href="#8-pod的重启策略是什么">8、 pod的重启策略是什么？</a></li>
-    <li><a href="#9-service这种资源对象的作用是什么">9、 Service这种资源对象的作用是什么？</a></li>
+    <li><a href="#6k8s-中镜像的下载策略是什么">6、K8s 中镜像的下载策略是什么？</a></li>
+    <li><a href="#7-image-的状态有哪些">7、 image 的状态有哪些？</a></li>
+    <li><a href="#8-pod-的重启策略是什么">8、 pod 的重启策略是什么？</a></li>
+    <li><a href="#9-service-这种资源对象的作用是什么">9、 Service 这种资源对象的作用是什么？</a></li>
     <li><a href="#10版本回滚相关的命令">10、版本回滚相关的命令？</a></li>
     <li><a href="#11-标签与标签选择器的作用是什么">11、 标签与标签选择器的作用是什么？</a></li>
     <li><a href="#12-常用的标签分类有哪些">12、 常用的标签分类有哪些？</a></li>
     <li><a href="#13-有几种查看标签的方式">13、 有几种查看标签的方式？</a></li>
     <li><a href="#14-添加修改删除标签的命令">14、 添加、修改、删除标签的命令？</a></li>
-    <li><a href="#15-daemonset资源对象的特性">15、 DaemonSet资源对象的特性？</a></li>
-    <li><a href="#16-说说你对job这种资源对象的了解">16、 说说你对Job这种资源对象的了解？</a></li>
-    <li><a href="#17描述一下pod的生命周期有哪些状态">17、描述一下pod的生命周期有哪些状态？</a></li>
-    <li><a href="#18-创建一个pod的流程是什么">18、 创建一个pod的流程是什么？</a></li>
-    <li><a href="#19-删除一个pod会发生什么事情">19、 删除一个Pod会发生什么事情？</a></li>
-    <li><a href="#20-k8s的service是什么">20、 K8s的Service是什么？</a></li>
-    <li><a href="#21-k8s是怎么进行服务注册的">21、 k8s是怎么进行服务注册的？</a></li>
-    <li><a href="#22-k8s集群外流量怎么访问pod">22、 k8s集群外流量怎么访问Pod？</a></li>
-    <li><a href="#23-k8s数据持久化的方式有哪些">23、 k8s数据持久化的方式有哪些？</a></li>
+    <li><a href="#15-daemonset-资源对象的特性">15、 DaemonSet 资源对象的特性？</a></li>
+    <li><a href="#16-说说你对-job-这种资源对象的了解">16、 说说你对 Job 这种资源对象的了解？</a></li>
+    <li><a href="#17描述一下-pod-的生命周期有哪些状态">17、描述一下 pod 的生命周期有哪些状态？</a></li>
+    <li><a href="#18-创建一个-pod-的流程是什么">18、 创建一个 pod 的流程是什么？</a></li>
+    <li><a href="#19-删除一个-pod-会发生什么事情">19、 删除一个 Pod 会发生什么事情？</a></li>
+    <li><a href="#20-k8s-的-service-是什么">20、 K8s 的 Service 是什么？</a></li>
+    <li><a href="#21-k8s-是怎么进行服务注册的">21、 k8s 是怎么进行服务注册的？</a></li>
+    <li><a href="#22-k8s-集群外流量怎么访问-pod">22、 k8s 集群外流量怎么访问 Pod？</a></li>
+    <li><a href="#23-k8s-数据持久化的方式有哪些">23、 k8s 数据持久化的方式有哪些？</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="kubernetes面试题汇总">kubernetes面试题汇总</h1>
-<h2 id="1-k8s是什么请说出你的了解">1、 k8s是什么？请说出你的了解？</h2>
-<p>答：Kubenetes是一个针对容器应用，进行自动部署，弹性伸缩和管理的开源系统。主要功能是生产环境中的容器编排。<br>
-K8S是Google公司推出的，它来源于由Google公司内部使用了15年的Borg系统，集结了Borg的精华。</p>
-<h2 id="2-k8s架构的组成是什么">2、 K8s架构的组成是什么？</h2>
-<p>答：和大多数分布式系统一样，K8S集群至少需要一个主节点（Master）和多个计算节点（Node）。</p>
-<p>主节点主要用于暴露API，调度部署和节点的管理；<br>
-计算节点运行一个容器运行环境，一般是docker环境（类似docker环境的还有rkt），同时运行一个K8s的代理（kubelet）用于和master通信。计算节点也会运行一些额外的组件，像记录日志，节点监控，服务发现等等。计算节点是k8s集群中真正工作的节点。</p>
+            </div><div class="content" id="content"><h1 id="kubernetes-面试题汇总">kubernetes 面试题汇总</h1>
+<h2 id="1-k8s-是什么请说出你的了解">1、 k8s 是什么？请说出你的了解？</h2>
+<p>答：Kubenetes 是一个针对容器应用，进行自动部署，弹性伸缩和管理的开源系统。主要功能是生产环境中的容器编排。<br>
+K8S 是 Google 公司推出的，它来源于由 Google 公司内部使用了 15 年的 Borg 系统，集结了 Borg 的精华。</p>
+<h2 id="2-k8s-架构的组成是什么">2、 K8s 架构的组成是什么？</h2>
+<p>答：和大多数分布式系统一样，K8S 集群至少需要一个主节点（Master）和多个计算节点（Node）。</p>
+<p>主节点主要用于暴露 API，调度部署和节点的管理；<br>
+计算节点运行一个容器运行环境，一般是 docker 环境（类似 docker 环境的还有 rkt），同时运行一个 K8s 的代理（kubelet）用于和 master 通信。计算节点也会运行一些额外的组件，像记录日志，节点监控，服务发现等等。计算节点是 k8s 集群中真正工作的节点。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -202,15 +202,15 @@ K8S是Google公司推出的，它来源于由Google公司内部使用了15年的
 </div><h2 id="3-容器和主机部署应用的区别是什么">3、 容器和主机部署应用的区别是什么？</h2>
 <p>答：容器的中心思想就是秒级启动；一次封装、到处运行；这是主机部署应用无法达到的效果，但同时也更应该注重容器的数据持久化问题。
 另外，容器部署可以将各个服务进行隔离，互不影响，这也是容器的另一个核心概念。</p>
-<h2 id="4请你说一下kubenetes针对pod资源对象的健康监测机制">4、请你说一下kubenetes针对pod资源对象的健康监测机制？</h2>
-<p>答：K8s中对于<code>pod</code>资源对象的健康状态检测，提供了三类<code>probe（探针）</code>来执行对pod的健康监测：</p>
+<h2 id="4请你说一下-kubenetes-针对-pod-资源对象的健康监测机制">4、请你说一下 kubenetes 针对 pod 资源对象的健康监测机制？</h2>
+<p>答：K8s 中对于<code>pod</code>资源对象的健康状态检测，提供了三类<code>probe（探针）</code>来执行对 pod 的健康监测：</p>
 <ol>
 <li><code>livenessProbe</code>探针<br>
-可以根据用户自定义规则来判定pod是否健康，如果livenessProbe探针探测到容器不健康，则kubelet会根据其重启策略来决定是否重启，如果一个容器不包含livenessProbe探针，则kubelet会认为容器的livenessProbe探针的返回值永远成功。</li>
+可以根据用户自定义规则来判定 pod 是否健康，如果 livenessProbe 探针探测到容器不健康，则 kubelet 会根据其重启策略来决定是否重启，如果一个容器不包含 livenessProbe 探针，则 kubelet 会认为容器的 livenessProbe 探针的返回值永远成功。</li>
 <li><code>ReadinessProbe</code>探针<br>
-同样是可以根据用户自定义规则来判断pod是否健康，如果探测失败，控制器会将此pod从对应service的endpoint列表中移除，从此不再将任何请求调度到此Pod上，直到下次探测成功。</li>
+同样是可以根据用户自定义规则来判断 pod 是否健康，如果探测失败，控制器会将此 pod 从对应 service 的 endpoint 列表中移除，从此不再将任何请求调度到此 Pod 上，直到下次探测成功。</li>
 <li><code>startupProbe</code>探针<br>
-启动检查机制，应用一些启动缓慢的业务，避免业务长时间启动而被上面两类探针kill掉，这个问题也可以换另一种方式解决，就是定义上面两类探针机制时，初始化时间定义的长一些即可。</li>
+启动检查机制，应用一些启动缓慢的业务，避免业务长时间启动而被上面两类探针 kill 掉，这个问题也可以换另一种方式解决，就是定义上面两类探针机制时，初始化时间定义的长一些即可。</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -224,16 +224,16 @@ K8S是Google公司推出的，它来源于由Google公司内部使用了15年的
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">每种探测方法能支持以下几个相同的检查参数，用于设置控制检查时间：
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">initialDelaySeconds：初始第一次探测间隔，用于应用启动的时间，防止应用还没启动而健康检查失败  
-</span></span><span class="line"><span class="cl">periodSeconds：检查间隔，多久执行probe检查，默认为10s；  
-</span></span><span class="line"><span class="cl">timeoutSeconds：检查超时时长，探测应用timeout后为失败；  
+</span></span><span class="line"><span class="cl">initialDelaySeconds：初始第一次探测间隔，用于应用启动的时间，防止应用还没启动而健康检查失败
+</span></span><span class="line"><span class="cl">periodSeconds：检查间隔，多久执行probe检查，默认为10s；
+</span></span><span class="line"><span class="cl">timeoutSeconds：检查超时时长，探测应用timeout后为失败；
 </span></span><span class="line"><span class="cl">successThreshold：成功探测阈值，表示探测多少次为健康正常，默认探测1次。
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="上面两种探针都支持以下三种探测方法">上面两种探针都支持以下三种探测方法：</h2>
 <ol>
-<li>Exec：通过执行命令的方式来检查服务是否正常，比如使用cat命令查看pod中的某个重要配置文件是否存在，若存在，则表示pod健康。反之异常。<br>
-Exec探测方式的yaml文件语法如下：</li>
+<li>Exec：通过执行命令的方式来检查服务是否正常，比如使用 cat 命令查看 pod 中的某个重要配置文件是否存在，若存在，则表示 pod 健康。反之异常。<br>
+Exec 探测方式的 yaml 文件语法如下：</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -256,25 +256,25 @@ Exec探测方式的yaml文件语法如下：</li>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">containers</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">liveness</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">k8s.gcr.io/busybox</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">args</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">/bin/sh</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- -<span class="l">c</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">livenessProbe</span><span class="p">:</span><span class="w">         </span><span class="c">#选择livenessProbe的探测机制</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">exec</span><span class="p">:</span><span class="w">                      </span><span class="c">#执行以下命令</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">command</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">cat</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">/tmp/healthy</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">          </span><span class="c">#在容器运行五秒后开始探测</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w">               </span><span class="c">#每次探测的时间间隔为5秒</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">liveness</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">k8s.gcr.io/busybox</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">args</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">/bin/sh</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- -<span class="l">c</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">livenessProbe</span><span class="p">:</span><span class="w"> </span><span class="c">#选择livenessProbe的探测机制</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">exec</span><span class="p">:</span><span class="w"> </span><span class="c">#执行以下命令</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">command</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="l">cat</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span>- <span class="l">/tmp/healthy</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">initialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="c">#在容器运行五秒后开始探测</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="c">#每次探测的时间间隔为5秒</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>在上面的配置文件中，探测机制为在容器运行5秒后，每隔五秒探测一次，如果cat命令返回的值为“0”，则表示健康，如果为非0，则表示异常。</p>
+</div><p>在上面的配置文件中，探测机制为在容器运行 5 秒后，每隔五秒探测一次，如果 cat 命令返回的值为“0”，则表示健康，如果为非 0，则表示异常。</p>
 <ol start="2">
-<li>Httpget：通过发送http/htps请求检查服务是否正常，返回的状态码为200-399则表示容器健康（注http get类似于命令curl -I）。<br>
-Httpget探测方式的yaml文件语法如下：</li>
+<li>Httpget：通过发送 http/htps 请求检查服务是否正常，返回的状态码为 200-399 则表示容器健康（注 http get 类似于命令 curl -I）。<br>
+Httpget 探测方式的 yaml 文件语法如下：</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -304,10 +304,10 @@ Httpget探测方式的yaml文件语法如下：</li>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">                </span><span class="c">#探测频率为3秒</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>上述配置文件中，探测方式为项容器发送HTTP GET请求，请求的是8080端口下的healthz文件，返回任何大于或等于200且小于400的状态码表示成功。任何其他代码表示异常。</p>
+</div><p>上述配置文件中，探测方式为项容器发送 HTTP GET 请求，请求的是 8080 端口下的 healthz 文件，返回任何大于或等于 200 且小于 400 的状态码表示成功。任何其他代码表示异常。</p>
 <ol start="3">
-<li>tcpSocket：通过容器的IP和Port执行TCP检查，如果能够建立TCP连接，则表明容器健康，这种方式与HTTPget的探测机制有些类似，tcpsocket健康检查适用于TCP业务。<br>
-tcpSocket探测方式的yaml文件语法如下：</li>
+<li>tcpSocket：通过容器的 IP 和 Port 执行 TCP 检查，如果能够建立 TCP 连接，则表明容器健康，这种方式与 HTTPget 的探测机制有些类似，tcpsocket 健康检查适用于 TCP 业务。<br>
+tcpSocket 探测方式的 yaml 文件语法如下：</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -349,11 +349,11 @@ tcpSocket探测方式的yaml文件语法如下：</li>
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">20</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>在上述的yaml配置文件中，两类探针都使用了，在容器启动5秒后，kubelet将发送第一个readinessProbe探针，这将连接容器的8080端口，如果探测成功，则该pod为健康，十秒后，kubelet将进行第二次连接。</p>
-<p>除了readinessProbe探针外，在容器启动15秒后，kubelet将发送第一个livenessProbe探针，仍然尝试连接容器的8080端口，如果连接失败，则重启容器。</p>
+</div><p>在上述的 yaml 配置文件中，两类探针都使用了，在容器启动 5 秒后，kubelet 将发送第一个 readinessProbe 探针，这将连接容器的 8080 端口，如果探测成功，则该 pod 为健康，十秒后，kubelet 将进行第二次连接。</p>
+<p>除了 readinessProbe 探针外，在容器启动 15 秒后，kubelet 将发送第一个 livenessProbe 探针，仍然尝试连接容器的 8080 端口，如果连接失败，则重启容器。</p>
 <p>探针探测的结果无外乎以下三者之一：</p>
-<p>Success：Container通过了检查；
-Failure：Container没有通过检查；
+<p>Success：Container 通过了检查；
+Failure：Container 没有通过检查；
 Unknown：没有执行检查，因此不采取任何措施（通常是我们没有定义探针检测，默认为成功）。
 若觉得上面还不够透彻，可以移步其官网文档：<a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/" target="_blank" rel="noopener noreffer">https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/</a></p>
 <h2 id="5-如何控制滚动更新过程">5、 如何控制滚动更新过程？</h2>
@@ -367,11 +367,11 @@ Unknown：没有执行检查，因此不采取任何措施（通常是我们没�
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">[</span>root@master yaml<span class="o">]</span><span class="c1"># kubectl explain deploy.spec.strategy.rollingUpdate</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>maxSurge ：此参数控制滚动更新过程，副本总数超过预期pod数量的上限。可以是百分比，也可以是具体的值。默认为1。<br>
-（上述参数的作用就是在更新过程中，值若为3，那么不管三七二一，先运行三个pod，用于替换旧的pod，以此类推）<br>
-maxUnavailable：此参数控制滚动更新过程中，不可用的Pod的数量。 （这个值和上面的值没有任何关系，举个例子：我有十个pod，但是在更新的过程中，我允许这十个pod中最多有三个不可用，那么就将这个参数的值设置为3，在更新的过程中，只要不可用的pod数量小于或等于3，那么更新过程就不会停止）。</p>
-<h2 id="6k8s中镜像的下载策略是什么">6、K8s中镜像的下载策略是什么？</h2>
-<p>答：可通过命令“kubectl explain pod.spec.containers”来查看imagePullPolicy这行的解释。</p>
+</div><p>maxSurge ：此参数控制滚动更新过程，副本总数超过预期 pod 数量的上限。可以是百分比，也可以是具体的值。默认为 1。<br>
+（上述参数的作用就是在更新过程中，值若为 3，那么不管三七二一，先运行三个 pod，用于替换旧的 pod，以此类推）<br>
+maxUnavailable：此参数控制滚动更新过程中，不可用的 Pod 的数量。 （这个值和上面的值没有任何关系，举个例子：我有十个 pod，但是在更新的过程中，我允许这十个 pod 中最多有三个不可用，那么就将这个参数的值设置为 3，在更新的过程中，只要不可用的 pod 数量小于或等于 3，那么更新过程就不会停止）。</p>
+<h2 id="6k8s-中镜像的下载策略是什么">6、K8s 中镜像的下载策略是什么？</h2>
+<p>答：可通过命令“kubectl explain pod.spec.containers”来查看 imagePullPolicy 这行的解释。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -390,7 +390,7 @@ maxUnavailable：此参数控制滚动更新过程中，不可用的Pod的数量
 </span></span><span class="line"><span class="cl">默认的镜像下载策略是：当镜像标签是latest时，默认策略是Always；当镜像标签是自定义时（也就是标签不是latest），那么默认策略是IfNotPresent。
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="7-image的状态有哪些">7、 image的状态有哪些？</h2>
+</div><h2 id="7-image-的状态有哪些">7、 image 的状态有哪些？</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -403,7 +403,7 @@ maxUnavailable：此参数控制滚动更新过程中，不可用的Pod的数量
 </span></span><span class="line"><span class="cl">Unknown：APIserver无法正常获取到pod对象的状态，通常是其无法与所在工作节点的kubelet通信所致。
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="8-pod的重启策略是什么">8、 pod的重启策略是什么？</h2>
+</div><h2 id="8-pod-的重启策略是什么">8、 pod 的重启策略是什么？</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -418,8 +418,8 @@ maxUnavailable：此参数控制滚动更新过程中，不可用的Pod的数量
 </span></span><span class="line"><span class="cl">OnFailure：仅在pod对象出现错误时才重启
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="9-service这种资源对象的作用是什么">9、 Service这种资源对象的作用是什么？</h2>
-<p>答：用来给相同的多个pod对象提供一个固定的统一访问接口，常用于服务发现和服务访问。</p>
+</div><h2 id="9-service-这种资源对象的作用是什么">9、 Service 这种资源对象的作用是什么？</h2>
+<p>答：用来给相同的多个 pod 对象提供一个固定的统一访问接口，常用于服务发现和服务访问。</p>
 <h2 id="10版本回滚相关的命令">10、版本回滚相关的命令？</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -436,25 +436,25 @@ maxUnavailable：此参数控制滚动更新过程中，不可用的Pod的数量
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">[</span>root@master httpd-web<span class="o">]</span><span class="c1"># kubectl apply -f httpd2-deploy1.yaml  --record  </span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="o">[</span>root@master httpd-web<span class="o">]</span><span class="c1"># kubectl apply -f httpd2-deploy1.yaml  --record</span>
 </span></span><span class="line"><span class="cl"><span class="c1">#运行yaml文件，并记录版本信息；</span>
-</span></span><span class="line"><span class="cl"><span class="o">[</span>root@master httpd-web<span class="o">]</span><span class="c1"># kubectl rollout history deployment httpd-devploy1  </span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@master httpd-web<span class="o">]</span><span class="c1"># kubectl rollout history deployment httpd-devploy1</span>
 </span></span><span class="line"><span class="cl"><span class="c1">#查看该deployment的历史版本</span>
-</span></span><span class="line"><span class="cl"><span class="o">[</span>root@master httpd-web<span class="o">]</span><span class="c1"># kubectl rollout undo deployment httpd-devploy1 --to-revision=1    </span>
+</span></span><span class="line"><span class="cl"><span class="o">[</span>root@master httpd-web<span class="o">]</span><span class="c1"># kubectl rollout undo deployment httpd-devploy1 --to-revision=1</span>
 </span></span><span class="line"><span class="cl"><span class="c1">#执行回滚操作，指定回滚到版本1</span>
-</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">#在yaml文件的spec字段中，可以写以下选项（用于限制最多记录多少个历史版本）：</span>
 </span></span><span class="line"><span class="cl">spec:
-</span></span><span class="line"><span class="cl">  revisionHistoryLimit: <span class="m">5</span>            
+</span></span><span class="line"><span class="cl">  revisionHistoryLimit: <span class="m">5</span>
 </span></span><span class="line"><span class="cl"><span class="c1">#这个字段通过 kubectl explain deploy.spec  命令找到revisionHistoryLimit   &lt;integer&gt;行获得</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="11-标签与标签选择器的作用是什么">11、 标签与标签选择器的作用是什么？</h2>
 <p><code>标签</code>：是当相同类型的资源对象越来越多的时候，为了更好的管理，可以按照标签将其分为一个组，为的是提升资源对象的管理效率。<br>
-<code>标签选择器</code>：就是标签的查询过滤条件。目前API支持两种标签选择器：</p>
+<code>标签选择器</code>：就是标签的查询过滤条件。目前 API 支持两种标签选择器：</p>
 <ol>
-<li>基于等值关系的，如：“=”、“”“==”、“！=”（注：“==”也是等于的意思，yaml文件中的matchLabels字段）；</li>
-<li>基于集合的，如：in、notin、exists（yaml文件中的matchExpressions字段）；</li>
+<li>基于等值关系的，如：“=”、“”“==”、“！=”（注：“==”也是等于的意思，yaml 文件中的 matchLabels 字段）；</li>
+<li>基于集合的，如：in、notin、exists（yaml 文件中的 matchExpressions 字段）；</li>
 <li>注：in:在这个集合中；notin：不在这个集合中；exists：要么全在（exists）这个集合中，要么都不在（notexists）；
 使用标签选择器的操作逻辑：</li>
 </ol>
@@ -484,11 +484,11 @@ maxUnavailable：此参数控制滚动更新过程中，不可用的Pod的数量
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">selector</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w">           </span><span class="c">#基于等值</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w"> </span><span class="c">#基于等值</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">matchExpressions</span><span class="p">:</span><span class="w">         </span><span class="c">#基于集合</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- {<span class="nt">key: name,operator: In,values</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">zhangsan,lisi]}    </span><span class="w"> </span><span class="c">#key、operator、values这三个字段是固定的</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- {<span class="nt">key: age,operator</span><span class="p">:</span><span class="w"> </span><span class="l">Exists,values:}  </span><span class="w"> </span><span class="c">#如果指定为exists，那么values的值一定要为空</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">matchExpressions</span><span class="p">:</span><span class="w"> </span><span class="c">#基于集合</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- {<span class="w"> </span><span class="nt">key: name, operator: In, values</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">zhangsan, lisi] }</span><span class="w"> </span><span class="c">#key、operator、values这三个字段是固定的</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- {<span class="w"> </span><span class="nt">key: age, operator: Exists, values</span><span class="p">:</span><span class="w"> </span>}<span class="w"> </span><span class="c">#如果指定为exists，那么values的值一定要为空</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="12-常用的标签分类有哪些">12、 常用的标签分类有哪些？</h2>
@@ -545,15 +545,15 @@ maxUnavailable：此参数控制滚动更新过程中，不可用的Pod的数量
 </span></span><span class="line"><span class="cl"><span class="o">[</span>root@master ~<span class="o">]</span><span class="c1"># kubectl label pod label-pod abc=456 --overwrite       #修改名为label-pod的标签</span>
 </span></span><span class="line"><span class="cl"><span class="o">[</span>root@master ~<span class="o">]</span><span class="c1"># kubectl label pod label-pod abc-             #删除名为label-pod的标签</span>
 </span></span><span class="line"><span class="cl"><span class="o">[</span>root@master ~<span class="o">]</span><span class="c1"># kubectl get pod --show-labels</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl"><span class="c1">#对node节点的标签操作   </span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#对node节点的标签操作</span>
 </span></span><span class="line"><span class="cl"><span class="o">[</span>root@master ~<span class="o">]</span><span class="c1"># kubectl label nodes node01 disk=ssd      #给节点node01添加disk标签</span>
 </span></span><span class="line"><span class="cl"><span class="o">[</span>root@master ~<span class="o">]</span><span class="c1"># kubectl label nodes node01 disk=sss –overwrite    #修改节点node01的标签</span>
 </span></span><span class="line"><span class="cl"><span class="o">[</span>root@master ~<span class="o">]</span><span class="c1"># kubectl label nodes node01 disk-         #删除节点node01的disk标签</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="15-daemonset资源对象的特性">15、 DaemonSet资源对象的特性？</h2>
-<p><code>DaemonSet</code>这种资源对象会在每个k8s集群中的节点上运行，并且每个节点只能运行一个pod，这是它和deployment资源对象的最大也是唯一的区别。所以，在其yaml文件中，不支持定义replicas，除此之外，与Deployment、RS等资源对象的写法相同。</p>
+</div><h2 id="15-daemonset-资源对象的特性">15、 DaemonSet 资源对象的特性？</h2>
+<p><code>DaemonSet</code>这种资源对象会在每个 k8s 集群中的节点上运行，并且每个节点只能运行一个 pod，这是它和 deployment 资源对象的最大也是唯一的区别。所以，在其 yaml 文件中，不支持定义 replicas，除此之外，与 Deployment、RS 等资源对象的写法相同。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -568,8 +568,8 @@ maxUnavailable：此参数控制滚动更新过程中，不可用的Pod的数量
 </span></span><span class="line"><span class="cl">监控每个节点的的运行状态；
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="16-说说你对job这种资源对象的了解">16、 说说你对Job这种资源对象的了解？</h2>
-<p>答：Job与其他服务类容器不同，Job是一种工作类容器（一般用于做一次性任务）。使用常见不多，可以忽略这个问题。</p>
+</div><h2 id="16-说说你对-job-这种资源对象的了解">16、 说说你对 Job 这种资源对象的了解？</h2>
+<p>答：Job 与其他服务类容器不同，Job 是一种工作类容器（一般用于做一次性任务）。使用常见不多，可以忽略这个问题。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -588,13 +588,13 @@ maxUnavailable：此参数控制滚动更新过程中，不可用的Pod的数量
 </span></span><span class="line"><span class="cl">metadata:
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="17描述一下pod的生命周期有哪些状态">17、描述一下pod的生命周期有哪些状态？</h2>
-<p>Pending：表示pod已经被同意创建，正在等待kube-scheduler选择合适的节点创建，一般是在准备镜像；
-Running：表示pod中所有的容器已经被创建，并且至少有一个容器正在运行或者是正在启动或者是正在重启；
+</div><h2 id="17描述一下-pod-的生命周期有哪些状态">17、描述一下 pod 的生命周期有哪些状态？</h2>
+<p>Pending：表示 pod 已经被同意创建，正在等待 kube-scheduler 选择合适的节点创建，一般是在准备镜像；
+Running：表示 pod 中所有的容器已经被创建，并且至少有一个容器正在运行或者是正在启动或者是正在重启；
 Succeeded：表示所有容器已经成功终止，并且不会再启动；
-Failed：表示pod中所有容器都是非0（不正常）状态退出；
-Unknown：表示无法读取Pod状态，通常是kube-controller-manager无法与Pod通信。</p>
-<h2 id="18-创建一个pod的流程是什么">18、 创建一个pod的流程是什么？</h2>
+Failed：表示 pod 中所有容器都是非 0（不正常）状态退出；
+Unknown：表示无法读取 Pod 状态，通常是 kube-controller-manager 无法与 Pod 通信。</p>
+<h2 id="18-创建一个-pod-的流程是什么">18、 创建一个 pod 的流程是什么？</h2>
 <p>答：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -612,8 +612,8 @@ Unknown：表示无法读取Pod状态，通常是kube-controller-manager无法�
 </span></span><span class="line"><span class="cl">5） Kubelet根据scheduler发来的资源配置单运行pod，运行成功后，将pod的运行信息返回给scheduler，scheduler将返回的pod运行状况的信息存储到etcd数据中心。
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="19-删除一个pod会发生什么事情">19、 删除一个Pod会发生什么事情？</h2>
-<p>答：Kube-apiserver会接受到用户的删除指令，默认有30秒时间等待优雅退出，超过30秒会被标记为死亡状态，此时Pod的状态Terminating，kubelet看到pod标记为Terminating就开始了关闭Pod的工作；</p>
+</div><h2 id="19-删除一个-pod-会发生什么事情">19、 删除一个 Pod 会发生什么事情？</h2>
+<p>答：Kube-apiserver 会接受到用户的删除指令，默认有 30 秒时间等待优雅退出，超过 30 秒会被标记为死亡状态，此时 Pod 的状态 Terminating，kubelet 看到 pod 标记为 Terminating 就开始了关闭 Pod 的工作；</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -630,15 +630,15 @@ Unknown：表示无法读取Pod状态，通常是kube-controller-manager无法�
 </span></span><span class="line"><span class="cl">4、 当超过优雅退出的时间后，Pod中的所有进程都会被发送SIGKILL信号（kill -9）。
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="20-k8s的service是什么">20、 K8s的Service是什么？</h2>
-<p>答：Pod每次重启或者重新部署，其IP地址都会产生变化，这使得pod间通信和pod与外部通信变得困难，这时候，就需要Service为pod提供一个固定的入口。</p>
-<p>Service的Endpoint列表通常绑定了一组相同配置的pod，通过负载均衡的方式把外界请求分配到多个pod上</p>
-<h2 id="21-k8s是怎么进行服务注册的">21、 k8s是怎么进行服务注册的？</h2>
-<p>答：Pod启动后会加载当前环境所有Service信息，以便不同Pod根据Service名进行通信。</p>
-<h2 id="22-k8s集群外流量怎么访问pod">22、 k8s集群外流量怎么访问Pod？</h2>
-<p>答：可以通过Service的NodePort方式访问，会在所有节点监听同一个端口，比如：30000，访问节点的流量会被重定向到对应的Service上面。</p>
-<h2 id="23-k8s数据持久化的方式有哪些">23、 k8s数据持久化的方式有哪些？</h2>
-<p>答：1）EmptyDir（空目录）：没有指定要挂载宿主机上的某个目录，直接由Pod内保部映射到宿主机上。类似于docker中的manager volume。</p>
+</div><h2 id="20-k8s-的-service-是什么">20、 K8s 的 Service 是什么？</h2>
+<p>答：Pod 每次重启或者重新部署，其 IP 地址都会产生变化，这使得 pod 间通信和 pod 与外部通信变得困难，这时候，就需要 Service 为 pod 提供一个固定的入口。</p>
+<p>Service 的 Endpoint 列表通常绑定了一组相同配置的 pod，通过负载均衡的方式把外界请求分配到多个 pod 上</p>
+<h2 id="21-k8s-是怎么进行服务注册的">21、 k8s 是怎么进行服务注册的？</h2>
+<p>答：Pod 启动后会加载当前环境所有 Service 信息，以便不同 Pod 根据 Service 名进行通信。</p>
+<h2 id="22-k8s-集群外流量怎么访问-pod">22、 k8s 集群外流量怎么访问 Pod？</h2>
+<p>答：可以通过 Service 的 NodePort 方式访问，会在所有节点监听同一个端口，比如：30000，访问节点的流量会被重定向到对应的 Service 上面。</p>
+<h2 id="23-k8s-数据持久化的方式有哪些">23、 k8s 数据持久化的方式有哪些？</h2>
+<p>答：1）EmptyDir（空目录）：没有指定要挂载宿主机上的某个目录，直接由 Pod 内保部映射到宿主机上。类似于 docker 中的 manager volume。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -657,11 +657,11 @@ Unknown：表示无法读取Pod状态，通常是kube-controller-manager无法�
 </span></span><span class="line"><span class="cl">总结来说：emptyDir的数据持久化的生命周期和使用的pod一致。一般是作为临时存储使用。
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>2）Hostpath：将宿主机上已存在的目录或文件挂载到容器内部。类似于docker中的bind mount挂载方式。
-这种数据持久化方式，运用场景不多，因为它增加了pod与节点之间的耦合。
-一般对于k8s集群本身的数据持久化和docker本身的数据持久化会使用这种方式，可以自行参考apiService的yaml文件，位于：/etc/kubernetes/main…目录下。</p>
-<p>3）PersistentVolume（简称PV）：
-基于NFS服务的PV，也可以基于GFS的PV。它的作用是统一数据持久化目录，方便管理。</p>
+</div><p>2）Hostpath：将宿主机上已存在的目录或文件挂载到容器内部。类似于 docker 中的 bind mount 挂载方式。
+这种数据持久化方式，运用场景不多，因为它增加了 pod 与节点之间的耦合。
+一般对于 k8s 集群本身的数据持久化和 docker 本身的数据持久化会使用这种方式，可以自行参考 apiService 的 yaml 文件，位于：/etc/kubernetes/main…目录下。</p>
+<p>3）PersistentVolume（简称 PV）：
+基于 NFS 服务的 PV，也可以基于 GFS 的 PV。它的作用是统一数据持久化目录，方便管理。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -690,7 +690,7 @@ Unknown：表示无法读取Pod状态，通常是kube-controller-manager无法�
 </span></span><span class="line"><span class="cl"><span class="c1">#PS：这里的回收策略指的是在PV被删除后，在这个PV下所存储的源文件是否删除）。</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>若需使用PV，那么还有一个重要的概念：PVC，PVC是向PV申请应用所需的容量大小，K8s集群中可能会有多个PV，PVC和PV若要关联，其定义的访问模式必须一致。定义的storageClassName也必须一致，若群集中存在相同的（名字、访问模式都一致）两个PV，那么PVC会选择向它所需容量接近的PV去申请，或者随机申请。</p>
+</div><p>若需使用 PV，那么还有一个重要的概念：PVC，PVC 是向 PV 申请应用所需的容量大小，K8s 集群中可能会有多个 PV，PVC 和 PV 若要关联，其定义的访问模式必须一致。定义的 storageClassName 也必须一致，若群集中存在相同的（名字、访问模式都一致）两个 PV，那么 PVC 会选择向它所需容量接近的 PV 去申请，或者随机申请。</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">

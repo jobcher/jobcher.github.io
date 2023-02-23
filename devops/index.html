@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>CICD 概念 - 打工人日志 - jobcher</title><meta name="Description" content="打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通"><meta property="og:title" content="CICD 概念" />
-<meta property="og:description" content="CICD 概念 DevOps Devlopment和Operation的组合词 规划-》代码-》构建-》测试-》发布-》部署-》运营-》监控-》再次规划 devOps" />
+<meta property="og:description" content="CICD 概念 DevOps Devlopment 和 Operation 的组合词 规划-》代码-》构建-》测试-》发布-》部署-》运营-》监控-》再次规划 devOps 看作开发（软件工程）、技术运营和质量保障（Q" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.jobcher.com/devops/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-02-17T00:00:00+00:00" />
@@ -17,7 +17,7 @@
 <meta name="twitter:image" content="http://www.jobcher.com/avatar1.png"/>
 
 <meta name="twitter:title" content="CICD 概念"/>
-<meta name="twitter:description" content="CICD 概念 DevOps Devlopment和Operation的组合词 规划-》代码-》构建-》测试-》发布-》部署-》运营-》监控-》再次规划 devOps"/>
+<meta name="twitter:description" content="CICD 概念 DevOps Devlopment 和 Operation 的组合词 规划-》代码-》构建-》测试-》发布-》部署-》运营-》监控-》再次规划 devOps 看作开发（软件工程）、技术运营和质量保障（Q"/>
 <meta name="application-name" content="jobcher">
 <meta name="apple-mobile-web-app-title" content="jobcher"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/devops\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "gitlab","wordcount":  500 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "gitlab","wordcount":  470 ,
         "url": "http:\/\/www.jobcher.com\/devops\/","datePublished": "2022-02-17T00:00:00+00:00","dateModified": "2022-02-17T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,7 +124,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">CICD 概念</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/gitlab/"><i class="far fa-folder fa-fw"></i>gitlab</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-17">2022-02-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 500 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-17">2022-02-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 470 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -134,12 +134,12 @@
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents"></nav></div>
             </div><div class="content" id="content"><h1 id="cicd-概念">CICD 概念</h1>
 <h1 id="devops">DevOps</h1>
-<p>Devlopment和Operation的组合词</p>
+<p>Devlopment 和 Operation 的组合词</p>
 <p>规划-》代码-》构建-》测试-》发布-》部署-》运营-》监控-》再次规划</p>
 <ol>
-<li>devOps看作开发（软件工程）、技术运营和质量保障（QA）三者的交集</li>
+<li>devOps 看作开发（软件工程）、技术运营和质量保障（QA）三者的交集</li>
 <li>突出重视软件开发人员和运维人员的沟通合作，通过自动化流程来使得软件构建、测试、发布更加快捷、频繁和可靠。</li>
-<li>DevOps希望做到的是软件产品交付过程中<code>IT工具链的打通</code>，使得各个团队减少时间损耗。更加高效的协同工作。良好的闭环可以大大增加整体的产出。</li>
+<li>DevOps 希望做到的是软件产品交付过程中<code>IT工具链的打通</code>，使得各个团队减少时间损耗。更加高效的协同工作。良好的闭环可以大大增加整体的产出。</li>
 </ol>
 <h1 id="cicd">CICD</h1>
 <p><code>持续</code>集成 <code>持续</code>部署<br>
@@ -153,8 +153,8 @@
         title="devops" /></p>
 <ol>
 <li>持续集成<br>
-持续集成是指软件个人研发的部分向软件整体部分交付，频繁进行集成以便更快地发现其中的错误。“持续集成”源自于极限编程（XP），是12最初的12种实践之一
-Ci需要具备这些：</li>
+持续集成是指软件个人研发的部分向软件整体部分交付，频繁进行集成以便更快地发现其中的错误。“持续集成”源自于极限编程（XP），是 12 最初的 12 种实践之一
+Ci 需要具备这些：</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

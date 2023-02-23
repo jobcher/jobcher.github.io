@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>Keepalived高可用 - 打工人日志 - jobcher</title><meta name="Description" content="打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通"><meta property="og:title" content="Keepalived高可用" />
-<meta property="og:description" content="Keepalived高可用 配置文件存放位置：/usr/share/doc/keepalived/samples VVRP 虚拟路由冗余协议 组成 LB集群" />
+<meta property="og:description" content="Keepalived 高可用 配置文件存放位置：/usr/share/doc/keepalived/samples VVRP 虚拟路由冗余协议 组成 LB 集群：Load Balan" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.jobcher.com/keepalived/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-01-05T00:00:00+00:00" />
@@ -17,7 +17,7 @@
 <meta name="twitter:image" content="http://www.jobcher.com/avatar1.png"/>
 
 <meta name="twitter:title" content="Keepalived高可用"/>
-<meta name="twitter:description" content="Keepalived高可用 配置文件存放位置：/usr/share/doc/keepalived/samples VVRP 虚拟路由冗余协议 组成 LB集群"/>
+<meta name="twitter:description" content="Keepalived 高可用 配置文件存放位置：/usr/share/doc/keepalived/samples VVRP 虚拟路由冗余协议 组成 LB 集群：Load Balan"/>
 <meta name="application-name" content="jobcher">
 <meta name="apple-mobile-web-app-title" content="jobcher"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/keepalived\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "k8s","wordcount":  263 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "k8s","wordcount":  235 ,
         "url": "http:\/\/www.jobcher.com\/keepalived\/","datePublished": "2022-01-05T00:00:00+00:00","dateModified": "2022-01-05T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,7 +124,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Keepalived高可用</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/k8s/"><i class="far fa-folder fa-fw"></i>k8s</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-05">2022-01-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 263 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-05">2022-01-05</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 235 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -137,23 +137,23 @@
     <li><a href="#配置">配置</a>
       <ul>
         <li><a href="#同步各节点时间">同步各节点时间</a></li>
-        <li><a href="#安装keepalived">安装keepalived</a></li>
+        <li><a href="#安装-keepalived">安装 keepalived</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="keepalived高可用">Keepalived高可用</h1>
+            </div><div class="content" id="content"><h1 id="keepalived-高可用">Keepalived 高可用</h1>
 <p>配置文件存放位置：/usr/share/doc/keepalived/samples<br>
 VVRP 虚拟路由冗余协议</p>
 <h2 id="组成">组成</h2>
-<p>LB集群：Load Balancing，负载均衡集群，平均分配给多个节点<br>
-HA集群：High Availability，高可用集群，保证服务可用<br>
-HPC集群：High Performance Computing，高性能集群</p>
+<p>LB 集群：Load Balancing，负载均衡集群，平均分配给多个节点<br>
+HA 集群：High Availability，高可用集群，保证服务可用<br>
+HPC 集群：High Performance Computing，高性能集群</p>
 <h2 id="配置">配置</h2>
 <p>keepalived+LVS+nginx</p>
 <ol>
 <li>各节点时间必须同步：ntp, chrony</li>
-<li>关闭防火墙及SELinux</li>
+<li>关闭防火墙及 SELinux</li>
 </ol>
 <h3 id="同步各节点时间">同步各节点时间</h3>
 <div class="highlight"><div class="chroma">
@@ -176,7 +176,7 @@ HPC集群：High Performance Computing，高性能集群</p>
 </span></span><span class="line"><span class="cl">datetime
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="安装keepalived">安装keepalived</h3>
+</div><h3 id="安装-keepalived">安装 keepalived</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1

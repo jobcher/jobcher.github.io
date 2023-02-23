@@ -10,7 +10,7 @@
     <pubDate>Wed, 20 Jul 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/linux-disk/</guid>
-    <description><![CDATA[<h1 id="linux服务器-删除空间却未释放">linux服务器 删除空间却未释放</h1>
+    <description><![CDATA[<h1 id="linux-服务器-删除空间却未释放">linux 服务器 删除空间却未释放</h1>
 <p>在<code>Linux</code>或者<code>Unix</code>系统中，通过<code>rm</code>或者文件管理器删除文件将会从文件系统的目录结构上<code>解除链接(unlink)</code>，然而如果文件是被打开的<code>（有一个进程正在使用）</code>，那么进程将仍然可以读取该文件，<code>磁盘空间也一直被占用</code>，这样就会导致我们明明删除了文件，但是磁盘空间却未被释放</p>
 <h2 id="获取占用列表状态">获取占用列表状态</h2>
 <div class="highlight"><div class="chroma">
@@ -24,8 +24,8 @@
 </div><p>可以看到哪些文件还被使用，未被释放空间。</p>
 <h2 id="释放磁盘空间">释放磁盘空间</h2>
 <ol>
-<li>一种方法是kill掉相应的进程，或者停掉使用这个文件的应用，让os自动回收磁盘空间，当linux打开一个文件的时候,Linux内核会为每一个进程在<code>/proc/</code>, <code>/proc/nnnn/fd/</code>目录（nnnn为pid）建立一个以其pid为名的目录用来保存进程的相关信息，而其子目录fd保存的是该进程打开的所有文件的fd（fd：file descriptor）；<br>
-<code>kill</code>进程是通过截断proc文件系统中的文件可以强制要求系统回收分配给正在使用的的文件，这是一项高级技术，仅当管理员确定不会对运行中的进程造成影响时使用。</li>
+<li>一种方法是 kill 掉相应的进程，或者停掉使用这个文件的应用，让 os 自动回收磁盘空间，当 linux 打开一个文件的时候,Linux 内核会为每一个进程在<code>/proc/</code>, <code>/proc/nnnn/fd/</code>目录（nnnn 为 pid）建立一个以其 pid 为名的目录用来保存进程的相关信息，而其子目录 fd 保存的是该进程打开的所有文件的 fd（fd：file descriptor）；<br>
+<code>kill</code>进程是通过截断 proc 文件系统中的文件可以强制要求系统回收分配给正在使用的的文件，这是一项高级技术，仅当管理员确定不会对运行中的进程造成影响时使用。</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -38,8 +38,8 @@
 </div><ol start="2">
 <li>重启服务</li>
 </ol>
-<h2 id="lsof命令">lsof命令</h2>
-<p><code>lsof</code>全名<code>list opened files</code>，也就是列举系统中已经被打开的文件。我们都知道，linux环境中，任何事物都是文件，设备是文件，目录是文件，甚至<code>sockets</code>也是文件。</p>
+<h2 id="lsof-命令">lsof 命令</h2>
+<p><code>lsof</code>全名<code>list opened files</code>，也就是列举系统中已经被打开的文件。我们都知道，linux 环境中，任何事物都是文件，设备是文件，目录是文件，甚至<code>sockets</code>也是文件。</p>
 ]]></description>
 </item><item>
     <title>VSCode插件推荐=&gt; Code Runner</title>
@@ -47,10 +47,10 @@
     <pubDate>Mon, 25 Apr 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/vscode-runcode/</guid>
-    <description><![CDATA[<h1 id="vscode插件推荐-code-runner">VSCode插件推荐=&gt; Code Runner</h1>
+    <description><![CDATA[<h1 id="vscode-插件推荐-code-runner">VSCode 插件推荐=&gt; Code Runner</h1>
 <p>Run code snippet or code file for multiple languages: C, C++, Java, JavaScript, PHP, Python, Perl, Perl 6, Ruby, Go, Lua, Groovy, PowerShell, BAT/CMD, BASH/SH, F# Script, F# (.NET Core), C# Script, C# (.NET Core), VBScript, TypeScript, CoffeeScript, Scala, Swift, Julia, Crystal, OCaml Script, R, AppleScript, Elixir, Visual Basic .NET, Clojure, Haxe, Objective-C, Rust, Racket, Scheme, AutoHotkey, AutoIt, Kotlin, Dart, Free Pascal, Haskell, Nim, D, Lisp, Kit, V, SCSS, Sass, CUDA, Less, Fortran, Ring, and custom command<br>
-可以用编译运行超过40种语言，非常的方便～</p>
-<h2 id="在vscode插件里安装">在vscode插件里安装</h2>
+可以用编译运行超过 40 种语言，非常的方便～</p>
+<h2 id="在-vscode-插件里安装">在 vscode 插件里安装</h2>
 <p></p>
 <h2 id="运行你的代码">运行你的代码</h2>
 <ul>
@@ -74,11 +74,11 @@
 风起大江扬洪波<br>
 疫情减弱，遍邀亲友，无人相约，但闻昔日挚友，感怀往事邀吾往之。欲把殷勤牵挂诉，幸之。遂至友舍，诉之：<code>帮忙装个监控吧～</code></p>
 <h2 id="买物料">买物料</h2>
-<p>和朋友两个人出发，帮朋友邻居家装个监控，他这个监控是要求装在车库里，但是网线要从4楼下放下去。所以，我们首先要出门购买一下物料：</p>
+<p>和朋友两个人出发，帮朋友邻居家装个监控，他这个监控是要求装在车库里，但是网线要从 4 楼下放下去。所以，我们首先要出门购买一下物料：</p>
 <ol>
-<li>带RJ45接口监控</li>
+<li>带 RJ45 接口监控</li>
 <li>足够长的网线
-走了10000多步人都走傻了～<br>
+走了 10000 多步人都走傻了～<br>
 </li>
 </ol>
 <h2 id="布线">布线</h2>

@@ -1,13 +1,19 @@
 # logstash 多管道部署
 
+
 # logstash 多管道部署
-找到logstash 目录位置，一般来说在 `/etc/logstash` 路径下,修改 `logstash.yml`  
+
+找到 logstash 目录位置，一般来说在 `/etc/logstash` 路径下,修改 `logstash.yml`
+
 ```yaml
 #增加 日志记录
 path.logs: /var/log/logstash
 ```
+
 ## 增加管道
+
 增加 `conf.d`目录下 test.conf
+
 ```conf
 input {
     beats {
@@ -31,13 +37,18 @@ output {
 }
 
 ```
+
 修改 `pipelines.yml`
+
 ```yml
 - pipeline.id: 名称
   path.config: "/etc/logstash/conf.d/配置文件.conf"
   queue.type: persisted
 ```
-## 启动logstash文件
+
+## 启动 logstash 文件
+
 ```sh
 /usr/share/logstash/bin/logstash &
 ```
+

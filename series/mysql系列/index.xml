@@ -112,11 +112,11 @@
     <guid>http://www.jobcher.com/navicatforgetpassword/</guid>
     <description><![CDATA[<h1 id="navicat-查看密码方案">Navicat 查看密码方案</h1>
 <h2 id="解决问题">解决问题：</h2>
-<p>我们经常使用navicat连接数据库，有时候时间久了之后，会忘记之前的密码，那么现在我们有办法获得只要正常连接的数据库的密码</p>
+<p>我们经常使用 navicat 连接数据库，有时候时间久了之后，会忘记之前的密码，那么现在我们有办法获得只要正常连接的数据库的密码</p>
 <h2 id="步骤">步骤：</h2>
 <ol>
-<li>导出连接connections.ncx，拿到保存到本地的connections.ncx文件中的Password，粘贴到下面的代码中</li>
-<li>登陆<a href="https://tool.lu/coderunner/" target="_blank" rel="noopener noreffer">https://tool.lu/coderunner/</a>，使用PHP在线运行工具，粘贴下面添加密码后的代码<br>
+<li>导出连接 connections.ncx，拿到保存到本地的 connections.ncx 文件中的 Password，粘贴到下面的代码中</li>
+<li>登陆<a href="https://tool.lu/coderunner/" target="_blank" rel="noopener noreffer">https://tool.lu/coderunner/</a>，使用 PHP 在线运行工具，粘贴下面添加密码后的代码<br>
 备用工具网址（https://zixuephp.net/tool-runcode.html）</li>
 </ol>
 <div class="highlight"><div class="chroma">
@@ -269,14 +269,14 @@
 </span></span><span class="line"><span class="cl">    <span class="k">protected</span> <span class="nv">$blowString</span> <span class="o">=</span> <span class="s1">&#39;3DC5CA39&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">protected</span> <span class="nv">$blowKey</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="k">protected</span> <span class="nv">$blowIv</span> <span class="o">=</span> <span class="k">null</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">     
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nv">$version</span> <span class="o">=</span> <span class="mi">12</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">version</span> <span class="o">=</span> <span class="nv">$version</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">blowKey</span> <span class="o">=</span> <span class="nx">sha1</span><span class="p">(</span><span class="s1">&#39;3DC5CA39&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">blowIv</span> <span class="o">=</span> <span class="nx">hex2bin</span><span class="p">(</span><span class="s1">&#39;d9c7c3c8870d64bd&#39;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">     
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="nf">encrypt</span><span class="p">(</span><span class="nv">$string</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nv">$result</span> <span class="o">=</span> <span class="k">FALSE</span><span class="p">;</span>
@@ -290,57 +290,57 @@
 </span></span><span class="line"><span class="cl">            <span class="k">default</span><span class="o">:</span>
 </span></span><span class="line"><span class="cl">                <span class="k">break</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">         
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nv">$result</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">     
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">protected</span> <span class="k">function</span> <span class="nf">encryptEleven</span><span class="p">(</span><span class="nv">$string</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nv">$round</span> <span class="o">=</span> <span class="nx">intval</span><span class="p">(</span><span class="nx">floor</span><span class="p">(</span><span class="nx">strlen</span><span class="p">(</span><span class="nv">$string</span><span class="p">)</span> <span class="o">/</span> <span class="mi">8</span><span class="p">));</span>
 </span></span><span class="line"><span class="cl">        <span class="nv">$leftLength</span> <span class="o">=</span> <span class="nx">strlen</span><span class="p">(</span><span class="nv">$string</span><span class="p">)</span> <span class="o">%</span> <span class="mi">8</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="nv">$result</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="nv">$currentVector</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">blowIv</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">         
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nv">$round</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="nv">$temp</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">encryptBlock</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">xorBytes</span><span class="p">(</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$string</span><span class="p">,</span> <span class="mi">8</span> <span class="o">*</span> <span class="nv">$i</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="nv">$currentVector</span><span class="p">));</span>
 </span></span><span class="line"><span class="cl">            <span class="nv">$currentVector</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">xorBytes</span><span class="p">(</span><span class="nv">$currentVector</span><span class="p">,</span> <span class="nv">$temp</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">            <span class="nv">$result</span> <span class="o">.=</span> <span class="nv">$temp</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">         
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nv">$leftLength</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="nv">$currentVector</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">encryptBlock</span><span class="p">(</span><span class="nv">$currentVector</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">            <span class="nv">$result</span> <span class="o">.=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">xorBytes</span><span class="p">(</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$string</span><span class="p">,</span> <span class="mi">8</span> <span class="o">*</span> <span class="nv">$i</span><span class="p">,</span> <span class="nv">$leftLength</span><span class="p">),</span> <span class="nv">$currentVector</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">         
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">strtoupper</span><span class="p">(</span><span class="nx">bin2hex</span><span class="p">(</span><span class="nv">$result</span><span class="p">));</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">     
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">protected</span> <span class="k">function</span> <span class="nf">encryptBlock</span><span class="p">(</span><span class="nv">$block</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">openssl_encrypt</span><span class="p">(</span><span class="nv">$block</span><span class="p">,</span> <span class="s1">&#39;BF-ECB&#39;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">blowKey</span><span class="p">,</span> <span class="nx">OPENSSL_RAW_DATA</span><span class="o">|</span><span class="nx">OPENSSL_NO_PADDING</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">     
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">protected</span> <span class="k">function</span> <span class="nf">decryptBlock</span><span class="p">(</span><span class="nv">$block</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">openssl_decrypt</span><span class="p">(</span><span class="nv">$block</span><span class="p">,</span> <span class="s1">&#39;BF-ECB&#39;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">blowKey</span><span class="p">,</span> <span class="nx">OPENSSL_RAW_DATA</span><span class="o">|</span><span class="nx">OPENSSL_NO_PADDING</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">     
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">protected</span> <span class="k">function</span> <span class="nf">xorBytes</span><span class="p">(</span><span class="nv">$str1</span><span class="p">,</span> <span class="nv">$str2</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nv">$result</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nx">strlen</span><span class="p">(</span><span class="nv">$str1</span><span class="p">);</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="nv">$result</span> <span class="o">.=</span> <span class="nx">chr</span><span class="p">(</span><span class="nx">ord</span><span class="p">(</span><span class="nv">$str1</span><span class="p">[</span><span class="nv">$i</span><span class="p">])</span> <span class="o">^</span> <span class="nx">ord</span><span class="p">(</span><span class="nv">$str2</span><span class="p">[</span><span class="nv">$i</span><span class="p">]));</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">         
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nv">$result</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">     
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">protected</span> <span class="k">function</span> <span class="nf">encryptTwelve</span><span class="p">(</span><span class="nv">$string</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nv">$result</span> <span class="o">=</span> <span class="nx">openssl_encrypt</span><span class="p">(</span><span class="nv">$string</span><span class="p">,</span> <span class="s1">&#39;AES-128-CBC&#39;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">aesKey</span><span class="p">,</span> <span class="nx">OPENSSL_RAW_DATA</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">aesIv</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">strtoupper</span><span class="p">(</span><span class="nx">bin2hex</span><span class="p">(</span><span class="nv">$result</span><span class="p">));</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">     
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">public</span> <span class="k">function</span> <span class="nf">decrypt</span><span class="p">(</span><span class="nv">$string</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nv">$result</span> <span class="o">=</span> <span class="k">FALSE</span><span class="p">;</span>
@@ -354,45 +354,45 @@
 </span></span><span class="line"><span class="cl">            <span class="k">default</span><span class="o">:</span>
 </span></span><span class="line"><span class="cl">                <span class="k">break</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">         
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nv">$result</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">     
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">protected</span> <span class="k">function</span> <span class="nf">decryptEleven</span><span class="p">(</span><span class="nv">$upperString</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nv">$string</span> <span class="o">=</span> <span class="nx">hex2bin</span><span class="p">(</span><span class="nx">strtolower</span><span class="p">(</span><span class="nv">$upperString</span><span class="p">));</span>
-</span></span><span class="line"><span class="cl">         
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="nv">$round</span> <span class="o">=</span> <span class="nx">intval</span><span class="p">(</span><span class="nx">floor</span><span class="p">(</span><span class="nx">strlen</span><span class="p">(</span><span class="nv">$string</span><span class="p">)</span> <span class="o">/</span> <span class="mi">8</span><span class="p">));</span>
 </span></span><span class="line"><span class="cl">        <span class="nv">$leftLength</span> <span class="o">=</span> <span class="nx">strlen</span><span class="p">(</span><span class="nv">$string</span><span class="p">)</span> <span class="o">%</span> <span class="mi">8</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="nv">$result</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="nv">$currentVector</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">blowIv</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">         
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="p">(</span><span class="nv">$i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span> <span class="o">&lt;</span> <span class="nv">$round</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="nv">$encryptedBlock</span> <span class="o">=</span> <span class="nx">substr</span><span class="p">(</span><span class="nv">$string</span><span class="p">,</span> <span class="mi">8</span> <span class="o">*</span> <span class="nv">$i</span><span class="p">,</span> <span class="mi">8</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">            <span class="nv">$temp</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">xorBytes</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">decryptBlock</span><span class="p">(</span><span class="nv">$encryptedBlock</span><span class="p">),</span> <span class="nv">$currentVector</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">            <span class="nv">$currentVector</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">xorBytes</span><span class="p">(</span><span class="nv">$currentVector</span><span class="p">,</span> <span class="nv">$encryptedBlock</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">            <span class="nv">$result</span> <span class="o">.=</span> <span class="nv">$temp</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">         
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nv">$leftLength</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">            <span class="nv">$currentVector</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">encryptBlock</span><span class="p">(</span><span class="nv">$currentVector</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">            <span class="nv">$result</span> <span class="o">.=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">xorBytes</span><span class="p">(</span><span class="nx">substr</span><span class="p">(</span><span class="nv">$string</span><span class="p">,</span> <span class="mi">8</span> <span class="o">*</span> <span class="nv">$i</span><span class="p">,</span> <span class="nv">$leftLength</span><span class="p">),</span> <span class="nv">$currentVector</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">        <span class="p">}</span>
-</span></span><span class="line"><span class="cl">         
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nv">$result</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">     
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="k">protected</span> <span class="k">function</span> <span class="nf">decryptTwelve</span><span class="p">(</span><span class="nv">$upperString</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nv">$string</span> <span class="o">=</span> <span class="nx">hex2bin</span><span class="p">(</span><span class="nx">strtolower</span><span class="p">(</span><span class="nv">$upperString</span><span class="p">));</span>
 </span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">openssl_decrypt</span><span class="p">(</span><span class="nv">$string</span><span class="p">,</span> <span class="s1">&#39;AES-128-CBC&#39;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">aesKey</span><span class="p">,</span> <span class="nx">OPENSSL_RAW_DATA</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">aesIv</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span><span class="line"><span class="cl"> 
-</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">//需要指定navacat版本两种，11或12
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$navicatPassword</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">NavicatPassword</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"> 
+</span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1">//解密，括号里面写入navicat加密后的密码
 </span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nv">$decode</span> <span class="o">=</span> <span class="nv">$navicatPassword</span><span class="o">-&gt;</span><span class="na">decrypt</span><span class="p">(</span><span class="s1">&#39;E75BF077AB8BAA3AC2D5&#39;</span><span class="p">);</span>
 </span></span><span class="line"><span class="cl"><span class="k">echo</span> <span class="nv">$decode</span><span class="o">.</span><span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span><span class="p">;</span>
@@ -420,21 +420,21 @@
 <li>架构扩展</li>
 </ol>
 <h2 id="mysql-主从复制的原理">MySQL 主从复制的原理</h2>
-<p>MySQL主从复制涉及到三个线程，一个运行在主节点（log dump thread），其余两个(I/O thread, SQL thread)运行在从节点，如下图所示:<br>
+<p>MySQL 主从复制涉及到三个线程，一个运行在主节点（log dump thread），其余两个(I/O thread, SQL thread)运行在从节点，如下图所示:<br>
 </p>
 <ol>
 <li>
 <p>主节点 log dump 线程<br>
-当从节点连接主节点时，主节点会为其创建一个log dump 线程，用于发送和读取bin-log的内容。在读取bin-log中的操作时，log dump线程会对主节点上的bin-log加锁，当读取完成，在发送给从节点之前，锁会被释放。<code>主节点会为自己的每一个从节点创建一个log dump 线程</code>。</p>
+当从节点连接主节点时，主节点会为其创建一个 log dump 线程，用于发送和读取 bin-log 的内容。在读取 bin-log 中的操作时，log dump 线程会对主节点上的 bin-log 加锁，当读取完成，在发送给从节点之前，锁会被释放。<code>主节点会为自己的每一个从节点创建一个log dump 线程</code>。</p>
 </li>
 <li>
-<p>从节点 I/O线程<br>
-当从节点上执行<code>start slave</code>命令之后，从节点会创建一个I/O线程用来连接主节点，请求主库中更新的bin-log。I/O线程接收到主节点的blog dump进程发来的更新之后，保存在本地<code>relay-log（中继日志）</code>中。</p>
+<p>从节点 I/O 线程<br>
+当从节点上执行<code>start slave</code>命令之后，从节点会创建一个 I/O 线程用来连接主节点，请求主库中更新的 bin-log。I/O 线程接收到主节点的 blog dump 进程发来的更新之后，保存在本地<code>relay-log（中继日志）</code>中。</p>
 </li>
 <li>
-<p>从节点 SQL线程<br>
-SQL线程负责读取relay-log中的内容，解析成具体的操作并执行，最终保证主从数据的一致性。<br>
-对于每一个主从连接，都需要这三个进程来完成。当主节点有多个从节点时，主节点会为每一个当前连接的从节点建一个<code>log dump 进程</code>，而每个从节点都有自己的<code>I/O进程，SQL进程</code>。从节点用两个线程将从主库拉取更新和执行分成独立的任务，这样在执行同步数据任务的时候，不会降低读操作的性能。比如，如果从节点没有运行，此时I/O进程可以很快从主节点获取更新，尽管SQL进程还没有执行。如果在SQL进程执行之前从节点服务停止，至少I/O进程已经从主节点拉取到了最新的变更并且保存在本地relay日志中，当服务再次起来之后，就可以完成数据的同步。<br>
+<p>从节点 SQL 线程<br>
+SQL 线程负责读取 relay-log 中的内容，解析成具体的操作并执行，最终保证主从数据的一致性。<br>
+对于每一个主从连接，都需要这三个进程来完成。当主节点有多个从节点时，主节点会为每一个当前连接的从节点建一个<code>log dump 进程</code>，而每个从节点都有自己的<code>I/O进程，SQL进程</code>。从节点用两个线程将从主库拉取更新和执行分成独立的任务，这样在执行同步数据任务的时候，不会降低读操作的性能。比如，如果从节点没有运行，此时 I/O 进程可以很快从主节点获取更新，尽管 SQL 进程还没有执行。如果在 SQL 进程执行之前从节点服务停止，至少 I/O 进程已经从主节点拉取到了最新的变更并且保存在本地 relay 日志中，当服务再次起来之后，就可以完成数据的同步。<br>
 要实施复制，首先<code>必须打开Master 端的binary log（bin-log）功能，否则无法实现。</code></p>
 </li>
 </ol>
@@ -445,8 +445,8 @@ SQL线程负责读取relay-log中的内容，解析成具体的操作并执行�
     <pubDate>Fri, 24 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/mysqldump/</guid>
-    <description><![CDATA[<h1 id="mysql数据库备份迁移">mysql数据库备份迁移</h1>
-<p>使用mydumper做数据备份迁移</p>
+    <description><![CDATA[<h1 id="mysql-数据库备份迁移">mysql 数据库备份迁移</h1>
+<p>使用 mydumper 做数据备份迁移</p>
 <h2 id="备份数据库">备份数据库</h2>
 <ol>
 <li>安装</li>
@@ -599,7 +599,7 @@ SQL线程负责读取relay-log中的内容，解析成具体的操作并执行�
 </span></span><span class="line"><span class="cl">  -c, --compress              压缩输出文件
 </span></span><span class="line"><span class="cl">  -e, --build-empty-files     即使表没有数据，也产生一个空文件
 </span></span><span class="line"><span class="cl">  -x, --regex                 正则表达式匹配，如<span class="s1">&#39;db.table&#39;</span>
-</span></span><span class="line"><span class="cl">  -i, --ignore-engines        忽略的存储引擎，用逗号分隔 
+</span></span><span class="line"><span class="cl">  -i, --ignore-engines        忽略的存储引擎，用逗号分隔
 </span></span><span class="line"><span class="cl">  -m, --no-schemas            不导出表结构
 </span></span><span class="line"><span class="cl">  -d, --no-data               不导出表数据
 </span></span><span class="line"><span class="cl">  -G, --triggers              导出触发器
@@ -613,7 +613,7 @@ SQL线程负责读取relay-log中的内容，解析成具体的操作并执行�
 </span></span><span class="line"><span class="cl">  -I, --snapshot-interval     dump快照间隔时间，默认60s，需要在daemon模式下
 </span></span><span class="line"><span class="cl">  -L, --logfile               使用日志文件，默认标准输出到终端
 </span></span><span class="line"><span class="cl">  --tz-utc                    备份的时候允许备份Timestamp，这样会导致不同时区的备份还原会出问题，默认关闭，参数：--skip-tz-utc to disable.
-</span></span><span class="line"><span class="cl">  --skip-tz-utc               
+</span></span><span class="line"><span class="cl">  --skip-tz-utc
 </span></span><span class="line"><span class="cl">  --use-savepoints            使用savepoints来减少采集metadata所造成的锁时间，需要SUPER权限
 </span></span><span class="line"><span class="cl">  --success-on-1146           Not increment error count and Warning instead of Critical in <span class="k">case</span> of table doesn<span class="err">&#39;</span>t exist
 </span></span><span class="line"><span class="cl">  --lock-all-tables           锁全表，代替FLUSH TABLE WITH READ LOCK
@@ -691,8 +691,8 @@ SQL线程负责读取relay-log中的内容，解析成具体的操作并执行�
     <author>作者</author>
     <guid>http://www.jobcher.com/mysql01/</guid>
     <description><![CDATA[<h1 id="mysql-学习笔记1">mysql 学习笔记（1）</h1>
-<p>本文章不涉及到关于mysql开放上的问题，主要记录关于mysql出现的问题，以及如何去维护mysql数据的日常。</p>
-<h2 id="mysql各类信息的收集">mysql各类信息的收集</h2>
+<p>本文章不涉及到关于 mysql 开放上的问题，主要记录关于 mysql 出现的问题，以及如何去维护 mysql 数据的日常。</p>
+<h2 id="mysql-各类信息的收集">mysql 各类信息的收集</h2>
 <ol>
 <li>收集变量信息</li>
 </ol>
@@ -738,7 +738,7 @@ SQL线程负责读取relay-log中的内容，解析成具体的操作并执行�
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="5">
-<li>收集锁信息，高峰时期运行三次，每次间隔10s</li>
+<li>收集锁信息，高峰时期运行三次，每次间隔 10s</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -783,7 +783,7 @@ SQL线程负责读取relay-log中的内容，解析成具体的操作并执行�
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="6">
-<li>收集mysql状态信息</li>
+<li>收集 mysql 状态信息</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

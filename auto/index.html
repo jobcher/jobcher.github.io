@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/auto\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "javascript","wordcount":  603 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "javascript","wordcount":  606 ,
         "url": "http:\/\/www.jobcher.com\/auto\/","datePublished": "2021-12-16T00:00:00+00:00","dateModified": "2021-12-16T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,7 +124,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">获取用户浏览器默认语言设置，自动判断跳转不同网站</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/%E6%97%A5%E5%B8%B8/"><i class="far fa-folder fa-fw"></i>日常</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-16">2021-12-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 603 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-16">2021-12-16</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 606 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -164,25 +164,31 @@
 </span><span class="lnt">16
 </span><span class="lnt">17
 </span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&#34;text/javascript&#34;</span><span class="p">&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="c1">//获取用户语言的顺序是
-</span></span></span><span class="line"><span class="cl"><span class="c1">//1.获取本地缓存里的内容
-</span></span></span><span class="line"><span class="cl"><span class="c1">//2.用户浏览器的语言设置
-</span></span></span><span class="line"><span class="cl"><span class="c1">//如果上面2个都没有获取到，就直接使用&#39;en&#39;作为用户选择的语言
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">language</span> <span class="o">=</span> <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s1">&#39;locale&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="nb">window</span><span class="p">.</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">language</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span> <span class="o">||</span> <span class="s1">&#39;en&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="c1">//把用户的语言写入缓存，供下次获取使用
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s1">&#39;locale&#39;</span><span class="p">,</span> <span class="nx">language</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1">//判断用户的语言，跳转到不同的地方
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">if</span> <span class="p">(</span><span class="nx">language</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&#34;zh-&#34;</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s1">&#39;/zh-cn/index.html&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">language</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;en&#39;</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s1">&#39;/en/index.html&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">//获取用户语言的顺序是
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">//1.获取本地缓存里的内容
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">//2.用户浏览器的语言设置
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="c1">//如果上面2个都没有获取到，就直接使用&#39;en&#39;作为用户选择的语言
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="kd">var</span> <span class="nx">language</span> <span class="o">=</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">localStorage</span><span class="p">.</span><span class="nx">getItem</span><span class="p">(</span><span class="s2">&#34;locale&#34;</span><span class="p">)</span> <span class="o">||</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">navigator</span><span class="p">.</span><span class="nx">language</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span> <span class="o">||</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;en&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">//把用户的语言写入缓存，供下次获取使用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="nx">localStorage</span><span class="p">.</span><span class="nx">setItem</span><span class="p">(</span><span class="s2">&#34;locale&#34;</span><span class="p">,</span> <span class="nx">language</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">//判断用户的语言，跳转到不同的地方
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">if</span> <span class="p">(</span><span class="nx">language</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&#34;zh-&#34;</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s2">&#34;/zh-cn/index.html&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">language</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s2">&#34;en&#34;</span><span class="p">)</span> <span class="o">!==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s2">&#34;/en/index.html&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="c1">//其它的都使用英文
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s1">&#39;/en/index.html&#39;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="s2">&#34;/en/index.html&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
 </span></span><span class="line"><span class="cl"><span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </span></span></code></pre></td></tr></table>
 </div>

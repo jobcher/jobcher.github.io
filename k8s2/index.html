@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/k8s2\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "k8s","wordcount":  725 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "k8s","wordcount":  685 ,
         "url": "http:\/\/www.jobcher.com\/k8s2\/","datePublished": "2022-02-13T00:00:00+00:00","dateModified": "2022-02-13T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,7 +124,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Kubernetes 安装</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/k8s/"><i class="far fa-folder fa-fw"></i>k8s</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-13">2022-02-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 725 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-02-13">2022-02-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 685 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -142,24 +142,24 @@
         <li><a href="#修改-etcsysctlconf">修改 /etc/sysctl.conf</a></li>
       </ul>
     </li>
-    <li><a href="#安装docker">安装docker</a></li>
-    <li><a href="#安装k8s核心都执行">安装k8s核心（都执行）</a>
+    <li><a href="#安装-docker">安装 docker</a></li>
+    <li><a href="#安装-k8s-核心都执行">安装 k8s 核心（都执行）</a>
       <ul>
-        <li><a href="#配置k8s的yum源">配置K8S的yum源</a></li>
+        <li><a href="#配置-k8s-的-yum-源">配置 K8S 的 yum 源</a></li>
         <li><a href="#卸载旧版本安装新版本">卸载旧版本,安装新版本</a></li>
       </ul>
     </li>
-    <li><a href="#初始化master节点">初始化master节点</a>
+    <li><a href="#初始化-master-节点">初始化 master 节点</a>
       <ul>
-        <li><a href="#创建imagesshvim-imagessh粘贴以下命令">创建images.sh,<code>vim images.sh</code>粘贴以下命令</a></li>
-        <li><a href="#kubeadm-init-master节点">kubeadm init master节点</a></li>
+        <li><a href="#创建-imagesshvim-imagessh粘贴以下命令">创建 images.sh,<code>vim images.sh</code>粘贴以下命令</a></li>
+        <li><a href="#kubeadm-init-master-节点">kubeadm init master 节点</a></li>
         <li><a href="#复制相关文件夹">复制相关文件夹</a></li>
         <li><a href="#导出环境变量">导出环境变量</a></li>
-        <li><a href="#部署一个pod网络">部署一个pod网络</a></li>
+        <li><a href="#部署一个-pod-网络">部署一个 pod 网络</a></li>
         <li><a href="#命令检查">命令检查</a></li>
       </ul>
     </li>
-    <li><a href="#初始化worker节点worker执行">初始化worker节点（worker执行）</a>
+    <li><a href="#初始化-worker-节点worker-执行">初始化 worker 节点（worker 执行）</a>
       <ul>
         <li><a href="#验证集群">验证集群</a></li>
       </ul>
@@ -210,8 +210,8 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">swapoff -a  
-</span></span><span class="line"><span class="cl">sed -ri <span class="s1">&#39;s/.*swap.*/#&amp;/&#39;</span> /etc/fstab 
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">swapoff -a
+</span></span><span class="line"><span class="cl">sed -ri <span class="s1">&#39;s/.*swap.*/#&amp;/&#39;</span> /etc/fstab
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="修改-etcsysctlconf">修改 /etc/sysctl.conf</h3>
@@ -257,7 +257,7 @@
 </span></span><span class="line"><span class="cl">sysctl -p
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="安装docker">安装docker</h2>
+</div><h2 id="安装-docker">安装 docker</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -296,8 +296,8 @@
 </span></span><span class="line"><span class="cl">sudo systemctl restart docker
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="安装k8s核心都执行">安装k8s核心（都执行）</h2>
-<h3 id="配置k8s的yum源">配置K8S的yum源</h3>
+</div><h2 id="安装-k8s-核心都执行">安装 k8s 核心（都执行）</h2>
+<h3 id="配置-k8s-的-yum-源">配置 K8S 的 yum 源</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -351,8 +351,8 @@
 </span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> kubelet <span class="o">&amp;&amp;</span> systemctl start kubelet
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="初始化master节点">初始化master节点</h2>
-<h3 id="创建imagesshvim-imagessh粘贴以下命令">创建images.sh,<code>vim images.sh</code>粘贴以下命令</h3>
+</div><h2 id="初始化-master-节点">初始化 master 节点</h2>
+<h3 id="创建-imagesshvim-imagessh粘贴以下命令">创建 images.sh,<code>vim images.sh</code>粘贴以下命令</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -383,7 +383,7 @@
 </span></span><span class="line"><span class="cl">sh images.sh
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="kubeadm-init-master节点">kubeadm init master节点</h3>
+</div><h3 id="kubeadm-init-master-节点">kubeadm init master 节点</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -422,7 +422,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">KUBECONFIG</span><span class="o">=</span>/etc/kubernetes/admin.conf
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="部署一个pod网络">部署一个pod网络</h3>
+</div><h3 id="部署一个-pod-网络">部署一个 pod 网络</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -442,7 +442,7 @@
 </span></span><span class="line"><span class="cl">kubectl get nodes  <span class="c1">##查看集群所有机器的状态</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="初始化worker节点worker执行">初始化worker节点（worker执行）</h2>
+</div><h2 id="初始化-worker-节点worker-执行">初始化 worker 节点（worker 执行）</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1

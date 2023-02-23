@@ -10,8 +10,8 @@
     <pubDate>Fri, 14 Jan 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
     <guid>http://www.jobcher.com/exportuser/</guid>
-    <description><![CDATA[<h1 id="gitlab批量导出用户">Gitlab批量导出用户</h1>
-<p>登陆Gitlab服务器进行数据库登陆、数据查询及信息导出操作。</p>
+    <description><![CDATA[<h1 id="gitlab-批量导出用户">Gitlab 批量导出用户</h1>
+<p>登陆 Gitlab 服务器进行数据库登陆、数据查询及信息导出操作。</p>
 <h2 id="操作步骤">操作步骤</h2>
 <ol>
 <li>根据配置文件，定位数据库相关信息</li>
@@ -26,7 +26,7 @@
 </div>
 </div><p></p>
 <ol start="2">
-<li>查看Gitlab对应的系统用户</li>
+<li>查看 Gitlab 对应的系统用户</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -38,7 +38,7 @@
 </div>
 </div><p></p>
 <ol start="3">
-<li>切换用户gitlab-psql</li>
+<li>切换用户 gitlab-psql</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -49,7 +49,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="4">
-<li>登陆数据库（-h指定host，-d指定数据库） 使用第1步获取的信息</li>
+<li>登陆数据库（-h 指定 host，-d 指定数据库） 使用第 1 步获取的信息</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -86,7 +86,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">gitlabhq_production</span><span class="o">=</span><span class="c1"># \dt</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>(4) 通过筛查，可在库中找到users表，相关用户信息都记录在表中！</p>
+</div><p>(4) 通过筛查，可在库中找到 users 表，相关用户信息都记录在表中！</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -104,7 +104,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">gitlabhq_production</span><span class="o">=</span><span class="c1"># SELECT * FROM users;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>(6) 查看users表中的name字段</p>
+</div><p>(6) 查看 users 表中的 name 字段</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -123,7 +123,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="5">
-<li>根据需要提取的信息，确定表users中的字段，进行导出操作</li>
+<li>根据需要提取的信息，确定表 users 中的字段，进行导出操作</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller) - 打工人日志 - jobcher</title><meta name="Description" content="打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通"><meta property="og:title" content="kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)" />
-<meta property="og:description" content="k8s部署插件 Kubernetes 是高度可配置且可扩展的。因此，大多数情况下， 你不需要派生自己的 Kubernetes 副本或者向项目代码提交补丁，本文会介绍几种常用的k8s插件，" />
+<meta property="og:description" content="k8s 部署插件 Kubernetes 是高度可配置且可扩展的。因此，大多数情况下， 你不需要派生自己的 Kubernetes 副本或者向项目代码提交补丁，本文会介绍几种常用的 k8s 插件，如果大家" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.jobcher.com/k8s11/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-10-07T00:00:00+00:00" />
@@ -17,7 +17,7 @@
 <meta name="twitter:image" content="http://www.jobcher.com/avatar1.png"/>
 
 <meta name="twitter:title" content="kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)"/>
-<meta name="twitter:description" content="k8s部署插件 Kubernetes 是高度可配置且可扩展的。因此，大多数情况下， 你不需要派生自己的 Kubernetes 副本或者向项目代码提交补丁，本文会介绍几种常用的k8s插件，"/>
+<meta name="twitter:description" content="k8s 部署插件 Kubernetes 是高度可配置且可扩展的。因此，大多数情况下， 你不需要派生自己的 Kubernetes 副本或者向项目代码提交补丁，本文会介绍几种常用的 k8s 插件，如果大家"/>
 <meta name="application-name" content="jobcher">
 <meta name="apple-mobile-web-app-title" content="jobcher"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/k8s11\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "k8s","wordcount":  1383 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "k8s","wordcount":  1341 ,
         "url": "http:\/\/www.jobcher.com\/k8s11\/","datePublished": "2022-10-07T00:00:00+00:00","dateModified": "2022-10-07T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,7 +124,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/k8s/"><i class="far fa-folder fa-fw"></i>k8s</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-10-07">2022-10-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1383 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-10-07">2022-10-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1341 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -148,15 +148,15 @@
       <ul>
         <li><a href="#安装">安装</a></li>
         <li><a href="#暴露外部连接">暴露外部连接</a></li>
-        <li><a href="#创建并获取token">创建并获取token</a></li>
+        <li><a href="#创建并获取-token">创建并获取 token</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="k8s部署插件">k8s部署插件</h1>
-<p><code>Kubernetes</code> 是高度可配置且可扩展的。因此，大多数情况下， 你不需要派生自己的 Kubernetes 副本或者向项目代码提交补丁，本文会介绍几种常用的k8s插件，如果大家喜欢的话，希望大家点赞支持。</p>
+            </div><div class="content" id="content"><h1 id="k8s-部署插件">k8s 部署插件</h1>
+<p><code>Kubernetes</code> 是高度可配置且可扩展的。因此，大多数情况下， 你不需要派生自己的 Kubernetes 副本或者向项目代码提交补丁，本文会介绍几种常用的 k8s 插件，如果大家喜欢的话，希望大家点赞支持。</p>
 <h2 id="1-flannel-网络插件">1. Flannel 网络插件</h2>
-<p><code>Flannel</code>是由go语言开发，是一种基于Overlay 网络的<code>跨主机容器网络解决方案</code>，也就是将<code>TCP数据包</code>封装在另一种网络包里面进行<code>路由转发和通信</code>，Flannel 是CoreOS 开发，专门用于docker多主机互联的一个工具，简单来说，它的功能是<code>让集群中的不同节点主机创建的容器都具有全局唯一的虚拟IP地址</code><br>
+<p><code>Flannel</code>是由 go 语言开发，是一种基于 Overlay 网络的<code>跨主机容器网络解决方案</code>，也就是将<code>TCP数据包</code>封装在另一种网络包里面进行<code>路由转发和通信</code>，Flannel 是 CoreOS 开发，专门用于 docker 多主机互联的一个工具，简单来说，它的功能是<code>让集群中的不同节点主机创建的容器都具有全局唯一的虚拟IP地址</code><br>
 主要功能：</p>
 <ul>
 <li>为每个 node 分配 subnet，容器将自动从该子网中获取 IP 地址</li>
@@ -181,7 +181,7 @@
 </span></span><span class="line"><span class="cl">kubectl apply -f kube-flannel.yml
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>如果yml中的&quot;Network&quot;: <code>10.244.0.0/16</code>和<code>kubeadm init xxx --pod-network-cidr</code>不一样，就需要修改成一样的。不然可能会使得<code>Node</code>间<code>Cluster IP</code>不通。</p>
+</div><p>如果 yml 中的&quot;Network&quot;: <code>10.244.0.0/16</code>和<code>kubeadm init xxx --pod-network-cidr</code>不一样，就需要修改成一样的。不然可能会使得<code>Node</code>间<code>Cluster IP</code>不通。</p>
 <h2 id="2-ingress-controller">2. Ingress Controller</h2>
 <p><code>Ingress</code> 是对集群中服务的外部访问进行管理的 API 对象，典型的访问方式是 HTTP。<br>
 <code>Ingress</code> 可以提供负载均衡、SSL 终结和基于名称的虚拟托管<br>
@@ -229,7 +229,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1">#https 方式</span>
 </span></span><span class="line"><span class="cl">kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.6.1/aio/deploy/recommended.yaml
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 或者 http方式 </span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 或者 http方式</span>
 </span></span><span class="line"><span class="cl">kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.6.1/aio/deploy/alternative.yaml
 </span></span></code></pre></td></tr></table>
 </div>
@@ -243,7 +243,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">vim webUIservice.yaml
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>使用loadBalancer</p>
+</div><p>使用 loadBalancer</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -291,7 +291,7 @@
 </div><blockquote>
 <p>kubectl apply -f webUIservice.yaml</p>
 </blockquote>
-<h3 id="创建并获取token">创建并获取token</h3>
+<h3 id="创建并获取-token">创建并获取 token</h3>
 <p>创建管理员</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -309,7 +309,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl create clusterrolebinding dashboard-admin --clusterrole<span class="o">=</span>cluster-admin --serviceaccount<span class="o">=</span>kube-system:dashboard-admin
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>获取token</p>
+</div><p>获取 token</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1

@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>docker 命令 - 打工人日志 - jobcher</title><meta name="Description" content="打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通"><meta property="og:title" content="docker 命令" />
-<meta property="og:description" content="安装docker 通过docker 脚本安装 1 2 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun curl -sSL https://get.daocloud.io/docker | sh docker-compose 安装 1 2 3 4 5 6 7 8 #下载安装 sudo curl -L &#34;https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)&#34; -o /usr/local/bin/docker-compose #可执行权限 sudo chmod &#43;x /usr/local/bin/docker-compose" />
+<meta property="og:description" content="安装 docker 通过 docker 脚本安装 1 2 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun curl -sSL https://get.daocloud.io/docker | sh docker-compose 安装 1 2 3 4 5 6 7 8 #下载安装 sudo curl -L &#34;https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)&#34; -o /usr/local/bin/docker-compose #可执行权限 sudo chmod &#43;x /usr/local/bin/docker-compose #创建软链： sudo ln -s /usr/local/bin/docker-compose" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.jobcher.com/docker/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-12-28T00:00:00+00:00" />
@@ -17,7 +17,7 @@
 <meta name="twitter:image" content="http://www.jobcher.com/avatar1.png"/>
 
 <meta name="twitter:title" content="docker 命令"/>
-<meta name="twitter:description" content="安装docker 通过docker 脚本安装 1 2 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun curl -sSL https://get.daocloud.io/docker | sh docker-compose 安装 1 2 3 4 5 6 7 8 #下载安装 sudo curl -L &#34;https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)&#34; -o /usr/local/bin/docker-compose #可执行权限 sudo chmod &#43;x /usr/local/bin/docker-compose"/>
+<meta name="twitter:description" content="安装 docker 通过 docker 脚本安装 1 2 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun curl -sSL https://get.daocloud.io/docker | sh docker-compose 安装 1 2 3 4 5 6 7 8 #下载安装 sudo curl -L &#34;https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)&#34; -o /usr/local/bin/docker-compose #可执行权限 sudo chmod &#43;x /usr/local/bin/docker-compose #创建软链： sudo ln -s /usr/local/bin/docker-compose"/>
 <meta name="application-name" content="jobcher">
 <meta name="apple-mobile-web-app-title" content="jobcher"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/docker\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "docker","wordcount":  173 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "docker","wordcount":  153 ,
         "url": "http:\/\/www.jobcher.com\/docker\/","datePublished": "2021-12-28T00:00:00+00:00","dateModified": "2021-12-28T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,7 +124,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">docker 命令</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/docker/"><i class="far fa-folder fa-fw"></i>docker</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-28">2021-12-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 173 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-12-28">2021-12-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 153 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -134,11 +134,11 @@
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
     <li><a href="#docker-compose-安装">docker-compose 安装</a></li>
-    <li><a href="#docker命令">docker命令</a></li>
+    <li><a href="#docker-命令">docker 命令</a></li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="安装docker">安装docker</h1>
-<p>通过docker 脚本安装</p>
+            </div><div class="content" id="content"><h1 id="安装-docker">安装 docker</h1>
+<p>通过 docker 脚本安装</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -172,8 +172,8 @@
 </span></span><span class="line"><span class="cl">docker-compose --version
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="docker命令">docker命令</h2>
-<p>常用docker命令</p>
+</div><h2 id="docker-命令">docker 命令</h2>
+<p>常用 docker 命令</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1

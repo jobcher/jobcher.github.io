@@ -1,8 +1,9 @@
 # kubernetes 脚本快速安装
 
+
 # kubernetes 脚本快速安装
-  
-- 1、三台机器设置自己的hostname（不能是localhost）
+
+- 1、三台机器设置自己的 hostname（不能是 localhost）
 
 ```sh
 # 修改 hostname;  k8s-01要变为自己的hostname
@@ -33,8 +34,8 @@ printf "##################关闭selinux################## \n"
 sed -i 's/enforcing/disabled/' /etc/selinux/config
 setenforce 0
 printf "##################关闭swap################## \n"
-swapoff -a  
-sed -ri 's/.*swap.*/#&/' /etc/fstab 
+swapoff -a
+sed -ri 's/.*swap.*/#&/' /etc/fstab
 
 printf "##################配置路由转发################## \n"
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
@@ -52,8 +53,8 @@ echo "net.ipv6.conf.lo.disable_ipv6 = 1" >> /etc/sysctl.d/k8s.conf
 echo "net.ipv6.conf.all.forwarding = 1"  >> /etc/sysctl.d/k8s.conf
 modprobe br_netfilter
 sudo sysctl --system
-	
-	
+
+
 printf "##################配置ipvs################## \n"
 cat <<EOF | sudo tee /etc/sysconfig/modules/ipvs.modules
 #!/bin/bash
@@ -64,7 +65,7 @@ modprobe -- ip_vs_sh
 modprobe -- nf_conntrack_ipv4
 EOF
 
-chmod 755 /etc/sysconfig/modules/ipvs.modules 
+chmod 755 /etc/sysconfig/modules/ipvs.modules
 sh /etc/sysconfig/modules/ipvs.modules
 
 
@@ -116,13 +117,13 @@ docker pull k8s.gcr.io/pause:3.4.1
 docker pull k8s.gcr.io/etcd:3.4.13-0
 docker pull k8s.gcr.io/coredns/coredns:v1.8.0
 EOF
-   
+
 chmod +x ./images.sh && ./images.sh
-   
+
 ### k8s的所有基本环境全部完成
 ```
 
-- 3、使用kubeadm引导集群（参照初始化master继续做）
+- 3、使用 kubeadm 引导集群（参照初始化 master 继续做）
 
 ```sh
 
@@ -137,7 +138,7 @@ kubeadm init \
 
 ```
 
-- 4、master结束以后，按照控制台引导继续往下
+- 4、master 结束以后，按照控制台引导继续往下
 
 ```sh
 ## 第一步
@@ -158,7 +159,8 @@ kubeadm join 10.170.11.8:6443 --token cnb7x2.lzgz7mfzcjutn0nk \
 	--discovery-token-ca-cert-hash sha256:00c9e977ee52632098aadb515c90076603daee94a167728110ef8086d0d5b37d
 ```
 
-## 初始化worker节点（worker执行）
+## 初始化 worker 节点（worker 执行）
+
 ```sh
 ##过期怎么办
 kubeadm token create --print-join-command
@@ -172,7 +174,7 @@ kubeadm join --token y1eyw5.ylg568kvohfdsfco --discovery-token-ca-cert-hash sha2
 kubectl get nodes
 ```
 
-- 6、设置kube-proxy的ipvs模式
+- 6、设置 kube-proxy 的 ipvs 模式
 
 ```sh
 ##修改kube-proxy默认的配置
@@ -188,3 +190,4 @@ kubectl delete pod 【用自己查出来的kube-proxy-dw5sf kube-proxy-hsrwp kub
 ###
 
 ```
+

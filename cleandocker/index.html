@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>清理Docker容器日志 - 打工人日志 - jobcher</title><meta name="Description" content="打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通"><meta property="og:title" content="清理Docker容器日志" />
-<meta property="og:description" content="清理Docker容器日志 如果docker容器正在运行，那么使用rm -rf方式删除日志后，通过df -h会发现磁盘空间并没有释放。原因是在Lin" />
+<meta property="og:description" content="清理 Docker 容器日志 如果 docker 容器正在运行，那么使用rm -rf方式删除日志后，通过df -h会发现磁盘空间并没有释放。原因是在 Linux 或者 Unix 系统中，通过rm -" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.jobcher.com/cleandocker/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-09-19T00:00:00+00:00" />
@@ -17,7 +17,7 @@
 <meta name="twitter:image" content="http://www.jobcher.com/avatar1.png"/>
 
 <meta name="twitter:title" content="清理Docker容器日志"/>
-<meta name="twitter:description" content="清理Docker容器日志 如果docker容器正在运行，那么使用rm -rf方式删除日志后，通过df -h会发现磁盘空间并没有释放。原因是在Lin"/>
+<meta name="twitter:description" content="清理 Docker 容器日志 如果 docker 容器正在运行，那么使用rm -rf方式删除日志后，通过df -h会发现磁盘空间并没有释放。原因是在 Linux 或者 Unix 系统中，通过rm -"/>
 <meta name="application-name" content="jobcher">
 <meta name="apple-mobile-web-app-title" content="jobcher"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/cleandocker\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "docker","wordcount":  625 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "docker","wordcount":  585 ,
         "url": "http:\/\/www.jobcher.com\/cleandocker\/","datePublished": "2022-09-19T00:00:00+00:00","dateModified": "2022-09-19T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,7 +124,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">清理Docker容器日志</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/docker/"><i class="far fa-folder fa-fw"></i>docker</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-09-19">2022-09-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 625 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-09-19">2022-09-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 585 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -133,17 +133,17 @@
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#日志清理脚本clean_docker_logsh">日志清理脚本clean_docker_log.sh</a></li>
-    <li><a href="#设置docker容器日志大小">设置Docker容器日志大小</a>
+    <li><a href="#日志清理脚本-clean_docker_logsh">日志清理脚本 clean_docker_log.sh</a></li>
+    <li><a href="#设置-docker-容器日志大小">设置 Docker 容器日志大小</a>
       <ul>
         <li><a href="#全局设置">全局设置</a></li>
       </ul>
     </li>
   </ul>
 </nav></div>
-            </div><div class="content" id="content"><h1 id="清理docker容器日志">清理Docker容器日志</h1>
-<p>如果docker容器正在运行，那么使用<code>rm -rf</code>方式删除日志后，通过<code>df -h</code>会发现磁盘空间并没有释放。原因是在Linux或者Unix系统中，通过<code>rm -rf</code>或者文件管理器删除文件，将会从文件系统的目录结构上解除链接（unlink）。如果文件是被打开的（有一个进程正在使用），那么进程将仍然可以读取该文件，磁盘空间也一直被占用。正确姿势是<code>cat /dev/null &gt; *-json.log</code>，当然你也可以通过<code>rm -rf</code>删除后重启docker。</p>
-<h2 id="日志清理脚本clean_docker_logsh">日志清理脚本clean_docker_log.sh</h2>
+            </div><div class="content" id="content"><h1 id="清理-docker-容器日志">清理 Docker 容器日志</h1>
+<p>如果 docker 容器正在运行，那么使用<code>rm -rf</code>方式删除日志后，通过<code>df -h</code>会发现磁盘空间并没有释放。原因是在 Linux 或者 Unix 系统中，通过<code>rm -rf</code>或者文件管理器删除文件，将会从文件系统的目录结构上解除链接（unlink）。如果文件是被打开的（有一个进程正在使用），那么进程将仍然可以读取该文件，磁盘空间也一直被占用。正确姿势是<code>cat /dev/null &gt; *-json.log</code>，当然你也可以通过<code>rm -rf</code>删除后重启 docker。</p>
+<h2 id="日志清理脚本-clean_docker_logsh">日志清理脚本 clean_docker_log.sh</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -161,25 +161,25 @@
 </span><span class="lnt">13
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/sh 
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;======== start clean docker containers logs ========&#34;</span>  
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl"><span class="nv">logs</span><span class="o">=</span><span class="k">$(</span>find /var/lib/docker/containers/ -name *-json.log<span class="k">)</span>  
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl"><span class="k">for</span> log in <span class="nv">$logs</span>  
-</span></span><span class="line"><span class="cl">        <span class="k">do</span>  
-</span></span><span class="line"><span class="cl">                <span class="nb">echo</span> <span class="s2">&#34;clean logs : </span><span class="nv">$log</span><span class="s2">&#34;</span>  
-</span></span><span class="line"><span class="cl">                cat /dev/null &gt; <span class="nv">$log</span>  
-</span></span><span class="line"><span class="cl">        <span class="k">done</span>  
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/sh
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;======== start clean docker containers logs ========&#34;</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;======== end clean docker containers logs ========&#34;</span>  
+</span></span><span class="line"><span class="cl"><span class="nv">logs</span><span class="o">=</span><span class="k">$(</span>find /var/lib/docker/containers/ -name *-json.log<span class="k">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">for</span> log in <span class="nv">$logs</span>
+</span></span><span class="line"><span class="cl">        <span class="k">do</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">echo</span> <span class="s2">&#34;clean logs : </span><span class="nv">$log</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">                cat /dev/null &gt; <span class="nv">$log</span>
+</span></span><span class="line"><span class="cl">        <span class="k">done</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;======== end clean docker containers logs ========&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p>chmod +x clean_docker_log.sh &amp;&amp; ./clean_docker_log.sh</p>
 </blockquote>
-<h2 id="设置docker容器日志大小">设置Docker容器日志大小</h2>
+<h2 id="设置-docker-容器日志大小">设置 Docker 容器日志大小</h2>
 <p>设置一个容器服务的日志大小上限<br>
 上述方法，日志文件迟早又会涨回来。要从根本上解决问题，需要限制容器服务的日志大小上限。这个通过配置容器<code>docker-compose</code>的<code>max-size</code>选项来实现</p>
 <div class="highlight"><div class="chroma">
@@ -193,13 +193,13 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">nginx</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx:1.12.1 </span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always </span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">logging</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l">“json-file” </span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">options</span><span class="p">:</span><span class="w"> 
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">max-size</span><span class="p">:</span><span class="w"> </span><span class="l">“5g” </span><span class="w">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">nginx</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx:1.12.1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">always</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">logging</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">driver</span><span class="p">:</span><span class="w"> </span><span class="l">“json-file”</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">options</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">max-size</span><span class="p">:</span><span class="w"> </span><span class="l">“5g”</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="全局设置">全局设置</h3>

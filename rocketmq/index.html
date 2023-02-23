@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>RocketMQ 安装和启动 - 打工人日志 - jobcher</title><meta name="Description" content="打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通"><meta property="og:title" content="RocketMQ 安装和启动" />
-<meta property="og:description" content="RocketMQ 安装和部署 部署RocketMQ 单机安装构建 安装JDK 1.8.0 1 yum install java-1.8.0-openjdk* 安装Maven 1 2 3 4 5 6 7 8 9 10 11 wget http://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz tar -zxvf apache-maven-3.8.4-bin.tar.gz mv -f apache-maven-3.8.4 /usr/local/ vim /etc/profile # 末尾添加 export MAVEN_HOME=/usr/local/apache-maven-3.8.4 export PATH=${PATH}:${MAVEN_HOME}/bin" />
+<meta property="og:description" content="RocketMQ 安装和部署 部署 RocketMQ 单机安装构建 安装 JDK 1.8.0 1 yum install java-1.8.0-openjdk* 安装 Maven 1 2 3 4 5 6 7 8 9 10 11 wget http://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz tar -zxvf apache-maven-3.8.4-bin.tar.gz mv -f apache-maven-3.8.4 /usr/local/ vim /etc/profile # 末尾添加 export MAVEN_HOME=/usr/local/apache-maven-3.8.4 export PATH=${PATH}:${MAVEN_HOME}/bin # 保存 source /etc/profile # 查看maven" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://www.jobcher.com/rocketmq/" /><meta property="og:image" content="http://www.jobcher.com/avatar1.png"/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-01-07T00:00:00+00:00" />
@@ -17,7 +17,7 @@
 <meta name="twitter:image" content="http://www.jobcher.com/avatar1.png"/>
 
 <meta name="twitter:title" content="RocketMQ 安装和启动"/>
-<meta name="twitter:description" content="RocketMQ 安装和部署 部署RocketMQ 单机安装构建 安装JDK 1.8.0 1 yum install java-1.8.0-openjdk* 安装Maven 1 2 3 4 5 6 7 8 9 10 11 wget http://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz tar -zxvf apache-maven-3.8.4-bin.tar.gz mv -f apache-maven-3.8.4 /usr/local/ vim /etc/profile # 末尾添加 export MAVEN_HOME=/usr/local/apache-maven-3.8.4 export PATH=${PATH}:${MAVEN_HOME}/bin"/>
+<meta name="twitter:description" content="RocketMQ 安装和部署 部署 RocketMQ 单机安装构建 安装 JDK 1.8.0 1 yum install java-1.8.0-openjdk* 安装 Maven 1 2 3 4 5 6 7 8 9 10 11 wget http://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz tar -zxvf apache-maven-3.8.4-bin.tar.gz mv -f apache-maven-3.8.4 /usr/local/ vim /etc/profile # 末尾添加 export MAVEN_HOME=/usr/local/apache-maven-3.8.4 export PATH=${PATH}:${MAVEN_HOME}/bin # 保存 source /etc/profile # 查看maven"/>
 <meta name="application-name" content="jobcher">
 <meta name="apple-mobile-web-app-title" content="jobcher"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/rocketmq\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "RocketMQ","wordcount":  480 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "RocketMQ","wordcount":  429 ,
         "url": "http:\/\/www.jobcher.com\/rocketmq\/","datePublished": "2022-01-07T00:00:00+00:00","dateModified": "2022-01-07T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,7 +124,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">RocketMQ 安装和启动</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/%E6%97%A5%E5%B8%B8/"><i class="far fa-folder fa-fw"></i>日常</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-07">2022-01-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 480 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-07">2022-01-07</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 429 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
@@ -138,10 +138,10 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="rocketmq-安装和部署">RocketMQ 安装和部署</h1>
-<p>部署RocketMQ</p>
+<p>部署 RocketMQ</p>
 <h2 id="单机安装构建">单机安装构建</h2>
 <ol>
-<li>安装JDK 1.8.0</li>
+<li>安装 JDK 1.8.0</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -152,7 +152,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="2">
-<li>安装Maven</li>
+<li>安装 Maven</li>
 </ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -243,9 +243,9 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>如果提示找不到上面的日志文件，应该是没启动成功。<br>
-应该是内存不够，RocketMQ默认用8g内存，如果你服务器的内存比较小，可以修改下bin/runbroker.sh脚本，将 Broker JVM 内存调小。如：JAVA_OPT=&quot;${JAVA_OPT} -server -Xms2g -Xmx2g -Xmn1g&quot;。<br>
-再次启动broker，可以正常启动。</p>
-<p>默认情况下，Broker 日志文件所在地址为~/logs/rocketmqlogs/broker.log。如果想要自定义，可以通过conf/logback_broker.xml配置文件来进行修改。</p>
+应该是内存不够，RocketMQ 默认用 8g 内存，如果你服务器的内存比较小，可以修改下 bin/runbroker.sh 脚本，将 Broker JVM 内存调小。如：JAVA_OPT=&quot;${JAVA_OPT} -server -Xms2g -Xmx2g -Xmn1g&quot;。<br>
+再次启动 broker，可以正常启动。</p>
+<p>默认情况下，Broker 日志文件所在地址为~/logs/rocketmqlogs/broker.log。如果想要自定义，可以通过 conf/logback_broker.xml 配置文件来进行修改。</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">

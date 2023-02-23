@@ -14,13 +14,13 @@
                 <img src="/images/Z-Library_1.webp" referrerpolicy="no-referrer">
             </div><h1 id="zlibary-无法下载">zlibary 无法下载</h1>
 <p>因为 zlib 最近被封，导致现在通过正常方法下载不了电子书，但是不要慌，我们可以通过暗网进行下载~</p>
-<h2 id="安装brave-浏览器">安装brave 浏览器</h2>
+<h2 id="安装-brave-浏览器">安装 brave 浏览器</h2>
 <p><a href="https://brave.com/" target="_blank" rel="noopener noreffer">官网下载</a><br>
 下载你需要的版本，这个下载浏览器很简单，我就不多说了</p>
-<h2 id="配置tor配置">配置tor配置</h2>
-<p>编辑tor配置
+<h2 id="配置-tor-配置">配置 tor 配置</h2>
+<p>编辑 tor 配置
 </p>
-<h2 id="使用tor浏览">使用tor浏览</h2>
+<h2 id="使用-tor-浏览">使用 tor 浏览</h2>
 <p></p>
 <p><a href="http://zlibrary24tuxziyiyfr7zd46ytefdqbqd2axkmxm4o5374ptpc52fad.onion/" target="_blank" rel="noopener noreffer">zlibary tor 暗网版</a></p>
 ]]></description>
@@ -32,7 +32,7 @@
     <guid>http://www.jobcher.com/macos13/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/macOS_13.jpg" referrerpolicy="no-referrer">
-            </div><h1 id="关于macos-13-软件失效">关于macOS 13 软件失效</h1>
+            </div><h1 id="关于-macos-13-软件失效">关于 macOS 13 软件失效</h1>
 <p>Warning: You are using macOS 13.<br>
 We do not provide support for this pre-release version.<br>
 You will encounter build failures with some formulae.<br>
@@ -41,16 +41,16 @@ Twitter or any other official channels. You are responsible for resolving
 any issues you experience while you are running this
 pre-release version.</p>
 <blockquote>
-<p>简单来说就是macOS13版本 暂时不提供技术支持</p>
+<p>简单来说就是 macOS13 版本 暂时不提供技术支持</p>
 </blockquote>
 <h2 id="解决方法">解决方法</h2>
-<p>升级完macos13之后发现了比较麻烦的问题，很多软件出现了不兼容，这真的很无奈，对于我们这些做IT的人来说，这是致命的。我以git软件举例，有以下几个方法。</p>
+<p>升级完 macos13 之后发现了比较麻烦的问题，很多软件出现了不兼容，这真的很无奈，对于我们这些做 IT 的人来说，这是致命的。我以 git 软件举例，有以下几个方法。</p>
 <h3 id="1-使用时间机器恢复备份">1. 使用时间机器恢复备份</h3>
 <blockquote>
 <p>使用前提：你之前备份了系统，并且系统正常
-这个方法更加一劳永逸，因为我们并不确定还有什么软件不支持macos13</p>
+这个方法更加一劳永逸，因为我们并不确定还有什么软件不支持 macos13</p>
 </blockquote>
-<h3 id="2-重新安装xcode-select">2. 重新安装xcode-select</h3>
+<h3 id="2-重新安装-xcode-select">2. 重新安装 xcode-select</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -68,7 +68,7 @@ pre-release version.</p>
     <guid>http://www.jobcher.com/brew/</guid>
     <description><![CDATA[<h1 id="brew-安装配置">brew 安装配置</h1>
 <h2 id="一安装">一.安装</h2>
-<h3 id="1在ubuntu上安装-brew">1.在ubuntu上安装 brew</h3>
+<h3 id="1在-ubuntu-上安装-brew">1.在 ubuntu 上安装 brew</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -77,7 +77,7 @@ pre-release version.</p>
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    /bin/bash -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="2在centos上安装-brew">2.在centos上安装 brew</h3>
+</div><h3 id="2在-centos-上安装-brew">2.在 centos 上安装 brew</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -86,7 +86,7 @@ pre-release version.</p>
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    /bin/bash -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&#34;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="3在macos上安装-brew">3.在MacOS上安装 brew</h3>
+</div><h3 id="3在-macos-上安装-brew">3.在 MacOS 上安装 brew</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1

@@ -1,13 +1,17 @@
 # docker 命令
 
 
-# 安装docker
-通过docker 脚本安装  
+# 安装 docker
+
+通过 docker 脚本安装
+
 ```sh
     curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
     curl -sSL https://get.daocloud.io/docker | sh
 ```
+
 ## docker-compose 安装
+
 ```sh
 #下载安装
 sudo curl -L "https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -18,8 +22,11 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 #测试是否安装成功
 docker-compose --version
 ```
-## docker命令
-常用docker命令  
+
+## docker 命令
+
+常用 docker 命令
+
 ```sh
     #查看容器
     docker ps

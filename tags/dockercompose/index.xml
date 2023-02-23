@@ -11,7 +11,7 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/docker01/</guid>
     <description><![CDATA[<h1 id="docker-进阶使用">docker 进阶使用</h1>
-<p>dockerfile和docker compose的配置</p>
+<p>dockerfile 和 docker compose 的配置</p>
 <h1 id="dockerfile-使用">Dockerfile 使用</h1>
 <p>Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。</p>
 <p>例子：</p>
@@ -25,7 +25,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="err"></span>    RUN <span class="nb">echo</span> <span class="s1">&#39;这是一个本地构建的nginx镜像&#39;</span> &gt; /usr/share/nginx/html/index.html<span class="err">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>保存Dockerfile文件并在本地路径执行</p>
+</div><p>保存 Dockerfile 文件并在本地路径执行</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -36,12 +36,12 @@
 </span></span><span class="line"><span class="cl">    docker run -name docker run --name nginx-test -d  -p 8080:80 nginx:v1-test
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>浏览nginx页面确认更新内容</p>
+</div><p>浏览 nginx 页面确认更新内容</p>
 <pre><code>curl 127.0.0.1:8080
 输出：
 这是一个本地构建的nginx镜像
 </code></pre>
-<h2 id="docker命令详解">Docker命令详解</h2>
+<h2 id="docker-命令详解">Docker 命令详解</h2>
 <h3 id="copy">COPY</h3>
 <p>复制指令，从上下文目录中复制文件或者目录到容器里指定路径。</p>
 <div class="highlight"><div class="chroma">
@@ -108,7 +108,7 @@
 <h3 id="cmd">CMD</h3>
 <p>类似于 RUN 指令，用于运行程序，但二者运行的时间点不同:</p>
 <ol>
-<li>CMD 在docker run 时运行。</li>
+<li>CMD 在 docker run 时运行。</li>
 <li>RUN 是在 docker build。</li>
 </ol>
 <p>Dockerfile 中如果存在多个 CMD 指令，仅最后一个生效。</p>
@@ -119,13 +119,13 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl">    CMD &lt;shell 命令&gt; <span class="err">
-</span></span></span><span class="line"><span class="cl"><span class="err"></span>    CMD <span class="o">[</span><span class="s2">&#34;&lt;可执行文件或命令&gt;&#34;</span>,<span class="s2">&#34;&lt;param1&gt;&#34;</span>,<span class="s2">&#34;&lt;param2&gt;&#34;</span>,...<span class="o">]</span> <span class="err">
+<pre tabindex="0" class="chroma"><code class="language-dockerfile" data-lang="dockerfile"><span class="line"><span class="cl">    CMD &lt;shell 命令&gt;<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span>    CMD <span class="o">[</span><span class="s2">&#34;&lt;可执行文件或命令&gt;&#34;</span>,<span class="s2">&#34;&lt;param1&gt;&#34;</span>,<span class="s2">&#34;&lt;param2&gt;&#34;</span>,...<span class="o">]</span><span class="err">
 </span></span></span><span class="line"><span class="cl"><span class="err"></span>    CMD <span class="o">[</span><span class="s2">&#34;&lt;param1&gt;&#34;</span>,<span class="s2">&#34;&lt;param2&gt;&#34;</span>,...<span class="o">]</span>  <span class="c1"># 该写法是为 ENTRYPOINT 指令指定的程序提供默认参数</span><span class="err">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="通过dockerfile文件封装hugo">通过dockerfile文件封装hugo</h2>
-<p>dokcerfile文件</p>
+</div><h2 id="通过-dockerfile-文件封装-hugo">通过 dockerfile 文件封装 hugo</h2>
+<p>dokcerfile 文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -136,7 +136,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="err"></span>    COPY public/ /usr/share/nginx/html<span class="err">
 </span></span></span></code></pre></td></tr></table>
 </div>
-</div><p>docker.sh文件</p>
+</div><p>docker.sh 文件</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1

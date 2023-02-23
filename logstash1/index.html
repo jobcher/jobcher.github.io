@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/logstash1\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "logstash","wordcount":  427 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "logstash","wordcount":  387 ,
         "url": "http:\/\/www.jobcher.com\/logstash1\/","datePublished": "2022-10-31T00:00:00+00:00","dateModified": "2022-10-31T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -124,7 +124,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Logstash 自动重载配置文件</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/%E7%9B%91%E6%8E%A7/"><i class="far fa-folder fa-fw"></i>监控</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-10-31">2022-10-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 427 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-10-31">2022-10-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 387 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
@@ -153,9 +153,9 @@
 <li>用新的配置创建一个新的管道</li>
 <li>检查配置文件语法是否正确</li>
 <li>检查所有的输入和输出是否可以初始化</li>
-<li>检查成功使用新的pipeline替换当前的<code>pipeline</code></li>
+<li>检查成功使用新的 pipeline 替换当前的<code>pipeline</code></li>
 <li>检查失败,使用旧的继续工作.</li>
-<li>在重载过程中,jvm没有重启.</li>
+<li>在重载过程中,jvm 没有重启.</li>
 </ol>
 <h2 id="logstash-自动重新加载配置">Logstash 自动重新加载配置</h2>
 <p>为了可以<code>自动检测</code>配置文件的变动和自动重新加载配置文件,需要在启动的时候使用以下命令:</p>
@@ -168,7 +168,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>启动Logstash的时候使用<code>--config.reload.automatic</code>或<code>-r</code>选项来开启自动重载配置。</p>
+<p>启动 Logstash 的时候使用<code>--config.reload.automatic</code>或<code>-r</code>选项来开启自动重载配置。</p>
 </blockquote>
 <h2 id="修改检测间隔时间">修改检测间隔时间</h2>
 <p>默认检测配置文件的间隔时间是<code>3秒</code>,可以通过以下命令改变</p>
@@ -180,7 +180,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">--config.reload.interval &lt;second&gt;
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>如果Logstash已经运行并且没有开启自动重载，你可以强制Logstash重新载入配置文件并且重启管道通过发送一个SIGHUP信号。比如：</p>
+</div><p>如果 Logstash 已经运行并且没有开启自动重载，你可以强制 Logstash 重新载入配置文件并且重启管道通过发送一个 SIGHUP 信号。比如：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -189,7 +189,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">kill</span> -1 &lt;pid&gt;
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>其中<pid>是正在运行的Logstash的进程号。</p>
+</div><p>其中<pid>是正在运行的 Logstash 的进程号。</p>
 <h2 id="注意">注意！！！</h2>
 <blockquote>
 <p><code>stdin</code>输入插件不支持自动重启.<br>
