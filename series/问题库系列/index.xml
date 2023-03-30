@@ -4,7 +4,345 @@
         <link>http://www.jobcher.com/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/</link>
         <description>问题库系列 - seris - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 29 Nov 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 30 Mar 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+    <title>使用scrapy-redis实现增量爬取</title>
+    <link>http://www.jobcher.com/scrapyredis/</link>
+    <pubDate>Thu, 30 Mar 2023 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/scrapyredis/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/chrome1.png" referrerpolicy="no-referrer">
+            </div><h1 id="使用scrapy-redis实现增量爬取">使用scrapy-redis实现增量爬取</h1>
+<p><code>Scrapy-Redis</code>是<code>Scrapy框架</code>的一个插件，可以使用Redis实现Scrapy的分布式爬虫。它使用Redis作为分布式队列，可以轻松地将爬虫分布在多个机器上。同时，它还提供了一些功能，如去重、持久化、增量爬取等。</p>
+<h4 id="要使用scrapy-redis实现增量爬取可以采取以下步骤">要使用Scrapy-Redis实现增量爬取，可以采取以下步骤：</h4>
+<ol>
+<li>在Scrapy项目中安装Scrapy-Redis插件。可以使用pip安装：pip install scrapy-redis</li>
+<li>在Scrapy的settings.py中添加如下配置：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 使用Redis调度器</span>
+</span></span><span class="line"><span class="cl"><span class="n">SCHEDULER</span> <span class="o">=</span> <span class="s2">&#34;scrapy_redis.scheduler.Scheduler&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 使用Redis去重过滤器</span>
+</span></span><span class="line"><span class="cl"><span class="n">DUPEFILTER_CLASS</span> <span class="o">=</span> <span class="s2">&#34;scrapy_redis.dupefilter.RFPDupeFilter&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 允许暂停、恢复爬取</span>
+</span></span><span class="line"><span class="cl"><span class="n">SCHEDULER_PERSIST</span> <span class="o">=</span> <span class="kc">True</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>将Spider的爬取链接放入Redis队列中。可以在Spider中重载start_requests()方法，从Redis队列中获取链接开始爬取。</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">scrapy</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scrapy_redis.spiders</span> <span class="kn">import</span> <span class="n">RedisSpider</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MySpider</span><span class="p">(</span><span class="n">RedisSpider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;myspider&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">redis_key</span> <span class="o">=</span> <span class="s1">&#39;myspider:start_urls&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 处理响应</span>
+</span></span><span class="line"><span class="cl">        <span class="k">pass</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li>在Spider中实现增量爬取。可以通过重载Spider中的<code>start_requests()</code>方法或者使用<code>SpiderMiddleware</code>来实现增量爬取。这里提供一种通过修改Redis队列来实现增量爬取的方法。</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">scrapy</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">redis</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scrapy_redis.spiders</span> <span class="kn">import</span> <span class="n">RedisSpider</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scrapy.utils.project</span> <span class="kn">import</span> <span class="n">get_project_settings</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MySpider</span><span class="p">(</span><span class="n">RedisSpider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;myspider&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">redis_key</span> <span class="o">=</span> <span class="s1">&#39;myspider:start_urls&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">redis_conn</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">super</span><span class="p">(</span><span class="n">MySpider</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="n">settings</span> <span class="o">=</span> <span class="n">get_project_settings</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">redis_conn</span> <span class="o">=</span> <span class="n">redis</span><span class="o">.</span><span class="n">StrictRedis</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">            <span class="n">host</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;REDIS_HOST&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">port</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;REDIS_PORT&#39;</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">            <span class="n">db</span><span class="o">=</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;REDIS_DB&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">start_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 获取最新的链接列表</span>
+</span></span><span class="line"><span class="cl">        <span class="n">latest_links</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_latest_links</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 将最新的链接放入Redis队列</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">link</span> <span class="ow">in</span> <span class="n">latest_links</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="bp">self</span><span class="o">.</span><span class="n">redis_conn</span><span class="o">.</span><span class="n">lpush</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">redis_key</span><span class="p">,</span> <span class="n">link</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="c1"># 开始爬取</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">MySpider</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">start_requests</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_latest_links</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 获取最新的链接列表</span>
+</span></span><span class="line"><span class="cl">        <span class="n">latest_links</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 这里只是简单的示例，实际可以从数据库、文件、API等获取最新的链接</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">            <span class="n">latest_links</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;http://example.com/page</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">latest_links</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 处理响应</span>
+</span></span><span class="line"><span class="cl">        <span class="k">pass</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>以上代码实现了在Spider启动时获取最新的链接列表，并将最新的链接放入Redis队列中，从而实现增量爬取。需要注意的是，这种方法仅适用于Spider启动时获取最新链接的情况。如果需要实时获取最新链接，可以使用<code>SpiderMiddleware</code>来实现。这里提供一种使用<code>SpiderMiddleware</code>实现增量爬取的方法。</p>
+<h3 id="spidermiddleware实现增量爬取的方法">SpiderMiddleware实现增量爬取的方法</h3>
+<ol>
+<li>创建一个<code>Middleware</code>，并在<code>process_request()</code>方法中判断请求是否需要进行增量处理。如果需要，则修改请求的链接，将增量参数添加到链接中。示例代码如下：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">scrapy</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scrapy</span> <span class="kn">import</span> <span class="n">Request</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MyMiddleware</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">process_request</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 判断是否需要进行增量处理</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="s1">&#39;incremental&#39;</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">meta</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 获取增量参数</span>
+</span></span><span class="line"><span class="cl">            <span class="n">incremental_param</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;incremental&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 将增量参数添加到请求链接中</span>
+</span></span><span class="line"><span class="cl">            <span class="n">url</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">url</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="s1">&#39;?&#39;</span> <span class="ow">in</span> <span class="n">url</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;&amp;incremental=</span><span class="si">{</span><span class="n">incremental_param</span><span class="si">}</span><span class="s1">&#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;?incremental=</span><span class="si">{</span><span class="n">incremental_param</span><span class="si">}</span><span class="s1">&#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 修改请求链接</span>
+</span></span><span class="line"><span class="cl">            <span class="n">request</span> <span class="o">=</span> <span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">callback</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">meta</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="n">request</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>在<code>Spider</code>中添加一个增量参数，并在<code>start_requests()</code>方法中设置增量参数。示例代码如下：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">scrapy</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">myproject.middleware</span> <span class="kn">import</span> <span class="n">MyMiddleware</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MySpider</span><span class="p">(</span><span class="n">scrapy</span><span class="o">.</span><span class="n">Spider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;myspider&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">start_urls</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;http://example.com&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    <span class="n">incremental_param</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="n">custom_settings</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;DOWNLOADER_MIDDLEWARES&#39;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="s1">&#39;myproject.middleware.MyMiddleware&#39;</span><span class="p">:</span> <span class="mi">543</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">start_requests</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 获取最新的增量参数</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">incremental_param</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_incremental_param</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 设置增量参数</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_urls</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="k">yield</span> <span class="n">scrapy</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">parse</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;incremental&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">incremental_param</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">parse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 处理响应</span>
+</span></span><span class="line"><span class="cl">        <span class="k">pass</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">get_incremental_param</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 获取最新的增量参数</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>在SpiderMiddleware中判断响应是否需要进行增量处理。如果需要，则使用yield生成一个新的请求，将增量参数添加到链接中。示例代码如下：</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">scrapy</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">scrapy</span> <span class="kn">import</span> <span class="n">Request</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">MySpiderMiddleware</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">process_spider_output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">result</span><span class="p">,</span> <span class="n">spider</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 判断是否需要进行增量处理</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="s1">&#39;incremental&#39;</span> <span class="ow">in</span> <span class="n">response</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">meta</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">incremental_param</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;incremental&#39;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 判断响应是否需要进行增量处理</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">need_incremental_processing</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 获取原始链接</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">url</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">url</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 将增量参数添加到链接中</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">if</span> <span class="s1">&#39;?&#39;</span> <span class="ow">in</span> <span class="n">url</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;&amp;incremental=</span><span class="si">{</span><span class="n">incremental_param</span><span class="si">}</span><span class="s1">&#39;</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">url</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39;?incremental=</span><span class="si">{</span><span class="n">incremental_param</span><span class="si">}</span><span class="s1">&#39;</span>
+</span></span><span class="line"><span class="cl">                    <span class="c1"># 生成一个新的请求，将增量参数添加到链接中</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">yield</span> <span class="n">Request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">r</span><span class="o">.</span><span class="n">callback</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">r</span><span class="o">.</span><span class="n">headers</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="n">r</span><span class="o">.</span><span class="n">meta</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">            <span class="k">yield</span> <span class="n">r</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">need_incremental_processing</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">,</span> <span class="n">request</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 判断响应是否需要进行增量处理</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">True</span> <span class="c1"># TODO: 根据实际情况进行判断</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>以上代码实现了使用SpiderMiddleware实现增量爬取。需要注意的是这里只是一个示例实现，需要根据实际情况进行修改。以下是一些需要注意的事项：</p>
+<ul>
+<li>增量参数的生成方式可以根据实际情况进行修改。这里使用了当前时间戳作为增量参数，可以根据需要使用其他方式生成增量参数，例如使用数据库中的记录时间作为增量参数。</li>
+<li>need_incremental_processing()方法中需要根据实际情况进行判断。例如，可以根据响应的内容进行判断，如果响应的内容与上一次爬取的内容相同，则不进行增量处理。</li>
+<li>在修改链接时，需要注意链接中是否已经包含了增量参数。如果已经包含了增量参数，则不需要添加新的增量参数。</li>
+<li>在使用yield生成新的请求时，需要注意将原始请求中的callback、headers和meta参数复制到新的请求中，否则可能会导致一些错误。</li>
+<li>在处理响应时，需要注意将响应中包含的增量参数传递给下一次请求。这里使用了meta参数传递增量参数，也可以使用其他方式进行传递。</li>
+</ul>
+<p>最后需要注意的是，使用增量爬取需要对爬取的网站有一定的了解，否则可能会导致一些错误。例如，在爬取新闻网站时，如果没有对新闻的发布时间进行处理，则可能会重复爬取相同的新闻。因此，在使用增量爬取时，需要根据实际情况进行调整，以确保爬取的数据的准确性和完整性。</p>
+]]></description>
+</item><item>
     <title>Chrome浏览器启动参数大全（命令行参数）</title>
     <link>http://www.jobcher.com/chrome/</link>
     <pubDate>Tue, 29 Nov 2022 00:00:00 &#43;0000</pubDate>
@@ -6646,119 +6984,6 @@ unable to configure the Docker daemon with file /etc/docker/daemon.json: EOF</p>
 <li>${string:(position)}：从左边开始匹配</li>
 <li>expr substr $string $position $length：从 position 开始，匹配长度为 length</li>
 </ul>
-]]></description>
-</item><item>
-    <title>Maven 安装编译</title>
-    <link>http://www.jobcher.com/maven/</link>
-    <pubDate>Thu, 03 Mar 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/maven/</guid>
-    <description><![CDATA[<h1 id="maven-安装编译">Maven 安装编译</h1>
-<p>Maven 就是专门为 Java 项目打造的管理和构建工具，它的主要功能有：</p>
-<ul>
-<li>提供了一套标准化的项目结构；</li>
-<li>提供了一套标准化的构建流程（编译，测试，打包，发布……）；</li>
-<li>提供了一套依赖管理机制。</li>
-</ul>
-<p>默认结构：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">a-maven-project
-</span></span><span class="line"><span class="cl">├── pom.xml
-</span></span><span class="line"><span class="cl">├── src
-</span></span><span class="line"><span class="cl">│   ├── main
-</span></span><span class="line"><span class="cl">│   │   ├── java
-</span></span><span class="line"><span class="cl">│   │   └── resources
-</span></span><span class="line"><span class="cl">│   └── <span class="nb">test</span>
-</span></span><span class="line"><span class="cl">│       ├── java
-</span></span><span class="line"><span class="cl">│       └── resources
-</span></span><span class="line"><span class="cl">└── target
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>项目的根目录<code>a-maven-project</code>是项目名，<br>
-它有一个<code>项目描述</code>文件<code>pom.xml</code>，<br>
-存放<code>Java源码</code>的目录是<code>src/main/java</code>，<br>
-存放<code>资源文件</code>的目录是<code>src/main/resources</code>，<br>
-存放<code>测试源码</code>的目录是<code>src/test/java</code>，<br>
-存放<code>测试资源</code>的目录是<code>src/test/resources</code>，<br>
-最后，所有编译、<code>打包生成的文件</code>都放在<code>target</code>目录里。<br>
-这些就是一个 Maven 项目的标准目录结构。</p>
-<p>pom.xml 文件:</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;project</span> <span class="err">...</span><span class="nt">&gt;</span>
-</span></span><span class="line"><span class="cl">	<span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
-</span></span><span class="line"><span class="cl">	<span class="nt">&lt;groupId&gt;</span>com.itranswarp.learnjava<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">	<span class="nt">&lt;artifactId&gt;</span>hello<span class="nt">&lt;/artifactId&gt;</span>
-</span></span><span class="line"><span class="cl">	<span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
-</span></span><span class="line"><span class="cl">	<span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
-</span></span><span class="line"><span class="cl">	<span class="nt">&lt;properties&gt;</span>
-</span></span><span class="line"><span class="cl">        ...
-</span></span><span class="line"><span class="cl">	<span class="nt">&lt;/properties&gt;</span>
-</span></span><span class="line"><span class="cl">	<span class="nt">&lt;dependencies&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;dependency&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&lt;groupId&gt;</span>commons-logging<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&lt;artifactId&gt;</span>commons-logging<span class="nt">&lt;/artifactId&gt;</span>
-</span></span><span class="line"><span class="cl">            <span class="nt">&lt;version&gt;</span>1.2<span class="nt">&lt;/version&gt;</span>
-</span></span><span class="line"><span class="cl">        <span class="nt">&lt;/dependency&gt;</span>
-</span></span><span class="line"><span class="cl">	<span class="nt">&lt;/dependencies&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="nt">&lt;/project&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>groupId</code>类似于 Java 的包名，通常是公司或组织名称，<br>
-<code>artifactId</code>类似于 Java 的类名，通常是项目名称，<br>
-<code>version</code>，一个 Maven 工程就是由<code>groupId，artifactId和version</code>作为唯一标识。<br>
-我们在引用其他第三方库的时候，也是通过这 3 个变量确定。</p>
-<p>依赖<code>commons-logging</code>：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-xml" data-lang="xml"><span class="line"><span class="cl"><span class="nt">&lt;dependency&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;groupId&gt;</span>commons-logging<span class="nt">&lt;/groupId&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;artifactId&gt;</span>commons-logging<span class="nt">&lt;/artifactId&gt;</span>
-</span></span><span class="line"><span class="cl">    <span class="nt">&lt;version&gt;</span>1.2<span class="nt">&lt;/version&gt;</span>
-</span></span><span class="line"><span class="cl"><span class="nt">&lt;/dependency&gt;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>使用<code>&lt;dependency&gt;</code>声明一个依赖后，Maven 就会自动下载这个依赖包并把它放到<code>classpath</code>中。</p>
-<h2 id="安装-maven">安装 Maven</h2>
 ]]></description>
 </item></channel>
 </rss>
