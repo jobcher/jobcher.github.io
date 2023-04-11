@@ -4,9 +4,413 @@
         <link>http://www.jobcher.com/</link>
         <description>打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 30 Mar 2023 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 11 Apr 2023 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://www.jobcher.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>github 国内代理访问下载</title>
+    <link>http://www.jobcher.com/github-proxy/</link>
+    <pubDate>Tue, 11 Apr 2023 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/github-proxy/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/github.png" referrerpolicy="no-referrer">
+            </div><h2 id="演示代理">演示代理</h2>
+<ol>
+<li>前缀</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">https://github.jobcher.com/gh/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>下载仓库</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git clone https://github.jobcher.com/gh/&lt;你要下载的GitHub地址&gt;
+</span></span><span class="line"><span class="cl"><span class="c1">#例子</span>
+</span></span><span class="line"><span class="cl">git clone https://github.jobcher.com/gh/https://github.com/jobcher/blog.git
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="部署">部署</h2>
+<p>复制js到cloudflare worker</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="s1">&#39;use strict&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * static files (404.html, sw.js, conf.js)
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">ASSET_URL</span> <span class="o">=</span> <span class="s1">&#39;https://jobcher.github.io/&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 前缀，如果自定义路由为example.com/gh/*，将PREFIX改为 &#39;/gh/&#39;，注意，少一个杠都会错！
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">PREFIX</span> <span class="o">=</span> <span class="s1">&#39;/gh/&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// 分支文件使用jsDelivr镜像的开关，0为关闭，默认关闭
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">Config</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">jsdelivr</span><span class="o">:</span> <span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">whiteList</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">// 白名单，路径里面有包含字符的才会通过，e.g. [&#39;/username/&#39;]
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="cm">/** @type {RequestInit} */</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">PREFLIGHT_INIT</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">status</span><span class="o">:</span> <span class="mi">204</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">headers</span><span class="o">:</span> <span class="k">new</span> <span class="nx">Headers</span><span class="p">({</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;access-control-allow-origin&#39;</span><span class="o">:</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;access-control-allow-methods&#39;</span><span class="o">:</span> <span class="s1">&#39;GET,POST,PUT,PATCH,TRACE,DELETE,HEAD,OPTIONS&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="s1">&#39;access-control-max-age&#39;</span><span class="o">:</span> <span class="s1">&#39;1728000&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}),</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">exp1</span> <span class="o">=</span> <span class="sr">/^(?:https?:\/\/)?github\.com\/.+?\/.+?\/(?:releases|archive)\/.*$/i</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">exp2</span> <span class="o">=</span> <span class="sr">/^(?:https?:\/\/)?github\.com\/.+?\/.+?\/(?:blob|raw)\/.*$/i</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">exp3</span> <span class="o">=</span> <span class="sr">/^(?:https?:\/\/)?github\.com\/.+?\/.+?\/(?:info|git-).*$/i</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">exp4</span> <span class="o">=</span> <span class="sr">/^(?:https?:\/\/)?raw\.(?:githubusercontent|github)\.com\/.+?\/.+?\/.+?\/.+$/i</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">exp5</span> <span class="o">=</span> <span class="sr">/^(?:https?:\/\/)?gist\.(?:githubusercontent|github)\.com\/.+?\/.+?\/.+$/i</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">exp6</span> <span class="o">=</span> <span class="sr">/^(?:https?:\/\/)?github\.com\/.+?\/.+?\/tags.*$/i</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @param {any} body
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @param {number} status
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @param {Object&lt;string, string&gt;} headers
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">makeRes</span><span class="p">(</span><span class="nx">body</span><span class="p">,</span> <span class="nx">status</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> <span class="nx">headers</span> <span class="o">=</span> <span class="p">{})</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">headers</span><span class="p">[</span><span class="s1">&#39;access-control-allow-origin&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;*&#39;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="nx">body</span><span class="p">,</span> <span class="p">{</span><span class="nx">status</span><span class="p">,</span> <span class="nx">headers</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @param {string} urlStr
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">newUrl</span><span class="p">(</span><span class="nx">urlStr</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">try</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="nx">URL</span><span class="p">(</span><span class="nx">urlStr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="kc">null</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;fetch&#39;</span><span class="p">,</span> <span class="nx">e</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">ret</span> <span class="o">=</span> <span class="nx">fetchHandler</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="nx">err</span> <span class="p">=&gt;</span> <span class="nx">makeRes</span><span class="p">(</span><span class="s1">&#39;cfworker error:\n&#39;</span> <span class="o">+</span> <span class="nx">err</span><span class="p">.</span><span class="nx">stack</span><span class="p">,</span> <span class="mi">502</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">e</span><span class="p">.</span><span class="nx">respondWith</span><span class="p">(</span><span class="nx">ret</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">})</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">checkUrl</span><span class="p">(</span><span class="nx">u</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="k">of</span> <span class="p">[</span><span class="nx">exp1</span><span class="p">,</span> <span class="nx">exp2</span><span class="p">,</span> <span class="nx">exp3</span><span class="p">,</span> <span class="nx">exp4</span><span class="p">,</span> <span class="nx">exp5</span><span class="p">,</span> <span class="nx">exp6</span><span class="p">])</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">u</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="kc">false</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @param {FetchEvent} e
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="kr">async</span> <span class="kd">function</span> <span class="nx">fetchHandler</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">req</span> <span class="o">=</span> <span class="nx">e</span><span class="p">.</span><span class="nx">request</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">urlStr</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">url</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">urlObj</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">URL</span><span class="p">(</span><span class="nx">urlStr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">urlObj</span><span class="p">.</span><span class="nx">searchParams</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;q&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">path</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">Response</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="s1">&#39;https://&#39;</span> <span class="o">+</span> <span class="nx">urlObj</span><span class="p">.</span><span class="nx">host</span> <span class="o">+</span> <span class="nx">PREFIX</span> <span class="o">+</span> <span class="nx">path</span><span class="p">,</span> <span class="mi">301</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// cfworker 会把路径中的 `//` 合并成 `/`
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">path</span> <span class="o">=</span> <span class="nx">urlObj</span><span class="p">.</span><span class="nx">href</span><span class="p">.</span><span class="nx">substr</span><span class="p">(</span><span class="nx">urlObj</span><span class="p">.</span><span class="nx">origin</span><span class="p">.</span><span class="nx">length</span> <span class="o">+</span> <span class="nx">PREFIX</span><span class="p">.</span><span class="nx">length</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/^https?:\/+/</span><span class="p">,</span> <span class="s1">&#39;https://&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">exp1</span><span class="p">)</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">path</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">exp5</span><span class="p">)</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">path</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">exp6</span><span class="p">)</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">path</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">exp3</span><span class="p">)</span> <span class="o">===</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">path</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">exp4</span><span class="p">)</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">httpHandler</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">exp2</span><span class="p">)</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">Config</span><span class="p">.</span><span class="nx">jsdelivr</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="kr">const</span> <span class="nx">newUrl</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;/blob/&#39;</span><span class="p">,</span> <span class="s1">&#39;@&#39;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/^(?:https?:\/\/)?github\.com/</span><span class="p">,</span> <span class="s1">&#39;https://cdn.jsdelivr.net/gh&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">Response</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="nx">newUrl</span><span class="p">,</span> <span class="mi">302</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">path</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;/blob/&#39;</span><span class="p">,</span> <span class="s1">&#39;/raw/&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">httpHandler</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">path</span><span class="p">.</span><span class="nx">search</span><span class="p">(</span><span class="nx">exp4</span><span class="p">)</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kr">const</span> <span class="nx">newUrl</span> <span class="o">=</span> <span class="nx">path</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/(?&lt;=com\/.+?\/.+?)\/(.+?\/)/</span><span class="p">,</span> <span class="s1">&#39;@$1&#39;</span><span class="p">).</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/^(?:https?:\/\/)?raw\.(?:githubusercontent|github)\.com/</span><span class="p">,</span> <span class="s1">&#39;https://cdn.jsdelivr.net/gh&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">Response</span><span class="p">.</span><span class="nx">redirect</span><span class="p">(</span><span class="nx">newUrl</span><span class="p">,</span> <span class="mi">302</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">ASSET_URL</span> <span class="o">+</span> <span class="nx">path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @param {Request} req
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @param {string} pathname
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">httpHandler</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">pathname</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">reqHdrRaw</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">headers</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1">// preflight
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">method</span> <span class="o">===</span> <span class="s1">&#39;OPTIONS&#39;</span> <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">reqHdrRaw</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="s1">&#39;access-control-request-headers&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">PREFLIGHT_INIT</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">reqHdrNew</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Headers</span><span class="p">(</span><span class="nx">reqHdrRaw</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">urlStr</span> <span class="o">=</span> <span class="nx">pathname</span>
+</span></span><span class="line"><span class="cl">    <span class="kd">let</span> <span class="nx">flag</span> <span class="o">=</span> <span class="o">!</span><span class="nb">Boolean</span><span class="p">(</span><span class="nx">whiteList</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="k">of</span> <span class="nx">whiteList</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">urlStr</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="nx">i</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">flag</span> <span class="o">=</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl">            <span class="k">break</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">flag</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="s2">&#34;blocked&#34;</span><span class="p">,</span> <span class="p">{</span><span class="nx">status</span><span class="o">:</span> <span class="mi">403</span><span class="p">})</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">urlStr</span><span class="p">.</span><span class="nx">startsWith</span><span class="p">(</span><span class="s1">&#39;github&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">urlStr</span> <span class="o">=</span> <span class="s1">&#39;https://&#39;</span> <span class="o">+</span> <span class="nx">urlStr</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">urlObj</span> <span class="o">=</span> <span class="nx">newUrl</span><span class="p">(</span><span class="nx">urlStr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="cm">/** @type {RequestInit} */</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">reqInit</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">method</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">method</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">headers</span><span class="o">:</span> <span class="nx">reqHdrNew</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">redirect</span><span class="o">:</span> <span class="s1">&#39;manual&#39;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">body</span><span class="o">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">body</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="nx">proxy</span><span class="p">(</span><span class="nx">urlObj</span><span class="p">,</span> <span class="nx">reqInit</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="cm">/**
+</span></span></span><span class="line"><span class="cl"><span class="cm"> *
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @param {URL} urlObj
+</span></span></span><span class="line"><span class="cl"><span class="cm"> * @param {RequestInit} reqInit
+</span></span></span><span class="line"><span class="cl"><span class="cm"> */</span>
+</span></span><span class="line"><span class="cl"><span class="kr">async</span> <span class="kd">function</span> <span class="nx">proxy</span><span class="p">(</span><span class="nx">urlObj</span><span class="p">,</span> <span class="nx">reqInit</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">res</span> <span class="o">=</span> <span class="kr">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="nx">urlObj</span><span class="p">.</span><span class="nx">href</span><span class="p">,</span> <span class="nx">reqInit</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">resHdrOld</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">headers</span>
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">resHdrNew</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Headers</span><span class="p">(</span><span class="nx">resHdrOld</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="kr">const</span> <span class="nx">status</span> <span class="o">=</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">resHdrNew</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kd">let</span> <span class="nx">_location</span> <span class="o">=</span> <span class="nx">resHdrNew</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="nx">checkUrl</span><span class="p">(</span><span class="nx">_location</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">resHdrNew</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;location&#39;</span><span class="p">,</span> <span class="nx">PREFIX</span> <span class="o">+</span> <span class="nx">_location</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="nx">reqInit</span><span class="p">.</span><span class="nx">redirect</span> <span class="o">=</span> <span class="s1">&#39;follow&#39;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nx">proxy</span><span class="p">(</span><span class="nx">newUrl</span><span class="p">(</span><span class="nx">_location</span><span class="p">),</span> <span class="nx">reqInit</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">resHdrNew</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;access-control-expose-headers&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">resHdrNew</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;access-control-allow-origin&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="nx">resHdrNew</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">&#39;content-security-policy&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">resHdrNew</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">&#39;content-security-policy-report-only&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">resHdrNew</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="s1">&#39;clear-site-data&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="k">new</span> <span class="nx">Response</span><span class="p">(</span><span class="nx">res</span><span class="p">.</span><span class="nx">body</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">status</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">headers</span><span class="o">:</span> <span class="nx">resHdrNew</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">})</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
+</item><item>
     <title>使用scrapy-redis实现增量爬取</title>
     <link>http://www.jobcher.com/scrapyredis/</link>
     <pubDate>Thu, 30 Mar 2023 00:00:00 &#43;0000</pubDate>
@@ -1489,82 +1893,6 @@ App Store 中搜索：<code>宠物记时</code> 或点击下方链接下载。<b
 安装后打开 App，点击右下角【我的】。点击【反馈】，输入 <code>tk666</code>，点击发送。将 app 手动滑出退出应用，重启 app 如界面还是原来的界面可以重复操作几次。</p>
 <ul>
 <li>官网 <a href="https://apps.apple.com/cn/app/id1666044219" target="_blank" rel="noopener noreffer">天空影视</a></li>
-</ul>
-<div class="details admonition success open">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-check-circle fa-fw"></i>关注<i class="details-icon fas fa-angle-right fa-fw"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">欢迎关注我的博客<br>
-<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer">www.jobcher.com</a></div>
-        </div>
-    </div>
-]]></description>
-</item><item>
-    <title>打工人周报（第二期）</title>
-    <link>http://www.jobcher.com/2023-01-19/</link>
-    <pubDate>Mon, 16 Jan 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/2023-01-19/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/weekly.webp" referrerpolicy="no-referrer">
-            </div><div class="details admonition tip open">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb fa-fw"></i>摘要<i class="details-icon fas fa-angle-right fa-fw"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">打工人周报：记录每周值得分享的内容,周四发布,<code>第二期</code>欢迎关注。<br>
-[通知]因春节假期改为周一发布</div>
-        </div>
-    </div>
-<h2 id="资讯动态">资讯动态</h2>
-<h4 id="1-曝-ipad-pro-未来会砍掉实体按键梦回-iphone-7-时代">1. 曝 iPad Pro 未来会砍掉实体按键：梦回 iPhone 7 时代</h4>
-<p>1 月 12 日消息，据 9to5Mac 报道，苹果今年下半年要发布的 iPhone 15 Pro 将会砍掉实体按键，未来 iPad Pro、Apple Watch 等也将会跟进，它们都将采用类似 iPhone 7、iPhone 8 时代的固态 Home 按键设计。据悉，iPad Pro 将会集成 Taptic Engine 固态按键控制器 IC，它被用来模拟按压物理按键的震动。知名分析师郭明錤表示，苹果之所以想砍掉实体按键，最主要原因是想提高设备耐用性，物理电源和音量按键很容易出故障，砍掉按键一方面提升耐用性，另一方面增强设备防水性。</p>
-<h4 id="2-amd-承认闹乌龙官方表示尚未确认锐龙-7000-x3d-上市时间">2. AMD 承认闹乌龙，官方表示尚未确认锐龙 7000 X3D 上市时间</h4>
-<p>根据 AMD 官网放出的参数页信息，AMD R9 7950X3D、R9 7900X3D、R7 7800X3D 将于 2 月 14 日上市，但有网友怀疑只是占位符，现在 AMD 官方也已经确认这一数字并非真实日期，不过官方并未给出任何进一步的细节。上周，AMD 在 CES 2023 上正式发布了采用 3D 缓存的锐龙 7000X3D 台式机处理器，最高 16 核 32 线程，L2+L3 缓存达到 144MB，共有三个型号。AMD 在 PPT 中声称，在流行的电子竞技游戏中，R7 7800X3D 的游戏性能提升可达 25%。</p>
-<h4 id="3-ios-惹祸苹果正在修复-iphone-14-pro-屏幕闪烁水平线问题">3. iOS 惹祸？苹果正在修复 iPhone 14 Pro 屏幕闪烁水平线问题</h4>
-<p></p>
-<p>近日，苹果承认，当设备打开时，iPhone 14 ProMax 用户可能会在显示屏上看到闪烁的水平线。并表示这个问题并非硬件缺陷引起。iOS 16.3 目前正在与公共测试版计划的开发人员和成员进行测试，但该更新预计至少要再过几周才能启动。更迫在眉睫的是，继上个月发布 iOS 16.2 之后，苹果可能会发布 iOS 16.2.1，以解决用户遇到的这个问题和其他错误。（IT 之家）</p>
-<h4 id="4-兔年茅台生肖酒上市不到一周价格腰斩">4. 兔年茅台生肖酒上市不到一周价格腰斩</h4>
-<p>近日，兔年茅台酒上市一周就大降价，价格从 6000 降到 3000 多一点，被茅台经销商吐槽为“流氓兔”。每年生肖酒刚上市，都会因供应量不足价格暴涨，而今年茅台官方兔茅放量，造成供大于求，因此价格一直下降。经销商表示，茅台价差主要和产量有关，最贵的马茅、羊茅只有两三百吨，今年兔茅产量创新高，价格就上不去。（第一财经）</p>
-<h2 id="互联网环境">互联网环境</h2>
-<h4 id="1-芙索特完成数千万-pre-a-轮融资助力全球儿童青少年脊柱健康筛查与诊疗">1. 芙索特完成数千万 Pre-A 轮融资，助力全球儿童青少年脊柱健康筛查与诊疗</h4>
-<p>芙索特（上海）医疗科技有限公司（简称：芙索特）近日完成数千万 Pre-A 轮融资，本次融资由山蓝资本领投，兴富资本跟投。<br>
-</p>
-<blockquote>
-<p>B 端 “脊柱三维数字化诊断与智能化治疗系统” C 端 “小树同学脊柱检测仪”</p>
-</blockquote>
-<p>逐步解决医疗行业无法精准筛查脊柱侧弯、在无辐射的情况下无法获得 Cobbs 角等脊柱形态诊断数据，检测费用过高、传统检测方法易对儿童及青少年产生辐射伤害、不利于疾病随访等行业问题。</p>
-<h4 id="2-米哈游年会奖-1600-薪上海一套房内部员工辟谣">2. 米哈游年会奖 1600 薪、上海一套房？内部员工辟谣</h4>
-<p>1 月 12 日消息，近日网络上流传的新贵游戏公司米哈游的年会清单中，至尊欧皇奖是 1600 个月的工资，御宅苹安奖则是上海徐汇区别墅房产证一枚。还有用户在某平台发帖成米哈游年终奖 108 薪，奖金发放超 80 万。对此，米哈游公司信息工程师向媒体否认了上述消息，并表示“P 的，2020 的老图又拿来传假消息，无稽之谈。有这种公司你和我说一下”。</p>
-<h4 id="3-蚂蚁进一步去阿里化员工百万期权将缩水过半">3. 蚂蚁进一步“去阿里化”，员工百万期权将缩水过半</h4>
-<p>自 2022 年 10 月起，蚂蚁就和阿里完全隔离、独立，员工内部直接转岗通道关闭，只能离职后再入职。有蚂蚁员工曾对作者感叹，手中的百万期权价值可能会缩水过半不止，这还是在较乐观的预期下。期权变现遥遥无期令人无奈，但蚂蚁提供的薪酬和平台仍是市场的最优选择之一，“上市是锦上添花的选项”。（腾讯新闻）</p>
-<h4 id="4-苹果库克年薪近-1-亿美元-自愿降薪-40">4. 苹果库克年薪近 1 亿美元 自愿降薪 40%</h4>
-<p>据悉，苹果 CEO 官蒂姆·库克的总薪酬将在 2023 年减少 40%以上，至 4900 万美元，原因是投资者的反馈以及库克本人要求调整薪酬。该公司周四在一份文件中说，大部分薪酬将以股票授予的形式发放。</p>
-<h4 id="5-别人家的公司年终奖给员工发了-39-辆宝马比亚迪最年轻获奖者是-95-后">5. 别人家的公司！年终奖给员工发了 39 辆宝马、比亚迪，最年轻获奖者是 95 后</h4>
-<p>近日，市值 290 亿元的民营油服巨头企业杰瑞股份向员工发放年终奖励，通过 2022 年度“金钥匙奖”授车仪式颁发，共有 39 名优秀员工获得奖励，奖品是比亚迪海豹以及宝马 X1，总价值近 800 万元。</p>
-<h2 id="科技分享">科技分享</h2>
-<h4 id="1-epic-游戏限免">1. Epic 游戏限免</h4>
-<p>截止 1 月 20 日</p>
-<ul>
-<li><a href="https://store.epicgames.com/zh-CN/p/gamedec" target="_blank" rel="noopener noreffer">骇游侠探：决定版</a></li>
-<li><a href="https://store.epicgames.com/zh-CN/p/divine-knockout--standard" target="_blank" rel="noopener noreffer">神圣一击</a></li>
-<li><a href="https://store.epicgames.com/zh-CN/p/first-class-trouble" target="_blank" rel="noopener noreffer">头等舱危机</a></li>
-</ul>
-<h4 id="2-公共领域电台public-domain-radio724-小时不间断播放古典爵士民俗音乐超过-7-万张唱片">2. 公共领域电台（Public Domain Radio）：7*24 小时不间断播放古典、爵士、民俗音乐，超过 7 万张唱片</h4>
-<p>公共领域电台（Public Domain Radio） – 7*24 小时不间断播放古典、爵士、民俗音乐，超过 7 万张唱片</p>
-<ul>
-<li>官网<a href="http://publicdomainradio.org/?utm_source=appinn.com" target="_blank" rel="noopener noreffer">Public Domain Radio</a></li>
-</ul>
-<h4 id="3-qi-reader-rss-阅读器">3. Qi Reader RSS 阅读器</h4>
-<p>优雅的在线 RSS 阅读器，免费用户可订阅 50 个订阅源。</p>
-<ul>
-<li>官网<a href="http://publicdomainradio.org/?utm_source=appinn.com" target="_blank" rel="noopener noreffer">Qi Reader RSS</a></li>
-</ul>
-<h4 id="4-button-mapper重新映射安卓手机物理按键功能如长按-音量-打开闪光灯">4. Button Mapper：重新映射安卓手机物理按键功能，如长按 音量+ 打开闪光灯</h4>
-<p>Button Mapper 是一款 Android 辅助工具，它可以重新映射手机物理按键，自定义操作，比如双击音量+键开关手电筒。支持音量加、音量减、耳机按键，以及大多数物理或电容式按键和按钮，可启动程序、快捷方式操作、截图等。</p>
-<ul>
-<li>官网<a href="https://buttonmapper.app/" target="_blank" rel="noopener noreffer">Button Mapper</a></li>
 </ul>
 <div class="details admonition success open">
         <div class="details-summary admonition-title">
