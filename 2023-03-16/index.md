@@ -1,9 +1,9 @@
 # 打工人周报（第八期）
 
 
-{{< admonition type=tip title="摘要">}}
+```
 打工人周报：记录每周值得分享的内容,周四发布,`第八期`欢迎关注。  
-{{< /admonition >}}
+```
 
 ## 资讯动态
 
@@ -84,8 +84,8 @@ OpenCat – 第三方 ChatGPT 原生客户端，即开即用，支持自定义 A
 Whisper – 本地语音转文字工具，支持 GPU、支持实时语音转换[Windows]
 - [链接直达](https://huggingface.co/datasets/ggerganov/whisper.cpp/blob/main/ggml-medium.bin)
 
-{{< admonition type=success title="关注">}}
+```
 欢迎关注我的博客  
 [www.jobcher.com](https://www.jobcher.com/)
-{{< /admonition >}}
+```
 

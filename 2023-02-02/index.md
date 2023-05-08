@@ -1,9 +1,9 @@
 # 打工人周报（第三期）
 
 
-{{< admonition type=tip title="摘要">}}
+```
 打工人周报：记录每周值得分享的内容,周四发布,`第三期`欢迎关注。  
-{{< /admonition >}}
+```
 
 ## 资讯动态
 
@@ -91,8 +91,8 @@ App Store 中搜索：`宠物记时` 或点击下方链接下载。
 
 - 官网 [天空影视](https://apps.apple.com/cn/app/id1666044219)
 
-{{< admonition type=success title="关注">}}
+```
 欢迎关注我的博客  
 [www.jobcher.com](https://www.jobcher.com/)
-{{< /admonition >}}
+```
 

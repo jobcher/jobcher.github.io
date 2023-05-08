@@ -1,9 +1,9 @@
 # 打工人周报（第七期）
 
 
-{{< admonition type=tip title="摘要">}}
+```
 打工人周报：记录每周值得分享的内容,周四发布,`第七期`欢迎关注。  
-{{< /admonition >}}
+```
 
 ## 资讯动态
 
@@ -59,8 +59,8 @@ TikTok宣布了一批新功能，旨在减少屏幕时间，提高年轻用户�
 - [我只想好好观影](https://greasyfork.org/zh-CN/scripts/459540)  
 
 
-{{< admonition type=success title="关注">}}
+```
 欢迎关注我的博客  
 [www.jobcher.com](https://www.jobcher.com/)
-{{< /admonition >}}
+```
 

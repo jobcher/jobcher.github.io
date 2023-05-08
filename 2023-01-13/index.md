@@ -1,9 +1,9 @@
 # 打工人周报（第一期）
 
 
-{{< admonition type=tip title="摘要">}}
+```
 打工人周报：记录每周值得分享的内容,周四发布,`第一期`欢迎关注。
-{{< /admonition >}}
+```
 
 ## 资讯动态
 
@@ -84,8 +84,8 @@ TikTok 宣布扩大其观众控制功能，使创作者能够将他们的视频�
 
 - 官网[https://tt0.top/?ref=iui](https://tt0.top/?ref=iui)
 
-{{< admonition type=success title="关注">}}
+```
 欢迎关注我的博客  
 [www.jobcher.com](https://www.jobcher.com/)
-{{< /admonition >}}
+```
 

@@ -828,15 +828,15 @@
     <guid>http://www.jobcher.com/2023-03-16/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/weekly.webp" referrerpolicy="no-referrer">
-            </div><div class="details admonition tip open">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb fa-fw"></i>摘要<i class="details-icon fas fa-angle-right fa-fw"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">打工人周报：记录每周值得分享的内容,周四发布,<code>第八期</code>欢迎关注。</div>
-        </div>
-    </div>
-<h2 id="资讯动态">资讯动态</h2>
+            </div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">打工人周报：记录每周值得分享的内容,周四发布,`第八期`欢迎关注。  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="资讯动态">资讯动态</h2>
 <h4 id="1-openai公布最新版本gpt-4-称其能在sat考试中击败90考生">1. OpenAI公布最新版本GPT-4 称其能在SAT考试中击败90%考生</h4>
 <p>3月14日，人工智能研究公司OpenAI公布了其大型语言模型的最新版本——GPT-4，并表示模型在许多专业测试中表现出“人类水平的性能”。<br>
 据悉，OpenAI于2020年发布了GPT-3（生成型预训练变换模型3），并将其与GPT-3.5分别用于创建Dall-E和聊天机器人ChatGPT，这两款产品极大地吸引了公众的关注，并刺激其他科技公司更积极地追求人工智能（AI）。<br>
@@ -902,16 +902,17 @@ OpenAI周二表示，在内部评估中，GPT-4产生正确回应的可能性要
 <ul>
 <li><a href="https://huggingface.co/datasets/ggerganov/whisper.cpp/blob/main/ggml-medium.bin" target="_blank" rel="noopener noreffer">链接直达</a></li>
 </ul>
-<div class="details admonition success open">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-check-circle fa-fw"></i>关注<i class="details-icon fas fa-angle-right fa-fw"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">欢迎关注我的博客<br>
-<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer">www.jobcher.com</a></div>
-        </div>
-    </div>
-]]></description>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">欢迎关注我的博客  
+</span></span><span class="line"><span class="cl">[www.jobcher.com](https://www.jobcher.com/)
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
 </item><item>
     <title>🧠ChatGPT 中文使用指南</title>
     <link>http://www.jobcher.com/chatgpt-use/</link>
@@ -1542,15 +1543,15 @@ OpenAI周二表示，在内部评估中，GPT-4产生正确回应的可能性要
     <guid>http://www.jobcher.com/2023-03-09/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/weekly.webp" referrerpolicy="no-referrer">
-            </div><div class="details admonition tip open">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb fa-fw"></i>摘要<i class="details-icon fas fa-angle-right fa-fw"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">打工人周报：记录每周值得分享的内容,周四发布,<code>第七期</code>欢迎关注。</div>
-        </div>
-    </div>
-<h2 id="资讯动态">资讯动态</h2>
+            </div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">打工人周报：记录每周值得分享的内容,周四发布,`第七期`欢迎关注。  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="资讯动态">资讯动态</h2>
 <h4 id="1-特斯拉因石子故障维修需花14万特斯拉回应电池价位占总价一半都是明码标价">1. 特斯拉因石子故障维修需花14万，特斯拉回应：电池价位占总价一半，都是明码标价</h4>
 <p>江西南昌董女士反映自己开特斯拉出门因碾压到路上小石子，石子弹射到车辆空气管致故障。行驶中发现行驶灯故障并出现无法加速情况。董女士将其送往维修中心。经过检测鉴定为电池故障需更换电池，费用大约需要14万元。高额的维修更换费用让董女士难以接受，目前该车辆正在走流程当中。据特斯拉官方回应称：电池价格占到车辆总价的一半，因为电池相对很重要，它的价格都是官方明码标价。（知未）</p>
 <h4 id="2-中文在线国内首个科幻主题元宇宙restart将于本月进行首期功能模块上线">2. 中文在线：国内首个科幻主题元宇宙RESTART将于本月进行首期功能模块上线</h4>
@@ -1592,16 +1593,17 @@ OpenAI周二表示，在内部评估中，GPT-4产生正确回应的可能性要
 <ul>
 <li><a href="https://greasyfork.org/zh-CN/scripts/459540" target="_blank" rel="noopener noreffer">我只想好好观影</a></li>
 </ul>
-<div class="details admonition success open">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-check-circle fa-fw"></i>关注<i class="details-icon fas fa-angle-right fa-fw"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">欢迎关注我的博客<br>
-<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer">www.jobcher.com</a></div>
-        </div>
-    </div>
-]]></description>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">欢迎关注我的博客  
+</span></span><span class="line"><span class="cl">[www.jobcher.com](https://www.jobcher.com/)
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
 </item><item>
     <title>打工人周报（第六期）</title>
     <link>http://www.jobcher.com/2023-03-02/</link>
@@ -1610,15 +1612,15 @@ OpenAI周二表示，在内部评估中，GPT-4产生正确回应的可能性要
     <guid>http://www.jobcher.com/2023-03-02/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/weekly.webp" referrerpolicy="no-referrer">
-            </div><div class="details admonition tip open">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb fa-fw"></i>摘要<i class="details-icon fas fa-angle-right fa-fw"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">打工人周报：记录每周值得分享的内容,周四发布,<code>第六期</code>欢迎关注。</div>
-        </div>
-    </div>
-<h2 id="资讯动态">资讯动态</h2>
+            </div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">打工人周报：记录每周值得分享的内容,周四发布,`第六期`欢迎关注。  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="资讯动态">资讯动态</h2>
 <h4 id="1-知乎推出一起公考ai课app再加码教育业务">1. 知乎推出“一起公考AI课”APP，再加码教育业务</h4>
 <p>
 近日，知乎上线了一款名为“一起公考AI课”的APP，是知乎教育旗下的职业教育品牌。据悉，该产品运用了AI教学技术，专门提供公务员考试课程内容。根据体验，“一起公考AI课”APP，当前主要提供“行测”的笔试内容，通过AI教学技术逐节解锁5大模块，覆盖192个知识点，部分课程服务需进行付费。（Tech星球）</p>
@@ -1678,16 +1680,17 @@ Highlight网页，AI生成全文摘要，导入笔记软件，还可以生成You
 <a href="https://glasp.co/" target="_blank" rel="noopener noreffer">链接直达</a></p>
 </li>
 </ol>
-<div class="details admonition success open">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-check-circle fa-fw"></i>关注<i class="details-icon fas fa-angle-right fa-fw"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">欢迎关注我的博客<br>
-<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer">www.jobcher.com</a></div>
-        </div>
-    </div>
-]]></description>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">欢迎关注我的博客  
+</span></span><span class="line"><span class="cl">[www.jobcher.com](https://www.jobcher.com/)
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
 </item><item>
     <title>ChatGPT Plus开通教程攻略</title>
     <link>http://www.jobcher.com/chatgpt-plus/</link>
@@ -1744,16 +1747,17 @@ Highlight网页，AI生成全文摘要，导入笔记软件，还可以生成You
 <p></p>
 <p>填写完信息，点击订阅/Subscribe 等待验证即可成功订阅开通ChatGPT Plus。</p>
 <p></p>
-<div class="details admonition success open">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-check-circle fa-fw"></i>关注<i class="details-icon fas fa-angle-right fa-fw"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">欢迎关注我的博客<br>
-<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer">www.jobcher.com</a></div>
-        </div>
-    </div>
-<h3 id="转载自httpswwwahhhhfscomhttpswwwahhhhfscom">转载自（<a href="https://www.ahhhhfs.com/" target="_blank" rel="noopener noreffer">https://www.ahhhhfs.com/</a>）</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">欢迎关注我的博客  
+</span></span><span class="line"><span class="cl">[www.jobcher.com](https://www.jobcher.com/)
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="转载自httpswwwahhhhfscomhttpswwwahhhhfscom">转载自（<a href="https://www.ahhhhfs.com/" target="_blank" rel="noopener noreffer">https://www.ahhhhfs.com/</a>）</h3>
 ]]></description>
 </item><item>
     <title>打工人周报（第五期）</title>
@@ -1763,15 +1767,15 @@ Highlight网页，AI生成全文摘要，导入笔记软件，还可以生成You
     <guid>http://www.jobcher.com/2023-02-23/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/weekly.webp" referrerpolicy="no-referrer">
-            </div><div class="details admonition tip open">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb fa-fw"></i>摘要<i class="details-icon fas fa-angle-right fa-fw"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">打工人周报：记录每周值得分享的内容,周四发布,<code>第五期</code>欢迎关注。</div>
-        </div>
-    </div>
-<h2 id="资讯动态">资讯动态</h2>
+            </div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">打工人周报：记录每周值得分享的内容,周四发布,`第五期`欢迎关注。  
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="资讯动态">资讯动态</h2>
 <h4 id="1-星链拟推出全球漫游互联网服务-月收费超-1300-元">1. 星链拟推出“全球漫游”互联网服务 月收费超 1300 元</h4>
 <p>SpaceX 旗下星链（Starlink）卫星互联网服务部分用户收到的最新消息显示，该公司正在测试名为“全球漫游”的互联网服务，其可以让人们“在世界上的任何地方接入网络”。然而，使用这项服务的费用并不便宜，除了花费 599 美元购买基本的星链套件之外，用户每月还需支付 200 美元（约合 1373 元人民币）费用。</p>
 <h4 id="2-爱奇艺黄金-vip-恢复-720p-和-1080p-投屏-不再限制登录设备种类">2. 爱奇艺黄金 VIP 恢复 720P 和 1080P 投屏 不再限制登录设备种类</h4>
@@ -1815,16 +1819,17 @@ Highlight网页，AI生成全文摘要，导入笔记软件，还可以生成You
 <h4 id="5-小白云盘-tv">5. 小白云盘 tv</h4>
 <p>阿里云盘前阵子做了修改，导致第三方失效，目前小白云盘 tv 版，最新版可以正常播放视频 / 音乐，该资源来自小白云盘 tv 官网<br>
 <a href="https://www.123pan.com/s/ZAzA-EQ0wh" target="_blank" rel="noopener noreffer">官网</a></p>
-<div class="details admonition success open">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-check-circle fa-fw"></i>关注<i class="details-icon fas fa-angle-right fa-fw"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">欢迎关注我的博客<br>
-<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer">www.jobcher.com</a></div>
-        </div>
-    </div>
-]]></description>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">欢迎关注我的博客  
+</span></span><span class="line"><span class="cl">[www.jobcher.com](https://www.jobcher.com/)
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
 </item><item>
     <title>打工人周报（第四期）</title>
     <link>http://www.jobcher.com/2023-02-16/</link>
@@ -1833,16 +1838,17 @@ Highlight网页，AI生成全文摘要，导入笔记软件，还可以生成You
     <guid>http://www.jobcher.com/2023-02-16/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/weekly.webp" referrerpolicy="no-referrer">
-            </div><div class="details admonition tip open">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb fa-fw"></i>摘要<i class="details-icon fas fa-angle-right fa-fw"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">打工人周报：记录每周值得分享的内容,周四发布,<code>第四期</code>欢迎关注。<br>
-上周因为个人原因延了一期，之后会补上。</div>
-        </div>
-    </div>
-<h2 id="资讯动态">资讯动态</h2>
+            </div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">打工人周报：记录每周值得分享的内容,周四发布,`第四期`欢迎关注。  
+</span></span><span class="line"><span class="cl">上周因为个人原因延了一期，之后会补上。
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="资讯动态">资讯动态</h2>
 <h4 id="1-宝马-i4-车主收到通知车停在陡坡上无法升级">1. 宝马 i4 车主收到通知：车停在陡坡上无法升级</h4>
 <p>近日，宝马 i4 车主 Clare Eliza 近日收到通知：“路面太陡无法启动升级程序。请将车辆停到平坦区域再进行更新”。也就是说宝马 i4 车辆停在陡坡上就无法执行更新。宝马发言人表示：“宝马 i4 配备了俯仰、偏航、横向和纵向加速和减速等各种各样的传感器，汽车能够自行检测是否停在平坦路面上。这是一项安全预防措施，防止在糟糕的情况下导致车辆无法正常升级，避免滑坡等情况影响系统的升级”。（IT 之家）</p>
 <h4 id="2-科学家发现阻止新冠病毒感染的受体">2. 科学家发现阻止新冠病毒感染的受体</h4>
