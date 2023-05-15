@@ -4,9 +4,182 @@
         <link>http://www.jobcher.com/</link>
         <description>打工人日志，分享打工的辛酸苦楚，感受生活的酸甜苦辣，人有冲天之志，非运不能自通</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 20 Apr 2023 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 15 May 2023 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="http://www.jobcher.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>在windows上安装appium</title>
+    <link>http://www.jobcher.com/appium/</link>
+    <pubDate>Mon, 15 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/appium/</guid>
+    <description><![CDATA[<h2 id="在windows上安装appium">在windows上安装appium</h2>
+<p><code>Appium</code> 主要用于软件测试自动化领域，以帮助确定给定应用程序的功能是否按预期工作。与其他类型的软件测试相比，UI 自动化允许测试人员编写代码，在应用程序的实际 UI 中演练用户方案，尽可能模拟现实世界中发生的情况，同时实现自动化的各种好处，包括速度、规模和一致性。</p>
+<h3 id="安装nodejs">安装nodejs</h3>
+<p>Appium是基于Node.js构建的,所以首先需要安装Node.js<br>
+<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener noreffer">下载地址：https://nodejs.org/en/download/</a><br>
+下载并安装，验证是否安装成功</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">node -v
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="安装appium">安装appium</h3>
+<p>安装Appium。在命令提示符下运行:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">npm install -g appium
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="安装appium-doctor">安装appium-doctor</h3>
+<p>安装appium-doctor。在命令提示符下运行:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">npm install -g appium-doctor
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="安装appium-desktop">安装appium-desktop</h3>
+<p>安装appium-desktop。在命令提示符下运行:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">npm install -g appium-desktop
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="安装jdk">安装jdk</h3>
+<p>下载地址：<a href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html" target="_blank" rel="noopener noreffer">https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html</a>
+下载并安装，验证是否安装成功</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">java -version
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="安装android-sdk">安装android-sdk</h3>
+<p>下载地址：<a href="https://developer.android.com/studio" target="_blank" rel="noopener noreffer">https://developer.android.com/studio</a>
+下载并安装，验证是否安装成功</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">adb version
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="配置环境变量">配置环境变量</h3>
+<p>在系统环境变量中添加以下变量</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">ANDROID_HOME</span> <span class="o">=</span> D:<span class="se">\A</span>ndroid<span class="se">\s</span>dk
+</span></span><span class="line"><span class="cl"><span class="nv">JAVA_HOME</span> <span class="o">=</span> C:<span class="se">\P</span>rogram Files<span class="se">\J</span>ava<span class="se">\j</span>dk1.8.0_311
+</span></span><span class="line"><span class="cl"><span class="nv">Path</span> <span class="o">=</span> %ANDROID_HOME%<span class="se">\p</span>latform-tools<span class="p">;</span>%ANDROID_HOME%<span class="se">\t</span>ools<span class="p">;</span>%JAVA_HOME%<span class="se">\b</span>in
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>验证是否配置成功</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">appium-doctor
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="启动appium">启动appium</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">appium
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="启动appium-desktop">启动appium-desktop</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">appium-desktop
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="测试脚本">测试脚本</h3>
+<p>创建测试脚本test.py</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">appium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">desired_caps</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">desired_caps</span><span class="p">[</span><span class="s1">&#39;platformName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Android&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">desired_caps</span><span class="p">[</span><span class="s1">&#39;platformVersion&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;10&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">desired_caps</span><span class="p">[</span><span class="s1">&#39;deviceName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Android Emulator&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">desired_caps</span><span class="p">[</span><span class="s1">&#39;appPackage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;com.android.calculator2&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">desired_caps</span><span class="p">[</span><span class="s1">&#39;appActivity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;.Calculator&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Remote</span><span class="p">(</span><span class="s1">&#39;http://localhost:4723/wd/hub&#39;</span><span class="p">,</span> <span class="n">desired_caps</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s2">&#34;com.android.calculator2:id/digit_2&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s2">&#34;com.android.calculator2:id/op_add&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s2">&#34;com.android.calculator2:id/digit_3&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s2">&#34;com.android.calculator2:id/eq&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">driver</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="运行测试脚本">运行测试脚本</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">python test.py
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
+</item><item>
     <title>nginx 配置和编译</title>
     <link>http://www.jobcher.com/nginx06/</link>
     <pubDate>Thu, 20 Apr 2023 00:00:00 &#43;0000</pubDate>
@@ -1830,74 +2003,5 @@ Highlight网页，AI生成全文摘要，导入笔记软件，还可以生成You
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
-    <title>打工人周报（第四期）</title>
-    <link>http://www.jobcher.com/2023-02-16/</link>
-    <pubDate>Thu, 16 Feb 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/2023-02-16/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/weekly.webp" referrerpolicy="no-referrer">
-            </div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">打工人周报：记录每周值得分享的内容,周四发布,`第四期`欢迎关注。  
-</span></span><span class="line"><span class="cl">上周因为个人原因延了一期，之后会补上。
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="资讯动态">资讯动态</h2>
-<h4 id="1-宝马-i4-车主收到通知车停在陡坡上无法升级">1. 宝马 i4 车主收到通知：车停在陡坡上无法升级</h4>
-<p>近日，宝马 i4 车主 Clare Eliza 近日收到通知：“路面太陡无法启动升级程序。请将车辆停到平坦区域再进行更新”。也就是说宝马 i4 车辆停在陡坡上就无法执行更新。宝马发言人表示：“宝马 i4 配备了俯仰、偏航、横向和纵向加速和减速等各种各样的传感器，汽车能够自行检测是否停在平坦路面上。这是一项安全预防措施，防止在糟糕的情况下导致车辆无法正常升级，避免滑坡等情况影响系统的升级”。（IT 之家）</p>
-<h4 id="2-科学家发现阻止新冠病毒感染的受体">2. 科学家发现阻止新冠病毒感染的受体</h4>
-<p>悉尼大学的科学家在肺部发现一种蛋白质，可阻止 SARS-CoV-2 感染，在人体内形成天然保护屏障。被称为 LRRC15（leucine-rich repeat-containing protein 15） 的蛋白质能与 SARS-CoV-2 结合但不传播感染。英国牛津以及美国布朗和耶鲁大学的团队都各自独立在 LRRC15 蛋白质中发现了受体。<br>
-SARS-CoV-2 病毒主要通过与 ACE2 受体结合感染人体细胞，而肺细胞具有高水平的 ACE2 受体，因此病毒主要通过感染肺部而造成严重问题。LRRC15 和 ACE2 一样都是 SARS-CoV-2 的受体，但不同之处是它不支持感染，通过粘住病毒使其无法移动，防止其它脆弱的细胞被感染。它会形成一道屏障，隔离病毒和最脆弱的肺细胞。（奇客 Solidot）</p>
-<h4 id="3-印度首款太阳能电动汽车-vayve-eva-亮相每天不花钱能跑-12-公里">3. 印度首款太阳能电动汽车 Vayve Eva 亮相，每天不花钱能跑 12 公里</h4>
-<p>2 月 12 日消息，总部位于印度浦那的电动汽车初创公司 Vayve Mobility 宣布计划于 2024 年推出印度首款太阳能电动汽车 Eva，并于 2024 年年中开始交付。<br>
-
-从图中可以看到，Vayve Eva 是一款超小型的城市通勤车，可容纳两名成人和一名儿童。Eva 在车顶配备了一堆额定功率为 150W 的太阳能电池板，每天可以增加 10~12 公里的续航里程。Vayve Eva 还装有 14kWh 的电池组，总续航达到了 250 公里，并且可以使用家用壁式插座充电器在 4 小时内充满电。（IT 之家）</p>
-<h4 id="4-多台设备同时登录腾讯视频致账号被封-升级-svip-可立即解锁">4. 多台设备同时登录腾讯视频致账号被封 升级 SVIP 可立即解锁</h4>
-<p>近日，河南的魏女士的腾讯视频账号在三部手机和一台平板上同时登录，导致该账号被封禁（账号封禁期间平板和另一部手机并没有观看，只有两部手机在观看）。根据平台提示，魏女士的账号将于 2023 年 2 月 13 日 21 点 25 分 11 秒自动解封，但是为了避免再次被封，魏女士需要在此之前移除一些不常用的设备。如果她想立即观看，可以选择升级为超级影视 SVIP，从而提高设备使用上限并立即解封。（IT 之家）</p>
-<h2 id="互联网环境">互联网环境</h2>
-<h4 id="1-原美团联合创始人中国版-openai-获顶级-vc-认购源码资本或出资-1-亿美金">1. 原美团联合创始人中国版 OpenAI 获顶级 VC 认购，源码资本或出资 1 亿美金</h4>
-<p>昨日，原美团联合创始人王慧文在社交平台上发文宣布进入 AI 领域，设立北京光年之外科技有限公司，出资 5 千万美元，估值 2 亿美元。王慧文同时透露，“下轮融资已有顶级 VC 认购 2.3 亿美金”。<br>
-据暗涌 Waves 报道，王慧文口中的“顶级 VC”至少包括源码资本、真格基金等。据传，源码已经准备出资 1 亿美金。源码资本创始人曹毅的朋友圈似乎也证实了这一消息，“祝贺老王等到了，行业也等到了老王出山”。但据我们了解，目前还没有任何人和王慧文的新公司签订正式的投资文件，（第二轮）估值也还未确定。(站长之家）</p>
-<h4 id="2-苹果服务业务收入超耐克麦当劳总和">2. 苹果服务业务收入超耐克麦当劳总和</h4>
-<p><br>
-近日，根据市场调查机构 Finbold 公布的最新分析报告，苹果服务业务的营收在 2022 年达到 794 亿美元，仅这一细分市场就超过了多家财富 500 强公司。此外苹果单单依靠服务业务的营收，就超过了耐克和麦当劳的营收总和（721 亿美元）。据了解，Apple 服务业务包含：包含订阅服务（Apple One）、广告收入（Apple 搜寻引擎与 App Store）与手续费收入（App Store）。</p>
-<h4 id="3-小鹏前高管跳槽奇瑞汽车">3. 小鹏前高管跳槽奇瑞汽车</h4>
-<p>2 月 13 日消息，前小鹏自动驾驶副总裁谷俊丽正式加入奇瑞汽车。由奇瑞汽车股份有限公司控股的大卓智能科技有限公司，于 2 月 1 日成立，其中，前小鹏自动驾驶副总裁谷俊丽任职董事兼总经理。据悉，2020 年 3 月，谷俊丽因个人发展及家庭原因离职，此后在业内沉寂了 2 年多时间。谷俊丽与小鹏汽车的竞业协议于今年结束，此前有媒体爆料她曾收到多家车企的入职邀请，包括高合汽车。此前据国内媒体报道称，谷俊丽此次加入并非全职，奇瑞和谷俊丽在商讨类似长城和毫末智行的合作模式。（电动知家）</p>
-<h4 id="4-李开复论战-chatgptai-存在明显不足的三大短板">4. 李开复论战 ChatGPT：AI 存在明显不足的三大短板</h4>
-<p>2 月 13 日消息，近日创新工场创始人李开复多次在微博发文“论战 ChatGPT”，首先是列举了 20 项 AI 容易取代的工作，其次分析了 AI 存在明显不足的三大短板，最后针对后 ChatGPT 时代还给出了三大生存攻略。<br>
-以下是李开复认为未来将会“名存实亡”的 10 种工作：<code>电话营销员 / 电话销售、客户服务、仓库工人、出纳和运营人员、电话接线员、出纳员 / 收银员、快餐店员、洗碗工、生产线质检员、快递员</code>。李开复表示，AI 存在明显不足的三大短板，即便到了 2042 年，AI 可能仍然无法完全掌握这些能力，包括：<code>创造力</code>、<code>同理心</code>、<code>灵巧性</code>。针对后 ChatGPT 时代，李开复给出了三大生存攻略，英文简称三个 R:Relearn 二次学习，Recalibrate 二次定义，Renaissance 二次复兴。（IT 之家）</p>
-<h4 id="5-高管轮番减持-新东方在线重挫-20">5. 高管轮番减持 新东方在线重挫 20%</h4>
-<p>2 月 13 日早盘，港股新东方在线低开低走。截至发稿报 48.7 港元，跌 19.97%。据港交所权益披露资料，2 月 9 日，新东方在线执行董事兼 CFO 尹强减持 100 万股公司股份，涉资 6159 万港元。减持后，尹强最新持股数目为 410 万股，持股比例降至 0.4%。新东方在线 CEO 孙东旭 2 月 7 日以 55.6115 港元的均价出售 193 万股，套现 1.07 亿港元，持股从 1.57%降至 1.38%。（第一财经）</p>
-<h2 id="科技分享">科技分享</h2>
-<h4 id="1-chatgpt-openai-项目汇总">1. ChatGPT OpenAI 项目汇总</h4>
-<h5 id="chatgpt-进阶版">ChatGPT 进阶版</h5>
-<p><a href="https://www.teach-anything.com/" target="_blank" rel="noopener noreffer">https://www.teach-anything.com/</a><br>
-在几秒内教你做任何事，提供多国语言，且可选择回答为简单模式和专业模式。<br>
-<a href="https://www.bing.com/new/" target="_blank" rel="noopener noreffer">https://www.bing.com/new/</a><br>
-加入候补名单即可开启功能，强制跳转 www.bing 可以使用手机 Chrome 开启无痕模式访问上方链接，或使用 Header Editor</p>
-<h5 id="chatgpt-镜像">ChatGPT 镜像</h5>
-<p>没有 ChatGPT 账号的，可以用下面基于 OpenAI ChatGPT 地址玩玩</p>
-<p><a href="https://chatgpt.sbaliyun.com/" target="_blank" rel="noopener noreffer">https://chatgpt.sbaliyun.com/</a><br>
-<a href="https://chatgpt.sbaliyun.com/" target="_blank" rel="noopener noreffer">https://chat.forchange.cn/</a><br>
-<a href="https://chatgpt.sbaliyun.com/" target="_blank" rel="noopener noreffer">https://gpt4.cc/</a><br>
-<a href="https://chatgpt.sbaliyun.com/" target="_blank" rel="noopener noreffer">https://askai.top/</a><br>
-<a href="https://chatgpt.sbaliyun.com/" target="_blank" rel="noopener noreffer">https://bxs.xiaoz.me</a><br>
-<a href="https://chatgpt.sbaliyun.com/" target="_blank" rel="noopener noreffer">http://chat.h2ai.cn/home</a><br>
-由于这些镜像使用的都是 OpenAI API，访问频率过高容易出现错误，部分网站还对 IP 每日访问做了限制，如使用频繁可以选择不同的镜像。</p>
-<h4 id="2-kgithubgithub-打不开解决方案">2. kgithub(GitHub 打不开解决方案)</h4>
-<p>SafeUM 官方网站：<a href="https://kgithub.com/" target="_blank" rel="noopener noreffer">https://kgithub.com/</a><br>
-使用方法很简单，在 github.com 前面加上 k，变成 kgithub.com 就可以实现国内正常访问 github，必须使用<code>国内 ip 访问</code>。</p>
-<h4 id="3-chatgpt-赋能内容创作简单好用的-ai-创作神器一帧秒创">3. ChatGPT 赋能内容创作，简单好用的 AI 创作神器：一帧秒创</h4>
-<p>AI 剪视频：<a href="https://aigc.yizhentv.com/" target="_blank" rel="noopener noreffer">https://aigc.yizhentv.com/</a><br>
-AI 作画：<a href="https://aigc.yizhentv.com/" target="_blank" rel="noopener noreffer">https://aigc.yizhentv.com/aipaint.html</a><br>
-一帧秒创智能创作平台，主要功能是：AI 剪视频和 AI 作画，如果与 ChatGPT 结合使用，内容创作将变得十分简单。<br>
-国内领先的 “智能图文转视频” 平台一帧秒创，提供从 “用户文本输入 - AI 自动剪辑” 的创作路径，完整短视频的创作只有文字内容创作需用户自己完成，其余画面匹配、智能配音、智能字幕等功能，AI 都能完美实现。高效产出内容的同时，支持非常灵活的细节调整，文稿、音乐、配音、粗剪、LOGO、字幕、语速等功能，都能通过一帧秒创 “智能图文转视频”</p>
-]]></description>
 </item></channel>
 </rss>

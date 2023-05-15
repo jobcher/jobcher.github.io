@@ -4,7 +4,180 @@
         <link>http://www.jobcher.com/categories/%E5%9F%BA%E7%A1%80/</link>
         <description>基础 - 分类 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 08 Aug 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/%E5%9F%BA%E7%A1%80/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 15 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/%E5%9F%BA%E7%A1%80/" rel="self" type="application/rss+xml" /><item>
+    <title>在windows上安装appium</title>
+    <link>http://www.jobcher.com/appium/</link>
+    <pubDate>Mon, 15 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/appium/</guid>
+    <description><![CDATA[<h2 id="在windows上安装appium">在windows上安装appium</h2>
+<p><code>Appium</code> 主要用于软件测试自动化领域，以帮助确定给定应用程序的功能是否按预期工作。与其他类型的软件测试相比，UI 自动化允许测试人员编写代码，在应用程序的实际 UI 中演练用户方案，尽可能模拟现实世界中发生的情况，同时实现自动化的各种好处，包括速度、规模和一致性。</p>
+<h3 id="安装nodejs">安装nodejs</h3>
+<p>Appium是基于Node.js构建的,所以首先需要安装Node.js<br>
+<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener noreffer">下载地址：https://nodejs.org/en/download/</a><br>
+下载并安装，验证是否安装成功</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">node -v
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="安装appium">安装appium</h3>
+<p>安装Appium。在命令提示符下运行:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">npm install -g appium
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="安装appium-doctor">安装appium-doctor</h3>
+<p>安装appium-doctor。在命令提示符下运行:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">npm install -g appium-doctor
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="安装appium-desktop">安装appium-desktop</h3>
+<p>安装appium-desktop。在命令提示符下运行:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">npm install -g appium-desktop
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="安装jdk">安装jdk</h3>
+<p>下载地址：<a href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html" target="_blank" rel="noopener noreffer">https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html</a>
+下载并安装，验证是否安装成功</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">java -version
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="安装android-sdk">安装android-sdk</h3>
+<p>下载地址：<a href="https://developer.android.com/studio" target="_blank" rel="noopener noreffer">https://developer.android.com/studio</a>
+下载并安装，验证是否安装成功</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">adb version
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="配置环境变量">配置环境变量</h3>
+<p>在系统环境变量中添加以下变量</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">ANDROID_HOME</span> <span class="o">=</span> D:<span class="se">\A</span>ndroid<span class="se">\s</span>dk
+</span></span><span class="line"><span class="cl"><span class="nv">JAVA_HOME</span> <span class="o">=</span> C:<span class="se">\P</span>rogram Files<span class="se">\J</span>ava<span class="se">\j</span>dk1.8.0_311
+</span></span><span class="line"><span class="cl"><span class="nv">Path</span> <span class="o">=</span> %ANDROID_HOME%<span class="se">\p</span>latform-tools<span class="p">;</span>%ANDROID_HOME%<span class="se">\t</span>ools<span class="p">;</span>%JAVA_HOME%<span class="se">\b</span>in
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>验证是否配置成功</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">appium-doctor
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="启动appium">启动appium</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">appium
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="启动appium-desktop">启动appium-desktop</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">appium-desktop
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="测试脚本">测试脚本</h3>
+<p>创建测试脚本test.py</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">appium</span> <span class="kn">import</span> <span class="n">webdriver</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">time</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">desired_caps</span> <span class="o">=</span> <span class="p">{}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">desired_caps</span><span class="p">[</span><span class="s1">&#39;platformName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Android&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">desired_caps</span><span class="p">[</span><span class="s1">&#39;platformVersion&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;10&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">desired_caps</span><span class="p">[</span><span class="s1">&#39;deviceName&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Android Emulator&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">desired_caps</span><span class="p">[</span><span class="s1">&#39;appPackage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;com.android.calculator2&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="n">desired_caps</span><span class="p">[</span><span class="s1">&#39;appActivity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;.Calculator&#39;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">driver</span> <span class="o">=</span> <span class="n">webdriver</span><span class="o">.</span><span class="n">Remote</span><span class="p">(</span><span class="s1">&#39;http://localhost:4723/wd/hub&#39;</span><span class="p">,</span> <span class="n">desired_caps</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s2">&#34;com.android.calculator2:id/digit_2&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s2">&#34;com.android.calculator2:id/op_add&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s2">&#34;com.android.calculator2:id/digit_3&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="n">driver</span><span class="o">.</span><span class="n">find_element_by_id</span><span class="p">(</span><span class="s2">&#34;com.android.calculator2:id/eq&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">driver</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="运行测试脚本">运行测试脚本</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">python test.py
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
+</item><item>
     <title>systemd 守护命令</title>
     <link>http://www.jobcher.com/systemd/</link>
     <pubDate>Mon, 08 Aug 2022 00:00:00 &#43;0000</pubDate>
@@ -1897,28 +2070,6 @@ www.d.com（新）
 <h2 id="5误操作-drop-语句导致数据库数据破坏请给出恢复的实际大体步骤">5、误操作 drop 语句导致数据库数据破坏，请给出恢复的实际大体步骤。</h2>
 <h2 id="6如何保证-redis-能永久保存数据">6、如何保证 Redis 能永久保存数据？</h2>
 <h2 id="7如何利用-redis-对-mysql-进行性能优化">7、如何利用 Redis 对 MySQL 进行性能优化？</h2>
-]]></description>
-</item><item>
-    <title>shell基础知识</title>
-    <link>http://www.jobcher.com/shell/</link>
-    <pubDate>Wed, 15 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/shell/</guid>
-    <description><![CDATA[<h1 id="shell-基础知识">shell 基础知识</h1>
-<h2 id="1有一个-btxt-文本内容如下要求将所有域名截取出来并统计重复域名出现的次数">1、有一个 b.txt 文本(内容如下)，要求将所有域名截取出来，并统计重复域名出现的次数：</h2>
-<p><a href="http://www.baidu.com/index.html" target="_blank" rel="noopener noreffer">http://www.baidu.com/index.html</a><br>
-<a href="https://www.atguigu.com/index.html" target="_blank" rel="noopener noreffer">https://www.atguigu.com/index.html</a><br>
-<a href="http://www.sina.com.cn/1024.html" target="_blank" rel="noopener noreffer">http://www.sina.com.cn/1024.html</a><br>
-<a href="https://www.atguigu.com/2048.html" target="_blank" rel="noopener noreffer">https://www.atguigu.com/2048.html</a><br>
-<a href="http://www.sina.com.cn/4096.html" target="_blank" rel="noopener noreffer">http://www.sina.com.cn/4096.html</a><br>
-<a href="https://www.atguigu.com/8192.html" target="_blank" rel="noopener noreffer">https://www.atguigu.com/8192.html</a></p>
-<h2 id="2统计当前服务器正在连接的-ip-地址并按连接次数排序">2、统计当前服务器正在连接的 IP 地址，并按连接次数排序</h2>
-<h2 id="3使用循环在atguigu-目录下创建-10-个-txt-文件要求文件名称由-6-位随机小写字母加固定字符串_gg组成例如pzjebg_ggtxt">3、使用循环在/atguigu 目录下创建 10 个 txt 文件，要求文件名称由 6 位随机小写字母加固定字符串（_gg）组成，例如：pzjebg_gg.txt。</h2>
-<h2 id="4生成随机数字">4、生成随机数字。</h2>
-<h2 id="5批量检查多个网站是否可以正常访问要求使用-shell-数组实现检测策略尽量模拟用户真实访问模式">5、批量检查多个网站是否可以正常访问，要求使用 shell 数组实现，检测策略尽量模拟用户真实访问模式。</h2>
-<p><a href="http://www.atguigu.com" target="_blank" rel="noopener noreffer">http://www.atguigu.com</a><br>
-<a href="http://www.gulixueyuan.com" target="_blank" rel="noopener noreffer">http://www.gulixueyuan.com</a><br>
-<a href="http://www.baidu.com" target="_blank" rel="noopener noreffer">http://www.baidu.com</a></p>
 ]]></description>
 </item></channel>
 </rss>
