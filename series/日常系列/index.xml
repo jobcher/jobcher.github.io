@@ -4,7 +4,42 @@
         <link>http://www.jobcher.com/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/</link>
         <description>日常系列 - seris - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 11 Apr 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 24 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+    <title>如何礼貌回绝不合理的需求</title>
+    <link>http://www.jobcher.com/20230524/</link>
+    <pubDate>Wed, 24 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/20230524/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/%e8%83%8c%e9%94%85.png" referrerpolicy="no-referrer">
+            </div><h2 id="背景">背景</h2>
+<p>最近在做一个项目，项目的需求是这样的：
+spring-cloud有一个服务A，服务A有一个接口，接口的功能是根据传入的参数，返回一个字符串。但是服务响应非常的慢，大概需要4秒左右。这个响应速度是不能忍受的！但是这个服务的开发强行说要上线。我们有几个选项：</p>
+<ul>
+<li>1.不上线，但是这个服务的开发无法按期交付</li>
+<li>2.上线，但是这个服务的响应速度太慢了，运维背锅</li>
+<li>3.劝说服务的开发，让他们优化接口的响应速度
+相信大家都会选择第3个选择，那我们站在运维的角度如何劝说服务的开发呢？</li>
+</ul>
+<h2 id="劝说">劝说</h2>
+<ol>
+<li>
+<p>故障级联（Cascading Failures）：连接超时的服务可能会导致其他服务出现故障级联效应。这是因为微服务系统中的服务通常会相互调用和依赖。当一个服务连接超时时，其他依赖该服务的服务可能无法及时获取所需的数据或执行必要的操作，从而导致它们自身出现故障。</p>
+</li>
+<li>
+<p>响应时间延迟（Increased Response Time）：如果一个服务连接超时，它的调用方可能需要等待更长的时间来获取响应或超时处理。这会增加整个系统的响应时间，因为其他服务的请求也需要等待超时的服务返回结果。这可能会导致用户体验下降，甚至可能导致其他服务的性能问题。</p>
+</li>
+<li>
+<p>资源耗尽（Resource Exhaustion）：连接超时可能会导致调用方服务的资源耗尽。当一个服务长时间等待连接超时的服务时，它可能会保持与该服务的连接打开，消耗额外的内存和网络资源。这可能导致调用方服务的资源不足，无法为其他请求提供充足的资源，进而影响整个系统的性能。</p>
+</li>
+<li>
+<p>重试和失败处理（Retry and Failure Handling）：当一个服务连接超时时，调用方服务通常会尝试重新连接或执行其他失败处理机制。这可能导致调用方服务增加额外的负载，因为它需要多次尝试连接超时的服务。同时，如果没有适当的失败处理机制，连接超时的服务可能无法正确处理重试请求，导致进一步的问题。</p>
+</li>
+</ol>
+<h2 id="结论">结论</h2>
+<p>综上所述，连接超时的服务对Spring Cloud微服务系统可能会带来级联故障、响应时间延迟、资源耗尽、重试和失败处理的问题，并增加监控和故障排除的成本。因此，及时发现和解决连接超时问题对于确保系统的稳定性和性能至关重要。希望领导能够听取意见，不要让运维背锅。</p>
+]]></description>
+</item><item>
     <title>github 国内代理访问下载</title>
     <link>http://www.jobcher.com/github-proxy/</link>
     <pubDate>Tue, 11 Apr 2023 00:00:00 &#43;0000</pubDate>
@@ -4682,43 +4717,6 @@ kubectl get sc -n sanjiang</p>
 <blockquote>
 <p>docker-compose up -d</p>
 </blockquote>
-]]></description>
-</item><item>
-    <title>linux服务器 删除空间却未释放</title>
-    <link>http://www.jobcher.com/linux-disk/</link>
-    <pubDate>Wed, 20 Jul 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/linux-disk/</guid>
-    <description><![CDATA[<h1 id="linux-服务器-删除空间却未释放">linux 服务器 删除空间却未释放</h1>
-<p>在<code>Linux</code>或者<code>Unix</code>系统中，通过<code>rm</code>或者文件管理器删除文件将会从文件系统的目录结构上<code>解除链接(unlink)</code>，然而如果文件是被打开的<code>（有一个进程正在使用）</code>，那么进程将仍然可以读取该文件，<code>磁盘空间也一直被占用</code>，这样就会导致我们明明删除了文件，但是磁盘空间却未被释放</p>
-<h2 id="获取占用列表状态">获取占用列表状态</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">lsof <span class="p">|</span> grep deleted
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>可以看到哪些文件还被使用，未被释放空间。</p>
-<h2 id="释放磁盘空间">释放磁盘空间</h2>
-<ol>
-<li>一种方法是 kill 掉相应的进程，或者停掉使用这个文件的应用，让 os 自动回收磁盘空间，当 linux 打开一个文件的时候,Linux 内核会为每一个进程在<code>/proc/</code>, <code>/proc/nnnn/fd/</code>目录（nnnn 为 pid）建立一个以其 pid 为名的目录用来保存进程的相关信息，而其子目录 fd 保存的是该进程打开的所有文件的 fd（fd：file descriptor）；<br>
-<code>kill</code>进程是通过截断 proc 文件系统中的文件可以强制要求系统回收分配给正在使用的的文件，这是一项高级技术，仅当管理员确定不会对运行中的进程造成影响时使用。</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">kill</span> -9 <span class="m">12345</span> <span class="c1"># PID</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="2">
-<li>重启服务</li>
-</ol>
-<h2 id="lsof-命令">lsof 命令</h2>
-<p><code>lsof</code>全名<code>list opened files</code>，也就是列举系统中已经被打开的文件。我们都知道，linux 环境中，任何事物都是文件，设备是文件，目录是文件，甚至<code>sockets</code>也是文件。</p>
 ]]></description>
 </item></channel>
 </rss>
