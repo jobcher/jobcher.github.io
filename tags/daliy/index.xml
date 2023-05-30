@@ -441,56 +441,33 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/python-conda.png" referrerpolicy="no-referrer">
             </div><h2 id="背景">背景</h2>
+<p>很多时候,避免不了同时使用 python2 和 python3 的环境,也避免不了不同的工作所需要不同版本的库文件,比如在想用 TensorFlow 较早版本的同时;还想运行 Pytorch 最新版；还想顺便学习 Nao 机器人编程,学习 Django 后台,这个时候,一款非常好用的包管理工具就显得十分重要了,这就是我写这篇博客的原因,这篇博客将会讲解：</p>
+<ul>
+<li><i class="far fa-check-square fa-fw"></i> 如何安装 conda;</li>
+<li><i class="far fa-check-square fa-fw"></i> 如何更换 conda 的下载源;</li>
+<li><i class="far fa-check-square fa-fw"></i> 如何使用 canda;</li>
+</ul>
+<h2 id="安装-conda">安装 conda</h2>
+<p>在安装时这两个选项需要点上：<br>
+</p>
+<h3 id="更换-conda-的下载源">更换 conda 的下载源</h3>
+<p><code>Conda官方</code>的下载源太慢了,而且经常会出现 HTTPERROR 之类的错误,如果想要用 Conda 愉快的创建不同工作环境,愉快的下载安装各种库,那么换下载源是必不可少的</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">很多时候,避免不了同时使用 python2 和 python3 的环境,也避免不了不同的工作所需要不同版本的库文件,比如在想用 TensorFlow 较早版本的同时;还想运行 Pytorch 最新版；还想顺便学习 Nao 机器人编程,学习 Django 后台,这个时候,一款非常好用的包管理工具就显得十分重要了,这就是我写这篇博客的原因,这篇博客将会讲解：
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">- [x] 如何安装 conda;
-</span></span><span class="line"><span class="cl">- [x] 如何更换 conda 的下载源;
-</span></span><span class="line"><span class="cl">- [x] 如何使用 canda;
-</span></span><span class="line"><span class="cl">      ```
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">## 安装 conda
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">在安装时这两个选项需要点上：  
-</span></span><span class="line"><span class="cl">![conda_install](/images/conda_install.png)
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">### 更换 conda 的下载源
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">`Conda官方`的下载源太慢了,而且经常会出现 HTTPERROR 之类的错误,如果想要用 Conda 愉快的创建不同工作环境,愉快的下载安装各种库,那么换下载源是必不可少的
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">```sh
-</span></span><span class="line"><span class="cl">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
 </span></span><span class="line"><span class="cl">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
 </span></span><span class="line"><span class="cl">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">conda config --set show_channel_urls yes
-</span></span><span class="line"><span class="cl"># 设置搜索时显示通道地址
+</span></span><span class="line"><span class="cl"><span class="c1"># 设置搜索时显示通道地址</span>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>具体操作同时按 Win+R 键打开运行窗口,输入 cmd,回车：<br>
@@ -540,15 +517,10 @@
 </span></span><span class="line"><span class="cl"><span class="c1"># 退出当前环境</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">欢迎关注我的博客[www.jobcher.com](https://www.jobcher.com/)
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description>
+</div><blockquote>
+<p>欢迎关注我的博客<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer">www.jobcher.com</a></p>
+</blockquote>
+]]></description>
 </item><item>
     <title>shell功能脚本集合</title>
     <link>http://www.jobcher.com/shell-test/</link>
