@@ -4,7 +4,62 @@
         <link>http://www.jobcher.com/posts/</link>
         <description>所有文章 | 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 26 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 31 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>skywalking python agent 安装和配置</title>
+    <link>http://www.jobcher.com/skywalking-python/</link>
+    <pubDate>Wed, 31 May 2023 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/skywalking-python/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/skwalking-python.png" referrerpolicy="no-referrer">
+            </div><h2 id="背景">背景</h2>
+<p>skywalking 是一个APM监控，在java和微服务领域非常流行。但是在python领域，skywalking的使用率并不高。本文将介绍如何安装和配置skywalking python agent。<br>
+<code>SkyWalking Python</code> 代理实现了一个命令行界面，可用于在部署期间将代理附加到出色的应用程序，而无需更改任何应用程序代码，就像 SkyWalking Java 代理一样。</p>
+<h3 id="安装skywalking-python-agent">安装skywalking python agent</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">pip install apache-skywalking
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>运行 <code>sw-python</code> 以查看它是否可用，您需要按环境变量传递配置。</p>
+</blockquote>
+<h3 id="配置skywalking-python-agent">配置skywalking python agent</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SW_AGENT_NAME</span><span class="o">=</span>服务名称
+</span></span><span class="line"><span class="cl"><span class="c1"># 服务器地址</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SW_AGENT_COLLECTOR_BACKEND_SERVICES</span><span class="o">=</span>127.0.0.1:11800
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="执行python程序">执行python程序</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sw-python run -p python app.py
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="启用-cli-调试模式以便在启动应用程序时查看代理日志">启用 CLI 调试模式，以便在启动应用程序时查看代理日志：</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sw-python -d run python app.py
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
+</item><item>
     <title>调教Chat GPT生成Midjourney提示词</title>
     <link>http://www.jobcher.com/midjourney/</link>
     <pubDate>Fri, 26 May 2023 00:00:00 &#43;0000</pubDate>
@@ -1966,93 +2021,6 @@ OpenAI周二表示，在内部评估中，GPT-4产生正确回应的可能性要
 <ul>
 <li><a href="https://greasyfork.org/zh-CN/scripts/459540" target="_blank" rel="noopener noreffer">我只想好好观影</a></li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">欢迎关注我的博客  
-</span></span><span class="line"><span class="cl">[www.jobcher.com](https://www.jobcher.com/)
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description>
-</item><item>
-    <title>打工人周报（第六期）</title>
-    <link>http://www.jobcher.com/2023-03-02/</link>
-    <pubDate>Thu, 02 Mar 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/2023-03-02/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/weekly.webp" referrerpolicy="no-referrer">
-            </div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">打工人周报：记录每周值得分享的内容,周四发布,`第六期`欢迎关注。  
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="资讯动态">资讯动态</h2>
-<h4 id="1-知乎推出一起公考ai课app再加码教育业务">1. 知乎推出“一起公考AI课”APP，再加码教育业务</h4>
-<p>
-近日，知乎上线了一款名为“一起公考AI课”的APP，是知乎教育旗下的职业教育品牌。据悉，该产品运用了AI教学技术，专门提供公务员考试课程内容。根据体验，“一起公考AI课”APP，当前主要提供“行测”的笔试内容，通过AI教学技术逐节解锁5大模块，覆盖192个知识点，部分课程服务需进行付费。（Tech星球）</p>
-<h4 id="2-苹果今天起iphone等设备电池正式涨价">2. 苹果：今天起，iPhone等设备电池正式涨价</h4>
-<p>苹果官网显示，从3月1日起，苹果iPhone、iPad、Mac部分机型的换电池服务将正式涨价。其中，iPhone 14之前的所有iPhone机型保外电池服务费用将增加169元。所有MacBook Air机型的保外电池服务费用也将增加290元，而所有Macbook和MacBook Pro机型的保外电池服务费用将增加480元。此外，以下iPad机型的保外电池服务费用将增加149元。</p>
-<h4 id="3-snap推出chatgpt驱动的聊天机器人">3. Snap推出ChatGPT驱动的聊天机器人</h4>
-<p>据报道，照片信息应用Snapchat的母公司Snap在表示，将推出一个由ChatGPT技术驱动的AI聊天机器人。当前，该公司正寻求进入热门的生成式AI领域。Snap表示，新的聊天机器人名为My AI，将提供给Snap的高级订阅Snapchat+的用户使用。Snap表示，在经过训练之后，My AI能够提供一种有趣和轻松的对话方式，并将能够提供创造性的想法，如为朋友的生日提供潜在的礼物，或为某个主题写一首诗。</p>
-<h4 id="4-小米无线ar眼镜探索版正式发布">4. 小米无线AR眼镜探索版正式发布</h4>
-<p>在2023MWC世界移动通信大会上，小米正式发布小米无线AR眼镜探索版。该眼镜拥有三大创新：采用无线连接，手机与眼镜通信延迟低于3ms，全链路延迟低至50ms；采用自由曲面光学模组，实现了“视网膜级”显示；采用自研微手势交互。具体来说，佩戴小米无线AR眼镜探索版时，在日常使用一个应用的过程中，挑选一个应用并打开、滑动浏览页面、退出应用回到桌面，这些操作都可使用微手势交互，无需借助手机。</p>
-<h4 id="5-苹果realitypro头显无需iphone配合使用">5. 苹果RealityPro头显无需iPhone配合使用</h4>
-<p>在最新一期的Power On通讯中报道，最新测试版本的Reality Pro头显“将不需要iPhone来设置或使用”。这与过去的苹果设备相比是一个很大的变化，如Apple Watch，其最初需要iPhone来初始化设置。相反，Reality Pro头显将支持独立于iPhone进行设置，然后可以直接从iCloud下载用户的数据。不过与其他苹果设备的设置过程类似，用户也可以选择直接从iPhone或iPad向头显传输数据。</p>
-<h4 id="6-世界上首款癌症疫苗即将获批">6. 世界上首款癌症疫苗即将获批</h4>
-<p>莫德纳近日宣布，mRNA-4157/V940，该公司正在研究的一种mRNA癌症疫苗，与默沙东的抗PD-1疗法Keytruda联合使用，已被美国食品药品管理局(FDA)授予突破性疗法认定，用于完全切除后的高危黑色素瘤患者的辅助治疗。（每经）</p>
-<h4 id="7-比亚迪今年首次降价王朝系列降幅超1万交付周期大幅缩短">7. 比亚迪今年首次降价：王朝系列降幅超1万，交付周期大幅缩短</h4>
-<p>从北京、上海等多家比亚迪展厅获悉，比亚迪王朝系列产品已经启动降价，交车周期较去年出现不同程度的缩短。目前比亚迪暂未通过官方渠道公布降价讯息。北京一家比亚迪王朝展厅销售人员向界面新闻表示，刚刚收到官方发布的调价通知，大部分车型均有价格优惠。其中，老款车型的优惠幅度在1万元以上，部分热门现款产品也有上千元的优惠。上海与深圳地区也均有不同程度的降价，但调价力度最高在万元上下。（界面新闻）</p>
-<h2 id="互联网环境">互联网环境</h2>
-<h4 id="1-华为起诉小米专利侵权国家知识产权局已受理">1. 华为起诉小米专利侵权，国家知识产权局已受理</h4>
-<p>据国家知识产权报第 02 版刊发的《重大专利侵权纠纷行政裁决受理公告》显示，华为起诉小米专利侵权。该公告显示，2023年1月17日，国家知识产权局受理了请求人华为提出的被请求人小米侵犯其四项中国专利的案件，四个专利分别为“发送控制信令的方法和装置”，“载波聚合时反馈ACK/NACK信息的方法、基站和用户设备”和“一种获取全景图像的方法及终端”，“一种锁屏方法及移动终端”。</p>
-<h4 id="2-宁德时代理财骗局曝光有人损失上百万-涉及多省上千人">2. “宁德时代”理财骗局曝光：有人损失上百万 涉及多省上千人</h4>
-<p>近日，有多位投资者向红星资本局爆料称，自己在一款名为“宁德时代”的App中，遭遇了投资理财骗局，被骗金额从几万元到上百万元不等。据投资者介绍，这款“宁德时代”App，可以购买“宁德时代锂电池”“宁德时代专属社会公众股”等理财投资产品，收益颇高，还能每天提现。加入“宁德时代”App投资群的投资者或有上千人，涉及全国多个省份。不过，2月26日，宁德时代相关负责人回应称，上述“宁德时代”App不是公司的，“宁德时代”投资群里自称与宁德时代对接的杨某也不是该公司员工。(红星资本局)</p>
-<h4 id="3-阿里确定淘宝2023年五大战略价格力在今年会更被重视">3. 阿里确定淘宝2023年五大战略，价格力在今年会更被重视</h4>
-<p>阿里近期确定了淘宝今年的五大战略：<code>直播、私域、内容化、本地零售和价格力</code>。目前，这五个战略如何展开在核心管理层已经有了初步方案，但尚未最终确认。多位阿里员工表示，只知道有这五个战役，但他们都不清楚具体策略。此外，淘宝内部已经明确指出，今年相比GMV（网站成交金额）增长，更重要的指标是DAU（日活跃用户数量）增长。（晚点 LatePost）</p>
-<h4 id="4-高通发布全球首个可商用部署的isim卡">4. 高通发布全球首个可商用部署的iSIM卡</h4>
-<p>
-2月28日，高通和泰雷兹宣布，双方在第二代骁龙8移动平台（骁龙8Gen2）上完成全球首个可商用部署的iSIM卡（集成式SIM卡）认证，使SIM卡功能能够通过智能手机的主处理器实现。据介绍，该iSIM卡完全符合GSMA远程SIM卡配置规范，可通过任何标准平台对iSIM卡功能订阅进行远程管理。（IT之家）</p>
-<h2 id="科技分享">科技分享</h2>
-<h4 id="今天是ai科技主题">今天是AI科技主题！</h4>
-<ol>
-<li>
-<p>Arc图片增强<br>
-腾讯出品的图像增强器，人像修复效果超赞👍🏻<br>
-<a href="https://arc.tencent.com/zh/ai-demos/faceRestoration" target="_blank" rel="noopener noreffer">链接直达</a></p>
-</li>
-<li>
-<p>SolidGrids<br>
-AI去除背景<br>
-<a href="https://solidgrids.com/" target="_blank" rel="noopener noreffer">链接直达</a></p>
-</li>
-<li>
-<p>AI帮个忙<br>
-AI文本小工具，用AI生成周报，点评，邮件……<br>
-<a href="https://ai-toolbox.codefuture.top/" target="_blank" rel="noopener noreffer">链接直达</a></p>
-</li>
-<li>
-<p>Copy.ai<br>
-优化从他人拷贝博客或文案，并提高转化率<br>
-<a href="https://www.copy.ai/" target="_blank" rel="noopener noreffer">链接直达</a></p>
-</li>
-<li>
-<p>Glasp<br>
-Highlight网页，AI生成全文摘要，导入笔记软件，还可以生成Youtube内容概要<br>
-<a href="https://glasp.co/" target="_blank" rel="noopener noreffer">链接直达</a></p>
-</li>
-<li>
-<p>Runway<br>
-用AI塑造先进的视频编辑能力，帮助视频创作者生产更优质的视频内容
-<a href="https://glasp.co/" target="_blank" rel="noopener noreffer">链接直达</a></p>
-</li>
-</ol>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
