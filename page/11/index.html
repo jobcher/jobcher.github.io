@@ -119,6 +119,11 @@
         alt="/avatar1.png"
         title="/avatar1.png" /></a></div><h1 class="home-title">打工人日志</h1><h2 class="home-subtitle"><div id="id-1" class="typeit"></div></h2><div class="links"><a href="https://github.com/jobcher" title="GitHub" target="_blank" rel="noopener noreffer me"><i class="fab fa-github-alt fa-fw"></i></a><a href="https://gitlab.com/jobcher" title="GitLab" target="_blank" rel="noopener noreffer me"><i class="fab fa-gitlab fa-fw"></i></a><a href="https://weibo.com/6090738003" title="微博" target="_blank" rel="noopener noreffer me"><i class="fab fa-weibo fa-fw"></i></a><a href="mailto:nb@nbtyfood.com" title="Email" rel=" me"><i class="far fa-envelope fa-fw"></i></a><a href="../../index.xml" title="RSS" target="_blank" rel="noopener noreffer me"><i class="fas fa-rss fa-fw"></i></a></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="../../pve1/">Proxmox VE 在线扩容磁盘分区</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="../../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2022-01-19">2022-01-19</time></span>&nbsp;<span class="post-category">收录于 <a href="../../categories/%E6%97%A5%E5%B8%B8/"><i class="far fa-folder fa-fw"></i>日常</a></span></div><div class="content">Proxmox VE 在线扩容磁盘分区 添加磁盘大小 在 VM 上做扩容操作 安装 growpart 1 2 yum install -y epel-release yum install -y cloud-utils 查看系统盘 路径 1 2 fdisk -l df -h 扩容设备并重启 1 2 growpart /dev/sda 2 #2代表是第二块</div><div class="post-footer">
+        <a href="../../pve1/">阅读全文</a><div class="post-tags">
+                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="../../tags/%E6%89%A9%E5%AE%B9%E7%A3%81%E7%9B%98/">扩容磁盘</a>,&nbsp;<a href="../../tags/pve/">pve</a></div></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="../../exportuser/">Gitlab批量导出用户</a>
     </h1><div class="post-meta"><span class="post-author"><a href="../../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2022-01-14">2022-01-14</time></span>&nbsp;<span class="post-category">收录于 <a href="../../categories/gitlab/"><i class="far fa-folder fa-fw"></i>gitlab</a></span></div><div class="content">Gitlab 批量导出用户 登陆 Gitlab 服务器进行数据库登陆、数据查询及信息导出操作。 操作步骤 根据配置文件，定位数据库相关信息 1 cat /var/opt/gitlab/gitlab-rails/etc/database.yml 查看 Gitlab 对应的系统用户 1 cat /etc/passwd |</div><div class="post-footer">
         <a href="../../exportuser/">阅读全文</a><div class="post-tags">
@@ -163,11 +168,6 @@
     </h1><div class="post-meta"><span class="post-author"><a href="../../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2022-01-07">2022-01-07</time></span>&nbsp;<span class="post-category">收录于 <a href="../../categories/%E6%97%A5%E5%B8%B8/"><i class="far fa-folder fa-fw"></i>日常</a></span></div><div class="content">安装 minIO 通过 docker 安装 1 2 3 4 docker run -p 9000:9000 -p 41863:41863 -d --name azure-s3 \ -e &#34;MINIO_ACCESS_KEY=azure存储账户&#34; \ -e &#34;MINI</div><div class="post-footer">
         <a href="../../minio/">阅读全文</a><div class="post-tags">
                 <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="../../tags/minio/">minIO</a></div></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="../../keepalived/">Keepalived高可用</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="../../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-publish">发布于 <time datetime="2022-01-05">2022-01-05</time></span>&nbsp;<span class="post-category">收录于 <a href="../../categories/k8s/"><i class="far fa-folder fa-fw"></i>k8s</a></span></div><div class="content">Keepalived 高可用 配置文件存放位置：/usr/share/doc/keepalived/samples VVRP 虚拟路由冗余协议 组成 LB 集群：Load Balan</div><div class="post-footer">
-        <a href="../../keepalived/">阅读全文</a><div class="post-tags">
-                <i class="fas fa-tags fa-fw"></i>&nbsp;<a href="../../tags/k8s/">k8s</a></div></div>
 </article><ul class="pagination"><li class="page-item ">
                     <span class="page-link">
                         <a href="../../">1</a>
