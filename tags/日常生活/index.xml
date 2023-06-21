@@ -4,7 +4,27 @@
         <link>http://www.jobcher.com/tags/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/</link>
         <description>日常生活 - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 24 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 21 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" rel="self" type="application/rss+xml" /><item>
+    <title>推荐一下 容器云资源</title>
+    <link>http://www.jobcher.com/20230621/</link>
+    <pubDate>Wed, 21 Jun 2023 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/20230621/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/qiong.jpg" referrerpolicy="no-referrer">
+            </div><h2 id="背景">背景</h2>
+<p>很多同学在开发软件和测试软件的早期，都会遇到一个问题：<code>如何快速的搭建一个测试环境</code>。这个问题在开发软件的早期是非常棘手的，因为开发软件的早期，往往是没有任何的资源的。这个时候，我们就需要借助一些云资源来帮助我们快速的搭建一个测试环境。接下我会推荐一些云资源，希望能够帮助到大家。</p>
+<h2 id="推荐">推荐</h2>
+<h3 id="1vercelhttpsvercelcom">1.<a href="https://vercel.com/" target="_blank" rel="noopener noreffer">vercel</a></h3>
+<p>vercel是一个提供托管服务的网站，它可以帮助我们快速的部署一个静态网站。它的优点是：<code>免费</code>、<code>快速</code>、<code>简单</code>。它的缺点是：<code>只能部署静态网站</code>。如果你的项目是一个静态网站，那么我强烈推荐你使用vercel。</p>
+<h3 id="2zeaburhttpszeaburcom">2。<a href="https://zeabur.com/" target="_blank" rel="noopener noreffer">zeabur</a></h3>
+<p>zeabur是一个帮助开发者一键部署自己的服务的平台，免费方案限制1个项目数量，1vCPU,内存512M，存储1GB 适合做文档和个人博客</p>
+<h3 id="3腾讯云httpscloudtencentcom">3.<a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreffer">腾讯云</a></h3>
+<p>国内的良心云，但是现在也不太良心了，不太推荐了，毕竟没什么福利了，如果你是学生的话可以考虑买他们的轻量云来部署他们的服务</p>
+<h2 id="总结">总结</h2>
+<p>我随便推荐一下，建议大家可以先试用一下1和2的方案，希望能够帮助到大家，如果你有更好的推荐，欢迎在评论区留言。</p>
+]]></description>
+</item><item>
     <title>如何礼貌回绝不合理的需求</title>
     <link>http://www.jobcher.com/20230524/</link>
     <pubDate>Wed, 24 May 2023 00:00:00 &#43;0000</pubDate>
