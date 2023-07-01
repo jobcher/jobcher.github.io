@@ -4,7 +4,166 @@
         <link>http://www.jobcher.com/posts/</link>
         <description>所有文章 | 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 30 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Sat, 01 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>2023-07-01 GitHub 热门榜单</title>
+    <link>http://www.jobcher.com/github_trending_2023-07-01/</link>
+    <pubDate>Sat, 01 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/github_trending_2023-07-01/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/github.png" referrerpolicy="no-referrer">
+            </div><h3 id="排名-1chaoningzhangmobilesam">排名 1:/ChaoningZhang/MobileSAM</h3>
+<ul>
+<li>Description: This is the official code for Faster Segment Anything (MobileSAM) project that makes SAM lightweight for mobile applications and beyond!</li>
+<li>URL: <a href="https://github.com/ChaoningZhang/MobileSAM" target="_blank" rel="noopener noreffer">https://github.com/ChaoningZhang/MobileSAM</a></li>
+<li>作者: ChaoningZhang</li>
+</ul>
+<h3 id="排名-2abacajmpt-30b-inference">排名 2:/abacaj/mpt-30B-inference</h3>
+<ul>
+<li>Description: Run inference on MPT-30B using CPU</li>
+<li>URL: <a href="https://github.com/abacaj/mpt-30B-inference" target="_blank" rel="noopener noreffer">https://github.com/abacaj/mpt-30B-inference</a></li>
+<li>作者: abacaj</li>
+</ul>
+<h3 id="排名-3slarkvanblock-pornographic-replies">排名 3:/slarkvan/Block-Pornographic-Replies</h3>
+<ul>
+<li>Description: 屏蔽推特回复下的黄推。Block pornographic replies below the tweet.</li>
+<li>URL: <a href="https://github.com/slarkvan/Block-Pornographic-Replies" target="_blank" rel="noopener noreffer">https://github.com/slarkvan/Block-Pornographic-Replies</a></li>
+<li>作者: slarkvan</li>
+</ul>
+<h3 id="排名-4wemakedevsopen-source-course">排名 4:/WeMakeDevs/open-source-course</h3>
+<ul>
+<li>Description:</li>
+<li>URL: <a href="https://github.com/WeMakeDevs/open-source-course" target="_blank" rel="noopener noreffer">https://github.com/WeMakeDevs/open-source-course</a></li>
+<li>作者: WeMakeDevs</li>
+</ul>
+<h3 id="排名-5powershellpowershell">排名 5:/PowerShell/PowerShell</h3>
+<ul>
+<li>Description: PowerShell for every system!</li>
+<li>URL: <a href="https://github.com/PowerShell/PowerShell" target="_blank" rel="noopener noreffer">https://github.com/PowerShell/PowerShell</a></li>
+<li>作者: PowerShell</li>
+</ul>
+<h3 id="排名-6xingangpandraggan">排名 6:/XingangPan/DragGAN</h3>
+<ul>
+<li>Description: Official Code for DragGAN (SIGGRAPH 2023)</li>
+<li>URL: <a href="https://github.com/XingangPan/DragGAN" target="_blank" rel="noopener noreffer">https://github.com/XingangPan/DragGAN</a></li>
+<li>作者: XingangPan</li>
+</ul>
+<h3 id="排名-7facebookfolly">排名 7:/facebook/folly</h3>
+<ul>
+<li>Description: An open-source C++ library developed and used at Facebook.</li>
+<li>URL: <a href="https://github.com/facebook/folly" target="_blank" rel="noopener noreffer">https://github.com/facebook/folly</a></li>
+<li>作者: facebook</li>
+</ul>
+<h3 id="排名-8parthjadhavtkinter-designer">排名 8:/ParthJadhav/Tkinter-Designer</h3>
+<ul>
+<li>Description: An easy and fast way to create a Python GUI 🐍</li>
+<li>URL: <a href="https://github.com/ParthJadhav/Tkinter-Designer" target="_blank" rel="noopener noreffer">https://github.com/ParthJadhav/Tkinter-Designer</a></li>
+<li>作者: ParthJadhav</li>
+</ul>
+<h3 id="排名-9papers-we-lovepapers-we-love">排名 9:/papers-we-love/papers-we-love</h3>
+<ul>
+<li>Description: Papers from the computer science community to read and discuss.</li>
+<li>URL: <a href="https://github.com/papers-we-love/papers-we-love" target="_blank" rel="noopener noreffer">https://github.com/papers-we-love/papers-we-love</a></li>
+<li>作者: papers-we-love</li>
+</ul>
+<h3 id="排名-10wgwangllms-in-china">排名 10:/wgwang/LLMs-In-China</h3>
+<ul>
+<li>Description: 中国大模型</li>
+<li>URL: <a href="https://github.com/wgwang/LLMs-In-China" target="_blank" rel="noopener noreffer">https://github.com/wgwang/LLMs-In-China</a></li>
+<li>作者: wgwang</li>
+</ul>
+<h3 id="排名-11practical-tutorialsproject-based-learning">排名 11:/practical-tutorials/project-based-learning</h3>
+<ul>
+<li>Description: Curated list of project-based tutorials</li>
+<li>URL: <a href="https://github.com/practical-tutorials/project-based-learning" target="_blank" rel="noopener noreffer">https://github.com/practical-tutorials/project-based-learning</a></li>
+<li>作者: practical-tutorials</li>
+</ul>
+<h3 id="排名-12mengjian-githubcopilot-analysis">排名 12:/mengjian-github/copilot-analysis</h3>
+<ul>
+<li>Description:</li>
+<li>URL: <a href="https://github.com/mengjian-github/copilot-analysis" target="_blank" rel="noopener noreffer">https://github.com/mengjian-github/copilot-analysis</a></li>
+<li>作者: mengjian-github</li>
+</ul>
+<h3 id="排名-13dotnet-architectureeshoponcontainers">排名 13:/dotnet-architecture/eShopOnContainers</h3>
+<ul>
+<li>Description: Cross-platform .NET sample microservices and container based application that runs on Linux Windows and macOS. Powered by .NET 7, Docker Containers and Azure Kubernetes Services. Supports Visual Studio, VS for Mac and CLI based environments with Docker CLI, dotnet CLI, VS Code or any other code editor.</li>
+<li>URL: <a href="https://github.com/dotnet-architecture/eShopOnContainers" target="_blank" rel="noopener noreffer">https://github.com/dotnet-architecture/eShopOnContainers</a></li>
+<li>作者: dotnet-architecture</li>
+</ul>
+<h3 id="排名-14ebookfoundationfree-programming-books">排名 14:/EbookFoundation/free-programming-books</h3>
+<ul>
+<li>Description: 📚 Freely available programming books</li>
+<li>URL: <a href="https://github.com/EbookFoundation/free-programming-books" target="_blank" rel="noopener noreffer">https://github.com/EbookFoundation/free-programming-books</a></li>
+<li>作者: EbookFoundation</li>
+</ul>
+<h3 id="排名-15chinese-poetrychinese-poetry">排名 15:/chinese-poetry/chinese-poetry</h3>
+<ul>
+<li>Description: The most comprehensive database of Chinese poetry 🧶最全中华古诗词数据库, 唐宋两朝近一万四千古诗人, 接近5.5万首唐诗加26万宋诗. 两宋时期1564位词人，21050首词。</li>
+<li>URL: <a href="https://github.com/chinese-poetry/chinese-poetry" target="_blank" rel="noopener noreffer">https://github.com/chinese-poetry/chinese-poetry</a></li>
+<li>作者: chinese-poetry</li>
+</ul>
+<h3 id="排名-16alexbeitelegram-groups">排名 16:/alexbei/telegram-groups</h3>
+<ul>
+<li>Description: 经过精心筛选，从5000+个电报群组/频道/机器人中挑选出的优质推荐！如果您有更多值得推荐的电报群组/频道/机器人，欢迎在issue中留言或提交pull requests。感谢您的关注！</li>
+<li>URL: <a href="https://github.com/alexbei/telegram-groups" target="_blank" rel="noopener noreffer">https://github.com/alexbei/telegram-groups</a></li>
+<li>作者: alexbei</li>
+</ul>
+<h3 id="排名-17questdbquestdb">排名 17:/questdb/questdb</h3>
+<ul>
+<li>Description: An open source time-series database for fast ingest and SQL queries</li>
+<li>URL: <a href="https://github.com/questdb/questdb" target="_blank" rel="noopener noreffer">https://github.com/questdb/questdb</a></li>
+<li>作者: questdb</li>
+</ul>
+<h3 id="排名-18fuqiuluounidbg-fetch-qsign">排名 18:/fuqiuluo/unidbg-fetch-qsign</h3>
+<ul>
+<li>Description: 获取QQSign通过Unidbg</li>
+<li>URL: <a href="https://github.com/fuqiuluo/unidbg-fetch-qsign" target="_blank" rel="noopener noreffer">https://github.com/fuqiuluo/unidbg-fetch-qsign</a></li>
+<li>作者: fuqiuluo</li>
+</ul>
+<h3 id="排名-19mosaicmlcomposer">排名 19:/mosaicml/composer</h3>
+<ul>
+<li>Description: Train neural networks up to 7x faster</li>
+<li>URL: <a href="https://github.com/mosaicml/composer" target="_blank" rel="noopener noreffer">https://github.com/mosaicml/composer</a></li>
+<li>作者: mosaicml</li>
+</ul>
+<h3 id="排名-20alibabadatax">排名 20:/alibaba/DataX</h3>
+<ul>
+<li>Description: DataX是阿里云DataWorks数据集成的开源版本。</li>
+<li>URL: <a href="https://github.com/alibaba/DataX" target="_blank" rel="noopener noreffer">https://github.com/alibaba/DataX</a></li>
+<li>作者: alibaba</li>
+</ul>
+<h3 id="排名-21toeverythingaffine">排名 21:/toeverything/AFFiNE</h3>
+<ul>
+<li>Description: There can be more than Notion and Miro. AFFiNE is a next-gen knowledge base that brings planning, sorting and creating all together. Privacy first, open-source, customizable and ready to use.</li>
+<li>URL: <a href="https://github.com/toeverything/AFFiNE" target="_blank" rel="noopener noreffer">https://github.com/toeverything/AFFiNE</a></li>
+<li>作者: toeverything</li>
+</ul>
+<h3 id="排名-22phodalaigc">排名 22:/phodal/aigc</h3>
+<ul>
+<li>Description: 《构筑大语言模型应用：应用开发与架构设计》一本关于 LLM 在真实世界应用的开源电子书，介绍了大语言模型的基础知识和应用，以及如何构建自己的模型。其中包括Prompt的编写、开发和管理，探索最好的大语言模型能带来什么，以及LLM应用开发的模式和架构设计。</li>
+<li>URL: <a href="https://github.com/phodal/aigc" target="_blank" rel="noopener noreffer">https://github.com/phodal/aigc</a></li>
+<li>作者: phodal</li>
+</ul>
+<h3 id="排名-23imglybackground-removal-js">排名 23:/imgly/background-removal-js</h3>
+<ul>
+<li>Description: Remove backgrounds from images directly in the browser environment with ease and no additional costs or privacy concerns. Explore an interactive demo.</li>
+<li>URL: <a href="https://github.com/imgly/background-removal-js" target="_blank" rel="noopener noreffer">https://github.com/imgly/background-removal-js</a></li>
+<li>作者: imgly</li>
+</ul>
+<h3 id="排名-24sourcegraphsourcegraph">排名 24:/sourcegraph/sourcegraph</h3>
+<ul>
+<li>Description: Code Intelligence Platform</li>
+<li>URL: <a href="https://github.com/sourcegraph/sourcegraph" target="_blank" rel="noopener noreffer">https://github.com/sourcegraph/sourcegraph</a></li>
+<li>作者: sourcegraph</li>
+</ul>
+<h3 id="排名-25buqiyuanvue3-antd-admin">排名 25:/buqiyuan/vue3-antd-admin</h3>
+<ul>
+<li>Description: 基于vue-cli5.x/vite2.x + vue3.x + ant-design-vue3.x + typescript hooks 的基础后台管理系统模板 RBAC的权限系统, JSON Schema动态表单,动态表格,漂亮锁屏界面</li>
+<li>URL: <a href="https://github.com/buqiyuan/vue3-antd-admin" target="_blank" rel="noopener noreffer">https://github.com/buqiyuan/vue3-antd-admin</a></li>
+<li>作者: buqiyuan</li>
+</ul>
+]]></description>
+</item><item>
     <title>2023-06-30 GitHub 热门榜单</title>
     <link>http://www.jobcher.com/github_trending_2023-06-30/</link>
     <pubDate>Fri, 30 Jun 2023 00:00:00 &#43;0000</pubDate>
@@ -5144,41 +5303,6 @@ Thank you for providing even more examples of Midjourney prompts. These prompts 
 elements that contribute to the final image. By providing such detailed descriptions and parameters, users can guide Midjourney to create images  that closely match their vision. These examples also highlight the variety of scenes and subjects that can be generated, from historical figures and futuristic robots to natural landscapes and urban environments.</p>
 <h3 id="第十步">第十步：</h3>
 <p>Great. Now I want you to ACT as a proffesional photographer. You will use a rich and describtive language when describing your photo prompts, include camera setups. The first prompt i want you to create is photo of a 1930`s female influencer. Take inspiration from the formating from the  example prompts, dont copy them, but use the same format.</p>
-]]></description>
-</item><item>
-    <title>如何礼貌回绝不合理的需求</title>
-    <link>http://www.jobcher.com/20230524/</link>
-    <pubDate>Wed, 24 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/20230524/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/%e8%83%8c%e9%94%85.png" referrerpolicy="no-referrer">
-            </div><h2 id="背景">背景</h2>
-<p>最近在做一个项目，项目的需求是这样的：
-<code>spring-cloud</code>有一个服务A，服务A有一个接口，接口的功能是根据传入的参数，返回一个字符串。但是服务响应非常的慢，大概需要4秒左右。这个响应速度是不能忍受的！但是这个服务的开发强行说要上线。我们有几个选项：</p>
-<ul>
-<li>1.<code>不上线</code>，但是这个服务的开发无法按期交付</li>
-<li>2.<code>上线</code>，但是这个服务的响应速度太慢了，运维背锅</li>
-<li>3.<code>劝说服务的开发</code>，让他们优化接口的响应速度<br>
-相信大家都会选择第3个选择，那我们站在运维的角度如何劝说服务的开发呢？</li>
-</ul>
-<h2 id="劝说">劝说</h2>
-<ol>
-<li>
-<p><code>故障级联</code>（Cascading Failures）：连接超时的服务可能会导致其他服务出现故障级联效应。这是因为微服务系统中的服务通常会相互调用和依赖。当一个服务连接超时时，其他依赖该服务的服务可能无法及时获取所需的数据或执行必要的操作，从而导致它们自身出现故障。</p>
-</li>
-<li>
-<p><code>响应时间延迟</code>（Increased Response Time）：如果一个服务连接超时，它的调用方可能需要等待更长的时间来获取响应或超时处理。这会增加整个系统的响应时间，因为其他服务的请求也需要等待超时的服务返回结果。这可能会导致用户体验下降，甚至可能导致其他服务的性能问题。</p>
-</li>
-<li>
-<p><code>资源耗尽</code>（Resource Exhaustion）：连接超时可能会导致调用方服务的资源耗尽。当一个服务长时间等待连接超时的服务时，它可能会保持与该服务的连接打开，消耗额外的内存和网络资源。这可能导致调用方服务的资源不足，无法为其他请求提供充足的资源，进而影响整个系统的性能。</p>
-</li>
-<li>
-<p><code>重试和失败处理</code>（Retry and Failure Handling）：当一个服务连接超时时，调用方服务通常会尝试重新连接或执行其他失败处理机制。这可能导致调用方服务增加额外的负载，因为它需要多次尝试连接超时的服务。同时，如果没有适当的失败处理机制，连接超时的服务可能无法正确处理重试请求，导致进一步的问题。</p>
-</li>
-</ol>
-<h2 id="结论">结论</h2>
-<p>综上所述，连接超时的服务对Spring Cloud微服务系统可能会带来级联故障、响应时间延迟、资源耗尽、重试和失败处理的问题，并增加监控和故障排除的成本。因此，及时发现和解决连接超时问题对于确保系统的稳定性和性能至关重要。希望领导能够听取意见，不要让运维背锅。</p>
 ]]></description>
 </item></channel>
 </rss>
