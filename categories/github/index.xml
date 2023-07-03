@@ -4,7 +4,206 @@
         <link>http://www.jobcher.com/categories/github/</link>
         <description>github - 分类 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Sun, 02 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/github/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 03 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/github/" rel="self" type="application/rss+xml" /><item>
+    <title>2023-07-03 打工人日报</title>
+    <link>http://www.jobcher.com/github_trending_2023-07-03/</link>
+    <pubDate>Mon, 03 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/github_trending_2023-07-03/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/github.png" referrerpolicy="no-referrer">
+            </div><p>生活如潮水般涌来，我们都是打工人，拼搏在这个熙攘的都市。每天早出晚归，为了生计奔波不息。在这喧嚣的世界里，我们常常会忘记一些最基本的事情，比如保重身体，快乐摸鱼，以及提升自己。</p>
+<p>身体是革命的本钱。工作虽然重要，但如果我们身体垮了，一切都将付之东流。所以，无论多忙碌，我们都不能忽视保持身体的健康。多注意饮食，合理安排休息时间，保持适度的锻炼，这些都是我们保持身体健康的基本要求。身体健康，才能有充沛的精力投入工作，追求更美好的生活。</p>
+<p>快乐摸鱼是放松心情的好方法。打工人的工作压力常常让我们喘不过气来，但是，有时候放松一下也是必要的。不妨在闲暇时刻，去找一家喜欢的咖啡馆坐坐，或者约上几个好友一起逛逛街，欣赏风景。也可以在家里看一场喜剧电影，或者读一本有趣的小说。快乐的时光让我们重新充电，调整好状态，更好地迎接未来的挑战。</p>
+<h2 id="github-热门榜单">GitHub 热门榜单</h2>
+<h3 id="排名-1ethanarbuckleapollo-customapicredentials">排名 1:/EthanArbuckle/Apollo-CustomApiCredentials</h3>
+<ul>
+<li>Description: Tweak to use your own reddit API credentials in Apollo</li>
+<li>URL: <a href="https://github.com/EthanArbuckle/Apollo-CustomApiCredentials" target="_blank" rel="noopener noreffer">https://github.com/EthanArbuckle/Apollo-CustomApiCredentials</a></li>
+<li>作者: EthanArbuckle</li>
+</ul>
+<h3 id="排名-2powershellpowershell">排名 2:/PowerShell/PowerShell</h3>
+<ul>
+<li>Description: PowerShell for every system!</li>
+<li>URL: <a href="https://github.com/PowerShell/PowerShell" target="_blank" rel="noopener noreffer">https://github.com/PowerShell/PowerShell</a></li>
+<li>作者: PowerShell</li>
+</ul>
+<h3 id="排名-3geohottinygrad">排名 3:/geohot/tinygrad</h3>
+<ul>
+<li>Description: You like pytorch? You like micrograd? You love tinygrad! ❤️</li>
+<li>URL: <a href="https://github.com/geohot/tinygrad" target="_blank" rel="noopener noreffer">https://github.com/geohot/tinygrad</a></li>
+<li>作者: geohot</li>
+</ul>
+<h3 id="排名-4questdbquestdb">排名 4:/questdb/questdb</h3>
+<ul>
+<li>Description: An open source time-series database for fast ingest and SQL queries</li>
+<li>URL: <a href="https://github.com/questdb/questdb" target="_blank" rel="noopener noreffer">https://github.com/questdb/questdb</a></li>
+<li>作者: questdb</li>
+</ul>
+<h3 id="排名-5rvc-projectretrieval-based-voice-conversion-webui">排名 5:/RVC-Project/Retrieval-based-Voice-Conversion-WebUI</h3>
+<ul>
+<li>Description: Voice data &lt;= 10 mins can also be used to train a good VC model!</li>
+<li>URL: <a href="https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI" target="_blank" rel="noopener noreffer">https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI</a></li>
+<li>作者: RVC-Project</li>
+</ul>
+<h3 id="排名-6w-okadavoice-changer">排名 6:/w-okada/voice-changer</h3>
+<ul>
+<li>Description: リアルタイムボイスチェンジャー Realtime Voice Changer</li>
+<li>URL: <a href="https://github.com/w-okada/voice-changer" target="_blank" rel="noopener noreffer">https://github.com/w-okada/voice-changer</a></li>
+<li>作者: w-okada</li>
+</ul>
+<h3 id="排名-7dotnet-architectureeshoponcontainers">排名 7:/dotnet-architecture/eShopOnContainers</h3>
+<ul>
+<li>Description: Cross-platform .NET sample microservices and container based application that runs on Linux Windows and macOS. Powered by .NET 7, Docker Containers and Azure Kubernetes Services. Supports Visual Studio, VS for Mac and CLI based environments with Docker CLI, dotnet CLI, VS Code or any other code editor.</li>
+<li>URL: <a href="https://github.com/dotnet-architecture/eShopOnContainers" target="_blank" rel="noopener noreffer">https://github.com/dotnet-architecture/eShopOnContainers</a></li>
+<li>作者: dotnet-architecture</li>
+</ul>
+<h3 id="排名-8toeverythingaffine">排名 8:/toeverything/AFFiNE</h3>
+<ul>
+<li>Description: There can be more than Notion and Miro. AFFiNE is a next-gen knowledge base that brings planning, sorting and creating all together. Privacy first, open-source, customizable and ready to use.</li>
+<li>URL: <a href="https://github.com/toeverything/AFFiNE" target="_blank" rel="noopener noreffer">https://github.com/toeverything/AFFiNE</a></li>
+<li>作者: toeverything</li>
+</ul>
+<h3 id="排名-9aehardingwefwef">排名 9:/aeharding/wefwef</h3>
+<ul>
+<li>Description: wefwef — a mobile-first Lemmy web client</li>
+<li>URL: <a href="https://github.com/aeharding/wefwef" target="_blank" rel="noopener noreffer">https://github.com/aeharding/wefwef</a></li>
+<li>作者: aeharding</li>
+</ul>
+<h3 id="排名-10wemakedevsopen-source-course">排名 10:/WeMakeDevs/open-source-course</h3>
+<ul>
+<li>Description:</li>
+<li>URL: <a href="https://github.com/WeMakeDevs/open-source-course" target="_blank" rel="noopener noreffer">https://github.com/WeMakeDevs/open-source-course</a></li>
+<li>作者: WeMakeDevs</li>
+</ul>
+<h3 id="排名-11docile-alligatorinfinity-for-reddit">排名 11:/Docile-Alligator/Infinity-For-Reddit</h3>
+<ul>
+<li>Description: A Reddit client for Android</li>
+<li>URL: <a href="https://github.com/Docile-Alligator/Infinity-For-Reddit" target="_blank" rel="noopener noreffer">https://github.com/Docile-Alligator/Infinity-For-Reddit</a></li>
+<li>作者: Docile-Alligator</li>
+</ul>
+<h3 id="排名-12microsoftdata-science-for-beginners">排名 12:/microsoft/Data-Science-For-Beginners</h3>
+<ul>
+<li>Description: 10 Weeks, 20 Lessons, Data Science for All!</li>
+<li>URL: <a href="https://github.com/microsoft/Data-Science-For-Beginners" target="_blank" rel="noopener noreffer">https://github.com/microsoft/Data-Science-For-Beginners</a></li>
+<li>作者: microsoft</li>
+</ul>
+<h3 id="排名-13orange-opensourcehurl">排名 13:/Orange-OpenSource/hurl</h3>
+<ul>
+<li>Description: Hurl, run and test HTTP requests with plain text.</li>
+<li>URL: <a href="https://github.com/Orange-OpenSource/hurl" target="_blank" rel="noopener noreffer">https://github.com/Orange-OpenSource/hurl</a></li>
+<li>作者: Orange-OpenSource</li>
+</ul>
+<h3 id="排名-14100xdevs-hkiratall-assignments">排名 14:/100xDevs-hkirat/all-assignments</h3>
+<ul>
+<li>Description:</li>
+<li>URL: <a href="https://github.com/100xDevs-hkirat/all-assignments" target="_blank" rel="noopener noreffer">https://github.com/100xDevs-hkirat/all-assignments</a></li>
+<li>作者: 100xDevs-hkirat</li>
+</ul>
+<h3 id="排名-15christianseligapollo-backend">排名 15:/christianselig/apollo-backend</h3>
+<ul>
+<li>Description: Apollo backend server</li>
+<li>URL: <a href="https://github.com/christianselig/apollo-backend" target="_blank" rel="noopener noreffer">https://github.com/christianselig/apollo-backend</a></li>
+<li>作者: christianselig</li>
+</ul>
+<h3 id="排名-16practical-tutorialsproject-based-learning">排名 16:/practical-tutorials/project-based-learning</h3>
+<ul>
+<li>Description: Curated list of project-based tutorials</li>
+<li>URL: <a href="https://github.com/practical-tutorials/project-based-learning" target="_blank" rel="noopener noreffer">https://github.com/practical-tutorials/project-based-learning</a></li>
+<li>作者: practical-tutorials</li>
+</ul>
+<h3 id="排名-17microsoftml-for-beginners">排名 17:/microsoft/ML-For-Beginners</h3>
+<ul>
+<li>Description: 12 weeks, 26 lessons, 52 quizzes, classic Machine Learning for all</li>
+<li>URL: <a href="https://github.com/microsoft/ML-For-Beginners" target="_blank" rel="noopener noreffer">https://github.com/microsoft/ML-For-Beginners</a></li>
+<li>作者: microsoft</li>
+</ul>
+<h3 id="排名-18wemakedevsroadmaps">排名 18:/WeMakeDevs/roadmaps</h3>
+<ul>
+<li>Description: This repository contains the list of communities and job portals you can join and apply to.</li>
+<li>URL: <a href="https://github.com/WeMakeDevs/roadmaps" target="_blank" rel="noopener noreffer">https://github.com/WeMakeDevs/roadmaps</a></li>
+<li>作者: WeMakeDevs</li>
+</ul>
+<h3 id="排名-19abacajmpt-30b-inference">排名 19:/abacaj/mpt-30B-inference</h3>
+<ul>
+<li>Description: Run inference on MPT-30B using CPU</li>
+<li>URL: <a href="https://github.com/abacaj/mpt-30B-inference" target="_blank" rel="noopener noreffer">https://github.com/abacaj/mpt-30B-inference</a></li>
+<li>作者: abacaj</li>
+</ul>
+<h3 id="排名-20phodalaigc">排名 20:/phodal/aigc</h3>
+<ul>
+<li>Description: 《构筑大语言模型应用：应用开发与架构设计》一本关于 LLM 在真实世界应用的开源电子书，介绍了大语言模型的基础知识和应用，以及如何构建自己的模型。其中包括Prompt的编写、开发和管理，探索最好的大语言模型能带来什么，以及LLM应用开发的模式和架构设计。</li>
+<li>URL: <a href="https://github.com/phodal/aigc" target="_blank" rel="noopener noreffer">https://github.com/phodal/aigc</a></li>
+<li>作者: phodal</li>
+</ul>
+<h3 id="排名-21transformeroptimussuperagi">排名 21:/TransformerOptimus/SuperAGI</h3>
+<ul>
+<li>Description: &lt;⚡️&gt; SuperAGI - A dev-first open source autonomous AI agent framework. Enabling developers to build, manage &amp; run useful autonomous agents quickly and reliably.</li>
+<li>URL: <a href="https://github.com/TransformerOptimus/SuperAGI" target="_blank" rel="noopener noreffer">https://github.com/TransformerOptimus/SuperAGI</a></li>
+<li>作者: TransformerOptimus</li>
+</ul>
+<h3 id="排名-22the-run-philosophy-organizationrun">排名 22:/The-Run-Philosophy-Organization/run</h3>
+<ul>
+<li>Description: 润学全球官方指定GITHUB，整理润学宗旨、纲领、理论和各类润之实例；解决为什么润，润去哪里，怎么润三大问题； 并成为新中国人的核心宗教，核心信念。</li>
+<li>URL: <a href="https://github.com/The-Run-Philosophy-Organization/run" target="_blank" rel="noopener noreffer">https://github.com/The-Run-Philosophy-Organization/run</a></li>
+<li>作者: The-Run-Philosophy-Organization</li>
+</ul>
+<h3 id="排名-23geerlingguyansible-for-devops">排名 23:/geerlingguy/ansible-for-devops</h3>
+<ul>
+<li>Description: Ansible for DevOps examples.</li>
+<li>URL: <a href="https://github.com/geerlingguy/ansible-for-devops" target="_blank" rel="noopener noreffer">https://github.com/geerlingguy/ansible-for-devops</a></li>
+<li>作者: geerlingguy</li>
+</ul>
+<h3 id="排名-24chaoningzhangmobilesam">排名 24:/ChaoningZhang/MobileSAM</h3>
+<ul>
+<li>Description: This is the official code for MobileSAM project that makes SAM lightweight for mobile applications and beyond!</li>
+<li>URL: <a href="https://github.com/ChaoningZhang/MobileSAM" target="_blank" rel="noopener noreffer">https://github.com/ChaoningZhang/MobileSAM</a></li>
+<li>作者: ChaoningZhang</li>
+</ul>
+<h3 id="排名-25donnemartinsystem-design-primer">排名 25:/donnemartin/system-design-primer</h3>
+<ul>
+<li>Description: Learn how to design large-scale systems. Prep for the system design interview. Includes Anki flashcards.</li>
+<li>URL: <a href="https://github.com/donnemartin/system-design-primer" target="_blank" rel="noopener noreffer">https://github.com/donnemartin/system-design-primer</a></li>
+<li>作者: donnemartin</li>
+</ul>
+<h2 id="v2ex-热门帖子">v2ex 热门帖子</h2>
+<h3 id="1这下丁克的和不丁克的都沉默了httpswwwv2excomt953541reply65">1:<a href="https://www.v2ex.com/t/953541#reply65" target="_blank" rel="noopener noreffer">这下丁克的和不丁克的都沉默了</a></h3>
+<h3 id="2家人们谁懂啊背刺马自达-3-昂克赛拉-20-自吸-6at-只要-99-个-whttpswwwv2excomt953535reply59">2:<a href="https://www.v2ex.com/t/953535#reply59" target="_blank" rel="noopener noreffer">家人们谁懂啊，背刺马自达 3 昂克赛拉 2.0 自吸 6at 只要 9.9 个 w</a></h3>
+<h3 id="3请诸位-linux-用户泼醒我httpswwwv2excomt953559reply53">3:<a href="https://www.v2ex.com/t/953559#reply53" target="_blank" rel="noopener noreffer">请诸位 Linux 用户泼醒我</a></h3>
+<h3 id="4看到了一篇-bitlocker-被警方解密的文章httpswwwv2excomt953530reply45">4:<a href="https://www.v2ex.com/t/953530#reply45" target="_blank" rel="noopener noreffer">看到了一篇 bitlocker 被警方解密的文章</a></h3>
+<h3 id="5公积金有-20w不买房该怎么花httpswwwv2excomt953540reply43">5:<a href="https://www.v2ex.com/t/953540#reply43" target="_blank" rel="noopener noreffer">公积金有 20w，不买房该怎么花？</a></h3>
+<h3 id="6车门经常被旁边的车刮到怎么办httpswwwv2excomt953536reply38">6:<a href="https://www.v2ex.com/t/953536#reply38" target="_blank" rel="noopener noreffer">车门经常被旁边的车刮到怎么办</a></h3>
+<h3 id="7接到警方电话httpswwwv2excomt953571reply37">7:<a href="https://www.v2ex.com/t/953571#reply37" target="_blank" rel="noopener noreffer">接到警方电话</a></h3>
+<h3 id="8老婆怀孕了求各位过来人给一些建议httpswwwv2excomt953557reply33">8:<a href="https://www.v2ex.com/t/953557#reply33" target="_blank" rel="noopener noreffer">老婆怀孕了,求各位过来人给一些建议</a></h3>
+<h3 id="9第一次徒步夜爬体验到了濒死夸张不知道以后还要不要去httpswwwv2excomt953562reply30">9:<a href="https://www.v2ex.com/t/953562#reply30" target="_blank" rel="noopener noreffer">第一次徒步夜爬体验到了濒死(夸张)，不知道以后还要不要去</a></h3>
+<h3 id="10为什么没有一个社交-app-可以分享音频只能分享文字图片和视频httpswwwv2excomt953533reply20">10:<a href="https://www.v2ex.com/t/953533#reply20" target="_blank" rel="noopener noreffer">为什么没有一个社交 APP 可以分享音频，只能分享文字图片和视频？</a></h3>
+<h3 id="11两栋楼距离大概-200-米都用的电信宽带如何互联谢谢httpswwwv2excomt953556reply19">11:<a href="https://www.v2ex.com/t/953556#reply19" target="_blank" rel="noopener noreffer">两栋楼距离大概 200 米，都用的电信宽带，如何互联，谢谢</a></h3>
+<h3 id="12有无通俗易懂的-python-教程httpswwwv2excomt953538reply18">12:<a href="https://www.v2ex.com/t/953538#reply18" target="_blank" rel="noopener noreffer">有无通俗易懂的 Python 教程？</a></h3>
+<h3 id="13有无细胳膊带-45watch-的兄弟httpswwwv2excomt953529reply17">13:<a href="https://www.v2ex.com/t/953529#reply17" target="_blank" rel="noopener noreffer">有无细胳膊带 45watch 的兄弟</a></h3>
+<h3 id="14想买台车求老哥们帮忙参谋参谋httpswwwv2excomt953577reply17">14:<a href="https://www.v2ex.com/t/953577#reply17" target="_blank" rel="noopener noreffer">想买台车，求老哥们帮忙参谋参谋</a></h3>
+<h3 id="15请问一下老哥们-intel-处理器机型的-timemachine-时间机器备份能还原迁移到-m-处理器机型吗httpswwwv2excomt953545reply16">15:<a href="https://www.v2ex.com/t/953545#reply16" target="_blank" rel="noopener noreffer">请问一下老哥们， Intel 处理器机型的 TimeMachine 时间机器备份，能还原迁移到 M 处理器机型吗？</a></h3>
+<h3 id="16pdd-的书保正吗书便宜不少但是没写假-1-赔-10难道就是假货httpswwwv2excomt953555reply15">16:<a href="https://www.v2ex.com/t/953555#reply15" target="_blank" rel="noopener noreffer">PDD 的书保正吗，书便宜不少，但是没写假 1 赔 10，难道就是假货？</a></h3>
+<h3 id="17选择困难症-m1-pro-10-核-cpu8-性能2-能效16gpu-和-m2-pro-10-核-cpu6-性能4-能效16gpu均为-14-寸内存-32g硬盘-512g两款差价-2100-元httpswwwv2excomt953561reply9">17:<a href="https://www.v2ex.com/t/953561#reply9" target="_blank" rel="noopener noreffer">选择困难症， M1 Pro 10 核 CPU（8 性能+2 能效）+16GPU 和 M2 Pro 10 核 CPU（6 性能+4 能效）+16GPU，均为 14 寸，内存 32G，硬盘 512G。两款差价 2100 元。</a></h3>
+<h3 id="18基于-python-djangovue-开发的家教预约网站求-starhttpswwwv2excomt953569reply9">18:<a href="https://www.v2ex.com/t/953569#reply9" target="_blank" rel="noopener noreffer">基于 Python +django+vue 开发的家教预约网站（求 star）</a></h3>
+<h3 id="19mac-版本的剪贴板工具-v100-发布httpswwwv2excomt953542reply7">19:<a href="https://www.v2ex.com/t/953542#reply7" target="_blank" rel="noopener noreffer">Mac 版本的剪贴板工具 v1.0.0 发布</a></h3>
+<h3 id="20南京买踏板摩托车求推荐靠谱途径的店httpswwwv2excomt953543reply7">20:<a href="https://www.v2ex.com/t/953543#reply7" target="_blank" rel="noopener noreffer">南京买踏板摩托车，求推荐靠谱途径的店</a></h3>
+<h3 id="21五字母-com-域名低价出httpswwwv2excomt953547reply7">21:<a href="https://www.v2ex.com/t/953547#reply7" target="_blank" rel="noopener noreffer">五字母 com 域名低价出</a></h3>
+<h3 id="22ipa-文件存在哪可以实现在线安装httpswwwv2excomt953550reply7">22:<a href="https://www.v2ex.com/t/953550#reply7" target="_blank" rel="noopener noreffer">ipa 文件存在哪可以实现在线安装？</a></h3>
+<h3 id="23golang-如何操作电脑打印机httpswwwv2excomt953576reply7">23:<a href="https://www.v2ex.com/t/953576#reply7" target="_blank" rel="noopener noreffer">golang 如何操作电脑打印机</a></h3>
+<h3 id="24新手第一辆车油车预算-10-15w-推荐httpswwwv2excomt953594reply7">24:<a href="https://www.v2ex.com/t/953594#reply7" target="_blank" rel="noopener noreffer">新手第一辆车（油车），预算 10-15W 推荐。</a></h3>
+<h3 id="25怎么优雅的处理不固定的-json-内容httpswwwv2excomt953593reply5">25:<a href="https://www.v2ex.com/t/953593#reply5" target="_blank" rel="noopener noreffer">怎么优雅的处理不固定的 json 内容</a></h3>
+<h3 id="26我的新产品-helper一款在电脑桌面上使用的-chatgpt-免费客户端httpswwwv2excomt953539reply4">26:<a href="https://www.v2ex.com/t/953539#reply4" target="_blank" rel="noopener noreffer">我的新产品 Helper，一款在电脑桌面上使用的 ChatGPT 免费客户端</a></h3>
+<h3 id="27网速很好延迟很大一般是什么原因httpswwwv2excomt953563reply4">27:<a href="https://www.v2ex.com/t/953563#reply4" target="_blank" rel="noopener noreffer">网速很好，延迟很大，一般是什么原因。</a></h3>
+<h3 id="28装修贷可以在银行合作商户提现到其他行储蓄卡靠谱吗httpswwwv2excomt953575reply4">28:<a href="https://www.v2ex.com/t/953575#reply4" target="_blank" rel="noopener noreffer">装修贷可以在银行合作商户提现到其他行储蓄卡，靠谱吗？</a></h3>
+<h3 id="29土卡已无法绑定-gpt-了新时代结束了httpswwwv2excomt953581reply4">29:<a href="https://www.v2ex.com/t/953581#reply4" target="_blank" rel="noopener noreffer">土卡已无法绑定 GPT 了，新时代结束了~</a></h3>
+<h3 id="30当你成为一个-tech-leadhttpswwwv2excomt953551reply3">30:<a href="https://www.v2ex.com/t/953551#reply3" target="_blank" rel="noopener noreffer">当你成为一个 Tech Lead</a></h3>
+<h3 id="31windows-有类型-yoink-for-mac-的临时文件拖放暂存工具吗httpswwwv2excomt953552reply3">31:<a href="https://www.v2ex.com/t/953552#reply3" target="_blank" rel="noopener noreffer">Windows 有类型 Yoink for Mac 的临时文件拖放暂存工具吗？</a></h3>
+<h3 id="32次世代全干工程师养成系列httpswwwv2excomt953572reply3">32:<a href="https://www.v2ex.com/t/953572#reply3" target="_blank" rel="noopener noreffer">次世代全干工程师养成系列</a></h3>
+<h3 id="33数据结构与算法视频推荐httpswwwv2excomt953583reply3">33:<a href="https://www.v2ex.com/t/953583#reply3" target="_blank" rel="noopener noreffer">数据结构与算法视频推荐</a></h3>
+<h3 id="34该如何解决在-macos-上运行-vmware-fusion-出现的-vmdb-错误httpswwwv2excomt953531reply2">34:<a href="https://www.v2ex.com/t/953531#reply2" target="_blank" rel="noopener noreffer">该如何解决在 macOS 上运行 VMware Fusion 出现的 VMDB 错误</a></h3>
+<h3 id="35使用-openwrt-获得-ipv6-公网-ip-的域名-在-openwrt-管理的内网无法解析httpswwwv2excomt953560reply2">35:<a href="https://www.v2ex.com/t/953560#reply2" target="_blank" rel="noopener noreffer">使用 openwrt 获得 ipv6 公网 ip 的域名, 在 openwrt 管理的内网无法解析?</a></h3>
+]]></description>
+</item><item>
     <title>2023-07-02 GitHub 热门榜单</title>
     <link>http://www.jobcher.com/github_trending_2023-07-02/</link>
     <pubDate>Sun, 02 Jul 2023 00:00:00 &#43;0000</pubDate>
