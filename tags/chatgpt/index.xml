@@ -4,7 +4,236 @@
         <link>http://www.jobcher.com/tags/chatgpt/</link>
         <description>ChatGPT - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 07 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/chatgpt/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/chatgpt/" rel="self" type="application/rss+xml" /><item>
+    <title>探索midjourney(二)：midjourney prompt初体验</title>
+    <link>http://www.jobcher.com/midjourney-prompt-2/</link>
+    <pubDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/midjourney-prompt-2/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/ChatGPT-Plus/homeelegance_controllercolorfultranslucent_body_designed_bydiet_261aaa05-08ad-4fb5-b8a9-5961e85a50a1.png" referrerpolicy="no-referrer">
+            </div><p>紧接上文，我们继续探索midjourney prompt，这次我们来看看midjourney prompt的基础用法。</p>
+<h2 id="midjourney-参数使用">midjourney 参数使用</h2>
+<p>参数是添加到提示中的选项，用于更改图像的生成方式。参数可以更改图像的长宽比、在中途模型版本之间切换、更改使用的 Upscaler 等等。参数始终添加到提示的末尾。您可以向每个提示添加多个参数<br>
+</p>
+<blockquote>
+<p>许多 Apple 设备会自动将双连字符 (&ndash;) 更改为长破折号 (—)。midjourney接受两者！</p>
+</blockquote>
+<h3 id="基础参数列表">基础参数列表</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&ndash;aspect, &ndash;ar</td>
+<td>更改生成图像的长宽比。</td>
+</tr>
+<tr>
+<td>&ndash;chaos &lt;nummber 8-100&gt;</td>
+<td>更改生成图像的混乱程度。</td>
+</tr>
+<tr>
+<td>&ndash;fast</td>
+<td>使用快速模式运行单个作业</td>
+</tr>
+<tr>
+<td>&ndash;iw &lt;0-2&gt;</td>
+<td>设置相对于文本粗细的图像提示粗细。默认值为 1。</td>
+</tr>
+<tr>
+<td>&ndash;no</td>
+<td>负面提示, <code>--no plant</code> 将生成没有植物的图像。</td>
+</tr>
+<tr>
+<td>&ndash;quality &lt;.25, .5 ,1&gt;, &ndash;q &lt;.25, .5, 1&gt;</td>
+<td>您想要花费多少渲染质量时间。默认值为 1。值越高，使用的 GPU 分钟数越多；较低的值使用较少</td>
+</tr>
+<tr>
+<td>&ndash;repeat &lt;1-40&gt;, &ndash;r &lt;1-40&gt;</td>
+<td>从单个提示创建多个作业。 <code>--repeat</code> 对于快速重新运行作业多次很有用。</td>
+</tr>
+<tr>
+<td>&ndash;seed &lt;integer between 0–4294967295&gt;</td>
+<td>Midjourney 机器人使用种子号来创建视觉噪声场（如电视静态），作为生成初始图像网格的起点。种子数是为每个图像随机生成的，但可以使用 <code>--seed</code> 或 <code>--sameseed</code> 参数指定。使用相同的种子编号和提示将产生相似的结局图像。</td>
+</tr>
+<tr>
+<td>&ndash;stop &lt;integer between 10–100&gt;</td>
+<td>使用 &ndash;stop 参数在流程中途完成作业。以较早的百分比停止作业可能会产生更模糊、不太详细的结果。</td>
+</tr>
+<tr>
+<td>&ndash;tile</td>
+<td>参数生成可用作重复图块以创建无缝图案的图像。</td>
+</tr>
+<tr>
+<td>&ndash;Turbo</td>
+<td>使用 Turbo 模式运行单个作业。</td>
+</tr>
+<tr>
+<td>&ndash;Weird &lt;number 0-3000&gt;</td>
+<td>使用实验性 &ndash;weird 参数探索不寻常的美学。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="参数示例">参数示例</h3>
+<p>我了解那么多的参数变化，但是我不知道如何使用它们。让我们看看一些示例，以便您可以开始使用它们。</p>
+<h4 id="--aspect">&ndash;aspect</h4>
+<p><code>--aspect</code> 参数允许您更改生成图像的长宽比。默认值为 1，这意味着生成的图像将是正方形的。如果您想要更宽的图像，可以使用 <code>--aspect 1.5</code>。如果您想要更窄的图像，可以使用 <code>--aspect 0.5</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apple --aspect 1.5
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="--chaos">&ndash;chaos</h4>
+<p><code>--chaos</code> 参数允许您更改生成图像的混乱程度。默认值为 50。值越高，图像越混乱。值越低，图像越清晰。如果您想要更清晰的图像，可以使用 <code>--chaos 25</code>。如果您想要更混乱的图像，可以使用 <code>--chaos 75</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apple --chaos <span class="m">25</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="--fast">&ndash;fast</h4>
+<p><code>--fast</code> 参数允许您使用快速模式运行单个作业。快速模式将跳过 Upscaler 阶段，这意味着您将获得更快的结果，但图像的质量可能会降低。如果您想要更快的结果，可以使用 <code>--fast</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apple --fast
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="--iw">&ndash;iw</h4>
+<p><code>--iw</code> 参数允许您设置相对于文本粗细的图像提示粗细。默认值为 1。值越高，图像越粗。值越低，图像越细。如果您想要更粗的图像，可以使用 <code>--iw 2</code>。如果您想要更细的图像，可以使用 <code>--iw 0.5</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apple --iw <span class="m">2</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="--no">&ndash;no</h4>
+<p><code>--no</code> 参数允许您生成没有某些物体的图像。例如，如果您想要生成没有植物的图像，可以使用 <code>--no plant</code>。如果您想要生成没有人的图像，可以使用 <code>--no person</code>。如果您想要生成没有动物的图像，可以使用 <code>--no animal</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apple --no plant
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="--quality">&ndash;quality</h4>
+<p><code>--quality</code> 参数允许您设置您想要花费多少渲染质量时间。默认值为 1。值越高，使用的 GPU 分钟数越多；较低的值使用较少。如果您想要更高质量的图像，可以使用 <code>--quality 2</code>。如果您想要更低质量的图像，可以使用 <code>--quality 0.5</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apple --quality <span class="m">2</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="--repeat">&ndash;repeat</h4>
+<p><code>--repeat</code> 参数允许您从单个提示创建多个作业。如果您想要从单个提示创建 10 个作业，可以使用 <code>--repeat 10</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apple --repeat <span class="m">10</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="--seed">&ndash;seed</h4>
+<p><code>--seed</code> 参数允许您使用种子号来创建视觉噪声场（如电视静态），作为生成初始图像网格的起点。种子数是为每个图像随机生成的，但可以使用 <code>--seed</code> 或 <code>--sameseed</code> 参数指定。使用相同的种子编号和提示将产生相似的结局图像。如果您想要使用种子号 123456789 生成图像，可以使用 <code>--seed 123456789</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apple --seed <span class="m">123456789</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="--stop">&ndash;stop</h4>
+<p><code>--stop</code> 参数允许您在流程中途完成作业。以较早的百分比停止作业可能会产生更模糊、不太详细的结果。如果您想要在 50% 完成作业，可以使用 <code>--stop 50</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apple --stop <span class="m">50</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="--tile">&ndash;tile</h4>
+<p><code>--tile</code> 参数允许您生成可用作重复图块以创建无缝图案的图像。如果您想要生成可用作重复图块以创建无缝图案的图像，可以使用 <code>--tile</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apple --tile
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="--turbo">&ndash;Turbo</h4>
+<p><code>--Turbo</code> 参数允许您使用 Turbo 模式运行单个作业。如果您想要使用 Turbo 模式运行单个作业，可以使用 <code>--Turbo</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apple --Turbo
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="--weird">&ndash;Weird</h4>
+<p><code>--Weird</code> 参数允许您使用实验性 <code>--weird</code> 参数探索不寻常的美学。如果您想要探索不寻常的美学，可以使用 <code>--Weird</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apple --Weird
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="分享几个有趣的demo">分享几个有趣的demo</h2>
+<h4 id="1方罐芒果味口香糖包装设计">1.方罐芒果味口香糖包装设计</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">Square cans Mango flavored gum packaging design
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p></p>
+<h4 id="2一个未知的世界在一个等轴测立方体内部发光到灰色表面鲜艳的色彩">2.一个未知的世界，在一个等轴测立方体内部，发光到灰色表面。鲜艳的色彩</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">an unknown world, inside a isometric cube emitting Light onto a grey surface. Vibrant color
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p></p>
+<h4 id="3控制器彩色半透明机身由节食公羊设计高细节8k工业设计白色背景工作室照明3dc4d搅拌器ocrenderpinterestdribble高细节">3.控制器，彩色，半透明机身，由节食公羊设计，高细节，8k，工业设计，白色背景，工作室照明3D，C4D，搅拌器，OCrender，Pinterest，Dribble，高细节</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">controller,colorful,translucent body, designed bydieter rams,high detail,8k,industrial design,whitebackground,studio lighting 3d, c4d, blender, OCrenderer, pinterest, dribbble, high detail
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p></p>
+<h2 id="感谢关注">感谢关注</h2>
+]]></description>
+</item><item>
     <title>探索midjourney(一)：人工智能生成图像软件的惊人之旅</title>
     <link>http://www.jobcher.com/midjourney-prompt-1/</link>
     <pubDate>Fri, 07 Jul 2023 00:00:00 &#43;0000</pubDate>

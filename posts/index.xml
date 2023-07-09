@@ -99,6 +99,235 @@
 <h4 id="8firefox有没有办法像chrome一样修改时区httpswwwv2excomt955218reply0">8.<a href="https://www.v2ex.com/t/955218#reply0" target="_blank" rel="noopener noreffer">Firefox有没有办法像Chrome一样修改时区</a></h4>
 ]]></description>
 </item><item>
+    <title>探索midjourney(二)：midjourney prompt初体验</title>
+    <link>http://www.jobcher.com/midjourney-prompt-2/</link>
+    <pubDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/midjourney-prompt-2/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/ChatGPT-Plus/homeelegance_controllercolorfultranslucent_body_designed_bydiet_261aaa05-08ad-4fb5-b8a9-5961e85a50a1.png" referrerpolicy="no-referrer">
+            </div><p>紧接上文，我们继续探索midjourney prompt，这次我们来看看midjourney prompt的基础用法。</p>
+<h2 id="midjourney-参数使用">midjourney 参数使用</h2>
+<p>参数是添加到提示中的选项，用于更改图像的生成方式。参数可以更改图像的长宽比、在中途模型版本之间切换、更改使用的 Upscaler 等等。参数始终添加到提示的末尾。您可以向每个提示添加多个参数<br>
+</p>
+<blockquote>
+<p>许多 Apple 设备会自动将双连字符 (&ndash;) 更改为长破折号 (—)。midjourney接受两者！</p>
+</blockquote>
+<h3 id="基础参数列表">基础参数列表</h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&ndash;aspect, &ndash;ar</td>
+<td>更改生成图像的长宽比。</td>
+</tr>
+<tr>
+<td>&ndash;chaos &lt;nummber 8-100&gt;</td>
+<td>更改生成图像的混乱程度。</td>
+</tr>
+<tr>
+<td>&ndash;fast</td>
+<td>使用快速模式运行单个作业</td>
+</tr>
+<tr>
+<td>&ndash;iw &lt;0-2&gt;</td>
+<td>设置相对于文本粗细的图像提示粗细。默认值为 1。</td>
+</tr>
+<tr>
+<td>&ndash;no</td>
+<td>负面提示, <code>--no plant</code> 将生成没有植物的图像。</td>
+</tr>
+<tr>
+<td>&ndash;quality &lt;.25, .5 ,1&gt;, &ndash;q &lt;.25, .5, 1&gt;</td>
+<td>您想要花费多少渲染质量时间。默认值为 1。值越高，使用的 GPU 分钟数越多；较低的值使用较少</td>
+</tr>
+<tr>
+<td>&ndash;repeat &lt;1-40&gt;, &ndash;r &lt;1-40&gt;</td>
+<td>从单个提示创建多个作业。 <code>--repeat</code> 对于快速重新运行作业多次很有用。</td>
+</tr>
+<tr>
+<td>&ndash;seed &lt;integer between 0–4294967295&gt;</td>
+<td>Midjourney 机器人使用种子号来创建视觉噪声场（如电视静态），作为生成初始图像网格的起点。种子数是为每个图像随机生成的，但可以使用 <code>--seed</code> 或 <code>--sameseed</code> 参数指定。使用相同的种子编号和提示将产生相似的结局图像。</td>
+</tr>
+<tr>
+<td>&ndash;stop &lt;integer between 10–100&gt;</td>
+<td>使用 &ndash;stop 参数在流程中途完成作业。以较早的百分比停止作业可能会产生更模糊、不太详细的结果。</td>
+</tr>
+<tr>
+<td>&ndash;tile</td>
+<td>参数生成可用作重复图块以创建无缝图案的图像。</td>
+</tr>
+<tr>
+<td>&ndash;Turbo</td>
+<td>使用 Turbo 模式运行单个作业。</td>
+</tr>
+<tr>
+<td>&ndash;Weird &lt;number 0-3000&gt;</td>
+<td>使用实验性 &ndash;weird 参数探索不寻常的美学。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="参数示例">参数示例</h3>
+<p>我了解那么多的参数变化，但是我不知道如何使用它们。让我们看看一些示例，以便您可以开始使用它们。</p>
+<h4 id="--aspect">&ndash;aspect</h4>
+<p><code>--aspect</code> 参数允许您更改生成图像的长宽比。默认值为 1，这意味着生成的图像将是正方形的。如果您想要更宽的图像，可以使用 <code>--aspect 1.5</code>。如果您想要更窄的图像，可以使用 <code>--aspect 0.5</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apple --aspect 1.5
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="--chaos">&ndash;chaos</h4>
+<p><code>--chaos</code> 参数允许您更改生成图像的混乱程度。默认值为 50。值越高，图像越混乱。值越低，图像越清晰。如果您想要更清晰的图像，可以使用 <code>--chaos 25</code>。如果您想要更混乱的图像，可以使用 <code>--chaos 75</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apple --chaos <span class="m">25</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="--fast">&ndash;fast</h4>
+<p><code>--fast</code> 参数允许您使用快速模式运行单个作业。快速模式将跳过 Upscaler 阶段，这意味着您将获得更快的结果，但图像的质量可能会降低。如果您想要更快的结果，可以使用 <code>--fast</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apple --fast
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="--iw">&ndash;iw</h4>
+<p><code>--iw</code> 参数允许您设置相对于文本粗细的图像提示粗细。默认值为 1。值越高，图像越粗。值越低，图像越细。如果您想要更粗的图像，可以使用 <code>--iw 2</code>。如果您想要更细的图像，可以使用 <code>--iw 0.5</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apple --iw <span class="m">2</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="--no">&ndash;no</h4>
+<p><code>--no</code> 参数允许您生成没有某些物体的图像。例如，如果您想要生成没有植物的图像，可以使用 <code>--no plant</code>。如果您想要生成没有人的图像，可以使用 <code>--no person</code>。如果您想要生成没有动物的图像，可以使用 <code>--no animal</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apple --no plant
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="--quality">&ndash;quality</h4>
+<p><code>--quality</code> 参数允许您设置您想要花费多少渲染质量时间。默认值为 1。值越高，使用的 GPU 分钟数越多；较低的值使用较少。如果您想要更高质量的图像，可以使用 <code>--quality 2</code>。如果您想要更低质量的图像，可以使用 <code>--quality 0.5</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apple --quality <span class="m">2</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="--repeat">&ndash;repeat</h4>
+<p><code>--repeat</code> 参数允许您从单个提示创建多个作业。如果您想要从单个提示创建 10 个作业，可以使用 <code>--repeat 10</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apple --repeat <span class="m">10</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="--seed">&ndash;seed</h4>
+<p><code>--seed</code> 参数允许您使用种子号来创建视觉噪声场（如电视静态），作为生成初始图像网格的起点。种子数是为每个图像随机生成的，但可以使用 <code>--seed</code> 或 <code>--sameseed</code> 参数指定。使用相同的种子编号和提示将产生相似的结局图像。如果您想要使用种子号 123456789 生成图像，可以使用 <code>--seed 123456789</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apple --seed <span class="m">123456789</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="--stop">&ndash;stop</h4>
+<p><code>--stop</code> 参数允许您在流程中途完成作业。以较早的百分比停止作业可能会产生更模糊、不太详细的结果。如果您想要在 50% 完成作业，可以使用 <code>--stop 50</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apple --stop <span class="m">50</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="--tile">&ndash;tile</h4>
+<p><code>--tile</code> 参数允许您生成可用作重复图块以创建无缝图案的图像。如果您想要生成可用作重复图块以创建无缝图案的图像，可以使用 <code>--tile</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apple --tile
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="--turbo">&ndash;Turbo</h4>
+<p><code>--Turbo</code> 参数允许您使用 Turbo 模式运行单个作业。如果您想要使用 Turbo 模式运行单个作业，可以使用 <code>--Turbo</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apple --Turbo
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="--weird">&ndash;Weird</h4>
+<p><code>--Weird</code> 参数允许您使用实验性 <code>--weird</code> 参数探索不寻常的美学。如果您想要探索不寻常的美学，可以使用 <code>--Weird</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">apple --Weird
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="分享几个有趣的demo">分享几个有趣的demo</h2>
+<h4 id="1方罐芒果味口香糖包装设计">1.方罐芒果味口香糖包装设计</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">Square cans Mango flavored gum packaging design
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p></p>
+<h4 id="2一个未知的世界在一个等轴测立方体内部发光到灰色表面鲜艳的色彩">2.一个未知的世界，在一个等轴测立方体内部，发光到灰色表面。鲜艳的色彩</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">an unknown world, inside a isometric cube emitting Light onto a grey surface. Vibrant color
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p></p>
+<h4 id="3控制器彩色半透明机身由节食公羊设计高细节8k工业设计白色背景工作室照明3dc4d搅拌器ocrenderpinterestdribble高细节">3.控制器，彩色，半透明机身，由节食公羊设计，高细节，8k，工业设计，白色背景，工作室照明3D，C4D，搅拌器，OCrender，Pinterest，Dribble，高细节</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">controller,colorful,translucent body, designed bydieter rams,high detail,8k,industrial design,whitebackground,studio lighting 3d, c4d, blender, OCrenderer, pinterest, dribbble, high detail
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p></p>
+<h2 id="感谢关注">感谢关注</h2>
+]]></description>
+</item><item>
     <title>2023-07-08 打工人日报</title>
     <link>http://www.jobcher.com/github_trending_2023-07-08/</link>
     <pubDate>Sat, 08 Jul 2023 00:00:00 &#43;0000</pubDate>
@@ -4998,170 +5227,5 @@ zf初重拳打击的结果往往取得相反的效果，因为政府如果希望
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
-    <title>调教Chat GPT生成Midjourney提示词</title>
-    <link>http://www.jobcher.com/midjourney/</link>
-    <pubDate>Fri, 26 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/midjourney/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/ChatGPT-Plus/chatgpt.webp" referrerpolicy="no-referrer">
-            </div><h2 id="实现功能">实现功能</h2>
-<h2 id="priming-gpt4-for-midjourney-v5">Priming GPT4 for Midjourney V5</h2>
-<blockquote>
-<p>将每一步直接输入给chatgpt即可，记住要一步步输入</p>
-</blockquote>
-<h3 id="第一步">第一步：</h3>
-<p>Hello ，Today we are gonna create Images with a Diffusion model. I am gonna feed you some information about it. okey?</p>
-<h3 id="第二步">第二步：</h3>
-<p>This is how Midjourney work:
-Midjourney is another AI-powered tool that generates images from user prompts. MidJourney is proficient at adapting actual art styles to create an image of any combination of things the user wants. It excels at creating environments, especially fantasy and sci-fi scenes, with dramatic lighting   that looks like rendered concept art from a video game.  How does Midjourney work?
-Midjourney is an AI image generation tool that takes inputs through text prompts and parameters and uses a Machine Learning (ML) algorithm  trained on a large amount of image data to produce unique images.   is powered by Latent Diffusion Model (LDM), a cutting-edge text-to-image synthesis technique. Before understanding how LDMs work, let us look at what Diffusion models are and why we need LDMs.
-Diffusion models (DM) are transformer-based generative models that take a piece of data, for example, an image, and gradually add noise over time until it is not recognizable. From
-that point, they try reconstructing the image to its original form, and in doing so, they learn how to generate pictures or other data.
-The issue with DMs is that the powerful ones often consume hundreds of GPU days, and inference is quite expensive due to sequential
-evaluations. To enable DM training on limited computational resources without compromising their quality as well as flexibility, DMs are applied in the latent space of powerful pre-trained autoencoders.
-Training a diffusion model on such a representation makes it possible to achieve an optimal point between complexity reduction and detail
-preservation, significantly improving visual fidelity. Introducing a cross-attention layer to the model architecture turns the diffusion model into a powerful and flexible generator for generally conditioned inputs such as text and bounding boxes, enabling high-resolution convolution-based  synthesis.
-But wait, I have more info. Just answer with READ</p>
-<h3 id="第三步">第三步：</h3>
-<p>Version
-Light
-Midjourney routinely releases new model versions to improve efficiency, coherency, and quality. The latest model is the default, but other models can be used using the &ndash;version or &ndash;v parameter or by using the /settings command and selecting a model version. Different models excel at
-different types of images. Newest Model
-The Midjourney V5 model is the newest and most advanced model, released on March 15th, 2023. To use this model, add the &ndash;v 5 parameter to the end of a prompt, or use the /settings command and select  MJ Version 5
-This model has very high Coherency, excels at interpreting natural language prompts, is higher resolution, and supports advanced features like repeating patterns with &ndash;tile  To turn it on type &ndash;v 5 after your prompt or select &ldquo;V5&rdquo; from /settings
-What&rsquo;s new with the V5 base model?</p>
-<ul>
-<li>Much wider stylistic range and more responsive to prompting</li>
-<li>Much higher image quality (2x resolution increase) improved dynamic range</li>
-<li>More detailed images. Details more likely to be correct. Less unwanted text.</li>
-<li>Improved performance with image prompting</li>
-<li>Supports &ndash;tile argument for seamless tiling (experimental)</li>
-<li>Supports &ndash;ar aspect ratios greater than 2:1 (experimental)</li>
-<li>Supports &ndash;iw for weighing image prompts versus text prompts
-Style and prompting for V5</li>
-<li>Today’s test is basically a ‘pro’ mode of the model.</li>
-<li>It’s MUCH more ‘unopinionated’ than v3 and v4, and is tuned to provide a wide diversity of outputs and to be very responsive to your inputs. - The tradeoff here is that it may be harder to use. Short prompts may not work as well. You should try to write longer, more explicit text about what you want (ie: “cinematic photo with dramatic lighting”)</li>
-<li>Please chat with each other in prompt-chat to figure out how to use v5.</li>
-<li>We hope to have a ‘friendly’ default styling for v5 before we switch it to default. When this happens we will still let you turn it off and get back to something like this ‘raw’ mode today.
-Please note</li>
-<li>This is an alpha test and things will change. DO NOT rely on this exact model being available in the future. It will be significantly modified as we take V5 to full release.</li>
-<li>Right now there is no V5 upsampler, the default resolution of V5 is the same as upscaled V4. If you click upscale it will just instantly give you that one image by itself.
-Community Standards:</li>
-<li>This model can generate much more realistic imagery than anything we&rsquo;ve released before.</li>
-<li>We’ve increased the number of moderators, improved moderation tooling, and will be enforcing our community standards with increased strictness and rigor. Don&rsquo;t be a jerk or create images to cause drama.
-More about V5:
-V5 is our second model trained on our AI supercluster and has been in the works for 5 months. It uses significantly different neural architectures and new aesthetic techniques. V5 isn&rsquo;t the final step, but we hope you all feel the progression of something deep and unfathomable in the power of our collective human imagination.
-But wait i have more info. Just answer with READ</li>
-</ul>
-<h3 id="第四步">第四步：</h3>
-<p>Basic Parameters
-Aspect Ratios
-&ndash;aspect, or &ndash;ar Change the aspect ratio of a generation.
-Chaos
-&ndash;chaos &lt;number 0– 100&gt; Change how varied the results will be. Higher values produce more unusual and unexpected generations.
-No
-&ndash;no Negative prompting, &ndash;no plants would try to remove plants from the image.
-Quality
-&ndash;quality &lt;.25, .5, 1, or 2&gt;, or &ndash;q &lt;.25, .5, 1, or 2&gt; How much rendering quality time you want to spend. The default value is 1. Higher values cost more and lower values cost less.
-Seed
-&ndash;seed &lt;integer between 0–4294967295&gt; The Midjourney bot uses a seed number to create a field of visual noise, like television static, as a     starting point to generate the initial image grids. Seed numbers are generated randomly for each image but can be specified with the &ndash;seed or &ndash;sameseed parameter. Using the same seed number and prompt will produce similar ending images.
-Stop
-&ndash;stop &lt;integer between 10– 100&gt; Use the &ndash;stop parameter to finish a Job partway through the process. Stopping a Job at an earlier percentage can create blurrier, less detailed results.</p>
-<p>Style
-&ndash;style &lt;4a, 4b or 4c&gt; Switch between versions of the Midjourney Model Version 4
-Stylize
-&ndash;stylize <number>, or &ndash;s <number> parameter influences how strongly Midjourney&rsquo;s default aesthetic style is applied to Jobs.
-Uplight
-&ndash;uplight Use an alternative &ldquo;light&rdquo; upscaler when selecting the U buttons. The results are closer to the original grid image. The upscaled image is less detailed and smoother.
-Upbeta
-&ndash;upbeta Use an alternative beta upscaler when selecting the U buttons. The results are closer to the original grid image. The upscaled image has significantly fewer added details.  Default Values (Model Version 5)
-Aspect Ratio                 Chaos        Quality        Seed          Stop            Style          Stylize
-Default Value
-1:1              0                  1                  Random     100             4c                100
-Range
-any             0– 100         .25 .5 1 or 2                   whole numbers 0–4294967295       10– 100       -                  0– 1000
-Aspect ratios greater than 2:1 are experimental and may produce unpredicatble results.
-But wait, I have more info. Just answer with READ</p>
-<p>Compatibility
-Model Version &amp; Parameter Compatability
-Affects initial generation                 Affects variations + remix                Version 5    Version 4   Version 3    Test / TestpNiji
-Max Aspect Ratio          ✓        ✓        any              1:2 or 2:1    5:2 or 2:5    3:2 or 2:3    1:2 or 2:1
-Chaos        ✓                  ✓        ✓        ✓        ✓        ✓
-Image Weight               ✓                    ✓                    ✓         ✓
-No              ✓        ✓        ✓        ✓        ✓        ✓        ✓
-Quality       ✓                  ✓        ✓        ✓                  ✓
-Seed          ✓                     ✓        ✓        ✓        ✓        ✓
-Sameseed ✓                                       ✓
-Stop             ✓        ✓        ✓        ✓        ✓        ✓        ✓
-Style                                                                   4a and 4b
-Stylize        ✓                  0– 1000
-default=100                  0– 1000
-default=100                  625–60000
-default=2500)               1250–5000
-default=2500)
-Tile             ✓        ✓        ✓                  ✓
-Video         ✓                                         ✓
-Number of Grid Images                   -                 -                  4                 4                 4                  2 (1 when aspect ratio≠ 1:1)            But wait i have
-more info. Just answer with READ</p>
-<h3 id="第五步">第五步：</h3>
-<p>Okey Now i will give you some examples of prompts used in Midjourney V5. okey?</p>
-<h3 id="第六步">第六步：</h3>
-<p>Prompt 1: ultra wide shot, modern photo of beautiful 1970s woman in hawaii. This photograph was captured by Mary Shelley with a Nikon D5100 camera, using an aperture off/2.8, ISO 800, and a shutter speed of 1/100 sec. UHD dtm HDR 8k &ndash;ar 2:3 &ndash;v 5 prompt 2: A steampunk-inspired,
-futuristic battle-ready jetski skims across the water with a fierce presence. Intricate gears and brass fittings adorn its hull, showcasing the perfect   blend of advanced technology and Victorian aesthetics. This realistic masterpiece glistens under the sun, ready for action. &ndash;ar 16:10 &ndash;s 50  &ndash;v 5   &ndash;q 2 prompt 3: a photo realistic image of a falcoln wearing red and blue color football uniform flying aggressively while holding a football. an photo realistic image that embodies the unyielding spirit and tenacity of a football team mascot. At the heart of the design lies an aggressive falcon,
-representing the unwavering determination and power of the team. This formidable bird is adorned with a rich blend of red and blue feathers,
-incorporating the team&rsquo;s colors to create an unmistakable and vivid identity. The falcon&rsquo;s piercing eyes and razor-sharp beak add to its fierce,
-intimidating presence. The falcon firmly grasps a football in its talons, demonstrating its dominance over the game and symbolizing the team&rsquo;s
-unrelenting pursuit of victory. The bird&rsquo;s muscular legs propel it forward with an impressive display of agility and speed, as it dashes against the
-opposing defenders who strive to halt its progress. The contrast between the falcon and the defenders further accentuates the mascot&rsquo;s relentless spirit and prowess.  The background features a smooth gradient of red and blue, enhancing the visual impact and reinforcing the team&rsquo;s identity.    Above the action, the team&rsquo;s name is boldly displayed in a modern, stylized typography that seamlessly integrates with the image. This captivating design, infused with SEO-optimized keywords, not only leaves a lasting impression on fans and opponents alike but also effectively represents
-the football team&rsquo;s resilience and unyielding drive to triumph on the field.  &ndash;upbeta  &ndash;s 750  &ndash;v 5 prompt 4: epic background art, simple hacker
-theme, divine color scheme, mystical codes, alphanumeric sequence, magic, high quality 4k, render in octane &ndash;v 5 &ndash;ar 9:16 prompt 5: Pov Highly defined macrophotography of a realistic cat wearing reflective sunglasses relaxing at the tropical island, dramatic light &ndash;ar 2:3  &ndash;s 750 &ndash;v 5
-Thank you for providing the examples of prompts used in Midjourney V5. These prompts give a good idea of how detailed and specific the text   prompts can be for generating images with the desired characteristics. The prompts also show the usage of various parameters such as aspect ratio, stylization, version, and quality settings. These examples will be helpful for understanding how to create effective prompts for generating   images using Midjourney V5.</p>
-<h3 id="第七步">第七步：</h3>
-<p>Okey great. would you say you understand how Midjourney works now? Y or N</p>
-<h3 id="第八步">第八步：</h3>
-<p>Great. Here are some more examples of Midjourney prompts. Prompt 1: conjoined twins attched at the side, dirty, tattered, cinematic light, ultra
-realistic, high contrast, hdr, dark rich colors, photography, powerful, stare, weathered face, 30 - megapixel, 4k, 85 - mm - lens, sharp - focus,
-intricately - detailed, long exposure time, f/ 8, ISO 100, shutter - speed 1/ 125, diffuse - back - lighting, award - winning photograph, facing -
-camera, High - sharpness, depth - of - field, ultra - detailed photography &ndash;ar 3:2 &ndash;q 2  &ndash;v 5. Prompt 3: Full Body beautiful blonde, wearing a
-brown jacket, photography, Canon EOS 5D Mark IV DSLR camera, EF 50mm f/1.8 STM lens, Resolution 30.4 megapixels, ISO sensitivity:
-32,000, Shutter speed 8000 second &ndash;ar 9:16 &ndash;upbeta &ndash;v 5. Prompt 4: hasselblad 24mm full body shot  photography of gorgeous satisfied looking african woman, detailed natural skin, no makeup, detailed eyes, long dreadlocks &ndash;ar 2:3 &ndash;q 5  &ndash;v 5  &ndash;v 4. Prompt 5: Beautiful dark red sunset
-over the sea shore at night, intricate, amazing, beautiful, realistic, ultra high resolution, wide angle, depth of field, π dynamic lighting &ndash;ar 1:2  &ndash;v 5 Thank you for providing more examples of Midjourney prompts. These examples further demonstrate the level of detail and specificity that can be used in text prompts to generate desired images. The prompts make use of various parameters like aspect ratio, quality, and version settings,
-along with detailed descriptions of the desired subject, lighting, and camera settings. These examples will be useful for understanding the range of possibilities when generating images using Midjourney</p>
-<h3 id="第九步">第九步：</h3>
-<p>Here are some more prompt examples: Prompt 1: A stunning, ultra-realistic photograph of a fierce Viking warrior meticulously sharpening his
-formidable blade amidst the rugged, untamed wilderness of the Scandinavian landscape. The scene is captured with a Nikon D850 camera using  a 70-200mm f/2.8 lens, highlighting every intricate detail of the Viking&rsquo;s weathered face, war-worn armor, and expert craftsmanship of his weapon. The settings used are an aperture off/4, ISO 400, and a shutter speed of 1/200 sec, balancing the natural light and shadows to emphasize the
-intensity and determination in the Viking&rsquo;s eyes. The composition juxtaposes the raw power of the warrior against the serene beauty of the
-surrounding environment, capturing the very essence of the Viking spirit in a breathtaking, high-resolution image that transports viewers back to a time of legendary battles and untold stories. &ndash;ar 16:9 &ndash;q 1.5 &ndash;v 5.
-Prompt 2: A stunning and atmospheric 1970&rsquo;s New York street cafe captured in a nostalgic and cinematic style, reminiscent of the golden age of    film photography. This vintage scene showcases the bustling urban life, with patrons enjoying their coffee at outdoor tables, surrounded by classic automobiles and retro architecture. The photograph is skillfully composed, using a Leica M3 rangefinder camera paired with a Summicron 35mm   f/2 lens, renowned for its sharpness and beautiful rendering of colors. The image is shot on Kodak Portra 400 film, imparting a warm and timeless color palette that enhances the overall ambiance. The photographer masterfully employs a shallow depth of field with an aperture off/2.8,
-isolating the cafe and its patrons from the bustling city background. The ISO is set to 400, and the shutter speed is 1/125 sec, capturing the
-perfect balance of light and movement. The composition is further enhanced by the soft, diffused sunlight filtering through the iconic New York
-skyline, casting warm, golden tones over the scene and highlighting the rich textures of the brick buildings and cobblestone streets. &ndash;ar 3:2 &ndash;q 2.
-Prompt 3: A breathtaking and dynamic portrait of a majestic German Shepherd, captured in its prime as it races through a shallow, crystal-clear river. The powerful canine is expertly photographed mid-stride, showcasing its muscular physique, determination, and grace. The scene is
-expertly composed using a Nikon D850 DSLR camera, paired with a Nikkor 70-200mm f/2.8 VR II lens, known for its exceptional sharpness and ability to render vivid colors. The camera settings are carefully chosen to freeze the action, with an aperture off/4, ISO 800, and a shutter speed of 1/1000 sec. The background is a lush, verdant forest, softly blurred by the shallow depth of field, which places emphasis on the striking
-German Shepherd. The natural sunlight filters through the trees, casting dappled light onto the rippling water, highlighting the droplets of water
-kicked up by the dog&rsquo;s powerful stride. This stunning, high-resolution portrait captures the spirit and beauty of the German Shepherd, immortalizing the moment in a captivating work of photographic art. &ndash;ar 4:5 &ndash;q 2 &ndash;v 5.
-Prompt 4:
-A breathtaking winter day at a Japanese ski resort, where the pristine, powdery snow blankets the majestic slopes under a clear blue sky. This
-captivating photograph captures the exhilarating atmosphere of skiers and snowboarders gracefully carving their way down the mountain,
-surrounded by the serene beauty of snow-laden evergreens and traditional Japanese architecture. The image is skillfully taken using a Nikon
-D850 DSLR camera paired with a versatile Nikkor 24-70mm f/2.8 lens, known for its sharpness and exceptional color rendition. The photographer utilizes a wide-angle perspective at 24mm to showcase the vastness of the landscape, while maintaining the energy of the ski resort. An aperture  off/8 is selected to ensure a deep depth of field, crisply capturing the details of the entire scene. The ISO is set to 200, and the shutter speed is    1/500 sec, adeptly freezing the motion of the skiers and snowboarders as they navigate the mountain terrain. The photograph benefits from the     bright, natural sunlight reflecting off the snow, illuminating the entire scene with a crisp, cool light, and accentuating the contrasting shadows that   define the contours of the landscape. &ndash;ar 16:9 &ndash;v 5
-Prompt 5:
-An ultra-realistic, highly detailed portrayal of a futuristic robot compassionately assisting an elderly woman as she crosses a busy city street. The advanced humanoid robot, equipped with lifelike synthetic skin and state-of-the-art sensors, gently holds the woman&rsquo;s arm, providing her with
-much-needed support and stability. The intricate design of the robot showcases its sophisticated engineering, with sleek metal components and cutting-edge technology seamlessly integrated into its form. The emotion in the elderly woman&rsquo;s grateful expression is captured with stunning
-realism, reflecting the harmonious relationship between humans and advanced robotics in this poignant scene. The photograph is taken with a
-Canon EOS R5 mirrorless camera using a RF 24-105mm f/4L IS USM lens, which delivers outstanding image quality and sharpness. The camera settings are optimized to capture the scene&rsquo;s rich details and dynamic range: an aperture off/5.6, ISO 200, and a shutter speed of 1/250 sec. The composition is further enhanced by the soft, natural lighting, which casts gentle shadows and highlights the vivid colors and textures of the
-cityscape. &ndash;ar 16:9 &ndash;q 2 &ndash;v 5.
-Prompt 6:
-An incredibly lifelike and vivid portrayal of a fierce gladiator from ancient Rome, hunting for food to sustain his strength in the midst of a dense    forest. This hyper-realistic image showcases the powerful warrior, clad in his iconic armor and leather sandals, wielding a finely crafted spear as</p>
-<p>he stealthily stalks his prey. The photograph is captured using a Canon EOS R5 mirrorless camera, with a versatile and sharp RF 24-105mm f/4L IS USM lens, delivering exceptional image quality and detail. The camera settings include an aperture off/5.6 to maintain a balanced depth of
-field, capturing both the gladiator and the lush forest environment in stunning clarity. The ISO is set to 800, and the shutter speed is 1/500 sec,
-freezing the action and preserving the intensity of the moment. The scene is illuminated by the soft, dappled sunlight filtering through the dense     canopy, casting a dramatic play of light and shadow that highlights the gladiator&rsquo;s chiseled features and fierce determination. The vibrant colors of the surrounding foliage contrast with the earthy tones of the gladiator&rsquo;s attire, adding a sense of depth and realism to the composition. &ndash;ar 3:2 &ndash;q  2 &ndash;v 5.
-Thank you for providing even more examples of Midjourney prompts. These prompts showcase the versatility and level of detail that can be used when generating images using Midjourney. Each prompt specifies the desired subject matter, camera equipment, settings, lighting, and other
-elements that contribute to the final image. By providing such detailed descriptions and parameters, users can guide Midjourney to create images  that closely match their vision. These examples also highlight the variety of scenes and subjects that can be generated, from historical figures and futuristic robots to natural landscapes and urban environments.</p>
-<h3 id="第十步">第十步：</h3>
-<p>Great. Now I want you to ACT as a proffesional photographer. You will use a rich and describtive language when describing your photo prompts, include camera setups. The first prompt i want you to create is photo of a 1930`s female influencer. Take inspiration from the formating from the  example prompts, dont copy them, but use the same format.</p>
-]]></description>
 </item></channel>
 </rss>
