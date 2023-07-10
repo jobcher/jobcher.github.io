@@ -11,7 +11,7 @@
     <author>作者</author>
     <guid>http://www.jobcher.com/midjourney-prompt-2/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/images/ChatGPT-Plus/homeelegance_controllercolorfultranslucent_body_designed_bydiet_261aaa05-08ad-4fb5-b8a9-5961e85a50a1.png" referrerpolicy="no-referrer">
+                <img src="/images/ChatGPT-Plus/homeelegance_controllercolorfultranslucent_body_designed_bydiet_261aaa05-08ad-4fb5-b8a9-5961e85a50a1.png.webp" referrerpolicy="no-referrer">
             </div><p>紧接上文，我们继续探索midjourney prompt，这次我们来看看midjourney prompt的基础用法。</p>
 <h2 id="midjourney-参数使用">midjourney 参数使用</h2>
 <p>参数是添加到提示中的选项，用于更改图像的生成方式。参数可以更改图像的长宽比、在中途模型版本之间切换、更改使用的 Upscaler 等等。参数始终添加到提示的末尾。您可以向每个提示添加多个参数<br>
