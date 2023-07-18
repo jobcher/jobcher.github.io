@@ -4,7 +4,293 @@
         <link>http://www.jobcher.com/categories/k8s/</link>
         <description>k8s - 分类 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 15 Nov 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/k8s/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 18 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/k8s/" rel="self" type="application/rss+xml" /><item>
+    <title>Ansible部署ceph集群</title>
+    <link>http://www.jobcher.com/ansible-ceph/</link>
+    <pubDate>Tue, 18 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/ansible-ceph/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/ceph-logo.png" referrerpolicy="no-referrer">
+            </div><h2 id="基础配置">基础配置</h2>
+<p>三台环境为centos7.9，以下配置需要在每台机器上执行</p>
+<h3 id="配置hosts解析">配置hosts解析</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cat &gt;&gt; /etc/hosts <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">192.168.2.23 node1
+</span></span></span><span class="line"><span class="cl"><span class="s">192.168.2.24 node2
+</span></span></span><span class="line"><span class="cl"><span class="s">192.168.2.25 node3
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="关闭防火墙和selinux">关闭防火墙和selinux</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">systemctl stop firewalld <span class="o">&amp;&amp;</span> systemctl disable firewalld
+</span></span><span class="line"><span class="cl">setenforce <span class="m">0</span> <span class="o">&amp;&amp;</span> sed -i <span class="s1">&#39;s/SELINUX=enforcing/SELINUX=disabled/g&#39;</span> /etc/selinux/config
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="分别在三个节点设置主机名">分别在三个节点设置主机名</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">hostnamectl set-hostname node1
+</span></span><span class="line"><span class="cl">hostnamectl set-hostname node2
+</span></span><span class="line"><span class="cl">hostnamectl set-hostname node3
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="配置主机时间同步">配置主机时间同步</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">systemctl restart chronyd.service <span class="o">&amp;&amp;</span> systemctl <span class="nb">enable</span> chronyd.service
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="配置免密登录">配置免密登录</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ssh-keygen
+</span></span><span class="line"><span class="cl">ssh-copy-id -i .ssh/id_rsa.pub node1
+</span></span><span class="line"><span class="cl">ssh-copy-id -i .ssh/id_rsa.pub node2
+</span></span><span class="line"><span class="cl">ssh-copy-id -i .ssh/id_rsa.pub node3
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="安装pip和ansiblegit">安装pip和ansible、git</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">yum install python-pip ansible git -y
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="部署ceph集群">部署ceph集群</h2>
+<h3 id="克隆存储库">克隆存储库</h3>
+<p>这里我选择安装的是ceph nautilus版本</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git clone https://github.com/ceph/ceph-ansible.git
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ceph-ansible
+</span></span><span class="line"><span class="cl">git checkout stable-4.0
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="安装ansible依赖包">安装ansible依赖包</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">pip install --upgrade pip
+</span></span><span class="line"><span class="cl">pip install -r requirements.txt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="修改hosts文件添加安装的节点">修改hosts文件，添加安装的节点</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cat &gt;&gt; /etc/ansible/hosts <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">[mons]
+</span></span></span><span class="line"><span class="cl"><span class="s">node1
+</span></span></span><span class="line"><span class="cl"><span class="s">node2
+</span></span></span><span class="line"><span class="cl"><span class="s">node3
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">[osds]
+</span></span></span><span class="line"><span class="cl"><span class="s">node1
+</span></span></span><span class="line"><span class="cl"><span class="s">node2
+</span></span></span><span class="line"><span class="cl"><span class="s">node3
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">[mgrs]
+</span></span></span><span class="line"><span class="cl"><span class="s">node1
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">[mdss]
+</span></span></span><span class="line"><span class="cl"><span class="s">node1
+</span></span></span><span class="line"><span class="cl"><span class="s">node2
+</span></span></span><span class="line"><span class="cl"><span class="s">node3
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">[clients]
+</span></span></span><span class="line"><span class="cl"><span class="s">node1
+</span></span></span><span class="line"><span class="cl"><span class="s">node2
+</span></span></span><span class="line"><span class="cl"><span class="s">node3
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">[rgws]
+</span></span></span><span class="line"><span class="cl"><span class="s">node1
+</span></span></span><span class="line"><span class="cl"><span class="s">node2
+</span></span></span><span class="line"><span class="cl"><span class="s">node3
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">[grafana-server]
+</span></span></span><span class="line"><span class="cl"><span class="s">node1
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="备份group_vars下的yml文件">备份group_vars下的yml文件</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">cd</span> ceph-ansible/group_vars
+</span></span><span class="line"><span class="cl"><span class="k">for</span> file in *<span class="p">;</span><span class="k">do</span> cp <span class="nv">$file</span> <span class="si">${</span><span class="nv">file</span><span class="p">%.*</span><span class="si">}</span><span class="p">;</span><span class="k">done</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="修改group_varsallyml配置">修改group_vars/all.yml配置</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">dummy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">mon_group_name</span><span class="p">:</span><span class="w"> </span><span class="l">mons</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">osd_group_name</span><span class="p">:</span><span class="w"> </span><span class="l">osds</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">rgw_group_name</span><span class="p">:</span><span class="w"> </span><span class="l">rgws</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">mds_group_name</span><span class="p">:</span><span class="w"> </span><span class="l">mdss</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">client_group_name</span><span class="p">:</span><span class="w"> </span><span class="l">clients</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">mgr_group_name</span><span class="p">:</span><span class="w"> </span><span class="l">mgrs</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">grafana_server_group_name</span><span class="p">:</span><span class="w"> </span><span class="l">grafana-server</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">configure_firewall</span><span class="p">:</span><span class="w"> </span><span class="kc">False</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">ceph_origin</span><span class="p">:</span><span class="w"> </span><span class="l">repository</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">ceph_origin</span><span class="p">:</span><span class="w"> </span><span class="l">repository</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">ceph_repository</span><span class="p">:</span><span class="w"> </span><span class="l">community</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">ceph_mirror</span><span class="p">:</span><span class="w"> </span><span class="l">http://mirrors.aliyun.com/ceph</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">ceph_stable_key</span><span class="p">:</span><span class="w"> </span><span class="l">http://mirrors.aliyun.com/ceph/keys/release.asc</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">ceph_stable_release</span><span class="p">:</span><span class="w"> </span><span class="l">nautilus</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">ceph_stable_repo</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{ ceph_mirror }}/rpm-{{ ceph_stable_release }}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">public_network</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;192.168.2.0/24&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">cluster_network</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;192.168.2.0/24&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">monitor_interface</span><span class="p">:</span><span class="w"> </span><span class="l">ens33</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">osd_auto_discovery</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">osd_objectstore</span><span class="p">:</span><span class="w"> </span><span class="l">filestore</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">radosgw_interface</span><span class="p">:</span><span class="w"> </span><span class="l">ens33</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">dashboard_admin_password</span><span class="p">:</span><span class="w"> </span><span class="l">asd123456</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">grafana_admin_password</span><span class="p">:</span><span class="w"> </span><span class="l">admin</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">pg_autoscale_mode</span><span class="p">:</span><span class="w"> </span><span class="kc">True</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="修改group_varsosdsyml配置">修改group_vars/osds.yml配置</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">devices</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="l">/dev/sdb</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>修改site.yml配置<br>
+</p>
+<h2 id="开始进行安装">开始进行安装</h2>
+<p>剩下的交给时间吧，十分钟左右就装好了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ansible-playbook -i /etc/ansible/hosts site.yml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>查看安装状态，发现有一个警告，这是因为在之前的all.yml配置没有开启允许自动调整pool中的pg数 <code>pg_autoscale_mode: False</code> ，手动设置下即可</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ceph osd pool <span class="nb">set</span> &lt;pool-name&gt; pg_autoscale_mode on
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
+</item><item>
     <title>Kubernetes — 更新证书</title>
     <link>http://www.jobcher.com/k8s16/</link>
     <pubDate>Tue, 15 Nov 2022 00:00:00 &#43;0000</pubDate>
@@ -1724,84 +2010,5 @@ systemctl status kubelet</p>
 <p>修改 deployment.yaml 中的 imageName 属性等</p>
 <p>完成后运行 <code>kubectl apply -f xxx.yaml</code></p>
 ]]></description>
-</item><item>
-    <title>kubernetes manual expansion</title>
-    <link>http://www.jobcher.com/k8s7/</link>
-    <pubDate>Mon, 13 Jun 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/k8s7/</guid>
-    <description><![CDATA[<h1 id="k8s-manual-expansion">k8s manual expansion</h1>
-<p>We find k8s-master node.Input the Command：</p>
-<ol>
-<li>expand</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl scale --replicas<span class="o">=</span><span class="m">3</span> deploy my-test-deploy
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="2">
-<li>shrink</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl scale --replicas<span class="o">=</span><span class="m">1</span> deploy my-test-deploy
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="trouble-cleaning">trouble cleaning</h2>
-<ol>
-<li>get resource list</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl get deployment
-</span></span><span class="line"><span class="cl">kubectl get pods
-</span></span><span class="line"><span class="cl">kubectl get nodes
-</span></span><span class="line"><span class="cl"><span class="c1"># exists in the namespace</span>
-</span></span><span class="line"><span class="cl">kubectl api-resources --namespaced<span class="o">=</span><span class="nb">true</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># not exists in the namespace</span>
-</span></span><span class="line"><span class="cl">kubectl api-resources --namespaced<span class="o">=</span><span class="nb">false</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="2">
-<li>show info</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl describe pod my-test-pod
-</span></span><span class="line"><span class="cl">kubectl describe deployment my-test-pod
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="3">
-<li>exec container</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl <span class="nb">exec</span> -ti my-test-pod /bin/bash
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description>
 </item></channel>
 </rss>
