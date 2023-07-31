@@ -1,0 +1,88 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>IOS 开发 - seris - 打工人日志 - jobcher</title>
+        <link>http://www.jobcher.com/series/ios-%E5%BC%80%E5%8F%91/</link>
+        <description>IOS 开发 - seris - 打工人日志 - jobcher</description>
+        <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 31 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/ios-%E5%BC%80%E5%8F%91/" rel="self" type="application/rss+xml" /><item>
+    <title>CocoaPods 安装及碰到问题</title>
+    <link>http://www.jobcher.com/cocoapods/</link>
+    <pubDate>Mon, 31 Jul 2023 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/cocoapods/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/cocoapods-orange-on-grey-1.jpg" referrerpolicy="no-referrer">
+            </div><h2 id="背景">背景</h2>
+<p>CocoaPods 是OS X和IOS 下的第三类库管理工具，通过CocoaPods工具我们可以为项目添加被称为<code>Pods</code>的依赖库</p>
+<h2 id="检查环境">检查环境</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ruby -v
+</span></span><span class="line"><span class="cl">gem -v
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="出现异常问题">出现异常问题</h3>
+<blockquote>
+<p>/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/universal-darwin22/rbconfig.rb:21: warning: Insecure world writable dir /opt/homebrew/bin in PATH, mode 040777</p>
+</blockquote>
+<p>该警告信息表明在你的PATH环境变量中包含了一个“不安全可写”（Insecure world writable）的目录<code>/opt/homebrew/bin</code>。这可能会导致潜在的安全问题。<br>
+为了解决这个警告，你需要修复<code>/opt/homebrew/bin</code>目录的权限，以使其不再被标记为“不安全可写”。</p>
+<h4 id="解决问题">解决问题</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">chmod 755 /opt/homebrew/bin
+</span></span><span class="line"><span class="cl">chmod 755 /opt/homebrew
+</span></span><span class="line"><span class="cl">chmod 755 /opt/homebrew/sbin
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="安装cocoapods">安装cocoapods</h2>
+<p>输入安装命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo gem install cocoapods
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="出现异常问题-1">出现异常问题</h3>
+<blockquote>
+<p>ERROR:  While executing gem &hellip; (Gem::FilePermissionError)
+You don&rsquo;t have write permissions for the /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/gems/2.6.0 directory.
+/Library/Ruby/Site/2.6.0/rubygems/installer.rb:714:in <code>verify_gem_home' /Library/Ruby/Site/2.6.0/rubygems/installer.rb:904:in </code>pre_install_checks'
+……</p>
+</blockquote>
+<p>在 <code>macOS</code> 系统中，系统的Ruby目录通常是受保护的，并且普通用户没有对这些目录进行写操作的权限。为了解决这个问题，你应该避免在系统级别的Ruby目录中进行Gem的安装。相反，你应该使用用户级别的Gem安装目录。</p>
+<h4 id="解决方案">解决方案</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mkdir -p ~/.gem/ruby/2.6.0
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.gem/ruby/2.6.0/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nb">source</span> ~/.bash_profile
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">gem cocoapods install --user-install
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
+</item></channel>
+</rss>
