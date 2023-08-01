@@ -102,6 +102,100 @@
 <h4 id="3nrc跑步计划watch端没有声音提醒httpswwwv2excomt961375reply0">3.<a href="https://www.v2ex.com/t/961375#reply0" target="_blank" rel="noopener noreffer">NRC跑步计划Watch端没有声音提醒？</a></h4>
 ]]></description>
 </item><item>
+    <title>黑群晖最新安装教程</title>
+    <link>http://www.jobcher.com/black_nas/</link>
+    <pubDate>Tue, 01 Aug 2023 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/black_nas/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/lyd0wozvo39ycoc8t2ke.png" referrerpolicy="no-referrer">
+            </div><h1 id="黑群晖最新安装教程">黑群晖最新安装教程</h1>
+<p>我这里拿<code>蜗牛星际</code>举例讲解，如何安装群晖最新引导文件，如何正常使用黑群晖。</p>
+<h2 id="准备">准备</h2>
+<ul>
+<li>黑群晖设备一台</li>
+<li>电源线</li>
+<li>hdmi 或者其他视频线</li>
+<li>有线鼠标</li>
+<li>有线键盘</li>
+<li>显示器</li>
+<li>8g 以上U盘</li>
+<li>一块1T以上硬盘</li>
+</ul>
+<h2 id="开始安装">开始安装</h2>
+<h3 id="1-制作u盘启动器">1. 制作U盘启动器</h3>
+<p>下载 大白菜U盘制作器 <a href="https://www.dabaicai.com/" target="_blank" rel="noopener noreffer">https://www.dabaicai.com/</a><br>
+1、打开大白菜超级U盘装机工具，点击主界面的【U盘启动】模块，然后选择【默认模式】。<br>
+<br>
+2、在【请选择】后面选择需要制作启动的设备（插入的USB设备，一般会默认读取该设备）。<br>
+<br>
+3、模式选择【USB-HDD】，格式选择【NTFS】，然后点击【一键制作USB启动盘】。<br>
+<br>
+4、在点击一键制作后会弹出一个关于【U盘数据删除且不可恢复】的窗口，选择【是】。<br>
+</p>
+<h3 id="2-引导文件复制">2. 引导文件复制</h3>
+<blockquote>
+<p>开始前先拔掉前面4个盘位的硬盘，以防写错盘导致数据丢失。</p>
+</blockquote>
+<p>1、载写盘软件和群晖引导文件，然后二个文件复制到U盘上<br>
+引导文件下载链接: <a href="https://pan.baidu.com/s/1F-Mva0AuEehUNk4q19QyxA" target="_blank" rel="noopener noreffer">https://pan.baidu.com/s/1F-Mva0AuEehUNk4q19QyxA</a><br>
+提取码: amf3</p>
+<blockquote>
+<p>复制到U盘!</p>
+</blockquote>
+<h3 id="3-u盘启动黑群晖写入文件">3. U盘启动黑群晖，写入文件</h3>
+<blockquote>
+<p>开始前先拔掉前面4个盘位的硬盘，以防写错盘导致数据丢失。</p>
+</blockquote>
+<p>1、大白菜U盘启动,插上U盘开机自检页面 按F11或F7（根据机型不同快捷按键不同），选U盘启动<br>
+<br>
+2、桌面找到 分区工具DiskGenius<br>
+<br>
+3、点选 第一个硬盘 即便是内置的16G硬盘，右键选删除所有分区<br>
+<br>
+<br>
+<br>
+4、保存更改<br>
+<br>
+<br>
+5、删除分区完毕后  打开此电脑 找 默认的第一个分区里面的写盘工具<br>
+<br>
+6、选择写盘工具软件  打开<br>
+<br>
+7、全部保存默认参数，只需要找到群晖引导文件 打开<br>
+<br>
+8、找到U盘上的群晖引导文件IMG，然后点 右下角的Start 按钮开始写入<br>
+</p>
+<blockquote>
+<p>写入完毕的 提示，此时就写入完成了，拔掉U盘重启系统即可。</p>
+</blockquote>
+<h3 id="4-重启设备后安装dsm系统">4. 重启设备后安装DSM系统</h3>
+<p>这里为了保证系统稳定性，使用DSM6.2.3系统，我们这边使用DS918+4盘符<br>
+1、下载群晖助手软件和系统文件<br>
+Synology Assistant: <a href="https://cndl.synology.cn/download/Utility/Assistant/7.0.4-50051/Windows/synology-assistant-7.0.4-50051.exe?model=DS918%2B&amp;bays=4&amp;dsm_version=6.2.4&amp;build_number=25556" target="_blank" rel="noopener noreffer">https://cndl.synology.cn/download/Utility/Assistant/7.0.4-50051/Windows/synology-assistant-7.0.4-50051.exe?model=DS918%2B&amp;bays=4&amp;dsm_version=6.2.4&amp;build_number=25556</a><br>
+2、DSM6.2.3系统：<a href="https://pan.baidu.com/s/15CYI12-P1GcdLOa-FqNWrA" target="_blank" rel="noopener noreffer">https://pan.baidu.com/s/15CYI12-P1GcdLOa-FqNWrA</a><br>
+提取码: riub</p>
+<p>2、安装群晖助手软件：在<code>同一网段内</code>的电脑上安装群晖助手软件<br>
+<br>
+3、打开群晖助手搜索到IP,如果要在线安装系统 就选联机  如果本地安装系统就选  安装</p>
+<blockquote>
+<p>推荐使用在线安装方式, <code>注意一定要指定系统文件安装</code>，否则会导致引导系统损坏无法进入系统。<br>
+<br>
+4、然后右键点联机 会跳出网页，浏览器弹出群晖系统的安装界面，选择手动安装<br>
+<br>
+<br>
+5、手动方式指定系统文件安装、勾选  开始格式化硬盘
+<br>
+<br>
+6、等待<br>
+<br>
+<br>
+7、设置你的账号和密码，开始使用吧！</p>
+</blockquote>
+<h2 id="总结">总结</h2>
+<p>实际上安装并不复杂，只是在一些关键环节上不要出错，不过也没关系，如果有问题就重新安装就好了，既然你已经用了黑群晖了，就不要关注数据安全的问题了。其实对于我们普通人来说，数据其实没有你想象中的那么重要。</p>
+]]></description>
+</item><item>
     <title>2023-07-31 打工人日报</title>
     <link>http://www.jobcher.com/github_trending_2023-07-31/</link>
     <pubDate>Mon, 31 Jul 2023 00:00:00 &#43;0000</pubDate>
@@ -889,112 +983,6 @@ You don&rsquo;t have write permissions for the /System/Library/Frameworks/Ruby.f
 <h4 id="15程序员想拍vlog给个建议啊httpswwwv2excomt959421reply0">15.<a href="https://www.v2ex.com/t/959421#reply0" target="_blank" rel="noopener noreffer">程序员想拍vlog，给个建议啊</a></h4>
 <h4 id="16香港0元机票求助httpswwwv2excomt959424reply0">16.<a href="https://www.v2ex.com/t/959424#reply0" target="_blank" rel="noopener noreffer">香港0元机票求助</a></h4>
 <h4 id="17第5年在这里卖冬枣树上熟绿色陕西渭南大荔冬枣httpswwwv2excomt959425reply0">17.<a href="https://www.v2ex.com/t/959425#reply0" target="_blank" rel="noopener noreffer">第5年在这里卖冬枣/树上熟+绿色/陕西渭南大荔冬枣</a></h4>
-]]></description>
-</item><item>
-    <title>2023-07-24 打工人日报</title>
-    <link>http://www.jobcher.com/github_trending_2023-07-24/</link>
-    <pubDate>Mon, 24 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/github_trending_2023-07-24/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/wallpaper/2023-07-24.jpg.webp" referrerpolicy="no-referrer">
-            </div><h2 id="微博热搜榜">微博热搜榜</h2>
-<h4 id="排名-1我国载人登月火箭最新进展httpssweibocomweiboq我国载人登月火箭最新进展">排名 1.<a href="https://s.weibo.com/weibo?q=%e6%88%91%e5%9b%bd%e8%bd%bd%e4%ba%ba%e7%99%bb%e6%9c%88%e7%81%ab%e7%ae%ad%e6%9c%80%e6%96%b0%e8%bf%9b%e5%b1%95" target="_blank" rel="noopener noreffer">我国载人登月火箭最新进展</a></h4>
-<h4 id="排名-2齐齐哈尔坍塌体育馆已致10人死亡httpssweibocomweiboq齐齐哈尔坍塌体育馆已致10人死亡">排名 2.<a href="https://s.weibo.com/weibo?q=%e9%bd%90%e9%bd%90%e5%93%88%e5%b0%94%e5%9d%8d%e5%a1%8c%e4%bd%93%e8%82%b2%e9%a6%86%e5%b7%b2%e8%87%b410%e4%ba%ba%e6%ad%bb%e4%ba%a1" target="_blank" rel="noopener noreffer">齐齐哈尔坍塌体育馆已致10人死亡</a></h4>
-<h4 id="排名-3为什么有些水果不甜却容易长胖httpssweibocomweiboq为什么有些水果不甜却容易长胖">排名 3.<a href="https://s.weibo.com/weibo?q=%e4%b8%ba%e4%bb%80%e4%b9%88%e6%9c%89%e4%ba%9b%e6%b0%b4%e6%9e%9c%e4%b8%8d%e7%94%9c%e5%8d%b4%e5%ae%b9%e6%98%93%e9%95%bf%e8%83%96" target="_blank" rel="noopener noreffer">为什么有些水果不甜却容易长胖</a></h4>
-<h4 id="排名-4这个夏天共赴青春盛会httpssweibocomweiboq这个夏天共赴青春盛会">排名 4.<a href="https://s.weibo.com/weibo?q=%e8%bf%99%e4%b8%aa%e5%a4%8f%e5%a4%a9%e5%85%b1%e8%b5%b4%e9%9d%92%e6%98%a5%e7%9b%9b%e4%bc%9a" target="_blank" rel="noopener noreffer">这个夏天共赴青春盛会</a></h4>
-<h4 id="排名-5被网友吃菌子中毒后的描述笑死httpssweibocomweiboq被网友吃菌子中毒后的描述笑死">排名 5.<a href="https://s.weibo.com/weibo?q=%e8%a2%ab%e7%bd%91%e5%8f%8b%e5%90%83%e8%8f%8c%e5%ad%90%e4%b8%ad%e6%af%92%e5%90%8e%e7%9a%84%e6%8f%8f%e8%bf%b0%e7%ac%91%e6%ad%bb" target="_blank" rel="noopener noreffer">被网友吃菌子中毒后的描述笑死</a></h4>
-<h4 id="排名-6莲花楼首播反响httpssweibocomweiboq莲花楼首播反响">排名 6.<a href="https://s.weibo.com/weibo?q=%e8%8e%b2%e8%8a%b1%e6%a5%bc%e9%a6%96%e6%92%ad%e5%8f%8d%e5%93%8d" target="_blank" rel="noopener noreffer">莲花楼首播反响</a></h4>
-<h4 id="排名-7孟宴臣的皇冠vs宋焰的钻戒httpssweibocomweiboq孟宴臣的皇冠vs宋焰的钻戒">排名 7.<a href="https://s.weibo.com/weibo?q=%e5%ad%9f%e5%ae%b4%e8%87%a3%e7%9a%84%e7%9a%87%e5%86%a0vs%e5%ae%8b%e7%84%b0%e7%9a%84%e9%92%bb%e6%88%92" target="_blank" rel="noopener noreffer">孟宴臣的皇冠vs宋焰的钻戒</a></h4>
-<h4 id="排名-8一辈子很短但周一很长httpssweibocomweiboq一辈子很短但周一很长">排名 8.<a href="https://s.weibo.com/weibo?q=%e4%b8%80%e8%be%88%e5%ad%90%e5%be%88%e7%9f%ad%e4%bd%86%e5%91%a8%e4%b8%80%e5%be%88%e9%95%bf" target="_blank" rel="noopener noreffer">一辈子很短但周一很长</a></h4>
-<h4 id="排名-9杨玏封神白月光httpssweibocomweiboq杨玏封神白月光">排名 9.<a href="https://s.weibo.com/weibo?q=%e6%9d%a8%e7%8e%8f%e5%b0%81%e7%a5%9e%e7%99%bd%e6%9c%88%e5%85%89" target="_blank" rel="noopener noreffer">杨玏封神白月光</a></h4>
-<h4 id="排名-10推特标志将被改为xhttpssweibocomweiboq推特标志将被改为x">排名 10.<a href="https://s.weibo.com/weibo?q=%e6%8e%a8%e7%89%b9%e6%a0%87%e5%bf%97%e5%b0%86%e8%a2%ab%e6%94%b9%e4%b8%baX" target="_blank" rel="noopener noreffer">推特标志将被改为X</a></h4>
-<h4 id="排名-11tfboys西安演唱会今天开票httpssweibocomweiboqtfboys西安演唱会今天开票">排名 11.<a href="https://s.weibo.com/weibo?q=TFBOYS%e8%a5%bf%e5%ae%89%e6%bc%94%e5%94%b1%e4%bc%9a%e4%bb%8a%e5%a4%a9%e5%bc%80%e7%a5%a8" target="_blank" rel="noopener noreffer">TFBOYS西安演唱会今天开票</a></h4>
-<h4 id="排名-12上海厕所一个奇怪的标志httpssweibocomweiboq上海厕所一个奇怪的标志">排名 12.<a href="https://s.weibo.com/weibo?q=%e4%b8%8a%e6%b5%b7%e5%8e%95%e6%89%80%e4%b8%80%e4%b8%aa%e5%a5%87%e6%80%aa%e7%9a%84%e6%a0%87%e5%bf%97" target="_blank" rel="noopener noreffer">上海厕所一个奇怪的标志</a></h4>
-<h4 id="排名-13齐齐哈尔坍塌事故发现被埋女排教练httpssweibocomweiboq齐齐哈尔坍塌事故发现被埋女排教练">排名 13.<a href="https://s.weibo.com/weibo?q=%e9%bd%90%e9%bd%90%e5%93%88%e5%b0%94%e5%9d%8d%e5%a1%8c%e4%ba%8b%e6%95%85%e5%8f%91%e7%8e%b0%e8%a2%ab%e5%9f%8b%e5%a5%b3%e6%8e%92%e6%95%99%e7%bb%83" target="_blank" rel="noopener noreffer">齐齐哈尔坍塌事故发现被埋女排教练</a></h4>
-<h4 id="排名-14田曦薇项链是戚薇送的httpssweibocomweiboq田曦薇项链是戚薇送的">排名 14.<a href="https://s.weibo.com/weibo?q=%e7%94%b0%e6%9b%a6%e8%96%87%e9%a1%b9%e9%93%be%e6%98%af%e6%88%9a%e8%96%87%e9%80%81%e7%9a%84" target="_blank" rel="noopener noreffer">田曦薇项链是戚薇送的</a></h4>
-<h4 id="排名-15坍塌体育馆毗邻楼施工单位责任人被控制httpssweibocomweiboq坍塌体育馆毗邻楼施工单位责任人被控制">排名 15.<a href="https://s.weibo.com/weibo?q=%e5%9d%8d%e5%a1%8c%e4%bd%93%e8%82%b2%e9%a6%86%e6%af%97%e9%82%bb%e6%a5%bc%e6%96%bd%e5%b7%a5%e5%8d%95%e4%bd%8d%e8%b4%a3%e4%bb%bb%e4%ba%ba%e8%a2%ab%e6%8e%a7%e5%88%b6" target="_blank" rel="noopener noreffer">坍塌体育馆毗邻楼施工单位责任人被控制</a></h4>
-<h4 id="排名-16魏大勋是经得起考古的httpssweibocomweiboq魏大勋是经得起考古的">排名 16.<a href="https://s.weibo.com/weibo?q=%e9%ad%8f%e5%a4%a7%e5%8b%8b%e6%98%af%e7%bb%8f%e5%be%97%e8%b5%b7%e8%80%83%e5%8f%a4%e7%9a%84" target="_blank" rel="noopener noreffer">魏大勋是经得起考古的</a></h4>
-<h4 id="排名-17向往的生活莲花楼版httpssweibocomweiboq向往的生活莲花楼版">排名 17.<a href="https://s.weibo.com/weibo?q=%e5%90%91%e5%be%80%e7%9a%84%e7%94%9f%e6%b4%bb%e8%8e%b2%e8%8a%b1%e6%a5%bc%e7%89%88" target="_blank" rel="noopener noreffer">向往的生活莲花楼版</a></h4>
-<h4 id="排名-18台风杜苏芮httpssweibocomweiboq台风杜苏芮">排名 18.<a href="https://s.weibo.com/weibo?q=%e5%8f%b0%e9%a3%8e%e6%9d%9c%e8%8b%8f%e8%8a%ae" target="_blank" rel="noopener noreffer">台风杜苏芮</a></h4>
-<h4 id="排名-19珍珠岩httpssweibocomweiboq珍珠岩">排名 19.<a href="https://s.weibo.com/weibo?q=%e7%8f%8d%e7%8f%a0%e5%b2%a9" target="_blank" rel="noopener noreffer">珍珠岩</a></h4>
-<h4 id="排名-20齐齐哈尔体育馆坍塌事故已致9人死亡httpssweibocomweiboq齐齐哈尔体育馆坍塌事故已致9人死亡">排名 20.<a href="https://s.weibo.com/weibo?q=%e9%bd%90%e9%bd%90%e5%93%88%e5%b0%94%e4%bd%93%e8%82%b2%e9%a6%86%e5%9d%8d%e5%a1%8c%e4%ba%8b%e6%95%85%e5%b7%b2%e8%87%b49%e4%ba%ba%e6%ad%bb%e4%ba%a1" target="_blank" rel="noopener noreffer">齐齐哈尔体育馆坍塌事故已致9人死亡</a></h4>
-<h2 id="github-热门榜单">GitHub 热门榜单</h2>
-<h3 id="排名-1seblaguechess-challenge">排名 1:/SebLague/Chess-Challenge</h3>
-<ul>
-<li>简介: <a href="https://youtu.be/iScy18pVR58" target="_blank" rel="noopener noreffer">https://youtu.be/iScy18pVR58</a></li>
-<li>URL: <a href="https://github.com/SebLague/Chess-Challenge" target="_blank" rel="noopener noreffer">https://github.com/SebLague/Chess-Challenge</a></li>
-<li>作者: SebLague</li>
-</ul>
-<h3 id="排名-2invoke-aiinvokeai">排名 2:/invoke-ai/InvokeAI</h3>
-<ul>
-<li>简介: InvokeAI是稳定扩散模型的领先创意引擎，使专业人士、艺术家和爱好者能够使用最新的人工智能驱动技术生成和创建视觉媒体。该解决方案提供了业界领先的WebUI，支持通过CLI进行终端使用，并作为多种商业产品的基础。</li>
-<li>URL: <a href="https://github.com/invoke-ai/InvokeAI" target="_blank" rel="noopener noreffer">https://github.com/invoke-ai/InvokeAI</a></li>
-<li>作者: invoke-ai</li>
-</ul>
-<h3 id="排名-3studiochernowalnut">排名 3:/StudioCherno/Walnut</h3>
-<ul>
-<li>简介: Walnut是Vulkan和Dear ImGui应用程序的简单应用程序框架</li>
-<li>URL: <a href="https://github.com/StudioCherno/Walnut" target="_blank" rel="noopener noreffer">https://github.com/StudioCherno/Walnut</a></li>
-<li>作者: StudioCherno</li>
-</ul>
-<h3 id="排名-4jmorgancaollama">排名 4:/jmorganca/ollama</h3>
-<ul>
-<li>简介: 在本地启动并运行大型语言模型</li>
-<li>URL: <a href="https://github.com/jmorganca/ollama" target="_blank" rel="noopener noreffer">https://github.com/jmorganca/ollama</a></li>
-<li>作者: jmorganca</li>
-</ul>
-<h3 id="排名-5rayventurashortgpt">排名 5:/RayVentura/ShortGPT</h3>
-<ul>
-<li>简介: 🚀🎬 ShortGPT-一个用于自动短/视频内容创建的实验性人工智能框架。使创作者能够使用人工智能和自动化快速生产、管理和交付内容。</li>
-<li>URL: <a href="https://github.com/RayVentura/ShortGPT" target="_blank" rel="noopener noreffer">https://github.com/RayVentura/ShortGPT</a></li>
-<li>作者: RayVentura</li>
-</ul>
-<h3 id="排名-6nativephplaravel">排名 6:/NativePHP/laravel</h3>
-<ul>
-<li>简介: NativePHP框架的Laravel包装器</li>
-<li>URL: <a href="https://github.com/NativePHP/laravel" target="_blank" rel="noopener noreffer">https://github.com/NativePHP/laravel</a></li>
-<li>作者: NativePHP</li>
-</ul>
-<h3 id="排名-8livewirelivewire">排名 8:/livewire/livewire</h3>
-<ul>
-<li>简介: 一个适用于Laravel的全栈框架，可以减轻构建动态UI的痛苦。</li>
-<li>URL: <a href="https://github.com/livewire/livewire" target="_blank" rel="noopener noreffer">https://github.com/livewire/livewire</a></li>
-<li>作者: livewire</li>
-</ul>
-<h3 id="排名-9andreabergiarjvm">排名 9:/andreabergia/rjvm</h3>
-<ul>
-<li>简介: 一个用Rust编写的小型JVM。学习项目</li>
-<li>URL: <a href="https://github.com/andreabergia/rjvm" target="_blank" rel="noopener noreffer">https://github.com/andreabergia/rjvm</a></li>
-<li>作者: andreabergia</li>
-</ul>
-<h3 id="排名-10oobaboogatext-generation-webui">排名 10:/oobabooga/text-generation-webui</h3>
-<ul>
-<li>简介: 用于运行大型语言模型（如LLaMA、LLaMA.cpp、GPT-J、Pythia、OPT和GALACTICA）的gradio web UI。</li>
-<li>URL: <a href="https://github.com/oobabooga/text-generation-webui" target="_blank" rel="noopener noreffer">https://github.com/oobabooga/text-generation-webui</a></li>
-<li>作者: oobabooga</li>
-</ul>
-<h2 id="v2ex-热门帖子">v2ex 热门帖子</h2>
-<h4 id="130岁从大厂裸辞全家搬往英国的故事下httpswwwv2excomt959091reply31">1.<a href="https://www.v2ex.com/t/959091#reply31" target="_blank" rel="noopener noreffer">30岁从大厂裸辞全家搬往英国的故事（下）</a></h4>
-<h4 id="2有没有需要办或想换广州电信宽带的老婆在电信工作httpswwwv2excomt959100reply23">2.<a href="https://www.v2ex.com/t/959100#reply23" target="_blank" rel="noopener noreffer">有没有需要办或想换广州电信宽带的，老婆在电信工作</a></h4>
-<h4 id="3大龄青年有必要考公吗httpswwwv2excomt959101reply8">3.<a href="https://www.v2ex.com/t/959101#reply8" target="_blank" rel="noopener noreffer">大龄青年有必要考公吗</a></h4>
-<h4 id="4在浏览器实时运行cc代码httpswwwv2excomt959093reply7">4.<a href="https://www.v2ex.com/t/959093#reply7" target="_blank" rel="noopener noreffer">🔥在浏览器实时运行C/C++代码！</a></h4>
-<h4 id="5非android开发者如何用开源代码生成需要的apk安装包httpswwwv2excomt959094reply6">5.<a href="https://www.v2ex.com/t/959094#reply6" target="_blank" rel="noopener noreffer">非Android开发者如何用开源代码生成需要的APK安装包？</a></h4>
-<h4 id="6小区到处是狗的排泄物直接导致我对狗和爱狗人士没有好感httpswwwv2excomt959099reply6">6.<a href="https://www.v2ex.com/t/959099#reply6" target="_blank" rel="noopener noreffer">小区到处是狗的排泄物，直接导致我对狗和“爱狗”人士没有好感</a></h4>
-<h4 id="7m1pro如果想接4个4k显示器可以买什么设备嘛httpswwwv2excomt959097reply5">7.<a href="https://www.v2ex.com/t/959097#reply5" target="_blank" rel="noopener noreffer">m1pro如果想接4个4k显示器，可以买什么设备嘛？</a></h4>
-<h4 id="8surge5formac5人车每人145大版本更新需3人同意上车的留tg号httpswwwv2excomt959106reply5">8.<a href="https://www.v2ex.com/t/959106#reply5" target="_blank" rel="noopener noreffer">surge5formac，5人车，每人145，大版本更新需3人同意，上车的留TG号</a></h4>
-<h4 id="9在mac的环境下用flutter开发app有什么推荐监听请求api数据的工具吗httpswwwv2excomt959102reply4">9.<a href="https://www.v2ex.com/t/959102#reply4" target="_blank" rel="noopener noreffer">在mac的环境下用flutter开发app，有什么推荐监听请求api数据的工具吗</a></h4>
-<h4 id="102023年关于办理香港银行卡的疑问httpswwwv2excomt959108reply4">10.<a href="https://www.v2ex.com/t/959108#reply4" target="_blank" rel="noopener noreffer">2023年关于办理香港银行卡的疑问</a></h4>
-<h4 id="11关于我25岁偶遇公主这件事httpswwwv2excomt959112reply3">11.<a href="https://www.v2ex.com/t/959112#reply3" target="_blank" rel="noopener noreffer">关于我25岁，偶遇公主这件事</a></h4>
-<h4 id="12m1pro和m2pro的丐版512g是单颗粒还是双颗粒httpswwwv2excomt959098reply2">12.<a href="https://www.v2ex.com/t/959098#reply2" target="_blank" rel="noopener noreffer">m1pro和m2pro的丐版512G是单颗粒还是双颗粒</a></h4>
-<h4 id="13macbookpro三年的ac到期了可以续费了httpswwwv2excomt959110reply2">13.<a href="https://www.v2ex.com/t/959110#reply2" target="_blank" rel="noopener noreffer">MacBookPro三年的AC+到期了可以续费了</a></h4>
-<h4 id="14大家好请问applewatchs8怎么常显秒数httpswwwv2excomt959092reply1">14.<a href="https://www.v2ex.com/t/959092#reply1" target="_blank" rel="noopener noreffer">大家好。请问applewatchs8怎么常显秒数？</a></h4>
-<h4 id="15没有qa也没有时间做cr有什么办法还能提高交付质量httpswwwv2excomt959103reply1">15.<a href="https://www.v2ex.com/t/959103#reply1" target="_blank" rel="noopener noreffer">没有QA，也没有时间做CR，有什么办法还能提高交付质量？</a></h4>
-<h4 id="16基于graalvm开发个人工具箱httpswwwv2excomt959107reply1">16.<a href="https://www.v2ex.com/t/959107#reply1" target="_blank" rel="noopener noreffer">基于GraalVM开发个人工具箱</a></h4>
-<h4 id="17有什么推介的终端管理软件httpswwwv2excomt959114reply1">17.<a href="https://www.v2ex.com/t/959114#reply1" target="_blank" rel="noopener noreffer">有什么推介的终端管理软件？</a></h4>
-<h4 id="18说说打字速度吧httpswwwv2excomt959115reply1">18.<a href="https://www.v2ex.com/t/959115#reply1" target="_blank" rel="noopener noreffer">说说打字速度吧</a></h4>
-<h4 id="19写了一个常用的工具站httpswwwv2excomt959089reply0">19.<a href="https://www.v2ex.com/t/959089#reply0" target="_blank" rel="noopener noreffer">写了一个常用的工具站</a></h4>
-<h4 id="20ios招聘httpswwwv2excomt959090reply0">20.<a href="https://www.v2ex.com/t/959090#reply0" target="_blank" rel="noopener noreffer">iOS招聘</a></h4>
 ]]></description>
 </item></channel>
 </rss>

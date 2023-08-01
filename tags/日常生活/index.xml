@@ -4,7 +4,101 @@
         <link>http://www.jobcher.com/tags/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/</link>
         <description>日常生活 - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 21 Jun 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 01 Aug 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" rel="self" type="application/rss+xml" /><item>
+    <title>黑群晖最新安装教程</title>
+    <link>http://www.jobcher.com/black_nas/</link>
+    <pubDate>Tue, 01 Aug 2023 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/black_nas/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/lyd0wozvo39ycoc8t2ke.png" referrerpolicy="no-referrer">
+            </div><h1 id="黑群晖最新安装教程">黑群晖最新安装教程</h1>
+<p>我这里拿<code>蜗牛星际</code>举例讲解，如何安装群晖最新引导文件，如何正常使用黑群晖。</p>
+<h2 id="准备">准备</h2>
+<ul>
+<li>黑群晖设备一台</li>
+<li>电源线</li>
+<li>hdmi 或者其他视频线</li>
+<li>有线鼠标</li>
+<li>有线键盘</li>
+<li>显示器</li>
+<li>8g 以上U盘</li>
+<li>一块1T以上硬盘</li>
+</ul>
+<h2 id="开始安装">开始安装</h2>
+<h3 id="1-制作u盘启动器">1. 制作U盘启动器</h3>
+<p>下载 大白菜U盘制作器 <a href="https://www.dabaicai.com/" target="_blank" rel="noopener noreffer">https://www.dabaicai.com/</a><br>
+1、打开大白菜超级U盘装机工具，点击主界面的【U盘启动】模块，然后选择【默认模式】。<br>
+<br>
+2、在【请选择】后面选择需要制作启动的设备（插入的USB设备，一般会默认读取该设备）。<br>
+<br>
+3、模式选择【USB-HDD】，格式选择【NTFS】，然后点击【一键制作USB启动盘】。<br>
+<br>
+4、在点击一键制作后会弹出一个关于【U盘数据删除且不可恢复】的窗口，选择【是】。<br>
+</p>
+<h3 id="2-引导文件复制">2. 引导文件复制</h3>
+<blockquote>
+<p>开始前先拔掉前面4个盘位的硬盘，以防写错盘导致数据丢失。</p>
+</blockquote>
+<p>1、载写盘软件和群晖引导文件，然后二个文件复制到U盘上<br>
+引导文件下载链接: <a href="https://pan.baidu.com/s/1F-Mva0AuEehUNk4q19QyxA" target="_blank" rel="noopener noreffer">https://pan.baidu.com/s/1F-Mva0AuEehUNk4q19QyxA</a><br>
+提取码: amf3</p>
+<blockquote>
+<p>复制到U盘!</p>
+</blockquote>
+<h3 id="3-u盘启动黑群晖写入文件">3. U盘启动黑群晖，写入文件</h3>
+<blockquote>
+<p>开始前先拔掉前面4个盘位的硬盘，以防写错盘导致数据丢失。</p>
+</blockquote>
+<p>1、大白菜U盘启动,插上U盘开机自检页面 按F11或F7（根据机型不同快捷按键不同），选U盘启动<br>
+<br>
+2、桌面找到 分区工具DiskGenius<br>
+<br>
+3、点选 第一个硬盘 即便是内置的16G硬盘，右键选删除所有分区<br>
+<br>
+<br>
+<br>
+4、保存更改<br>
+<br>
+<br>
+5、删除分区完毕后  打开此电脑 找 默认的第一个分区里面的写盘工具<br>
+<br>
+6、选择写盘工具软件  打开<br>
+<br>
+7、全部保存默认参数，只需要找到群晖引导文件 打开<br>
+<br>
+8、找到U盘上的群晖引导文件IMG，然后点 右下角的Start 按钮开始写入<br>
+</p>
+<blockquote>
+<p>写入完毕的 提示，此时就写入完成了，拔掉U盘重启系统即可。</p>
+</blockquote>
+<h3 id="4-重启设备后安装dsm系统">4. 重启设备后安装DSM系统</h3>
+<p>这里为了保证系统稳定性，使用DSM6.2.3系统，我们这边使用DS918+4盘符<br>
+1、下载群晖助手软件和系统文件<br>
+Synology Assistant: <a href="https://cndl.synology.cn/download/Utility/Assistant/7.0.4-50051/Windows/synology-assistant-7.0.4-50051.exe?model=DS918%2B&amp;bays=4&amp;dsm_version=6.2.4&amp;build_number=25556" target="_blank" rel="noopener noreffer">https://cndl.synology.cn/download/Utility/Assistant/7.0.4-50051/Windows/synology-assistant-7.0.4-50051.exe?model=DS918%2B&amp;bays=4&amp;dsm_version=6.2.4&amp;build_number=25556</a><br>
+2、DSM6.2.3系统：<a href="https://pan.baidu.com/s/15CYI12-P1GcdLOa-FqNWrA" target="_blank" rel="noopener noreffer">https://pan.baidu.com/s/15CYI12-P1GcdLOa-FqNWrA</a><br>
+提取码: riub</p>
+<p>2、安装群晖助手软件：在<code>同一网段内</code>的电脑上安装群晖助手软件<br>
+<br>
+3、打开群晖助手搜索到IP,如果要在线安装系统 就选联机  如果本地安装系统就选  安装</p>
+<blockquote>
+<p>推荐使用在线安装方式, <code>注意一定要指定系统文件安装</code>，否则会导致引导系统损坏无法进入系统。<br>
+<br>
+4、然后右键点联机 会跳出网页，浏览器弹出群晖系统的安装界面，选择手动安装<br>
+<br>
+<br>
+5、手动方式指定系统文件安装、勾选  开始格式化硬盘
+<br>
+<br>
+6、等待<br>
+<br>
+<br>
+7、设置你的账号和密码，开始使用吧！</p>
+</blockquote>
+<h2 id="总结">总结</h2>
+<p>实际上安装并不复杂，只是在一些关键环节上不要出错，不过也没关系，如果有问题就重新安装就好了，既然你已经用了黑群晖了，就不要关注数据安全的问题了。其实对于我们普通人来说，数据其实没有你想象中的那么重要。</p>
+]]></description>
+</item><item>
     <title>推荐一下 容器云资源</title>
     <link>http://www.jobcher.com/20230621/</link>
     <pubDate>Wed, 21 Jun 2023 00:00:00 &#43;0000</pubDate>
