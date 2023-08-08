@@ -98,6 +98,74 @@ You don&rsquo;t have write permissions for the /System/Library/Frameworks/Ruby.f
 <li><code>CoreDataKit</code>：CoreDataKit是一个便捷的Core Data封装库，简化了Core Data的使用和管理。</li>
 </ol>
 <p>这只是iOS开发中的一小部分常用框架和库，还有很多其他优秀的开源库可供选择，根据您的应用程序需求，选择适合的框架和库可以加快开发速度并提供更好的用户体验。</p>
-]]></description>
+<h2 id="初始化项目">初始化项目</h2>
+<p>在xcode中创建项目，进入xcode根目录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">pod init
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>编写Podfile</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Uncomment the next line to define a global platform for your project</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># platform :ios, &#39;9.0&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">target &#39;demo&#39; do</span><span class="w"> </span><span class="c">### app名称</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Comment the next line if you don&#39;t want to use dynamic frameworks</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">use_frameworks!</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Pods for demo</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">pod &#39;SWXMLHash&#39;</span><span class="w"> </span><span class="c">### 添加的依赖</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">pod &#34;ViewAnimator&#34;</span><span class="w"> </span><span class="c">### 添加的依赖</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">target &#39;demoTests&#39; do</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">inherit! :search_paths</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Pods for testing</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">target &#39;demoUITests&#39; do</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Pods for testing</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">end</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">end</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>安装依赖</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">pod install
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
 </item></channel>
 </rss>
