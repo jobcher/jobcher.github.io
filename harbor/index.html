@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "http:\/\/www.jobcher.com\/harbor\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "k8s","wordcount":  1158 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "k8s","wordcount":  1332 ,
         "url": "http:\/\/www.jobcher.com\/harbor\/","datePublished": "2022-01-14T00:00:00+00:00","dateModified": "2022-01-14T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -140,7 +140,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Harbor 搭建</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/k8s/"><i class="far fa-folder fa-fw"></i>k8s</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-14">2022-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1158 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-14">2022-01-14</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1332 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/harbor/" class="leancloud_visitors" data-flag-title="Harbor 搭建">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -154,6 +154,8 @@
     <li><a href="#要求">要求</a></li>
     <li><a href="#安装">安装</a></li>
     <li><a href="#配置">配置</a></li>
+    <li><a href="#harbor-配置和使用">harbor 配置和使用</a></li>
+    <li><a href="#推送到harbor">推送到harbor</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="harbor-搭建">Harbor 搭建</h1>
@@ -543,6 +545,47 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">jobservice</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">clair</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="harbor-配置和使用">harbor 配置和使用</h2>
+<p>在你需要上传的服务器上执行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker login &lt;harbor域名&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>输入用户名和密码，出现以下提示说明登录成功</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">Login Succeeded
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="推送到harbor">推送到harbor</h2>
+<p>标记本地镜像, 将其归入某一仓库,这里使用<code>test</code>仓库</p>
+<blockquote>
+<p>docker tag &lt;域名&gt;/&lt;仓库&gt;/&lt;镜像名&gt;:&lt;版本号&gt;</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker tag 127.0.0.1/test/nginx:v1
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>将本地镜像推送到镜像仓库(需先登录镜像仓库)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker push 127.0.0.1/test/nginx:v1
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
