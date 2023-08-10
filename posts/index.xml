@@ -102,6 +102,53 @@
 <h4 id="5微信分身的实现原理是什么httpswwwv2excomt963941reply0">5.<a href="https://www.v2ex.com/t/963941#reply0" target="_blank" rel="noopener noreffer">微信分身的实现原理是什么？</a></h4>
 ]]></description>
 </item><item>
+    <title>Vue3 &#43; vite &#43; nginx项目部署后404问题</title>
+    <link>http://www.jobcher.com/nginx-error/</link>
+    <pubDate>Thu, 10 Aug 2023 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/nginx-error/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/nginx.png" referrerpolicy="no-referrer">
+            </div><h2 id="vue3--vite--nginx项目部署后404问题">Vue3 + vite + nginx项目部署后404问题</h2>
+<p><code>vue3 + vite + nginx</code><br>
+在服务器上部署后打开首页都没问题，打开其他路径全部 404。<br>
+<code>nginx</code> 报错日志：<code>No such file or directory</code></p>
+<blockquote>
+<p>其实查看 <code>build</code> 后的<code>dist文件夹</code>可以发现，只有一个<code>index.html</code>，当你访问别的路径时<code>nignx</code>查找不到所以就报错了</p>
+</blockquote>
+<h2 id="解决方案">解决方案</h2>
+<p>在 nginx.conf 中添加: <code>try_files $uri $uri/ /index.html;</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">server {
+</span></span><span class="line"><span class="cl">          listen       80;
+</span></span><span class="line"><span class="cl">          server_name  localhost;
+</span></span><span class="line"><span class="cl">          location / {
+</span></span><span class="line"><span class="cl">          root   /dist;
+</span></span><span class="line"><span class="cl">          index  index.html index.htm;
+</span></span><span class="line"><span class="cl">          # 在配置文件的此处加上这句话
+</span></span><span class="line"><span class="cl">          try_files $uri $uri/ /index.html;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="总结">总结</h2>
+<p>其实上述改动就是告诉 nignx 找不到文件的时候就访问 <code>index.html</code> 就可以了。</p>
+<p>究其原因其实就是是 vue3 的 router 使用了<code>history</code>模式，该模式与之前<code>hash</code>模式的具体区别可以自行百度一下，不在此赘述。</p>
+]]></description>
+</item><item>
     <title>2023-08-09 打工人日报</title>
     <link>http://www.jobcher.com/github_trending_2023-08-09/</link>
     <pubDate>Wed, 09 Aug 2023 00:00:00 &#43;0000</pubDate>
@@ -792,101 +839,6 @@
 </ul>
 <h2 id="v2ex-热门帖子">v2ex 热门帖子</h2>
 <h4 id="1网页在微信中打开点右上角分享给好友时链接显示缩略图和简介除了调用微信的js-sdk还有其他方式吗httpswwwv2excomt961962reply0">1.<a href="https://www.v2ex.com/t/961962#reply0" target="_blank" rel="noopener noreffer">网页在微信中打开点右上角分享给好友时链接显示缩略图和简介，除了调用微信的js-sdk，还有其他方式吗</a></h4>
-]]></description>
-</item><item>
-    <title>2023-08-02 打工人日报</title>
-    <link>http://www.jobcher.com/github_trending_2023-08-02/</link>
-    <pubDate>Wed, 02 Aug 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/github_trending_2023-08-02/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/wallpaper/2023-08-02.jpg.webp" referrerpolicy="no-referrer">
-            </div><h2 id="微博热搜榜">微博热搜榜</h2>
-<h4 id="排名-1逐梦强军httpssweibocomweiboq逐梦强军">排名 1.<a href="https://s.weibo.com/weibo?q=%e9%80%90%e6%a2%a6%e5%bc%ba%e5%86%9b" target="_blank" rel="noopener noreffer">逐梦强军</a></h4>
-<h4 id="排名-2猎罪图鉴2-加女主httpssweibocomweiboq猎罪图鉴2加女主">排名 2.<a href="https://s.weibo.com/weibo?q=%e7%8c%8e%e7%bd%aa%e5%9b%be%e9%89%b42%e5%8a%a0%e5%a5%b3%e4%b8%bb" target="_blank" rel="noopener noreffer">猎罪图鉴2 加女主</a></h4>
-<h4 id="排名-3芭比被日本大规模抵制httpssweibocomweiboq芭比被日本大规模抵制">排名 3.<a href="https://s.weibo.com/weibo?q=%e8%8a%ad%e6%af%94%e8%a2%ab%e6%97%a5%e6%9c%ac%e5%a4%a7%e8%a7%84%e6%a8%a1%e6%8a%b5%e5%88%b6" target="_blank" rel="noopener noreffer">芭比被日本大规模抵制</a></h4>
-<h4 id="排名-4暴雨天气10个安全指南httpssweibocomweiboq暴雨天气10个安全指南">排名 4.<a href="https://s.weibo.com/weibo?q=%e6%9a%b4%e9%9b%a8%e5%a4%a9%e6%b0%9410%e4%b8%aa%e5%ae%89%e5%85%a8%e6%8c%87%e5%8d%97" target="_blank" rel="noopener noreffer">暴雨天气10个安全指南</a></h4>
-<h4 id="排名-5为热爱绽放httpssweibocomweiboq为热爱绽放">排名 5.<a href="https://s.weibo.com/weibo?q=%e4%b8%ba%e7%83%ad%e7%88%b1%e7%bb%bd%e6%94%be" target="_blank" rel="noopener noreffer">为热爱绽放</a></h4>
-<h4 id="排名-6微信小绿书httpssweibocomweiboq微信小绿书">排名 6.<a href="https://s.weibo.com/weibo?q=%e5%be%ae%e4%bf%a1%e5%b0%8f%e7%bb%bf%e4%b9%a6" target="_blank" rel="noopener noreffer">微信小绿书</a></h4>
-<h4 id="排名-7台风卡努抵近日本冲绳httpssweibocomweiboq台风卡努抵近日本冲绳">排名 7.<a href="https://s.weibo.com/weibo?q=%e5%8f%b0%e9%a3%8e%e5%8d%a1%e5%8a%aa%e6%8a%b5%e8%bf%91%e6%97%a5%e6%9c%ac%e5%86%b2%e7%bb%b3" target="_blank" rel="noopener noreffer">台风卡努抵近日本冲绳</a></h4>
-<h4 id="排名-8涿州目前全域停水部分停电httpssweibocomweiboq涿州目前全域停水部分停电">排名 8.<a href="https://s.weibo.com/weibo?q=%e6%b6%bf%e5%b7%9e%e7%9b%ae%e5%89%8d%e5%85%a8%e5%9f%9f%e5%81%9c%e6%b0%b4%e9%83%a8%e5%88%86%e5%81%9c%e7%94%b5" target="_blank" rel="noopener noreffer">涿州目前全域停水部分停电</a></h4>
-<h4 id="排名-9感谢老天送我一个情绪稳定的女儿httpssweibocomweiboq感谢老天送我一个情绪稳定的女儿">排名 9.<a href="https://s.weibo.com/weibo?q=%e6%84%9f%e8%b0%a2%e8%80%81%e5%a4%a9%e9%80%81%e6%88%91%e4%b8%80%e4%b8%aa%e6%83%85%e7%bb%aa%e7%a8%b3%e5%ae%9a%e7%9a%84%e5%a5%b3%e5%84%bf" target="_blank" rel="noopener noreffer">感谢老天送我一个情绪稳定的女儿</a></h4>
-<h4 id="排名-10封神票房httpssweibocomweiboq封神票房">排名 10.<a href="https://s.weibo.com/weibo?q=%e5%b0%81%e7%a5%9e%e7%a5%a8%e6%88%bf" target="_blank" rel="noopener noreffer">封神票房</a></h4>
-<h4 id="排名-11黄灿灿演的防风意映httpssweibocomweiboq黄灿灿演的防风意映">排名 11.<a href="https://s.weibo.com/weibo?q=%e9%bb%84%e7%81%bf%e7%81%bf%e6%bc%94%e7%9a%84%e9%98%b2%e9%a3%8e%e6%84%8f%e6%98%a0" target="_blank" rel="noopener noreffer">黄灿灿演的防风意映</a></h4>
-<h4 id="排名-12心动6三个男生都投给了女一httpssweibocomweiboq心动6三个男生都投给了女一">排名 12.<a href="https://s.weibo.com/weibo?q=%e5%bf%83%e5%8a%a86%e4%b8%89%e4%b8%aa%e7%94%b7%e7%94%9f%e9%83%bd%e6%8a%95%e7%bb%99%e4%ba%86%e5%a5%b3%e4%b8%80" target="_blank" rel="noopener noreffer">心动6三个男生都投给了女一</a></h4>
-<h4 id="排名-13千万不要犯罪因为浏览记录会让人社死httpssweibocomweiboq千万不要犯罪因为浏览记录会让人社死">排名 13.<a href="https://s.weibo.com/weibo?q=%e5%8d%83%e4%b8%87%e4%b8%8d%e8%a6%81%e7%8a%af%e7%bd%aa%e5%9b%a0%e4%b8%ba%e6%b5%8f%e8%a7%88%e8%ae%b0%e5%bd%95%e4%bc%9a%e8%ae%a9%e4%ba%ba%e7%a4%be%e6%ad%bb" target="_blank" rel="noopener noreffer">千万不要犯罪因为浏览记录会让人社死</a></h4>
-<h4 id="排名-14南京4名中学生下河游泳溺亡httpssweibocomweiboq南京4名中学生下河游泳溺亡">排名 14.<a href="https://s.weibo.com/weibo?q=%e5%8d%97%e4%ba%ac4%e5%90%8d%e4%b8%ad%e5%ad%a6%e7%94%9f%e4%b8%8b%e6%b2%b3%e6%b8%b8%e6%b3%b3%e6%ba%ba%e4%ba%a1" target="_blank" rel="noopener noreffer">南京4名中学生下河游泳溺亡</a></h4>
-<h4 id="排名-15涿州居民被困2月大孩子急需奶粉httpssweibocomweiboq涿州居民被困2月大孩子急需奶粉">排名 15.<a href="https://s.weibo.com/weibo?q=%e6%b6%bf%e5%b7%9e%e5%b1%85%e6%b0%91%e8%a2%ab%e5%9b%b02%e6%9c%88%e5%a4%a7%e5%ad%a9%e5%ad%90%e6%80%a5%e9%9c%80%e5%a5%b6%e7%b2%89" target="_blank" rel="noopener noreffer">涿州居民被困2月大孩子急需奶粉</a></h4>
-<h4 id="排名-16女子借到母亲照片那一刻泪崩了httpssweibocomweiboq女子借到母亲照片那一刻泪崩了">排名 16.<a href="https://s.weibo.com/weibo?q=%e5%a5%b3%e5%ad%90%e5%80%9f%e5%88%b0%e6%af%8d%e4%ba%b2%e7%85%a7%e7%89%87%e9%82%a3%e4%b8%80%e5%88%bb%e6%b3%aa%e5%b4%a9%e4%ba%86" target="_blank" rel="noopener noreffer">女子借到母亲照片那一刻泪崩了</a></h4>
-<h4 id="排名-17涂山璟说抱歉实在没忍住httpssweibocomweiboq涂山璟说抱歉实在没忍住">排名 17.<a href="https://s.weibo.com/weibo?q=%e6%b6%82%e5%b1%b1%e7%92%9f%e8%af%b4%e6%8a%b1%e6%ad%89%e5%ae%9e%e5%9c%a8%e6%b2%a1%e5%bf%8d%e4%bd%8f" target="_blank" rel="noopener noreffer">涂山璟说抱歉实在没忍住</a></h4>
-<h4 id="排名-18刘畊宏给看完封神的老婆发的照片httpssweibocomweiboq刘畊宏给看完封神的老婆发的照片">排名 18.<a href="https://s.weibo.com/weibo?q=%e5%88%98%e7%95%8a%e5%ae%8f%e7%bb%99%e7%9c%8b%e5%ae%8c%e5%b0%81%e7%a5%9e%e7%9a%84%e8%80%81%e5%a9%86%e5%8f%91%e7%9a%84%e7%85%a7%e7%89%87" target="_blank" rel="noopener noreffer">刘畊宏给看完封神的老婆发的照片</a></h4>
-<h4 id="排名-19河北涿州急需大量船只转移群众httpssweibocomweiboq河北涿州急需大量船只转移群众">排名 19.<a href="https://s.weibo.com/weibo?q=%e6%b2%b3%e5%8c%97%e6%b6%bf%e5%b7%9e%e6%80%a5%e9%9c%80%e5%a4%a7%e9%87%8f%e8%88%b9%e5%8f%aa%e8%bd%ac%e7%a7%bb%e7%be%a4%e4%bc%97" target="_blank" rel="noopener noreffer">河北涿州急需大量船只转移群众</a></h4>
-<h4 id="排名-20常温常压超导首被证明理论可行httpssweibocomweiboq常温常压超导首被证明理论可行">排名 20.<a href="https://s.weibo.com/weibo?q=%e5%b8%b8%e6%b8%a9%e5%b8%b8%e5%8e%8b%e8%b6%85%e5%af%bc%e9%a6%96%e8%a2%ab%e8%af%81%e6%98%8e%e7%90%86%e8%ae%ba%e5%8f%af%e8%a1%8c" target="_blank" rel="noopener noreffer">常温常压超导首被证明理论可行</a></h4>
-<h2 id="github-热门榜单">GitHub 热门榜单</h2>
-<h3 id="排名-1bregman-ariedevops-exercises">排名 1:/bregman-arie/devops-exercises</h3>
-<ul>
-<li>简介: Linux、Jenkins、AWS、SRE、Prometheus、Docker、Python、Ansible、Git、Kubernetes、Terraform、OpenStack、SQL、NoSQL、Azure、GCP、DNS、Elastic、Network、Virtualization。DevOps访谈问题</li>
-<li>URL: <a href="https://github.com/bregman-arie/devops-exercises" target="_blank" rel="noopener noreffer">https://github.com/bregman-arie/devops-exercises</a></li>
-<li>作者: bregman-arie</li>
-</ul>
-<h3 id="排名-2thealgorithmspython">排名 2:/TheAlgorithms/Python</h3>
-<ul>
-<li>简介: Python中实现的所有算法</li>
-<li>URL: <a href="https://github.com/TheAlgorithms/Python" target="_blank" rel="noopener noreffer">https://github.com/TheAlgorithms/Python</a></li>
-<li>作者: TheAlgorithms</li>
-</ul>
-<h3 id="排名-3manissofsociety">排名 3:/Manisso/fsociety</h3>
-<ul>
-<li>简介: fsocity黑客工具包-渗透测试框架</li>
-<li>URL: <a href="https://github.com/Manisso/fsociety" target="_blank" rel="noopener noreffer">https://github.com/Manisso/fsociety</a></li>
-<li>作者: Manisso</li>
-</ul>
-<h3 id="排名-4khoj-aikhoj">排名 4:/khoj-ai/khoj</h3>
-<ul>
-<li>简介: 为您的数字大脑提供AI个人助理</li>
-<li>URL: <a href="https://github.com/khoj-ai/khoj" target="_blank" rel="noopener noreffer">https://github.com/khoj-ai/khoj</a></li>
-<li>作者: khoj-ai</li>
-</ul>
-<h3 id="排名-5lcompilerslpython">排名 5:/lcompilers/lpython</h3>
-<ul>
-<li>简介: Python编译器</li>
-<li>URL: <a href="https://github.com/lcompilers/lpython" target="_blank" rel="noopener noreffer">https://github.com/lcompilers/lpython</a></li>
-<li>作者: lcompilers</li>
-</ul>
-<h3 id="排名-6llm-attacksllm-attacks">排名 6:/llm-attacks/llm-attacks</h3>
-<ul>
-<li>简介: 对对齐语言模型的通用可转移攻击</li>
-<li>URL: <a href="https://github.com/llm-attacks/llm-attacks" target="_blank" rel="noopener noreffer">https://github.com/llm-attacks/llm-attacks</a></li>
-<li>作者: llm-attacks</li>
-</ul>
-<h3 id="排名-7shishirpatilgorilla">排名 7:/ShishirPatil/gorilla</h3>
-<ul>
-<li>简介: Gorilla:LLM的API商店</li>
-<li>URL: <a href="https://github.com/ShishirPatil/gorilla" target="_blank" rel="noopener noreffer">https://github.com/ShishirPatil/gorilla</a></li>
-<li>作者: ShishirPatil</li>
-</ul>
-<h3 id="排名-8gorillamux">排名 8:/gorilla/mux</h3>
-<ul>
-<li>简介: Package gorilla/mux是一款功能强大的HTTP路由器和URL匹配器，用于构建Go web服务器🦍</li>
-<li>URL: <a href="https://github.com/gorilla/mux" target="_blank" rel="noopener noreffer">https://github.com/gorilla/mux</a></li>
-<li>作者: gorilla</li>
-</ul>
-<h3 id="排名-9bregman-ariesre-checklist">排名 9:/bregman-arie/sre-checklist</h3>
-<ul>
-<li>简介: 现场可靠性工程从业人员清单</li>
-<li>URL: <a href="https://github.com/bregman-arie/sre-checklist" target="_blank" rel="noopener noreffer">https://github.com/bregman-arie/sre-checklist</a></li>
-<li>作者: bregman-arie</li>
-</ul>
-<h3 id="排名-10projectdiscoverynuclei-templates">排名 10:/projectdiscovery/nuclei-templates</h3>
-<ul>
-<li>简介: 社区策划的核心引擎模板列表，用于查找安全漏洞。</li>
-<li>URL: <a href="https://github.com/projectdiscovery/nuclei-templates" target="_blank" rel="noopener noreffer">https://github.com/projectdiscovery/nuclei-templates</a></li>
-<li>作者: projectdiscovery</li>
-</ul>
-<h2 id="v2ex-热门帖子">v2ex 热门帖子</h2>
-<h4 id="1macprom1用vmware虚拟机无法识别加密狗httpswwwv2excomt961674reply0">1.<a href="https://www.v2ex.com/t/961674#reply0" target="_blank" rel="noopener noreffer">macprom1用vmware虚拟机无法识别加密狗</a></h4>
-<h4 id="2你有读过哪些关于或提到室温超导的科幻小说httpswwwv2excomt961675reply0">2.<a href="https://www.v2ex.com/t/961675#reply0" target="_blank" rel="noopener noreffer">你有读过哪些关于或提到室温超导的科幻小说？</a></h4>
-<h4 id="3有没便宜的三方ai绘图httpswwwv2excomt961676reply0">3.<a href="https://www.v2ex.com/t/961676#reply0" target="_blank" rel="noopener noreffer">有没便宜的三方ai绘图</a></h4>
 ]]></description>
 </item></channel>
 </rss>

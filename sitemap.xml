@@ -4,13 +4,17 @@
     ><url>
             <loc>http://www.jobcher.com/github_trending_2023-08-10/</loc><lastmod>2023-08-10T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://www.jobcher.com/categories/</loc><lastmod>2023-08-10T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.jobcher.com/tags/error/</loc><lastmod>2023-08-10T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://www.jobcher.com/tags/github/</loc><lastmod>2023-08-10T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://www.jobcher.com/series/github/</loc><lastmod>2023-08-10T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://www.jobcher.com/categories/github/</loc><lastmod>2023-08-10T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://www.jobcher.com/posts/</loc><lastmod>2023-08-10T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://www.jobcher.com/series/</loc><lastmod>2023-08-10T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://www.jobcher.com/tags/</loc><lastmod>2023-08-10T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.jobcher.com/nginx-error/</loc><lastmod>2023-08-10T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://www.jobcher.com/</loc><lastmod>2023-08-10T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.jobcher.com/categories/%E9%97%AE%E9%A2%98%E5%BA%93/</loc><lastmod>2023-08-10T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
+            <loc>http://www.jobcher.com/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/</loc><lastmod>2023-08-10T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://www.jobcher.com/github_trending_2023-08-09/</loc><lastmod>2023-08-09T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://www.jobcher.com/github_trending_2023-08-08/</loc><lastmod>2023-08-08T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
             <loc>http://www.jobcher.com/tags/daliy/</loc><lastmod>2023-08-08T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>1</priority></url><url>
@@ -91,7 +95,6 @@
             <loc>http://www.jobcher.com/tags/work/</loc><lastmod>2023-03-30T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/categories/work/</loc><lastmod>2023-03-30T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/scrapyredis/</loc><lastmod>2023-03-30T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://www.jobcher.com/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/</loc><lastmod>2023-03-30T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/2023-03-16/</loc><lastmod>2023-03-16T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/tags/%E5%91%A8%E6%8A%A5/</loc><lastmod>2023-03-16T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/categories/%E5%91%A8%E6%8A%A5/</loc><lastmod>2023-03-16T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
@@ -123,14 +126,12 @@
             <loc>http://www.jobcher.com/logstash1/</loc><lastmod>2022-10-31T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/macos13/</loc><lastmod>2022-10-31T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/nexus/</loc><lastmod>2022-10-31T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://www.jobcher.com/tags/error/</loc><lastmod>2022-10-21T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/github-error/</loc><lastmod>2022-10-21T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/tags/ipfs/</loc><lastmod>2022-10-21T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/tags/web3.0/</loc><lastmod>2022-10-21T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/series/web3.0/</loc><lastmod>2022-10-21T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/categories/web3.0/</loc><lastmod>2022-10-21T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/ipfs/</loc><lastmod>2022-10-21T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
-            <loc>http://www.jobcher.com/categories/%E9%97%AE%E9%A2%98%E5%BA%93/</loc><lastmod>2022-10-21T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/k8s14/</loc><lastmod>2022-10-11T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/k8s15/</loc><lastmod>2022-10-11T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>
             <loc>http://www.jobcher.com/k8s13/</loc><lastmod>2022-10-08T00:00:00&#43;00:00</lastmod><changefreq>weekly</changefreq><priority>0.5</priority></url><url>

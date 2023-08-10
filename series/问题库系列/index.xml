@@ -4,7 +4,54 @@
         <link>http://www.jobcher.com/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/</link>
         <description>问题库系列 - seris - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 30 Mar 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 10 Aug 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+    <title>Vue3 &#43; vite &#43; nginx项目部署后404问题</title>
+    <link>http://www.jobcher.com/nginx-error/</link>
+    <pubDate>Thu, 10 Aug 2023 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>http://www.jobcher.com/nginx-error/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/nginx.png" referrerpolicy="no-referrer">
+            </div><h2 id="vue3--vite--nginx项目部署后404问题">Vue3 + vite + nginx项目部署后404问题</h2>
+<p><code>vue3 + vite + nginx</code><br>
+在服务器上部署后打开首页都没问题，打开其他路径全部 404。<br>
+<code>nginx</code> 报错日志：<code>No such file or directory</code></p>
+<blockquote>
+<p>其实查看 <code>build</code> 后的<code>dist文件夹</code>可以发现，只有一个<code>index.html</code>，当你访问别的路径时<code>nignx</code>查找不到所以就报错了</p>
+</blockquote>
+<h2 id="解决方案">解决方案</h2>
+<p>在 nginx.conf 中添加: <code>try_files $uri $uri/ /index.html;</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">server {
+</span></span><span class="line"><span class="cl">          listen       80;
+</span></span><span class="line"><span class="cl">          server_name  localhost;
+</span></span><span class="line"><span class="cl">          location / {
+</span></span><span class="line"><span class="cl">          root   /dist;
+</span></span><span class="line"><span class="cl">          index  index.html index.htm;
+</span></span><span class="line"><span class="cl">          # 在配置文件的此处加上这句话
+</span></span><span class="line"><span class="cl">          try_files $uri $uri/ /index.html;
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">    }
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="总结">总结</h2>
+<p>其实上述改动就是告诉 nignx 找不到文件的时候就访问 <code>index.html</code> 就可以了。</p>
+<p>究其原因其实就是是 vue3 的 router 使用了<code>history</code>模式，该模式与之前<code>hash</code>模式的具体区别可以自行百度一下，不在此赘述。</p>
+]]></description>
+</item><item>
     <title>使用scrapy-redis实现增量爬取</title>
     <link>http://www.jobcher.com/scrapyredis/</link>
     <pubDate>Thu, 30 Mar 2023 00:00:00 &#43;0000</pubDate>
@@ -6896,94 +6943,6 @@ unable to configure the Docker daemon with file /etc/docker/daemon.json: EOF</p>
 <blockquote>
 <p>systemctl restart docker</p>
 </blockquote>
-]]></description>
-</item><item>
-    <title>shell 脚本（1）</title>
-    <link>http://www.jobcher.com/shell1/</link>
-    <pubDate>Sun, 20 Mar 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>http://www.jobcher.com/shell1/</guid>
-    <description><![CDATA[<h1 id="shell-脚本之变量">shell 脚本之<code>变量</code></h1>
-<h2 id="变量替换">变量替换</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">语法</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">${变量名#匹配规则}</td>
-<td style="text-align:left">从变量<code>开头</code>进行规则匹配，将符合最<code>短</code>的数据删除</td>
-</tr>
-<tr>
-<td style="text-align:left">${变量名##匹配规则}</td>
-<td style="text-align:left">从变量<code>开头</code>进行规则匹配，将符合最<code>长</code>的数据删除</td>
-</tr>
-<tr>
-<td style="text-align:left">${变量名%匹配规则}</td>
-<td style="text-align:left">从变量<code>尾部</code>进行规则匹配，将符合最<code>短</code>的数据删除</td>
-</tr>
-<tr>
-<td style="text-align:left">${变量名%%匹配规则}</td>
-<td style="text-align:left">从变量<code>尾部</code>进行规则匹配，将符合最<code>长</code>的数据删除</td>
-</tr>
-<tr>
-<td style="text-align:left">${变量名/旧字符串/新字符串}</td>
-<td style="text-align:left">变量内容符合旧字符串则，则<code>第一个</code>旧字符串会被新字符串取代</td>
-</tr>
-<tr>
-<td style="text-align:left">${变量名//旧字符串/新字符串}</td>
-<td style="text-align:left">变量内容符合旧字符串则，则<code>全部的</code>旧字符串会被新字符串取代</td>
-</tr>
-</tbody>
-</table>
-<h2 id="字符串处理">字符串处理</h2>
-<ol>
-<li>计算字符串长度</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">-</th>
-<th style="text-align:left">语法</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">方法一</td>
-<td style="text-align:left">${#string}</td>
-<td style="text-align:left">无</td>
-</tr>
-<tr>
-<td style="text-align:left">方法二</td>
-<td style="text-align:left">expr length &ldquo;$string&rdquo;</td>
-<td style="text-align:left">string 有空格，则必须加双引号</td>
-</tr>
-</tbody>
-</table>
-<ol start="2">
-<li>
-<p>获取子串在字符串中的索引位置<br>
-语法： expr index $string $substring</p>
-</li>
-<li>
-<p>计算子串长度<br>
-语法： expr match $string substr</p>
-</li>
-<li>
-<p>抽取子串</p>
-</li>
-</ol>
-<ul>
-<li>${string:position} ：从 string 中的 position 开始</li>
-<li>${string:position:length}：从 position 开始，匹配长度为 length</li>
-<li>${string:-position}：从右边开始匹配</li>
-<li>${string:(position)}：从左边开始匹配</li>
-<li>expr substr $string $position $length：从 position 开始，匹配长度为 length</li>
-</ul>
 ]]></description>
 </item></channel>
 </rss>
