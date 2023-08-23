@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>RocketMQ - 标签 - 打工人日志 - jobcher</title>
-        <link>http://www.jobcher.com/tags/rocketmq/</link>
+        <link>http://test.jobcher.com/tags/rocketmq/</link>
         <description>RocketMQ - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 29 Aug 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/rocketmq/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 29 Aug 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://test.jobcher.com/tags/rocketmq/" rel="self" type="application/rss+xml" /><item>
     <title>RocketMQ k8s部署 4主4从集群</title>
-    <link>http://www.jobcher.com/rocketmq3/</link>
+    <link>http://test.jobcher.com/rocketmq3/</link>
     <pubDate>Mon, 29 Aug 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.jobcher.com/rocketmq3/</guid>
+    <guid>http://test.jobcher.com/rocketmq3/</guid>
     <description><![CDATA[<h1 id="rocketmq-k8s-部署-4-主-4-从集群">RocketMQ k8s 部署 4 主 4 从集群</h1>
 <h2 id="使用-nfs-配置-statefulset-的动态持久化存储">使用 NFS 配置 StatefulSet 的动态持久化存储</h2>
 <h3 id="安装-nfs-服务端">安装 NFS 服务端</h3>
@@ -2781,10 +2781,10 @@ kubectl get sc -n sanjiang</p>
 </div>]]></description>
 </item><item>
     <title>RocketMQ docker-compose部署 4主4从集群</title>
-    <link>http://www.jobcher.com/rocketmq2/</link>
+    <link>http://test.jobcher.com/rocketmq2/</link>
     <pubDate>Mon, 15 Aug 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.jobcher.com/rocketmq2/</guid>
+    <guid>http://test.jobcher.com/rocketmq2/</guid>
     <description><![CDATA[<h1 id="rocketmq-docker-compose-部署-4-主-4-从集群">RocketMQ docker-compose 部署 4 主 4 从集群</h1>
 <p>V 4.8.0<br>
 采用<code>4主4从</code>，<code>同步模式</code>。HA 实现上采用<code>Master/Slave+Failover</code>组件方式
@@ -3803,10 +3803,10 @@ kubectl get sc -n sanjiang</p>
 ]]></description>
 </item><item>
     <title>RocketMQ 安装和启动</title>
-    <link>http://www.jobcher.com/rocketmq/</link>
+    <link>http://test.jobcher.com/rocketmq/</link>
     <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.jobcher.com/rocketmq/</guid>
+    <guid>http://test.jobcher.com/rocketmq/</guid>
     <description><![CDATA[<h1 id="rocketmq-安装和部署">RocketMQ 安装和部署</h1>
 <p>部署 RocketMQ</p>
 <h2 id="单机安装构建">单机安装构建</h2>

@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>监控 - 分类 - 打工人日志 - jobcher</title>
-        <link>http://www.jobcher.com/categories/%E7%9B%91%E6%8E%A7/</link>
+        <link>http://test.jobcher.com/categories/%E7%9B%91%E6%8E%A7/</link>
         <description>监控 - 分类 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 31 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/%E7%9B%91%E6%8E%A7/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 31 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://test.jobcher.com/categories/%E7%9B%91%E6%8E%A7/" rel="self" type="application/rss+xml" /><item>
     <title>skywalking python agent 安装和配置</title>
-    <link>http://www.jobcher.com/skywalking-python/</link>
+    <link>http://test.jobcher.com/skywalking-python/</link>
     <pubDate>Wed, 31 May 2023 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.jobcher.com/skywalking-python/</guid>
+    <guid>http://test.jobcher.com/skywalking-python/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/skwalking-python.png" referrerpolicy="no-referrer">
             </div><h2 id="背景">背景</h2>
@@ -61,10 +61,10 @@
 </div>]]></description>
 </item><item>
     <title>Logstash 自动重载配置文件</title>
-    <link>http://www.jobcher.com/logstash1/</link>
+    <link>http://test.jobcher.com/logstash1/</link>
     <pubDate>Mon, 31 Oct 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.jobcher.com/logstash1/</guid>
+    <guid>http://test.jobcher.com/logstash1/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/lostash.png" referrerpolicy="no-referrer">
             </div><h2 id="工作原理">工作原理</h2>
@@ -120,10 +120,10 @@
 ]]></description>
 </item><item>
     <title>windows-exporter 监控</title>
-    <link>http://www.jobcher.com/windows-exporter/</link>
+    <link>http://test.jobcher.com/windows-exporter/</link>
     <pubDate>Sat, 08 Oct 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.jobcher.com/windows-exporter/</guid>
+    <guid>http://test.jobcher.com/windows-exporter/</guid>
     <description><![CDATA[<h1 id="windows-exporter-监控安装">windows-exporter 监控安装</h1>
 <h3 id="windows_exporterhttpsgithubcomprometheus-communitywindows_exporter"><a href="https://github.com/prometheus-community/windows_exporter" target="_blank" rel="noopener noreffer">windows_exporter</a></h3>
 <h3 id="下载安装httpsgithubcomprometheus-communitywindows_exporterreleasesdownloadv0200windows_exporter-0200-amd64msi"><a href="https://github.com/prometheus-community/windows_exporter/releases/download/v0.20.0/windows_exporter-0.20.0-amd64.msi" target="_blank" rel="noopener noreffer">下载安装</a></h3>
@@ -215,10 +215,10 @@
 </div>]]></description>
 </item><item>
     <title>skywalking APM 监控</title>
-    <link>http://www.jobcher.com/skywalking/</link>
+    <link>http://test.jobcher.com/skywalking/</link>
     <pubDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.jobcher.com/skywalking/</guid>
+    <guid>http://test.jobcher.com/skywalking/</guid>
     <description><![CDATA[<h1 id="skywalking">skywalking</h1>
 <p>基于 OpenTracing 规范，专门为微服务架构以及云原生服务。</p>
 <h2 id="apm-监控">APM 监控</h2>
@@ -385,10 +385,10 @@
 </div>]]></description>
 </item><item>
     <title>logstash 多管道部署</title>
-    <link>http://www.jobcher.com/logstash/</link>
+    <link>http://test.jobcher.com/logstash/</link>
     <pubDate>Tue, 19 Jul 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.jobcher.com/logstash/</guid>
+    <guid>http://test.jobcher.com/logstash/</guid>
     <description><![CDATA[<h1 id="logstash-多管道部署">logstash 多管道部署</h1>
 <p>找到 logstash 目录位置，一般来说在 <code>/etc/logstash</code> 路径下,修改 <code>logstash.yml</code></p>
 <div class="highlight"><div class="chroma">
@@ -474,10 +474,10 @@
 </div>]]></description>
 </item><item>
     <title>nginx exporter 安装配置</title>
-    <link>http://www.jobcher.com/nginx-exporter/</link>
+    <link>http://test.jobcher.com/nginx-exporter/</link>
     <pubDate>Wed, 08 Jun 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.jobcher.com/nginx-exporter/</guid>
+    <guid>http://test.jobcher.com/nginx-exporter/</guid>
     <description><![CDATA[<h1 id="nginx-exporter-安装配置">nginx exporter 安装配置</h1>
 <ol>
 <li>二进制安装</li>
@@ -588,10 +588,10 @@
 </div>]]></description>
 </item><item>
     <title>prometheus grafana alertmanager 安装配置</title>
-    <link>http://www.jobcher.com/prometheus1/</link>
+    <link>http://test.jobcher.com/prometheus1/</link>
     <pubDate>Thu, 13 Jan 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.jobcher.com/prometheus1/</guid>
+    <guid>http://test.jobcher.com/prometheus1/</guid>
     <description><![CDATA[<h1 id="prometheusgrafanaalertmanager-安装配置">prometheus+grafana+alertmanager 安装配置</h1>
 <p>服务器监控告警系统搭建，通过 exporter 获取节点信息到 prometheus。prometheus 配置规则，使 garfana 和 alertmanager 能够接受到数据，分别展示数据和发送告警</p>
 <h2 id="参数">参数</h2>
@@ -944,10 +944,10 @@
 </div>]]></description>
 </item><item>
     <title>prometheus 配置</title>
-    <link>http://www.jobcher.com/prometheus/</link>
+    <link>http://test.jobcher.com/prometheus/</link>
     <pubDate>Thu, 13 Jan 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.jobcher.com/prometheus/</guid>
+    <guid>http://test.jobcher.com/prometheus/</guid>
     <description><![CDATA[<h1 id="prometheus-配置">prometheus 配置</h1>
 <p><br>
 Prometheus 是由 SoundCloud 开源监控告警解决方案</p>
