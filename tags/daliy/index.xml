@@ -4550,7 +4550,22 @@ zf初重拳打击的结果往往取得相反的效果，因为政府如果希望
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div>]]></description>
+</div><h2 id="另外一种方法">另外一种方法</h2>
+<p>在你有科学上网的前提下使用代理方式来连接github</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">git config --global https.proxy http://127.0.0.1:1080
+</span></span><span class="line"><span class="cl"><span class="c1">#取消设置</span>
+</span></span><span class="line"><span class="cl">git config --global --unset https.proxy
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>http://127.0.0.1:1080 是你的代理服务地址</p>
+]]></description>
 </item><item>
     <title>逆境和成长-2022年终总结</title>
     <link>http://www.jobcher.com/20221230/</link>
