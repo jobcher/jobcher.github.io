@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>gitlab - 分类 - 打工人日志 - jobcher</title>
-        <link>http://test.jobcher.com/categories/gitlab/</link>
+        <link>http://www.jobcher.com/categories/gitlab/</link>
         <description>gitlab - 分类 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://test.jobcher.com/categories/gitlab/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/gitlab/" rel="self" type="application/rss+xml" /><item>
     <title>Argo cd 安装和部署</title>
-    <link>http://test.jobcher.com/argocd/</link>
+    <link>http://www.jobcher.com/argocd/</link>
     <pubDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/argocd/</guid>
+    <guid>http://www.jobcher.com/argocd/</guid>
     <description><![CDATA[<h1 id="argo-cd-安装和部署">Argo cd 安装和部署</h1>
 <p>Argo CD 是一个为 Kubernetes 而生的，遵循声明式 GitOps 理念的持续部署（CD）工具。Argo CD 可在 Git 存储库更改时自动同步和部署应用程序
 </p>
@@ -74,10 +74,10 @@
 ]]></description>
 </item><item>
     <title>ansible 命令</title>
-    <link>http://test.jobcher.com/ansible1/</link>
+    <link>http://www.jobcher.com/ansible1/</link>
     <pubDate>Thu, 14 Apr 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/ansible1/</guid>
+    <guid>http://www.jobcher.com/ansible1/</guid>
     <description><![CDATA[<h1 id="ansible-命令">ansible 命令</h1>
 <ul>
 <li><code>Inventory</code>：Ansible 管理的主机信息，包括 IP 地址、SSH 端口、账号、密码等</li>
@@ -371,10 +371,10 @@
 </div>]]></description>
 </item><item>
     <title>Git 规则</title>
-    <link>http://test.jobcher.com/git3/</link>
+    <link>http://www.jobcher.com/git3/</link>
     <pubDate>Thu, 24 Mar 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/git3/</guid>
+    <guid>http://www.jobcher.com/git3/</guid>
     <description><![CDATA[<h1 id="git-飞行规则flight-rules">Git 飞行规则(Flight Rules)</h1>
 <ul>
 <li><a href="#%E7%BC%96%E8%BE%91%E6%8F%90%E4%BA%A4editting-commits" rel="">编辑提交(editting commits)</a>
@@ -1839,10 +1839,10 @@
 ]]></description>
 </item><item>
     <title>git版本控制</title>
-    <link>http://test.jobcher.com/git2/</link>
+    <link>http://www.jobcher.com/git2/</link>
     <pubDate>Mon, 28 Feb 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/git2/</guid>
+    <guid>http://www.jobcher.com/git2/</guid>
     <description><![CDATA[<h1 id="git-版本控制">git 版本控制</h1>
 <h2 id="版本回退">版本回退</h2>
 <h3 id="1查看-git-提交历史">1.查看 git 提交历史</h3>
@@ -1979,10 +1979,10 @@
 ]]></description>
 </item><item>
     <title>CICD 概念</title>
-    <link>http://test.jobcher.com/devops/</link>
+    <link>http://www.jobcher.com/devops/</link>
     <pubDate>Thu, 17 Feb 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/devops/</guid>
+    <guid>http://www.jobcher.com/devops/</guid>
     <description><![CDATA[<h1 id="cicd-概念">CICD 概念</h1>
 <h1 id="devops">DevOps</h1>
 <p>Devlopment 和 Operation 的组合词</p>
@@ -2019,10 +2019,10 @@ Ci 需要具备这些：</li>
 </div>]]></description>
 </item><item>
     <title>git使用方法</title>
-    <link>http://test.jobcher.com/git/</link>
+    <link>http://www.jobcher.com/git/</link>
     <pubDate>Thu, 17 Feb 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/git/</guid>
+    <guid>http://www.jobcher.com/git/</guid>
     <description><![CDATA[<h1 id="git-使用方法">git 使用方法</h1>
 <h2 id="一git-安装配置">一、git 安装配置</h2>
 <ol>
@@ -2708,10 +2708,10 @@ Ci 需要具备这些：</li>
 </div>]]></description>
 </item><item>
     <title>Jenkins 安装与使用</title>
-    <link>http://test.jobcher.com/jenkins/</link>
+    <link>http://www.jobcher.com/jenkins/</link>
     <pubDate>Wed, 09 Feb 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/jenkins/</guid>
+    <guid>http://www.jobcher.com/jenkins/</guid>
     <description><![CDATA[<h1 id="jenkins-安装与使用">Jenkins 安装与使用</h1>
 <p>代码在本地修改&mdash;-》提交到远程 gitlab&mdash;-》触发 jenkins 整个自动化构建流程（打包，测试，发布，部署）</p>
 <h2 id="安装-docker">安装 docker</h2>
@@ -2885,10 +2885,10 @@ Ci 需要具备这些：</li>
 </div>]]></description>
 </item><item>
     <title>Gitlab批量导出用户</title>
-    <link>http://test.jobcher.com/exportuser/</link>
+    <link>http://www.jobcher.com/exportuser/</link>
     <pubDate>Fri, 14 Jan 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/exportuser/</guid>
+    <guid>http://www.jobcher.com/exportuser/</guid>
     <description><![CDATA[<h1 id="gitlab-批量导出用户">Gitlab 批量导出用户</h1>
 <p>登陆 Gitlab 服务器进行数据库登陆、数据查询及信息导出操作。</p>
 <h2 id="操作步骤">操作步骤</h2>
@@ -3016,10 +3016,10 @@ Ci 需要具备这些：</li>
 ]]></description>
 </item><item>
     <title>ansible 安装和部署</title>
-    <link>http://test.jobcher.com/ansible/</link>
+    <link>http://www.jobcher.com/ansible/</link>
     <pubDate>Thu, 30 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/ansible/</guid>
+    <guid>http://www.jobcher.com/ansible/</guid>
     <description><![CDATA[<h1 id="ansible-安装和部署">ansible 安装和部署</h1>
 <p>Ansible 默认通过 SSH 协议管理机器.</p>
 <h2 id="安装-ansible">安装 ansible</h2>
@@ -3267,10 +3267,10 @@ Roles 目录结构：</p>
 ]]></description>
 </item><item>
     <title>gitlab与github同步项目</title>
-    <link>http://test.jobcher.com/gitrsync/</link>
+    <link>http://www.jobcher.com/gitrsync/</link>
     <pubDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/gitrsync/</guid>
+    <guid>http://www.jobcher.com/gitrsync/</guid>
     <description><![CDATA[<h1 id="gitlab-与-github-同步项目">gitlab 与 github 同步项目</h1>
 <ol>
 <li>本地同步项目</li>

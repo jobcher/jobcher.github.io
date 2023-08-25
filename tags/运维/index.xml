@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>运维 - 标签 - 打工人日志 - jobcher</title>
-        <link>http://test.jobcher.com/tags/%E8%BF%90%E7%BB%B4/</link>
+        <link>http://www.jobcher.com/tags/%E8%BF%90%E7%BB%B4/</link>
         <description>运维 - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 15 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://test.jobcher.com/tags/%E8%BF%90%E7%BB%B4/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 15 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/%E8%BF%90%E7%BB%B4/" rel="self" type="application/rss+xml" /><item>
     <title>在windows上安装appium</title>
-    <link>http://test.jobcher.com/appium/</link>
+    <link>http://www.jobcher.com/appium/</link>
     <pubDate>Mon, 15 May 2023 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/appium/</guid>
+    <guid>http://www.jobcher.com/appium/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/appium-logo-horiz.png" referrerpolicy="no-referrer">
             </div><h2 id="在windows上安装appium">在windows上安装appium</h2>
@@ -181,10 +181,10 @@
 </div>]]></description>
 </item><item>
     <title>systemd 守护命令</title>
-    <link>http://test.jobcher.com/systemd/</link>
+    <link>http://www.jobcher.com/systemd/</link>
     <pubDate>Mon, 08 Aug 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/systemd/</guid>
+    <guid>http://www.jobcher.com/systemd/</guid>
     <description><![CDATA[<h2 id="介绍">介绍</h2>
 <p>systemd 是 linux 中用来启动守护进程，Linux 最早一直采用 init 进程</p>
 <p><br>
@@ -1082,10 +1082,10 @@ systemctl cat 命令可以查看配置文件的内容。</p>
 </div>]]></description>
 </item><item>
     <title>Linux crontab 命令</title>
-    <link>http://test.jobcher.com/crontab/</link>
+    <link>http://www.jobcher.com/crontab/</link>
     <pubDate>Tue, 22 Feb 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/crontab/</guid>
+    <guid>http://www.jobcher.com/crontab/</guid>
     <description><![CDATA[<h1 id="linux-crontab-命令">Linux crontab 命令</h1>
 <p>Linux <code>crontab</code>是用来<code>定期执行程序</code>的命令。</p>
 <ol>
@@ -1143,10 +1143,10 @@ systemctl cat 命令可以查看配置文件的内容。</p>
 ]]></description>
 </item><item>
     <title>linux常用命令</title>
-    <link>http://test.jobcher.com/linux1/</link>
+    <link>http://www.jobcher.com/linux1/</link>
     <pubDate>Sat, 12 Feb 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/linux1/</guid>
+    <guid>http://www.jobcher.com/linux1/</guid>
     <description><![CDATA[<h1 id="linux-常用命令">linux 常用命令</h1>
 <h2 id="软件操作命令">软件操作命令</h2>
 <div class="highlight"><div class="chroma">
@@ -1259,10 +1259,10 @@ systemctl cat 命令可以查看配置文件的内容。</p>
 ]]></description>
 </item><item>
     <title>linux基础知识</title>
-    <link>http://test.jobcher.com/linux/</link>
+    <link>http://www.jobcher.com/linux/</link>
     <pubDate>Fri, 11 Feb 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/linux/</guid>
+    <guid>http://www.jobcher.com/linux/</guid>
     <description><![CDATA[<h1 id="linux-基础知识">linux 基础知识</h1>
 <h2 id="1简述-linux-权限划分原则">1、简述 Linux 权限划分原则。</h2>
 <ol>
@@ -1622,10 +1622,10 @@ systemctl cat 命令可以查看配置文件的内容。</p>
 ]]></description>
 </item><item>
     <title>yaml 语法</title>
-    <link>http://test.jobcher.com/yaml/</link>
+    <link>http://www.jobcher.com/yaml/</link>
     <pubDate>Thu, 30 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/yaml/</guid>
+    <guid>http://www.jobcher.com/yaml/</guid>
     <description><![CDATA[<h1 id="yaml-语法">yaml 语法</h1>
 <p>我们使用 YAML 是因为它像 XML 或 JSON 是一种利于人们读写的数据格式. 此外在大多数变成语言中有使用 YAML 的库.YAML 语法的基本概述, 它被用来描述一个 playbooks(我们的配置管理语言).</p>
 <h1 id="基本的-yaml">基本的 YAML</h1>
@@ -1652,10 +1652,10 @@ YAML 还有一个小的怪癖. 所有的 YAML 文件(无论和 Ansible 有没有
 </div>]]></description>
 </item><item>
     <title>iptables 基础知识</title>
-    <link>http://test.jobcher.com/iptable/</link>
+    <link>http://www.jobcher.com/iptable/</link>
     <pubDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/iptable/</guid>
+    <guid>http://www.jobcher.com/iptable/</guid>
     <description><![CDATA[<h1 id="iptables-基础知识">iptables 基础知识</h1>
 <p>内核包过滤与 NAT 管理工具.是 linux 系统中在用户空间中运行的运来配置内核防火墙的工具。它可以设置，维护和检查 linux 内核中的 ipv4 包过滤规则和管理网络地址转换（NAT）。<br>
 ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使用专门的管理工具 ip6tables。</p>
@@ -1778,10 +1778,10 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
 </div>]]></description>
 </item><item>
     <title>网络基础知识</title>
-    <link>http://test.jobcher.com/network/</link>
+    <link>http://www.jobcher.com/network/</link>
     <pubDate>Thu, 23 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/network/</guid>
+    <guid>http://www.jobcher.com/network/</guid>
     <description><![CDATA[<h1 id="网络基础知识">网络基础知识</h1>
 <h2 id="1简述-isoosi-七层模型的分层与作用">1、简述 ISO/OSI 七层模型的分层与作用</h2>
 <table>
@@ -1990,10 +1990,10 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
 ]]></description>
 </item><item>
     <title>linux服务基础知识</title>
-    <link>http://test.jobcher.com/service/</link>
+    <link>http://www.jobcher.com/service/</link>
     <pubDate>Wed, 15 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/service/</guid>
+    <guid>http://www.jobcher.com/service/</guid>
     <description><![CDATA[<h1 id="linux-服务基础知识">linux 服务基础知识</h1>
 <h2 id="1哪些设置能够提升-ssh-远程管理的安全等级">1、哪些设置能够提升 SSH 远程管理的安全等级</h2>
 <h2 id="2ssh-连接时认证时间过长如何解决">2、ssh 连接时认证时间过长如何解决？</h2>
@@ -2020,10 +2020,10 @@ www.d.com（新）
 ]]></description>
 </item><item>
     <title>mysql基础知识</title>
-    <link>http://test.jobcher.com/mysql/</link>
+    <link>http://www.jobcher.com/mysql/</link>
     <pubDate>Wed, 15 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/mysql/</guid>
+    <guid>http://www.jobcher.com/mysql/</guid>
     <description><![CDATA[<h1 id="mysql-基础知识">mysql 基础知识</h1>
 <h2 id="1库表-studentreport有-3-个字段姓名学科成绩记录如下根据要求完成-sql-语句">1、库表 student.report,有 3 个字段，姓名、学科、成绩，记录如下，根据要求完成 SQL 语句：</h2>
 <table>

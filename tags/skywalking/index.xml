@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>skywalking - 标签 - 打工人日志 - jobcher</title>
-        <link>http://test.jobcher.com/tags/skywalking/</link>
+        <link>http://www.jobcher.com/tags/skywalking/</link>
         <description>skywalking - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 31 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://test.jobcher.com/tags/skywalking/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 31 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/skywalking/" rel="self" type="application/rss+xml" /><item>
     <title>skywalking python agent 安装和配置</title>
-    <link>http://test.jobcher.com/skywalking-python/</link>
+    <link>http://www.jobcher.com/skywalking-python/</link>
     <pubDate>Wed, 31 May 2023 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/skywalking-python/</guid>
+    <guid>http://www.jobcher.com/skywalking-python/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/skwalking-python.png" referrerpolicy="no-referrer">
             </div><h2 id="背景">背景</h2>
@@ -61,10 +61,10 @@
 </div>]]></description>
 </item><item>
     <title>windows-exporter 监控</title>
-    <link>http://test.jobcher.com/windows-exporter/</link>
+    <link>http://www.jobcher.com/windows-exporter/</link>
     <pubDate>Sat, 08 Oct 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/windows-exporter/</guid>
+    <guid>http://www.jobcher.com/windows-exporter/</guid>
     <description><![CDATA[<h1 id="windows-exporter-监控安装">windows-exporter 监控安装</h1>
 <h3 id="windows_exporterhttpsgithubcomprometheus-communitywindows_exporter"><a href="https://github.com/prometheus-community/windows_exporter" target="_blank" rel="noopener noreffer">windows_exporter</a></h3>
 <h3 id="下载安装httpsgithubcomprometheus-communitywindows_exporterreleasesdownloadv0200windows_exporter-0200-amd64msi"><a href="https://github.com/prometheus-community/windows_exporter/releases/download/v0.20.0/windows_exporter-0.20.0-amd64.msi" target="_blank" rel="noopener noreffer">下载安装</a></h3>
@@ -156,10 +156,10 @@
 </div>]]></description>
 </item><item>
     <title>skywalking APM 监控</title>
-    <link>http://test.jobcher.com/skywalking/</link>
+    <link>http://www.jobcher.com/skywalking/</link>
     <pubDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/skywalking/</guid>
+    <guid>http://www.jobcher.com/skywalking/</guid>
     <description><![CDATA[<h1 id="skywalking">skywalking</h1>
 <p>基于 OpenTracing 规范，专门为微服务架构以及云原生服务。</p>
 <h2 id="apm-监控">APM 监控</h2>

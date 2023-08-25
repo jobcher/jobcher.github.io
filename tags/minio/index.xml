@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>minIO - 标签 - 打工人日志 - jobcher</title>
-        <link>http://test.jobcher.com/tags/minio/</link>
+        <link>http://www.jobcher.com/tags/minio/</link>
         <description>minIO - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://test.jobcher.com/tags/minio/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/minio/" rel="self" type="application/rss+xml" /><item>
     <title>安装 minIO Azure S3网关</title>
-    <link>http://test.jobcher.com/minio/</link>
+    <link>http://www.jobcher.com/minio/</link>
     <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/minio/</guid>
+    <guid>http://www.jobcher.com/minio/</guid>
     <description><![CDATA[<h1 id="安装-minio">安装 minIO</h1>
 <h2 id="通过-docker-安装">通过 docker 安装</h2>
 <div class="highlight"><div class="chroma">

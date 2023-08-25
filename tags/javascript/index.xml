@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>javascript - 标签 - 打工人日志 - jobcher</title>
-        <link>http://test.jobcher.com/tags/javascript/</link>
+        <link>http://www.jobcher.com/tags/javascript/</link>
         <description>javascript - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 14 Apr 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://test.jobcher.com/tags/javascript/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 14 Apr 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/javascript/" rel="self" type="application/rss+xml" /><item>
     <title>Ant中如何添加第三方jar包依赖</title>
-    <link>http://test.jobcher.com/ant/</link>
+    <link>http://www.jobcher.com/ant/</link>
     <pubDate>Thu, 14 Apr 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/ant/</guid>
+    <guid>http://www.jobcher.com/ant/</guid>
     <description><![CDATA[<h1 id="ant-中如何添加第三方-jar-包依赖">Ant 中如何添加第三方 jar 包依赖</h1>
 <p>如果使用 ant 进行 java 项目的编译部署，那怎么添加第三方 jar 包的依赖呢？方法如下：</p>
 <ol>
@@ -138,10 +138,10 @@
 ]]></description>
 </item><item>
     <title>linux 网络测速</title>
-    <link>http://test.jobcher.com/bench/</link>
+    <link>http://www.jobcher.com/bench/</link>
     <pubDate>Tue, 22 Feb 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/bench/</guid>
+    <guid>http://www.jobcher.com/bench/</guid>
     <description><![CDATA[<h1 id="linux-网络测速">linux 网络测速</h1>
 <h2 id="一键测试脚本benchsh">一键测试脚本<code>bench.sh</code></h2>
 <p>适用于各种 Linux 发行版的网络（下行）和 IO 测试：</p>
@@ -167,10 +167,10 @@
 ]]></description>
 </item><item>
     <title>获取用户浏览器默认语言设置，自动判断跳转不同网站</title>
-    <link>http://test.jobcher.com/auto/</link>
+    <link>http://www.jobcher.com/auto/</link>
     <pubDate>Thu, 16 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/auto/</guid>
+    <guid>http://www.jobcher.com/auto/</guid>
     <description><![CDATA[<h1 id="自动判断跳转不同网站">自动判断跳转不同网站</h1>
 <ol>
 <li>根据用户目前的浏览器配置语言进行显示</li>
