@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>ansible - 标签 - 打工人日志 - jobcher</title>
-        <link>http://www.jobcher.com/tags/ansible/</link>
+        <link>http://test.jobcher.com/tags/ansible/</link>
         <description>ansible - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 14 Apr 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/tags/ansible/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 14 Apr 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://test.jobcher.com/tags/ansible/" rel="self" type="application/rss+xml" /><item>
     <title>ansible 命令</title>
-    <link>http://www.jobcher.com/ansible1/</link>
+    <link>http://test.jobcher.com/ansible1/</link>
     <pubDate>Thu, 14 Apr 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.jobcher.com/ansible1/</guid>
+    <guid>http://test.jobcher.com/ansible1/</guid>
     <description><![CDATA[<h1 id="ansible-命令">ansible 命令</h1>
 <ul>
 <li><code>Inventory</code>：Ansible 管理的主机信息，包括 IP 地址、SSH 端口、账号、密码等</li>
@@ -303,10 +303,10 @@
 </div>]]></description>
 </item><item>
     <title>ansible 安装和部署</title>
-    <link>http://www.jobcher.com/ansible/</link>
+    <link>http://test.jobcher.com/ansible/</link>
     <pubDate>Thu, 30 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.jobcher.com/ansible/</guid>
+    <guid>http://test.jobcher.com/ansible/</guid>
     <description><![CDATA[<h1 id="ansible-安装和部署">ansible 安装和部署</h1>
 <p>Ansible 默认通过 SSH 协议管理机器.</p>
 <h2 id="安装-ansible">安装 ansible</h2>

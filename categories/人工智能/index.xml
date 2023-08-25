@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>人工智能 - 分类 - 打工人日志 - jobcher</title>
-        <link>http://www.jobcher.com/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</link>
+        <link>http://test.jobcher.com/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</link>
         <description>人工智能 - 分类 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://www.jobcher.com/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://test.jobcher.com/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="self" type="application/rss+xml" /><item>
     <title>探索midjourney(二)：midjourney prompt初体验</title>
-    <link>http://www.jobcher.com/midjourney-prompt-2/</link>
+    <link>http://test.jobcher.com/midjourney-prompt-2/</link>
     <pubDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.jobcher.com/midjourney-prompt-2/</guid>
+    <guid>http://test.jobcher.com/midjourney-prompt-2/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/ChatGPT-Plus/homeelegance_controllercolorfultranslucent_body_designed_bydiet_261aaa05-08ad-4fb5-b8a9-5961e85a50a1.png.webp" referrerpolicy="no-referrer">
             </div><p>紧接上文，我们继续探索midjourney prompt，这次我们来看看midjourney prompt的基础用法。</p>
@@ -235,10 +235,10 @@
 ]]></description>
 </item><item>
     <title>探索midjourney(一)：人工智能生成图像软件的惊人之旅</title>
-    <link>http://www.jobcher.com/midjourney-prompt-1/</link>
+    <link>http://test.jobcher.com/midjourney-prompt-1/</link>
     <pubDate>Fri, 07 Jul 2023 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.jobcher.com/midjourney-prompt-1/</guid>
+    <guid>http://test.jobcher.com/midjourney-prompt-1/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/ChatGPT-Plus/homeelegance_white_background_linework_greyscale_cartoon_sticke_0dc66fc8-8ac8-414d-8538-c3a7c63d38bb.png.webp" referrerpolicy="no-referrer">
             </div><p>人工智能（AI）的快速发展为我们带来了许多令人兴奋的技术创新。其中一项令人瞩目的成果是人工智能生成图像软件，它通过机器学习和深度学习算法，能够创造出惊人逼真的图像。在本文中，我将分享我的旅程，探索这项令人着迷的技术，并展示它的潜力与魅力。这个系列我会长期更新下去</p>
@@ -295,10 +295,10 @@
 ]]></description>
 </item><item>
     <title>NVIDIA GPU 的 docker 安装和部署</title>
-    <link>http://www.jobcher.com/nvidia-docker/</link>
+    <link>http://test.jobcher.com/nvidia-docker/</link>
     <pubDate>Thu, 01 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.jobcher.com/nvidia-docker/</guid>
+    <guid>http://test.jobcher.com/nvidia-docker/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/nvidia-docker.png" referrerpolicy="no-referrer">
             </div><h2 id="背景">背景</h2>
@@ -523,10 +523,10 @@
 </div>]]></description>
 </item><item>
     <title>调教Chat GPT生成Midjourney提示词</title>
-    <link>http://www.jobcher.com/midjourney/</link>
+    <link>http://test.jobcher.com/midjourney/</link>
     <pubDate>Fri, 26 May 2023 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.jobcher.com/midjourney/</guid>
+    <guid>http://test.jobcher.com/midjourney/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/ChatGPT-Plus/chatgpt.webp" referrerpolicy="no-referrer">
             </div><h2 id="实现功能">实现功能</h2>
@@ -688,10 +688,10 @@ elements that contribute to the final image. By providing such detailed descript
 ]]></description>
 </item><item>
     <title>🧠ChatGPT 中文使用指南</title>
-    <link>http://www.jobcher.com/chatgpt-use/</link>
+    <link>http://test.jobcher.com/chatgpt-use/</link>
     <pubDate>Thu, 09 Mar 2023 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.jobcher.com/chatgpt-use/</guid>
+    <guid>http://test.jobcher.com/chatgpt-use/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/ChatGPT-Plus/chatgpt.webp" referrerpolicy="no-referrer">
             </div><h1 id="chatgpt-中文使用指南">🧠ChatGPT 中文使用指南</h1>
@@ -1310,10 +1310,10 @@ elements that contribute to the final image. By providing such detailed descript
 ]]></description>
 </item><item>
     <title>ChatGPT Plus开通教程攻略</title>
-    <link>http://www.jobcher.com/chatgpt-plus/</link>
+    <link>http://test.jobcher.com/chatgpt-plus/</link>
     <pubDate>Tue, 28 Feb 2023 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://www.jobcher.com/chatgpt-plus/</guid>
+    <guid>http://test.jobcher.com/chatgpt-plus/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/ChatGPT-Plus/chatgpt.webp" referrerpolicy="no-referrer">
             </div><h1 id="chatgpt-plus开通教程攻略">ChatGPT Plus开通教程攻略</h1>
