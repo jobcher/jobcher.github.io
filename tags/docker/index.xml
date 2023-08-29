@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>docker - 标签 - 打工人日志 - jobcher</title>
-        <link>http://test.jobcher.com/tags/docker/</link>
+        <link>https://test.jobcher.com/tags/docker/</link>
         <description>docker - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 19 Sep 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://test.jobcher.com/tags/docker/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 19 Sep 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://test.jobcher.com/tags/docker/" rel="self" type="application/rss+xml" /><item>
     <title>清理Docker容器日志</title>
-    <link>http://test.jobcher.com/cleandocker/</link>
+    <link>https://test.jobcher.com/cleandocker/</link>
     <pubDate>Mon, 19 Sep 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/cleandocker/</guid>
+    <guid>https://test.jobcher.com/cleandocker/</guid>
     <description><![CDATA[<h1 id="清理-docker-容器日志">清理 Docker 容器日志</h1>
 <p>如果 docker 容器正在运行，那么使用<code>rm -rf</code>方式删除日志后，通过<code>df -h</code>会发现磁盘空间并没有释放。原因是在 Linux 或者 Unix 系统中，通过<code>rm -rf</code>或者文件管理器删除文件，将会从文件系统的目录结构上解除链接（unlink）。如果文件是被打开的（有一个进程正在使用），那么进程将仍然可以读取该文件，磁盘空间也一直被占用。正确姿势是<code>cat /dev/null &gt; *-json.log</code>，当然你也可以通过<code>rm -rf</code>删除后重启 docker。</p>
 <h2 id="日志清理脚本-clean_docker_logsh">日志清理脚本 clean_docker_log.sh</h2>
@@ -101,10 +101,10 @@
 ]]></description>
 </item><item>
     <title>contained 安装及使用</title>
-    <link>http://test.jobcher.com/contained/</link>
+    <link>https://test.jobcher.com/contained/</link>
     <pubDate>Wed, 17 Aug 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/contained/</guid>
+    <guid>https://test.jobcher.com/contained/</guid>
     <description><![CDATA[<h1 id="contained-安装及使用">contained 安装及使用</h1>
 <p><br>
 containerd 是一个行业标准的容器运行时，强调简单性、健壮性和可移植性。它可作为 Linux 和 Windows 的守护进程使用，可以管理其主机系统的完整容器生命周期：图像传输和存储、容器执行和监督、低级存储和网络附件等。<br>
@@ -235,10 +235,10 @@ containerd 是一个行业标准的容器运行时，强调简单性、健壮性
 ]]></description>
 </item><item>
     <title>docker 命令(2)</title>
-    <link>http://test.jobcher.com/docker02/</link>
+    <link>https://test.jobcher.com/docker02/</link>
     <pubDate>Fri, 18 Feb 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/docker02/</guid>
+    <guid>https://test.jobcher.com/docker02/</guid>
     <description><![CDATA[<h1 id="docker-命令2">docker 命令(2)</h1>
 <h2 id="docker-ps-命令"><code>docker ps</code> 命令</h2>
 <p><code>docker ps</code> 能查看所有运行中的容器<br>
@@ -252,10 +252,10 @@ containerd 是一个行业标准的容器运行时，强调简单性、健壮性
 ]]></description>
 </item><item>
     <title>清理Docker的container，image与volume</title>
-    <link>http://test.jobcher.com/docker-clean/</link>
+    <link>https://test.jobcher.com/docker-clean/</link>
     <pubDate>Thu, 10 Feb 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/docker-clean/</guid>
+    <guid>https://test.jobcher.com/docker-clean/</guid>
     <description><![CDATA[<h1 id="清理-docker-的-containerimage-与-volume">清理 Docker 的 container，image 与 volume</h1>
 <p>Docker 的镜像（image）、容器（container）、数据卷（volume）， 都是由 daemon 托管的。 因此，在需要清理时，也需要使用其自带的手段。</p>
 <h2 id="清理技巧">清理技巧</h2>
@@ -512,10 +512,10 @@ containerd 是一个行业标准的容器运行时，强调简单性、健壮性
 ]]></description>
 </item><item>
     <title>docker 命令</title>
-    <link>http://test.jobcher.com/docker/</link>
+    <link>https://test.jobcher.com/docker/</link>
     <pubDate>Tue, 28 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/docker/</guid>
+    <guid>https://test.jobcher.com/docker/</guid>
     <description><![CDATA[<h1 id="安装-docker">安装 docker</h1>
 <p>通过 docker 脚本安装</p>
 <div class="highlight"><div class="chroma">
@@ -582,10 +582,10 @@ containerd 是一个行业标准的容器运行时，强调简单性、健壮性
 </div>]]></description>
 </item><item>
     <title>docker 安装kong 网关</title>
-    <link>http://test.jobcher.com/docker-kong/</link>
+    <link>https://test.jobcher.com/docker-kong/</link>
     <pubDate>Wed, 22 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/docker-kong/</guid>
+    <guid>https://test.jobcher.com/docker-kong/</guid>
     <description><![CDATA[<h1 id="docker-安装-kong-网关">docker 安装 kong 网关</h1>
 <h2 id="建立数据库">建立数据库</h2>
 <ol>
@@ -733,10 +733,10 @@ containerd 是一个行业标准的容器运行时，强调简单性、健壮性
 </div>]]></description>
 </item><item>
     <title>搭建docker registry 镜像仓库</title>
-    <link>http://test.jobcher.com/docker-registry/</link>
+    <link>https://test.jobcher.com/docker-registry/</link>
     <pubDate>Wed, 22 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/docker-registry/</guid>
+    <guid>https://test.jobcher.com/docker-registry/</guid>
     <description><![CDATA[<h1 id="搭建-docker-registry-镜像仓库">搭建 docker registry 镜像仓库</h1>
 <h2 id="获取镜像">获取镜像</h2>
 <div class="highlight"><div class="chroma">
@@ -808,10 +808,10 @@ containerd 是一个行业标准的容器运行时，强调简单性、健壮性
 </div>]]></description>
 </item><item>
     <title>docker image镜像上传</title>
-    <link>http://test.jobcher.com/dockerimage/</link>
+    <link>https://test.jobcher.com/dockerimage/</link>
     <pubDate>Thu, 09 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/dockerimage/</guid>
+    <guid>https://test.jobcher.com/dockerimage/</guid>
     <description><![CDATA[<h1 id="docker-image-镜像上传">docker image 镜像上传</h1>
 <p>登入 docker hub，在https://hub.docker.com上注册你的账号。</p>
 <div class="highlight"><div class="chroma">
@@ -840,10 +840,10 @@ containerd 是一个行业标准的容器运行时，强调简单性、健壮性
 </div>]]></description>
 </item><item>
     <title>docker进阶使用</title>
-    <link>http://test.jobcher.com/docker01/</link>
+    <link>https://test.jobcher.com/docker01/</link>
     <pubDate>Thu, 09 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/docker01/</guid>
+    <guid>https://test.jobcher.com/docker01/</guid>
     <description><![CDATA[<h1 id="docker-进阶使用">docker 进阶使用</h1>
 <p>dockerfile 和 docker compose 的配置</p>
 <h1 id="dockerfile-使用">Dockerfile 使用</h1>

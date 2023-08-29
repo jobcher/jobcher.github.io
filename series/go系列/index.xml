@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>go系列 - seris - 打工人日志 - jobcher</title>
-        <link>http://test.jobcher.com/series/go%E7%B3%BB%E5%88%97/</link>
+        <link>https://test.jobcher.com/series/go%E7%B3%BB%E5%88%97/</link>
         <description>go系列 - seris - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 21 Sep 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://test.jobcher.com/series/go%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 21 Sep 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://test.jobcher.com/series/go%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
     <title>Golang 初识（安装、使用）</title>
-    <link>http://test.jobcher.com/golang/</link>
+    <link>https://test.jobcher.com/golang/</link>
     <pubDate>Wed, 21 Sep 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/golang/</guid>
+    <guid>https://test.jobcher.com/golang/</guid>
     <description><![CDATA[<h1 id="golang-初识安装使用">Golang 初识（安装、使用）</h1>
 <h2 id="go-导学">Go 导学</h2>
 <p>go 语言由 google 公司推出。</p>
@@ -67,10 +67,10 @@
 </div>]]></description>
 </item><item>
     <title>go Struct 结构体</title>
-    <link>http://test.jobcher.com/go3/</link>
+    <link>https://test.jobcher.com/go3/</link>
     <pubDate>Tue, 26 Apr 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/go3/</guid>
+    <guid>https://test.jobcher.com/go3/</guid>
     <description><![CDATA[<h1 id="go-struct-结构体">go Struct 结构体</h1>
 <p>结构体是将零个或多个任意类型的变量，组合在一起的聚合数据类型，也可以看做是<code>数据的集合</code>。</p>
 <h2 id="声明结构体">声明结构体</h2>
@@ -295,10 +295,10 @@
 </div>]]></description>
 </item><item>
     <title>go Slice切片语法</title>
-    <link>http://test.jobcher.com/go2/</link>
+    <link>https://test.jobcher.com/go2/</link>
     <pubDate>Mon, 25 Apr 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/go2/</guid>
+    <guid>https://test.jobcher.com/go2/</guid>
     <description><![CDATA[<h1 id="go-slice-切片语法">go Slice 切片语法</h1>
 <p><code>切片</code>是一种<code>动态数组</code>，比数组操作灵活，长度不是固定的，可以进行追加和删除。<br>
 <code>len()</code> 和 <code>cap()</code> 返回结果可相同和不同。</p>
@@ -517,10 +517,10 @@
 </div>]]></description>
 </item><item>
     <title>go 基础知识</title>
-    <link>http://test.jobcher.com/go1/</link>
+    <link>https://test.jobcher.com/go1/</link>
     <pubDate>Mon, 25 Apr 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/go1/</guid>
+    <guid>https://test.jobcher.com/go1/</guid>
     <description><![CDATA[<h1 id="go-基础知识">go 基础知识</h1>
 <h2 id="目录结构">目录结构</h2>
 <div class="highlight"><div class="chroma">
@@ -973,10 +973,10 @@
 ]]></description>
 </item><item>
     <title>Golang go build 编译不同版本</title>
-    <link>http://test.jobcher.com/go/</link>
+    <link>https://test.jobcher.com/go/</link>
     <pubDate>Sun, 17 Apr 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/go/</guid>
+    <guid>https://test.jobcher.com/go/</guid>
     <description><![CDATA[<h1 id="golang-go-build-编译不同系统下的可执行文件">Golang go build 编译不同系统下的可执行文件</h1>
 <h2 id="mac-系统编译">Mac 系统编译</h2>
 <div class="highlight"><div class="chroma">

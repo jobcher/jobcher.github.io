@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>自动化 - 标签 - 打工人日志 - jobcher</title>
-        <link>http://test.jobcher.com/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/</link>
+        <link>https://test.jobcher.com/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/</link>
         <description>自动化 - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 14 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://test.jobcher.com/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 14 Jan 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://test.jobcher.com/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/" rel="self" type="application/rss+xml" /><item>
     <title>Gitlab批量导出用户</title>
-    <link>http://test.jobcher.com/exportuser/</link>
+    <link>https://test.jobcher.com/exportuser/</link>
     <pubDate>Fri, 14 Jan 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/exportuser/</guid>
+    <guid>https://test.jobcher.com/exportuser/</guid>
     <description><![CDATA[<h1 id="gitlab-批量导出用户">Gitlab 批量导出用户</h1>
 <p>登陆 Gitlab 服务器进行数据库登陆、数据查询及信息导出操作。</p>
 <h2 id="操作步骤">操作步骤</h2>

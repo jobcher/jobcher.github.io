@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>java - 标签 - 打工人日志 - jobcher</title>
-        <link>http://test.jobcher.com/tags/java/</link>
+        <link>https://test.jobcher.com/tags/java/</link>
         <description>java - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 21 Apr 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://test.jobcher.com/tags/java/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 21 Apr 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://test.jobcher.com/tags/java/" rel="self" type="application/rss+xml" /><item>
     <title>ant build.xml 编写</title>
-    <link>http://test.jobcher.com/ant1/</link>
+    <link>https://test.jobcher.com/ant1/</link>
     <pubDate>Thu, 21 Apr 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/ant1/</guid>
+    <guid>https://test.jobcher.com/ant1/</guid>
     <description><![CDATA[<h1 id="ant-buildxml-编写">ant build.xml 编写</h1>
 <h2 id="生成-buildxml">生成 build.xml</h2>
 <p><code>Eclipse</code> 自动生成 Ant 的<code>Build.xml</code> 配置文件,生成的方法很隐蔽<br>

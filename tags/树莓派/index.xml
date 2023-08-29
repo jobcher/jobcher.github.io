@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>树莓派 - 标签 - 打工人日志 - jobcher</title>
-        <link>http://test.jobcher.com/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/</link>
+        <link>https://test.jobcher.com/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/</link>
         <description>树莓派 - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 06 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://test.jobcher.com/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 06 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://test.jobcher.com/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/" rel="self" type="application/rss+xml" /><item>
     <title>树莓派搭建k3s</title>
-    <link>http://test.jobcher.com/rasberry/</link>
+    <link>https://test.jobcher.com/rasberry/</link>
     <pubDate>Mon, 06 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/rasberry/</guid>
+    <guid>https://test.jobcher.com/rasberry/</guid>
     <description><![CDATA[<h1 id="树莓派安装-k3s">树莓派安装 k3s</h1>
 <h2 id="1安装-k3s">1.安装 k3s</h2>
 <h3 id="控制节点">控制节点</h3>

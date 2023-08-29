@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>web3.0 - seris - 打工人日志 - jobcher</title>
-        <link>http://test.jobcher.com/series/web3.0/</link>
+        <link>https://test.jobcher.com/series/web3.0/</link>
         <description>web3.0 - seris - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 21 Oct 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="http://test.jobcher.com/series/web3.0/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 21 Oct 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://test.jobcher.com/series/web3.0/" rel="self" type="application/rss+xml" /><item>
     <title>打开web 3.0的大门——IPFS使用</title>
-    <link>http://test.jobcher.com/ipfs/</link>
+    <link>https://test.jobcher.com/ipfs/</link>
     <pubDate>Fri, 21 Oct 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/ipfs/</guid>
+    <guid>https://test.jobcher.com/ipfs/</guid>
     <description><![CDATA[<h2 id="背景">背景</h2>
 <p>有很多朋友问我什么是 web3.0，web3.0 似乎离我们非常远。有人会说 web3.0 是未来下一代的技术很有前景！但是举出一个具体的例子，似乎又非常困难。使用 web3.0 是一件非常高科技的事情。本文就是通过各 IPFS 给各位初学者和对 web3.0 感兴趣的人使用介绍，看完本篇文章，你就能进入 web3.0 的世界了~</p>
 <h2 id="ipfs">IPFS</h2>
@@ -47,10 +47,10 @@ Akasha，对标 facebook，微信等社交工具：<a href="https://akasha.world
 ]]></description>
 </item><item>
     <title>Planet 下载及安装</title>
-    <link>http://test.jobcher.com/planet/</link>
+    <link>https://test.jobcher.com/planet/</link>
     <pubDate>Wed, 17 Aug 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>http://test.jobcher.com/planet/</guid>
+    <guid>https://test.jobcher.com/planet/</guid>
     <description><![CDATA[<h1 id="planet-下载及安装">Planet 下载及安装</h1>
 <h2 id="官网下载httpswwwplanetablexyz"><a href="https://www.planetable.xyz/" target="_blank" rel="noopener noreffer">官网下载</a></h2>
 <p><code>Planet</code> 是一款用于发布和关注 Web 内容的免费开源软件，它不需要集中式服务器或服务。它使用 <code>IPFS</code> 来实现<code>点对点</code>的<code>内容分发</code>。此外，您可以将您的内容链接到<code>以太坊名称 (.eth)</code>，以便其他人可以通过 <code>Planet</code> 以 <code>.eth</code> 名称关注您。由于 <code>IPFS</code> 和 <code>ENS</code> 都是去中心化的，因此您可以以<code>去中心化</code>的方式构建您的网站或关注其他网站。</p>
