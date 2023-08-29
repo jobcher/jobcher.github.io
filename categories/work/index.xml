@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>work - 分类 - 打工人日志 - jobcher</title>
-        <link>https://test.jobcher.com/categories/work/</link>
+        <link>https://www.jobcher.com/categories/work/</link>
         <description>work - 分类 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 30 Mar 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://test.jobcher.com/categories/work/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 30 Mar 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.jobcher.com/categories/work/" rel="self" type="application/rss+xml" /><item>
     <title>使用scrapy-redis实现增量爬取</title>
-    <link>https://test.jobcher.com/scrapyredis/</link>
+    <link>https://www.jobcher.com/scrapyredis/</link>
     <pubDate>Thu, 30 Mar 2023 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/scrapyredis/</guid>
+    <guid>https://www.jobcher.com/scrapyredis/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/chrome1.png" referrerpolicy="no-referrer">
             </div><h1 id="使用scrapy-redis实现增量爬取">使用scrapy-redis实现增量爬取</h1>
@@ -344,10 +344,10 @@
 ]]></description>
 </item><item>
     <title>Chrome浏览器启动参数大全（命令行参数）</title>
-    <link>https://test.jobcher.com/chrome/</link>
+    <link>https://www.jobcher.com/chrome/</link>
     <pubDate>Tue, 29 Nov 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/chrome/</guid>
+    <guid>https://www.jobcher.com/chrome/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/chrome1.png" referrerpolicy="no-referrer">
             </div><h2 id="背景">背景</h2>
@@ -6103,10 +6103,10 @@
 ]]></description>
 </item><item>
     <title>Jenkins 编译Android apk 流水线</title>
-    <link>https://test.jobcher.com/gradle-apk/</link>
+    <link>https://www.jobcher.com/gradle-apk/</link>
     <pubDate>Fri, 25 Nov 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/gradle-apk/</guid>
+    <guid>https://www.jobcher.com/gradle-apk/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/logo-jenkins.png" referrerpolicy="no-referrer">
             </div><h2 id="背景">背景</h2>
@@ -6479,10 +6479,10 @@
 </div>]]></description>
 </item><item>
     <title>Nexus3 使用和部署</title>
-    <link>https://test.jobcher.com/nexus/</link>
+    <link>https://www.jobcher.com/nexus/</link>
     <pubDate>Mon, 31 Oct 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/nexus/</guid>
+    <guid>https://www.jobcher.com/nexus/</guid>
     <description><![CDATA[<h2 id="nexus3-docker-compose-安装">Nexus3 docker-compose 安装</h2>
 <p>创建外部存储</p>
 <div class="highlight"><div class="chroma">
@@ -6540,10 +6540,10 @@
 ]]></description>
 </item><item>
     <title>shell 脚本（1）</title>
-    <link>https://test.jobcher.com/shell1/</link>
+    <link>https://www.jobcher.com/shell1/</link>
     <pubDate>Sun, 20 Mar 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/shell1/</guid>
+    <guid>https://www.jobcher.com/shell1/</guid>
     <description><![CDATA[<h1 id="shell-脚本之变量">shell 脚本之<code>变量</code></h1>
 <h2 id="变量替换">变量替换</h2>
 <table>
@@ -6628,10 +6628,10 @@
 ]]></description>
 </item><item>
     <title>Maven 安装编译</title>
-    <link>https://test.jobcher.com/maven/</link>
+    <link>https://www.jobcher.com/maven/</link>
     <pubDate>Thu, 03 Mar 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/maven/</guid>
+    <guid>https://www.jobcher.com/maven/</guid>
     <description><![CDATA[<h1 id="maven-安装编译">Maven 安装编译</h1>
 <p>Maven 就是专门为 Java 项目打造的管理和构建工具，它的主要功能有：</p>
 <ul>
@@ -6741,10 +6741,10 @@
 ]]></description>
 </item><item>
     <title>Nodejs 安装编译</title>
-    <link>https://test.jobcher.com/nodejs/</link>
+    <link>https://www.jobcher.com/nodejs/</link>
     <pubDate>Thu, 03 Mar 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/nodejs/</guid>
+    <guid>https://www.jobcher.com/nodejs/</guid>
     <description><![CDATA[<h1 id="nodejs-安装编译">Nodejs 安装编译</h1>
 <p>Node.js 平台是在后端运行 JavaScript 代码，必须首先在本机安装 Node 环境。</p>
 <h2 id="安装-nodejs">安装 Node.js</h2>
@@ -6753,10 +6753,10 @@
 ]]></description>
 </item><item>
     <title>ruoyi-cloud docker部署</title>
-    <link>https://test.jobcher.com/ruoyi/</link>
+    <link>https://www.jobcher.com/ruoyi/</link>
     <pubDate>Thu, 03 Mar 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/ruoyi/</guid>
+    <guid>https://www.jobcher.com/ruoyi/</guid>
     <description><![CDATA[<h2 id="基础环境安装">基础环境安装</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">

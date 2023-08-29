@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>日常生活 - 标签 - 打工人日志 - jobcher</title>
-        <link>https://test.jobcher.com/tags/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/</link>
+        <link>https://www.jobcher.com/tags/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/</link>
         <description>日常生活 - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 01 Aug 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://test.jobcher.com/tags/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 01 Aug 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.jobcher.com/tags/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/" rel="self" type="application/rss+xml" /><item>
     <title>黑群晖最新安装教程</title>
-    <link>https://test.jobcher.com/black_nas/</link>
+    <link>https://www.jobcher.com/black_nas/</link>
     <pubDate>Tue, 01 Aug 2023 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/black_nas/</guid>
+    <guid>https://www.jobcher.com/black_nas/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/lyd0wozvo39ycoc8t2ke.png" referrerpolicy="no-referrer">
             </div><h1 id="黑群晖最新安装教程">黑群晖最新安装教程</h1>
@@ -100,10 +100,10 @@ Synology Assistant: <a href="https://cndl.synology.cn/download/Utility/Assistant
 ]]></description>
 </item><item>
     <title>推荐一下 容器云资源</title>
-    <link>https://test.jobcher.com/20230621/</link>
+    <link>https://www.jobcher.com/20230621/</link>
     <pubDate>Wed, 21 Jun 2023 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/20230621/</guid>
+    <guid>https://www.jobcher.com/20230621/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/qiong.jpg" referrerpolicy="no-referrer">
             </div><h2 id="背景">背景</h2>
@@ -120,10 +120,10 @@ Synology Assistant: <a href="https://cndl.synology.cn/download/Utility/Assistant
 ]]></description>
 </item><item>
     <title>如何礼貌回绝不合理的需求</title>
-    <link>https://test.jobcher.com/20230524/</link>
+    <link>https://www.jobcher.com/20230524/</link>
     <pubDate>Wed, 24 May 2023 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/20230524/</guid>
+    <guid>https://www.jobcher.com/20230524/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/%e8%83%8c%e9%94%85.png" referrerpolicy="no-referrer">
             </div><h2 id="背景">背景</h2>
@@ -155,10 +155,10 @@ Synology Assistant: <a href="https://cndl.synology.cn/download/Utility/Assistant
 ]]></description>
 </item><item>
     <title>linux服务器 删除空间却未释放</title>
-    <link>https://test.jobcher.com/linux-disk/</link>
+    <link>https://www.jobcher.com/linux-disk/</link>
     <pubDate>Wed, 20 Jul 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/linux-disk/</guid>
+    <guid>https://www.jobcher.com/linux-disk/</guid>
     <description><![CDATA[<h1 id="linux-服务器-删除空间却未释放">linux 服务器 删除空间却未释放</h1>
 <p>在<code>Linux</code>或者<code>Unix</code>系统中，通过<code>rm</code>或者文件管理器删除文件将会从文件系统的目录结构上<code>解除链接(unlink)</code>，然而如果文件是被打开的<code>（有一个进程正在使用）</code>，那么进程将仍然可以读取该文件，<code>磁盘空间也一直被占用</code>，这样就会导致我们明明删除了文件，但是磁盘空间却未被释放</p>
 <h2 id="获取占用列表状态">获取占用列表状态</h2>
@@ -192,10 +192,10 @@ Synology Assistant: <a href="https://cndl.synology.cn/download/Utility/Assistant
 ]]></description>
 </item><item>
     <title>VSCode插件推荐=&gt; Code Runner</title>
-    <link>https://test.jobcher.com/vscode-runcode/</link>
+    <link>https://www.jobcher.com/vscode-runcode/</link>
     <pubDate>Mon, 25 Apr 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/vscode-runcode/</guid>
+    <guid>https://www.jobcher.com/vscode-runcode/</guid>
     <description><![CDATA[<h1 id="vscode-插件推荐-code-runner">VSCode 插件推荐=&gt; Code Runner</h1>
 <p>Run code snippet or code file for multiple languages: C, C++, Java, JavaScript, PHP, Python, Perl, Perl 6, Ruby, Go, Lua, Groovy, PowerShell, BAT/CMD, BASH/SH, F# Script, F# (.NET Core), C# Script, C# (.NET Core), VBScript, TypeScript, CoffeeScript, Scala, Swift, Julia, Crystal, OCaml Script, R, AppleScript, Elixir, Visual Basic .NET, Clojure, Haxe, Objective-C, Rust, Racket, Scheme, AutoHotkey, AutoIt, Kotlin, Dart, Free Pascal, Haskell, Nim, D, Lisp, Kit, V, SCSS, Sass, CUDA, Less, Fortran, Ring, and custom command<br>
 可以用编译运行超过 40 种语言，非常的方便～</p>
@@ -212,10 +212,10 @@ Synology Assistant: <a href="https://cndl.synology.cn/download/Utility/Assistant
 ]]></description>
 </item><item>
     <title>记录一次上门打散工</title>
-    <link>https://test.jobcher.com/20220416/</link>
+    <link>https://www.jobcher.com/20220416/</link>
     <pubDate>Sun, 17 Apr 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/20220416/</guid>
+    <guid>https://www.jobcher.com/20220416/</guid>
     <description><![CDATA[<h1 id="记录一次上门打散工">记录一次上门打散工</h1>
 <p>壬寅年头磨难多<br>
 人间规则奈吾何<br>

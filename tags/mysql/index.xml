@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>mysql - 标签 - 打工人日志 - jobcher</title>
-        <link>https://test.jobcher.com/tags/mysql/</link>
+        <link>https://www.jobcher.com/tags/mysql/</link>
         <description>mysql - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 16 Aug 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://test.jobcher.com/tags/mysql/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 16 Aug 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.jobcher.com/tags/mysql/" rel="self" type="application/rss+xml" /><item>
     <title>关系数据库 索引操作</title>
-    <link>https://test.jobcher.com/sql-index/</link>
+    <link>https://www.jobcher.com/sql-index/</link>
     <pubDate>Tue, 16 Aug 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/sql-index/</guid>
+    <guid>https://www.jobcher.com/sql-index/</guid>
     <description><![CDATA[<h1 id="索引">索引</h1>
 <p>在<code>关系数据库</code>中，如果有上万甚至上亿条记录，在查找记录的时候，想要获得非常快的速度，就需要使用索引。<br>
 <code>索引</code>是关系数据库中对某一列或多个列的值进行预排序的数据结构。通过使用索引，可以让数据库系统<code>不必扫描整个表</code>，而是直接定位到符合条件的记录，这样就大大<code>加快</code>了<code>查询速度</code>。<br>
@@ -106,10 +106,10 @@
 ]]></description>
 </item><item>
     <title>Navicat 查看导出连接的密码 | navicat查看密码方案</title>
-    <link>https://test.jobcher.com/navicatforgetpassword/</link>
+    <link>https://www.jobcher.com/navicatforgetpassword/</link>
     <pubDate>Tue, 08 Feb 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/navicatforgetpassword/</guid>
+    <guid>https://www.jobcher.com/navicatforgetpassword/</guid>
     <description><![CDATA[<h1 id="navicat-查看密码方案">Navicat 查看密码方案</h1>
 <h2 id="解决问题">解决问题：</h2>
 <p>我们经常使用 navicat 连接数据库，有时候时间久了之后，会忘记之前的密码，那么现在我们有办法获得只要正常连接的数据库的密码</p>
@@ -405,10 +405,10 @@
 ]]></description>
 </item><item>
     <title>mysql 笔记（2）</title>
-    <link>https://test.jobcher.com/mysql02/</link>
+    <link>https://www.jobcher.com/mysql02/</link>
     <pubDate>Fri, 21 Jan 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/mysql02/</guid>
+    <guid>https://www.jobcher.com/mysql02/</guid>
     <description><![CDATA[<h1 id="mysql-学习笔记2">mysql 学习笔记（2）</h1>
 <h2 id="mysql-主从复制">mysql 主从复制</h2>
 <p><code>MySQL 主从复制是指数据可以从一个MySQL数据库服务器主节点复制到一个或多个从节点。</code>MySQL 默认采用<code>异步复制</code>方式，这样从节点不用一直访问主服务器来更新自己的数据，数据的更新可以在远程连接上进行，从节点可以复制主数据库中的所有数据库或者特定的数据库，或者特定的表。</p>
@@ -441,10 +441,10 @@ SQL 线程负责读取 relay-log 中的内容，解析成具体的操作并执�
 ]]></description>
 </item><item>
     <title>mysql数据库备份迁移</title>
-    <link>https://test.jobcher.com/mysqldump/</link>
+    <link>https://www.jobcher.com/mysqldump/</link>
     <pubDate>Fri, 24 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/mysqldump/</guid>
+    <guid>https://www.jobcher.com/mysqldump/</guid>
     <description><![CDATA[<h1 id="mysql-数据库备份迁移">mysql 数据库备份迁移</h1>
 <p>使用 mydumper 做数据备份迁移</p>
 <h2 id="备份数据库">备份数据库</h2>
@@ -686,10 +686,10 @@ SQL 线程负责读取 relay-log 中的内容，解析成具体的操作并执�
 </div>]]></description>
 </item><item>
     <title>mysql 笔记（1）</title>
-    <link>https://test.jobcher.com/mysql01/</link>
+    <link>https://www.jobcher.com/mysql01/</link>
     <pubDate>Sun, 12 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/mysql01/</guid>
+    <guid>https://www.jobcher.com/mysql01/</guid>
     <description><![CDATA[<h1 id="mysql-学习笔记1">mysql 学习笔记（1）</h1>
 <p>本文章不涉及到关于 mysql 开放上的问题，主要记录关于 mysql 出现的问题，以及如何去维护 mysql 数据的日常。</p>
 <h2 id="mysql-各类信息的收集">mysql 各类信息的收集</h2>

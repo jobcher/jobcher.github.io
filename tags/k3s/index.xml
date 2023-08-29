@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>k3s - 标签 - 打工人日志 - jobcher</title>
-        <link>https://test.jobcher.com/tags/k3s/</link>
+        <link>https://www.jobcher.com/tags/k3s/</link>
         <description>k3s - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://test.jobcher.com/tags/k3s/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.jobcher.com/tags/k3s/" rel="self" type="application/rss+xml" /><item>
     <title>k3s 升级版本</title>
-    <link>https://test.jobcher.com/k3supgrade/</link>
+    <link>https://www.jobcher.com/k3supgrade/</link>
     <pubDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/k3supgrade/</guid>
+    <guid>https://www.jobcher.com/k3supgrade/</guid>
     <description><![CDATA[<h1 id="k3s-升级版本">k3s 升级版本</h1>
 <h2 id="停止所有的-k3s-容器慎用">停止所有的 K3s 容器（慎用）</h2>
 <p>从 server 节点运行 killall 脚本</p>
@@ -51,10 +51,10 @@
 </div>]]></description>
 </item><item>
     <title>树莓派搭建k3s</title>
-    <link>https://test.jobcher.com/rasberry/</link>
+    <link>https://www.jobcher.com/rasberry/</link>
     <pubDate>Mon, 06 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/rasberry/</guid>
+    <guid>https://www.jobcher.com/rasberry/</guid>
     <description><![CDATA[<h1 id="树莓派安装-k3s">树莓派安装 k3s</h1>
 <h2 id="1安装-k3s">1.安装 k3s</h2>
 <h3 id="控制节点">控制节点</h3>

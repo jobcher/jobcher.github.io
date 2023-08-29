@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>Terraform - 标签 - 打工人日志 - jobcher</title>
-        <link>https://test.jobcher.com/tags/terraform/</link>
+        <link>https://www.jobcher.com/tags/terraform/</link>
         <description>Terraform - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://test.jobcher.com/tags/terraform/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.jobcher.com/tags/terraform/" rel="self" type="application/rss+xml" /><item>
     <title>安装配置 Terraform</title>
-    <link>https://test.jobcher.com/terraform/</link>
+    <link>https://www.jobcher.com/terraform/</link>
     <pubDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/terraform/</guid>
+    <guid>https://www.jobcher.com/terraform/</guid>
     <description><![CDATA[<h1 id="安装配置-terraform">安装配置 Terraform</h1>
 <h2 id="安装">安装</h2>
 <ol>

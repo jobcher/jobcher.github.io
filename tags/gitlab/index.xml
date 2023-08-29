@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>gitlab - 标签 - 打工人日志 - jobcher</title>
-        <link>https://test.jobcher.com/tags/gitlab/</link>
+        <link>https://www.jobcher.com/tags/gitlab/</link>
         <description>gitlab - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://test.jobcher.com/tags/gitlab/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.jobcher.com/tags/gitlab/" rel="self" type="application/rss+xml" /><item>
     <title>Argo cd 安装和部署</title>
-    <link>https://test.jobcher.com/argocd/</link>
+    <link>https://www.jobcher.com/argocd/</link>
     <pubDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/argocd/</guid>
+    <guid>https://www.jobcher.com/argocd/</guid>
     <description><![CDATA[<h1 id="argo-cd-安装和部署">Argo cd 安装和部署</h1>
 <p>Argo CD 是一个为 Kubernetes 而生的，遵循声明式 GitOps 理念的持续部署（CD）工具。Argo CD 可在 Git 存储库更改时自动同步和部署应用程序
 </p>
@@ -74,10 +74,10 @@
 ]]></description>
 </item><item>
     <title>Git 规则</title>
-    <link>https://test.jobcher.com/git3/</link>
+    <link>https://www.jobcher.com/git3/</link>
     <pubDate>Thu, 24 Mar 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/git3/</guid>
+    <guid>https://www.jobcher.com/git3/</guid>
     <description><![CDATA[<h1 id="git-飞行规则flight-rules">Git 飞行规则(Flight Rules)</h1>
 <ul>
 <li><a href="#%E7%BC%96%E8%BE%91%E6%8F%90%E4%BA%A4editting-commits" rel="">编辑提交(editting commits)</a>
@@ -1542,10 +1542,10 @@
 ]]></description>
 </item><item>
     <title>git版本控制</title>
-    <link>https://test.jobcher.com/git2/</link>
+    <link>https://www.jobcher.com/git2/</link>
     <pubDate>Mon, 28 Feb 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/git2/</guid>
+    <guid>https://www.jobcher.com/git2/</guid>
     <description><![CDATA[<h1 id="git-版本控制">git 版本控制</h1>
 <h2 id="版本回退">版本回退</h2>
 <h3 id="1查看-git-提交历史">1.查看 git 提交历史</h3>
@@ -1682,10 +1682,10 @@
 ]]></description>
 </item><item>
     <title>CICD 概念</title>
-    <link>https://test.jobcher.com/devops/</link>
+    <link>https://www.jobcher.com/devops/</link>
     <pubDate>Thu, 17 Feb 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/devops/</guid>
+    <guid>https://www.jobcher.com/devops/</guid>
     <description><![CDATA[<h1 id="cicd-概念">CICD 概念</h1>
 <h1 id="devops">DevOps</h1>
 <p>Devlopment 和 Operation 的组合词</p>
@@ -1722,10 +1722,10 @@ Ci 需要具备这些：</li>
 </div>]]></description>
 </item><item>
     <title>git使用方法</title>
-    <link>https://test.jobcher.com/git/</link>
+    <link>https://www.jobcher.com/git/</link>
     <pubDate>Thu, 17 Feb 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/git/</guid>
+    <guid>https://www.jobcher.com/git/</guid>
     <description><![CDATA[<h1 id="git-使用方法">git 使用方法</h1>
 <h2 id="一git-安装配置">一、git 安装配置</h2>
 <ol>
@@ -2411,10 +2411,10 @@ Ci 需要具备这些：</li>
 </div>]]></description>
 </item><item>
     <title>Jenkins 安装与使用</title>
-    <link>https://test.jobcher.com/jenkins/</link>
+    <link>https://www.jobcher.com/jenkins/</link>
     <pubDate>Wed, 09 Feb 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/jenkins/</guid>
+    <guid>https://www.jobcher.com/jenkins/</guid>
     <description><![CDATA[<h1 id="jenkins-安装与使用">Jenkins 安装与使用</h1>
 <p>代码在本地修改&mdash;-》提交到远程 gitlab&mdash;-》触发 jenkins 整个自动化构建流程（打包，测试，发布，部署）</p>
 <h2 id="安装-docker">安装 docker</h2>
@@ -2588,10 +2588,10 @@ Ci 需要具备这些：</li>
 </div>]]></description>
 </item><item>
     <title>gitlab与github同步项目</title>
-    <link>https://test.jobcher.com/gitrsync/</link>
+    <link>https://www.jobcher.com/gitrsync/</link>
     <pubDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/gitrsync/</guid>
+    <guid>https://www.jobcher.com/gitrsync/</guid>
     <description><![CDATA[<h1 id="gitlab-与-github-同步项目">gitlab 与 github 同步项目</h1>
 <ol>
 <li>本地同步项目</li>
@@ -2642,10 +2642,10 @@ Ci 需要具备这些：</li>
 </div>]]></description>
 </item><item>
     <title>git技巧</title>
-    <link>https://test.jobcher.com/gitlab/</link>
+    <link>https://www.jobcher.com/gitlab/</link>
     <pubDate>Fri, 10 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/gitlab/</guid>
+    <guid>https://www.jobcher.com/gitlab/</guid>
     <description><![CDATA[<h1 id="git-技巧">git 技巧</h1>
 <p>Git 是一个 “分布式版本管理工具”，简单的理解版本管理工具：大家在写东西的时候都用过 “回撤” 这个功能，但是回撤只能回撤几步，假如想要找回我三天之前的修改，光用 “回撤” 是找不回来的。而 “版本管理工具” 能记录每次的修改，只要提交到版本仓库，你就可以找到之前任何时刻的状态（文本状态）。</p>
 <p>下面的内容就是列举了常用的 Git 命令和一些小技巧，可以通过 &ldquo;页面内查找&rdquo; 的方式进行快速查询：<code>Ctrl/Command+f</code>。</p>
@@ -3690,10 +3690,10 @@ Ci 需要具备这些：</li>
 ]]></description>
 </item><item>
     <title>gitlab CI/CD 的使用</title>
-    <link>https://test.jobcher.com/gitlab-cicd/</link>
+    <link>https://www.jobcher.com/gitlab-cicd/</link>
     <pubDate>Fri, 03 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/gitlab-cicd/</guid>
+    <guid>https://www.jobcher.com/gitlab-cicd/</guid>
     <description><![CDATA[<h1 id="gitlab-cicd-的使用">gitlab CI/CD 的使用</h1>
 <p>我将使用 gitlab 的流水线自动实现 hugo blog 文章的自动发布。</p>
 <h2 id="一基础知识">一、基础知识</h2>

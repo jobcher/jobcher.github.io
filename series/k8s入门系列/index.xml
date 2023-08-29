@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>k8s入门系列 - seris - 打工人日志 - jobcher</title>
-        <link>https://test.jobcher.com/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/</link>
+        <link>https://www.jobcher.com/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/</link>
         <description>k8s入门系列 - seris - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 18 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://test.jobcher.com/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 18 Jul 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.jobcher.com/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
     <title>Ansible部署ceph集群</title>
-    <link>https://test.jobcher.com/ansible-ceph/</link>
+    <link>https://www.jobcher.com/ansible-ceph/</link>
     <pubDate>Tue, 18 Jul 2023 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/ansible-ceph/</guid>
+    <guid>https://www.jobcher.com/ansible-ceph/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/ceph-logo.png" referrerpolicy="no-referrer">
             </div><h2 id="基础配置">基础配置</h2>
@@ -292,10 +292,10 @@
 </div>]]></description>
 </item><item>
     <title>Kubernetes — 更新证书</title>
-    <link>https://test.jobcher.com/k8s16/</link>
+    <link>https://www.jobcher.com/k8s16/</link>
     <pubDate>Tue, 15 Nov 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/k8s16/</guid>
+    <guid>https://www.jobcher.com/k8s16/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/k8s.png" referrerpolicy="no-referrer">
             </div><h2 id="背景">背景</h2>
@@ -409,10 +409,10 @@
 ]]></description>
 </item><item>
     <title>Kubernetes — Rook云存储介绍和部署</title>
-    <link>https://test.jobcher.com/k8s14/</link>
+    <link>https://www.jobcher.com/k8s14/</link>
     <pubDate>Tue, 11 Oct 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/k8s14/</guid>
+    <guid>https://www.jobcher.com/k8s14/</guid>
     <description><![CDATA[<h1 id="rook-云存储介绍和部署">Rook 云存储介绍和部署</h1>
 <p><code>Rook </code>将<code>分布式存储软件</code>转变为<code>自我管理</code>，<code>自我缩放</code>和<code>自我修复</code>的<code>存储服务</code>。它通过自动化部署，引导、配置、供应、扩展、升级、迁移、灾难恢复、监控和资源管理来实现。 <code>Rook</code> 使用基础的云原生容器管理、调度和编排平台提供的功能来履行其职责。</p>
 <p><code>Rook</code> 利用扩展点深入融入<code>云原生环境</code>，为调度、生命周期管理、资源管理、安全性、监控和用户体验提供无缝体验。</p>
@@ -835,10 +835,10 @@
 ]]></description>
 </item><item>
     <title>Kubernetes — 基于K8S搭建Ceph分布式存储</title>
-    <link>https://test.jobcher.com/k8s15/</link>
+    <link>https://www.jobcher.com/k8s15/</link>
     <pubDate>Tue, 11 Oct 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/k8s15/</guid>
+    <guid>https://www.jobcher.com/k8s15/</guid>
     <description><![CDATA[<h1 id="基于-k8s-搭建-ceph-分布式存储">基于 K8S 搭建 Ceph 分布式存储</h1>
 <h2 id="前提">前提</h2>
 <ul>
@@ -952,10 +952,10 @@
 ]]></description>
 </item><item>
     <title>Kubernetes — 探针和生命周期</title>
-    <link>https://test.jobcher.com/k8s13/</link>
+    <link>https://www.jobcher.com/k8s13/</link>
     <pubDate>Sat, 08 Oct 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/k8s13/</guid>
+    <guid>https://www.jobcher.com/k8s13/</guid>
     <description><![CDATA[<h1 id="kubernetes--探针和生命周期">Kubernetes — 探针和生命周期</h1>
 <p>用于判断容器内应用程序是否已经启动。</p>
 <ul>
@@ -1287,10 +1287,10 @@
 </div>]]></description>
 </item><item>
     <title>Kubernetes — 开放标准（OCI、CRI、CNI、CSI、SMI、CPI）概述</title>
-    <link>https://test.jobcher.com/k8s12/</link>
+    <link>https://www.jobcher.com/k8s12/</link>
     <pubDate>Fri, 07 Oct 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/k8s12/</guid>
+    <guid>https://www.jobcher.com/k8s12/</guid>
     <description><![CDATA[<h1 id="kubernetes--开放标准ocicricnicsismicpi概述">Kubernetes — 开放标准（OCI、CRI、CNI、CSI、SMI、CPI）概述</h1>
 <p>什么是 Kubernetes 开放标准？— K8s 开放标准简介<br>
 <code>开放标准</code>有助于和补充像 <code>Kubernetes</code> 这样的系统，Kubernetes 是用于<code>编排容器</code>的事实上的标准平台。开放标准定义了实施 <code>Kubernetes</code> 的<code>最佳实践</code>，并在支持此实施方面发挥着至关重要的作用。开放标准由开源 <code>Kubernetes 社区</code>而非某个特定供应商制定，以确保更高的效率、避免供应商锁定以及更轻松地将其他软件集成到技术堆栈中。<br>
@@ -1431,10 +1431,10 @@
 ]]></description>
 </item><item>
     <title>kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)</title>
-    <link>https://test.jobcher.com/k8s11/</link>
+    <link>https://www.jobcher.com/k8s11/</link>
     <pubDate>Fri, 07 Oct 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/k8s11/</guid>
+    <guid>https://www.jobcher.com/k8s11/</guid>
     <description><![CDATA[<h1 id="k8s-部署插件">k8s 部署插件</h1>
 <p><code>Kubernetes</code> 是高度可配置且可扩展的。因此，大多数情况下， 你不需要派生自己的 Kubernetes 副本或者向项目代码提交补丁，本文会介绍几种常用的 k8s 插件，如果大家喜欢的话，希望大家点赞支持。</p>
 <h2 id="1-flannel-网络插件">1. Flannel 网络插件</h2>
@@ -1582,10 +1582,10 @@
 </div>]]></description>
 </item><item>
     <title>kubernetes 存储</title>
-    <link>https://test.jobcher.com/k8s10/</link>
+    <link>https://www.jobcher.com/k8s10/</link>
     <pubDate>Mon, 01 Aug 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/k8s10/</guid>
+    <guid>https://www.jobcher.com/k8s10/</guid>
     <description><![CDATA[<h1 id="kubernetes-存储">kubernetes 存储</h1>
 <p>k8s 支持多种途径的多种类型的存储。例如 iSCSI,SMB,NFS，以及对象存储。都是不同类型的部署在云上或者自建数据中心的外部存储系统。k8s 上的所有存储都被称作<code>卷</code></p>
 <h2 id="csi-容器存储接口">CSI 容器存储接口</h2>
@@ -1775,10 +1775,10 @@
 </div>]]></description>
 </item><item>
     <title>kubernetes 从1.23.x 升级到 1.24.x</title>
-    <link>https://test.jobcher.com/k8s9/</link>
+    <link>https://www.jobcher.com/k8s9/</link>
     <pubDate>Wed, 29 Jun 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/k8s9/</guid>
+    <guid>https://www.jobcher.com/k8s9/</guid>
     <description><![CDATA[<h1 id="kubernetes-从123x-升级到-124x">kubernetes 从<code>1.23.x</code> 升级到 <code>1.24.x</code></h1>
 <p>k8s 在<code>1.24.x</code>之后的版本放弃了和 docker 的兼容，使用 containerd 作为底层的容器，直接参照官方文档的资料进行更新就会报错。因为你没有安装 containerd，所以要安装 containerd 并配置才能正确的升级 k8s<br>
 我用的是<code>CentOS7.9</code>的版本，因此以下操作都是在<code>CentOS</code>下操作。</p>
@@ -1911,10 +1911,10 @@ systemctl status kubelet</p>
 </div>]]></description>
 </item><item>
     <title>编写 kubernetes 资源描述文件</title>
-    <link>https://test.jobcher.com/k8s8/</link>
+    <link>https://www.jobcher.com/k8s8/</link>
     <pubDate>Mon, 27 Jun 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/k8s8/</guid>
+    <guid>https://www.jobcher.com/k8s8/</guid>
     <description><![CDATA[<h1 id="编写-kubernetes-资源描述文件">编写 kubernetes 资源描述文件</h1>
 <h3 id="1-部署一个应用">1. 部署一个应用</h3>
 <div class="highlight"><div class="chroma">

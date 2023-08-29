@@ -1,15 +1,15 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
     <channel>
         <title>nps - 标签 - 打工人日志 - jobcher</title>
-        <link>https://test.jobcher.com/tags/nps/</link>
+        <link>https://www.jobcher.com/tags/nps/</link>
         <description>nps - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 30 Sep 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://test.jobcher.com/tags/nps/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 30 Sep 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.jobcher.com/tags/nps/" rel="self" type="application/rss+xml" /><item>
     <title>Cloudflare Zero Trust 内网穿透</title>
-    <link>https://test.jobcher.com/cloudflaretrust/</link>
+    <link>https://www.jobcher.com/cloudflaretrust/</link>
     <pubDate>Fri, 30 Sep 2022 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/cloudflaretrust/</guid>
+    <guid>https://www.jobcher.com/cloudflaretrust/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/cloudflare.png" referrerpolicy="no-referrer">
             </div><h1 id="cloudflare-zero-trust-内网穿透">Cloudflare Zero Trust 内网穿透</h1>
@@ -123,10 +123,10 @@
 ]]></description>
 </item><item>
     <title>自建服务器内网穿透</title>
-    <link>https://test.jobcher.com/nps/</link>
+    <link>https://www.jobcher.com/nps/</link>
     <pubDate>Wed, 08 Dec 2021 00:00:00 &#43;0000</pubDate>
     <author>作者</author>
-    <guid>https://test.jobcher.com/nps/</guid>
+    <guid>https://www.jobcher.com/nps/</guid>
     <description><![CDATA[<h1 id="内网穿透">内网穿透</h1>
 <p>文章中使用的内网穿透前提是必须具有公网 IP 的云服务器，不符合条件的同学可以跳过了。</p>
 <h2 id="nps-内网穿透">nps 内网穿透</h2>
