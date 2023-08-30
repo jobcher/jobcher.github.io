@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/www.jobcher.com\/networkinglinux\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "error","wordcount":  2517 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "error","wordcount":  2539 ,
         "url": "https:\/\/www.jobcher.com\/networkinglinux\/","datePublished": "2023-08-30T00:00:00+00:00","dateModified": "2023-08-30T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -142,7 +142,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Linux 系统收包流程以及内核参数优化</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/%E9%97%AE%E9%A2%98%E5%BA%93/"><i class="far fa-folder fa-fw"></i>问题库</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-08-30">2023-08-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2517 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-08-30">2023-08-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2539 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;<span id="/networkinglinux/" class="leancloud_visitors" data-flag-title="Linux 系统收包流程以及内核参数优化">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -254,20 +254,35 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ethtool -l eth0
 </span></span></code></pre></td></tr></table>
 </div>
-</div><blockquote>
-<p>Channel parameters for eth0:
-Pre-set maximums:
-RX:		0
-TX:		0
-Other:		0
-Combined:	8
-Current hardware settings:
-RX:		0
-TX:		0
-Other:		0
-Combined:	4</p>
-</blockquote>
-<p>可以看到硬件最多支持 6 个，当前使用了 4 个。将 RX 和 TX queue 数量都设为 8。</p>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">Channel parameters <span class="k">for</span> eth0:
+</span></span><span class="line"><span class="cl">Pre-set maximums:
+</span></span><span class="line"><span class="cl">RX:		<span class="m">0</span>
+</span></span><span class="line"><span class="cl">TX:		<span class="m">0</span>
+</span></span><span class="line"><span class="cl">Other:		<span class="m">0</span>
+</span></span><span class="line"><span class="cl">Combined:	<span class="m">8</span>
+</span></span><span class="line"><span class="cl">Current hardware settings:
+</span></span><span class="line"><span class="cl">RX:		<span class="m">0</span>
+</span></span><span class="line"><span class="cl">TX:		<span class="m">0</span>
+</span></span><span class="line"><span class="cl">Other:		<span class="m">0</span>
+</span></span><span class="line"><span class="cl">Combined:	<span class="m">4</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>可以看到硬件最多支持 6 个，当前使用了 4 个。将 RX 和 TX queue 数量都设为 8。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -287,20 +302,35 @@ Combined:	4</p>
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ethtool -g eth0
 </span></span></code></pre></td></tr></table>
 </div>
-</div><blockquote>
-<p>Ring parameters for eth0:
-Pre-set maximums:
-RX:		1024
-RX Mini:	0
-RX Jumbo:	0
-TX:		1024
-Current hardware settings:
-RX:		512
-RX Mini:	0
-RX Jumbo:	0
-TX:		512</p>
-</blockquote>
-<p>以上输出显示网卡最多支持 1024 个 RX/TX 数据包大小，但是现在只用到了 512 个。 ethtool -G 修改 queue 大小。</p>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">Ring parameters <span class="k">for</span> eth0:
+</span></span><span class="line"><span class="cl">Pre-set maximums:
+</span></span><span class="line"><span class="cl">RX:		<span class="m">1024</span>
+</span></span><span class="line"><span class="cl">RX Mini:	<span class="m">0</span>
+</span></span><span class="line"><span class="cl">RX Jumbo:	<span class="m">0</span>
+</span></span><span class="line"><span class="cl">TX:		<span class="m">1024</span>
+</span></span><span class="line"><span class="cl">Current hardware settings:
+</span></span><span class="line"><span class="cl">RX:		<span class="m">512</span>
+</span></span><span class="line"><span class="cl">RX Mini:	<span class="m">0</span>
+</span></span><span class="line"><span class="cl">RX Jumbo:	<span class="m">0</span>
+</span></span><span class="line"><span class="cl">TX:		<span class="m">512</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>以上输出显示网卡最多支持 1024 个 RX/TX 数据包大小，但是现在只用到了 512 个。 ethtool -G 修改 queue 大小。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
