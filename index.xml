@@ -276,7 +276,7 @@ GitHub：<a href="https://github.com/graphdeco-inria/gaussian-splatting" target=
     <author>作者</author>
     <guid>https://www.jobcher.com/networkinglinux/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/images/nginx.png" referrerpolicy="no-referrer">
+                <img src="/images/networking-dc52a683.svg" referrerpolicy="no-referrer">
             </div><h2 id="简介">简介</h2>
 <p>高并发的系统架构中，任何细微调整，稍有不注意便会引起连锁反应，只有系统地了解整个网络栈，在处理疑难杂症或者系统优化工作中，才能做到手中有粮心中不慌。在本节，我们概览一个 Linux 系统收包的流程，以便了解高并发系统所面临的性能瓶颈问题以及相关的优化策略。</p>
 <h3 id="收包过程">收包过程</h3>
