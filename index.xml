@@ -185,7 +185,7 @@
     <author>作者</author>
     <guid>https://www.jobcher.com/3dgaussiansplatting/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/images/LOL.jpeg" referrerpolicy="no-referrer">
+                <img src="/images/graphdeco_logo.png" referrerpolicy="no-referrer">
             </div><h2 id="简介">简介</h2>
 <p>只需要一组照片或者一个视频，就能快速地生成一个3D模型。<br>
 它使了用一种叫做“3D高斯函数”的数学工具来表示这个3D模型，并找到了一种更快的算法来渲染（即生成）3D模型。</p>
@@ -257,7 +257,46 @@
 </div><p>项目地址及演示：<a href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/" target="_blank" rel="noopener noreffer">链接</a><br>
 GitHub：<a href="https://github.com/graphdeco-inria/gaussian-splatting" target="_blank" rel="noopener noreffer">链接</a></p>
 <h2 id="演示视频">演示视频</h2>
-<p>{{&lt; youtube kShNYOuDnlI &gt;}}</p>
+<p><div class="embed video-player">
+    <iframe 
+            class="youtube-player" 
+            type="text/html" 
+            width="640" 
+            height="385"
+            src="https://www.youtube.com/embed/kShNYOuDnlI?autoplay=1"
+            style="
+                   position: absolute; 
+                   top: 0; 
+                   left: 0; 
+                   width: 100%; 
+                   height: 100%; 
+                   border:0;"
+            allowfullscreen frameborder="0">
+    </iframe>
+  </div>
+  
+  
+  <br>
+<div class="embed video-player">
+    <iframe 
+            class="youtube-player" 
+            type="text/html" 
+            width="640" 
+            height="385"
+            src="https://www.youtube.com/embed/mD0oBE9LJTQ?autoplay=1"
+            style="
+                   position: absolute; 
+                   top: 0; 
+                   left: 0; 
+                   width: 100%; 
+                   height: 100%; 
+                   border:0;"
+            allowfullscreen frameborder="0">
+    </iframe>
+  </div>
+  
+  
+  </p>
 ]]></description>
 </item><item>
     <title>2023-08-29 打工人日报</title>

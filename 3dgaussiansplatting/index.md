@@ -48,4 +48,5 @@ python metrics.py -m <path to trained model> # Compute error metrics on renderin
 GitHub：[链接](https://github.com/graphdeco-inria/gaussian-splatting)  
 
 ## 演示视频
-{{</* youtube kShNYOuDnlI */>}}
+{{< youtube kShNYOuDnlI >}}  
+{{< youtube mD0oBE9LJTQ >}}  
