@@ -179,6 +179,87 @@
 <h4 id="2笔记本1080p畅开光追60帧3050够吗httpswwwv2excomt969356reply0">2.<a href="https://www.v2ex.com/t/969356#reply0" target="_blank" rel="noopener noreffer">笔记本1080p畅开光追60帧3050够吗</a></h4>
 ]]></description>
 </item><item>
+    <title>3D Gaussian Splatting：3D模型渲染</title>
+    <link>https://www.jobcher.com/3dgaussiansplatting/</link>
+    <pubDate>Wed, 30 Aug 2023 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://www.jobcher.com/3dgaussiansplatting/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/LOL.jpeg" referrerpolicy="no-referrer">
+            </div><h2 id="简介">简介</h2>
+<p>只需要一组照片或者一个视频，就能快速地生成一个3D模型。<br>
+它使了用一种叫做“3D高斯函数”的数学工具来表示这个3D模型，并找到了一种更快的算法来渲染（即生成）3D模型。</p>
+<h2 id="介绍">介绍</h2>
+<p>想象一下，你有一堆照片或视频，你想从一个全新的角度看这些场景。3D Gaussian Splatting 就是一个能让你做到这一点的高级工具。它用一种特别快和高质量的方式来“重建”这些场景，让你能够从任何角度观看它们，就像你实际站在那里一样。</p>
+<p>这个工具的“大脑”使用了一种叫做3D高斯的数学模型，这个模型能够非常精确地描述场景的每一个细节。更酷的是，这个工具还能实时地显示这些新角度的场景，这意味着你不必等待很长时间就能看到结果。</p>
+<p>简而言之，这是一个能让你以全新、快速和高质量的方式探索照片和视频场景的工具。</p>
+<h2 id="使用">使用</h2>
+<h3 id="硬件要求">硬件要求</h3>
+<ul>
+<li>具有计算能力 7.0+ 的 CUDA 就绪 GPU</li>
+<li>24 GB VRAM（用于训练论文评估质量）</li>
+</ul>
+<h3 id="软件要求">软件要求</h3>
+<ul>
+<li>Conda（推荐使用，以便于设置）</li>
+<li>用于 PyTorch 扩展的 C++ 编译器（我们使用 Visual Studio 2019 for Windows）</li>
+<li>用于 PyTorch 扩展的 CUDA SDK 11，在 Visual Studio 之后安装（我们使用 11.8，11.6 存在已知问题）</li>
+<li>C++编译器和CUDA SDK必须兼容</li>
+</ul>
+<h3 id="设置">设置</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">SET <span class="nv">DISTUTILS_USE_SDK</span><span class="o">=</span><span class="m">1</span> <span class="c1"># Windows only</span>
+</span></span><span class="line"><span class="cl">conda env create --file environment.yml
+</span></span><span class="line"><span class="cl">conda activate gaussian_splatting
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>请注意，此过程假设您安装了 CUDA SDK 11，而不是 12。有关修改，请参阅下文。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">conda config --add pkgs_dirs &lt;Drive&gt;/&lt;pkg_path&gt;
+</span></span><span class="line"><span class="cl">conda env create --file environment.yml --prefix &lt;Drive&gt;/&lt;env_path&gt;/gaussian_splatting
+</span></span><span class="line"><span class="cl">conda activate &lt;Drive&gt;/&lt;env_path&gt;/gaussian_splatting
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">python train.py -s &lt;path to COLMAP or NeRF Synthetic dataset&gt;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>评估</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">python train.py -s &lt;path to COLMAP or NeRF Synthetic dataset&gt; --eval <span class="c1"># Train with train/test split</span>
+</span></span><span class="line"><span class="cl">python render.py -m &lt;path to trained model&gt; <span class="c1"># Generate renderings</span>
+</span></span><span class="line"><span class="cl">python metrics.py -m &lt;path to trained model&gt; <span class="c1"># Compute error metrics on renderings</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>项目地址及演示：<a href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/" target="_blank" rel="noopener noreffer">链接</a><br>
+GitHub：<a href="https://github.com/graphdeco-inria/gaussian-splatting" target="_blank" rel="noopener noreffer">链接</a></p>
+<h2 id="演示视频">演示视频</h2>
+<p>{{&lt; youtube kShNYOuDnlI &gt;}}</p>
+]]></description>
+</item><item>
     <title>2023-08-29 打工人日报</title>
     <link>https://www.jobcher.com/github_trending_2023-08-29/</link>
     <pubDate>Tue, 29 Aug 2023 00:00:00 &#43;0000</pubDate>
@@ -1619,189 +1700,6 @@
 </ul>
 <h2 id="v2ex-热门帖子">v2ex 热门帖子</h2>
 <h4 id="1尝试了grapheneos探索移动系统的隐私与安全特性httpswwwv2excomt967246reply1">1.<a href="https://www.v2ex.com/t/967246#reply1" target="_blank" rel="noopener noreffer">尝试了GrapheneOS：探索移动系统的隐私与安全特性！</a></h4>
-]]></description>
-</item><item>
-    <title>2023-08-21 打工人日报</title>
-    <link>https://www.jobcher.com/github_trending_2023-08-21/</link>
-    <pubDate>Mon, 21 Aug 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://www.jobcher.com/github_trending_2023-08-21/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/wallpaper/2023-08-21.jpg.webp" referrerpolicy="no-referrer">
-            </div><h2 id="微博热搜榜">微博热搜榜</h2>
-<h4 id="排名-1我国国家公园建设取得显著成效httpssweibocomweiboq我国国家公园建设取得显著成效">排名 1.<a href="https://s.weibo.com/weibo?q=%e6%88%91%e5%9b%bd%e5%9b%bd%e5%ae%b6%e5%85%ac%e5%9b%ad%e5%bb%ba%e8%ae%be%e5%8f%96%e5%be%97%e6%98%be%e8%91%97%e6%88%90%e6%95%88" target="_blank" rel="noopener noreffer">我国国家公园建设取得显著成效</a></h4>
-<h4 id="排名-2央视调查甘肃天水古城httpssweibocomweiboq央视调查甘肃天水古城">排名 2.<a href="https://s.weibo.com/weibo?q=%e5%a4%ae%e8%a7%86%e8%b0%83%e6%9f%a5%e7%94%98%e8%82%83%e5%a4%a9%e6%b0%b4%e5%8f%a4%e5%9f%8e" target="_blank" rel="noopener noreffer">央视调查甘肃天水古城</a></h4>
-<h4 id="排名-3原来我的专业考不了公务员httpssweibocomweiboq原来我的专业考不了公务员">排名 3.<a href="https://s.weibo.com/weibo?q=%e5%8e%9f%e6%9d%a5%e6%88%91%e7%9a%84%e4%b8%93%e4%b8%9a%e8%80%83%e4%b8%8d%e4%ba%86%e5%85%ac%e5%8a%a1%e5%91%98" target="_blank" rel="noopener noreffer">原来我的专业考不了公务员</a></h4>
-<h4 id="排名-4接到96110来电千万不要挂httpssweibocomweiboq接到96110来电千万不要挂">排名 4.<a href="https://s.weibo.com/weibo?q=%e6%8e%a5%e5%88%b096110%e6%9d%a5%e7%94%b5%e5%8d%83%e4%b8%87%e4%b8%8d%e8%a6%81%e6%8c%82" target="_blank" rel="noopener noreffer">接到96110来电千万不要挂</a></h4>
-<h4 id="排名-5我国又破获一起美国cia间谍案httpssweibocomweiboq我国又破获一起美国cia间谍案">排名 5.<a href="https://s.weibo.com/weibo?q=%e6%88%91%e5%9b%bd%e5%8f%88%e7%a0%b4%e8%8e%b7%e4%b8%80%e8%b5%b7%e7%be%8e%e5%9b%bdCIA%e9%97%b4%e8%b0%8d%e6%a1%88" target="_blank" rel="noopener noreffer">我国又破获一起美国CIA间谍案</a></h4>
-<h4 id="排名-6韩国知名网红擅自赴乌参战被判刑1年半httpssweibocomweiboq韩国知名网红擅自赴乌参战被判刑1年半">排名 6.<a href="https://s.weibo.com/weibo?q=%e9%9f%a9%e5%9b%bd%e7%9f%a5%e5%90%8d%e7%bd%91%e7%ba%a2%e6%93%85%e8%87%aa%e8%b5%b4%e4%b9%8c%e5%8f%82%e6%88%98%e8%a2%ab%e5%88%a4%e5%88%911%e5%b9%b4%e5%8d%8a" target="_blank" rel="noopener noreffer">韩国知名网红擅自赴乌参战被判刑1年半</a></h4>
-<h4 id="排名-7当我姐发现自己曾拒绝过华为httpssweibocomweiboq当我姐发现自己曾拒绝过华为">排名 7.<a href="https://s.weibo.com/weibo?q=%e5%bd%93%e6%88%91%e5%a7%90%e5%8f%91%e7%8e%b0%e8%87%aa%e5%b7%b1%e6%9b%be%e6%8b%92%e7%bb%9d%e8%bf%87%e5%8d%8e%e4%b8%ba" target="_blank" rel="noopener noreffer">当我姐发现自己曾拒绝过华为</a></h4>
-<h4 id="排名-8刘昊然眼神-轻松httpssweibocomweiboq刘昊然眼神轻松">排名 8.<a href="https://s.weibo.com/weibo?q=%e5%88%98%e6%98%8a%e7%84%b6%e7%9c%bc%e7%a5%9e%e8%bd%bb%e6%9d%be" target="_blank" rel="noopener noreffer">刘昊然眼神 轻松</a></h4>
-<h4 id="排名-9胡兵瞿颖52岁状态httpssweibocomweiboq胡兵瞿颖52岁状态">排名 9.<a href="https://s.weibo.com/weibo?q=%e8%83%a1%e5%85%b5%e7%9e%bf%e9%a2%9652%e5%b2%81%e7%8a%b6%e6%80%81" target="_blank" rel="noopener noreffer">胡兵瞿颖52岁状态</a></h4>
-<h4 id="排名-10到缅北第一天就被拉去参观水牢httpssweibocomweiboq到缅北第一天就被拉去参观水牢">排名 10.<a href="https://s.weibo.com/weibo?q=%e5%88%b0%e7%bc%85%e5%8c%97%e7%ac%ac%e4%b8%80%e5%a4%a9%e5%b0%b1%e8%a2%ab%e6%8b%89%e5%8e%bb%e5%8f%82%e8%a7%82%e6%b0%b4%e7%89%a2" target="_blank" rel="noopener noreffer">到缅北第一天就被拉去参观水牢</a></h4>
-<h4 id="排名-11一个刘海搞定所有脸型bughttpssweibocomweiboq一个刘海搞定所有脸型bug">排名 11.<a href="https://s.weibo.com/weibo?q=%e4%b8%80%e4%b8%aa%e5%88%98%e6%b5%b7%e6%90%9e%e5%ae%9a%e6%89%80%e6%9c%89%e8%84%b8%e5%9e%8bbug" target="_blank" rel="noopener noreffer">一个刘海搞定所有脸型bug</a></h4>
-<h4 id="排名-12邓为很满意夭璟结局httpssweibocomweiboq邓为很满意夭璟结局">排名 12.<a href="https://s.weibo.com/weibo?q=%e9%82%93%e4%b8%ba%e5%be%88%e6%bb%a1%e6%84%8f%e5%a4%ad%e7%92%9f%e7%bb%93%e5%b1%80" target="_blank" rel="noopener noreffer">邓为很满意夭璟结局</a></h4>
-<h4 id="排名-13by2晒与angelababy合照httpssweibocomweiboqby2晒与angelababy合照">排名 13.<a href="https://s.weibo.com/weibo?q=by2%e6%99%92%e4%b8%8eAngelababy%e5%90%88%e7%85%a7" target="_blank" rel="noopener noreffer">by2晒与Angelababy合照</a></h4>
-<h4 id="排名-14你可以嫁给爱情-也可以嫁给友情httpssweibocomweiboq你可以嫁给爱情也可以嫁给友情">排名 14.<a href="https://s.weibo.com/weibo?q=%e4%bd%a0%e5%8f%af%e4%bb%a5%e5%ab%81%e7%bb%99%e7%88%b1%e6%83%85%e4%b9%9f%e5%8f%af%e4%bb%a5%e5%ab%81%e7%bb%99%e5%8f%8b%e6%83%85" target="_blank" rel="noopener noreffer">你可以嫁给爱情 也可以嫁给友情</a></h4>
-<h4 id="排名-15原来天堂伞可以免费维修httpssweibocomweiboq原来天堂伞可以免费维修">排名 15.<a href="https://s.weibo.com/weibo?q=%e5%8e%9f%e6%9d%a5%e5%a4%a9%e5%a0%82%e4%bc%9e%e5%8f%af%e4%bb%a5%e5%85%8d%e8%b4%b9%e7%bb%b4%e4%bf%ae" target="_blank" rel="noopener noreffer">原来天堂伞可以免费维修</a></h4>
-<h4 id="排名-16长大后最羡慕的朋友圈httpssweibocomweiboq长大后最羡慕的朋友圈">排名 16.<a href="https://s.weibo.com/weibo?q=%e9%95%bf%e5%a4%a7%e5%90%8e%e6%9c%80%e7%be%a1%e6%85%95%e7%9a%84%e6%9c%8b%e5%8f%8b%e5%9c%88" target="_blank" rel="noopener noreffer">长大后最羡慕的朋友圈</a></h4>
-<h4 id="排名-17研究表明乳房大小影响运动意愿httpssweibocomweiboq研究表明乳房大小影响运动意愿">排名 17.<a href="https://s.weibo.com/weibo?q=%e7%a0%94%e7%a9%b6%e8%a1%a8%e6%98%8e%e4%b9%b3%e6%88%bf%e5%a4%a7%e5%b0%8f%e5%bd%b1%e5%93%8d%e8%bf%90%e5%8a%a8%e6%84%8f%e6%84%bf" target="_blank" rel="noopener noreffer">研究表明乳房大小影响运动意愿</a></h4>
-<h4 id="排名-18百万播放99万是范丞丞看的httpssweibocomweiboq百万播放99万是范丞丞看的">排名 18.<a href="https://s.weibo.com/weibo?q=%e7%99%be%e4%b8%87%e6%92%ad%e6%94%be99%e4%b8%87%e6%98%af%e8%8c%83%e4%b8%9e%e4%b8%9e%e7%9c%8b%e7%9a%84" target="_blank" rel="noopener noreffer">百万播放99万是范丞丞看的</a></h4>
-<h4 id="排名-19秦牛正威直播再道歉httpssweibocomweiboq秦牛正威直播再道歉">排名 19.<a href="https://s.weibo.com/weibo?q=%e7%a7%a6%e7%89%9b%e6%ad%a3%e5%a8%81%e7%9b%b4%e6%92%ad%e5%86%8d%e9%81%93%e6%ad%89" target="_blank" rel="noopener noreffer">秦牛正威直播再道歉</a></h4>
-<h4 id="排名-20缅北诈骗人员自曝专盯单身公务员httpssweibocomweiboq缅北诈骗人员自曝专盯单身公务员">排名 20.<a href="https://s.weibo.com/weibo?q=%e7%bc%85%e5%8c%97%e8%af%88%e9%aa%97%e4%ba%ba%e5%91%98%e8%87%aa%e6%9b%9d%e4%b8%93%e7%9b%af%e5%8d%95%e8%ba%ab%e5%85%ac%e5%8a%a1%e5%91%98" target="_blank" rel="noopener noreffer">缅北诈骗人员自曝专盯单身公务员</a></h4>
-<h2 id="github-热门榜单">GitHub 热门榜单</h2>
-<h3 id="排名-1getumbrelllama-gpt">排名 1:/getumbrel/llama-gpt</h3>
-<ul>
-<li>简介: 一个自托管、离线、类似ChatGPT的聊天机器人。由Llama 2提供动力。100%隐私，没有任何数据离开您的设备。</li>
-<li>URL: <a href="https://github.com/getumbrel/llama-gpt" target="_blank" rel="noopener noreffer">https://github.com/getumbrel/llama-gpt</a></li>
-<li>作者: getumbrel</li>
-</ul>
-<h3 id="排名-2qiuyu96codef">排名 2:/qiuyu96/CoDeF</h3>
-<ul>
-<li>简介: 官方PyTorch实现CoDeF：用于时间一致视频处理的内容变形场</li>
-<li>URL: <a href="https://github.com/qiuyu96/CoDeF" target="_blank" rel="noopener noreffer">https://github.com/qiuyu96/CoDeF</a></li>
-<li>作者: qiuyu96</li>
-</ul>
-<h3 id="排名-3leejetstable-diffusioncpp">排名 3:/leejet/stable-diffusion.cpp</h3>
-<ul>
-<li>简介: 纯C/C中的稳定扩散++</li>
-<li>URL: <a href="https://github.com/leejet/stable-diffusion.cpp" target="_blank" rel="noopener noreffer">https://github.com/leejet/stable-diffusion.cpp</a></li>
-<li>作者: leejet</li>
-</ul>
-<h3 id="排名-4jackfruedpython-100-days">排名 4:/jackfrued/Python-100-Days</h3>
-<ul>
-<li>简介: Python-100天从新手到大师</li>
-<li>URL: <a href="https://github.com/jackfrued/Python-100-Days" target="_blank" rel="noopener noreffer">https://github.com/jackfrued/Python-100-Days</a></li>
-<li>作者: jackfrued</li>
-</ul>
-<h3 id="排名-5lorisyoungervpet">排名 5:/LorisYounger/VPet</h3>
-<ul>
-<li>简介: 虚拟桌宠模拟器 一个开源的桌宠软件, 可以内置到任何WPF应用程序</li>
-<li>URL: <a href="https://github.com/LorisYounger/VPet" target="_blank" rel="noopener noreffer">https://github.com/LorisYounger/VPet</a></li>
-<li>作者: LorisYounger</li>
-</ul>
-<h3 id="排名-6kuafuaidevopsgpt">排名 6:/kuafuai/DevOpsGPT</h3>
-<ul>
-<li>简介: 用于人工智能驱动软件开发的多代理系统。将自然语言需求转换为工作软件。支持任何开发语言并扩展现有的基本代码。</li>
-<li>URL: <a href="https://github.com/kuafuai/DevOpsGPT" target="_blank" rel="noopener noreffer">https://github.com/kuafuai/DevOpsGPT</a></li>
-<li>作者: kuafuai</li>
-</ul>
-<h3 id="排名-7calcomcalcom">排名 7:/calcom/cal.com</h3>
-<ul>
-<li>简介: 为每个人安排基础设施。</li>
-<li>URL: <a href="https://github.com/calcom/cal.com" target="_blank" rel="noopener noreffer">https://github.com/calcom/cal.com</a></li>
-<li>作者: calcom</li>
-</ul>
-<h3 id="排名-8grasscuttersgrasscutter">排名 8:/Grasscutters/Grasscutter</h3>
-<ul>
-<li>简介: 为某个动漫游戏重新实现的服务器软件。</li>
-<li>URL: <a href="https://github.com/Grasscutters/Grasscutter" target="_blank" rel="noopener noreffer">https://github.com/Grasscutters/Grasscutter</a></li>
-<li>作者: Grasscutters</li>
-</ul>
-<h3 id="排名-9vintaawesome-python">排名 9:/vinta/awesome-python</h3>
-<ul>
-<li>简介: 精心策划的Python框架、库、软件和资源列表</li>
-<li>URL: <a href="https://github.com/vinta/awesome-python" target="_blank" rel="noopener noreffer">https://github.com/vinta/awesome-python</a></li>
-<li>作者: vinta</li>
-</ul>
-<h3 id="排名-10dimdengdoldtweetdeck">排名 10:/dimdenGD/OldTweetDeck</h3>
-<ul>
-<li>简介: 免费返回旧TweetDeck！</li>
-<li>URL: <a href="https://github.com/dimdenGD/OldTweetDeck" target="_blank" rel="noopener noreffer">https://github.com/dimdenGD/OldTweetDeck</a></li>
-<li>作者: dimdenGD</li>
-</ul>
-<h3 id="排名-11serde-rsserde">排名 11:/serde-rs/serde</h3>
-<ul>
-<li>简介: Rust的序列化框架</li>
-<li>URL: <a href="https://github.com/serde-rs/serde" target="_blank" rel="noopener noreffer">https://github.com/serde-rs/serde</a></li>
-<li>作者: serde-rs</li>
-</ul>
-<h3 id="排名-12ill-incbiomes-game">排名 12:/ill-inc/biomes-game</h3>
-<ul>
-<li>简介: Biomes是一款使用Next.js、Typescript、React和WebAssembly等网络技术为网络构建的开源沙盒MMORPG。</li>
-<li>URL: <a href="https://github.com/ill-inc/biomes-game" target="_blank" rel="noopener noreffer">https://github.com/ill-inc/biomes-game</a></li>
-<li>作者: ill-inc</li>
-</ul>
-<h3 id="排名-13facebookresearchanimateddrawings">排名 13:/facebookresearch/AnimatedDrawings</h3>
-<ul>
-<li>简介: “儿童人物画动画制作方法”配套代码</li>
-<li>URL: <a href="https://github.com/facebookresearch/AnimatedDrawings" target="_blank" rel="noopener noreffer">https://github.com/facebookresearch/AnimatedDrawings</a></li>
-<li>作者: facebookresearch</li>
-</ul>
-<h3 id="排名-14elidianaandradedio-lab-open-source">排名 14:/elidianaandrade/dio-lab-open-source</h3>
-<ul>
-<li>简介: Reposiório do lab Contribuindo em um Projeto Open Source no GitHub da Digital Innovation One。</li>
-<li>URL: <a href="https://github.com/elidianaandrade/dio-lab-open-source" target="_blank" rel="noopener noreffer">https://github.com/elidianaandrade/dio-lab-open-source</a></li>
-<li>作者: elidianaandrade</li>
-</ul>
-<h3 id="排名-15documensodocumenso">排名 15:/documenso/documenso</h3>
-<ul>
-<li>简介: 开源DocuSign替代方案。</li>
-<li>URL: <a href="https://github.com/documenso/documenso" target="_blank" rel="noopener noreffer">https://github.com/documenso/documenso</a></li>
-<li>作者: documenso</li>
-</ul>
-<h3 id="排名-16microsoftbringing-old-photos-back-to-life">排名 16:/microsoft/Bringing-Old-Photos-Back-to-Life</h3>
-<ul>
-<li>简介: 让老照片复活（CVPR 2020口述）</li>
-<li>URL: <a href="https://github.com/microsoft/Bringing-Old-Photos-Back-to-Life" target="_blank" rel="noopener noreffer">https://github.com/microsoft/Bringing-Old-Photos-Back-to-Life</a></li>
-<li>作者: microsoft</li>
-</ul>
-<h3 id="排名-17organicmapsorganicmaps">排名 17:/organicmaps/organicmaps</h3>
-<ul>
-<li>简介: 🍃 Organic Maps是一款免费的Android和iOS离线地图应用程序，适用于旅行者、游客、徒步旅行者和骑自行车的人。它使用众包OpenStreetMap数据，由MapsWithMe（MapsMe）创始人和我们的社区充满爱心地开发。没有广告，没有跟踪，没有数据收集，没有垃圾软件。请捐款支持发展！</li>
-<li>URL: <a href="https://github.com/organicmaps/organicmaps" target="_blank" rel="noopener noreffer">https://github.com/organicmaps/organicmaps</a></li>
-<li>作者: organicmaps</li>
-</ul>
-<h3 id="排名-18openbb-financeopenbbterminal">排名 18:/OpenBB-finance/OpenBBTerminal</h3>
-<ul>
-<li>简介: 面向所有人的投资研究。</li>
-<li>URL: <a href="https://github.com/OpenBB-finance/OpenBBTerminal" target="_blank" rel="noopener noreffer">https://github.com/OpenBB-finance/OpenBBTerminal</a></li>
-<li>作者: OpenBB-finance</li>
-</ul>
-<h3 id="排名-19ebookfoundationfree-programming-books">排名 19:/EbookFoundation/free-programming-books</h3>
-<ul>
-<li>简介: 📚 免费提供的编程书籍</li>
-<li>URL: <a href="https://github.com/EbookFoundation/free-programming-books" target="_blank" rel="noopener noreffer">https://github.com/EbookFoundation/free-programming-books</a></li>
-<li>作者: EbookFoundation</li>
-</ul>
-<h3 id="排名-20smol-aigodmode">排名 20:/smol-ai/GodMode</h3>
-<ul>
-<li>简介: AI聊天浏览器：快速、完整的网络应用程序访问ChatGPT/Claude/Bard/Bing/Lama2！我每天用这个20次。</li>
-<li>URL: <a href="https://github.com/smol-ai/GodMode" target="_blank" rel="noopener noreffer">https://github.com/smol-ai/GodMode</a></li>
-<li>作者: smol-ai</li>
-</ul>
-<h3 id="排名-21jiran214gpt-vup">排名 21:/jiran214/GPT-vup</h3>
-<ul>
-<li>简介: GPT vup BIliBili|抖音 | AI |虚拟主播</li>
-<li>URL: <a href="https://github.com/jiran214/GPT-vup" target="_blank" rel="noopener noreffer">https://github.com/jiran214/GPT-vup</a></li>
-<li>作者: jiran214</li>
-</ul>
-<h3 id="排名-22hehonghuiawesome-english-ebooks">排名 22:/hehonghui/awesome-english-ebooks</h3>
-<ul>
-<li>简介: 经济学人(含音频)、纽约客、卫报、连线、大西洋月刊等英语杂志免费下载,支持epub、mobi、pdf格式, 每周更新</li>
-<li>URL: <a href="https://github.com/hehonghui/awesome-english-ebooks" target="_blank" rel="noopener noreffer">https://github.com/hehonghui/awesome-english-ebooks</a></li>
-<li>作者: hehonghui</li>
-</ul>
-<h3 id="排名-23roboflowsupervision">排名 23:/roboflow/supervision</h3>
-<ul>
-<li>简介: 我们为您编写可重复使用的计算机视觉工具。💜</li>
-<li>URL: <a href="https://github.com/roboflow/supervision" target="_blank" rel="noopener noreffer">https://github.com/roboflow/supervision</a></li>
-<li>作者: roboflow</li>
-</ul>
-<h3 id="排名-24asepriteaseprite">排名 24:/aseprite/aseprite</h3>
-<ul>
-<li>简介: 动画精灵编辑器和像素艺术工具（Windows、macOS、Linux）</li>
-<li>URL: <a href="https://github.com/aseprite/aseprite" target="_blank" rel="noopener noreffer">https://github.com/aseprite/aseprite</a></li>
-<li>作者: aseprite</li>
-</ul>
-<h3 id="排名-25stangirardquivr">排名 25:/StanGirard/quivr</h3>
-<ul>
-<li>简介: 🧠 第二代人工智能让你的大脑充满活力🧠 使用GPT 3.5/4、Private、Anthropic、VertexAI、LLM转储您的所有文件并与您的私人助理就您的文件和更多内容进行聊天。。。</li>
-<li>URL: <a href="https://github.com/StanGirard/quivr" target="_blank" rel="noopener noreffer">https://github.com/StanGirard/quivr</a></li>
-<li>作者: StanGirard</li>
-</ul>
-<h2 id="v2ex-热门帖子">v2ex 热门帖子</h2>
-<h4 id="1使用geosite代替域名规则分流有哪些优劣势httpswwwv2excomt966931reply0">1.<a href="https://www.v2ex.com/t/966931#reply0" target="_blank" rel="noopener noreffer">使用GEOSITE代替域名规则分流有哪些优劣势？</a></h4>
 ]]></description>
 </item></channel>
 </rss>
