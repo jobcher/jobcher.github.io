@@ -189,7 +189,7 @@
     <author>作者</author>
     <guid>https://www.jobcher.com/k8s17/</guid>
     <description><![CDATA[<div class="featured-image">
-                <img src="/images/kubecost-215b96ad.svg" referrerpolicy="no-referrer">
+                <img src="/images/kubecost-215b96ad.png" referrerpolicy="no-referrer">
             </div><h2 id="简介">简介</h2>
 <p>企业在上云之后，云计算基础设施支出不断创造新高，但 IT 团队却难以找到成本失控的源头，跟每一个业务沟通，所需要的资源都是必须的，降本增效无从谈起。<br>
 引入<code>FinOps</code> 的目标是在云上创造一种财务问责制度，每个业务团队需要根据 FinOps 团队的数据做出更加合理的配置、规划，从而在财务成本、业务稳定之间找到一种平衡。FinOps 并不是一次性、短暂的任务，而是在规划实施之后依旧需要进行持续管理，这要求企业必须设定明确的、持续的角色和责任，以保持对成本长期控制。</p>
