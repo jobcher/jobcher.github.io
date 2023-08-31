@@ -5,33 +5,33 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-        <title>3D Gaussian Splatting：3D模型渲染 - 打工人日志 - jobcher</title><meta name="Description" content="这里为你呈现最新、最炫、最有趣的科技资讯和技术话题。我们的网站致力于探索当下最前沿的科技发展和热门技术趋势，给你带来极具深度的解读和娱乐性十足的内容。无论你是科技爱好者、码农大佬还是普通用户，这里都有适合你的精彩内容。在这里，你可以畅游于未来科技的海洋，了解最新的科学研究成果和技术突破。我们为你深入剖析各种新兴技术，如人工智能、区块链、物联网、虚拟现实等等。你将发现这些领域中的创新，不仅改变了我们的生活方式，还带来了无限的可能性。共同见证科技带给我们的奇迹与变革！"><meta property="og:title" content="3D Gaussian Splatting：3D模型渲染" />
-<meta property="og:description" content="简介 只需要一组照片或者一个视频，就能快速地生成一个3D模型。 它使了用一种叫做“3D高斯函数”的数学工具来表示这个3D模型，并找到了一种更快的" />
+        <title>Kubernetes — kubecost 分析 Kubernetes 成本 - 打工人日志 - jobcher</title><meta name="Description" content="这里为你呈现最新、最炫、最有趣的科技资讯和技术话题。我们的网站致力于探索当下最前沿的科技发展和热门技术趋势，给你带来极具深度的解读和娱乐性十足的内容。无论你是科技爱好者、码农大佬还是普通用户，这里都有适合你的精彩内容。在这里，你可以畅游于未来科技的海洋，了解最新的科学研究成果和技术突破。我们为你深入剖析各种新兴技术，如人工智能、区块链、物联网、虚拟现实等等。你将发现这些领域中的创新，不仅改变了我们的生活方式，还带来了无限的可能性。共同见证科技带给我们的奇迹与变革！"><meta property="og:title" content="Kubernetes — kubecost 分析 Kubernetes 成本" />
+<meta property="og:description" content="简介 企业在上云之后，云计算基础设施支出不断创造新高，但 IT 团队却难以找到成本失控的源头，跟每一个业务沟通，所需要的资源都是必须的，降本增效无从" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.jobcher.com/3dgaussiansplatting/" /><meta property="og:image" content="https://www.jobcher.com/images/graphdeco_logo.png" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2023-08-30T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-08-30T00:00:00+00:00" />
+<meta property="og:url" content="https://www.jobcher.com/k8s17/" /><meta property="og:image" content="https://www.jobcher.com/images/kubecost-215b96ad.svg" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-08-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2023-08-31T00:00:00+00:00" />
 
 
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://www.jobcher.com/images/graphdeco_logo.png"/>
+<meta name="twitter:image" content="https://www.jobcher.com/images/kubecost-215b96ad.svg"/>
 
-<meta name="twitter:title" content="3D Gaussian Splatting：3D模型渲染"/>
-<meta name="twitter:description" content="简介 只需要一组照片或者一个视频，就能快速地生成一个3D模型。 它使了用一种叫做“3D高斯函数”的数学工具来表示这个3D模型，并找到了一种更快的"/>
+<meta name="twitter:title" content="Kubernetes — kubecost 分析 Kubernetes 成本"/>
+<meta name="twitter:description" content="简介 企业在上云之后，云计算基础设施支出不断创造新高，但 IT 团队却难以找到成本失控的源头，跟每一个业务沟通，所需要的资源都是必须的，降本增效无从"/>
 <meta name="application-name" content="jobcher">
 <meta name="apple-mobile-web-app-title" content="jobcher"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"><link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../site.webmanifest"><link rel="canonical" href="https://www.jobcher.com/3dgaussiansplatting/" /><link rel="prev" href="https://www.jobcher.com/networkinglinux/" /><link rel="next" href="https://www.jobcher.com/github_trending_2023-08-30/" /><link rel="stylesheet" href="../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../css/style.min.css"><link rel="stylesheet" href="../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../lib/animate/animate.min.css"><script type="application/ld+json">
+        <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png"><link rel="mask-icon" href="../safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="../site.webmanifest"><link rel="canonical" href="https://www.jobcher.com/k8s17/" /><link rel="prev" href="https://www.jobcher.com/github_trending_2023-08-30/" /><link rel="next" href="https://www.jobcher.com/github_trending_2023-08-31/" /><link rel="stylesheet" href="../lib/normalize/normalize.min.css"><link rel="stylesheet" href="../css/style.min.css"><link rel="stylesheet" href="../lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="../lib/animate/animate.min.css"><script type="application/ld+json">
     {
         "@context": "http://schema.org",
         "@type": "BlogPosting",
-        "headline": "3D Gaussian Splatting：3D模型渲染",
+        "headline": "Kubernetes — kubecost 分析 Kubernetes 成本",
         "inLanguage": "zh-CN",
         "mainEntityOfPage": {
             "@type": "WebPage",
-            "@id": "https:\/\/www.jobcher.com\/3dgaussiansplatting\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "daliy","wordcount":  613 ,
-        "url": "https:\/\/www.jobcher.com\/3dgaussiansplatting\/","datePublished": "2023-08-30T00:00:00+00:00","dateModified": "2023-08-30T00:00:00+00:00","publisher": {
+            "@id": "https:\/\/www.jobcher.com\/k8s17\/"
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "k8s","wordcount":  1203 ,
+        "url": "https:\/\/www.jobcher.com\/k8s17\/","datePublished": "2023-08-31T00:00:00+00:00","dateModified": "2023-08-31T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
                 "@type": "Person",
@@ -140,59 +140,69 @@
                 <div class="container"><div class="toc" id="toc-auto">
             <h2 class="toc-title">目录</h2>
             <div class="toc-content" id="toc-content-auto"></div>
-        </div><article class="page single"><h1 class="single-title animated flipInX">3D Gaussian Splatting：3D模型渲染</h1><div class="post-meta">
-            <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/%E7%A6%8F%E5%88%A9/"><i class="far fa-folder fa-fw"></i>福利</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-08-30">2023-08-30</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 613 字&nbsp;
-                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 2 分钟&nbsp;<span id="/3dgaussiansplatting/" class="leancloud_visitors" data-flag-title="3D Gaussian Splatting：3D模型渲染">
+        </div><article class="page single"><h1 class="single-title animated flipInX">Kubernetes — kubecost 分析 Kubernetes 成本</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/k8s/"><i class="far fa-folder fa-fw"></i>k8s</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-08-31">2023-08-31</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1203 字&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/k8s17/" class="leancloud_visitors" data-flag-title="Kubernetes — kubecost 分析 Kubernetes 成本">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
         </div><div class="featured-image"><img
         class="lazyload"
         src="../svg/loading.min.svg"
-        data-src="../images/graphdeco_logo.png"
-        data-srcset="../images/graphdeco_logo.png, ../images/graphdeco_logo.png 1.5x, ../images/graphdeco_logo.png 2x"
+        data-src="../images/kubecost-215b96ad.svg"
+        data-srcset="../images/kubecost-215b96ad.svg, ../images/kubecost-215b96ad.svg 1.5x, ../images/kubecost-215b96ad.svg 2x"
         data-sizes="auto"
-        alt="/images/graphdeco_logo.png"
-        title="/images/graphdeco_logo.png" /></div><div class="details toc" id="toc-static"  kept="true">
+        alt="/images/kubecost-215b96ad.svg"
+        title="/images/kubecost-215b96ad.svg" /></div><div class="details toc" id="toc-static"  kept="true">
                 <div class="details-summary toc-title">
                     <span>目录</span>
                     <span><i class="details-icon fas fa-angle-right"></i></span>
                 </div>
                 <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
   <ul>
-    <li><a href="#简介">简介</a></li>
-    <li><a href="#介绍">介绍</a></li>
-    <li><a href="#使用">使用</a>
+    <li><a href="#简介">简介</a>
       <ul>
-        <li><a href="#硬件要求">硬件要求</a></li>
-        <li><a href="#软件要求">软件要求</a></li>
-        <li><a href="#设置">设置</a></li>
+        <li><a href="#概念">概念</a></li>
       </ul>
     </li>
-    <li><a href="#演示视频">演示视频</a></li>
+    <li><a href="#使用-kubecost-分析-kubernetes-成本">使用 kubecost 分析 Kubernetes 成本</a>
+      <ul>
+        <li><a href="#安装-kubecost">安装 Kubecost</a></li>
+        <li><a href="#kubecost-成本统计原理">kubecost 成本统计原理</a>
+          <ul>
+            <li><a href="#cpu内存gpu存储分析">CPU/内存/GPU/存储分析</a></li>
+            <li><a href="#网络成本分析">网络成本分析</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="简介">简介</h2>
-<p>只需要一组照片或者一个视频，就能快速地生成一个3D模型。<br>
-它使了用一种叫做“3D高斯函数”的数学工具来表示这个3D模型，并找到了一种更快的算法来渲染（即生成）3D模型。</p>
-<h2 id="介绍">介绍</h2>
-<p>想象一下，你有一堆照片或视频，你想从一个全新的角度看这些场景。3D Gaussian Splatting 就是一个能让你做到这一点的高级工具。它用一种特别快和高质量的方式来“重建”这些场景，让你能够从任何角度观看它们，就像你实际站在那里一样。</p>
-<p>这个工具的“大脑”使用了一种叫做3D高斯的数学模型，这个模型能够非常精确地描述场景的每一个细节。更酷的是，这个工具还能实时地显示这些新角度的场景，这意味着你不必等待很长时间就能看到结果。</p>
-<p>简而言之，这是一个能让你以全新、快速和高质量的方式探索照片和视频场景的工具。</p>
-<h2 id="使用">使用</h2>
-<h3 id="硬件要求">硬件要求</h3>
+<p>企业在上云之后，云计算基础设施支出不断创造新高，但 IT 团队却难以找到成本失控的源头，跟每一个业务沟通，所需要的资源都是必须的，降本增效无从谈起。<br>
+引入<code>FinOps</code> 的目标是在云上创造一种财务问责制度，每个业务团队需要根据 FinOps 团队的数据做出更加合理的配置、规划，从而在财务成本、业务稳定之间找到一种平衡。FinOps 并不是一次性、短暂的任务，而是在规划实施之后依旧需要进行持续管理，这要求企业必须设定明确的、持续的角色和责任，以保持对成本长期控制。</p>
+<h3 id="概念">概念</h3>
+<p><img
+        class="lazyload"
+        src="../svg/loading.min.svg"
+        data-src="../images/finops-1a566da4.svg"
+        data-srcset="../images/finops-1a566da4.svg, ../images/finops-1a566da4.svg 1.5x, ../images/finops-1a566da4.svg 2x"
+        data-sizes="auto"
+        alt="/images/finops-1a566da4.svg"
+        title="概念" /></p>
 <ul>
-<li>具有计算能力 7.0+ 的 CUDA 就绪 GPU</li>
-<li>24 GB VRAM（用于训练论文评估质量）</li>
+<li><code>建立对云成本的共识</code>：企业中各个相关角色应该意识到云成本的重要性，并将成本管理纳入到决策过程中。通过提高成本意识，可以更好地控制和优化云资源的使用。</li>
+<li><code>明确云成本管理的责任和角色</code>：确定负责 FinOps 团队成员，建立相应责任制度。这样确保有专门人员负责云成本的监控、分析和优化，从而提高整体的财务管理效果。</li>
+<li><code>提供培训和教育资源</code>：培训企业成员了解成本管理的基本概念、工具和技术。这有助于增强团队的能力，使他们能够更好地理解和应对云成本挑战。</li>
+<li><code>促进不同团队之间的合作</code>：财务团队、开发团队和运维团队应该紧密合作，共同制定和实施成本管理策略。通过协作，可以更好地理解业务需求、优化资源配置，并确保成本管理策略与业务目标相一致。</li>
+<li><code>利用自动化技术提高效率和准确性</code>：通过采用自动化工具收集、分析和报告云成本数据。自动化还可以帮助实现实时监控和警报，以及自动化资源管理，从而提高成本管理的效率和准确性。</li>
 </ul>
-<h3 id="软件要求">软件要求</h3>
-<ul>
-<li>Conda（推荐使用，以便于设置）</li>
-<li>用于 PyTorch 扩展的 C++ 编译器（我们使用 Visual Studio 2019 for Windows）</li>
-<li>用于 PyTorch 扩展的 CUDA SDK 11，在 Visual Studio 之后安装（我们使用 11.8，11.6 存在已知问题）</li>
-<li>C++编译器和CUDA SDK必须兼容</li>
-</ul>
-<h3 id="设置">设置</h3>
+<h2 id="使用-kubecost-分析-kubernetes-成本">使用 kubecost 分析 Kubernetes 成本</h2>
+<p>接下来我们展开今天的具体内容，如何使用 kubecost 分析 Kubernetes 成本。<br>
+kubecost 是目前较优秀的开源 Kubernetes 成本分析工具，它提供了丰富的功能和仪表板，帮助用户更好地理解和控制其容器化工作负载的成本。<br>
+kubecost 目前支持 <code>阿里云</code>、<code>AWS</code> 等云厂商对接，它能够提供集群中命名空间、应用等各类资源成本分配，用户还可以基于这些信息在 Kubecost 中设置<code>预算</code>和<code>警报</code>，帮助运维和财务管理人员进一步实现<code>成本管理</code>。</p>
+<h3 id="安装-kubecost">安装 Kubecost</h3>
+<p>安装 Kubecost 建议使用 Helm 进行安装，使用以下命令：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -200,12 +210,12 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">SET <span class="nv">DISTUTILS_USE_SDK</span><span class="o">=</span><span class="m">1</span> <span class="c1"># Windows only</span>
-</span></span><span class="line"><span class="cl">conda env create --file environment.yml
-</span></span><span class="line"><span class="cl">conda activate gaussian_splatting
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">helm repo add kubecost https://kubecost.github.io/cost-analyzer/
+</span></span><span class="line"><span class="cl">helm repo update
+</span></span><span class="line"><span class="cl">helm upgrade --install kubecost kubecost/cost-analyzer --namespace kubecost --create-namespace
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>请注意，此过程假设您安装了 CUDA SDK 11，而不是 12。有关修改，请参阅下文。</p>
+</div><p>几分钟后，检查以确保 Kubecost 已启动并运行：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -213,74 +223,52 @@
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">conda config --add pkgs_dirs &lt;Drive&gt;/&lt;pkg_path&gt;
-</span></span><span class="line"><span class="cl">conda env create --file environment.yml --prefix &lt;Drive&gt;/&lt;env_path&gt;/gaussian_splatting
-</span></span><span class="line"><span class="cl">conda activate &lt;Drive&gt;/&lt;env_path&gt;/gaussian_splatting
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl get pods -n kubecost
+</span></span><span class="line"><span class="cl"><span class="c1"># Connect to the Kubecost dashboard UI</span>
+</span></span><span class="line"><span class="cl">kubectl port-forward -n kubecost svc/kubecost-cost-analyzer 9090:9090
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>运行</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">python train.py -s &lt;path to COLMAP or NeRF Synthetic dataset&gt;
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>评估</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">python train.py -s &lt;path to COLMAP or NeRF Synthetic dataset&gt; --eval <span class="c1"># Train with train/test split</span>
-</span></span><span class="line"><span class="cl">python render.py -m &lt;path to trained model&gt; <span class="c1"># Generate renderings</span>
-</span></span><span class="line"><span class="cl">python metrics.py -m &lt;path to trained model&gt; <span class="c1"># Compute error metrics on renderings</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>项目地址及演示：<a href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/" target="_blank" rel="noopener noreffer">链接</a><br>
-GitHub：<a href="https://github.com/graphdeco-inria/gaussian-splatting" target="_blank" rel="noopener noreffer">链接</a></p>
-<h2 id="演示视频">演示视频</h2>
-<p>
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube-nocookie.com/embed/kShNYOuDnlI" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
-<br>
-<br/>
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
-  <iframe src="https://www.youtube-nocookie.com/embed/mD0oBE9LJTQ" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
-</div>
-</p>
+</div><p>现在可以打开浏览器并指向 <code>http://127.0.0.1:9090</code>以打开 <code>Kubecost UI</code>。 在 Kubecost UI 中，选择群集以查看<code>成本分配信息</code>。<br>
+<img
+        class="lazyload"
+        src="../svg/loading.min.svg"
+        data-src="../images/kubecost-215b96ad.svg"
+        data-srcset="../images/kubecost-215b96ad.svg, ../images/kubecost-215b96ad.svg 1.5x, ../images/kubecost-215b96ad.svg 2x"
+        data-sizes="auto"
+        alt="/images/kubecost-215b96ad.svg"
+        title="kubecost" /></p>
+<h3 id="kubecost-成本统计原理">kubecost 成本统计原理</h3>
+<h4 id="cpu内存gpu存储分析">CPU/内存/GPU/存储分析</h4>
+<p>Kubecost 通过 AWS/GCP 等云服务商 API 动态获取各 region/zone 的上述四项资源的每小时成本，或者通过 json 文件静态配置这几项资源的成本。 kubecost 的成本统计粒度为 container，kubecost 根据每个容器的资源请求 requests 以及资源用量监控进行成本分配，对于未配置 requests 的资源将仅按实际用量监控进行成本分配。</p>
+<h4 id="网络成本分析">网络成本分析</h4>
+<p>对于提供线上服务的 Kubernetes 集群，网络成本（跨区/跨域传输的流量成本，以及 NAT 网关成本）很可能等于甚至超过计算成本。 kubecost 支持使用 Pod network 监控指标对整个集群的流量成本进行拆分，kubecost 会部署一个绑定 hostNetwork 的 daemonset 来采集需要的网络指标，提供给 prometheus 拉取，再进行进一步的分析。</p>
 </div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
-                <span>更新于 2023-08-30</span>
+                <span>更新于 2023-08-31</span>
             </div>
             <div class="post-info-license"></div>
         </div>
         <div class="post-info-line">
             <div class="post-info-md"><span>
-                            <a class="link-to-markdown" href="../3dgaussiansplatting/index.md" target="_blank">阅读原始文档</a>
+                            <a class="link-to-markdown" href="../k8s17/index.md" target="_blank">阅读原始文档</a>
                         </span></div>
             <div class="post-info-share">
-                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://www.jobcher.com/3dgaussiansplatting/" data-title="3D Gaussian Splatting：3D模型渲染" data-via="jobcher1" data-hashtags="daliy"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://www.jobcher.com/3dgaussiansplatting/" data-hashtag="daliy"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://www.jobcher.com/3dgaussiansplatting/" data-title="3D Gaussian Splatting：3D模型渲染" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://www.jobcher.com/3dgaussiansplatting/" data-title="3D Gaussian Splatting：3D模型渲染"><i data-svg-src="../lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://www.jobcher.com/3dgaussiansplatting/" data-title="3D Gaussian Splatting：3D模型渲染" data-image="/images/graphdeco_logo.png" data-ralateuid="6090738003"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="https://www.jobcher.com/3dgaussiansplatting/" data-title="3D Gaussian Splatting：3D模型渲染" data-description=""><i data-svg-src="../lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="https://www.jobcher.com/3dgaussiansplatting/" data-title="3D Gaussian Splatting：3D模型渲染" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://www.jobcher.com/3dgaussiansplatting/" data-title="3D Gaussian Splatting：3D模型渲染"><i class="fab fa-evernote fa-fw"></i></a></span>
+                <span><a href="javascript:void(0);" title="分享到 Twitter" data-sharer="twitter" data-url="https://www.jobcher.com/k8s17/" data-title="Kubernetes — kubecost 分析 Kubernetes 成本" data-via="jobcher1" data-hashtags="k8s"><i class="fab fa-twitter fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Facebook" data-sharer="facebook" data-url="https://www.jobcher.com/k8s17/" data-hashtag="k8s"><i class="fab fa-facebook-square fa-fw"></i></a><a href="javascript:void(0);" title="分享到 WhatsApp" data-sharer="whatsapp" data-url="https://www.jobcher.com/k8s17/" data-title="Kubernetes — kubecost 分析 Kubernetes 成本" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Line" data-sharer="line" data-url="https://www.jobcher.com/k8s17/" data-title="Kubernetes — kubecost 分析 Kubernetes 成本"><i data-svg-src="../lib/simple-icons/icons/line.min.svg"></i></a><a href="javascript:void(0);" title="分享到 微博" data-sharer="weibo" data-url="https://www.jobcher.com/k8s17/" data-title="Kubernetes — kubecost 分析 Kubernetes 成本" data-image="/images/kubecost-215b96ad.svg" data-ralateuid="6090738003"><i class="fab fa-weibo fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Myspace" data-sharer="myspace" data-url="https://www.jobcher.com/k8s17/" data-title="Kubernetes — kubecost 分析 Kubernetes 成本" data-description=""><i data-svg-src="../lib/simple-icons/icons/myspace.min.svg"></i></a><a href="javascript:void(0);" title="分享到 Blogger" data-sharer="blogger" data-url="https://www.jobcher.com/k8s17/" data-title="Kubernetes — kubecost 分析 Kubernetes 成本" data-description=""><i class="fab fa-blogger fa-fw"></i></a><a href="javascript:void(0);" title="分享到 Evernote" data-sharer="evernote" data-url="https://www.jobcher.com/k8s17/" data-title="Kubernetes — kubecost 分析 Kubernetes 成本"><i class="fab fa-evernote fa-fw"></i></a></span>
             </div>
         </div>
     </div>
 
     <div class="post-info-more">
-        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="../tags/daliy/">daliy</a></section>
+        <section class="post-tags"><i class="fas fa-tags fa-fw"></i>&nbsp;<a href="../tags/k8s/">k8s</a></section>
         <section>
             <span><a href="javascript:void(0);" onclick="window.history.back();">返回</a></span>&nbsp;|&nbsp;<span><a href="../">主页</a></span>
         </section>
     </div>
 
-    <div class="post-nav"><a href="../networkinglinux/" class="prev" rel="prev" title="Linux 系统收包流程以及内核参数优化"><i class="fas fa-angle-left fa-fw"></i>Linux 系统收包流程以及内核参数优化</a>
-            <a href="../github_trending_2023-08-30/" class="next" rel="next" title="2023-08-30 打工人日报">2023-08-30 打工人日报<i class="fas fa-angle-right fa-fw"></i></a></div>
+    <div class="post-nav"><a href="../github_trending_2023-08-30/" class="prev" rel="prev" title="2023-08-30 打工人日报"><i class="fas fa-angle-left fa-fw"></i>2023-08-30 打工人日报</a>
+            <a href="../github_trending_2023-08-31/" class="next" rel="next" title="2023-08-31 打工人日报">2023-08-31 打工人日报<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id="comments"><div id="valine" class="comment"></div><noscript>
                 Please enable JavaScript to view the comments powered by <a href="https://valine.js.org/">Valine</a>.
