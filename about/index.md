@@ -16,8 +16,6 @@
 ### 书签导航
 [https://nav.jobcher.com/](https://nav.jobcher.com/)  
 
-![trophy](https://github-profile-trophy.vercel.app/?username=jobcher)
-
 <p align="center"> 
   访问次数<br>
   <img src="https://profile-counter.glitch.me/jobcher/count.svg" />
