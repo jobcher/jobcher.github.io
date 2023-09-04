@@ -28,7 +28,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/www.jobcher.com\/pve1\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "扩容磁盘, pve","wordcount":  119 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "扩容磁盘, pve","wordcount":  216 ,
         "url": "https:\/\/www.jobcher.com\/pve1\/","datePublished": "2022-01-19T00:00:00+00:00","dateModified": "2022-01-19T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -140,7 +140,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">Proxmox VE 在线扩容磁盘分区</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/%E6%97%A5%E5%B8%B8/"><i class="far fa-folder fa-fw"></i>日常</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-19">2022-01-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 119 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2022-01-19">2022-01-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 216 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/pve1/" class="leancloud_visitors" data-flag-title="Proxmox VE 在线扩容磁盘分区">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -153,6 +153,7 @@
   <ul>
     <li><a href="#添加磁盘大小">添加磁盘大小</a></li>
     <li><a href="#在-vm-上做扩容操作">在 VM 上做扩容操作</a></li>
+    <li><a href="#逻辑卷没有正常扩容的情况">逻辑卷没有正常扩容的情况</a></li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="proxmox-ve-在线扩容磁盘分区">Proxmox VE 在线扩容磁盘分区</h1>
@@ -237,7 +238,76 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">df -h
 </span></span></code></pre></td></tr></table>
 </div>
-</div></div><div class="post-footer" id="post-footer">
+</div><h2 id="逻辑卷没有正常扩容的情况">逻辑卷没有正常扩容的情况</h2>
+<ol>
+<li>检查当前逻辑卷属于哪个卷组:</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">vgdisplay
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="../svg/loading.min.svg"
+        data-src="../images/pve1-1.png"
+        data-srcset="../images/pve1-1.png, ../images/pve1-1.png 1.5x, ../images/pve1-1.png 2x"
+        data-sizes="auto"
+        alt="/images/pve1-1.png"
+        title="pve1-1.png" /><br>
+检查卷组中是有足够的空间可以扩容,还有99g</p>
+<ol start="2">
+<li>扩展逻辑卷大小到200G:</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">lvextend -L +99G /dev/mapper/ubuntu--vg-ubuntu--lv
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="../svg/loading.min.svg"
+        data-src="../images/pve1-2.png"
+        data-srcset="../images/pve1-2.png, ../images/pve1-2.png 1.5x, ../images/pve1-2.png 2x"
+        data-sizes="auto"
+        alt="/images/pve1-2.png"
+        title="pve1-2.png" /></p>
+<ol start="3">
+<li>调整文件系统大小到逻辑卷大小:</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><img
+        class="lazyload"
+        src="../svg/loading.min.svg"
+        data-src="../images/pve1-3.png"
+        data-srcset="../images/pve1-3.png, ../images/pve1-3.png 1.5x, ../images/pve1-3.png 2x"
+        data-sizes="auto"
+        alt="/images/pve1-3.png"
+        title="pve1-3.png" /><br>
+4. 检查</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">df -h /dev/mapper/ubuntu--vg-ubuntu--lv
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>成功扩容</p>
+</div><div class="post-footer" id="post-footer">
     <div class="post-info">
         <div class="post-info-line">
             <div class="post-info-mod">
