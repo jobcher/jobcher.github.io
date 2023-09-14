@@ -4,7 +4,126 @@
         <link>https://www.jobcher.com/series/%E7%A6%8F%E5%88%A9%E7%B3%BB%E5%88%97/</link>
         <description>福利系列 - seris - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 30 Aug 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.jobcher.com/series/%E7%A6%8F%E5%88%A9%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 14 Sep 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.jobcher.com/series/%E7%A6%8F%E5%88%A9%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+    <title>【破解】小鹏P5和小鹏G9开启adb和网络adb</title>
+    <link>https://www.jobcher.com/hackp5g9/</link>
+    <pubDate>Thu, 14 Sep 2023 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://www.jobcher.com/hackp5g9/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/xiaopeng.png" referrerpolicy="no-referrer">
+            </div><h1 id="lets-hack-now">LET&rsquo;S HACK NOW!</h1>
+<p>本文章可以帮助当前正式版本的小鹏P5和小鹏G9开启adb和网络adb</p>
+<h1 id="重要提示">重要提示</h1>
+<h2 id="如果你对第三方软件的需求高于ota需求请关闭ota功能p5和g9的下一个版本大概率或已经启用了更高级的加密方式无法获取解锁码需要等待其他方式破解">如果你对第三方软件的需求高于OTA需求，请关闭OTA功能，P5和G9的下一个版本大概率或已经启用了更高级的加密方式，无法获取解锁码，需要等待其他方式破解</h2>
+<h1 id="开启adb步骤">开启adb步骤</h1>
+<ul>
+<li>
+<p>首先确认您的爱车是小鹏P5（OTA3.5.0及之前）或小鹏G9（OTA4.3.1及之前）或小鹏G6（未测试）或小鹏P7（OTA2.10及之前）或小鹏G3（版本不确定，最新版不行）</p>
+</li>
+<li>
+<p>将您的笔记本电脑（已安装adb组件）或安卓手机（已安装甲壳虫adb软件）和您的车机连接到同一无线局域网中（此处可使用另一台手机打开热点），以下使用笔记本电脑举例</p>
+</li>
+<li>
+<p>打开车机的拨号界面，输入<code>*#9925*111#*</code></p>
+</li>
+<li>
+<p>此时车机会显示一个页面，其中包含一个二维码</p>
+</li>
+<li>
+<p>使用微信扫描您的车机的二维码，并将内容保存备用</p>
+</li>
+<li>
+<p>在任意输入框中输入内容<code>https://hackxpeng.bgcpdd.eu.org/xpeng?m=hackxpeng&amp;id=</code>，然后将您获取到的二维码内容复制到最后面，注意此处不要有任何的空格</p>
+</li>
+<li>
+<p>使用浏览器打开您输入框中的所有内容（网址拼接，如：<code>https://hackxpeng.bgcpdd.eu.org/xpeng?m=hackxpeng&amp;id=XPENGD55xxxxxxxxxxxxxx</code>）</p>
+</li>
+<li>
+<p>浏览器返回一个解锁码（如：<code>*#03*12345678*#</code>）</p>
+</li>
+<li>
+<p>将该解锁码输入车机的拨号界面，此时解锁码会自动消失，如果没有消失请手动删除所有内容</p>
+</li>
+<li>
+<p>使用拨号界面输入<code>*#9387*141#*</code></p>
+</li>
+<li>
+<p>打开调试和网络调试（一般是前两个选项）</p>
+</li>
+<li>
+<p>笔记本电脑使用<code>win+r</code>，输入<code>cmd</code>回车，输入<code>adb connect 车机页面中的ip:5050</code>（如<code>adb connect 172.20.10.2:5050</code>）</p>
+</li>
+<li>
+<p>cmd显示连接成功</p>
+</li>
+<li>
+<p>下载你需要安装的apk</p>
+</li>
+<li>
+<p>使用<code>adb install</code>安装软件（如：<code>adb install C:\abc\a.apk</code>）</p>
+</li>
+<li>
+<p>安装成功</p>
+</li>
+<li>
+<p>adb还有更多好玩有趣的玩法等你发现</p>
+</li>
+</ul>
+<h1 id="笔记本电脑安装adb套件">笔记本电脑安装adb套件</h1>
+<ul>
+<li>
+<p>打开<code>https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn</code></p>
+</li>
+<li>
+<p>下载windows版本 并解压</p>
+</li>
+<li>
+<p>将所有文件放入c盘windows目录下的system32和syswow64 注意两个都要放</p>
+</li>
+</ul>
+<h1 id="致小鹏汽车以下是关闭获取解锁码api的步骤">致小鹏汽车：以下是关闭获取解锁码api的步骤</h1>
+<ul>
+<li>
+<p>将P7 P5的地图更新到高德地图最新版本（包括红绿灯倒计时，最新版高精地图，组队功能，普通道路沉浸导航，语音包等）</p>
+</li>
+<li>
+<p>将P7 P5的QQ音乐更新到最新版本</p>
+</li>
+<li>
+<p>承诺定期公布OTA进度（最低界限为每月公布）</p>
+</li>
+<li>
+<p>将P5 p版sr下放到e版车型（显示车辆运动轨迹）</p>
+</li>
+<li>
+<p>优化P7 P5 G3/i自动泊车</p>
+</li>
+<li>
+<p>优化NGP并将速度上限设置为130</p>
+</li>
+<li>
+<p>将P7 P5的夜晚/白天切换逻辑修改为根据光线传感器，而非日出日落时间</p>
+</li>
+<li>
+<p>上线P5的智慧场景或私人定制2.0</p>
+</li>
+<li>
+<p>重新评估P7 P5适配新版UI的可行性</p>
+</li>
+<li>
+<p>重新评估P7更换8155车机的可行性</p>
+</li>
+<li>
+<p>全部完成后使用小鹏汽车官方Github账号在本仓库发送issue</p>
+</li>
+</ul>
+<blockquote>
+<p>文章转载于网络，侵权即删
+<a href="https://github.com/hackxpeng/hackp5g9" target="_blank" rel="noopener noreffer">原文连接</a></p>
+</blockquote>
+]]></description>
+</item><item>
     <title>3D Gaussian Splatting：3D模型渲染</title>
     <link>https://www.jobcher.com/3dgaussiansplatting/</link>
     <pubDate>Wed, 30 Aug 2023 00:00:00 &#43;0000</pubDate>

@@ -4,7 +4,126 @@
         <link>https://www.jobcher.com/tags/daliy/</link>
         <description>daliy - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 30 Aug 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.jobcher.com/tags/daliy/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 14 Sep 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.jobcher.com/tags/daliy/" rel="self" type="application/rss+xml" /><item>
+    <title>【破解】小鹏P5和小鹏G9开启adb和网络adb</title>
+    <link>https://www.jobcher.com/hackp5g9/</link>
+    <pubDate>Thu, 14 Sep 2023 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://www.jobcher.com/hackp5g9/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/xiaopeng.png" referrerpolicy="no-referrer">
+            </div><h1 id="lets-hack-now">LET&rsquo;S HACK NOW!</h1>
+<p>本文章可以帮助当前正式版本的小鹏P5和小鹏G9开启adb和网络adb</p>
+<h1 id="重要提示">重要提示</h1>
+<h2 id="如果你对第三方软件的需求高于ota需求请关闭ota功能p5和g9的下一个版本大概率或已经启用了更高级的加密方式无法获取解锁码需要等待其他方式破解">如果你对第三方软件的需求高于OTA需求，请关闭OTA功能，P5和G9的下一个版本大概率或已经启用了更高级的加密方式，无法获取解锁码，需要等待其他方式破解</h2>
+<h1 id="开启adb步骤">开启adb步骤</h1>
+<ul>
+<li>
+<p>首先确认您的爱车是小鹏P5（OTA3.5.0及之前）或小鹏G9（OTA4.3.1及之前）或小鹏G6（未测试）或小鹏P7（OTA2.10及之前）或小鹏G3（版本不确定，最新版不行）</p>
+</li>
+<li>
+<p>将您的笔记本电脑（已安装adb组件）或安卓手机（已安装甲壳虫adb软件）和您的车机连接到同一无线局域网中（此处可使用另一台手机打开热点），以下使用笔记本电脑举例</p>
+</li>
+<li>
+<p>打开车机的拨号界面，输入<code>*#9925*111#*</code></p>
+</li>
+<li>
+<p>此时车机会显示一个页面，其中包含一个二维码</p>
+</li>
+<li>
+<p>使用微信扫描您的车机的二维码，并将内容保存备用</p>
+</li>
+<li>
+<p>在任意输入框中输入内容<code>https://hackxpeng.bgcpdd.eu.org/xpeng?m=hackxpeng&amp;id=</code>，然后将您获取到的二维码内容复制到最后面，注意此处不要有任何的空格</p>
+</li>
+<li>
+<p>使用浏览器打开您输入框中的所有内容（网址拼接，如：<code>https://hackxpeng.bgcpdd.eu.org/xpeng?m=hackxpeng&amp;id=XPENGD55xxxxxxxxxxxxxx</code>）</p>
+</li>
+<li>
+<p>浏览器返回一个解锁码（如：<code>*#03*12345678*#</code>）</p>
+</li>
+<li>
+<p>将该解锁码输入车机的拨号界面，此时解锁码会自动消失，如果没有消失请手动删除所有内容</p>
+</li>
+<li>
+<p>使用拨号界面输入<code>*#9387*141#*</code></p>
+</li>
+<li>
+<p>打开调试和网络调试（一般是前两个选项）</p>
+</li>
+<li>
+<p>笔记本电脑使用<code>win+r</code>，输入<code>cmd</code>回车，输入<code>adb connect 车机页面中的ip:5050</code>（如<code>adb connect 172.20.10.2:5050</code>）</p>
+</li>
+<li>
+<p>cmd显示连接成功</p>
+</li>
+<li>
+<p>下载你需要安装的apk</p>
+</li>
+<li>
+<p>使用<code>adb install</code>安装软件（如：<code>adb install C:\abc\a.apk</code>）</p>
+</li>
+<li>
+<p>安装成功</p>
+</li>
+<li>
+<p>adb还有更多好玩有趣的玩法等你发现</p>
+</li>
+</ul>
+<h1 id="笔记本电脑安装adb套件">笔记本电脑安装adb套件</h1>
+<ul>
+<li>
+<p>打开<code>https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn</code></p>
+</li>
+<li>
+<p>下载windows版本 并解压</p>
+</li>
+<li>
+<p>将所有文件放入c盘windows目录下的system32和syswow64 注意两个都要放</p>
+</li>
+</ul>
+<h1 id="致小鹏汽车以下是关闭获取解锁码api的步骤">致小鹏汽车：以下是关闭获取解锁码api的步骤</h1>
+<ul>
+<li>
+<p>将P7 P5的地图更新到高德地图最新版本（包括红绿灯倒计时，最新版高精地图，组队功能，普通道路沉浸导航，语音包等）</p>
+</li>
+<li>
+<p>将P7 P5的QQ音乐更新到最新版本</p>
+</li>
+<li>
+<p>承诺定期公布OTA进度（最低界限为每月公布）</p>
+</li>
+<li>
+<p>将P5 p版sr下放到e版车型（显示车辆运动轨迹）</p>
+</li>
+<li>
+<p>优化P7 P5 G3/i自动泊车</p>
+</li>
+<li>
+<p>优化NGP并将速度上限设置为130</p>
+</li>
+<li>
+<p>将P7 P5的夜晚/白天切换逻辑修改为根据光线传感器，而非日出日落时间</p>
+</li>
+<li>
+<p>上线P5的智慧场景或私人定制2.0</p>
+</li>
+<li>
+<p>重新评估P7 P5适配新版UI的可行性</p>
+</li>
+<li>
+<p>重新评估P7更换8155车机的可行性</p>
+</li>
+<li>
+<p>全部完成后使用小鹏汽车官方Github账号在本仓库发送issue</p>
+</li>
+</ul>
+<blockquote>
+<p>文章转载于网络，侵权即删
+<a href="https://github.com/hackxpeng/hackp5g9" target="_blank" rel="noopener noreffer">原文连接</a></p>
+</blockquote>
+]]></description>
+</item><item>
     <title>3D Gaussian Splatting：3D模型渲染</title>
     <link>https://www.jobcher.com/3dgaussiansplatting/</link>
     <pubDate>Wed, 30 Aug 2023 00:00:00 &#43;0000</pubDate>
@@ -4828,130 +4947,6 @@ zf初重拳打击的结果往往取得相反的效果，因为政府如果希望
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash &lt;<span class="o">(</span>curl -s -L git.io/JPjzE<span class="o">)</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description>
-</item><item>
-    <title>headscale 部署使用</title>
-    <link>https://www.jobcher.com/headscale/</link>
-    <pubDate>Wed, 21 Sep 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://www.jobcher.com/headscale/</guid>
-    <description><![CDATA[<h1 id="headscale">Headscale</h1>
-<p><code>Tailscale</code> 的控制服务器是不开源的，而且对免费用户有诸多限制，这是人家的摇钱树，可以理解。好在目前有一款开源的实现叫 <code>Headscale</code>，这也是唯一的一款，希望能发展壮大。</p>
-<p><code>Headscale</code> 由欧洲航天局的 <code>Juan Font</code> 使用 Go 语言开发，在 BSD 许可下发布，实现了 <code>Tailscale</code> 控制服务器的所有主要功能，可以部署在企业内部，<code>没有任何设备数量的限制，且所有的网络流量都由自己控制</code>。</p>
-<h1 id="headscale-部署">Headscale 部署</h1>
-<p>我决定使用<code>docker-compose</code>进行部署</p>
-<h2 id="创建存储">创建存储</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>mkdir -p /opt/headscale
-</span></span><span class="line"><span class="cl">mkdir -p ./config
-</span></span><span class="line"><span class="cl">touch ./config/db.sqlite
-</span></span><span class="line"><span class="cl">curl https://raw.githubusercontent.com/juanfont/headscale/main/config-example.yaml -o ./config/config.yaml
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="运行-docker-compose-文件">运行 docker-compose 文件</h2>
-<p>创建 docker-compose.yaml</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">headscale</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">headscale/headscale:latest</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./config:/etc/headscale/</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./data:/var/lib/headscale</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">8080</span><span class="p">:</span><span class="m">8080</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">9090</span><span class="p">:</span><span class="m">9090</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="m">50443</span><span class="p">:</span><span class="m">50443</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="l">headscale serve</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">unless-stopped</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>运行</p>
-<blockquote>
-<p>docker-compose up -d</p>
-</blockquote>
-<h1 id="headscale-使用">Headscale 使用</h1>
-<h2 id="linux-使用">Linux 使用</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">wget https://pkgs.tailscale.com/stable/tailscale_1.22.2_amd64.tgz
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>解压</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">tar zxvf tailscale_1.22.2_amd64.tgz
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>将二进制文件复制到官方软件包默认的路径下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cp tailscale_1.22.2_amd64/tailscaled /usr/sbin/tailscaled
-</span></span><span class="line"><span class="cl">cp tailscale_1.22.2_amd64/tailscale /usr/bin/tailscale
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>将 systemD service 配置文件复制到系统路径下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cp tailscale_1.22.2_amd64/systemd/tailscaled.service /lib/systemd/system/tailscaled.service
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>启动 tailscaled.service 并设置开机自启：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">systemctl <span class="nb">enable</span> --now tailscaled
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>查看服务状态：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">systemctl status tailscaled
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
