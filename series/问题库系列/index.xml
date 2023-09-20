@@ -4,7 +4,150 @@
         <link>https://www.jobcher.com/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/</link>
         <description>问题库系列 - seris - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 30 Aug 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.jobcher.com/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 20 Sep 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.jobcher.com/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+    <title>解决Elasticsearch索引只读（read-only）</title>
+    <link>https://www.jobcher.com/elasticsearch-error/</link>
+    <pubDate>Wed, 20 Sep 2023 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://www.jobcher.com/elasticsearch-error/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/elasticsearch.png" referrerpolicy="no-referrer">
+            </div><h1 id="背景">背景</h1>
+<p>这两天有开发向我反馈说elasticsearch有报错，嘿，我定睛一看，这不是进入只读状态了，看来是存储达到额度，我马上加个新的数据节点，平衡一下存储压力<br>
+报错信息：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">Elasticsearch Error <span class="o">{</span>type:cluster_block_exception,reason:”blocked by: <span class="o">[</span>FORBIDDEN/12/index read-only / allow delete <span class="o">(</span>api<span class="o">)]</span><span class="p">;</span><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="新建服务器安装elasticsearch">新建服务器，安装elasticsearch</h2>
+<p>为了和之前的服务器一样，我简单写一下我elasticsearch版本和服务器系统版本 </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">软件</th>
+<th style="text-align:left">版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">centos</td>
+<td style="text-align:left">7.9</td>
+</tr>
+<tr>
+<td style="text-align:left">elasticsearch</td>
+<td style="text-align:left">6.7.2</td>
+</tr>
+<tr>
+<td style="text-align:left">JDK</td>
+<td style="text-align:left">1.8.61</td>
+</tr>
+<tr>
+<td style="text-align:left">内存</td>
+<td style="text-align:left">32G</td>
+</tr>
+</tbody>
+</table>
+<h3 id="安装和配置elasticsearch">安装和配置elasticsearch</h3>
+<p>使用rpm 安装</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.7.2.rpm
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">rpm --install elasticsearch-6.7.2.rpm
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>配置参数，进入<code>/etc/elasticsearch</code>目录<br>
+修改配置<code>vim elasticsearch.yml</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># ======================== Elasticsearch Configuration ========================= </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">cluster.name</span><span class="p">:</span><span class="w"> </span><span class="l">cluster-prod-es</span><span class="w"> </span><span class="c"># 集群名称</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">node.name</span><span class="p">:</span><span class="w"> </span><span class="l">node-x</span><span class="w"> </span><span class="c"># 节点名称</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">path.data</span><span class="p">:</span><span class="w"> </span><span class="l">/var/lib/elasticsearch</span><span class="w"> </span><span class="c"># 数据存储</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">path.logs</span><span class="p">:</span><span class="w"> </span><span class="l">/var/log/elasticsearch </span><span class="w"> </span><span class="c"># 日志存储</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">network.host</span><span class="p">:</span><span class="w"> </span><span class="m">192.168.0.170</span><span class="w"> </span><span class="c"># 主机IP地址 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">http.port</span><span class="p">:</span><span class="w"> </span><span class="m">9200</span><span class="w"> </span><span class="c"># 端口号</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">discovery.zen.ping.unicast.hosts</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;192.168.0.171&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;192.168.0.172&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;192.168.0.173&#34;</span><span class="p">]</span><span class="w"> </span><span class="c"># 集群节点</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">discovery.zen.minimum_master_nodes</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="c">#防止脑裂</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>修改配置<code>vim jvm.options</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl">-<span class="l">Xms16g</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>-<span class="l">Xmx16g</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>启动elasticsearch 服务</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">systemctl start elasticsearch.service
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="等待数据节点自动调节">等待数据节点自动调节</h3>
+<p>这里要等待一会儿数据节点自动调节，这个调节时间取决于你数据的大小，一般来说几个小时也好了，如果数据重要性不太高的话，和领导沟通一下，就别傻坐着等他迁移完，正常下班就行了。</p>
+<h3 id="关闭索引只读">关闭索引只读</h3>
+<p>对了，千万不要忘记关闭只读状态，虽然你新增了节点，但是当前的只读状态并没有关闭，所以要执行一下命令关闭只读状态</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -XPUT -H <span class="s2">&#34;Content-Type: application/json&#34;</span> http://192.168.0.170:9200/_all/_settings -d <span class="s1">&#39;{&#34;index.blocks.read_only_allow_delete&#34;: null}&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>或者你在head-elasticsearch上操作<br>
+</p>
+<h2 id="感谢你的阅读">感谢你的阅读</h2>
+]]></description>
+</item><item>
     <title>Linux 系统收包流程以及内核参数优化</title>
     <link>https://www.jobcher.com/networkinglinux/</link>
     <pubDate>Wed, 30 Aug 2023 00:00:00 &#43;0000</pubDate>
@@ -6893,97 +7036,6 @@ network: error getting ClusterInformation: connection is unauthorized: Unauthori
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">registry.cn-hangzhou.aliyuncs.com/google_containers
-</span></span></code></pre></td></tr></table>
-</div>
-</div>]]></description>
-</item><item>
-    <title>K8S 问题排查：cgroup 内存泄露问题</title>
-    <link>https://www.jobcher.com/k8s-error/</link>
-    <pubDate>Tue, 30 Aug 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://www.jobcher.com/k8s-error/</guid>
-    <description><![CDATA[<h1 id="k8s-问题排查cgroup-内存泄露问题">K8S 问题排查：cgroup 内存泄露问题</h1>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">unable to ensure pod container exists: failed to create container for [kubepods besteffort pod5f26dae8-0421-4eab-a3f7-aa51c6848e2b] : mkdir /sys/fs/cgroup/memory/kubepods/besteffort/pod5f26dae8-0421-4eab-a3f7-aa51c6848e2b: cannot allocate memory
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="查看-linux-内核">查看 linux 内核</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cat /proc/version
-</span></span><span class="line"><span class="cl">uname -a
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>可以发现 linux 版本是 3.0 版本</p>
-<h2 id="原因">原因</h2>
-<blockquote>
-<p><code>cgroup</code> 的 <code>kmem account</code> 特性在 <code>Linux 3.x</code> 内核上有内存泄露问题，然后<code>k8s</code>用了这个特性，导致后面创建不出新的<code>pod</code>来了</p>
-</blockquote>
-<h2 id="解决方法">解决方法</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 修改/etc/default/grub 为</span>
-</span></span><span class="line"><span class="cl"><span class="nv">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s2">&#34;crashkernel=auto rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb quiet cgroup.memory=nokmem&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#加上了 cgroup.memory=nokmem</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 生成配置</span>
-</span></span><span class="line"><span class="cl">/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 重启机器</span>
-</span></span><span class="line"><span class="cl">reboot
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="验证">验证</h2>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cat /sys/fs/cgroup/memory/kubepods/burstable/pod*/*/memory.kmem.slabinfo
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>输出信息</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod0fe273ca-42e0-4223-9fe8-16d8dd1774e9/0fdd5d9c16929fd600dbdf313b5c3ebabad912dc0cb076ed6e7799e028b31481/memory.kmem.slabinfo: 输入/输出错误
-</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod0fe273ca-42e0-4223-9fe8-16d8dd1774e9/aa30198d0c5413b70bf488c9daa350a85c7fc6b677235c5adaf2dde6caf95ec4/memory.kmem.slabinfo: 输入/输出错误
-</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod5be86c5d-d012-4cc2-b693-4882a15eda90/059b26b00f4f286b0f52e759b83dad79c7676e1705ee0f3f175a277fd1e5ea5a/memory.kmem.slabinfo: 输入/输出错误
-</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod5be86c5d-d012-4cc2-b693-4882a15eda90/bfa9db0c23fd056a0c05ee5b2b377dd551451cc0f18ddd5db82f9693674a4677/memory.kmem.slabinfo: 输入/输出错误
-</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod8f588e3d-fe89-4716-ab36-3ef606c70367/6fab9f4f7a83bf4c79a68277b214807bd566a8f13212a0fdb5742e4eee4d75d5/memory.kmem.slabinfo: 输入/输出错误
-</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod8f588e3d-fe89-4716-ab36-3ef606c70367/b04594732f7e38a47500ffe1150705110cfa683b585aa7eaf0965cc48ba2a46d/memory.kmem.slabinfo: 输入/输出错误
-</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod9c449bdf-492b-4adc-a623-4ced323ac6d4/c9e73e56ddae0c6c301e43852a51165419eb293b05fa65407f8cb3fe449daf5d/memory.kmem.slabinfo: 输入/输出错误
-</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod9c449bdf-492b-4adc-a623-4ced323ac6d4/d7392b1e4be1728fd739dc7117e6efc723a4727f143b91a1b386ad35dc1d3a2e/memory.kmem.slabinfo: 输入/输出错误
-</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/podd316acd7-69fe-4ad5-963a-6e19174b7cb0/0ec18ac0509e6ab454ebe637bde002330afc9eb70eff6f23fe8caa12880e82f6/memory.kmem.slabinfo: 输入/输出错误
-</span></span><span class="line"><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/podd316acd7-69fe-4ad5-963a-6e19174b7cb0/dc5be82c01802c349c9505375c37dc054898b9b84e57cb4e671044e8a6459aac/memory.kmem.slabinfo: 输入/输出错误
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>

@@ -4,7 +4,150 @@
         <link>https://www.jobcher.com/categories/%E9%97%AE%E9%A2%98%E5%BA%93/</link>
         <description>问题库 - 分类 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 30 Aug 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.jobcher.com/categories/%E9%97%AE%E9%A2%98%E5%BA%93/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 20 Sep 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.jobcher.com/categories/%E9%97%AE%E9%A2%98%E5%BA%93/" rel="self" type="application/rss+xml" /><item>
+    <title>解决Elasticsearch索引只读（read-only）</title>
+    <link>https://www.jobcher.com/elasticsearch-error/</link>
+    <pubDate>Wed, 20 Sep 2023 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://www.jobcher.com/elasticsearch-error/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/elasticsearch.png" referrerpolicy="no-referrer">
+            </div><h1 id="背景">背景</h1>
+<p>这两天有开发向我反馈说elasticsearch有报错，嘿，我定睛一看，这不是进入只读状态了，看来是存储达到额度，我马上加个新的数据节点，平衡一下存储压力<br>
+报错信息：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">Elasticsearch Error <span class="o">{</span>type:cluster_block_exception,reason:”blocked by: <span class="o">[</span>FORBIDDEN/12/index read-only / allow delete <span class="o">(</span>api<span class="o">)]</span><span class="p">;</span><span class="o">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="新建服务器安装elasticsearch">新建服务器，安装elasticsearch</h2>
+<p>为了和之前的服务器一样，我简单写一下我elasticsearch版本和服务器系统版本 </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">软件</th>
+<th style="text-align:left">版本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">centos</td>
+<td style="text-align:left">7.9</td>
+</tr>
+<tr>
+<td style="text-align:left">elasticsearch</td>
+<td style="text-align:left">6.7.2</td>
+</tr>
+<tr>
+<td style="text-align:left">JDK</td>
+<td style="text-align:left">1.8.61</td>
+</tr>
+<tr>
+<td style="text-align:left">内存</td>
+<td style="text-align:left">32G</td>
+</tr>
+</tbody>
+</table>
+<h3 id="安装和配置elasticsearch">安装和配置elasticsearch</h3>
+<p>使用rpm 安装</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.7.2.rpm
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">rpm --install elasticsearch-6.7.2.rpm
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>配置参数，进入<code>/etc/elasticsearch</code>目录<br>
+修改配置<code>vim elasticsearch.yml</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># ======================== Elasticsearch Configuration ========================= </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">cluster.name</span><span class="p">:</span><span class="w"> </span><span class="l">cluster-prod-es</span><span class="w"> </span><span class="c"># 集群名称</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">node.name</span><span class="p">:</span><span class="w"> </span><span class="l">node-x</span><span class="w"> </span><span class="c"># 节点名称</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">path.data</span><span class="p">:</span><span class="w"> </span><span class="l">/var/lib/elasticsearch</span><span class="w"> </span><span class="c"># 数据存储</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">path.logs</span><span class="p">:</span><span class="w"> </span><span class="l">/var/log/elasticsearch </span><span class="w"> </span><span class="c"># 日志存储</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">network.host</span><span class="p">:</span><span class="w"> </span><span class="m">192.168.0.170</span><span class="w"> </span><span class="c"># 主机IP地址 </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">http.port</span><span class="p">:</span><span class="w"> </span><span class="m">9200</span><span class="w"> </span><span class="c"># 端口号</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">discovery.zen.ping.unicast.hosts</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;192.168.0.171&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;192.168.0.172&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;192.168.0.173&#34;</span><span class="p">]</span><span class="w"> </span><span class="c"># 集群节点</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">discovery.zen.minimum_master_nodes</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="c">#防止脑裂</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>修改配置<code>vim jvm.options</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl">-<span class="l">Xms16g</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>-<span class="l">Xmx16g</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>启动elasticsearch 服务</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">systemctl start elasticsearch.service
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="等待数据节点自动调节">等待数据节点自动调节</h3>
+<p>这里要等待一会儿数据节点自动调节，这个调节时间取决于你数据的大小，一般来说几个小时也好了，如果数据重要性不太高的话，和领导沟通一下，就别傻坐着等他迁移完，正常下班就行了。</p>
+<h3 id="关闭索引只读">关闭索引只读</h3>
+<p>对了，千万不要忘记关闭只读状态，虽然你新增了节点，但是当前的只读状态并没有关闭，所以要执行一下命令关闭只读状态</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -XPUT -H <span class="s2">&#34;Content-Type: application/json&#34;</span> http://192.168.0.170:9200/_all/_settings -d <span class="s1">&#39;{&#34;index.blocks.read_only_allow_delete&#34;: null}&#39;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>或者你在head-elasticsearch上操作<br>
+</p>
+<h2 id="感谢你的阅读">感谢你的阅读</h2>
+]]></description>
+</item><item>
     <title>Linux 系统收包流程以及内核参数优化</title>
     <link>https://www.jobcher.com/networkinglinux/</link>
     <pubDate>Wed, 30 Aug 2023 00:00:00 &#43;0000</pubDate>
