@@ -6,7 +6,7 @@
         <meta name="robots" content="noodp" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
         <title>GNU/Linux 一键更换系统软件源脚本 - 打工人日志 - jobcher</title><meta name="Description" content="这里为你呈现最新、最炫、最有趣的科技资讯和技术话题。我们的网站致力于探索当下最前沿的科技发展和热门技术趋势，给你带来极具深度的解读和娱乐性十足的内容。无论你是科技爱好者、码农大佬还是普通用户，这里都有适合你的精彩内容。在这里，你可以畅游于未来科技的海洋，了解最新的科学研究成果和技术突破。我们为你深入剖析各种新兴技术，如人工智能、区块链、物联网、虚拟现实等等。你将发现这些领域中的创新，不仅改变了我们的生活方式，还带来了无限的可能性。共同见证科技带给我们的奇迹与变革！"><meta property="og:title" content="GNU/Linux 一键更换系统软件源脚本" />
-<meta property="og:description" content="背景 有很多小伙伴，在接受公司老项目后，想要更新服务器源 执行命令 国内使用 1 bash &lt;(curl -sSL https://www.jobcher.com/ChangeMirrors.sh) 教育网使用 1 bash &lt;(curl -sSL https://www.jobcher.com/ChangeMirrors.sh) --edu 海外使用 1 bash &lt;(curl -sSL https://www.jobcher.com/ChangeMirrors.sh) --abroad 注意事项 需使用 Root 用" />
+<meta property="og:description" content="背景 有很多小伙伴，在接受公司老项目后，想要更新服务器源时，发现镜像源失效了，手动添加也很不方便，我这里提供了一个脚本供大家使用，轻松切换镜像" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/linux-mirror/" /><meta property="og:image" content="https://www.jobcher.com/images/gnulinux-logo-gnu-linux-logo-png.png" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2023-09-21T00:00:00+00:00" />
@@ -17,7 +17,7 @@
 <meta name="twitter:image" content="https://www.jobcher.com/images/gnulinux-logo-gnu-linux-logo-png.png"/>
 
 <meta name="twitter:title" content="GNU/Linux 一键更换系统软件源脚本"/>
-<meta name="twitter:description" content="背景 有很多小伙伴，在接受公司老项目后，想要更新服务器源 执行命令 国内使用 1 bash &lt;(curl -sSL https://www.jobcher.com/ChangeMirrors.sh) 教育网使用 1 bash &lt;(curl -sSL https://www.jobcher.com/ChangeMirrors.sh) --edu 海外使用 1 bash &lt;(curl -sSL https://www.jobcher.com/ChangeMirrors.sh) --abroad 注意事项 需使用 Root 用"/>
+<meta name="twitter:description" content="背景 有很多小伙伴，在接受公司老项目后，想要更新服务器源时，发现镜像源失效了，手动添加也很不方便，我这里提供了一个脚本供大家使用，轻松切换镜像"/>
 <meta name="application-name" content="jobcher">
 <meta name="apple-mobile-web-app-title" content="jobcher"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
         <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -30,7 +30,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/www.jobcher.com\/linux-mirror\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "运维","wordcount":  304 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "运维","wordcount":  412 ,
         "url": "https:\/\/www.jobcher.com\/linux-mirror\/","datePublished": "2023-09-21T00:00:00+00:00","dateModified": "2023-09-21T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -142,7 +142,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animated flipInX">GNU/Linux 一键更换系统软件源脚本</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/%E5%9F%BA%E7%A1%80/"><i class="far fa-folder fa-fw"></i>基础</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-09-21">2023-09-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 304 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2023-09-21">2023-09-21</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 412 字&nbsp;
                 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;<span id="/linux-mirror/" class="leancloud_visitors" data-flag-title="GNU/Linux 一键更换系统软件源脚本">
                         <i class="far fa-eye fa-fw"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -172,7 +172,58 @@
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h2 id="背景">背景</h2>
-<p>有很多小伙伴，在接受公司老项目后，想要更新服务器源</p>
+<p>有很多小伙伴，在接受公司老项目后，想要更新服务器源时，发现镜像源失效了，手动添加也很不方便，我这里提供了一个脚本供大家使用，轻松切换镜像源。<br>
+支持系统：</p>
+<table align="center">
+<tr>
+    <td><a href="https://www.debian.org" target="_blank"><img src="./docs/assets/images/icon/debian.svg" width="16" height="16" style="vertical-align: -0.45em"></a>&nbsp;Debian</td>
+    <td align="center">8.0 ~ 12</td>
+</tr>
+<tr>
+    <td><a href="https://cn.ubuntu.com" target="_blank"><img src="./docs/assets/images/icon/ubuntu.svg" width="16" height="16" style="vertical-align: -0.15em"></a>&nbsp;Ubuntu</td>
+    <td align="center">14.04 ~ 23</td>
+</tr>
+<tr>
+    <td><a href="https://www.kali.org" target="_blank"><img src="./docs/assets/images/icon/kali-linux.svg" width="16" height="16" style="vertical-align: -0.15em"></a>&nbsp;Kali Linux</td>
+    <td align="center">2.0 ~ 2023</td>
+</tr>
+<tr>
+    <td><a href="https://access.redhat.com/products/red-hat-enterprise-linux" target="_blank"><img src="./docs/assets/images/icon/redhat.svg" width="16" height="16" style="vertical-align: -0.15em"></a>&nbsp;Red Hat Enterprise Linux</td>
+    <td align="center">7.0 ~ 9</td>
+</tr>
+<tr>
+    <td><a href="https://fedoraproject.org/zh-Hans" target="_blank"><img src="./docs/assets/images/icon/fedora.ico" width="16" height="16" style="vertical-align: -0.15em"></a>&nbsp;Fedora</td>
+    <td align="center">30 ~ 38</td>
+</tr>
+<tr>
+    <td><a href="https://www.centos.org" target="_blank"><img src="./docs/assets/images/icon/centos.svg" width="16" height="16" style="vertical-align: -0.15em"></a>&nbsp;CentOS</td>
+    <td align="center">7.0 ~ 8.5 / Stream 8 ~ 9</td>
+</tr>
+<tr>
+    <td><a href="https://rockylinux.org/zh_CN" target="_blank"><img src="./docs/assets/images/icon/rocky-linux.svg" width="16" height="16" style="vertical-align: -0.25em"></a>&nbsp;Rocky Linux</td>
+    <td align="center">8 ~ 9</td>
+</tr>
+<tr>
+    <td><a href="https://almalinux.org/zh-hans" target="_blank"><img src="./docs/assets/images/icon/almalinux.svg" width="16" height="16" style="vertical-align: -0.25em"></a>&nbsp;AlmaLinux</td>
+    <td align="center">8 ~ 9</td>
+</tr>
+<tr>
+    <td><a href="https://www.opencloudos.org" target="_blank"><img src="./docs/assets/images/icon/opencloudos.png" width="16" height="16" style="vertical-align: -0.25em"></a>&nbsp;OpenCloudOS</td>
+    <td align="center">8.6 / 9.0</td>
+</tr>
+<tr>
+    <td><a href="https://www.openeuler.org/zh" target="_blank"><img src="./docs/assets/images/icon/openeuler.ico" width="16" height="16" style="vertical-align: -0.15em"></a>&nbsp;openEuler</td>
+    <td align="center">21.03 ~ 23</td>
+</tr>
+<tr>
+    <td><a href="https://www.opensuse.org" target="_blank"><img src="./docs/assets/images/icon/opensuse.svg" width="16" height="16" style="vertical-align: -0.15em"></a>&nbsp;openSUSE</td>
+    <td align="center">Leep 15 / Tumbleweed</td>
+</tr>
+<tr>
+    <td><a href="https://archlinux.org" target="_blank"><img src="./docs/assets/images/icon/arch-linux.ico" width="16" height="16" style="vertical-align: -0.15em"></a>&nbsp;Arch Linux</td>
+    <td align="center">all</td>
+</tr>
+</table>
 <h2 id="执行命令">执行命令</h2>
 <h3 id="国内使用">国内使用</h3>
 <div class="highlight"><div class="chroma">
