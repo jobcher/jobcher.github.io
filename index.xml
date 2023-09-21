@@ -186,6 +186,54 @@
 <h4 id="3小白问题用公司的电脑在自己家里的网络连接到自己个人的macmini会被公司监控到吗httpswwwv2excomt975720reply0">3.<a href="https://www.v2ex.com/t/975720#reply0" target="_blank" rel="noopener noreffer">小白问题:用公司的电脑,在自己家里的网络,连接到自己个人的MacMini,会被公司监控到吗?</a></h4>
 ]]></description>
 </item><item>
+    <title>GNU/Linux 一键更换系统软件源脚本</title>
+    <link>https://www.jobcher.com/linux-mirror/</link>
+    <pubDate>Thu, 21 Sep 2023 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://www.jobcher.com/linux-mirror/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/gnulinux-logo-gnu-linux-logo-png.png" referrerpolicy="no-referrer">
+            </div><h2 id="背景">背景</h2>
+<p>有很多小伙伴，在接受公司老项目后，想要更新服务器源</p>
+<h2 id="执行命令">执行命令</h2>
+<h3 id="国内使用">国内使用</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash &lt;<span class="o">(</span>curl -sSL https://www.jobcher.com/ChangeMirrors.sh<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="教育网使用">教育网使用</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash &lt;<span class="o">(</span>curl -sSL https://www.jobcher.com/ChangeMirrors.sh<span class="o">)</span> --edu
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="海外使用">海外使用</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash &lt;<span class="o">(</span>curl -sSL https://www.jobcher.com/ChangeMirrors.sh<span class="o">)</span> --abroad
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="注意事项">注意事项</h2>
+<ol>
+<li>需使用 <code>Root</code> 用户执行脚本
+切换命令为 <code>sudo -i</code> 或 <code>su root</code>，不同系统环境使用的命令不一样，因为有些系统没有在初始安装时为 <code>Root</code> 用户设置固定密码所以需要使用 <code>sudo</code> 指令来提权</li>
+<li>建议使用 <code>SSH</code> 远程工具
+如果你使用的系统终端界面不支持 UTF-8 编码那么将无法正常显示中文内容，导致无法正确选择交互内容。大部分系统都会自动开启该服务</li>
+<li>首次在新系统上执行脚本
+当前执行方式依赖 <code>curl</code> 指令来获取脚本内容并执行，所以需要先通过包管理工具来安装该软件包，否则会报错 <code>Command not found</code>，若无法安装就复制源码到本地新建.sh脚本，然后通过 bash 手动执行</li>
+</ol>
+]]></description>
+</item><item>
     <title>2023-09-20 打工人日报</title>
     <link>https://www.jobcher.com/github_trending_2023-09-20/</link>
     <pubDate>Wed, 20 Sep 2023 00:00:00 &#43;0000</pubDate>
@@ -1431,125 +1479,6 @@
 <h2 id="v2ex-热门帖子">v2ex 热门帖子</h2>
 <h4 id="1独立开发变现周刊第104期开发月收入1000美金的kindle小工具httpswwwv2excomt973922reply0">1.<a href="https://www.v2ex.com/t/973922#reply0" target="_blank" rel="noopener noreffer">独立开发变现周刊（第104期）：开发月收入1000美金的Kindle小工具</a></h4>
 <h4 id="2路由器回家选择什么加密方式性能最佳httpswwwv2excomt973923reply0">2.<a href="https://www.v2ex.com/t/973923#reply0" target="_blank" rel="noopener noreffer">路由器回家，选择什么加密方式性能最佳？</a></h4>
-]]></description>
-</item><item>
-    <title>【破解】小鹏P5和小鹏G9开启adb和网络adb</title>
-    <link>https://www.jobcher.com/hackp5g9/</link>
-    <pubDate>Thu, 14 Sep 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://www.jobcher.com/hackp5g9/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/xiaopeng.png" referrerpolicy="no-referrer">
-            </div><h1 id="lets-hack-now">LET&rsquo;S HACK NOW!</h1>
-<p>本文章可以帮助当前正式版本的小鹏P5和小鹏G9开启adb和网络adb</p>
-<h1 id="重要提示">重要提示</h1>
-<h2 id="如果你对第三方软件的需求高于ota需求请关闭ota功能p5和g9的下一个版本大概率或已经启用了更高级的加密方式无法获取解锁码需要等待其他方式破解">如果你对第三方软件的需求高于OTA需求，请关闭OTA功能，P5和G9的下一个版本大概率或已经启用了更高级的加密方式，无法获取解锁码，需要等待其他方式破解</h2>
-<h1 id="开启adb步骤">开启adb步骤</h1>
-<ul>
-<li>
-<p>首先确认您的爱车是小鹏P5（OTA3.5.0及之前）或小鹏G9（OTA4.3.1及之前）或小鹏G6（未测试）或小鹏P7（OTA2.10及之前）或小鹏G3（版本不确定，最新版不行）</p>
-</li>
-<li>
-<p>将您的笔记本电脑（已安装adb组件）或安卓手机（已安装甲壳虫adb软件）和您的车机连接到同一无线局域网中（此处可使用另一台手机打开热点），以下使用笔记本电脑举例</p>
-</li>
-<li>
-<p>打开车机的拨号界面，输入<code>*#9925*111#*</code></p>
-</li>
-<li>
-<p>此时车机会显示一个页面，其中包含一个二维码</p>
-</li>
-<li>
-<p>使用微信扫描您的车机的二维码，并将内容保存备用</p>
-</li>
-<li>
-<p>在任意输入框中输入内容<code>https://hackxpeng.bgcpdd.eu.org/xpeng?m=hackxpeng&amp;id=</code>，然后将您获取到的二维码内容复制到最后面，注意此处不要有任何的空格</p>
-</li>
-<li>
-<p>使用浏览器打开您输入框中的所有内容（网址拼接，如：<code>https://hackxpeng.bgcpdd.eu.org/xpeng?m=hackxpeng&amp;id=XPENGD55xxxxxxxxxxxxxx</code>）</p>
-</li>
-<li>
-<p>浏览器返回一个解锁码（如：<code>*#03*12345678*#</code>）</p>
-</li>
-<li>
-<p>将该解锁码输入车机的拨号界面，此时解锁码会自动消失，如果没有消失请手动删除所有内容</p>
-</li>
-<li>
-<p>使用拨号界面输入<code>*#9387*141#*</code></p>
-</li>
-<li>
-<p>打开调试和网络调试（一般是前两个选项）</p>
-</li>
-<li>
-<p>笔记本电脑使用<code>win+r</code>，输入<code>cmd</code>回车，输入<code>adb connect 车机页面中的ip:5050</code>（如<code>adb connect 172.20.10.2:5050</code>）</p>
-</li>
-<li>
-<p>cmd显示连接成功</p>
-</li>
-<li>
-<p>下载你需要安装的apk</p>
-</li>
-<li>
-<p>使用<code>adb install</code>安装软件（如：<code>adb install C:\abc\a.apk</code>）</p>
-</li>
-<li>
-<p>安装成功</p>
-</li>
-<li>
-<p>adb还有更多好玩有趣的玩法等你发现</p>
-</li>
-</ul>
-<h1 id="笔记本电脑安装adb套件">笔记本电脑安装adb套件</h1>
-<ul>
-<li>
-<p>打开<code>https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn</code></p>
-</li>
-<li>
-<p>下载windows版本 并解压</p>
-</li>
-<li>
-<p>将所有文件放入c盘windows目录下的system32和syswow64 注意两个都要放</p>
-</li>
-</ul>
-<h1 id="致小鹏汽车以下是关闭获取解锁码api的步骤">致小鹏汽车：以下是关闭获取解锁码api的步骤</h1>
-<ul>
-<li>
-<p>将P7 P5的地图更新到高德地图最新版本（包括红绿灯倒计时，最新版高精地图，组队功能，普通道路沉浸导航，语音包等）</p>
-</li>
-<li>
-<p>将P7 P5的QQ音乐更新到最新版本</p>
-</li>
-<li>
-<p>承诺定期公布OTA进度（最低界限为每月公布）</p>
-</li>
-<li>
-<p>将P5 p版sr下放到e版车型（显示车辆运动轨迹）</p>
-</li>
-<li>
-<p>优化P7 P5 G3/i自动泊车</p>
-</li>
-<li>
-<p>优化NGP并将速度上限设置为130</p>
-</li>
-<li>
-<p>将P7 P5的夜晚/白天切换逻辑修改为根据光线传感器，而非日出日落时间</p>
-</li>
-<li>
-<p>上线P5的智慧场景或私人定制2.0</p>
-</li>
-<li>
-<p>重新评估P7 P5适配新版UI的可行性</p>
-</li>
-<li>
-<p>重新评估P7更换8155车机的可行性</p>
-</li>
-<li>
-<p>全部完成后使用小鹏汽车官方Github账号在本仓库发送issue</p>
-</li>
-</ul>
-<blockquote>
-<p>文章转载于网络，侵权即删
-<a href="https://github.com/hackxpeng/hackp5g9" target="_blank" rel="noopener noreffer">原文连接</a></p>
-</blockquote>
 ]]></description>
 </item></channel>
 </rss>

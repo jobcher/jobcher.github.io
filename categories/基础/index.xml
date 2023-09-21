@@ -4,7 +4,55 @@
         <link>https://www.jobcher.com/categories/%E5%9F%BA%E7%A1%80/</link>
         <description>基础 - 分类 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 15 May 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.jobcher.com/categories/%E5%9F%BA%E7%A1%80/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 21 Sep 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.jobcher.com/categories/%E5%9F%BA%E7%A1%80/" rel="self" type="application/rss+xml" /><item>
+    <title>GNU/Linux 一键更换系统软件源脚本</title>
+    <link>https://www.jobcher.com/linux-mirror/</link>
+    <pubDate>Thu, 21 Sep 2023 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://www.jobcher.com/linux-mirror/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/gnulinux-logo-gnu-linux-logo-png.png" referrerpolicy="no-referrer">
+            </div><h2 id="背景">背景</h2>
+<p>有很多小伙伴，在接受公司老项目后，想要更新服务器源</p>
+<h2 id="执行命令">执行命令</h2>
+<h3 id="国内使用">国内使用</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash &lt;<span class="o">(</span>curl -sSL https://www.jobcher.com/ChangeMirrors.sh<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="教育网使用">教育网使用</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash &lt;<span class="o">(</span>curl -sSL https://www.jobcher.com/ChangeMirrors.sh<span class="o">)</span> --edu
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="海外使用">海外使用</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash &lt;<span class="o">(</span>curl -sSL https://www.jobcher.com/ChangeMirrors.sh<span class="o">)</span> --abroad
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="注意事项">注意事项</h2>
+<ol>
+<li>需使用 <code>Root</code> 用户执行脚本
+切换命令为 <code>sudo -i</code> 或 <code>su root</code>，不同系统环境使用的命令不一样，因为有些系统没有在初始安装时为 <code>Root</code> 用户设置固定密码所以需要使用 <code>sudo</code> 指令来提权</li>
+<li>建议使用 <code>SSH</code> 远程工具
+如果你使用的系统终端界面不支持 UTF-8 编码那么将无法正常显示中文内容，导致无法正确选择交互内容。大部分系统都会自动开启该服务</li>
+<li>首次在新系统上执行脚本
+当前执行方式依赖 <code>curl</code> 指令来获取脚本内容并执行，所以需要先通过包管理工具来安装该软件包，否则会报错 <code>Command not found</code>，若无法安装就复制源码到本地新建.sh脚本，然后通过 bash 手动执行</li>
+</ol>
+]]></description>
+</item><item>
     <title>在windows上安装appium</title>
     <link>https://www.jobcher.com/appium/</link>
     <pubDate>Mon, 15 May 2023 00:00:00 &#43;0000</pubDate>
@@ -2017,61 +2065,6 @@ www.d.com（新）
 <h1 id="16请解释-nginx-是如何连接-php-进行页面解析的">16、请解释 Nginx 是如何连接 PHP 进行页面解析的？</h1>
 <h1 id="17请描述-nginx-和-tomcat-之间的数据传输过程">17、请描述 Nginx 和 Tomcat 之间的数据传输过程？</h1>
 <h1 id="18请写出几个常见的-http-状态码并解释出现原因">18、请写出几个常见的 HTTP 状态码，并解释出现原因。</h1>
-]]></description>
-</item><item>
-    <title>mysql基础知识</title>
-    <link>https://www.jobcher.com/mysql/</link>
-    <pubDate>Wed, 15 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://www.jobcher.com/mysql/</guid>
-    <description><![CDATA[<h1 id="mysql-基础知识">mysql 基础知识</h1>
-<h2 id="1库表-studentreport有-3-个字段姓名学科成绩记录如下根据要求完成-sql-语句">1、库表 student.report,有 3 个字段，姓名、学科、成绩，记录如下，根据要求完成 SQL 语句：</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Name</th>
-<th style="text-align:left">Subject</th>
-<th style="text-align:left">Result</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">李白</td>
-<td style="text-align:left">Math</td>
-<td style="text-align:left">95</td>
-</tr>
-<tr>
-<td style="text-align:left">张三</td>
-<td style="text-align:left">English</td>
-<td style="text-align:left">83</td>
-</tr>
-<tr>
-<td style="text-align:left">王五</td>
-<td style="text-align:left">Math</td>
-<td style="text-align:left">79</td>
-</tr>
-<tr>
-<td style="text-align:left">李六</td>
-<td style="text-align:left">Math</td>
-<td style="text-align:left">85</td>
-</tr>
-<tr>
-<td style="text-align:left">张二</td>
-<td style="text-align:left">English</td>
-<td style="text-align:left">74</td>
-</tr>
-</tbody>
-</table>
-<ol>
-<li>查询姓李的同学的个数。</li>
-<li>查询表中数学成绩大于 80 的前 2 名同学的名字，并按分数从大到小的顺序排列。</li>
-</ol>
-<h2 id="2mysql-集群一主多从主库宕机如何合理切换到从库其它从库如何处理">2、MYSQL 集群一主多从，主库宕机，如何合理切换到从库，其它从库如何处理？</h2>
-<h2 id="3单台-mysql-达到性能瓶颈时如何击碎性能瓶颈">3、单台 MySQL 达到性能瓶颈时，如何击碎性能瓶颈？</h2>
-<h2 id="4mysql-什么时候创建索引">4、MySQL 什么时候创建索引？</h2>
-<h2 id="5误操作-drop-语句导致数据库数据破坏请给出恢复的实际大体步骤">5、误操作 drop 语句导致数据库数据破坏，请给出恢复的实际大体步骤。</h2>
-<h2 id="6如何保证-redis-能永久保存数据">6、如何保证 Redis 能永久保存数据？</h2>
-<h2 id="7如何利用-redis-对-mysql-进行性能优化">7、如何利用 Redis 对 MySQL 进行性能优化？</h2>
 ]]></description>
 </item></channel>
 </rss>
