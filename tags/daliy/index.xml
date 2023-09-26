@@ -4,7 +4,78 @@
         <link>https://www.jobcher.com/tags/daliy/</link>
         <description>daliy - 标签 - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 19 Sep 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.jobcher.com/tags/daliy/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 26 Sep 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.jobcher.com/tags/daliy/" rel="self" type="application/rss+xml" /><item>
+    <title>iOS 17 「待机显示」适配普通 iPhone（非 Pro/Max），屏幕在充电时常亮</title>
+    <link>https://www.jobcher.com/ios17-standby/</link>
+    <pubDate>Tue, 26 Sep 2023 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://www.jobcher.com/ios17-standby/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/Appinn-feature-images-2023-09-25T152200.586-1536x669.webp" referrerpolicy="no-referrer">
+            </div><h1 id="让-ios-17-待机显示适配普通-iphone非-promax屏幕在充电时常亮">让 iOS 17 「待机显示」适配普通 iPhone（非 Pro/Max），屏幕在充电时常亮</h1>
+<h2 id="背景">背景</h2>
+<p>让 iPhone 14/15 Pro/Max 以下机型也可以在屏幕激活待机显示功能（充电且横置）时保持常量，以显示小组件内容。<br>
+<br>
+2023 年新发布的 iOS 17 有一个新功能：待机显示 StandBy，它能在 iPhone 横向放置且充电时，全屏显示小组件，比如时钟、日历等等，但所有的非 Pro/Max 机型，由于没有全天候显示屏（显示屏能够以低至 1 Hz 的刷新率运行），所以并不能持续使用待机显示，会在几秒钟之后熄灭屏幕，当感受到震动（轻轻拍一下桌子），或有新通知时，再次点亮。</p>
+<h2 id="原理">原理</h2>
+<p></p>
+<ul>
+<li>如果 iPhone 接入充电器充电 &gt; 等待 19 秒 &gt; 开关一次低电量模式 &gt; 再运行一次脚本</li>
+<li>如果没有充电 &gt; 关闭低电量模式 &gt; 停止脚本
+之后，使用自动化功能，当 iPhone 接入充电器时，自动运行这个脚本就行了。</li>
+</ul>
+<h2 id="教程">教程</h2>
+<p><a href="https://www.icloud.com/shortcuts/f50d508c7ec9471a9fb94a3b2b57f1af" target="_blank" rel="noopener noreffer">获取链接</a></p>
+<!DOCTYPE HTML>
+<html>
+
+  <head>
+    
+    <style type="text/css">
+      .aspect-ratio {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 75%;
+      }
+
+      .aspect-ratio iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="aspect-ratio">
+      <iframe
+              src="https://player.bilibili.com/player.html?bvid=&page=1&high_quality=1&danmaku=0"
+              scrolling="no" 
+              border="0" 
+              frameborder="no" 
+              framespacing="0" 
+              allowfullscreen="true"
+              sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"
+              >
+      </iframe>
+      
+      
+    </div>
+  </body>
+
+</html>
+
+<h2 id="注意">注意</h2>
+<ul>
+<li>小组件自动轮换失效</li>
+<li>烧屏：请务必小心，长期使用可能会导致的屏幕问题</li>
+<li>充电前需要手动熄屏，否则会因为不断的开关低电量模式而无法进入待机显示</li>
+</ul>
+]]></description>
+</item><item>
     <title>【福利】埃隆·马斯克传 [沃尔特·艾萨克森] 在线下载</title>
     <link>https://www.jobcher.com/elon-musk/</link>
     <pubDate>Tue, 19 Sep 2023 00:00:00 &#43;0000</pubDate>
@@ -4814,94 +4885,5 @@ zf初重拳打击的结果往往取得相反的效果，因为政府如果希望
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
-    <title>优雅的使用Conda管理python环境</title>
-    <link>https://www.jobcher.com/conda/</link>
-    <pubDate>Wed, 14 Dec 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://www.jobcher.com/conda/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/python-conda.png" referrerpolicy="no-referrer">
-            </div><h2 id="背景">背景</h2>
-<p>很多时候,避免不了同时使用 python2 和 python3 的环境,也避免不了不同的工作所需要不同版本的库文件,比如在想用 TensorFlow 较早版本的同时;还想运行 Pytorch 最新版；还想顺便学习 Nao 机器人编程,学习 Django 后台,这个时候,一款非常好用的包管理工具就显得十分重要了,这就是我写这篇博客的原因,这篇博客将会讲解：</p>
-<ul>
-<li><i class="far fa-check-square fa-fw"></i> 如何安装 conda;</li>
-<li><i class="far fa-check-square fa-fw"></i> 如何更换 conda 的下载源;</li>
-<li><i class="far fa-check-square fa-fw"></i> 如何使用 canda;</li>
-</ul>
-<h2 id="安装-conda">安装 conda</h2>
-<p>在安装时这两个选项需要点上：<br>
-</p>
-<h3 id="更换-conda-的下载源">更换 conda 的下载源</h3>
-<p><code>Conda官方</code>的下载源太慢了,而且经常会出现 HTTPERROR 之类的错误,如果想要用 Conda 愉快的创建不同工作环境,愉快的下载安装各种库,那么换下载源是必不可少的</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
-</span></span><span class="line"><span class="cl">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge
-</span></span><span class="line"><span class="cl">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">conda config --set show_channel_urls yes
-</span></span><span class="line"><span class="cl"><span class="c1"># 设置搜索时显示通道地址</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>具体操作同时按 Win+R 键打开运行窗口,输入 cmd,回车：<br>
-</p>
-<p>将上面的命令全部复制,到命令行里单击右键就会自动执行复制的命令,添加清华源</p>
-<h2 id="使用-conda">使用 conda</h2>
-<p>查看环境</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">conda info -e
-</span></span><span class="line"><span class="cl">conda info --envs
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>创建环境</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">conda create -n name <span class="nv">python</span><span class="o">=</span>3.6
-</span></span><span class="line"><span class="cl"><span class="c1"># name参数指定虚拟环境的名字,python参数指定要安装python的版本,但注意至少需要指定python版本或者要安装的包,在后一种情况下,自动安装最新python版本</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 例如</span>
-</span></span><span class="line"><span class="cl">conda create -n jobcher pillow numpy <span class="nv">python</span><span class="o">=</span>2.7.14
-</span></span><span class="line"><span class="cl"><span class="c1"># 创建名字为naoqi,Python版本为2.7.14的虚拟环境,同时还会安装上pillow numpy这两个库</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>环境切换</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">conda activate jobcher
-</span></span><span class="line"><span class="cl"><span class="c1"># 切换到jobcher环境下,在切换环境后,所执行的Pip命令,Python命令,都是更改当前环境下的,不会影响到其他的环境</span>
-</span></span><span class="line"><span class="cl">conda deactivate
-</span></span><span class="line"><span class="cl"><span class="c1"># 退出当前环境</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
-<p>欢迎关注我的博客<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer">www.jobcher.com</a></p>
-</blockquote>
-]]></description>
 </item></channel>
 </rss>

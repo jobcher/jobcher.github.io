@@ -186,6 +186,77 @@
 <h4 id="3新的claude2镜像站上线了依然免费欢迎使用和传播httpswwwv2excomt977132reply0">3.<a href="https://www.v2ex.com/t/977132#reply0" target="_blank" rel="noopener noreffer">新的Claude2镜像站上线了，依然免费，欢迎使用和传播</a></h4>
 ]]></description>
 </item><item>
+    <title>iOS 17 「待机显示」适配普通 iPhone（非 Pro/Max），屏幕在充电时常亮</title>
+    <link>https://www.jobcher.com/ios17-standby/</link>
+    <pubDate>Tue, 26 Sep 2023 00:00:00 &#43;0000</pubDate>
+    <author>作者</author>
+    <guid>https://www.jobcher.com/ios17-standby/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/Appinn-feature-images-2023-09-25T152200.586-1536x669.webp" referrerpolicy="no-referrer">
+            </div><h1 id="让-ios-17-待机显示适配普通-iphone非-promax屏幕在充电时常亮">让 iOS 17 「待机显示」适配普通 iPhone（非 Pro/Max），屏幕在充电时常亮</h1>
+<h2 id="背景">背景</h2>
+<p>让 iPhone 14/15 Pro/Max 以下机型也可以在屏幕激活待机显示功能（充电且横置）时保持常量，以显示小组件内容。<br>
+<br>
+2023 年新发布的 iOS 17 有一个新功能：待机显示 StandBy，它能在 iPhone 横向放置且充电时，全屏显示小组件，比如时钟、日历等等，但所有的非 Pro/Max 机型，由于没有全天候显示屏（显示屏能够以低至 1 Hz 的刷新率运行），所以并不能持续使用待机显示，会在几秒钟之后熄灭屏幕，当感受到震动（轻轻拍一下桌子），或有新通知时，再次点亮。</p>
+<h2 id="原理">原理</h2>
+<p></p>
+<ul>
+<li>如果 iPhone 接入充电器充电 &gt; 等待 19 秒 &gt; 开关一次低电量模式 &gt; 再运行一次脚本</li>
+<li>如果没有充电 &gt; 关闭低电量模式 &gt; 停止脚本
+之后，使用自动化功能，当 iPhone 接入充电器时，自动运行这个脚本就行了。</li>
+</ul>
+<h2 id="教程">教程</h2>
+<p><a href="https://www.icloud.com/shortcuts/f50d508c7ec9471a9fb94a3b2b57f1af" target="_blank" rel="noopener noreffer">获取链接</a></p>
+<!DOCTYPE HTML>
+<html>
+
+  <head>
+    
+    <style type="text/css">
+      .aspect-ratio {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 75%;
+      }
+
+      .aspect-ratio iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="aspect-ratio">
+      <iframe
+              src="https://player.bilibili.com/player.html?bvid=&page=1&high_quality=1&danmaku=0"
+              scrolling="no" 
+              border="0" 
+              frameborder="no" 
+              framespacing="0" 
+              allowfullscreen="true"
+              sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"
+              >
+      </iframe>
+      
+      
+    </div>
+  </body>
+
+</html>
+
+<h2 id="注意">注意</h2>
+<ul>
+<li>小组件自动轮换失效</li>
+<li>烧屏：请务必小心，长期使用可能会导致的屏幕问题</li>
+<li>充电前需要手动熄屏，否则会因为不断的开关低电量模式而无法进入待机显示</li>
+</ul>
+]]></description>
+</item><item>
     <title>2023-09-25 打工人日报</title>
     <link>https://www.jobcher.com/github_trending_2023-09-25/</link>
     <pubDate>Mon, 25 Sep 2023 00:00:00 &#43;0000</pubDate>
@@ -1495,20 +1566,6 @@
 </div><p>或者你在head-elasticsearch上操作<br>
 </p>
 <h2 id="感谢你的阅读">感谢你的阅读</h2>
-]]></description>
-</item><item>
-    <title>【福利】埃隆·马斯克传 [沃尔特·艾萨克森] 在线下载</title>
-    <link>https://www.jobcher.com/elon-musk/</link>
-    <pubDate>Tue, 19 Sep 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
-    <guid>https://www.jobcher.com/elon-musk/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/ad6b09618e657a8.jpg" referrerpolicy="no-referrer">
-            </div><h2 id="介绍">介绍</h2>
-<p>著名传记作家艾萨克森以近距离的观察视角，揭开了如今全球引人注目、富有争议性的创新企业家的神秘面纱：他善于突破常规，引领全球进入电动汽车时代、私人太空探索时代和人工智能时代，还将推特收入囊中。 埃隆·马斯克小时候在南非生活，那时他经常遭受校园欺凌，但同父亲给他造成的情感创伤相比，这些伤痛都微不足道。他的童年浸透了人性，这将他塑造为一个坚强而又脆弱的男孩，他对风险的容忍度极高，渴望营造出富有戏剧性的生活，让人类文明成为星际文明是他的宏大目标。 2008年，SpaceX的火箭在前三次发射过程中接连爆炸，特斯拉也即将破产，这是他生命中地狱般的至暗时期。在飓风来临时，他是最兴奋的人之一。动荡的环境和剧烈的冲突对他有着莫大的吸引力，有时他甚至渴望这些东西，无论是在工作中，还是在他努力维持却未能持久的恋爱关系中。每当面临艰巨的挑战，紧张感常常让他夜不能寐，甚至呕吐不止，但这些都是他赖以为生的养分。 2022年年初，也就是在SpaceX成功发射了31颗卫星、特斯拉卖出了近100万辆汽车、埃隆成为地球上最富有的人一年后，对于自己一再挑起戏剧性冲突的背后动机，他略带感伤地谈起了他的反思。 他说：“我需要改变我的思维模式，不能一直处于危机战备状态，我这种状态已经持续了大概14年，或者说我人生的大部分时间。”这更像是一个自怨自艾的评价，而不是在表达新年新气象的决心。他一边做出了这些反思和保证，一边还在秘密买入推特的股票。 两年来，艾萨克森形影不离地跟访马斯克，参加他大大小小的会议，与他一起走访工厂，深度采访了他本人，以及他的家人、朋友、同事、前妻和对手。艾萨克森揭开了马斯克内幕故事的面纱，其中有荡气回肠的胜利，也有跌宕起伏的乱局，令人拍案称奇。这些故事回答了这样一个问题：那个在马斯克心底驱使着他的恶魔，是不是也是推动创新与进步所必需的呢？</p>
-<h2 id="下载链接">下载链接</h2>
-<p><a href="https://www.aliyundrive.com/s/3j32s7zQwU1" target="_blank" rel="noopener noreffer">埃隆·马斯克传 [沃尔特·艾萨克森].pdf</a><br>
-<a href="https://www.aliyundrive.com/s/ud1SeNR4YQK" target="_blank" rel="noopener noreffer">埃隆·马斯克传 [沃尔特·艾萨克森].epub</a></p>
 ]]></description>
 </item></channel>
 </rss>
