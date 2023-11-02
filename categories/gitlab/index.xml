@@ -13,7 +13,7 @@
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/sonarqube.png" referrerpolicy="no-referrer">
             </div><h2 id="背景">背景</h2>
-<p>我是在ubuntu服务器安装docker服务，我已经安装好了docker和docker-compose服务，这里我就不写这些服务的安装服务，直接开始安装服务</p>
+<p>我是在ubuntu服务器安装docker服务，我已经安装好了docker和docker-compose服务，这里我就不写这些服务的安装过程，直接开始安装sonarqube服务</p>
 <h2 id="安装-sonarqube服务器">安装 sonarqube服务器</h2>
 <h3 id="1执行脚本文件-configsh">1.执行脚本文件 <code>config.sh</code></h3>
 <div class="highlight"><div class="chroma">
