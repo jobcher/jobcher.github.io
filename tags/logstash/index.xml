@@ -8,7 +8,7 @@
     <title>Logstash 自动重载配置文件</title>
     <link>https://www.jobcher.com/logstash1/</link>
     <pubDate>Mon, 31 Oct 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/logstash1/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/lostash.png" referrerpolicy="no-referrer">
@@ -60,14 +60,15 @@
 <blockquote>
 <p><code>stdin</code>输入插件不支持自动重启.<br>
 <code>syslog</code>作为输入源,当重载配置文件时,会崩溃.<br>
-<a href="https://github.com/logstash-plugins/logstash-input-syslog/issues/40" target="_blank" rel="noopener noreffer">解决方法</a></p>
+<a href="https://github.com/logstash-plugins/logstash-input-syslog/issues/40" target="_blank" rel="noopener noreffer ">解决方法</a></p>
 </blockquote>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>苏州旅行</title>
     <link>https://www.jobcher.com/suzhou/</link>
     <pubDate>Tue, 27 Sep 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/suzhou/</guid>
     <description><![CDATA[<h1 id="苏州旅行">苏州旅行</h1>
 <table width="180"><tr><td bgcolor=#ff0000><font color="#ffffff">新冠肺炎 COVID-19 警告 </font></td></tr></table>  
@@ -247,11 +248,12 @@
 </li>
 </ul>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>logstash 多管道部署</title>
     <link>https://www.jobcher.com/logstash/</link>
     <pubDate>Tue, 19 Jul 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/logstash/</guid>
     <description><![CDATA[<h1 id="logstash-多管道部署">logstash 多管道部署</h1>
 <p>找到 logstash 目录位置，一般来说在 <code>/etc/logstash</code> 路径下,修改 <code>logstash.yml</code></p>
@@ -336,5 +338,6 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

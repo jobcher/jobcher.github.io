@@ -8,7 +8,7 @@
     <title>sonarqube docker安装和配置</title>
     <link>https://www.jobcher.com/sonarqube/</link>
     <pubDate>Thu, 02 Nov 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/sonarqube/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/sonarqube.png" referrerpolicy="no-referrer">
@@ -199,11 +199,12 @@
 </div><h2 id="在sonarsever上查看">在sonarsever上查看</h2>
 <p></p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>SSH 通过 443 端口连接 GitHub</title>
     <link>https://www.jobcher.com/ssh-git/</link>
     <pubDate>Wed, 27 Sep 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/ssh-git/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/github.png" referrerpolicy="no-referrer">
@@ -236,11 +237,12 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>Argo cd 安装和部署</title>
     <link>https://www.jobcher.com/argocd/</link>
     <pubDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/argocd/</guid>
     <description><![CDATA[<h1 id="argo-cd-安装和部署">Argo cd 安装和部署</h1>
 <p>Argo CD 是一个为 Kubernetes 而生的，遵循声明式 GitOps 理念的持续部署（CD）工具。Argo CD 可在 Git 存储库更改时自动同步和部署应用程序
@@ -304,11 +306,12 @@
 <p>argocd login &lt;节点 IP&gt;:&lt;端口&gt;</p>
 </blockquote>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>Git 规则</title>
     <link>https://www.jobcher.com/git3/</link>
     <pubDate>Thu, 24 Mar 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/git3/</guid>
     <description><![CDATA[<h1 id="git-飞行规则flight-rules">Git 飞行规则(Flight Rules)</h1>
 <ul>
@@ -629,7 +632,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>注意 1: 这里使用<code>pop</code>仅仅是因为想尽可能保持幂等。
-注意 2: 假如你不加上<code>--index</code>你会把暂存的文件标记为为存储.这个<a href="https://stackoverflow.com/questions/31595873/git-stash-with-staged-files-does-stash-convert-staged-files-to-unstaged?answertab=active#tab-top" target="_blank" rel="noopener noreffer">链接</a> 解释得比较清楚。（不过是英文的，其大意是说，这是一个较为底层的问题，stash 时会做 2 个 commit，其中一个会记录 index 状态，staged 的文件等东西，另一个记录 worktree 和其他的一些东西，如果你不在 apply 时加 index，git 会把两个一起销毁，所以 staged 里就空了）。</p>
+注意 2: 假如你不加上<code>--index</code>你会把暂存的文件标记为为存储.这个<a href="https://stackoverflow.com/questions/31595873/git-stash-with-staged-files-does-stash-convert-staged-files-to-unstaged?answertab=active#tab-top" target="_blank" rel="noopener noreffer ">链接</a> 解释得比较清楚。（不过是英文的，其大意是说，这是一个较为底层的问题，stash 时会做 2 个 commit，其中一个会记录 index 状态，staged 的文件等东西，另一个记录 worktree 和其他的一些东西，如果你不在 apply 时加 index，git 会把两个一起销毁，所以 staged 里就空了）。</p>
 <h2 id="未暂存unstaged的内容">未暂存(Unstaged)的内容</h2>
 <p><a href="move-unstaged-edits-to-new-branch"></a></p>
 <h3 id="我想把未暂存的内容移动到一个新分支">我想把未暂存的内容移动到一个新分支</h3>
@@ -874,7 +877,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>然后, 正常提交。</p>
-<p>Note: Spike solutions are made to analyze or solve the problem. These solutions are used for estimation and discarded once everyone gets clear visualization of the problem. ~ <a href="https://en.wikipedia.org/wiki/Extreme_programming_practices" target="_blank" rel="noopener noreffer">Wikipedia</a>.</p>
+<p>Note: Spike solutions are made to analyze or solve the problem. These solutions are used for estimation and discarded once everyone gets clear visualization of the problem. ~ <a href="https://en.wikipedia.org/wiki/Extreme_programming_practices" target="_blank" rel="noopener noreffer ">Wikipedia</a>.</p>
 <p><a name="cherry-pick"></a></p>
 <h3 id="我把几个提交commit提交到了同一个分支而这些提交应该分布在不同的分支里">我把几个提交(commit)提交到了同一个分支，而这些提交应该分布在不同的分支里</h3>
 <p>假设你有一个<code>main</code>分支， 执行<code>git log</code>, 你看到你做过两次提交:</p>
@@ -1170,7 +1173,7 @@
 </span></span><span class="line"><span class="cl"><span class="o">(</span>main<span class="o">)</span>$ git merge --ff-only my-branch
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>更多, 参见 <a href="http://stackoverflow.com/questions/11058312/how-can-i-use-git-rebase-without-requiring-a-forced-push" target="_blank" rel="noopener noreffer">this SO thread</a>.</p>
+</div><p>更多, 参见 <a href="http://stackoverflow.com/questions/11058312/how-can-i-use-git-rebase-without-requiring-a-forced-push" target="_blank" rel="noopener noreffer ">this SO thread</a>.</p>
 <p><a name="interactive-rebase"></a></p>
 <h3 id="我需要组合combine几个提交commit">我需要组合(combine)几个提交(commit)</h3>
 <p>假设你的工作分支将会做对于 <code>main</code> 的 pull-request。 一般情况下你不关心提交(commit)的时间戳，只想组合 <em>所有</em> 提交(commit) 到一个单独的里面, 然后重置(reset)重提交(recommit)。 确保主(main)分支是最新的和你的变化都已经提交了, 然后:</p>
@@ -1602,7 +1605,7 @@
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ git fsck --unreachable <span class="p">|</span> grep tag
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>记下这个标签(tag)的 hash，然后用 Git 的 <a href="http://git-scm.com/docs/git-update-ref" target="_blank" rel="noopener noreffer">update-ref</a>:</p>
+</div><p>记下这个标签(tag)的 hash，然后用 Git 的 <a href="http://git-scm.com/docs/git-update-ref" target="_blank" rel="noopener noreffer ">update-ref</a>:</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -1739,44 +1742,45 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>然后使用 git reset 就可以把 main 改回到之前的 commit，这提供了一个在历史被意外更改情况下的安全网。</p>
-<p>(<a href="https://www.atlassian.com/git/tutorials/rewriting-history/git-reflog" target="_blank" rel="noopener noreffer">摘自</a>).</p>
+<p>(<a href="https://www.atlassian.com/git/tutorials/rewriting-history/git-reflog" target="_blank" rel="noopener noreffer ">摘自</a>).</p>
 <h1 id="其它资源other-resources">其它资源(Other Resources)</h1>
 <h2 id="书books">书(Books)</h2>
 <ul>
-<li><a href="https://git-scm.com/book/en/v2" target="_blank" rel="noopener noreffer">Pro Git</a> - Scott Chacon&rsquo;s excellent git book</li>
-<li><a href="https://github.com/pluralsight/git-internals-pdf" target="_blank" rel="noopener noreffer">Git Internals</a> - Scott Chacon&rsquo;s other excellent git book</li>
+<li><a href="https://git-scm.com/book/en/v2" target="_blank" rel="noopener noreffer ">Pro Git</a> - Scott Chacon&rsquo;s excellent git book</li>
+<li><a href="https://github.com/pluralsight/git-internals-pdf" target="_blank" rel="noopener noreffer ">Git Internals</a> - Scott Chacon&rsquo;s other excellent git book</li>
 </ul>
 <h2 id="教程tutorials">教程(Tutorials)</h2>
 <ul>
-<li><a href="https://learngitbranching.js.org/" target="_blank" rel="noopener noreffer">Learn Git branching</a> 一个基于网页的交互式 branching/merging/rebasing 教程</li>
-<li><a href="https://medium.com/@porteneuve/getting-solid-at-git-rebase-vs-merge-4fa1a48c53aa" target="_blank" rel="noopener noreffer">Getting solid at Git rebase vs. merge</a></li>
-<li><a href="https://github.com/asmeurer/git-workflow" target="_blank" rel="noopener noreffer">git-workflow</a> - <a href="https://github.com/asmeurer" target="_blank" rel="noopener noreffer">Aaron Meurer</a>的怎么使用 Git 为开源仓库贡献</li>
-<li><a href="http://hugogiraudel.com/2015/08/13/github-as-a-workflow/" target="_blank" rel="noopener noreffer">GitHub as a workflow</a> - 使用 GitHub 做为工作流的趣事, 尤其是空 PRs</li>
+<li><a href="https://learngitbranching.js.org/" target="_blank" rel="noopener noreffer ">Learn Git branching</a> 一个基于网页的交互式 branching/merging/rebasing 教程</li>
+<li><a href="https://medium.com/@porteneuve/getting-solid-at-git-rebase-vs-merge-4fa1a48c53aa" target="_blank" rel="noopener noreffer ">Getting solid at Git rebase vs. merge</a></li>
+<li><a href="https://github.com/asmeurer/git-workflow" target="_blank" rel="noopener noreffer ">git-workflow</a> - <a href="https://github.com/asmeurer" target="_blank" rel="noopener noreffer ">Aaron Meurer</a>的怎么使用 Git 为开源仓库贡献</li>
+<li><a href="http://hugogiraudel.com/2015/08/13/github-as-a-workflow/" target="_blank" rel="noopener noreffer ">GitHub as a workflow</a> - 使用 GitHub 做为工作流的趣事, 尤其是空 PRs</li>
 </ul>
 <h2 id="脚本和工具scripts-and-tools">脚本和工具(Scripts and Tools)</h2>
 <ul>
-<li><a href="http://firstaidgit.io/" target="_blank" rel="noopener noreffer">firstaidgit.io</a> 一个可搜索的最常被问到的 Git 的问题</li>
-<li><a href="https://github.com/unixorn/git-extra-commands" target="_blank" rel="noopener noreffer">git-extra-commands</a> - 一堆有用的额外的 Git 脚本</li>
-<li><a href="https://github.com/tj/git-extras" target="_blank" rel="noopener noreffer">git-extras</a> - GIT 工具集 &ndash; repo summary, repl, changelog population, author commit percentages and more</li>
-<li><a href="https://github.com/qw3rtman/git-fire" target="_blank" rel="noopener noreffer">git-fire</a> - git-fire 是一个 Git 插件，用于帮助在紧急情况下添加所有当前文件, 做提交(committing), 和推(push)到一个新分支(阻止合并冲突)。</li>
-<li><a href="https://github.com/git-tips/tips" target="_blank" rel="noopener noreffer">git-tips</a> - Git 小提示</li>
-<li><a href="https://github.com/Originate/git-town" target="_blank" rel="noopener noreffer">git-town</a> - 通用，高级 Git 工作流支持！ <a href="http://www.git-town.com" target="_blank" rel="noopener noreffer">http://www.git-town.com</a></li>
+<li><a href="http://firstaidgit.io/" target="_blank" rel="noopener noreffer ">firstaidgit.io</a> 一个可搜索的最常被问到的 Git 的问题</li>
+<li><a href="https://github.com/unixorn/git-extra-commands" target="_blank" rel="noopener noreffer ">git-extra-commands</a> - 一堆有用的额外的 Git 脚本</li>
+<li><a href="https://github.com/tj/git-extras" target="_blank" rel="noopener noreffer ">git-extras</a> - GIT 工具集 &ndash; repo summary, repl, changelog population, author commit percentages and more</li>
+<li><a href="https://github.com/qw3rtman/git-fire" target="_blank" rel="noopener noreffer ">git-fire</a> - git-fire 是一个 Git 插件，用于帮助在紧急情况下添加所有当前文件, 做提交(committing), 和推(push)到一个新分支(阻止合并冲突)。</li>
+<li><a href="https://github.com/git-tips/tips" target="_blank" rel="noopener noreffer ">git-tips</a> - Git 小提示</li>
+<li><a href="https://github.com/Originate/git-town" target="_blank" rel="noopener noreffer ">git-town</a> - 通用，高级 Git 工作流支持！ <a href="http://www.git-town.com" target="_blank" rel="noopener noreffer ">http://www.git-town.com</a></li>
 </ul>
 <h2 id="gui-客户端gui-clients">GUI 客户端(GUI Clients)</h2>
 <ul>
-<li><a href="https://www.gitkraken.com/" target="_blank" rel="noopener noreffer">GitKraken</a> - 豪华的 Git 客户端 Windows, Mac &amp; Linux</li>
-<li><a href="https://git-cola.github.io/" target="_blank" rel="noopener noreffer">git-cola</a> - 另外一个 Git 客户端 Windows &amp; OS X</li>
-<li><a href="https://github.com/git-up/GitUp" target="_blank" rel="noopener noreffer">GitUp</a> - 一个新的 Git 客户端，在处理 Git 的复杂性上有自己的特点</li>
-<li><a href="https://rowanj.github.io/gitx/" target="_blank" rel="noopener noreffer">gitx-dev</a> - 图形化的 Git 客户端 OS X</li>
-<li><a href="https://www.sourcetreeapp.com/" target="_blank" rel="noopener noreffer">Source Tree</a> - 免费的图形化 Git 客户端 Windows &amp; OS X</li>
-<li><a href="http://www.git-tower.com/" target="_blank" rel="noopener noreffer">Tower</a> - 图形化 Git 客户端 OS X(付费)</li>
+<li><a href="https://www.gitkraken.com/" target="_blank" rel="noopener noreffer ">GitKraken</a> - 豪华的 Git 客户端 Windows, Mac &amp; Linux</li>
+<li><a href="https://git-cola.github.io/" target="_blank" rel="noopener noreffer ">git-cola</a> - 另外一个 Git 客户端 Windows &amp; OS X</li>
+<li><a href="https://github.com/git-up/GitUp" target="_blank" rel="noopener noreffer ">GitUp</a> - 一个新的 Git 客户端，在处理 Git 的复杂性上有自己的特点</li>
+<li><a href="https://rowanj.github.io/gitx/" target="_blank" rel="noopener noreffer ">gitx-dev</a> - 图形化的 Git 客户端 OS X</li>
+<li><a href="https://www.sourcetreeapp.com/" target="_blank" rel="noopener noreffer ">Source Tree</a> - 免费的图形化 Git 客户端 Windows &amp; OS X</li>
+<li><a href="http://www.git-tower.com/" target="_blank" rel="noopener noreffer ">Tower</a> - 图形化 Git 客户端 OS X(付费)</li>
 </ul>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>git版本控制</title>
     <link>https://www.jobcher.com/git2/</link>
     <pubDate>Mon, 28 Feb 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/git2/</guid>
     <description><![CDATA[<h1 id="git-版本控制">git 版本控制</h1>
 <h2 id="版本回退">版本回退</h2>
@@ -1912,11 +1916,12 @@
 <p><code>git checkout -- file</code>命令中的<code>--</code>很重要，没有<code>--</code>，就变成了“切换到另一个分支”的命令，我们在后面的分支管理中会再次遇到<code>git checkout</code>命令。</p>
 <h2 id="删除文件">删除文件</h2>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>CICD 概念</title>
     <link>https://www.jobcher.com/devops/</link>
     <pubDate>Thu, 17 Feb 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/devops/</guid>
     <description><![CDATA[<h1 id="cicd-概念">CICD 概念</h1>
 <h1 id="devops">DevOps</h1>
@@ -1952,11 +1957,12 @@ Ci 需要具备这些：</li>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>git使用方法</title>
     <link>https://www.jobcher.com/git/</link>
     <pubDate>Thu, 17 Feb 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/git/</guid>
     <description><![CDATA[<h1 id="git-使用方法">git 使用方法</h1>
 <h2 id="一git-安装配置">一、git 安装配置</h2>
@@ -2641,16 +2647,17 @@ Ci 需要具备这些：</li>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>Jenkins 安装与使用</title>
     <link>https://www.jobcher.com/jenkins/</link>
     <pubDate>Wed, 09 Feb 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/jenkins/</guid>
     <description><![CDATA[<h1 id="jenkins-安装与使用">Jenkins 安装与使用</h1>
 <p>代码在本地修改&mdash;-》提交到远程 gitlab&mdash;-》触发 jenkins 整个自动化构建流程（打包，测试，发布，部署）</p>
 <h2 id="安装-docker">安装 docker</h2>
-<p><a href="https://www.jobcher.com/docker/" target="_blank" rel="noopener noreffer">安装 docker</a></p>
+<p><a href="https://www.jobcher.com/docker/" target="_blank" rel="noopener noreffer ">安装 docker</a></p>
 <h2 id="docker-安装-jenkins">docker 安装 jenkins</h2>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -2818,11 +2825,12 @@ Ci 需要具备这些：</li>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>gitlab与github同步项目</title>
     <link>https://www.jobcher.com/gitrsync/</link>
     <pubDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/gitrsync/</guid>
     <description><![CDATA[<h1 id="gitlab-与-github-同步项目">gitlab 与 github 同步项目</h1>
 <ol>
@@ -2872,17 +2880,18 @@ Ci 需要具备这些：</li>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>git技巧</title>
     <link>https://www.jobcher.com/gitlab/</link>
     <pubDate>Fri, 10 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/gitlab/</guid>
     <description><![CDATA[<h1 id="git-技巧">git 技巧</h1>
 <p>Git 是一个 “分布式版本管理工具”，简单的理解版本管理工具：大家在写东西的时候都用过 “回撤” 这个功能，但是回撤只能回撤几步，假如想要找回我三天之前的修改，光用 “回撤” 是找不回来的。而 “版本管理工具” 能记录每次的修改，只要提交到版本仓库，你就可以找到之前任何时刻的状态（文本状态）。</p>
 <p>下面的内容就是列举了常用的 Git 命令和一些小技巧，可以通过 &ldquo;页面内查找&rdquo; 的方式进行快速查询：<code>Ctrl/Command+f</code>。</p>
 <h2 id="开卷必读">开卷必读</h2>
-<p><em>如果之前未使用过 Git，可以学习 <a href="https://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="noopener noreffer">Git 小白教程</a>入门</em></p>
+<p><em>如果之前未使用过 Git，可以学习 <a href="https://rogerdudler.github.io/git-guide/index.zh.html" target="_blank" rel="noopener noreffer ">Git 小白教程</a>入门</em></p>
 <ol>
 <li><strong>一定要先测试命令的效果后</strong>，再用于工作环境中，以防造成不能弥补的后果！<strong>到时候别拿着砍刀来找我</strong></li>
 <li>所有的命令都在<code>git version 2.7.4 (Apple Git-66)</code>下测试通过</li>
@@ -2895,7 +2904,7 @@ Ci 需要具备这些：</li>
 <li>commit-id：输出命令：<code>git log</code>，最上面那行 <code>commit xxxxxx</code>，后面的字符串就是 commit-id</li>
 </ul>
 </li>
-<li>如果喜欢这个项目，欢迎 Star、提交 Pr、<a href="https://github.com/521xueweihan/git-tips/issues" target="_blank" rel="noopener noreffer">反馈问题</a>😊</li>
+<li>如果喜欢这个项目，欢迎 Star、提交 Pr、<a href="https://github.com/521xueweihan/git-tips/issues" target="_blank" rel="noopener noreffer ">反馈问题</a>😊</li>
 </ol>
 <h2 id="目录">目录</h2>
 <ul>
@@ -3483,7 +3492,7 @@ Ci 需要具备这些：</li>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="把-a-分支的某一个-commit放到-b-分支上">把 A 分支的某一个 commit，放到 B 分支上</h2>
-<p>这个过程需要 <code>cherry-pick</code> 命令，<a href="http://sg552.iteye.com/blog/1300713#bc2367928" target="_blank" rel="noopener noreffer">参考</a></p>
+<p>这个过程需要 <code>cherry-pick</code> 命令，<a href="http://sg552.iteye.com/blog/1300713#bc2367928" target="_blank" rel="noopener noreffer ">参考</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -3511,7 +3520,7 @@ Ci 需要具备这些：</li>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h2 id="存储当前的修改但不用提交-commit">存储当前的修改，但不用提交 commit</h2>
-<p>详解可以参考<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137602359178794d966923e5c4134bc8bf98dfb03aea3000" target="_blank" rel="noopener noreffer">廖雪峰老师的 git 教程</a></p>
+<p>详解可以参考<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137602359178794d966923e5c4134bc8bf98dfb03aea3000" target="_blank" rel="noopener noreffer ">廖雪峰老师的 git 教程</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
@@ -3879,7 +3888,7 @@ Ci 需要具备这些：</li>
 </div><h2 id="脑图">脑图</h2>
 <p></p>
 <h2 id="优雅的-commit-信息">优雅的 Commit 信息</h2>
-<p>使用<a href="https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines" target="_blank" rel="noopener noreffer">Angular 团队提交规范</a></p>
+<p>使用<a href="https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines" target="_blank" rel="noopener noreffer ">Angular 团队提交规范</a></p>
 <p>主要有以下组成</p>
 <ul>
 <li>标题行: 必填, 描述主要修改类型和内容</li>
@@ -3902,7 +3911,7 @@ Ci 需要具备这些：</li>
 <li>footer: 一些备注, 通常是 BREAKING CHANGE 或修复的 bug 的链接.</li>
 </ul>
 <h2 id="commit-工具">commit 工具</h2>
-<p>可以使用<a href="https://github.com/commitizen/cz-cli" target="_blank" rel="noopener noreffer">cz-cli</a>工具代替 <code>git commit</code></p>
+<p>可以使用<a href="https://github.com/commitizen/cz-cli" target="_blank" rel="noopener noreffer ">cz-cli</a>工具代替 <code>git commit</code></p>
 <p>全局安装</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -3920,5 +3929,6 @@ Ci 需要具备这些：</li>
 <p></p>
 <p><strong><a href="#%e7%9b%ae%e5%bd%95" rel="">⬆ 返回顶部</a></strong></p>
 ]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

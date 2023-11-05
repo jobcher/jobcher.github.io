@@ -8,13 +8,13 @@
     <title>Planet 下载及安装</title>
     <link>https://www.jobcher.com/planet/</link>
     <pubDate>Wed, 17 Aug 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/planet/</guid>
     <description><![CDATA[<h1 id="planet-下载及安装">Planet 下载及安装</h1>
-<h2 id="官网下载httpswwwplanetablexyz"><a href="https://www.planetable.xyz/" target="_blank" rel="noopener noreffer">官网下载</a></h2>
+<h2 id="官网下载httpswwwplanetablexyz"><a href="https://www.planetable.xyz/" target="_blank" rel="noopener noreffer ">官网下载</a></h2>
 <p><code>Planet</code> 是一款用于发布和关注 Web 内容的免费开源软件，它不需要集中式服务器或服务。它使用 <code>IPFS</code> 来实现<code>点对点</code>的<code>内容分发</code>。此外，您可以将您的内容链接到<code>以太坊名称 (.eth)</code>，以便其他人可以通过 <code>Planet</code> 以 <code>.eth</code> 名称关注您。由于 <code>IPFS</code> 和 <code>ENS</code> 都是去中心化的，因此您可以以<code>去中心化</code>的方式构建您的网站或关注其他网站。</p>
 <h2 id="如何使用">如何使用</h2>
-<p>标准是 <code>EIP-1577</code>，这个 <code>Content Hash</code> 字段可以接受一些可能的值。例如，<code>IPFS</code>——另一种去中心化的内容分发技术。而<a href="https://ipfs.io/ipns/vitalik.eth" target="_blank" rel="noopener noreffer">vitalik.eth</a> 网站已经在 IPFS 上运行。</p>
+<p>标准是 <code>EIP-1577</code>，这个 <code>Content Hash</code> 字段可以接受一些可能的值。例如，<code>IPFS</code>——另一种去中心化的内容分发技术。而<a href="https://ipfs.io/ipns/vitalik.eth" target="_blank" rel="noopener noreffer ">vitalik.eth</a> 网站已经在 IPFS 上运行。</p>
 <p></p>
 <blockquote>
 <p>通过 Planet 关注来自 vitalik.eth 的更新</p>
@@ -37,5 +37,6 @@
 <h2 id="完成">完成！</h2>
 <p>然后您的网站将链接到您的 <code>ENS</code>。恭喜！现在你有一个在 <code>ENS + IPFS</code> 上运行的去中心化网站！</p>
 ]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

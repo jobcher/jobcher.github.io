@@ -8,7 +8,7 @@
     <title>Cloudflare Zero Trust 内网穿透</title>
     <link>https://www.jobcher.com/cloudflaretrust/</link>
     <pubDate>Fri, 30 Sep 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/cloudflaretrust/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/cloudflare.png" referrerpolicy="no-referrer">
@@ -18,7 +18,7 @@
 增加可见性，消除复杂性，降低远程和办公室用户的风险。杜绝数据丢失、恶意软件和网络钓鱼，保护用户、应用程序和设备安全。<br>
 使用 Tunnel 隧道来实现内网传统，实现内网访问各类应用</p>
 <h2 id="安装部署">安装部署</h2>
-<p><a href="https://dash.teams.cloudflare.com/" target="_blank" rel="noopener noreffer">https://dash.teams.cloudflare.com/</a></p>
+<p><a href="https://dash.teams.cloudflare.com/" target="_blank" rel="noopener noreffer ">https://dash.teams.cloudflare.com/</a></p>
 <h3 id="docker-部署">Docker 部署</h3>
 <p>在 docker 环境运行 <code>&lt;token&gt;</code> 是你个人令牌</p>
 <div class="highlight"><div class="chroma">
@@ -104,7 +104,7 @@
 </div>
 </div><h3 id="windows-部署">windows 部署</h3>
 <ol>
-<li>下载 <a href="https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.msi" target="_blank" rel="noopener noreffer">https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.msi</a></li>
+<li>下载 <a href="https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.msi" target="_blank" rel="noopener noreffer ">https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.msi</a></li>
 <li>运行安装程序</li>
 <li>以管理员身份打开命令提示符</li>
 <li>运行以下命令</li>
@@ -119,13 +119,14 @@
 </div>
 </div><h2 id="在-cloudflare-里配置内网穿透">在 cloudflare 里配置内网穿透</h2>
 <p></p>
-<p>欢迎关注我的博客<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer">www.jobcher.com</a></p>
+<p>欢迎关注我的博客<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer ">www.jobcher.com</a></p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>自建服务器内网穿透</title>
     <link>https://www.jobcher.com/nps/</link>
     <pubDate>Wed, 08 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/nps/</guid>
     <description><![CDATA[<h1 id="内网穿透">内网穿透</h1>
 <p>文章中使用的内网穿透前提是必须具有公网 IP 的云服务器，不符合条件的同学可以跳过了。</p>
@@ -207,5 +208,6 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

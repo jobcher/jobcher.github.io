@@ -8,14 +8,14 @@
     <title>Oracle Instant Client 安装配置实现远程连接oracle</title>
     <link>https://www.jobcher.com/oracle-client/</link>
     <pubDate>Tue, 15 Nov 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/oracle-client/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/oracle.png" referrerpolicy="no-referrer">
             </div><h2 id="背景">背景</h2>
 <p>关于 Oracle 数据库一直是许多初学者比较头疼的地方，一方面受限于线上文档比较少，令一方面在企业中不得不接触和使用 Oracle 数据库，这篇文章是教大家如何通过配置 oracle client 来远程访问 Oracle 数据库。本文会通过 python3 和 cx_Oracle 来实现对 Oracle 的访问和增删改查</p>
 <h2 id="下载-oracle-客户端">下载 oracle 客户端</h2>
-<p><a href="https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html" target="_blank" rel="noopener noreffer">官方地址下载</a></p>
+<p><a href="https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html" target="_blank" rel="noopener noreffer ">官方地址下载</a></p>
 <h3 id="安装">安装</h3>
 <p>下载并安装你的 oracle client，因为我连接的 11g oracle，所以下载 11.2 版本</p>
 <div class="highlight"><div class="chroma">
@@ -152,5 +152,6 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

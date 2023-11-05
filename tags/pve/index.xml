@@ -8,7 +8,7 @@
     <title>Proxmox VE 在线扩容磁盘分区</title>
     <link>https://www.jobcher.com/pve1/</link>
     <pubDate>Wed, 19 Jan 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/pve1/</guid>
     <description><![CDATA[<h1 id="proxmox-ve-在线扩容磁盘分区">Proxmox VE 在线扩容磁盘分区</h1>
 <h2 id="添加磁盘大小">添加磁盘大小</h2>
@@ -127,5 +127,6 @@
 </div>
 </div><p>成功扩容</p>
 ]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

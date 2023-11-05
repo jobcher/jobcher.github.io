@@ -8,7 +8,7 @@
     <title>树莓派搭建k3s</title>
     <link>https://www.jobcher.com/rasberry/</link>
     <pubDate>Mon, 06 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/rasberry/</guid>
     <description><![CDATA[<h1 id="树莓派安装-k3s">树莓派安装 k3s</h1>
 <h2 id="1安装-k3s">1.安装 k3s</h2>
@@ -199,5 +199,6 @@
 </div><h2 id="4安装-nfs-外部驱动挂载-storageclass">4.安装 nfs 外部驱动挂载 storageclass</h2>
 <h2 id="5创建有状态-podsmysql">5.创建有状态 pods（mysql）</h2>
 ]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

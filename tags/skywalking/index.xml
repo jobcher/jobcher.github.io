@@ -8,7 +8,7 @@
     <title>skywalking python agent 安装和配置</title>
     <link>https://www.jobcher.com/skywalking-python/</link>
     <pubDate>Wed, 31 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/skywalking-python/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/skwalking-python.png" referrerpolicy="no-referrer">
@@ -59,15 +59,16 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>windows-exporter 监控</title>
     <link>https://www.jobcher.com/windows-exporter/</link>
     <pubDate>Sat, 08 Oct 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/windows-exporter/</guid>
     <description><![CDATA[<h1 id="windows-exporter-监控安装">windows-exporter 监控安装</h1>
-<h3 id="windows_exporterhttpsgithubcomprometheus-communitywindows_exporter"><a href="https://github.com/prometheus-community/windows_exporter" target="_blank" rel="noopener noreffer">windows_exporter</a></h3>
-<h3 id="下载安装httpsgithubcomprometheus-communitywindows_exporterreleasesdownloadv0200windows_exporter-0200-amd64msi"><a href="https://github.com/prometheus-community/windows_exporter/releases/download/v0.20.0/windows_exporter-0.20.0-amd64.msi" target="_blank" rel="noopener noreffer">下载安装</a></h3>
+<h3 id="windows_exporterhttpsgithubcomprometheus-communitywindows_exporter"><a href="https://github.com/prometheus-community/windows_exporter" target="_blank" rel="noopener noreffer ">windows_exporter</a></h3>
+<h3 id="下载安装httpsgithubcomprometheus-communitywindows_exporterreleasesdownloadv0200windows_exporter-0200-amd64msi"><a href="https://github.com/prometheus-community/windows_exporter/releases/download/v0.20.0/windows_exporter-0.20.0-amd64.msi" target="_blank" rel="noopener noreffer ">下载安装</a></h3>
 <h2 id="启动">启动</h2>
 <p>下载 msi 版本，输入一下命令启动</p>
 <div class="highlight"><div class="chroma">
@@ -154,11 +155,12 @@
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>skywalking APM 监控</title>
     <link>https://www.jobcher.com/skywalking/</link>
     <pubDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/skywalking/</guid>
     <description><![CDATA[<h1 id="skywalking">skywalking</h1>
 <p>基于 OpenTracing 规范，专门为微服务架构以及云原生服务。</p>
@@ -324,5 +326,6 @@
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

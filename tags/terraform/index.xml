@@ -8,7 +8,7 @@
     <title>安装配置 Terraform</title>
     <link>https://www.jobcher.com/terraform/</link>
     <pubDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/terraform/</guid>
     <description><![CDATA[<h1 id="安装配置-terraform">安装配置 Terraform</h1>
 <h2 id="安装">安装</h2>
@@ -91,7 +91,7 @@
 <p>来源：https://github.com/Telmate/terraform-provider-proxmox</p>
 <h3 id="首先你要有一台-pve-主机">首先你要有一台 pve 主机</h3>
 <p>安装过程本篇文章就不想了，主要是要写一下关于他的配置<br>
-<a href="https://pve.proxmox.com/pve-docs/" target="_blank" rel="noopener noreffer">https://pve.proxmox.com/pve-docs/</a></p>
+<a href="https://pve.proxmox.com/pve-docs/" target="_blank" rel="noopener noreffer ">https://pve.proxmox.com/pve-docs/</a></p>
 <ol>
 <li>下载</li>
 </ol>
@@ -393,5 +393,6 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

@@ -8,7 +8,7 @@
     <title>TCP/IP详解</title>
     <link>https://www.jobcher.com/tcpip/</link>
     <pubDate>Wed, 08 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/tcpip/</guid>
     <description><![CDATA[<h1 id="tcpip-协议">TCP/IP 协议</h1>
 <h2 id="什么是-tcpip-协议">什么是 TCP/IP 协议</h2>
@@ -91,5 +91,6 @@
 </ol>
 <p>当进程需要传输可靠的数据时应使用 TCP，当进程需要高效传输数据，可以忽略可靠性时应使用 UDP 协议。</p>
 ]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

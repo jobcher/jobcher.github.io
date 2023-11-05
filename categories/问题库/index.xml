@@ -8,7 +8,7 @@
     <title>解决Elasticsearch索引只读（read-only）</title>
     <link>https://www.jobcher.com/elasticsearch-error/</link>
     <pubDate>Wed, 20 Sep 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/elasticsearch-error/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/elasticsearch.png" referrerpolicy="no-referrer">
@@ -147,11 +147,12 @@
 </p>
 <h2 id="感谢你的阅读">感谢你的阅读</h2>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>Linux 系统收包流程以及内核参数优化</title>
     <link>https://www.jobcher.com/networkinglinux/</link>
     <pubDate>Wed, 30 Aug 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/networkinglinux/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/networking-dc52a683.svg" referrerpolicy="no-referrer">
@@ -372,11 +373,12 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>Vue3 &#43; vite &#43; nginx项目部署后404问题</title>
     <link>https://www.jobcher.com/nginx-error/</link>
     <pubDate>Thu, 10 Aug 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/nginx-error/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/nginx.png" referrerpolicy="no-referrer">
@@ -419,14 +421,15 @@
 <p>其实上述改动就是告诉 nignx 找不到文件的时候就访问 <code>index.html</code> 就可以了。</p>
 <p>究其原因其实就是是 vue3 的 router 使用了<code>history</code>模式，该模式与之前<code>hash</code>模式的具体区别可以自行百度一下，不在此赘述。</p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>githubAction set-output弃用错误</title>
     <link>https://www.jobcher.com/github-error/</link>
     <pubDate>Fri, 21 Oct 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/github-error/</guid>
     <description><![CDATA[<h1 id="githubaction-set-output-弃用错误">githubAction set-output 弃用错误</h1>
-<p>The <code>set-output</code> command is deprecated and will be disabled soon. Please upgrade to using Environment Files. For more information see: <a href="https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/" target="_blank" rel="noopener noreffer">https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/</a></p>
+<p>The <code>set-output</code> command is deprecated and will be disabled soon. Please upgrade to using Environment Files. For more information see: <a href="https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/" target="_blank" rel="noopener noreffer ">https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/</a></p>
 <h2 id="原因">原因</h2>
 <p>如果您有一个使用 设置输出的<code>GitHub Actionsecho ::set-output key=value</code>工作流程，您已经开始看到无用的弃用警告。这是修复它的方法。查看官方链接基本上得不到什么帮助！</p>
 <h2 id="修复方法">修复方法</h2>
@@ -462,11 +465,12 @@
 <h2 id="总结">总结</h2>
 <p>平台经营者非常肆意妄为的修改自己的代码内容弃用功能，无限的权力滋生傲慢……我相信大部分开发这并没有注意到这个告警，知道流水线服务报错之后才会注意到，希望微软可以对能更加包容不同的开发者，尊重开发者社区。</p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>k8s CNI 问题 连接认证失效</title>
     <link>https://www.jobcher.com/k8s-error2/</link>
     <pubDate>Fri, 23 Sep 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/k8s-error2/</guid>
     <description><![CDATA[<h1 id="k8s-cni-问题-连接认证失效">k8s CNI 问题 连接认证失效</h1>
 <p>删除 <code>calico</code> 换成 <code>flannel</code> 后，容器没有正常启动<br>
@@ -485,14 +489,15 @@ network: error getting ClusterInformation: connection is unauthorized: Unauthori
 </div><h2 id="不要重复网络插件">不要重复网络插件</h2>
 <p></p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>k8s.gcr.io国内无法连接解决方法</title>
     <link>https://www.jobcher.com/k8s-error3/</link>
     <pubDate>Thu, 22 Sep 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/k8s-error3/</guid>
     <description><![CDATA[<h1 id="k8sgcrio-国内无法连接解决方法">k8s.gcr.io 国内无法连接解决方法</h1>
-<p>Get <a href="https://k8s.gcr.io/v2/" target="_blank" rel="noopener noreffer">https://k8s.gcr.io/v2/</a>: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)<br>
+<p>Get <a href="https://k8s.gcr.io/v2/" target="_blank" rel="noopener noreffer ">https://k8s.gcr.io/v2/</a>: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)<br>
 这个一看知道什么原因了，应该 GFW！那好吧，只能给 docker 加个代理了。</p>
 <h2 id="解决问题">解决问题</h2>
 <p>添加 mirror 站点</p>
@@ -505,11 +510,12 @@ network: error getting ClusterInformation: connection is unauthorized: Unauthori
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>K8S 问题排查：cgroup 内存泄露问题</title>
     <link>https://www.jobcher.com/k8s-error/</link>
     <pubDate>Tue, 30 Aug 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/k8s-error/</guid>
     <description><![CDATA[<h1 id="k8s-问题排查cgroup-内存泄露问题">K8S 问题排查：cgroup 内存泄露问题</h1>
 <div class="highlight"><div class="chroma">
@@ -596,11 +602,12 @@ network: error getting ClusterInformation: connection is unauthorized: Unauthori
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>docker 问题处理</title>
     <link>https://www.jobcher.com/docker-error/</link>
     <pubDate>Thu, 04 Aug 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/docker-error/</guid>
     <description><![CDATA[<h3 id="docker-无法启动">docker 无法启动</h3>
 <p>打开服务器输入<code>docker ps</code>,输出错误<br>
@@ -778,11 +785,12 @@ unable to configure the Docker daemon with file /etc/docker/daemon.json: EOF</p>
 <p>systemctl restart docker</p>
 </blockquote>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>ProXmoX VE升级 apt-get update 报错</title>
     <link>https://www.jobcher.com/pveupdate/</link>
     <pubDate>Sun, 30 Jan 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/pveupdate/</guid>
     <description><![CDATA[<h1 id="proxmox-ve-升级-apt-get-update-报错">ProXmoX VE 升级 apt-get update 报错</h1>
 <h2 id="解决方法">解决方法</h2>
@@ -821,11 +829,12 @@ unable to configure the Docker daemon with file /etc/docker/daemon.json: EOF</p>
 </div><h2 id="结尾">结尾</h2>
 <p>升级完成后，可以执行<code>pveversion -v</code>查看下最新的软件版本。然后执行<code>reboot</code>重启物理服务器</p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>安装 docker 出现 ERROR: Unsupported distribution &#39;ol&#39; 问题</title>
     <link>https://www.jobcher.com/error1/</link>
     <pubDate>Tue, 11 Jan 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/error1/</guid>
     <description><![CDATA[<h1 id="安装-docker-出现-error-unsupported-distribution-ol-问题">安装 docker 出现 ERROR: Unsupported distribution &lsquo;ol&rsquo; 问题</h1>
 <p>部署 docker 安装出现 ERROR: Unsupported distribution &lsquo;ol&rsquo;</p>
@@ -896,5 +905,6 @@ unable to configure the Docker daemon with file /etc/docker/daemon.json: EOF</p>
 </div><h2 id="结尾">结尾</h2>
 <p>该问题主要是 oracle 没有支持依赖导致的~oracle 还是很不错的~</p>
 ]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

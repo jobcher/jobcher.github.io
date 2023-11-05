@@ -8,7 +8,7 @@
     <title>黑群晖最新安装教程</title>
     <link>https://www.jobcher.com/black_nas/</link>
     <pubDate>Tue, 01 Aug 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/black_nas/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/lyd0wozvo39ycoc8t2ke.png" referrerpolicy="no-referrer">
@@ -27,7 +27,7 @@
 </ul>
 <h2 id="开始安装">开始安装</h2>
 <h3 id="1-制作u盘启动器">1. 制作U盘启动器</h3>
-<p>下载 大白菜U盘制作器 <a href="https://www.dabaicai.com/" target="_blank" rel="noopener noreffer">https://www.dabaicai.com/</a><br>
+<p>下载 大白菜U盘制作器 <a href="https://www.dabaicai.com/" target="_blank" rel="noopener noreffer ">https://www.dabaicai.com/</a><br>
 1、打开大白菜超级U盘装机工具，点击主界面的【U盘启动】模块，然后选择【默认模式】。<br>
 <br>
 2、在【请选择】后面选择需要制作启动的设备（插入的USB设备，一般会默认读取该设备）。<br>
@@ -41,7 +41,7 @@
 <p>开始前先拔掉前面4个盘位的硬盘，以防写错盘导致数据丢失。</p>
 </blockquote>
 <p>1、载写盘软件和群晖引导文件，然后二个文件复制到U盘上<br>
-引导文件下载链接: <a href="https://pan.baidu.com/s/1F-Mva0AuEehUNk4q19QyxA" target="_blank" rel="noopener noreffer">https://pan.baidu.com/s/1F-Mva0AuEehUNk4q19QyxA</a><br>
+引导文件下载链接: <a href="https://pan.baidu.com/s/1F-Mva0AuEehUNk4q19QyxA" target="_blank" rel="noopener noreffer ">https://pan.baidu.com/s/1F-Mva0AuEehUNk4q19QyxA</a><br>
 提取码: amf3</p>
 <blockquote>
 <p>复制到U盘!</p>
@@ -75,8 +75,8 @@
 <h3 id="4-重启设备后安装dsm系统">4. 重启设备后安装DSM系统</h3>
 <p>这里为了保证系统稳定性，使用DSM6.2.3系统，我们这边使用DS918+4盘符<br>
 1、下载群晖助手软件和系统文件<br>
-Synology Assistant: <a href="https://cndl.synology.cn/download/Utility/Assistant/7.0.4-50051/Windows/synology-assistant-7.0.4-50051.exe?model=DS918%2B&amp;bays=4&amp;dsm_version=6.2.4&amp;build_number=25556" target="_blank" rel="noopener noreffer">https://cndl.synology.cn/download/Utility/Assistant/7.0.4-50051/Windows/synology-assistant-7.0.4-50051.exe?model=DS918%2B&amp;bays=4&amp;dsm_version=6.2.4&amp;build_number=25556</a><br>
-2、DSM6.2.3系统：<a href="https://pan.baidu.com/s/15CYI12-P1GcdLOa-FqNWrA" target="_blank" rel="noopener noreffer">https://pan.baidu.com/s/15CYI12-P1GcdLOa-FqNWrA</a><br>
+Synology Assistant: <a href="https://cndl.synology.cn/download/Utility/Assistant/7.0.4-50051/Windows/synology-assistant-7.0.4-50051.exe?model=DS918%2B&amp;bays=4&amp;dsm_version=6.2.4&amp;build_number=25556" target="_blank" rel="noopener noreffer ">https://cndl.synology.cn/download/Utility/Assistant/7.0.4-50051/Windows/synology-assistant-7.0.4-50051.exe?model=DS918%2B&amp;bays=4&amp;dsm_version=6.2.4&amp;build_number=25556</a><br>
+2、DSM6.2.3系统：<a href="https://pan.baidu.com/s/15CYI12-P1GcdLOa-FqNWrA" target="_blank" rel="noopener noreffer ">https://pan.baidu.com/s/15CYI12-P1GcdLOa-FqNWrA</a><br>
 提取码: riub</p>
 <p>2、安装群晖助手软件：在<code>同一网段内</code>的电脑上安装群晖助手软件<br>
 <br>
@@ -98,31 +98,33 @@ Synology Assistant: <a href="https://cndl.synology.cn/download/Utility/Assistant
 <h2 id="总结">总结</h2>
 <p>实际上安装并不复杂，只是在一些关键环节上不要出错，不过也没关系，如果有问题就重新安装就好了，既然你已经用了黑群晖了，就不要关注数据安全的问题了。其实对于我们普通人来说，数据其实没有你想象中的那么重要。</p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>推荐一下 容器云资源</title>
     <link>https://www.jobcher.com/20230621/</link>
     <pubDate>Wed, 21 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/20230621/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/qiong.jpg" referrerpolicy="no-referrer">
             </div><h2 id="背景">背景</h2>
 <p>很多同学在开发软件和测试软件的早期，都会遇到一个问题：<code>如何快速的搭建一个测试环境</code>。这个问题在开发软件的早期是非常棘手的，因为开发软件的早期，往往是没有任何的资源的。这个时候，我们就需要借助一些云资源来帮助我们快速的搭建一个测试环境。接下我会推荐一些云资源，希望能够帮助到大家。</p>
 <h2 id="推荐">推荐</h2>
-<h3 id="1vercelhttpsvercelcom">1.<a href="https://vercel.com/" target="_blank" rel="noopener noreffer">vercel</a></h3>
+<h3 id="1vercelhttpsvercelcom">1.<a href="https://vercel.com/" target="_blank" rel="noopener noreffer ">vercel</a></h3>
 <p>vercel是一个提供托管服务的网站，它可以帮助我们快速的部署一个静态网站。它的优点是：<code>免费</code>、<code>快速</code>、<code>简单</code>。它的缺点是：<code>只能部署静态网站</code>。如果你的项目是一个静态网站，那么我强烈推荐你使用vercel。</p>
-<h3 id="2zeaburhttpszeaburcom">2。<a href="https://zeabur.com/" target="_blank" rel="noopener noreffer">zeabur</a></h3>
+<h3 id="2zeaburhttpszeaburcom">2。<a href="https://zeabur.com/" target="_blank" rel="noopener noreffer ">zeabur</a></h3>
 <p>zeabur是一个帮助开发者一键部署自己的服务的平台，免费方案限制1个项目数量，1vCPU,内存512M，存储1GB 适合做文档和个人博客</p>
-<h3 id="3腾讯云httpscloudtencentcom">3.<a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreffer">腾讯云</a></h3>
+<h3 id="3腾讯云httpscloudtencentcom">3.<a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreffer ">腾讯云</a></h3>
 <p>国内的良心云，但是现在也不太良心了，不太推荐了，毕竟没什么福利了，如果你是学生的话可以考虑买他们的轻量云来部署他们的服务</p>
 <h2 id="总结">总结</h2>
 <p>我随便推荐一下，建议大家可以先试用一下1和2的方案，希望能够帮助到大家，如果你有更好的推荐，欢迎在评论区留言。</p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>如何礼貌回绝不合理的需求</title>
     <link>https://www.jobcher.com/20230524/</link>
     <pubDate>Wed, 24 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/20230524/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/%e8%83%8c%e9%94%85.png" referrerpolicy="no-referrer">
@@ -153,11 +155,12 @@ Synology Assistant: <a href="https://cndl.synology.cn/download/Utility/Assistant
 <h2 id="结论">结论</h2>
 <p>综上所述，连接超时的服务对Spring Cloud微服务系统可能会带来级联故障、响应时间延迟、资源耗尽、重试和失败处理的问题，并增加监控和故障排除的成本。因此，及时发现和解决连接超时问题对于确保系统的稳定性和性能至关重要。希望领导能够听取意见，不要让运维背锅。</p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>linux服务器 删除空间却未释放</title>
     <link>https://www.jobcher.com/linux-disk/</link>
     <pubDate>Wed, 20 Jul 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/linux-disk/</guid>
     <description><![CDATA[<h1 id="linux-服务器-删除空间却未释放">linux 服务器 删除空间却未释放</h1>
 <p>在<code>Linux</code>或者<code>Unix</code>系统中，通过<code>rm</code>或者文件管理器删除文件将会从文件系统的目录结构上<code>解除链接(unlink)</code>，然而如果文件是被打开的<code>（有一个进程正在使用）</code>，那么进程将仍然可以读取该文件，<code>磁盘空间也一直被占用</code>，这样就会导致我们明明删除了文件，但是磁盘空间却未被释放</p>
@@ -190,11 +193,12 @@ Synology Assistant: <a href="https://cndl.synology.cn/download/Utility/Assistant
 <h2 id="lsof-命令">lsof 命令</h2>
 <p><code>lsof</code>全名<code>list opened files</code>，也就是列举系统中已经被打开的文件。我们都知道，linux 环境中，任何事物都是文件，设备是文件，目录是文件，甚至<code>sockets</code>也是文件。</p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>VSCode插件推荐=&gt; Code Runner</title>
     <link>https://www.jobcher.com/vscode-runcode/</link>
     <pubDate>Mon, 25 Apr 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/vscode-runcode/</guid>
     <description><![CDATA[<h1 id="vscode-插件推荐-code-runner">VSCode 插件推荐=&gt; Code Runner</h1>
 <p>Run code snippet or code file for multiple languages: C, C++, Java, JavaScript, PHP, Python, Perl, Perl 6, Ruby, Go, Lua, Groovy, PowerShell, BAT/CMD, BASH/SH, F# Script, F# (.NET Core), C# Script, C# (.NET Core), VBScript, TypeScript, CoffeeScript, Scala, Swift, Julia, Crystal, OCaml Script, R, AppleScript, Elixir, Visual Basic .NET, Clojure, Haxe, Objective-C, Rust, Racket, Scheme, AutoHotkey, AutoIt, Kotlin, Dart, Free Pascal, Haskell, Nim, D, Lisp, Kit, V, SCSS, Sass, CUDA, Less, Fortran, Ring, and custom command<br>
@@ -210,11 +214,12 @@ Synology Assistant: <a href="https://cndl.synology.cn/download/Utility/Assistant
 <li>右上角的运行<code>小三角按钮</code></li>
 </ul>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>记录一次上门打散工</title>
     <link>https://www.jobcher.com/20220416/</link>
     <pubDate>Sun, 17 Apr 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/20220416/</guid>
     <description><![CDATA[<h1 id="记录一次上门打散工">记录一次上门打散工</h1>
 <p>壬寅年头磨难多<br>
@@ -235,7 +240,8 @@ Synology Assistant: <a href="https://cndl.synology.cn/download/Utility/Assistant
 </p>
 <h2 id="感谢">感谢</h2>
 <p>感谢朋友，给我这次项目实践和锻炼的机会让我认识到了自己的能力的不足～</p>
-<p>欢迎关注我的博客<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer">www.jobcher.com</a></p>
+<p>欢迎关注我的博客<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer ">www.jobcher.com</a></p>
 ]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

@@ -8,7 +8,7 @@
     <title>清理Docker容器日志</title>
     <link>https://www.jobcher.com/cleandocker/</link>
     <pubDate>Mon, 19 Sep 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/cleandocker/</guid>
     <description><![CDATA[<h1 id="清理-docker-容器日志">清理 Docker 容器日志</h1>
 <p>如果 docker 容器正在运行，那么使用<code>rm -rf</code>方式删除日志后，通过<code>df -h</code>会发现磁盘空间并没有释放。原因是在 Linux 或者 Unix 系统中，通过<code>rm -rf</code>或者文件管理器删除文件，将会从文件系统的目录结构上解除链接（unlink）。如果文件是被打开的（有一个进程正在使用），那么进程将仍然可以读取该文件，磁盘空间也一直被占用。正确姿势是<code>cat /dev/null &gt; *-json.log</code>，当然你也可以通过<code>rm -rf</code>删除后重启 docker。</p>
@@ -99,11 +99,12 @@
 <p>注意：设置的日志大小，只对新建的容器有效。</p>
 </blockquote>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>contained 安装及使用</title>
     <link>https://www.jobcher.com/contained/</link>
     <pubDate>Wed, 17 Aug 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/contained/</guid>
     <description><![CDATA[<h1 id="contained-安装及使用">contained 安装及使用</h1>
 <p><br>
@@ -233,11 +234,12 @@ containerd 是一个行业标准的容器运行时，强调简单性、健壮性
 </tbody>
 </table>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>docker 命令</title>
     <link>https://www.jobcher.com/docker/</link>
     <pubDate>Tue, 28 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/docker/</guid>
     <description><![CDATA[<h1 id="安装-docker">安装 docker</h1>
 <p>通过 docker 脚本安装</p>
@@ -303,11 +305,12 @@ containerd 是一个行业标准的容器运行时，强调简单性、健壮性
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>docker 安装kong 网关</title>
     <link>https://www.jobcher.com/docker-kong/</link>
     <pubDate>Wed, 22 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/docker-kong/</guid>
     <description><![CDATA[<h1 id="docker-安装-kong-网关">docker 安装 kong 网关</h1>
 <h2 id="建立数据库">建立数据库</h2>
@@ -454,11 +457,12 @@ containerd 是一个行业标准的容器运行时，强调简单性、健壮性
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>搭建docker registry 镜像仓库</title>
     <link>https://www.jobcher.com/docker-registry/</link>
     <pubDate>Wed, 22 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/docker-registry/</guid>
     <description><![CDATA[<h1 id="搭建-docker-registry-镜像仓库">搭建 docker registry 镜像仓库</h1>
 <h2 id="获取镜像">获取镜像</h2>
@@ -529,11 +533,12 @@ containerd 是一个行业标准的容器运行时，强调简单性、健壮性
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>docker image镜像上传</title>
     <link>https://www.jobcher.com/dockerimage/</link>
     <pubDate>Thu, 09 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/dockerimage/</guid>
     <description><![CDATA[<h1 id="docker-image-镜像上传">docker image 镜像上传</h1>
 <p>登入 docker hub，在https://hub.docker.com上注册你的账号。</p>
@@ -561,5 +566,6 @@ containerd 是一个行业标准的容器运行时，强调简单性、健壮性
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

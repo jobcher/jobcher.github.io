@@ -8,7 +8,7 @@
     <title>探索midjourney(二)：midjourney prompt初体验</title>
     <link>https://www.jobcher.com/midjourney-prompt-2/</link>
     <pubDate>Sun, 09 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/midjourney-prompt-2/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/ChatGPT-Plus/homeelegance_controllercolorfultranslucent_body_designed_bydiet_261aaa05-08ad-4fb5-b8a9-5961e85a50a1.png.webp" referrerpolicy="no-referrer">
@@ -233,11 +233,12 @@
 </div><p></p>
 <h2 id="感谢关注">感谢关注</h2>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>探索midjourney(一)：人工智能生成图像软件的惊人之旅</title>
     <link>https://www.jobcher.com/midjourney-prompt-1/</link>
     <pubDate>Fri, 07 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/midjourney-prompt-1/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/ChatGPT-Plus/homeelegance_white_background_linework_greyscale_cartoon_sticke_0dc66fc8-8ac8-414d-8538-c3a7c63d38bb.png.webp" referrerpolicy="no-referrer">
@@ -245,7 +246,7 @@
 <h2 id="midjourney是什么">midjourney是什么？</h2>
 <p>midjourney是一个人工智能生成图像软件，它可以生成惊人逼真的图像。它的工作原理是：它通过机器学习和深度学习算法，学习了大量的图像数据，然后通过这些数据，生成惊人逼真的图像。</p>
 <h2 id="midjourney的使用">midjourney的使用</h2>
-<p>midjourney的使用非常简单，你只需要在<a href="https://midjourney.com/" target="_blank" rel="noopener noreffer">这里</a>注册并订阅输入你想要生成的图像的描述，然后点击生成按钮，midjourney就会生成一个惊人逼真的图像。</p>
+<p>midjourney的使用非常简单，你只需要在<a href="https://midjourney.com/" target="_blank" rel="noopener noreffer ">这里</a>注册并订阅输入你想要生成的图像的描述，然后点击生成按钮，midjourney就会生成一个惊人逼真的图像。</p>
 <blockquote>
 <p>需要付费订阅，偶尔有放开免费体验的时候，可以去试试</p>
 </blockquote>
@@ -293,23 +294,24 @@
 </div><p></p>
 <h2 id="感谢关注">感谢关注</h2>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>NVIDIA GPU 的 docker 安装和部署</title>
     <link>https://www.jobcher.com/nvidia-docker/</link>
     <pubDate>Thu, 01 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/nvidia-docker/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/nvidia-docker.png" referrerpolicy="no-referrer">
             </div><h2 id="背景">背景</h2>
 <p>在人工智能领域，GPU 是必不可少的。在本文中，我们将介绍如何在服务器上安装和部署 NVIDIA GPU 的 docker</p>
 <h3 id="升级你的cuda">升级你的CUDA</h3>
-<p><a href="https://developer.nvidia.com/cuda-toolkit-archive" target="_blank" rel="noopener noreffer">官网链接</a></p>
+<p><a href="https://developer.nvidia.com/cuda-toolkit-archive" target="_blank" rel="noopener noreffer ">官网链接</a></p>
 <p>选择你的系统对应版本进行安装<br>
 </p>
 <h2 id="安装">安装</h2>
 <ol>
-<li>确保你的系统已经安装了NVIDIA驱动和Docker引擎。确保驱动版本与Docker引擎兼容。你还需要安装nvidia-docker2软件包，它是NVIDIA Docker的一个插件。可以在<a href="https://github.com/NVIDIA/nvidia-docker" target="_blank" rel="noopener noreffer">https://github.com/NVIDIA/nvidia-docker</a>上找到安装说明<br>
+<li>确保你的系统已经安装了NVIDIA驱动和Docker引擎。确保驱动版本与Docker引擎兼容。你还需要安装nvidia-docker2软件包，它是NVIDIA Docker的一个插件。可以在<a href="https://github.com/NVIDIA/nvidia-docker" target="_blank" rel="noopener noreffer ">https://github.com/NVIDIA/nvidia-docker</a>上找到安装说明<br>
 1.1 卸载旧版本的nvidia-docker(如果已安装)</li>
 </ol>
 <div class="highlight"><div class="chroma">
@@ -525,11 +527,12 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>调教Chat GPT生成Midjourney提示词</title>
     <link>https://www.jobcher.com/midjourney/</link>
     <pubDate>Fri, 26 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/midjourney/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/ChatGPT-Plus/chatgpt.webp" referrerpolicy="no-referrer">
@@ -690,17 +693,18 @@ elements that contribute to the final image. By providing such detailed descript
 <h3 id="第十步">第十步：</h3>
 <p>Great. Now I want you to ACT as a proffesional photographer. You will use a rich and describtive language when describing your photo prompts, include camera setups. The first prompt i want you to create is photo of a 1930`s female influencer. Take inspiration from the formating from the  example prompts, dont copy them, but use the same format.</p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>🧠ChatGPT 中文使用指南</title>
     <link>https://www.jobcher.com/chatgpt-use/</link>
     <pubDate>Thu, 09 Mar 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/chatgpt-use/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/ChatGPT-Plus/chatgpt.webp" referrerpolicy="no-referrer">
             </div><h1 id="chatgpt-中文使用指南">🧠ChatGPT 中文使用指南</h1>
-<p>ChatGPT是由<a href="https://openai.com/" target="_blank" rel="noopener noreffer">OpenAI</a>训练的一款大型语言模型，能够生成类人文本。</p>
-<h3 id="国内中文版httpschatai160826xyz"><a href="https://chatai.160826.xyz" target="_blank" rel="noopener noreffer">国内中文版</a></h3>
+<p>ChatGPT是由<a href="https://openai.com/" target="_blank" rel="noopener noreffer ">OpenAI</a>训练的一款大型语言模型，能够生成类人文本。</p>
+<h3 id="国内中文版httpschatai160826xyz"><a href="https://chatai.160826.xyz" target="_blank" rel="noopener noreffer ">国内中文版</a></h3>
 <p>它能够生成类似于人类写作的文本。您只需要给出提示或提出问题，它就可以生成你想要的东西。</p>
 <p>在此页面中，您将找到可与 ChatGPT 一起使用的各种提示。</p>
 <h2 id="它能干什么">它能干什么?</h2>
@@ -1098,7 +1102,7 @@ elements that contribute to the final image. By providing such detailed descript
 </blockquote>
 <h2 id="担任开发者关系顾问">担任开发者关系顾问：</h2>
 <blockquote>
-<p>我想让你担任开发者关系顾问。我会给你一个软件包和它的相关文档。研究软件包及其可用文档，如果找不到，请回复“无法找到文档”。您的反馈需要包括定量分析（使用来自 StackOverflow、Hacker News 和 GitHub 的数据）内容，例如提交的问题、已解决的问题、存储库中的星数以及总体 StackOverflow 活动。如果有可以扩展的领域，请包括应添加的场景或上下文。包括所提供软件包的详细信息，例如下载次数以及一段时间内的相关统计数据。你应该比较工业竞争对手和封装时的优点或缺点。从软件工程师的专业意见的思维方式来解决这个问题。查看技术博客和网站（例如 jobcher.com 或 <a href="https://www.jobcher.com" target="_blank" rel="noopener noreffer">www.jobcher.com</a>），如果数据不可用，请回复“无数据可用”。我的第一个要求是“express <a href="https://www.jobcher.com" target="_blank" rel="noopener noreffer">https://www.jobcher.com</a> ”</p>
+<p>我想让你担任开发者关系顾问。我会给你一个软件包和它的相关文档。研究软件包及其可用文档，如果找不到，请回复“无法找到文档”。您的反馈需要包括定量分析（使用来自 StackOverflow、Hacker News 和 GitHub 的数据）内容，例如提交的问题、已解决的问题、存储库中的星数以及总体 StackOverflow 活动。如果有可以扩展的领域，请包括应添加的场景或上下文。包括所提供软件包的详细信息，例如下载次数以及一段时间内的相关统计数据。你应该比较工业竞争对手和封装时的优点或缺点。从软件工程师的专业意见的思维方式来解决这个问题。查看技术博客和网站（例如 jobcher.com 或 <a href="https://www.jobcher.com" target="_blank" rel="noopener noreffer ">www.jobcher.com</a>），如果数据不可用，请回复“无数据可用”。我的第一个要求是“express <a href="https://www.jobcher.com" target="_blank" rel="noopener noreffer ">https://www.jobcher.com</a> ”</p>
 </blockquote>
 <h2 id="担任院士">担任院士</h2>
 <blockquote>
@@ -1312,16 +1316,17 @@ elements that contribute to the final image. By providing such detailed descript
 <p>接下来我发送给你的句子，你应尽可能多地使用同义词替换其中的词语，例如避免改为规避，如果改为若是，每个句子必须保证13个字符不能相同，汉字算两个字符，英文单词算一个，不能仅通过删除、增加、修改一两个字符的方式，可以在无法替换的句子中间插入一些无意义又无影响的词语来规避，也可以在不影响其含义的情况下修改语序，可以使用缩写的方式，必须严格遵守这条规则，如果明白了的话请发一条示例吧</p>
 </blockquote>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>ChatGPT Plus开通教程攻略</title>
     <link>https://www.jobcher.com/chatgpt-plus/</link>
     <pubDate>Tue, 28 Feb 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/chatgpt-plus/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/ChatGPT-Plus/chatgpt.webp" referrerpolicy="no-referrer">
             </div><h1 id="chatgpt-plus开通教程攻略">ChatGPT Plus开通教程攻略</h1>
-<p>鉴于免费的ChatGPT账号经常无响应或者响应慢，一些已经顺利注册到ChatGPT的推特用户私信我，问我怎么开通ChatGPT Plus，于是我收集了各大佬们的各种开通ChatGPT Plus的方法，挑一个比较简单的测试了一下，目前顺利开通了ChatGPT Plus，20美金一个月，想要体验的同学可以跟着试试，目前国内大部分的master或者visa信用卡都无法通过验证的，我也是使用网友推荐的<a href="https://depay.depay.one/web-app/register-h5?invitCode=679139&amp;lang=zh-cn" target="_blank" rel="noopener noreffer">Depay信用卡</a>成功开通ChatGPT Plus的。</p>
+<p>鉴于免费的ChatGPT账号经常无响应或者响应慢，一些已经顺利注册到ChatGPT的推特用户私信我，问我怎么开通ChatGPT Plus，于是我收集了各大佬们的各种开通ChatGPT Plus的方法，挑一个比较简单的测试了一下，目前顺利开通了ChatGPT Plus，20美金一个月，想要体验的同学可以跟着试试，目前国内大部分的master或者visa信用卡都无法通过验证的，我也是使用网友推荐的<a href="https://depay.depay.one/web-app/register-h5?invitCode=679139&amp;lang=zh-cn" target="_blank" rel="noopener noreffer ">Depay信用卡</a>成功开通ChatGPT Plus的。</p>
 <p></p>
 <p>而且这卡还可以绑定美区的Apple ID作为付款方式，虽然美区Apple ID可以使用支付宝或者购买礼品卡进行充值，况且我已经绑定了Paypal，这卡还可以绑定国内微信支付宝进行消费，挺不错的。ChatGPT Plus开通攻略</p>
 <p></p>
@@ -1331,9 +1336,9 @@ elements that contribute to the final image. By providing such detailed descript
 <li>ChatGPT账号</li>
 <li>纯净可访问ChatGPT的网络（全局美国IP网络）</li>
 </ul>
-<p>如果你没有可以在这里跟着注册一个：<a href="https://www.ahhhhfs.com/38046/" target="_blank" rel="noopener noreffer">ChatGPT注册详细步骤攻略 亲测成功</a></p>
+<p>如果你没有可以在这里跟着注册一个：<a href="https://www.ahhhhfs.com/38046/" target="_blank" rel="noopener noreffer ">ChatGPT注册详细步骤攻略 亲测成功</a></p>
 <h3 id="2注册领取虚拟信用卡">2、注册领取虚拟信用卡</h3>
-<p>首先，你得注册一个可以绑定ChatGPT付款的信用卡：<a href="https://depay.depay.one/web-app/register-h5?invitCode=679139&amp;lang=zh-cn" target="_blank" rel="noopener noreffer">邀请注册地址</a></p>
+<p>首先，你得注册一个可以绑定ChatGPT付款的信用卡：<a href="https://depay.depay.one/web-app/register-h5?invitCode=679139&amp;lang=zh-cn" target="_blank" rel="noopener noreffer ">邀请注册地址</a></p>
 <p>使用手机或者邮箱都可以，注册完下载app</p>
 <p>iOS需要外区账号</p>
 <p>安卓用户直接下载apk安装即可</p>
@@ -1348,23 +1353,23 @@ elements that contribute to the final image. By providing such detailed descript
 <h3 id="3钱包充值">3、钱包充值</h3>
 <p>目前激活该卡片需要充值USDT，而且仅支持USDT-TRC20方式进行充值</p>
 <p></p>
-<p>我不是高级玩家，可以通过<a href="https://cnouyi.care/join/12916698" target="_blank" rel="noopener noreffer">OKX</a>、<a href="https://www.bitop.com/?ru=uQw4R5" target="_blank" rel="noopener noreffer">Bitop</a>等等交易市场进行USDT-TRC20充值即可</p>
-<p>或者身边有朋友有的，直接转到你钱包也可，A姐使用的是<a href="https://cnouyi.care/join/12916698" target="_blank" rel="noopener noreffer">OKX</a>，</p>
+<p>我不是高级玩家，可以通过<a href="https://cnouyi.care/join/12916698" target="_blank" rel="noopener noreffer ">OKX</a>、<a href="https://www.bitop.com/?ru=uQw4R5" target="_blank" rel="noopener noreffer ">Bitop</a>等等交易市场进行USDT-TRC20充值即可</p>
+<p>或者身边有朋友有的，直接转到你钱包也可，A姐使用的是<a href="https://cnouyi.care/join/12916698" target="_blank" rel="noopener noreffer ">OKX</a>，</p>
 <p>不过发现我是新账号，需要7天才可以提币（不知道是不是针对我的，我也是小白）</p>
 <p></p>
-<p>于是没有等，喊朋友直接转到我钱包了，身边没有朋友使用的，可以使用<a href="https://cnouyi.care/join/12916698" target="_blank" rel="noopener noreffer">OKX</a>试试</p>
+<p>于是没有等，喊朋友直接转到我钱包了，身边没有朋友使用的，可以使用<a href="https://cnouyi.care/join/12916698" target="_blank" rel="noopener noreffer ">OKX</a>试试</p>
 <p>开通ChatGPT需要20美元，其中转账或者兑换会有点汇率或者手续费</p>
 <p>充值25USDT够了，我充值了30USDT，开通完剩余8USDT多一点</p>
 <h3 id="4激活信用卡">4、激活信用卡</h3>
 <p>等待到账号，点击充值，然后把收到的USDT充值到卡片进行激活信用卡，然后会提示余额不足，提示你把USDT兑换成USD，按要求操作即可</p>
 <p></p>
 <h3 id="5订阅开通chatgpt-plus">5、订阅开通ChatGPT Plus</h3>
-<p>激活完信用卡后，<a href="https://chat.openai.com/chat" target="_blank" rel="noopener noreffer">登录你的ChatGPT账号</a>，点击Upgrade to Plus，然后点击Upgrade plan</p>
+<p>激活完信用卡后，<a href="https://chat.openai.com/chat" target="_blank" rel="noopener noreffer ">登录你的ChatGPT账号</a>，点击Upgrade to Plus，然后点击Upgrade plan</p>
 <p></p>
 <p>然后填写卡片信息和账单信息</p>
 <p>卡片信息点击信用卡app 旁边的CVV安全码获取</p>
 <p></p>
-<p>账单地址可以使用 <a href="https://www.ahhhhfs.com/38074/" target="_blank" rel="noopener noreffer">虚拟美国人信息生成器</a>获取，需要是免税州的地址，不然有额外的费用，账单地址不会填的可以抄我的。</p>
+<p>账单地址可以使用 <a href="https://www.ahhhhfs.com/38074/" target="_blank" rel="noopener noreffer ">虚拟美国人信息生成器</a>获取，需要是免税州的地址，不然有额外的费用，账单地址不会填的可以抄我的。</p>
 <p></p>
 <p>填写完信息，点击订阅/Subscribe 等待验证即可成功订阅开通ChatGPT Plus。</p>
 <p></p>
@@ -1378,7 +1383,8 @@ elements that contribute to the final image. By providing such detailed descript
 </span></span><span class="line"><span class="cl">[www.jobcher.com](https://www.jobcher.com/)
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h3 id="转载自httpswwwahhhhfscomhttpswwwahhhhfscom">转载自（<a href="https://www.ahhhhfs.com/" target="_blank" rel="noopener noreffer">https://www.ahhhhfs.com/</a>）</h3>
+</div><h3 id="转载自httpswwwahhhhfscomhttpswwwahhhhfscom">转载自（<a href="https://www.ahhhhfs.com/" target="_blank" rel="noopener noreffer ">https://www.ahhhhfs.com/</a>）</h3>
 ]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

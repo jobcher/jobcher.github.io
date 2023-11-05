@@ -8,7 +8,7 @@
     <title>黑群晖最新安装教程</title>
     <link>https://www.jobcher.com/black_nas/</link>
     <pubDate>Tue, 01 Aug 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/black_nas/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/lyd0wozvo39ycoc8t2ke.png" referrerpolicy="no-referrer">
@@ -27,7 +27,7 @@
 </ul>
 <h2 id="开始安装">开始安装</h2>
 <h3 id="1-制作u盘启动器">1. 制作U盘启动器</h3>
-<p>下载 大白菜U盘制作器 <a href="https://www.dabaicai.com/" target="_blank" rel="noopener noreffer">https://www.dabaicai.com/</a><br>
+<p>下载 大白菜U盘制作器 <a href="https://www.dabaicai.com/" target="_blank" rel="noopener noreffer ">https://www.dabaicai.com/</a><br>
 1、打开大白菜超级U盘装机工具，点击主界面的【U盘启动】模块，然后选择【默认模式】。<br>
 <br>
 2、在【请选择】后面选择需要制作启动的设备（插入的USB设备，一般会默认读取该设备）。<br>
@@ -41,7 +41,7 @@
 <p>开始前先拔掉前面4个盘位的硬盘，以防写错盘导致数据丢失。</p>
 </blockquote>
 <p>1、载写盘软件和群晖引导文件，然后二个文件复制到U盘上<br>
-引导文件下载链接: <a href="https://pan.baidu.com/s/1F-Mva0AuEehUNk4q19QyxA" target="_blank" rel="noopener noreffer">https://pan.baidu.com/s/1F-Mva0AuEehUNk4q19QyxA</a><br>
+引导文件下载链接: <a href="https://pan.baidu.com/s/1F-Mva0AuEehUNk4q19QyxA" target="_blank" rel="noopener noreffer ">https://pan.baidu.com/s/1F-Mva0AuEehUNk4q19QyxA</a><br>
 提取码: amf3</p>
 <blockquote>
 <p>复制到U盘!</p>
@@ -75,8 +75,8 @@
 <h3 id="4-重启设备后安装dsm系统">4. 重启设备后安装DSM系统</h3>
 <p>这里为了保证系统稳定性，使用DSM6.2.3系统，我们这边使用DS918+4盘符<br>
 1、下载群晖助手软件和系统文件<br>
-Synology Assistant: <a href="https://cndl.synology.cn/download/Utility/Assistant/7.0.4-50051/Windows/synology-assistant-7.0.4-50051.exe?model=DS918%2B&amp;bays=4&amp;dsm_version=6.2.4&amp;build_number=25556" target="_blank" rel="noopener noreffer">https://cndl.synology.cn/download/Utility/Assistant/7.0.4-50051/Windows/synology-assistant-7.0.4-50051.exe?model=DS918%2B&amp;bays=4&amp;dsm_version=6.2.4&amp;build_number=25556</a><br>
-2、DSM6.2.3系统：<a href="https://pan.baidu.com/s/15CYI12-P1GcdLOa-FqNWrA" target="_blank" rel="noopener noreffer">https://pan.baidu.com/s/15CYI12-P1GcdLOa-FqNWrA</a><br>
+Synology Assistant: <a href="https://cndl.synology.cn/download/Utility/Assistant/7.0.4-50051/Windows/synology-assistant-7.0.4-50051.exe?model=DS918%2B&amp;bays=4&amp;dsm_version=6.2.4&amp;build_number=25556" target="_blank" rel="noopener noreffer ">https://cndl.synology.cn/download/Utility/Assistant/7.0.4-50051/Windows/synology-assistant-7.0.4-50051.exe?model=DS918%2B&amp;bays=4&amp;dsm_version=6.2.4&amp;build_number=25556</a><br>
+2、DSM6.2.3系统：<a href="https://pan.baidu.com/s/15CYI12-P1GcdLOa-FqNWrA" target="_blank" rel="noopener noreffer ">https://pan.baidu.com/s/15CYI12-P1GcdLOa-FqNWrA</a><br>
 提取码: riub</p>
 <p>2、安装群晖助手软件：在<code>同一网段内</code>的电脑上安装群晖助手软件<br>
 <br>
@@ -98,31 +98,33 @@ Synology Assistant: <a href="https://cndl.synology.cn/download/Utility/Assistant
 <h2 id="总结">总结</h2>
 <p>实际上安装并不复杂，只是在一些关键环节上不要出错，不过也没关系，如果有问题就重新安装就好了，既然你已经用了黑群晖了，就不要关注数据安全的问题了。其实对于我们普通人来说，数据其实没有你想象中的那么重要。</p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>推荐一下 容器云资源</title>
     <link>https://www.jobcher.com/20230621/</link>
     <pubDate>Wed, 21 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/20230621/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/qiong.jpg" referrerpolicy="no-referrer">
             </div><h2 id="背景">背景</h2>
 <p>很多同学在开发软件和测试软件的早期，都会遇到一个问题：<code>如何快速的搭建一个测试环境</code>。这个问题在开发软件的早期是非常棘手的，因为开发软件的早期，往往是没有任何的资源的。这个时候，我们就需要借助一些云资源来帮助我们快速的搭建一个测试环境。接下我会推荐一些云资源，希望能够帮助到大家。</p>
 <h2 id="推荐">推荐</h2>
-<h3 id="1vercelhttpsvercelcom">1.<a href="https://vercel.com/" target="_blank" rel="noopener noreffer">vercel</a></h3>
+<h3 id="1vercelhttpsvercelcom">1.<a href="https://vercel.com/" target="_blank" rel="noopener noreffer ">vercel</a></h3>
 <p>vercel是一个提供托管服务的网站，它可以帮助我们快速的部署一个静态网站。它的优点是：<code>免费</code>、<code>快速</code>、<code>简单</code>。它的缺点是：<code>只能部署静态网站</code>。如果你的项目是一个静态网站，那么我强烈推荐你使用vercel。</p>
-<h3 id="2zeaburhttpszeaburcom">2。<a href="https://zeabur.com/" target="_blank" rel="noopener noreffer">zeabur</a></h3>
+<h3 id="2zeaburhttpszeaburcom">2。<a href="https://zeabur.com/" target="_blank" rel="noopener noreffer ">zeabur</a></h3>
 <p>zeabur是一个帮助开发者一键部署自己的服务的平台，免费方案限制1个项目数量，1vCPU,内存512M，存储1GB 适合做文档和个人博客</p>
-<h3 id="3腾讯云httpscloudtencentcom">3.<a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreffer">腾讯云</a></h3>
+<h3 id="3腾讯云httpscloudtencentcom">3.<a href="https://cloud.tencent.com/" target="_blank" rel="noopener noreffer ">腾讯云</a></h3>
 <p>国内的良心云，但是现在也不太良心了，不太推荐了，毕竟没什么福利了，如果你是学生的话可以考虑买他们的轻量云来部署他们的服务</p>
 <h2 id="总结">总结</h2>
 <p>我随便推荐一下，建议大家可以先试用一下1和2的方案，希望能够帮助到大家，如果你有更好的推荐，欢迎在评论区留言。</p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>2010年的天涯神贴聊房价</title>
     <link>https://www.jobcher.com/housetianya/</link>
     <pubDate>Mon, 05 Jun 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/housetianya/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/fangjia.jpg" referrerpolicy="no-referrer">
@@ -3278,7 +3280,7 @@ zf初重拳打击的结果往往取得相反的效果，因为政府如果希望
 <p>&ndash;据《中国房地产市场年鉴（1996）》统计，1988年，海南商品房平均价格为1350元/平方米，1991年为1400元/平方米，1992年猛涨至5000元/平方米，1993年达到7500元/平方米的顶峰。短短三年，增长超过4倍。</p>
 <p>&ndash;海峡对岸的北海，沉淀资金甚至高达200亿元，烂尾楼面积超过了三亚，被称为中国的“泡沫经济博物馆”。</p>
 <p>[经验交流]92年海南房地产泡沫始自于“击鼓传花”(转载)
-<a href="http://www.tianya.cn/publicforum/content/house/1/163988.shtml" target="_blank" rel="noopener noreffer">http://www.tianya.cn/publicforum/content/house/1/163988.shtml</a></p>
+<a href="http://www.tianya.cn/publicforum/content/house/1/163988.shtml" target="_blank" rel="noopener noreffer ">http://www.tianya.cn/publicforum/content/house/1/163988.shtml</a></p>
 <p><strong>kkndme：</strong></p>
 <p>全国的资金去炒海南、北海，炒的纯粹是概念，没有实体的支撑，就是一种博傻游戏。今年年初海南房地产的爆炒，同样积聚了巨大的风险。买房并不是全无风险，好比通州、燕郊，经历疯狂的炒作一定会理性的回归。但是如果指望北京四环内房价下跌，也只是痴心妄想。</p>
 <p>房产投资也不是随便买套房就只涨不跌，比如说山东乳山的房子，开发商疯狂炒作旅游地产概念，但如果真的想投资升值，那就成了天大的笑话，因为根本无法变现。</p>
@@ -4155,11 +4157,12 @@ zf初重拳打击的结果往往取得相反的效果，因为政府如果希望
 因为低级市城市较小，绝对的城中心如果环境比较嘈杂，小区不够高档最好不要选择。没有实力购置别墅，可以选择环境优美的高端住宅，最好是品牌大盘，一眼能够让人赏心悦目。</p>
 </blockquote>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>如何礼貌回绝不合理的需求</title>
     <link>https://www.jobcher.com/20230524/</link>
     <pubDate>Wed, 24 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/20230524/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/%e8%83%8c%e9%94%85.png" referrerpolicy="no-referrer">
@@ -4190,11 +4193,12 @@ zf初重拳打击的结果往往取得相反的效果，因为政府如果希望
 <h2 id="结论">结论</h2>
 <p>综上所述，连接超时的服务对Spring Cloud微服务系统可能会带来级联故障、响应时间延迟、资源耗尽、重试和失败处理的问题，并增加监控和故障排除的成本。因此，及时发现和解决连接超时问题对于确保系统的稳定性和性能至关重要。希望领导能够听取意见，不要让运维背锅。</p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>github 国内代理访问下载</title>
     <link>https://www.jobcher.com/github-proxy/</link>
     <pubDate>Tue, 11 Apr 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/github-proxy/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/github.png" referrerpolicy="no-referrer">
@@ -4609,11 +4613,12 @@ zf初重拳打击的结果往往取得相反的效果，因为政府如果希望
 </div>
 </div><p>http://127.0.0.1:1080 是你的代理服务地址</p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>逆境和成长-2022年终总结</title>
     <link>https://www.jobcher.com/20221230/</link>
     <pubDate>Fri, 30 Dec 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/20221230/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/20221230.gif" referrerpolicy="no-referrer">
@@ -4633,20 +4638,21 @@ zf初重拳打击的结果往往取得相反的效果，因为政府如果希望
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>优雅的使用Conda管理python环境</title>
     <link>https://www.jobcher.com/conda/</link>
     <pubDate>Wed, 14 Dec 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/conda/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/python-conda.png" referrerpolicy="no-referrer">
             </div><h2 id="背景">背景</h2>
 <p>很多时候,避免不了同时使用 python2 和 python3 的环境,也避免不了不同的工作所需要不同版本的库文件,比如在想用 TensorFlow 较早版本的同时;还想运行 Pytorch 最新版；还想顺便学习 Nao 机器人编程,学习 Django 后台,这个时候,一款非常好用的包管理工具就显得十分重要了,这就是我写这篇博客的原因,这篇博客将会讲解：</p>
 <ul>
-<li><i class="far fa-check-square fa-fw"></i> 如何安装 conda;</li>
-<li><i class="far fa-check-square fa-fw"></i> 如何更换 conda 的下载源;</li>
-<li><i class="far fa-check-square fa-fw"></i> 如何使用 canda;</li>
+<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> 如何安装 conda;</li>
+<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> 如何更换 conda 的下载源;</li>
+<li><i class="far fa-check-square fa-fw" aria-hidden="true"></i> 如何使用 canda;</li>
 </ul>
 <h2 id="安装-conda">安装 conda</h2>
 <p>在安装时这两个选项需要点上：<br>
@@ -4719,14 +4725,15 @@ zf初重拳打击的结果往往取得相反的效果，因为政府如果希望
 </span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
-<p>欢迎关注我的博客<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer">www.jobcher.com</a></p>
+<p>欢迎关注我的博客<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer ">www.jobcher.com</a></p>
 </blockquote>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>shell功能脚本集合</title>
     <link>https://www.jobcher.com/shell-test/</link>
     <pubDate>Thu, 10 Nov 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/shell-test/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/linux.webp" referrerpolicy="no-referrer">
@@ -4783,11 +4790,12 @@ zf初重拳打击的结果往往取得相反的效果，因为政府如果希望
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>Cloudflare Zero Trust 内网穿透</title>
     <link>https://www.jobcher.com/cloudflaretrust/</link>
     <pubDate>Fri, 30 Sep 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/cloudflaretrust/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/cloudflare.png" referrerpolicy="no-referrer">
@@ -4797,7 +4805,7 @@ zf初重拳打击的结果往往取得相反的效果，因为政府如果希望
 增加可见性，消除复杂性，降低远程和办公室用户的风险。杜绝数据丢失、恶意软件和网络钓鱼，保护用户、应用程序和设备安全。<br>
 使用 Tunnel 隧道来实现内网传统，实现内网访问各类应用</p>
 <h2 id="安装部署">安装部署</h2>
-<p><a href="https://dash.teams.cloudflare.com/" target="_blank" rel="noopener noreffer">https://dash.teams.cloudflare.com/</a></p>
+<p><a href="https://dash.teams.cloudflare.com/" target="_blank" rel="noopener noreffer ">https://dash.teams.cloudflare.com/</a></p>
 <h3 id="docker-部署">Docker 部署</h3>
 <p>在 docker 环境运行 <code>&lt;token&gt;</code> 是你个人令牌</p>
 <div class="highlight"><div class="chroma">
@@ -4883,7 +4891,7 @@ zf初重拳打击的结果往往取得相反的效果，因为政府如果希望
 </div>
 </div><h3 id="windows-部署">windows 部署</h3>
 <ol>
-<li>下载 <a href="https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.msi" target="_blank" rel="noopener noreffer">https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.msi</a></li>
+<li>下载 <a href="https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.msi" target="_blank" rel="noopener noreffer ">https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.msi</a></li>
 <li>运行安装程序</li>
 <li>以管理员身份打开命令提示符</li>
 <li>运行以下命令</li>
@@ -4898,13 +4906,14 @@ zf初重拳打击的结果往往取得相反的效果，因为政府如果希望
 </div>
 </div><h2 id="在-cloudflare-里配置内网穿透">在 cloudflare 里配置内网穿透</h2>
 <p></p>
-<p>欢迎关注我的博客<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer">www.jobcher.com</a></p>
+<p>欢迎关注我的博客<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer ">www.jobcher.com</a></p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>headscale 部署使用</title>
     <link>https://www.jobcher.com/headscale/</link>
     <pubDate>Wed, 21 Sep 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/headscale/</guid>
     <description><![CDATA[<h1 id="headscale">Headscale</h1>
 <p><code>Tailscale</code> 的控制服务器是不开源的，而且对免费用户有诸多限制，这是人家的摇钱树，可以理解。好在目前有一款开源的实现叫 <code>Headscale</code>，这也是唯一的一款，希望能发展壮大。</p>
@@ -5024,5 +5033,6 @@ zf初重拳打击的结果往往取得相反的效果，因为政府如果希望
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

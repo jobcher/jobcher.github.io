@@ -8,7 +8,7 @@
     <title>Kubernetes — kubecost 分析 Kubernetes 成本</title>
     <link>https://www.jobcher.com/k8s17/</link>
     <pubDate>Thu, 31 Aug 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/k8s17/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/kubecost-215b96ad.png" referrerpolicy="no-referrer">
@@ -63,11 +63,12 @@ kubecost 目前支持 <code>阿里云</code>、<code>AWS</code> 等云厂商对�
 <h4 id="网络成本分析">网络成本分析</h4>
 <p>对于提供线上服务的 Kubernetes 集群，网络成本（跨区/跨域传输的流量成本，以及 NAT 网关成本）很可能等于甚至超过计算成本。 kubecost 支持使用 Pod network 监控指标对整个集群的流量成本进行拆分，kubecost 会部署一个绑定 hostNetwork 的 daemonset 来采集需要的网络指标，提供给 prometheus 拉取，再进行进一步的分析。</p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>Ansible部署ceph集群</title>
     <link>https://www.jobcher.com/ansible-ceph/</link>
     <pubDate>Tue, 18 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/ansible-ceph/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/ceph-logo.png" referrerpolicy="no-referrer">
@@ -349,11 +350,12 @@ kubecost 目前支持 <code>阿里云</code>、<code>AWS</code> 等云厂商对�
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>Kubernetes — 更新证书</title>
     <link>https://www.jobcher.com/k8s16/</link>
     <pubDate>Tue, 15 Nov 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/k8s16/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/k8s.png" referrerpolicy="no-referrer">
@@ -466,11 +468,12 @@ kubecost 目前支持 <code>阿里云</code>、<code>AWS</code> 等云厂商对�
 </div><h2 id="总结">总结</h2>
 <p>可以看到现在的有效期是一年过后的，证明已经更新成功了。</p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>Kubernetes — Rook云存储介绍和部署</title>
     <link>https://www.jobcher.com/k8s14/</link>
     <pubDate>Tue, 11 Oct 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/k8s14/</guid>
     <description><![CDATA[<h1 id="rook-云存储介绍和部署">Rook 云存储介绍和部署</h1>
 <p><code>Rook </code>将<code>分布式存储软件</code>转变为<code>自我管理</code>，<code>自我缩放</code>和<code>自我修复</code>的<code>存储服务</code>。它通过自动化部署，引导、配置、供应、扩展、升级、迁移、灾难恢复、监控和资源管理来实现。 <code>Rook</code> 使用基础的云原生容器管理、调度和编排平台提供的功能来履行其职责。</p>
@@ -498,7 +501,7 @@ kubecost 目前支持 <code>阿里云</code>、<code>AWS</code> 等云厂商对�
 <pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl apply -f rook-operator.yaml
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>不论使用那种方式部署的 rook operator，都会在 rook-agent 中看到 rook-agent 用户无法列出集群中某些资源的错误，可以通过为 rook-agent 的分配 cluster-admin 权限临时解决，详见 <a href="https://github.com/rook/rook/issues/1472" target="_blank" rel="noopener noreffer">Issue 1472</a>。</p>
+</div><p>不论使用那种方式部署的 rook operator，都会在 rook-agent 中看到 rook-agent 用户无法列出集群中某些资源的错误，可以通过为 rook-agent 的分配 cluster-admin 权限临时解决，详见 <a href="https://github.com/rook/rook/issues/1472" target="_blank" rel="noopener noreffer ">Issue 1472</a>。</p>
 <p>使用如下 yaml 文件创建一个 <code>ClusterRoleBinding</code> 并应用到集群中。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -892,11 +895,12 @@ kubecost 目前支持 <code>阿里云</code>、<code>AWS</code> 等云厂商对�
 </div>
 </div><p>如果使用 <code>yaml</code> 文件直接部署，则使用 <code>kubectl delete -f</code> 加当初使用的 <code>yaml</code> 文件即可删除集群。</p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>Kubernetes — 基于K8S搭建Ceph分布式存储</title>
     <link>https://www.jobcher.com/k8s15/</link>
     <pubDate>Tue, 11 Oct 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/k8s15/</guid>
     <description><![CDATA[<h1 id="基于-k8s-搭建-ceph-分布式存储">基于 K8S 搭建 Ceph 分布式存储</h1>
 <h2 id="前提">前提</h2>
@@ -1009,11 +1013,12 @@ kubecost 目前支持 <code>阿里云</code>、<code>AWS</code> 等云厂商对�
 </div>
 </div><h3 id="安装">安装</h3>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>Kubernetes — 探针和生命周期</title>
     <link>https://www.jobcher.com/k8s13/</link>
     <pubDate>Sat, 08 Oct 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/k8s13/</guid>
     <description><![CDATA[<h1 id="kubernetes--探针和生命周期">Kubernetes — 探针和生命周期</h1>
 <p>用于判断容器内应用程序是否已经启动。</p>
@@ -1344,11 +1349,12 @@ kubecost 目前支持 <code>阿里云</code>、<code>AWS</code> 等云厂商对�
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>Kubernetes — 开放标准（OCI、CRI、CNI、CSI、SMI、CPI）概述</title>
     <link>https://www.jobcher.com/k8s12/</link>
     <pubDate>Fri, 07 Oct 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/k8s12/</guid>
     <description><![CDATA[<h1 id="kubernetes--开放标准ocicricnicsismicpi概述">Kubernetes — 开放标准（OCI、CRI、CNI、CSI、SMI、CPI）概述</h1>
 <p>什么是 Kubernetes 开放标准？— K8s 开放标准简介<br>
@@ -1488,11 +1494,12 @@ kubecost 目前支持 <code>阿里云</code>、<code>AWS</code> 等云厂商对�
 <li>GCP</li>
 </ul>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)</title>
     <link>https://www.jobcher.com/k8s11/</link>
     <pubDate>Fri, 07 Oct 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/k8s11/</guid>
     <description><![CDATA[<h1 id="k8s-部署插件">k8s 部署插件</h1>
 <p><code>Kubernetes</code> 是高度可配置且可扩展的。因此，大多数情况下， 你不需要派生自己的 Kubernetes 副本或者向项目代码提交补丁，本文会介绍几种常用的 k8s 插件，如果大家喜欢的话，希望大家点赞支持。</p>
@@ -1639,11 +1646,12 @@ kubecost 目前支持 <code>阿里云</code>、<code>AWS</code> 等云厂商对�
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>kubernetes 存储</title>
     <link>https://www.jobcher.com/k8s10/</link>
     <pubDate>Mon, 01 Aug 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/k8s10/</guid>
     <description><![CDATA[<h1 id="kubernetes-存储">kubernetes 存储</h1>
 <p>k8s 支持多种途径的多种类型的存储。例如 iSCSI,SMB,NFS，以及对象存储。都是不同类型的部署在云上或者自建数据中心的外部存储系统。k8s 上的所有存储都被称作<code>卷</code></p>
@@ -1832,11 +1840,12 @@ kubecost 目前支持 <code>阿里云</code>、<code>AWS</code> 等云厂商对�
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>kubernetes 从1.23.x 升级到 1.24.x</title>
     <link>https://www.jobcher.com/k8s9/</link>
     <pubDate>Wed, 29 Jun 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/k8s9/</guid>
     <description><![CDATA[<h1 id="kubernetes-从123x-升级到-124x">kubernetes 从<code>1.23.x</code> 升级到 <code>1.24.x</code></h1>
 <p>k8s 在<code>1.24.x</code>之后的版本放弃了和 docker 的兼容，使用 containerd 作为底层的容器，直接参照官方文档的资料进行更新就会报错。因为你没有安装 containerd，所以要安装 containerd 并配置才能正确的升级 k8s<br>
@@ -1968,5 +1977,6 @@ systemctl status kubelet</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

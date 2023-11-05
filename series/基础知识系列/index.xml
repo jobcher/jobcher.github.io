@@ -8,7 +8,7 @@
     <title>GNU/Linux 一键更换系统软件源脚本</title>
     <link>https://www.jobcher.com/linux-mirror/</link>
     <pubDate>Thu, 21 Sep 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/linux-mirror/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/gnulinux-logo-gnu-linux-logo-png.png" referrerpolicy="no-referrer">
@@ -103,11 +103,12 @@
 当前执行方式依赖 <code>curl</code> 指令来获取脚本内容并执行，所以需要先通过包管理工具来安装该软件包，否则会报错 <code>Command not found</code>，若无法安装就复制源码到本地新建.sh脚本，然后通过 bash 手动执行</li>
 </ol>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>在windows上安装appium</title>
     <link>https://www.jobcher.com/appium/</link>
     <pubDate>Mon, 15 May 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/appium/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/appium-logo-horiz.png" referrerpolicy="no-referrer">
@@ -115,7 +116,7 @@
 <p><code>Appium</code> 主要用于软件测试自动化领域，以帮助确定给定应用程序的功能是否按预期工作。与其他类型的软件测试相比，UI 自动化允许测试人员编写代码，在应用程序的实际 UI 中演练用户方案，尽可能模拟现实世界中发生的情况，同时实现自动化的各种好处，包括速度、规模和一致性。</p>
 <h3 id="安装nodejs">安装nodejs</h3>
 <p>Appium是基于Node.js构建的,所以首先需要安装Node.js<br>
-<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener noreffer">下载地址：https://nodejs.org/en/download/</a><br>
+<a href="https://nodejs.org/en/download/" target="_blank" rel="noopener noreffer ">下载地址：https://nodejs.org/en/download/</a><br>
 下载并安装，验证是否安装成功</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -156,7 +157,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="安装jdk">安装jdk</h3>
-<p>下载地址：<a href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html" target="_blank" rel="noopener noreffer">https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html</a>
+<p>下载地址：<a href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html" target="_blank" rel="noopener noreffer ">https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html</a>
 下载并安装，验证是否安装成功</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -167,7 +168,7 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><h3 id="安装android-sdk">安装android-sdk</h3>
-<p>下载地址：<a href="https://developer.android.com/studio" target="_blank" rel="noopener noreffer">https://developer.android.com/studio</a>
+<p>下载地址：<a href="https://developer.android.com/studio" target="_blank" rel="noopener noreffer ">https://developer.android.com/studio</a>
 下载并安装，验证是否安装成功</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -278,11 +279,12 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>systemd 守护命令</title>
     <link>https://www.jobcher.com/systemd/</link>
     <pubDate>Mon, 08 Aug 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/systemd/</guid>
     <description><![CDATA[<h2 id="介绍">介绍</h2>
 <p>systemd 是 linux 中用来启动守护进程，Linux 最早一直采用 init 进程</p>
@@ -1179,11 +1181,12 @@ systemctl cat 命令可以查看配置文件的内容。</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>Linux crontab 命令</title>
     <link>https://www.jobcher.com/crontab/</link>
     <pubDate>Tue, 22 Feb 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/crontab/</guid>
     <description><![CDATA[<h1 id="linux-crontab-命令">Linux crontab 命令</h1>
 <p>Linux <code>crontab</code>是用来<code>定期执行程序</code>的命令。</p>
@@ -1240,11 +1243,12 @@ systemctl cat 命令可以查看配置文件的内容。</p>
 当 <code>f1</code> 为 <code>*/n</code> 时表示<code>每 n 分钟个时间间隔执行一次</code>，<code>f2</code> 为 <code>*/n</code> 表示<code>每 n 小时个时间间隔执行一次</code>，其馀类推
 当 <code>f1</code> 为 <code>a, b, c,...</code> 时表示<code>第 a, b, c,...</code> 分钟要<code>执行</code>，<code>f2</code> 为 <code>a, b, c,...</code> 时表示<code>第 a, b, c...个小时要执行</code>，其馀类推</p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>linux常用命令</title>
     <link>https://www.jobcher.com/linux1/</link>
     <pubDate>Sat, 12 Feb 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/linux1/</guid>
     <description><![CDATA[<h1 id="linux-常用命令">linux 常用命令</h1>
 <h2 id="软件操作命令">软件操作命令</h2>
@@ -1356,11 +1360,12 @@ systemctl cat 命令可以查看配置文件的内容。</p>
 <h2 id="防火墙相关设置">防火墙相关设置</h2>
 <h2 id="提权操作-sudo-和文件传输">提权操作 sudo 和文件传输</h2>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>linux基础知识</title>
     <link>https://www.jobcher.com/linux/</link>
     <pubDate>Fri, 11 Feb 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/linux/</guid>
     <description><![CDATA[<h1 id="linux-基础知识">linux 基础知识</h1>
 <h2 id="1简述-linux-权限划分原则">1、简述 Linux 权限划分原则。</h2>
@@ -1719,11 +1724,12 @@ systemctl cat 命令可以查看配置文件的内容。</p>
 </table>
 <p><code>kill命令</code>可以带信号号码选项，也可以不带。如果没有信号号码，kill 命令就会发出<code>终止信号(15)</code>，这个信号可以被<code>进程捕获</code>，使得进程在<code>退出</code>之前可以<code>清理并释放资源</code>。</p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>yaml 语法</title>
     <link>https://www.jobcher.com/yaml/</link>
     <pubDate>Thu, 30 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/yaml/</guid>
     <description><![CDATA[<h1 id="yaml-语法">yaml 语法</h1>
 <p>我们使用 YAML 是因为它像 XML 或 JSON 是一种利于人们读写的数据格式. 此外在大多数变成语言中有使用 YAML 的库.YAML 语法的基本概述, 它被用来描述一个 playbooks(我们的配置管理语言).</p>
@@ -1749,11 +1755,12 @@ YAML 还有一个小的怪癖. 所有的 YAML 文件(无论和 Ansible 有没有
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>iptables 基础知识</title>
     <link>https://www.jobcher.com/iptable/</link>
     <pubDate>Mon, 27 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/iptable/</guid>
     <description><![CDATA[<h1 id="iptables-基础知识">iptables 基础知识</h1>
 <p>内核包过滤与 NAT 管理工具.是 linux 系统中在用户空间中运行的运来配置内核防火墙的工具。它可以设置，维护和检查 linux 内核中的 ipv4 包过滤规则和管理网络地址转换（NAT）。<br>
@@ -1875,11 +1882,12 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>网络基础知识</title>
     <link>https://www.jobcher.com/network/</link>
     <pubDate>Thu, 23 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/network/</guid>
     <description><![CDATA[<h1 id="网络基础知识">网络基础知识</h1>
 <h2 id="1简述-isoosi-七层模型的分层与作用">1、简述 ISO/OSI 七层模型的分层与作用</h2>
@@ -2087,11 +2095,12 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
 <li>IP 数据包中的源地址和目的地址是私有 IP 地址的, 不能在 Internet 上的路由器间进行存储转发的操作。</li>
 </ol>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>linux服务基础知识</title>
     <link>https://www.jobcher.com/service/</link>
     <pubDate>Wed, 15 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/service/</guid>
     <description><![CDATA[<h1 id="linux-服务基础知识">linux 服务基础知识</h1>
 <h2 id="1哪些设置能够提升-ssh-远程管理的安全等级">1、哪些设置能够提升 SSH 远程管理的安全等级</h2>
@@ -2117,5 +2126,6 @@ www.d.com（新）
 <h1 id="17请描述-nginx-和-tomcat-之间的数据传输过程">17、请描述 Nginx 和 Tomcat 之间的数据传输过程？</h1>
 <h1 id="18请写出几个常见的-http-状态码并解释出现原因">18、请写出几个常见的 HTTP 状态码，并解释出现原因。</h1>
 ]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

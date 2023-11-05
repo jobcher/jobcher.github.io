@@ -8,7 +8,7 @@
     <title>nginx exporter 安装配置</title>
     <link>https://www.jobcher.com/nginx-exporter/</link>
     <pubDate>Wed, 08 Jun 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/nginx-exporter/</guid>
     <description><![CDATA[<h1 id="nginx-exporter-安装配置">nginx exporter 安装配置</h1>
 <ol>
@@ -118,11 +118,12 @@
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>prometheus grafana alertmanager 安装配置</title>
     <link>https://www.jobcher.com/prometheus1/</link>
     <pubDate>Thu, 13 Jan 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/prometheus1/</guid>
     <description><![CDATA[<h1 id="prometheusgrafanaalertmanager-安装配置">prometheus+grafana+alertmanager 安装配置</h1>
 <p>服务器监控告警系统搭建，通过 exporter 获取节点信息到 prometheus。prometheus 配置规则，使 garfana 和 alertmanager 能够接受到数据，分别展示数据和发送告警</p>
@@ -474,11 +475,12 @@
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>prometheus 配置</title>
     <link>https://www.jobcher.com/prometheus/</link>
     <pubDate>Thu, 13 Jan 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/prometheus/</guid>
     <description><![CDATA[<h1 id="prometheus-配置">prometheus 配置</h1>
 <p><br>
@@ -537,5 +539,6 @@ Prometheus 是由 SoundCloud 开源监控告警解决方案</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

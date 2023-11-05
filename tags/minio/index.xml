@@ -8,7 +8,7 @@
     <title>安装 minIO Azure S3网关</title>
     <link>https://www.jobcher.com/minio/</link>
     <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/minio/</guid>
     <description><![CDATA[<h1 id="安装-minio">安装 minIO</h1>
 <h2 id="通过-docker-安装">通过 docker 安装</h2>
@@ -66,5 +66,6 @@
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

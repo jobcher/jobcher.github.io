@@ -8,7 +8,7 @@
     <title>RocketMQ k8s部署 4主4从集群</title>
     <link>https://www.jobcher.com/rocketmq3/</link>
     <pubDate>Mon, 29 Aug 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/rocketmq3/</guid>
     <description><![CDATA[<h1 id="rocketmq-k8s-部署-4-主-4-从集群">RocketMQ k8s 部署 4 主 4 从集群</h1>
 <h2 id="使用-nfs-配置-statefulset-的动态持久化存储">使用 NFS 配置 StatefulSet 的动态持久化存储</h2>
@@ -2779,11 +2779,12 @@ kubectl get sc -n sanjiang</p>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>RocketMQ docker-compose部署 4主4从集群</title>
     <link>https://www.jobcher.com/rocketmq2/</link>
     <pubDate>Mon, 15 Aug 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/rocketmq2/</guid>
     <description><![CDATA[<h1 id="rocketmq-docker-compose-部署-4-主-4-从集群">RocketMQ docker-compose 部署 4 主 4 从集群</h1>
 <p>V 4.8.0<br>
@@ -3801,11 +3802,12 @@ kubectl get sc -n sanjiang</p>
 <p>docker-compose up -d</p>
 </blockquote>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>RocketMQ 安装和启动</title>
     <link>https://www.jobcher.com/rocketmq/</link>
     <pubDate>Fri, 07 Jan 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/rocketmq/</guid>
     <description><![CDATA[<h1 id="rocketmq-安装和部署">RocketMQ 安装和部署</h1>
 <p>部署 RocketMQ</p>
@@ -3917,5 +3919,6 @@ kubectl get sc -n sanjiang</p>
 再次启动 broker，可以正常启动。</p>
 <p>默认情况下，Broker 日志文件所在地址为~/logs/rocketmqlogs/broker.log。如果想要自定义，可以通过 conf/logback_broker.xml 配置文件来进行修改。</p>
 ]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

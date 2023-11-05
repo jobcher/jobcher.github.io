@@ -8,7 +8,7 @@
     <title>CocoaPods 安装及碰到问题</title>
     <link>https://www.jobcher.com/cocoapods/</link>
     <pubDate>Mon, 31 Jul 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/cocoapods/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/cocoapods-orange-on-grey-1.jpg" referrerpolicy="no-referrer">
@@ -167,5 +167,6 @@ You don&rsquo;t have write permissions for the /System/Library/Frameworks/Ruby.f
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

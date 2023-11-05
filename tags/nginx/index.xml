@@ -8,12 +8,12 @@
     <title>nginx 配置和编译</title>
     <link>https://www.jobcher.com/nginx06/</link>
     <pubDate>Thu, 20 Apr 2023 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/nginx06/</guid>
     <description><![CDATA[<div class="featured-image">
                 <img src="/images/nginx.png" referrerpolicy="no-referrer">
             </div><h2 id="nginx-自编译">nginx 自编译</h2>
-<p><a href="https://nginx.org/en/" target="_blank" rel="noopener noreffer">nginx官网</a></p>
+<p><a href="https://nginx.org/en/" target="_blank" rel="noopener noreffer ">nginx官网</a></p>
 <blockquote>
 <p>下载nginx-&gt;Configure-&gt;编译-&gt;安装</p>
 </blockquote>
@@ -76,11 +76,12 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>nginx ssh-key connection exception</title>
     <link>https://www.jobcher.com/nginx05/</link>
     <pubDate>Wed, 15 Jun 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/nginx05/</guid>
     <description><![CDATA[<h1 id="nginx-ssh-key-connection-exception">nginx ssh-key connection exception</h1>
 <p>Not long ago, I wanted to restart the company&rsquo;s gitlab server.I couldn&rsquo;t coonect to ssh when it restarted.emm……I try copy the ssh rsa.pub,but it didn&rsquo;t work.</p>
@@ -125,15 +126,16 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div><ol start="3">
-<li>enter <a href="http://gitlab.com" target="_blank" rel="noopener noreffer">http://gitlab.com</a> ,Profile Settings&ndash;&gt;SSH Keys&ndash;&gt;Add SSH Key</li>
+<li>enter <a href="http://gitlab.com" target="_blank" rel="noopener noreffer ">http://gitlab.com</a> ,Profile Settings&ndash;&gt;SSH Keys&ndash;&gt;Add SSH Key</li>
 </ol>
 <p><code>You are done</code></p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>nginx 编译参数详解</title>
     <link>https://www.jobcher.com/nginx02/</link>
     <pubDate>Fri, 24 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/nginx02/</guid>
     <description><![CDATA[<h1 id="nginx-编译参数详解">nginx 编译参数详解</h1>
 <table>
@@ -519,11 +521,12 @@
 </tbody>
 </table>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>nginx 重写规则 rewrite模块</title>
     <link>https://www.jobcher.com/nginx04/</link>
     <pubDate>Fri, 24 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/nginx04/</guid>
     <description><![CDATA[<h1 id="nginx-重写规则-rewrite-模块">nginx 重写规则 rewrite 模块</h1>
 <h2 id="语法">语法</h2>
@@ -587,11 +590,12 @@
 <h2 id="rewrite-重写规则">rewrite 重写规则</h2>
 <p>正则表达式</p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>nginx.conf 配置文件详解</title>
     <link>https://www.jobcher.com/nginx03/</link>
     <pubDate>Fri, 24 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/nginx03/</guid>
     <description><![CDATA[<h1 id="nginxconf-配置文件详解">nginx.conf 配置文件详解</h1>
 <div class="highlight"><div class="chroma">
@@ -715,11 +719,12 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>nginx 日志格式整理</title>
     <link>https://www.jobcher.com/nginx01/</link>
     <pubDate>Mon, 13 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/nginx01/</guid>
     <description><![CDATA[<h1 id="nginx-日志配置">nginx 日志配置</h1>
 <h2 id="语法">语法</h2>
@@ -846,7 +851,7 @@
 </tr>
 <tr>
 <td style="text-align:left">$request_uri</td>
-<td style="text-align:left">完整的请求地址，如 &ldquo;<a href="https://daojia.com/%22" target="_blank" rel="noopener noreffer">https://daojia.com/"</a></td>
+<td style="text-align:left">完整的请求地址，如 &ldquo;<a href="https://daojia.com/%22" target="_blank" rel="noopener noreffer ">https://daojia.com/"</a></td>
 </tr>
 </tbody>
 </table>
@@ -866,11 +871,12 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item><item>
+</item>
+<item>
     <title>nginx 汇总</title>
     <link>https://www.jobcher.com/nginx/</link>
     <pubDate>Wed, 08 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/nginx/</guid>
     <description><![CDATA[<h1 id="nginx-汇总">nginx 汇总</h1>
 <p>各类 nginx 问题汇总</p>
@@ -1044,5 +1050,6 @@ nginx 会让相同的客户端 ip 请求相同的服务器。</li>
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

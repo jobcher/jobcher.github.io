@@ -8,7 +8,7 @@
     <title>docker 命令(2)</title>
     <link>https://www.jobcher.com/docker02/</link>
     <pubDate>Fri, 18 Feb 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/docker02/</guid>
     <description><![CDATA[<h1 id="docker-命令2">docker 命令(2)</h1>
 <h2 id="docker-ps-命令"><code>docker ps</code> 命令</h2>
@@ -21,11 +21,12 @@
 但是与<code>docker run -d</code>不同的是，<code>docker create</code>创建的容器<code>并未实际启动</code>，还需要执行<code>docker start</code>命令或<code>docker run</code>命令以启动容器。<br>
 事实上，<code>docker creat</code>e 命令常用于<code>在启动容器之前进行必要的设置</code>。</p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>清理Docker的container，image与volume</title>
     <link>https://www.jobcher.com/docker-clean/</link>
     <pubDate>Thu, 10 Feb 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/docker-clean/</guid>
     <description><![CDATA[<h1 id="清理-docker-的-containerimage-与-volume">清理 Docker 的 container，image 与 volume</h1>
 <p>Docker 的镜像（image）、容器（container）、数据卷（volume）， 都是由 daemon 托管的。 因此，在需要清理时，也需要使用其自带的手段。</p>
@@ -281,11 +282,12 @@
 </div>
 </div><p>一般不推荐直接操作这些目录，除非一些极特殊情况。 操作不当，后果难料，需要慎重。</p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>docker进阶使用</title>
     <link>https://www.jobcher.com/docker01/</link>
     <pubDate>Thu, 09 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/docker01/</guid>
     <description><![CDATA[<h1 id="docker-进阶使用">docker 进阶使用</h1>
 <p>dockerfile 和 docker compose 的配置</p>
@@ -454,5 +456,6 @@
 </span></span></code></pre></td></tr></table>
 </div>
 </div>]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>

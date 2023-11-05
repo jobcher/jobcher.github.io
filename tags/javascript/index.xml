@@ -8,7 +8,7 @@
     <title>Ant中如何添加第三方jar包依赖</title>
     <link>https://www.jobcher.com/ant/</link>
     <pubDate>Thu, 14 Apr 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/ant/</guid>
     <description><![CDATA[<h1 id="ant-中如何添加第三方-jar-包依赖">Ant 中如何添加第三方 jar 包依赖</h1>
 <p>如果使用 ant 进行 java 项目的编译部署，那怎么添加第三方 jar 包的依赖呢？方法如下：</p>
@@ -134,13 +134,14 @@
 </span></span><span class="line"><span class="cl"><span class="nt">&lt;/project&gt;</span>
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>欢迎关注我的博客<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer">www.jobcher.com</a></p>
+</div><p>欢迎关注我的博客<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer ">www.jobcher.com</a></p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>linux 网络测速</title>
     <link>https://www.jobcher.com/bench/</link>
     <pubDate>Tue, 22 Feb 2022 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/bench/</guid>
     <description><![CDATA[<h1 id="linux-网络测速">linux 网络测速</h1>
 <h2 id="一键测试脚本benchsh">一键测试脚本<code>bench.sh</code></h2>
@@ -163,13 +164,14 @@
 </span></span><span class="line"><span class="cl">curl -Lso- bench.sh <span class="p">|</span> bash
 </span></span></code></pre></td></tr></table>
 </div>
-</div><p>欢迎关注我的博客<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer">www.jobcher.com</a></p>
+</div><p>欢迎关注我的博客<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer ">www.jobcher.com</a></p>
 ]]></description>
-</item><item>
+</item>
+<item>
     <title>获取用户浏览器默认语言设置，自动判断跳转不同网站</title>
     <link>https://www.jobcher.com/auto/</link>
     <pubDate>Thu, 16 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>作者</author>
+    <author>jobcher</author>
     <guid>https://www.jobcher.com/auto/</guid>
     <description><![CDATA[<h1 id="自动判断跳转不同网站">自动判断跳转不同网站</h1>
 <ol>
@@ -242,7 +244,8 @@
 <p>但是这样的方案也有一个弊端：如果用户通过科学上网，全局模式下，会被认为属于美国 / 日本等等（看梯子的 IP 而定了），那么会导致访问非常慢；但是这种偏差，很多翻墙的人都是了解的，没人会故意用美国的 IP 访问国内的淘宝 / 百度等网站的，除非是忘记切换回来了；</p>
 <p>IP 判断<br>
 市场上有很多 IP 判断的，拿 IP 倒是非常好做的一件事；比如我现在可以拿到用户访问本网站时候的 IP；</p>
-<p>欢迎关注我的博客<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer">www.jobcher.com</a></p>
+<p>欢迎关注我的博客<a href="https://www.jobcher.com/" target="_blank" rel="noopener noreffer ">www.jobcher.com</a></p>
 ]]></description>
-</item></channel>
+</item>
+</channel>
 </rss>
