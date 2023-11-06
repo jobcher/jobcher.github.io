@@ -4,7 +4,180 @@
         <link>https://www.jobcher.com/series/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97/</link>
         <description>基础知识系列 - seris - 打工人日志 - jobcher</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 21 Sep 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.jobcher.com/series/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 06 Nov 2023 00:00:00 &#43;0000</lastBuildDate><atom:link href="https://www.jobcher.com/series/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97/" rel="self" type="application/rss+xml" /><item>
+    <title>使用 ElasticSearch Curator 7天定期删除日志</title>
+    <link>https://www.jobcher.com/elasticsearchcurator/</link>
+    <pubDate>Mon, 06 Nov 2023 00:00:00 &#43;0000</pubDate>
+    <author>jobcher</author>
+    <guid>https://www.jobcher.com/elasticsearchcurator/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/elasticsearch.png" referrerpolicy="no-referrer">
+            </div><h1 id="使用-elasticsearch-curator-7天定期删除日志">使用 ElasticSearch Curator 7天定期删除日志</h1>
+<h2 id="背景">背景</h2>
+<p>Curator 是 Elastic 官方发布的一个管理 Elasticsearch 索引的工具，可以完成许多索引生命周期的管理工作。<br>
+我使用的 elasticseraech 8.0 以上的版本，所有我直接安装最新版的curator,服务器是centos 7 的</p>
+<h2 id="二进制安装">二进制安装</h2>
+<h3 id="下载">下载</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">wget https://packages.elastic.co/curator/5/centos/7/Packages/elasticsearch-curator-5.8.4-1.x86_64.rpm
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="安装-curator">安装 curator</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">rpm -ivh elasticsearch-curator-5.8.4-1.x86_64.rpm
+</span></span><span class="line"><span class="cl">curator --version
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="进入安装文件创建文件">进入安装文件，创建文件</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">cd</span> /opt/elasticsearch-curator
+</span></span><span class="line"><span class="cl">mkdir log
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> log
+</span></span><span class="line"><span class="cl">touch run.log
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="创建configyml文件在log目录下">创建<code>config.yml</code>文件在<code>log</code>目录下</h3>
+<p>config.yml样例如下： 配置说明参考官网说明：<a href="https://www.elastic.co/guide/en/elasticsearch/client/curator/8.0/configfile.html" target="_blank" rel="noopener noreffer ">config.yml</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="c"># Rmember, leave a key empty if there is no value.  None will be a string,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># not a Python &#34;NoneType&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">client</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="m">192.168.10.17</span><span class="w">  </span><span class="c"># elasticsearch IP 地址</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">9200</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">url_prefix</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">use_ssl</span><span class="p">:</span><span class="w"> </span><span class="kc">False</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">certificate</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">client_cert</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">client_key</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ssl_no_validate</span><span class="p">:</span><span class="w"> </span><span class="kc">False</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">http_auth</span><span class="p">:</span><span class="w"> </span><span class="l">elastic:password</span><span class="w"> </span><span class="c"># elastic 密码，没有就不用写</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="m">30</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">master_only</span><span class="p">:</span><span class="w"> </span><span class="kc">False</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">logging</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">loglevel</span><span class="p">:</span><span class="w"> </span><span class="l">INFO</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">logfile</span><span class="p">:</span><span class="w"> </span><span class="l">/opt/elasticsearch-curator/log/run.log</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">logformat</span><span class="p">:</span><span class="w"> </span><span class="l">default</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">blacklist</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;elasticsearch&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;urllib3&#39;</span><span class="p">]</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="创建-elk-7-actionyml-执行-7天自动删除所有日志">创建 <code>elk-7-action.yml</code> 执行 7天自动删除所有日志</h3>
+<p>aelk-7-action.yml 样例如下： 配置说明参考官网说明：<a href="https://www.elastic.co/guide/en/elasticsearch/client/curator/8.0/actionfile.html" target="_blank" rel="noopener noreffer ">action.yml</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="c"># Remember, leave a key empty if there is no value.  None will be a string,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># not a Python &#34;NoneType&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Also remember that all examples have &#39;disable_action&#39; set to True.  If you</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># want to use this action as a template, be sure to set this to False after</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># copying it.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">actions</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">1</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l">delete_indices</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="p">&gt;-</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">      </span><span class="w">      </span><span class="l">Delete indices older than 7 days (based on index creation_date)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">options</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">timeout_override</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">continue_if_exception</span><span class="p">:</span><span class="w"> </span><span class="kc">False</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">disable_action</span><span class="p">:</span><span class="w"> </span><span class="kc">False</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">filters</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">filtertype</span><span class="p">:</span><span class="w"> </span><span class="l">age</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">source</span><span class="p">:</span><span class="w"> </span><span class="l">creation_date </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="l">older </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">unit</span><span class="p">:</span><span class="w"> </span><span class="l">days</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">unit_count</span><span class="p">:</span><span class="w"> </span><span class="m">7</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="执行">执行</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curator --config /opt/elasticsearch-curator/log/config.yml /opt/elasticsearch-curator/log/elk-7-action.yml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="定时执行">定时执行</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">crontab -e
+</span></span><span class="line"><span class="cl"><span class="m">0</span> <span class="m">0</span> * * * curator --config /opt/elasticsearch-curator/log/config.yml /opt/elasticsearch-curator/log/elk-7-action.yml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>wq 保存定时任务</p>
+<h2 id="总结">总结</h2>
+<p>curator适用于基于时间或者template其他方式创建的索引，不适合单一索引存储N久历史数据的操作的场景。</p>
+]]></description>
+</item>
+<item>
     <title>GNU/Linux 一键更换系统软件源脚本</title>
     <link>https://www.jobcher.com/linux-mirror/</link>
     <pubDate>Thu, 21 Sep 2023 00:00:00 &#43;0000</pubDate>
@@ -2094,37 +2267,6 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
 <li>私有 IP 地址的路由信息不能对外发布，外部的 IP 数据包无法路由到私有 IP 地址的计算机上。</li>
 <li>IP 数据包中的源地址和目的地址是私有 IP 地址的, 不能在 Internet 上的路由器间进行存储转发的操作。</li>
 </ol>
-]]></description>
-</item>
-<item>
-    <title>linux服务基础知识</title>
-    <link>https://www.jobcher.com/service/</link>
-    <pubDate>Wed, 15 Dec 2021 00:00:00 &#43;0000</pubDate>
-    <author>jobcher</author>
-    <guid>https://www.jobcher.com/service/</guid>
-    <description><![CDATA[<h1 id="linux-服务基础知识">linux 服务基础知识</h1>
-<h2 id="1哪些设置能够提升-ssh-远程管理的安全等级">1、哪些设置能够提升 SSH 远程管理的安全等级</h2>
-<h2 id="2ssh-连接时认证时间过长如何解决">2、ssh 连接时认证时间过长如何解决？</h2>
-<h2 id="3scp-和-rsync-进行远程文件复制有什么区别">3、scp 和 rsync 进行远程文件复制有什么区别？</h2>
-<h2 id="4请描述通过-dhcp-服务器获取-ip-地址的过程">4、请描述通过 DHCP 服务器获取 IP 地址的过程。</h2>
-<h2 id="5简单描述-ftp-的主动模式和被动模式的区别">5、简单描述 FTP 的主动模式和被动模式的区别？</h2>
-<h2 id="6集群环境中如何保证所有服务器之间的时间误差较小">6、集群环境中，如何保证所有服务器之间的时间误差较小。</h2>
-<h2 id="7请描述用户访问网站时-dns-的解析过程">7、请描述用户访问网站时 DNS 的解析过程。</h2>
-<h2 id="8解释权威-dns-和递归-dns-的含义并描述智能-dns-的实现原理">8、解释权威 DNS 和递归 DNS 的含义，并描述智能 DNS 的实现原理。</h2>
-<h2 id="9公司里有一台服务器需要在上面跑两个网站并且其中一个网站需要更换新域名请问如何处理">9、公司里有一台服务器，需要在上面跑两个网站，并且其中一个网站需要更换新域名，请问如何处理？</h2>
-<pre><code>网站1：www.a.com
-网站2：www.b.com（旧）
-www.d.com（新）
-</code></pre>
-<h1 id="10简述-apache-的三种工作模式">10、简述 Apache 的三种工作模式？</h1>
-<h1 id="11请写出工作中常见的-apache-优化策略">11、请写出工作中常见的 Apache 优化策略。</h1>
-<h1 id="12有哪些技术可以提高网站的安全和效率">12、有哪些技术可以提高网站的安全和效率？</h1>
-<h1 id="13apache-和-nginx-各有什么优缺点应该如何选择">13、Apache 和 Nginx 各有什么优缺点，应该如何选择？</h1>
-<h1 id="14为什么-nginx-的并发能力强资源消耗低">14、为什么 Nginx 的并发能力强，资源消耗低？</h1>
-<h1 id="15写出几个-nginx-的常用模块并描述其功能">15、写出几个 Nginx 的常用模块，并描述其功能。</h1>
-<h1 id="16请解释-nginx-是如何连接-php-进行页面解析的">16、请解释 Nginx 是如何连接 PHP 进行页面解析的？</h1>
-<h1 id="17请描述-nginx-和-tomcat-之间的数据传输过程">17、请描述 Nginx 和 Tomcat 之间的数据传输过程？</h1>
-<h1 id="18请写出几个常见的-http-状态码并解释出现原因">18、请写出几个常见的 HTTP 状态码，并解释出现原因。</h1>
 ]]></description>
 </item>
 </channel>
