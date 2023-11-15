@@ -4462,26 +4462,22 @@ zf初重拳打击的结果往往取得相反的效果，因为政府如果希望
 <ol>
 <li>前缀</li>
 </ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">https://github.jobcher.com/gh/
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="2">
+<blockquote>
+<p><a href="https://github.jobcher.com/gh/" target="_blank" rel="noopener noreffer ">https://github.jobcher.com/gh/</a></p>
+</blockquote>
+<ol start="2">
 <li>下载仓库</li>
 </ol>
+<blockquote>
+<p>git clone <a href="https://github.jobcher.com/gh/" target="_blank" rel="noopener noreffer ">https://github.jobcher.com/gh/</a>&lt;你要下载的GitHub地址&gt;</p>
+</blockquote>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
-</span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git clone https://github.jobcher.com/gh/&lt;你要下载的GitHub地址&gt;
-</span></span><span class="line"><span class="cl"><span class="c1">#例子</span>
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1">#例子</span>
 </span></span><span class="line"><span class="cl">git clone https://github.jobcher.com/gh/https://github.com/jobcher/blog.git
 </span></span></code></pre></td></tr></table>
 </div>
