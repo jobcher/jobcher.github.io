@@ -239,75 +239,6 @@
 </div>]]></description>
 </item>
 <item>
-    <title>Argo cd 安装和部署</title>
-    <link>https://www.jobcher.com/argocd/</link>
-    <pubDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</pubDate>
-    <author>jobcher</author>
-    <guid>https://www.jobcher.com/argocd/</guid>
-    <description><![CDATA[<h1 id="argo-cd-安装和部署">Argo cd 安装和部署</h1>
-<p>Argo CD 是一个为 Kubernetes 而生的，遵循声明式 GitOps 理念的持续部署（CD）工具。Argo CD 可在 Git 存储库更改时自动同步和部署应用程序
-</p>
-<h2 id="安装">安装</h2>
-<p>k8s 快速安装</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">k3s kubectl create namespace argocd
-</span></span><span class="line"><span class="cl">k3s kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="安装-argo-cd-cli">安装 Argo CD CLI</h3>
-<p>Argo CD CLI 是用于管理 Argo CD 的命令行工具,Mac 系统可以直接使用 brew install 进行安装</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">brew install argocd
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="发布-argo-cd-服务">发布 Argo CD 服务</h3>
-<p>默认情况下， Argo CD 服务不对外暴露服务，可以通过 LoadBalancer 或者 NodePort 类型的 Service、Ingress、Kubectl 端口转发等方式将 Argo CD 服务发布到 Kubernetes 集群外部。<br>
-通过 NodePort 服务的方式暴露 Argo CD 到集群外部</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl patch svc argocd-server -n argocd -p <span class="s1">&#39;{&#34;spec&#34;: {&#34;type&#34;: &#34;NodePort&#34;}}&#39;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="查看端口">查看端口</h3>
-<blockquote>
-<p>kubectl get svc -n argocd</p>
-</blockquote>
-<h2 id="使用">使用</h2>
-<p></p>
-<h3 id="获取-argo-cd-密码">获取 Argo CD 密码</h3>
-<p>默认情况下 <code>admin</code><br>
-帐号的初始密码是自动生成的，会以明文的形式存储在 <code>Argo CD</code> 安装的命名空间中<code>argocd-initial-admin-secret</code> 的 <code>Secret </code>对象下的 <code>password</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl -n argocd get secret <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>argocd-initial-admin-secret <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-o <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&#34;{.data.password}&#34;</span> <span class="p">|</span> base64 -d
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="命令行可以使用以下方式登录">命令行可以使用以下方式登录</h3>
-<blockquote>
-<p>argocd login &lt;节点 IP&gt;:&lt;端口&gt;</p>
-</blockquote>
-]]></description>
-</item>
-<item>
     <title>ansible 命令</title>
     <link>https://www.jobcher.com/ansible1/</link>
     <pubDate>Thu, 14 Apr 2022 00:00:00 &#43;0000</pubDate>
@@ -3254,6 +3185,258 @@ Ci 需要具备这些：</li>
 </span></span></code></pre></td></tr></table>
 </div>
 </div><p>存储在/var/opt/gitlab/postgresql/userinfo.txt</p>
+]]></description>
+</item>
+<item>
+    <title>ansible 安装和部署</title>
+    <link>https://www.jobcher.com/ansible/</link>
+    <pubDate>Thu, 30 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>jobcher</author>
+    <guid>https://www.jobcher.com/ansible/</guid>
+    <description><![CDATA[<h1 id="ansible-安装和部署">ansible 安装和部署</h1>
+<p>Ansible 默认通过 SSH 协议管理机器.</p>
+<h2 id="安装-ansible">安装 ansible</h2>
+<ol>
+<li>下载安装</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># ubuntu 安装</span>
+</span></span><span class="line"><span class="cl">apt-get install software-properties-common
+</span></span><span class="line"><span class="cl">apt-add-repository ppa:ansible/ansible
+</span></span><span class="line"><span class="cl">apt-get update
+</span></span><span class="line"><span class="cl">apt-get install ansible
+</span></span><span class="line"><span class="cl"><span class="c1"># centos 安装</span>
+</span></span><span class="line"><span class="cl">yum install ansible
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>检查文件</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1">#检查</span>
+</span></span><span class="line"><span class="cl">ansible --version
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="ansible-配置">ansible 配置</h2>
+<ol>
+<li>添加主机</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">vim /etc/ansible/hosts
+</span></span><span class="line"><span class="cl"><span class="c1">#添加你需要添加的被控主机地址和IP</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>配置 SSH key 授权访问</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 控制主机生成ssh 密钥对（一路回车）</span>
+</span></span><span class="line"><span class="cl">ssh-keygen -t rsa
+</span></span><span class="line"><span class="cl"><span class="c1"># 复制公钥IP到被控主机</span>
+</span></span><span class="line"><span class="cl">ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.0.2
+</span></span><span class="line"><span class="cl">ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.0.3
+</span></span><span class="line"><span class="cl">ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.0.4
+</span></span><span class="line"><span class="cl"><span class="c1"># ssh-copy-id命令会自动将id_rsa.pub文件的内容追加到远程主机root用户下.ssh/authorized_keys文件中。</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="3">
+<li>更改 ansible 配置</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">vim /etc/ansible/ansible.cfg
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#禁用每次执行ansbile命令检查ssh key host</span>
+</span></span><span class="line"><span class="cl"><span class="nv">host_key_checking</span> <span class="o">=</span> False
+</span></span><span class="line"><span class="cl"><span class="c1"># 开启日志记录</span>
+</span></span><span class="line"><span class="cl"><span class="nv">log_path</span> <span class="o">=</span> /var/log/ansible.log
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="4">
+<li>测试</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 控制主机</span>
+</span></span><span class="line"><span class="cl">ansible all -m ping
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="inventory">Inventory</h2>
+<ol>
+<li>配置组别</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="cl"><span class="na">vim /etc/ansible/hosts</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 添加组别</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">[pve]</span>
+</span></span><span class="line"><span class="cl"><span class="na">192.168.0.2</span>
+</span></span><span class="line"><span class="cl"><span class="na">192.168.0.3</span>
+</span></span><span class="line"><span class="cl"><span class="na">192.168.0.4</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">#测试</span>
+</span></span><span class="line"><span class="cl"><span class="na">ansible pve -m ping</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>Inventory 参数
+把你的 inventory 文件 和 变量 放入 git repo 中,以便跟踪他们的更新,这是一种非常推荐的方式.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">参数</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ansible_ssh_host</td>
+<td style="text-align:left">将要连接的远程主机名.与你想要设定的主机的别名不同的话,可通过此变量设置.</td>
+</tr>
+<tr>
+<td style="text-align:left">ansible_ssh_port</td>
+<td style="text-align:left">ssh 端口号.如果不是默认的端口号,通过此变量设置.</td>
+</tr>
+<tr>
+<td style="text-align:left">ansible_ssh_user</td>
+<td style="text-align:left">默认的 ssh 用户名</td>
+</tr>
+<tr>
+<td style="text-align:left">ansible_ssh_pass</td>
+<td style="text-align:left">ssh 密码(这种方式并不安全,我们强烈建议使用 &ndash;ask-pass 或 SSH 密钥)</td>
+</tr>
+<tr>
+<td style="text-align:left">ansible_sudo_pass</td>
+<td style="text-align:left">sudo 密码(这种方式并不安全,我们强烈建议使用 &ndash;ask-sudo-pass)</td>
+</tr>
+<tr>
+<td style="text-align:left">ansible_sudo_exe (new in version 1.8)</td>
+<td style="text-align:left">sudo 命令路径(适用于 1.8 及以上版本)</td>
+</tr>
+<tr>
+<td style="text-align:left">ansible_connection</td>
+<td style="text-align:left">与主机的连接类型.比如:local, ssh 或者 paramiko. Ansible 1.2 以前默认使用 paramiko.1.2 以后默认使用 &lsquo;smart&rsquo;,&lsquo;smart&rsquo; 方式会根据是否支持 ControlPersist, 来判断&rsquo;ssh&rsquo; 方式是否可行.</td>
+</tr>
+<tr>
+<td style="text-align:left">ansible_ssh_private_key_file</td>
+<td style="text-align:left">ssh 使用的私钥文件.适用于有多个密钥,而你不想使用 SSH 代理的情况.</td>
+</tr>
+<tr>
+<td style="text-align:left">ansible_shell_type</td>
+<td style="text-align:left">目标系统的 shell 类型.默认情况下,命令的执行使用 &lsquo;sh&rsquo; 语法,可设置为 &lsquo;csh&rsquo; 或 &lsquo;fish&rsquo;.</td>
+</tr>
+<tr>
+<td style="text-align:left">ansible_python_interpreter</td>
+<td style="text-align:left">目标主机的 python 路径.适用于的情况: 系统中有多个 Python, 或者命令路径不是&quot;/usr/bin/python&quot;,比如 *BSD, 或者 /usr/bin/python</td>
+</tr>
+</tbody>
+</table>
+<h2 id="roles">Roles</h2>
+<p>Roles 是基于已知文件结构自动加载某些变量文件，任务和处理程序的方法。按角色对内容进行分组，适合构建复杂的部署环境
+Roles 目录结构：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="l">site.yml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">webservers.yml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">fooservers.yml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">roles/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">common/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">tasks/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">handlers/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">files/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">templates/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">vars/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">defaults/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">meta/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">webservers/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">tasks/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">defaults/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">meta/</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>tasks 包含角色要执行的任务的主要列表</li>
+<li>handlers 包含处理程序，此角色甚至在此角色之外的任何地方都可以使用这些处理程序</li>
+<li>defaults 角色的默认变量</li>
+<li>vars 角色的其他变量</li>
+<li>files 包含可以通过此角色部署的文件</li>
+<li>templates 包含可以通过此角色部署的模版</li>
+<li>meta 为此角色定义一些元数据</li>
+</ul>
 ]]></description>
 </item>
 </channel>

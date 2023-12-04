@@ -239,75 +239,6 @@
 </div>]]></description>
 </item>
 <item>
-    <title>Argo cd 安装和部署</title>
-    <link>https://www.jobcher.com/argocd/</link>
-    <pubDate>Wed, 10 Aug 2022 00:00:00 &#43;0000</pubDate>
-    <author>jobcher</author>
-    <guid>https://www.jobcher.com/argocd/</guid>
-    <description><![CDATA[<h1 id="argo-cd-安装和部署">Argo cd 安装和部署</h1>
-<p>Argo CD 是一个为 Kubernetes 而生的，遵循声明式 GitOps 理念的持续部署（CD）工具。Argo CD 可在 Git 存储库更改时自动同步和部署应用程序
-</p>
-<h2 id="安装">安装</h2>
-<p>k8s 快速安装</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">k3s kubectl create namespace argocd
-</span></span><span class="line"><span class="cl">k3s kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="安装-argo-cd-cli">安装 Argo CD CLI</h3>
-<p>Argo CD CLI 是用于管理 Argo CD 的命令行工具,Mac 系统可以直接使用 brew install 进行安装</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">brew install argocd
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="发布-argo-cd-服务">发布 Argo CD 服务</h3>
-<p>默认情况下， Argo CD 服务不对外暴露服务，可以通过 LoadBalancer 或者 NodePort 类型的 Service、Ingress、Kubectl 端口转发等方式将 Argo CD 服务发布到 Kubernetes 集群外部。<br>
-通过 NodePort 服务的方式暴露 Argo CD 到集群外部</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl patch svc argocd-server -n argocd -p <span class="s1">&#39;{&#34;spec&#34;: {&#34;type&#34;: &#34;NodePort&#34;}}&#39;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="查看端口">查看端口</h3>
-<blockquote>
-<p>kubectl get svc -n argocd</p>
-</blockquote>
-<h2 id="使用">使用</h2>
-<p></p>
-<h3 id="获取-argo-cd-密码">获取 Argo CD 密码</h3>
-<p>默认情况下 <code>admin</code><br>
-帐号的初始密码是自动生成的，会以明文的形式存储在 <code>Argo CD</code> 安装的命名空间中<code>argocd-initial-admin-secret</code> 的 <code>Secret </code>对象下的 <code>password</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl -n argocd get secret <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>argocd-initial-admin-secret <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-o <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&#34;{.data.password}&#34;</span> <span class="p">|</span> base64 -d
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="命令行可以使用以下方式登录">命令行可以使用以下方式登录</h3>
-<blockquote>
-<p>argocd login &lt;节点 IP&gt;:&lt;端口&gt;</p>
-</blockquote>
-]]></description>
-</item>
-<item>
     <title>Git 规则</title>
     <link>https://www.jobcher.com/git3/</link>
     <pubDate>Thu, 24 Mar 2022 00:00:00 &#43;0000</pubDate>
@@ -3929,6 +3860,247 @@ Ci 需要具备这些：</li>
 <p></p>
 <p><strong><a href="#%e7%9b%ae%e5%bd%95" rel="">⬆ 返回顶部</a></strong></p>
 ]]></description>
+</item>
+<item>
+    <title>gitlab CI/CD 的使用</title>
+    <link>https://www.jobcher.com/gitlab-cicd/</link>
+    <pubDate>Fri, 03 Dec 2021 00:00:00 &#43;0000</pubDate>
+    <author>jobcher</author>
+    <guid>https://www.jobcher.com/gitlab-cicd/</guid>
+    <description><![CDATA[<h1 id="gitlab-cicd-的使用">gitlab CI/CD 的使用</h1>
+<p>我将使用 gitlab 的流水线自动实现 hugo blog 文章的自动发布。</p>
+<h2 id="一基础知识">一、基础知识</h2>
+<h2 id="二安装过程">二、安装过程</h2>
+<h3 id="1安装-gitlab-runner">1.安装 gitlab runner</h3>
+<p>首先需要安装 gitlab runner 进入服务器 A<br>
+安装方法：</p>
+<ol>
+<li>
+<p>容器部署</p>
+</li>
+<li>
+<p>手动二进制文件部署</p>
+</li>
+<li>
+<p>通过 rpm/deb 包部署</p>
+</li>
+<li>
+<p>docker 方式安装</p>
+</li>
+</ol>
+<p>安装文档：https://docs.gitlab.com/runne&hellip;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    docker run -dit <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --name gitlab-runner <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    --restart always <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -v /srv/gitlab-runner/config:/etc/gitlab-runner <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    -v /var/run/docker.sock:/var/run/docker.sock <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    gitlab/gitlab-runner
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>1.1 设置信息</p>
+<pre><code>docker exec -it gitlab-runner gitlab-runner register
+</code></pre>
+<ol start="2">
+<li>非 docker 方式安装</li>
+</ol>
+<p>2.1 安装 GitLab Runner</p>
+<p>安装环境：Linux</p>
+<p>其他环境参考：https://docs.gitlab.com/runne&hellip;</p>
+<p>下载</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    curl -L --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>添加权限</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    chmod +x /usr/local/bin/gitlab-runner
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>新建 gitlab-runner 用户</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    sudo useradd --comment <span class="s1">&#39;GitLab Runner&#39;</span> --create-home gitlab-runner --shell /bin/bash
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>安装</p>
+<p>安装时需要指定我们上面新建的用户</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    gitlab-runner install --user<span class="o">=</span>gitlab-runner --working-directory<span class="o">=</span>/home/gitlab-runner
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>启动</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    gitlab-runner start
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># Download the binary for your system</span>
+</span></span><span class="line"><span class="cl">sudo curl -L --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Give it permissions to execute</span>
+</span></span><span class="line"><span class="cl">sudo chmod +x /usr/local/bin/gitlab-runner
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Create a GitLab CI user</span>
+</span></span><span class="line"><span class="cl">sudo useradd --comment <span class="s1">&#39;GitLab Runner&#39;</span> --create-home gitlab-runner --shell /bin/bash
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Install and run as service</span>
+</span></span><span class="line"><span class="cl">sudo gitlab-runner install --user<span class="o">=</span>gitlab-runner --working-directory<span class="o">=</span>/home/gitlab-runner
+</span></span><span class="line"><span class="cl">sudo gitlab-runner start
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="2配置-docker-shell-链接">2.配置 docker shell 链接</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    ssh-keygen -t rsa
+</span></span><span class="line"><span class="cl">    <span class="nb">cd</span> .ssh/
+</span></span><span class="line"><span class="cl">    cat id_rsa.pub &gt;&gt;authorized_keys
+</span></span><span class="line"><span class="cl">    docker cp id_rsa gitlab-runner:/root
+</span></span><span class="line"><span class="cl">    docker <span class="nb">exec</span> -it gitlab-runner /bin/bash
+</span></span><span class="line"><span class="cl">    chmod <span class="m">600</span> /root/id_rsa
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    vim /etc/systemd/system/gitlab-runner.service
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;--syslog&#34;</span> <span class="s2">&#34;--user&#34;</span> <span class="s2">&#34;root&#34;</span> <span class="c1">#修改为root</span>
+</span></span><span class="line"><span class="cl">    wq保存退出
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    systemctl daemon-reload
+</span></span><span class="line"><span class="cl">    systemctl restart gitlab-runner
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="3配置gitlab-ciyml-文件">3.配置.gitlab-ci.yml 文件</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">    vim .gitlab-ci.yml
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    stages:
+</span></span><span class="line"><span class="cl">    - build
+</span></span><span class="line"><span class="cl">    - <span class="nb">test</span>
+</span></span><span class="line"><span class="cl">    - deploy
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    build-job:
+</span></span><span class="line"><span class="cl">    stage: build
+</span></span><span class="line"><span class="cl">    script:
+</span></span><span class="line"><span class="cl">        - <span class="nb">echo</span> <span class="s2">&#34;上传代码&#34;</span>
+</span></span><span class="line"><span class="cl">        - <span class="nb">echo</span> <span class="s2">&#34;上传完成.&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    unit-test-job:
+</span></span><span class="line"><span class="cl">    stage: <span class="nb">test</span>
+</span></span><span class="line"><span class="cl">    script:
+</span></span><span class="line"><span class="cl">        - <span class="nb">echo</span>
+</span></span><span class="line"><span class="cl">        - sleep <span class="m">60</span>
+</span></span><span class="line"><span class="cl">        - <span class="nb">echo</span> <span class="s2">&#34;Code coverage is 90%&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    lint-test-job:
+</span></span><span class="line"><span class="cl">    stage: <span class="nb">test</span>
+</span></span><span class="line"><span class="cl">    script:
+</span></span><span class="line"><span class="cl">        - <span class="nb">echo</span> <span class="s2">&#34;Linting code... This will take about 10 seconds.&#34;</span>
+</span></span><span class="line"><span class="cl">        - sleep <span class="m">10</span>
+</span></span><span class="line"><span class="cl">        - <span class="nb">echo</span> <span class="s2">&#34;No lint issues found.&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    deploy-job:
+</span></span><span class="line"><span class="cl">    stage: deploy
+</span></span><span class="line"><span class="cl">    script:
+</span></span><span class="line"><span class="cl">        - <span class="nb">echo</span> <span class="s2">&#34;Deploying application...&#34;</span>
+</span></span><span class="line"><span class="cl">        - <span class="nb">echo</span> <span class="s2">&#34;Application successfully deployed.&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
 </item>
 </channel>
 </rss>
