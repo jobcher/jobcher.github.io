@@ -29,7 +29,7 @@
         "mainEntityOfPage": {
             "@type": "WebPage",
             "@id": "https:\/\/www.jobcher.com\/skywalking\/"
-        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "skywalking","wordcount":  1160 ,
+        },"image": ["https:\/\/www.jobcher.com\/images\/image.gif"],"genre": "posts","keywords": "skywalking","wordcount":  1327 ,
         "url": "https:\/\/www.jobcher.com\/skywalking\/","datePublished": "2022-08-10T00:00:00+00:00","dateModified": "2022-08-10T00:00:00+00:00","publisher": {
             "@type": "Organization",
             "name": ""},"author": {
@@ -157,7 +157,7 @@
             <div class="toc-content" id="toc-content-auto"></div>
         </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">skywalking APM 监控</h1><div class="post-meta">
             <div class="post-meta-line"><span class="post-author"><a href="../" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>jobcher</a></span>&nbsp;<span class="post-category">收录于 <a href="../categories/%E7%9B%91%E6%8E%A7/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>监控</a></span></div>
-            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-10">2022-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1160 字&nbsp;
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="2022-08-10">2022-08-10</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;约 1327 字&nbsp;
                 <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;预计阅读 3 分钟&nbsp;<span id="/skywalking/" class="leancloud_visitors" data-flag-title="skywalking APM 监控">
                         <i class="far fa-eye fa-fw" aria-hidden="true"></i>&nbsp;<span class=leancloud-visitors-count></span>&nbsp;次阅读
                     </span>&nbsp;</div>
@@ -175,6 +175,13 @@
   <ul>
     <li><a href="#skywalking-配置">skywalking 配置</a></li>
     <li><a href="#使用-docker-compose-安装">使用 docker-compose 安装</a></li>
+    <li><a href="#skywalking-客户端部署">skywalking 客户端部署</a>
+      <ul>
+        <li><a href="#安装到要监控的主机">安装到要监控的主机</a></li>
+        <li><a href="#配置变量">配置变量</a></li>
+        <li><a href="#启动java程序">启动java程序</a></li>
+      </ul>
+    </li>
   </ul>
 </nav></div>
             </div><div class="content" id="content"><h1 id="skywalking">skywalking</h1>
@@ -339,6 +346,50 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="s2">&#34;8180:8080&#34;</span><span class="w">
 </span></span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="skywalking-客户端部署">skywalking 客户端部署</h2>
+<p>下载客户端<br>
+<a href="https://archive.apache.org/dist/skywalking/8.14.0/apache-skywalking-java-agent-8.14.0.tgz" target="_blank" rel="noopener noreffer ">点击下载</a></p>
+<h3 id="安装到要监控的主机">安装到要监控的主机</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">wget https://archive.apache.org/dist/skywalking/8.14.0/apache-skywalking-java-agent-8.14.0.tgz
+</span></span><span class="line"><span class="cl">tar -zxvf apache-skywalking-java-agent-8.14.0.tgz
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="配置变量">配置变量</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># SkyWalking Agent 配置</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SW_AGENT_NAME</span><span class="o">=</span>rf-consumer <span class="c1"># 配置 Agent 名字。一般来说，我们直接使用 Spring Boot 项目的 `spring.application.name` 。</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SW_AGENT_COLLECTOR_BACKEND_SERVICES</span><span class="o">=</span>193.0.10.18:11800 <span class="c1"># 配置 Collector 地址。</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#export SW_AGENT_SPAN_LIMIT=2000 # 配置链路的最大 Span 数量。一般情况下，不需要配置，默认为 300 。主要考虑，有些新上 SkyWalking Agent 的项目，代码可能比较糟糕。</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">JAVA_AGENT</span><span class="o">=</span>-javaagent:/home/ubuntu/skywalking-agent/skywalking-agent.jar <span class="c1"># SkyWalking Agent jar 地址。</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="启动java程序">启动java程序</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">java <span class="nv">$JAVA_AGENT</span> -jar yourapp.jar
+</span></span><span class="line"><span class="cl"><span class="c1">#或者</span>
+</span></span><span class="line"><span class="cl">java -javaagent:&lt;skywalking-agent-path&gt; -jar yourApp.jar
+</span></span></code></pre></td></tr></table>
 </div>
 </div></div><div class="post-footer" id="post-footer">
     <div class="post-info">
