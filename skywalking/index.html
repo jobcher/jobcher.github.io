@@ -373,7 +373,7 @@
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># SkyWalking Agent 配置</span>
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SW_AGENT_NAME</span><span class="o">=</span>rf-consumer <span class="c1"># 配置 Agent 名字。一般来说，我们直接使用 Spring Boot 项目的 `spring.application.name` 。</span>
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SW_AGENT_COLLECTOR_BACKEND_SERVICES</span><span class="o">=</span>193.0.10.18:11800 <span class="c1"># 配置 Collector 地址。</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">SW_AGENT_COLLECTOR_BACKEND_SERVICES</span><span class="o">=</span>10.12.12.16:11800 <span class="c1"># 配置 Collector 地址。</span>
 </span></span><span class="line"><span class="cl"><span class="c1">#export SW_AGENT_SPAN_LIMIT=2000 # 配置链路的最大 Span 数量。一般情况下，不需要配置，默认为 300 。主要考虑，有些新上 SkyWalking Agent 的项目，代码可能比较糟糕。</span>
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">JAVA_AGENT</span><span class="o">=</span>-javaagent:/home/ubuntu/skywalking-agent/skywalking-agent.jar <span class="c1"># SkyWalking Agent jar 地址。</span>
 </span></span></code></pre></td></tr></table>
