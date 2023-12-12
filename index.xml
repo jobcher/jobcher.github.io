@@ -245,6 +245,59 @@
 ]]></description>
 </item>
 <item>
+    <title>CI/CD 可观察性-基于grafana</title>
+    <link>https://www.jobcher.com/cicd-obser/</link>
+    <pubDate>Tue, 12 Dec 2023 00:00:00 &#43;0000</pubDate>
+    <author>jobcher</author>
+    <guid>https://www.jobcher.com/cicd-obser/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/grafana-logo.png" referrerpolicy="no-referrer">
+            </div><h2 id="背景">背景</h2>
+<p>什么是 CI/CD 可观察性，我们如何为更多可观察的管道铺平道路？可观察性不仅仅是观察错误或监控基本健康信号。相反，它会更深入，以便您可以了解系统内行为背后的“原因”。<br>
+CI/CD 可观察性在其中发挥着关键作用。这是关于深入了解持续集成和部署系统的整个管道——查看每个代码签入、每个测试、每个构建和每个部署。当您组合所有这些数据时，您可以全面了解整个软件交付过程，揭示效率领域、瓶颈和潜在故障点。<br>
+CI/CD 可观察性是可观察性的一个子集，专注于软件开发生命周期。它有助于以多种方式确保流程可靠、相关且易于理解：</p>
+<ul>
+<li><code>积极主动解决问题</code>。没有可观察性，我们只能对问题做出反应。有了它，我们可以在问题升级之前预见并解决问题，从而节省时间和资源。</li>
+<li><code>更好的决策</code>。通过了解 CI/CD 流程的细节，团队可以在资源分配、流程变更和工具采用方面做出更明智的决策。</li>
+<li><code>建立信心</code>。通过对 CI/CD 管道的清晰洞察，开发人员、测试人员和运营团队可以对他们发布的软件更有信心。它减少了“对部署的恐惧”并培育了持续改进的文化。</li>
+<li><code>问责制和透明度</code>。可观察性确保 CI/CD 流程的每一步都是可追溯的。这意味着，如果出现问题，可以追溯到其源头，促进问责并帮助解决根本原因，而不仅仅是解决症状。</li>
+</ul>
+<h2 id="问题">问题</h2>
+<p>CI/CD 系统并非没有自身的挑战。破坏 CI/CD 管道平稳运行的常见问题是<code>不稳定</code>、<code>性能下降</code>和<code>配置错误</code>。</p>
+<h3 id="flakiness-片状">Flakiness 片状</h3>
+<p>片状测试是 CI/CD 方程中不可预测的变量。当测试在代码没有任何更改的情况下产生不同的结果（通过或失败）时，该测试被认为是“不稳定的”。出现片状现象通常有以下几个原因：</p>
+<ul>
+<li>外部依赖和环境问题。如果这些依赖项不能始终可用，则依赖于外部服务、数据库或特定环境设置的测试可能会产生不可预测的结果。如果环境设置不正确或意外拆除，也可能会发生这种情况。从本质上讲，先前测试的残留或外部服务的不可用可能会扭曲结果，使其不可靠。</li>
+<li>比赛条件。当系统的行为依赖于不可控事件的顺序或时间时，就会出现这种情况。特别是在异步操作中，如果管理不当，事件序列的不可预测性可能会导致偶发故障。</li>
+</ul>
+<h3 id="performance-regression-性能回归">Performance regression 性能回归</h3>
+<p>随着 CI/CD 流程的发展并变得更加复杂，系统性能可能会开始下降。这种回归可能不会立即显现出来，但长期的累积效应可能会阻碍 CI/CD 管道的效率。以下是常见的原因：</p>
+<ul>
+<li>测试执行效率低下。某些测试可能会运行比必要的时间更长的时间，这可能是因为冗余操作、设置的等待时间太长或查询效率低下。这在集成和端到端测试中尤其明显。</li>
+<li>代码和测试膨胀。当我们添加更多功能和测试而不解决技术债务或进行优化时，我们的构建时间可能会增加。有些测试从添加之日起可能会很慢。如果不解决这些问题，整个构建和测试过程可能会比需要的时间更长。</li>
+</ul>
+<h3 id="misconfigurations-配置错误">Misconfigurations 配置错误</h3>
+<p>即使是最深思熟虑的管道也可能因配置错误而失败。这可能导致：</p>
+<ul>
+<li><code>次优测试计划</code>。 CI/CD 管道遵循一条关键路径，其中每个步骤都依赖于前一个步骤。如果步骤未设置为按正确的顺序执行或正在等待非依赖项，则可能会导致效率低下。</li>
+<li><code>次优容量规划</code>。未配置足够的资源或对所需工作负载规划不当可能会导致管道出现瓶颈。如果 CI/CD 流程在关键阶段没有必要的能力，则可能会减慢整个工作流程或导致中断和故障。</li>
+</ul>
+<h2 id="dora-指标">DORA 指标</h2>
+<ul>
+<li><code>Deployment frequency</code> 部署频率 (DF)：组织成功发布到生产环境的频率</li>
+<li><code>Mean Lead time for changes</code> 变更平均前置时间 (MLT)：从代码提交到代码在生产中运行所需的时间</li>
+<li><code>Mean time to recover</code> 平均恢复时间 (MTTR)：发生服务事件或缺陷后恢复服务需要多长时间</li>
+<li><code>Change failure rate</code> 变更失败率 (CFR)：导致失败的变更百分比</li>
+</ul>
+<h2 id="优化-cicd-可观察性">优化 CI/CD 可观察性</h2>
+<p>目前GraCIe 是 Grafana 正在使用的应用程序插件，旨在为用户提供一种简单的方法来了解他们的 CI/CD 系统。它非常适合评估构建性能、识别测试结果中的不一致以及分析构建输出。该应用程序简化了这些流程，旨在轻松提供有关管道的见解。<br>
+通过利用 <a href="https://grafana.com/oss/tempo/?pg=blog&amp;plcmt=body-txt&amp;src=tw&amp;mdm=social&amp;cnt=youre_probably_familiar_w&amp;camp=blog" target="_blank" rel="noopener noreffer ">Grafana Tempo</a>、<a href="https://grafana.com/oss/loki/?pg=blog&amp;plcmt=body-txt&amp;src=tw&amp;mdm=social&amp;cnt=youre_probably_familiar_w&amp;camp=blog" target="_blank" rel="noopener noreffer ">Grafana Loki</a> 和 Prometheus 的强大功能，我们为一个全新的领域（即 CI/CD 可观测性）构建了一种固执己见的体验，因为它最终依赖于更成熟的可观测性用例中使用的相同遥测信号。此外，通过依赖 OpenTelemetry，GraCIe 几乎可以与任何 CI/CD 平台无缝协作，为用户提供相同的无与伦比的见解，而无需自定义设置或配置。<br>
+<br>
+</p>
+<p><a href="https://grafana.com/blog/2023/11/20/ci-cd-observability-via-opentelemetry-at-grafana-labs/?utm_campaign=blog&amp;utm_content=youre_probably_familiar_w&amp;utm_medium=social&amp;utm_source=tw" target="_blank" rel="noopener noreffer ">转载自grafana</a></p>
+]]></description>
+</item>
+<item>
     <title>2023-12-11 打工人日报</title>
     <link>https://www.jobcher.com/github_trending_2023-12-11/</link>
     <pubDate>Mon, 11 Dec 2023 00:00:00 &#43;0000</pubDate>
@@ -2011,294 +2064,6 @@ A被入侵后有办法控制B吗.A开了公网的22端口.B的3389只在局域�
 <h4 id="-朝鲜侦察卫星运用室开始运行-据朝中社朝鲜国家航空航天技术总局平壤综合管制所的侦察卫星运用室从2日起开始执行任务报道称朝鲜国家航空航天技术总局">↩️ 朝鲜侦察卫星运用室开始运行 据朝中社，朝鲜国家航空航天技术总局平壤综合管制所的侦察卫星运用室从2日起开始执行任务。报道称，朝鲜国家航空航天技术总局&hellip;</h4>
 <div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me/DNSPODT/2372"><b>LoopDNS资讯播报</b>:</a></p>                                                                        <p>朝鲜国防省：侵犯朝鲜太空资产将被视为宣战行为  据朝中社，就美国军方日前针对朝鲜侦察卫星的言论，朝鲜国防省发言人2日发表谈话指出，美国太空司令部官员日前称可使用多种“可逆及不可逆方法”削减敌国太空领域运用能力，这暗示针对朝鲜侦察卫星实施军事攻击的意图。美方针对朝鲜侦察卫星的令人担忧的敌对立场绝不能受到忽视。美方此举是对朝鲜主权的挑战，更准确地说是对朝鲜“宣战”。谈话警告说，当朝鲜国家战略资产遭到或被判断为即将遭到致命性军事攻击时，启动维护国家主权和领土完整的战争遏制力，是朝鲜武装力量的使命.  来源：格隆汇</p>                                </blockquote></div><p><b>朝鲜侦察卫星运用室开始运行</b><br><br>据朝中社，朝鲜国家航空航天技术总局平壤综合管制所的侦察卫星运用室从2日起开始执行任务。报道称，朝鲜国家航空航天技术总局平壤综合管制所侦察卫星运用室作为独立的军事情报组织将执行任务。这也意味着侦察卫星“万里镜-1”号正式开始运行。<br><br>消息來源: <a href="https://m.gelonghui.com/live/1320893" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">格隆汇</a></p>
 <h2 id="福利分享">福利分享</h2>
-]]></description>
-</item>
-<item>
-    <title>Argo cd 安装和部署</title>
-    <link>https://www.jobcher.com/argocd/</link>
-    <pubDate>Mon, 04 Dec 2023 00:00:00 &#43;0000</pubDate>
-    <author>jobcher</author>
-    <guid>https://www.jobcher.com/argocd/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/argo-logo.png" referrerpolicy="no-referrer">
-            </div><h1 id="argo-cd-安装和部署">Argo cd 安装和部署</h1>
-<p>Argo CD 是一个为 Kubernetes 而生的，遵循声明式 GitOps 理念的持续部署（CD）工具。Argo CD 可在 Git 存储库更改时自动同步和部署应用程序
-</p>
-<h2 id="安装">安装</h2>
-<blockquote>
-<p>前提：你已经安装好了 k8s 环境，我们将在国内的k8s环境下部署argocd</p>
-</blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">k3s kubectl create namespace argocd
-</span></span><span class="line"><span class="cl">kubectl apply -n argocd -f https://github.jobcher.com/gh/https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="检查是否正常部署">检查是否正常部署</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl get po -n argocd
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><br>
-如果没有错误的情况下应该是全部都runnning，但是如果出现<code>argocd-repo-server CrashLoopBackOff</code>错误有以下解决途径：</p>
-<ol>
-<li>使用以下补丁修补了部署。删除后，错误消失，repo 服务器可以启动。</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Deployment</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">argocd-repo-server</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">template</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">securityContext</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">seccompProfile</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">RuntimeDefault</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>如果出现<code>argocd-dex-server imagepullbackoff</code>错误有以下解决方法：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker pull ghcr.io/dexidp/dex:v2.37.0
-</span></span><span class="line"><span class="cl">docker tag ghcr.io/dexidp/dex:v2.37.0 harbor/dexidp/dex:v2.37.0
-</span></span><span class="line"><span class="cl">docker push harbor/dexidp/adex:v2.37.0
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>使用自定义镜像</strong></p>
-<h3 id="安装-argo-cd-cli">安装 Argo CD CLI</h3>
-<p>Argo CD CLI 是用于管理 Argo CD 的命令行工具,Mac 系统可以直接使用 brew install 进行安装</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">brew install argocd
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="发布-argo-cd-服务">发布 Argo CD 服务</h3>
-<p>默认情况下， Argo CD 服务不对外暴露服务，可以通过 LoadBalancer 或者 NodePort 类型的 Service、Ingress、Kubectl 端口转发等方式将 Argo CD 服务发布到 Kubernetes 集群外部。<br>
-通过 NodePort 服务的方式暴露 Argo CD 到集群外部</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl patch svc argocd-server -n argocd -p <span class="s1">&#39;{&#34;spec&#34;: {&#34;type&#34;: &#34;NodePort&#34;}}&#39;</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="获取端口号">获取端口号</h3>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl get svc -n argocd
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="使用">使用</h2>
-<p></p>
-<h3 id="获取-argo-cd-密码">获取 Argo CD 密码</h3>
-<p>默认情况下 <code>admin</code><br>
-帐号的初始密码是自动生成的，会以明文的形式存储在 <code>Argo CD</code> 安装的命名空间中<code>argocd-initial-admin-secret</code> 的 <code>Secret </code>对象下的 <code>password</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl -n argocd get secret <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>argocd-initial-admin-secret <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>-o <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&#34;{.data.password}&#34;</span> <span class="p">|</span> base64 -d
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="命令行可以使用以下方式登录">命令行可以使用以下方式登录</h3>
-<blockquote>
-<p>argocd login &lt;节点 IP&gt;:&lt;端口&gt;</p>
-</blockquote>
-<h3 id="进入ui界面配置">进入UI界面配置</h3>
-<p>输入地址： 例如：https://10.10.1.1:31751，输入用户名<code>admin</code>和密码<br>
-</p>
-<h4 id="因为我是私有化仓库部署所以要配置私有化gitlab仓库">因为我是私有化仓库部署所以要配置私有化gitlab仓库</h4>
-<p><br>
-<br>
-</p>
-<h2 id="部署服务">部署服务</h2>
-<h3 id="创建yaml文件">创建yaml文件</h3>
-<p>我提前在代码仓库写好了nginx的yaml文件<br>
-<code>deployment.yaml</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1	#与k8s集群版本有关，使用 kubectl api-versions 即可查看当前集群支持的版本</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Deployment	#该配置的类型，我们使用的是 Deployment</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">metadata:	       </span><span class="w"> </span><span class="c">#译名为元数据，即 Deployment 的一些基本属性和信息</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx-deployment	#Deployment 的名称</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">labels:	   </span><span class="w"> </span><span class="c">#标签，可以灵活定位一个或多个资源，其中key和value均可自定义，可以定义多组，目前不需要理解</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx	#为该Deployment设置key为app，value为nginx的标签</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">spec:	       </span><span class="w"> </span><span class="c">#这是关于该Deployment的描述，可以理解为你期待该Deployment在k8s中如何使用</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">	</span><span class="c">#使用该Deployment创建一个应用程序实例</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">selector:	   </span><span class="w"> </span><span class="c">#标签选择器，与上面的标签共同作用，目前不需要理解</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w"> </span><span class="c">#选择包含标签app:nginx的资源</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">template:	   </span><span class="w"> </span><span class="c">#这是选择或创建的Pod的模板</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">metadata:	#Pod的元数据</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">labels:	#Pod的标签，上面的selector即选择包含标签app:nginx的Pod</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="l">spec:	   </span><span class="w"> </span><span class="c">#期望Pod实现的功能（即在pod中部署）</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="l">containers:	#生成container，与docker中的container是同一种</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx	#container的名称</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">nginx:1.7.9	#使用镜像nginx:1.7.9创建container，该container默认80访问</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">livenessProbe</span><span class="p">:</span><span class="w"> </span><span class="c"># 存活探针检测</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">httpGet</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/nginx_status</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">scheme</span><span class="p">:</span><span class="w"> </span><span class="l">HTTP</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">timeoutSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">successThreshold</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">failureThreshold</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">readinessProbe</span><span class="p">:</span><span class="w"> </span><span class="c"># 就绪探针检测</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">httpGet</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/nginx_status</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">scheme</span><span class="p">:</span><span class="w"> </span><span class="l">HTTP</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">timeoutSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">successThreshold</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">failureThreshold</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">startupProbe</span><span class="p">:</span><span class="w"> </span><span class="c"># 启动探针检测</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">httpGet</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">/nginx_status</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">scheme</span><span class="p">:</span><span class="w"> </span><span class="l">HTTP</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">timeoutSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">periodSeconds</span><span class="p">:</span><span class="w"> </span><span class="m">10</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">successThreshold</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">failureThreshold</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p><code>svc.yaml</code></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx-service	#Service 的名称</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">     	</span><span class="c">#Service 自己的标签</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx	#为该 Service 设置 key 为 app，value 为 nginx 的标签</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">spec:	   </span><span class="w"> </span><span class="c">#这是关于该 Service 的定义，描述了 Service 如何选择 Pod，如何被访问</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="l">selector:	   </span><span class="w"> </span><span class="c">#标签选择器</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">nginx	#选择包含标签 app:nginx 的 Pod</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">nginx-port	#端口的名字</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l">TCP	   </span><span class="w"> </span><span class="c">#协议类型 TCP/UDP</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">	        </span><span class="c">#集群内的其他容器组可通过 80 端口访问 Service</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">nodePort</span><span class="p">:</span><span class="w"> </span><span class="m">32600</span><span class="w">   </span><span class="c">#通过任意节点的 32600 端口访问 Service</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">	</span><span class="c">#将请求转发到匹配 Pod 的 80 端口</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">NodePort	#Serive的类型，ClusterIP/NodePort/LoaderBalancer</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="创建app">创建app</h3>
-<p><br>
-<br>
-<br>
-<br>
-</p>
-<h3 id="部署成功">部署成功</h3>
-<p></p>
 ]]></description>
 </item>
 </channel>
