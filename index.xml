@@ -4,9 +4,815 @@
         <link>https://www.jobcher.com/</link>
         <description>这里为你呈现最新、最炫、最有趣的科技资讯和技术话题。我们的网站致力于探索当下最前沿的科技发展和热门技术趋势，给你带来极具深度的解读和娱乐性十足的内容。无论你是科技爱好者、码农大佬还是普通用户，这里都有适合你的精彩内容。在这里，你可以畅游于未来科技的海洋，了解最新的科学研究成果和技术突破。我们为你深入剖析各种新兴技术，如人工智能、区块链、物联网、虚拟现实等等。你将发现这些领域中的创新，不仅改变了我们的生活方式，还带来了无限的可能性。共同见证科技带给我们的奇迹与变革！</description>
         <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor>
-            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 12 Dec 2023 00:00:00 &#43;0000</lastBuildDate>
+            <webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 13 Dec 2023 00:00:00 &#43;0000</lastBuildDate>
             <atom:link href="https://www.jobcher.com/index.xml" rel="self" type="application/rss+xml" />
         <item>
+    <title>Kubernetes — kubecost 分析 Kubernetes 成本</title>
+    <link>https://www.jobcher.com/container/</link>
+    <pubDate>Wed, 13 Dec 2023 00:00:00 &#43;0000</pubDate>
+    <author>jobcher</author>
+    <guid>https://www.jobcher.com/container/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/containerd-horizontal-color.png" referrerpolicy="no-referrer">
+            </div><h1 id="containerd">containerd</h1>
+<p>现在很多人说起容器都会说到docker，docker凭借镜像（images）快捷的部署，占领了极大的技术市场，docker公司将自己的核心依赖 Contanerd 捐给了 CNCF，这个就是contanerd的由来，containerd 在kubernetes在 v1.24之后的版本作为底层核心进行使用。</p>
+<h2 id="containerd架构">Containerd架构</h2>
+<p><br>
+可以看到 Containerd 仍然采用标准的 <code>C/S</code> 架构，服务端通过 <code>GRPC</code> 协议提供稳定的 <code>API</code>，客户端通过调用服务端的 API 进行高级的操作。
+为了解耦，Containerd 将不同的职责划分给不同的组件，每个组件就相当于一个<code>子系统（subsystem）</code>。连接不同子系统的组件被称为模块。
+总体上 Containerd 被划分为两个子系统：</p>
+<ul>
+<li><strong>Bundle</strong> : 在 Containerd 中，Bundle 包含了配置、元数据和根文件系统数据，你可以理解为容器的文件系统。而 Bundle 子系统允许用户从镜像中提取和打包 Bundles。</li>
+<li><strong>Runtime</strong> : Runtime 子系统用来执行 Bundles，比如创建容器。</li>
+</ul>
+<p>其中，每一个子系统的行为都由一个或多个模块协作完成（架构图中的 Core 部分）。每一种类型的模块都以插件的形式集成到 Containerd 中，而且插件之间是相互依赖的。例如，上图中的每一个长虚线的方框都表示一种类型的插件，包括 <code>Service Plugin</code>、<code>Metadata Plugin</code>、<code>GC Plugin</code>、<code>Runtime Plugin</code> 等，其中 Service Plugin 又会依赖 <code>Metadata Plugin</code>、<code>GC Plugin</code> 和 <code>Runtime Plugin</code>。每一个小方框都表示一个细分的插件，例如 Metadata Plugin 依赖 Containers Plugin、Content Plugin 等。 总之，万物皆插件，插件就是模块，模块就是插件。</p>
+<h3 id="常用插件">常用插件</h3>
+<ul>
+<li><strong>Content Plugin</strong> : 提供对镜像中可寻址内容的访问，所有不可变的内容都被存储在这里。</li>
+<li><strong>Snapshot Plugin</strong> : 用来管理容器镜像的文件系统快照。镜像中的每一个 layer 都会被解压成文件系统快照，类似于 Docker 中的 graphdriver。</li>
+<li><strong>Metrics</strong> : 暴露各个组件的监控指标。</li>
+</ul>
+<h2 id="安装">安装</h2>
+<h3 id="卸载docker">卸载docker</h3>
+<p>首先要保证环境干净整洁，如果你有安装docker服务，需要先卸载docker，如果没有安装可以跳过</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo apt-get remove docker docker-engine docker.io containerd runc
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>删除数据</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo rm -rf /var/lib/docker
+</span></span><span class="line"><span class="cl">sudo rm -rf /var/lib/containerd
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="准备包环境">准备包环境</h3>
+<p>更换软件源，可以参考这篇文章 <a href="https://www.jobcher.com/linux-mirror/" target="_blank" rel="noopener noreffer ">GNU/Linux 一键更换系统软件源脚本</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">bash &lt;<span class="o">(</span>curl -sSL https://www.jobcher.com/ChangeMirrors.sh<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>更新apt，允许使用https</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo apt-get updates
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"> sudo apt-get install <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    ca-certificates <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    curl <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    gnupg <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>    lsb-release
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>添加docker官方GPG key</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo mkdir -p /etc/apt/keyrings
+</span></span><span class="line"><span class="cl">curl -fsSL https://download.docker.com/linux/ubuntu/gpg <span class="p">|</span> sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>设置软件仓库源</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="s2">&#34;deb [arch=</span><span class="k">$(</span>dpkg --print-architecture<span class="k">)</span><span class="s2"> signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+</span></span></span><span class="line"><span class="cl"><span class="s2">  </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> stable&#34;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="安装containerd">安装containerd</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 安装containerd</span>
+</span></span><span class="line"><span class="cl">sudo apt-get update
+</span></span><span class="line"><span class="cl">sudo apt-get install -y containerd.io
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 如果是安装docker则执行：</span>
+</span></span><span class="line"><span class="cl">sudo apt-get install docker-ce docker-ce-cli containerd.io
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 查看运行状态</span>
+</span></span><span class="line"><span class="cl">systemctl <span class="nb">enable</span> containerd
+</span></span><span class="line"><span class="cl">systemctl status containerd
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="检查安装">检查安装</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ctr version
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="命令">命令</h2>
+<p>containerd 相比于docker , 多了namespace概念, 每个image和container 都会在各自的namespace下可见, 目前k8s会使用k8s.io 作为命名空间</p>
+<h3 id="查看-images">查看 images</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ctr image list
+</span></span><span class="line"><span class="cl"><span class="c1"># 缩写</span>
+</span></span><span class="line"><span class="cl">ctr i list
+</span></span><span class="line"><span class="cl">ctr i ls
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="images-打tag">images 打tag</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ctr -n k8s.io i tag pause:3.2 k8s.gcr.io/pause:3.2
+</span></span><span class="line"><span class="cl"><span class="c1">#注意: 若新镜像reference 已存在, 需要先删除新reference, 或者如下方式强制替换</span>
+</span></span><span class="line"><span class="cl">ctr -n k8s.io i tag --force pause:3.2 k8s.gcr.io/pause:3.2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="删除镜像">删除镜像</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ctr -n k8s.io i rm k8s.gcr.io/pause:3.2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="拉取镜像">拉取镜像</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ctr -n k8s.io i pull -k k8s.gcr.io/pause:3.2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="推送镜像">推送镜像</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ctr -n k8s.io i push -k k8s.gcr.io/pause:3.2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="导出镜像">导出镜像</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ctr -n k8s.io i <span class="nb">export</span> pause.tar k8s.gcr.io/pause:3.2
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="导入镜像">导入镜像</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ctr -n k8s.io i import pause.tar
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="查看容器相关操作">查看容器相关操作</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ctr c
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="运行容器">运行容器</h3>
+<ul>
+<li>–null-io: 将容器内标准输出重定向到/dev/null</li>
+<li>–net-host: 主机网络</li>
+<li>-d: 当task执行后就进行下一步shell命令,如没有选项,则会等待用户输入,并定向到容器内</li>
+<li>–mount 挂载本地目录或文件到容器</li>
+<li>–env 环境变量</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ctr -n k8s.io run --null-io --net-host -d <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>–env <span class="nv">PASSWORD</span><span class="o">=</span><span class="s2">&#34;123456&#34;</span>
+</span></span><span class="line"><span class="cl">–mount <span class="nv">type</span><span class="o">=</span>bind,src<span class="o">=</span>/etc,dst<span class="o">=</span>/host-etc,options<span class="o">=</span>rbind:rw
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="查看日志">查看日志</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ctr -n k8s.io run --log-uri file:///var/log/xx.log
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="ctr和docker比较">ctr和docker比较</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Containerd命令</th>
+<th style="text-align:left">Docker命令</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">ctr task ls</td>
+<td style="text-align:left">docker ps</td>
+<td style="text-align:left">查看运行容器</td>
+</tr>
+<tr>
+<td style="text-align:left">ctr image ls</td>
+<td style="text-align:left">docker images</td>
+<td style="text-align:left">获取image信息</td>
+</tr>
+<tr>
+<td style="text-align:left">ctr image pull pause</td>
+<td style="text-align:left">docker pull pause	pull</td>
+<td style="text-align:left">应该pause镜像</td>
+</tr>
+<tr>
+<td style="text-align:left">ctr image push pause-test</td>
+<td style="text-align:left">docker push pause-test</td>
+<td style="text-align:left">改名</td>
+</tr>
+<tr>
+<td style="text-align:left">ctr image import pause.tar</td>
+<td style="text-align:left">docker load 镜像</td>
+<td style="text-align:left">导入本地镜像</td>
+</tr>
+<tr>
+<td style="text-align:left">ctr run -d pause-test pause</td>
+<td style="text-align:left">docker run -d &ndash;name=pause pause-test</td>
+<td style="text-align:left">运行容器</td>
+</tr>
+<tr>
+<td style="text-align:left">ctr image tag pause pause-test</td>
+<td style="text-align:left">docker tag pause pause-test</td>
+<td style="text-align:left">tag应该pause镜像</td>
+</tr>
+</tbody>
+</table>
+<h3 id="crictl-命令">crictl 命令</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># 通过在配置文件中设置端点 --config=/etc/crictl.yaml</span>
+</span></span><span class="line"><span class="cl">root@k8s-node-0001:~$ cat /etc/crictl.yaml
+</span></span><span class="line"><span class="cl">runtime-endpoint: unix:///run/containerd/containerd.sock
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>列出业务容器状态</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">crictl inspect ee20ec2346fc5
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>查看运行中容器</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">root@k8s-node-0001:~$ crictl pods
+</span></span><span class="line"><span class="cl">POD ID              CREATED             STATE               NAME                                                     NAMESPACE           ATTEMPT             RUNTIME
+</span></span><span class="line"><span class="cl">b39a7883a433d       <span class="m">10</span> minutes ago      Ready               canal-server-quark-b477b5d79-ql5l5                       mbz-alpha           <span class="m">0</span>                   <span class="o">(</span>default<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>打印某个固定pod</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">root@k8s-node-0001:~$ crictl pods --name canal-server-quark-b477b5d79-ql5l5
+</span></span><span class="line"><span class="cl">POD ID              CREATED             STATE               NAME                                 NAMESPACE           ATTEMPT             RUNTIME
+</span></span><span class="line"><span class="cl">b39a7883a433d       <span class="m">12</span> minutes ago      Ready               canal-server-quark-b477b5d79-ql5l5   mbz-alpha           <span class="m">0</span>                   <span class="o">(</span>default<span class="o">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>打印镜像</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">root@k8s-node-0001:~$ crictl images
+</span></span><span class="line"><span class="cl">IMAGE                                                          TAG                             IMAGE ID            SIZE
+</span></span><span class="line"><span class="cl">ccr.ccs.tencentyun.com/koderover-public/library-docker         stable-dind                     a6e51fd179fb8       74.6MB
+</span></span><span class="line"><span class="cl">ccr.ccs.tencentyun.com/koderover-public/library-nginx          stable                          588bb5d559c28       51MB
+</span></span><span class="line"><span class="cl">ccr.ccs.tencentyun.com/koderover-public/nsqio-nsq              v1.0.0-compat                   2714222e1b39d       22MB
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>只打印镜像 ID</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">root@k8s-node-0001:~$ crictl images -q
+</span></span><span class="line"><span class="cl">sha256:a6e51fd179fb849f4ec6faee318101d32830103f5615215716bd686c56afaea1
+</span></span><span class="line"><span class="cl">sha256:588bb5d559c2813834104ecfca000c9192e795ff3af473431497176b9cb5f2c3
+</span></span><span class="line"><span class="cl">sha256:2714222e1b39d8bd6300da72b0805061cabeca3b24def12ffddf47abd47e2263
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>打印容器清单</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">root@k8s-node-0001:~$ crictl ps -a
+</span></span><span class="line"><span class="cl">CONTAINER           IMAGE               CREATED             STATE               NAME                     ATTEMPT             POD ID
+</span></span><span class="line"><span class="cl">ee20ec2346fc5       c769a1937d035       <span class="m">13</span> minutes ago      Running             canal-server             <span class="m">0</span>                   b39a7883a433d
+</span></span><span class="line"><span class="cl">76226ddb736be       cc0c524d64c18       <span class="m">34</span> minutes ago      Running             mbz-rescue-manager       <span class="m">0</span>                   2f9d48c49e891
+</span></span><span class="line"><span class="cl">e2a19ff0591b4       eb40a52eb437d       About an hour ago   Running             <span class="nb">export</span>                   <span class="m">0</span>                   9844b5ea5fdbc
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>打印正在运行的容器清单</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">root@k8s-node-0001:~$ crictl ps
+</span></span><span class="line"><span class="cl">CONTAINER           IMAGE               CREATED             STATE               NAME                   ATTEMPT             POD ID
+</span></span><span class="line"><span class="cl">ee20ec2346fc5       c769a1937d035       <span class="m">13</span> minutes ago      Running             canal-server           <span class="m">0</span>                   b39a7883a433d
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>容器上执行命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">root@k8s-node-0001:~$ crictl <span class="nb">exec</span> -i -t ee20ec2346fc5 ls
+</span></span><span class="line"><span class="cl">app.sh  bin  canal-server  health.sh  node_exporter  node_exporter-0.18.1.linux-arm64
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>获取容器的所有日志</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">root@k8s-node-0001:~$ crictl logs ee20ec2346fc5
+</span></span><span class="line"><span class="cl"><span class="nv">DOCKER_DEPLOY_TYPE</span><span class="o">=</span><span class="nv">VM</span>
+</span></span><span class="line"><span class="cl"><span class="o">==</span>&gt; INIT /alidata/init/02init-sshd.sh
+</span></span><span class="line"><span class="cl"><span class="o">==</span>&gt; EXIT CODE: <span class="nv">0</span>
+</span></span><span class="line"><span class="cl"><span class="o">==</span>&gt; INIT /alidata/init/fix-hosts.py
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>获取最近的 N 行日志</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">root@k8s-node-0001:~$ crictl logs --tail<span class="o">=</span><span class="m">2</span> ee20ec2346fc5
+</span></span><span class="line"><span class="cl">start canal <span class="nv">successful</span>
+</span></span><span class="line"><span class="cl"><span class="o">==</span>&gt; START SUCCESSFUL ...
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>拉取镜像</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">crictl pull busybox
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="配置">配置</h2>
+<h3 id="生成配置文件">生成配置文件</h3>
+<p><code>Containerd</code> 的默认配置文件为 <code>/etc/containerd/config.toml</code>，我们可以通过命令来生成一个默认的配置：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">mkdir /etc/containerd
+</span></span><span class="line"><span class="cl">containerd config default &gt; /etc/containerd/config.toml
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="镜像加速">镜像加速</h3>
+<p>由于某些不可描述的因素，在国内拉取公共镜像仓库的速度是极慢的，为了节约拉取时间，需要为Containerd 配置镜像仓库的 mirror。Containerd 的镜像仓库 mirror 与 Docker 相比有两个区别：</p>
+<ul>
+<li><code>Containerd</code> 只支持通过 CRI 拉取镜像的 mirror，也就是说，只有通过 crictl 或者 Kubernetes 调用时 mirror 才会生效，通过 ctr 拉取是不会生效的。</li>
+<li><code>Docker</code> 只支持为 Docker Hub 配置 mirror，而 Containerd 支持为任意镜像仓库配置 mirror。</li>
+</ul>
+<h4 id="containerd-的配置结构">Containerd 的配置结构</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">[plugins]
+</span></span><span class="line"><span class="cl">  [plugins.&#34;io.containerd.gc.v1.scheduler&#34;]
+</span></span><span class="line"><span class="cl">    pause_threshold = 0.02
+</span></span><span class="line"><span class="cl">    deletion_threshold = 0
+</span></span><span class="line"><span class="cl">    mutation_threshold = 100
+</span></span><span class="line"><span class="cl">    schedule_delay = &#34;0s&#34;
+</span></span><span class="line"><span class="cl">    startup_delay = &#34;100ms&#34;
+</span></span><span class="line"><span class="cl">  [plugins.&#34;io.containerd.grpc.v1.cri&#34;]
+</span></span><span class="line"><span class="cl">    disable_tcp_service = true
+</span></span><span class="line"><span class="cl">    stream_server_address = &#34;127.0.0.1&#34;
+</span></span><span class="line"><span class="cl">    stream_server_port = &#34;0&#34;
+</span></span><span class="line"><span class="cl">    stream_idle_timeout = &#34;4h0m0s&#34;
+</span></span><span class="line"><span class="cl">    enable_selinux = false
+</span></span><span class="line"><span class="cl">    sandbox_image = &#34;k8s.gcr.io/pause:3.1&#34;
+</span></span><span class="line"><span class="cl">    stats_collect_period = 10
+</span></span><span class="line"><span class="cl">    systemd_cgroup = false
+</span></span><span class="line"><span class="cl">    enable_tls_streaming = false
+</span></span><span class="line"><span class="cl">    max_container_log_line_size = 16384
+</span></span><span class="line"><span class="cl">    disable_cgroup = false
+</span></span><span class="line"><span class="cl">    disable_apparmor = false
+</span></span><span class="line"><span class="cl">    restrict_oom_score_adj = false
+</span></span><span class="line"><span class="cl">    max_concurrent_downloads = 3
+</span></span><span class="line"><span class="cl">    disable_proc_mount = false
+</span></span><span class="line"><span class="cl">    [plugins.&#34;io.containerd.grpc.v1.cri&#34;.containerd]
+</span></span><span class="line"><span class="cl">      snapshotter = &#34;overlayfs&#34;
+</span></span><span class="line"><span class="cl">      default_runtime_name = &#34;runc&#34;
+</span></span><span class="line"><span class="cl">      no_pivot = false
+</span></span><span class="line"><span class="cl">      [plugins.&#34;io.containerd.grpc.v1.cri&#34;.containerd.default_runtime]
+</span></span><span class="line"><span class="cl">        runtime_type = &#34;&#34;
+</span></span><span class="line"><span class="cl">        runtime_engine = &#34;&#34;
+</span></span><span class="line"><span class="cl">        runtime_root = &#34;&#34;
+</span></span><span class="line"><span class="cl">        privileged_without_host_devices = false
+</span></span><span class="line"><span class="cl">      [plugins.&#34;io.containerd.grpc.v1.cri&#34;.containerd.untrusted_workload_runtime]
+</span></span><span class="line"><span class="cl">        runtime_type = &#34;&#34;
+</span></span><span class="line"><span class="cl">        runtime_engine = &#34;&#34;
+</span></span><span class="line"><span class="cl">        runtime_root = &#34;&#34;
+</span></span><span class="line"><span class="cl">        privileged_without_host_devices = false
+</span></span><span class="line"><span class="cl">      [plugins.&#34;io.containerd.grpc.v1.cri&#34;.containerd.runtimes]
+</span></span><span class="line"><span class="cl">        [plugins.&#34;io.containerd.grpc.v1.cri&#34;.containerd.runtimes.runc]
+</span></span><span class="line"><span class="cl">          runtime_type = &#34;io.containerd.runc.v1&#34;
+</span></span><span class="line"><span class="cl">          runtime_engine = &#34;&#34;
+</span></span><span class="line"><span class="cl">          runtime_root = &#34;&#34;
+</span></span><span class="line"><span class="cl">          privileged_without_host_devices = false
+</span></span><span class="line"><span class="cl">    [plugins.&#34;io.containerd.grpc.v1.cri&#34;.cni]
+</span></span><span class="line"><span class="cl">      bin_dir = &#34;/opt/cni/bin&#34;
+</span></span><span class="line"><span class="cl">      conf_dir = &#34;/etc/cni/net.d&#34;
+</span></span><span class="line"><span class="cl">      max_conf_num = 1
+</span></span><span class="line"><span class="cl">      conf_template = &#34;&#34;
+</span></span><span class="line"><span class="cl">    [plugins.&#34;io.containerd.grpc.v1.cri&#34;.registry]
+</span></span><span class="line"><span class="cl">      [plugins.&#34;io.containerd.grpc.v1.cri&#34;.registry.mirrors]
+</span></span><span class="line"><span class="cl">        [plugins.&#34;io.containerd.grpc.v1.cri&#34;.registry.mirrors.&#34;docker.io&#34;]
+</span></span><span class="line"><span class="cl">          endpoint = [&#34;https://registry-1.docker.io&#34;]
+</span></span><span class="line"><span class="cl">    [plugins.&#34;io.containerd.grpc.v1.cri&#34;.x509_key_pair_streaming]
+</span></span><span class="line"><span class="cl">      tls_cert_file = &#34;&#34;
+</span></span><span class="line"><span class="cl">      tls_key_file = &#34;&#34;
+</span></span><span class="line"><span class="cl">  [plugins.&#34;io.containerd.internal.v1.opt&#34;]
+</span></span><span class="line"><span class="cl">    path = &#34;/opt/containerd&#34;
+</span></span><span class="line"><span class="cl">  [plugins.&#34;io.containerd.internal.v1.restart&#34;]
+</span></span><span class="line"><span class="cl">    interval = &#34;10s&#34;
+</span></span><span class="line"><span class="cl">  [plugins.&#34;io.containerd.metadata.v1.bolt&#34;]
+</span></span><span class="line"><span class="cl">    content_sharing_policy = &#34;shared&#34;
+</span></span><span class="line"><span class="cl">  [plugins.&#34;io.containerd.monitor.v1.cgroups&#34;]
+</span></span><span class="line"><span class="cl">    no_prometheus = false
+</span></span><span class="line"><span class="cl">  [plugins.&#34;io.containerd.runtime.v1.linux&#34;]
+</span></span><span class="line"><span class="cl">    shim = &#34;containerd-shim&#34;
+</span></span><span class="line"><span class="cl">    runtime = &#34;runc&#34;
+</span></span><span class="line"><span class="cl">    runtime_root = &#34;&#34;
+</span></span><span class="line"><span class="cl">    no_shim = false
+</span></span><span class="line"><span class="cl">    shim_debug = false
+</span></span><span class="line"><span class="cl">  [plugins.&#34;io.containerd.runtime.v2.task&#34;]
+</span></span><span class="line"><span class="cl">    platforms = [&#34;linux/amd64&#34;]
+</span></span><span class="line"><span class="cl">  [plugins.&#34;io.containerd.service.v1.diff-service&#34;]
+</span></span><span class="line"><span class="cl">    default = [&#34;walking&#34;]
+</span></span><span class="line"><span class="cl">  [plugins.&#34;io.containerd.snapshotter.v1.devmapper&#34;]
+</span></span><span class="line"><span class="cl">    root_path = &#34;&#34;
+</span></span><span class="line"><span class="cl">    pool_name = &#34;&#34;
+</span></span><span class="line"><span class="cl">    base_image_size = &#34;&#34;
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>每一个顶级配置块的命名都是 <code>plugins.&quot;io.containerd.xxx.vx.xxx&quot;</code> 这种形式，其实每一个顶级配置块都代表一个插件，其中 <code>io.containerd.xxx.vx</code> 表示插件的类型，<code>vx</code> 后面的 <code>xxx</code> 表示插件的 <code>ID</code>。可以通过 <code>ctr</code> 一览无余：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">ctr plugin ls
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>镜像加速的配置就在 cri 插件配置块下面的 registry 配置块，所以需要修改的部分如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">    [plugins.&#34;io.containerd.grpc.v1.cri&#34;.registry]
+</span></span><span class="line"><span class="cl">      [plugins.&#34;io.containerd.grpc.v1.cri&#34;.registry.mirrors]
+</span></span><span class="line"><span class="cl">        [plugins.&#34;io.containerd.grpc.v1.cri&#34;.registry.mirrors.&#34;docker.io&#34;]
+</span></span><span class="line"><span class="cl">          endpoint = [&#34;https://dockerhub.mirrors.nwafu.edu.cn&#34;]
+</span></span><span class="line"><span class="cl">        [plugins.&#34;io.containerd.grpc.v1.cri&#34;.registry.mirrors.&#34;k8s.gcr.io&#34;]
+</span></span><span class="line"><span class="cl">          endpoint = [&#34;https://registry.aliyuncs.com/k8sxio&#34;]
+</span></span><span class="line"><span class="cl">        [plugins.&#34;io.containerd.grpc.v1.cri&#34;.registry.mirrors.&#34;gcr.io&#34;]
+</span></span><span class="line"><span class="cl">          endpoint = [&#34;xxx&#34;]
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>registry.mirrors.“xxx”</code> : 表示需要配置 mirror 的镜像仓库。例如，registry.mirrors.&ldquo;docker.io&rdquo; 表示配置 docker.io 的 mirror。</li>
+<li><code>endpoint</code> : 表示提供 mirror 的镜像加速服务。例如，这里推荐使用西北农林科技大学提供的镜像加速服务作为 docker.io 的 mirror。</li>
+</ul>
+<blockquote>
+<p>gcr.io 暂时没有公共加速服务，各位可以自己搭建或者找个公共服务</p>
+</blockquote>
+<h3 id="存储配置">存储配置</h3>
+<p>Containerd 有两个不同的存储路径，一个用来保存持久化数据，一个用来保存运行时状态。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">root</span> <span class="o">=</span> <span class="s2">&#34;/var/lib/containerd&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="nv">state</span> <span class="o">=</span> <span class="s2">&#34;/run/containerd&#34;</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>root用来保存持久化数据，包括 Snapshots, Content, Metadata 以及各种插件的数据。每一个插件都有自己单独的目录，Containerd 本身不存储任何数据，它的所有功能都来自于已加载的插件，真是太机智了。</li>
+<li>state 用来保存临时数据，包括 sockets、pid、挂载点、运行时状态以及不需要持久化保存的插件数据。</li>
+</ul>
+<h3 id="oom配置">OOM配置</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nv">oom_score</span> <span class="o">=</span> <span class="m">0</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Containerd 是容器的守护者，一旦发生内存不足的情况，理想的情况应该是先杀死容器，而不是杀死 Containerd。所以需要调整 Containerd 的 <code>OOM 权重</code>，减少其被 <code>OOM Kill</code> 的几率。最好是将 oom_score 的值调整为比其他守护进程略低的值。这里的 oom_socre 其实对应的是 <code>/proc/&lt;pid&gt;/oom_socre_adj</code>，在早期的 Linux 内核版本里使用 <code>oom_adj</code> 来调整权重, 后来改用 <code>oom_socre_adj</code> 了<br>
+在计算最终的 <code>badness score</code> 时，会在计算结果是中加上 <code>oom_score_adj</code> ,这样用户就可以通过该在值来保护某个进程不被杀死或者每次都杀某个进程。其取值范围为 <code>-1000</code> 到 <code>1000</code>。<br>
+如果将该值设置为 <code>-1000</code>，则进程永远不会被杀死，因为此时 <code>badness score</code> 永远返回0。<br>
+建议 Containerd 将该值设置为<code>-999</code> 到 <code>0</code>之间。如果作为 Kubernetes 的 Worker 节点，可以考虑设置为 <code>-999</code></p>
+<h2 id="nerdctlbuildkitd编译docker镜像">nerdctl+buildkitd编译docker镜像</h2>
+<p>Containerd不存在编译镜像的命令，因此我们要找其他工具代替，我们使用nerdctl代替镜像编译</p>
+<h3 id="下载">下载</h3>
+<p><a href="https://github.com/containerd/nerdctl/releases" target="_blank" rel="noopener noreffer ">代码地址</a><br>
+这里我们下载完整版(完整版不仅有 netdctl 命令，还包含了 buildkitd、 buildctl、ctr、runc 等 containerd 相关的命令,如果嫌臃肿可以单独下载安装buildkitd)，amd版，各位可以根据需求下载</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">wget https://github.jobcher.com/gh/https://github.com/containerd/nerdctl/releases/download/v1.7.2/nerdctl-full-1.7.2-linux-amd64.tar.gz
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">tar -zxvf nerdctl-full-1.7.2-linux-amd64.tar.gz
+</span></span><span class="line"><span class="cl">mv nerdctl /usr/bin/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="配置-1">配置</h3>
+<p>完整版的 lib 目录下有现成的 <code>buildkit.service</code> 文件，不过需要注意 <code>buildkitd</code> 命令的路径，文件内默认的路径是 <code>/usr/local/bin/buildkitd</code>，需要把二进制文件放到指定路径下，或者修改文件的默认路径</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">cp lib/systemd/system/buildkit.service /lib/systemd/system/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>执行 nerdctl build 需要保证 buildctl 命令在系统 PATH 环境变量中可查</p>
+</blockquote>
+<h3 id="启动-buildkit">启动 buildkit</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">systemctl <span class="nb">enable</span> buildkit.service --now
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>Dockerfile 测试</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="cl"><span class="k">FROM</span><span class="s"> alpine:3.16.3</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENV</span> <span class="nv">LANG</span><span class="o">=</span>en_US.UTF-8<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">ENV</span> <span class="nv">TZ</span><span class="o">=</span><span class="s2">&#34;Asia/Shanghai&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">RUN</span> <span class="nb">echo</span> <span class="s1">&#39;/bin/sleep 315360000&#39;</span> &gt; start.sh<span class="err">
+</span></span></span><span class="line"><span class="cl"><span class="err"></span><span class="k">CMD</span> <span class="p">[</span><span class="s2">&#34;sh&#34;</span><span class="p">,</span><span class="s2">&#34;start.sh&#34;</span><span class="p">]</span><span class="err">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>构建</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nerdctl build -t alpine:3.16.3-test .
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="登录到私有harbor">登录到私有harbor</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nerdctl login harbor.dev.com
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="推送镜像-1">推送镜像</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">nerdctl push harbor.dev.com/test/alpine:3.16.3-test
+</span></span></code></pre></td></tr></table>
+</div>
+</div>]]></description>
+</item>
+<item>
     <title>2023-12-12 打工人日报</title>
     <link>https://www.jobcher.com/github_trending_2023-12-12/</link>
     <pubDate>Tue, 12 Dec 2023 00:00:00 &#43;0000</pubDate>
@@ -1862,208 +2668,6 @@ A被入侵后有办法控制B吗.A开了公网的22端口.B的3389只在局域�
 <p><span class="emoji">🗣️</span> 年会素材合集<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6092?q=%23%E8%B5%84%E6%BA%90">#资源</a> <a href="https://t.me/abskoop/6092?q=%23%E5%A4%B8%E5%85%8B%E7%BD%91%E7%9B%98">#夸克网盘</a> <a href="https://t.me/abskoop/6092?q=%23%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98">#阿里云盘</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/51352/" target="_blank" rel="noopener">https://www.ahhhhfs.com/51352/</a></p>
 <h4 id="--spotify音乐下载工具-支持flac无损音乐下载-spotify-bot--趣站-spotify下载器-telegram_bot--httpswwwahhhhfscom51377">🖼 🗣️ Spotify音乐下载工具 支持Flac无损音乐下载-Spotify BOT 🏷️ #趣站 #Spotify下载器 #Telegram_Bot 👉 <a href="https://www.ahhhhfs.com/51377/" target="_blank" rel="noopener noreffer ">https://www.ahhhhfs.com/51377/</a></h4>
 <p><span class="emoji">🗣️</span> Spotify音乐下载工具 支持Flac无损音乐下载-Spotify BOT<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6091?q=%23%E8%B6%A3%E7%AB%99">#趣站</a> <a href="https://t.me/abskoop/6091?q=%23Spotify%E4%B8%8B%E8%BD%BD%E5%99%A8">#Spotify下载器</a> <a href="https://t.me/abskoop/6091?q=%23Telegram_Bot">#Telegram_Bot</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/51377/" target="_blank" rel="noopener">https://www.ahhhhfs.com/51377/</a></p>
-]]></description>
-</item>
-<item>
-    <title>2023-12-04 打工人日报</title>
-    <link>https://www.jobcher.com/github_trending_2023-12-04/</link>
-    <pubDate>Mon, 04 Dec 2023 00:00:00 &#43;0000</pubDate>
-    <author>jobcher</author>
-    <guid>https://www.jobcher.com/github_trending_2023-12-04/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/wallpaper/2023-12-04.jpg.webp" referrerpolicy="no-referrer">
-            </div><h2 id="微博热搜榜">微博热搜榜</h2>
-<ul>
-<li>排名 1.<a href="https://s.weibo.com/weibo?q=%e4%b9%a0%e8%bf%91%e5%b9%b3%e5%90%91%e9%a6%96%e5%b1%8a%e8%89%af%e6%b8%9a%e8%ae%ba%e5%9d%9b%e8%87%b4%e8%b4%ba%e4%bf%a1" target="_blank" rel="noopener noreffer ">习近平向首届良渚论坛致贺信</a></li>
-<li>排名 2.<a href="https://s.weibo.com/weibo?q=%e4%b8%be%e6%8a%a5%e8%80%85%e7%a7%b0%e4%ba%94%e6%9c%88%e5%a4%a9%e4%b8%8b%e5%9c%ba%e7%9b%b4%e6%92%ad%e6%98%af%e6%b7%b7%e6%b7%86%e8%a7%86%e5%90%ac" target="_blank" rel="noopener noreffer ">举报者称五月天下场直播是混淆视听</a></li>
-<li>排名 3.<a href="https://s.weibo.com/weibo?q=%e7%9b%b8%e4%bf%a1%e9%9f%b3%e4%b9%90%e4%ba%94%e6%9c%88%e5%a4%a9%e9%82%80%e4%bd%a0%e8%a7%81%e8%af%81%e7%8e%b0%e5%9c%ba" target="_blank" rel="noopener noreffer ">相信音乐 五月天邀你见证现场</a></li>
-<li>排名 4.<a href="https://s.weibo.com/weibo?q=%e6%96%b0%e5%8d%83%e9%87%8c%e6%b1%9f%e5%b1%b1%e5%9b%be" target="_blank" rel="noopener noreffer ">新千里江山图</a></li>
-<li>排名 5.<a href="https://s.weibo.com/weibo?q=%e6%95%99%e5%b8%88%e9%95%bf%e6%9c%9f%e5%bc%ba%e5%a5%b85%e5%90%8d%e5%a5%b3%e5%ad%a6%e7%94%9f%e8%a2%ab%e6%89%a7%e8%a1%8c%e6%ad%bb%e5%88%91" target="_blank" rel="noopener noreffer ">教师长期强奸5名女学生被执行死刑</a></li>
-<li>排名 6.<a href="https://s.weibo.com/weibo?q=%e9%95%bf%e6%9c%9f%e7%bc%ba%e8%a7%89%e5%ae%b9%e6%98%93%e8%af%b1%e5%8f%91%e8%bf%995%e7%a7%8d%e7%96%be%e7%97%85" target="_blank" rel="noopener noreffer ">长期缺觉容易诱发这5种疾病</a></li>
-<li>排名 7.<a href="https://s.weibo.com/weibo?q=%e8%85%be%e8%ae%af%e4%bc%9a%e5%91%98%e6%b2%a1%e4%ba%86" target="_blank" rel="noopener noreffer ">腾讯会员 没了</a></li>
-<li>排名 8.<a href="https://s.weibo.com/weibo?q=%e8%81%8c%e7%a7%b0%e8%af%84%e5%ae%a1%e5%8c%85%e8%bf%87%e7%b3%bb%e8%b0%a3%e8%a8%80" target="_blank" rel="noopener noreffer ">职称评审包过系谣言</a></li>
-<li>排名 9.<a href="https://s.weibo.com/weibo?q=%e6%96%87%e6%97%85%e5%b1%80%e5%9b%9e%e5%ba%94%e4%ba%94%e6%9c%88%e5%a4%a9%e7%96%91%e4%bc%bc%e5%81%87%e5%94%b1" target="_blank" rel="noopener noreffer ">文旅局回应五月天疑似假唱</a></li>
-<li>排名 10.<a href="https://s.weibo.com/weibo?q=%e7%a9%bf%e5%8d%ab%e8%a1%a3%e5%b0%b1%e8%bf%99%e6%a0%b7%e6%89%8e%e4%b8%b8%e5%ad%90%e5%a4%b4" target="_blank" rel="noopener noreffer ">穿卫衣就这样扎丸子头</a></li>
-<li>排名 11.<a href="https://s.weibo.com/weibo?q=%e5%a7%a5%e5%a7%a5%e5%8e%bb%e4%b8%96%e4%b8%80%e5%91%a8%e5%90%8e%e5%a6%88%e5%a6%88%e5%8f%91%e7%9a%84%e7%9f%ad%e4%bf%a1" target="_blank" rel="noopener noreffer ">姥姥去世一周后妈妈发的短信</a></li>
-<li>排名 12.<a href="https://s.weibo.com/weibo?q=%e7%91%9e%e5%b9%b8%e7%8a%b6%e5%91%8a%e6%b3%b0%e5%9b%bd%e7%91%9e%e5%b9%b8%e8%b4%a5%e8%af%89" target="_blank" rel="noopener noreffer ">瑞幸状告泰国瑞幸败诉</a></li>
-<li>排名 13.<a href="https://s.weibo.com/weibo?q=%e7%91%9e%e5%b9%b8%e6%b3%b0%e5%81%87" target="_blank" rel="noopener noreffer ">瑞幸 泰假</a></li>
-<li>排名 14.<a href="https://s.weibo.com/weibo?q=%e5%a4%a7%e5%a6%88%e6%8d%a1%e5%88%b0%e6%89%8b%e6%9c%ba%e7%94%a8%e5%85%8d%e5%af%86%e6%94%af%e4%bb%98%e5%88%b7%e5%85%89%e4%bd%99%e9%a2%9d" target="_blank" rel="noopener noreffer ">大妈捡到手机用免密支付刷光余额</a></li>
-<li>排名 15.<a href="https://s.weibo.com/weibo?q=%e4%ba%94%e6%9c%88%e5%a4%a9%e7%bb%8f%e7%ba%aa%e6%96%b9%e5%a4%9a%e6%ac%a1%e6%8c%82%e6%96%ad%e5%aa%92%e4%bd%93%e7%94%b5%e8%af%9d" target="_blank" rel="noopener noreffer ">五月天经纪方多次挂断媒体电话</a></li>
-<li>排名 16.<a href="https://s.weibo.com/weibo?q=%e7%99%bd%e9%93%b6%e4%bb%b7%e6%a0%bc%e9%a3%99%e6%b6%a8" target="_blank" rel="noopener noreffer ">白银价格飙涨</a></li>
-<li>排名 17.<a href="https://s.weibo.com/weibo?q=%e4%b8%ad%e5%9b%bd%e7%94%b7%e5%ad%90%e6%8b%8d%e6%91%84%e4%b9%8c%e5%86%9b%e4%bd%9c%e6%88%98%e8%a2%ab%e5%88%a4%e5%88%91" target="_blank" rel="noopener noreffer ">中国男子拍摄乌军作战被判刑</a></li>
-<li>排名 18.<a href="https://s.weibo.com/weibo?q=%e5%8d%9a%e4%b8%bb%e5%86%8d%e6%9b%b4%e6%96%b0%e4%ba%94%e6%9c%88%e5%a4%a9%e7%9c%9f%e5%81%87%e5%94%b1%e9%89%b4%e5%ae%9a%e8%a7%86%e9%a2%91" target="_blank" rel="noopener noreffer ">博主再更新五月天真假唱鉴定视频</a></li>
-<li>排名 19.<a href="https://s.weibo.com/weibo?q=%e4%b8%80%e5%91%a8%e4%b8%8d%e6%b4%97%e8%84%b8%e4%b8%ba%e4%bb%80%e4%b9%88%e7%9a%ae%e8%82%a4%e5%8f%98%e5%a5%bd%e4%ba%86" target="_blank" rel="noopener noreffer ">一周不洗脸为什么皮肤变好了</a></li>
-<li>排名 20.<a href="https://s.weibo.com/weibo?q=%e4%ba%94%e6%9c%88%e5%a4%a9%e6%bc%94%e5%94%b1%e4%bc%9a%e4%b8%be%e5%8a%9e%e6%96%b9%e7%a7%b0%e4%b8%8d%e6%96%b9%e4%be%bf%e5%9b%9e%e7%ad%94" target="_blank" rel="noopener noreffer ">五月天演唱会举办方称不方便回答</a></li>
-</ul>
-<h2 id="github-热门榜单">GitHub 热门榜单</h2>
-<h4 id="排名-1lc044wechatmsg">排名 1:/LC044/WeChatMsg</h4>
-<ul>
-<li>简介: 提取微信聊天记录，将其导出成HTML、Word、CSV文档永久保存，对聊天记录进行分析生成年度聊天报告</li>
-<li>URL: <a href="https://github.com/LC044/WeChatMsg" target="_blank" rel="noopener noreffer ">https://github.com/LC044/WeChatMsg</a></li>
-<li>作者: LC044</li>
-</ul>
-<h4 id="排名-2lllyasvielfooocus">排名 2:/lllyasviel/Fooocus</h4>
-<ul>
-<li>简介: 注重提示和生成</li>
-<li>URL: <a href="https://github.com/lllyasviel/Fooocus" target="_blank" rel="noopener noreffer ">https://github.com/lllyasviel/Fooocus</a></li>
-<li>作者: lllyasviel</li>
-</ul>
-<h4 id="排名-3facebookresearchseamless_communication">排名 3:/facebookresearch/seamless_communication</h4>
-<ul>
-<li>简介: 最新演讲和文本翻译的基本模式</li>
-<li>URL: <a href="https://github.com/facebookresearch/seamless_communication" target="_blank" rel="noopener noreffer ">https://github.com/facebookresearch/seamless_communication</a></li>
-<li>作者: facebookresearch</li>
-</ul>
-<h4 id="排名-4pytorch-labsgpt-fast">排名 4:/pytorch-labs/gpt-fast</h4>
-<ul>
-<li>简介: 在＜1000 LOC的python中，简单高效的pytorch原生transformer文本生成。</li>
-<li>URL: <a href="https://github.com/pytorch-labs/gpt-fast" target="_blank" rel="noopener noreffer ">https://github.com/pytorch-labs/gpt-fast</a></li>
-<li>作者: pytorch-labs</li>
-</ul>
-<h4 id="排名-5comfyanonymouscomfyui">排名 5:/comfyanonymous/ComfyUI</h4>
-<ul>
-<li>简介: 具有图形/节点界面的最强大、模块化的稳定扩散GUI。</li>
-<li>URL: <a href="https://github.com/comfyanonymous/ComfyUI" target="_blank" rel="noopener noreffer ">https://github.com/comfyanonymous/ComfyUI</a></li>
-<li>作者: comfyanonymous</li>
-</ul>
-<h4 id="排名-7practical-tutorialsproject-based-learning">排名 7:/practical-tutorials/project-based-learning</h4>
-<ul>
-<li>简介: 基于项目的教程策划列表</li>
-<li>URL: <a href="https://github.com/practical-tutorials/project-based-learning" target="_blank" rel="noopener noreffer ">https://github.com/practical-tutorials/project-based-learning</a></li>
-<li>作者: practical-tutorials</li>
-</ul>
-<h4 id="排名-8microsoftml-for-beginners">排名 8:/microsoft/ML-For-Beginners</h4>
-<ul>
-<li>简介: 12周，26节课，52次测验，经典的机器学习</li>
-<li>URL: <a href="https://github.com/microsoft/ML-For-Beginners" target="_blank" rel="noopener noreffer ">https://github.com/microsoft/ML-For-Beginners</a></li>
-<li>作者: microsoft</li>
-</ul>
-<h4 id="排名-9googlecomprehensive-rust">排名 9:/google/comprehensive-rust</h4>
-<ul>
-<li>简介: 这是谷歌安卓团队使用的Rust课程。它为您提供了快速教授Rust的材料。</li>
-<li>URL: <a href="https://github.com/google/comprehensive-rust" target="_blank" rel="noopener noreffer ">https://github.com/google/comprehensive-rust</a></li>
-<li>作者: google</li>
-</ul>
-<h4 id="排名-10laravelpulse">排名 10:/laravel/pulse</h4>
-<ul>
-<li>简介: Laravel Pulse是Laravel应用程序的实时应用程序性能监控工具和仪表板。</li>
-<li>URL: <a href="https://github.com/laravel/pulse" target="_blank" rel="noopener noreffer ">https://github.com/laravel/pulse</a></li>
-<li>作者: laravel</li>
-</ul>
-<h4 id="排名-11humanaigcanimateanyone">排名 11:/HumanAIGC/AnimateAnyone</h4>
-<ul>
-<li>简介: 为任何人制作动画：用于角色动画的一致且可控的图像到视频合成</li>
-<li>URL: <a href="https://github.com/HumanAIGC/AnimateAnyone" target="_blank" rel="noopener noreffer ">https://github.com/HumanAIGC/AnimateAnyone</a></li>
-<li>作者: HumanAIGC</li>
-</ul>
-<h4 id="排名-12rust-langrust">排名 12:/rust-lang/rust</h4>
-<ul>
-<li>简介: 使每个人都能构建可靠高效的软件。</li>
-<li>URL: <a href="https://github.com/rust-lang/rust" target="_blank" rel="noopener noreffer ">https://github.com/rust-lang/rust</a></li>
-<li>作者: rust-lang</li>
-</ul>
-<h4 id="排名-13unslothaiunsloth">排名 13:/unslothai/unsloth</h4>
-<ul>
-<li>简介: 速度快5倍，内存减少50%LLM微调</li>
-<li>URL: <a href="https://github.com/unslothai/unsloth" target="_blank" rel="noopener noreffer ">https://github.com/unslothai/unsloth</a></li>
-<li>作者: unslothai</li>
-</ul>
-<h4 id="排名-14othersideaiself-operating-computer">排名 14:/OthersideAI/self-operating-computer</h4>
-<ul>
-<li>简介: 一种使多模式模型能够操作计算机的框架。</li>
-<li>URL: <a href="https://github.com/OthersideAI/self-operating-computer" target="_blank" rel="noopener noreffer ">https://github.com/OthersideAI/self-operating-computer</a></li>
-<li>作者: OthersideAI</li>
-</ul>
-<h4 id="排名-15cloudcommunityfree-certifications">排名 15:/cloudcommunity/Free-Certifications</h4>
-<ul>
-<li>简介: 免费课程和证书的策划列表。</li>
-<li>URL: <a href="https://github.com/cloudcommunity/Free-Certifications" target="_blank" rel="noopener noreffer ">https://github.com/cloudcommunity/Free-Certifications</a></li>
-<li>作者: cloudcommunity</li>
-</ul>
-<h4 id="排名-16microsoftai-for-beginners">排名 16:/microsoft/AI-For-Beginners</h4>
-<ul>
-<li>简介: 12周，24节课，全民人工智能！</li>
-<li>URL: <a href="https://github.com/microsoft/AI-For-Beginners" target="_blank" rel="noopener noreffer ">https://github.com/microsoft/AI-For-Beginners</a></li>
-<li>作者: microsoft</li>
-</ul>
-<h4 id="排名-17dopplerhqawesome-interview-questions">排名 17:/DopplerHQ/awesome-interview-questions</h4>
-<ul>
-<li>简介: 精心策划的面试问题列表。欢迎投稿！🎓</li>
-<li>URL: <a href="https://github.com/DopplerHQ/awesome-interview-questions" target="_blank" rel="noopener noreffer ">https://github.com/DopplerHQ/awesome-interview-questions</a></li>
-<li>作者: DopplerHQ</li>
-</ul>
-<h4 id="排名-18developer-ycs-video-courses">排名 18:/Developer-Y/cs-video-courses</h4>
-<ul>
-<li>简介: 带视频讲座的计算机科学课程列表。</li>
-<li>URL: <a href="https://github.com/Developer-Y/cs-video-courses" target="_blank" rel="noopener noreffer ">https://github.com/Developer-Y/cs-video-courses</a></li>
-<li>作者: Developer-Y</li>
-</ul>
-<h4 id="排名-19samuelcolvinfastui">排名 19:/samuelcolvin/FastUI</h4>
-<ul>
-<li>简介: 更快地构建更好的UI。</li>
-<li>URL: <a href="https://github.com/samuelcolvin/FastUI" target="_blank" rel="noopener noreffer ">https://github.com/samuelcolvin/FastUI</a></li>
-<li>作者: samuelcolvin</li>
-</ul>
-<h4 id="排名-20kotlin-hands-onadvent-of-code-kotlin-template">排名 20:/kotlin-hands-on/advent-of-code-kotlin-template</h4>
-<ul>
-<li>简介: Kotlin代码模板项目的到来</li>
-<li>URL: <a href="https://github.com/kotlin-hands-on/advent-of-code-kotlin-template" target="_blank" rel="noopener noreffer ">https://github.com/kotlin-hands-on/advent-of-code-kotlin-template</a></li>
-<li>作者: kotlin-hands-on</li>
-</ul>
-<h4 id="排名-21appleswift-aoc-starter-example">排名 21:/apple/swift-aoc-starter-example</h4>
-<ul>
-<li>简介: Swift入门项目，用于解决即将到来的代码挑战。</li>
-<li>URL: <a href="https://github.com/apple/swift-aoc-starter-example" target="_blank" rel="noopener noreffer ">https://github.com/apple/swift-aoc-starter-example</a></li>
-<li>作者: apple</li>
-</ul>
-<h4 id="排名-23typeherotypehero">排名 23:/typehero/typehero</h4>
-<ul>
-<li>简介: 与TypeScript开发人员社区建立联系、协作和发展</li>
-<li>URL: <a href="https://github.com/typehero/typehero" target="_blank" rel="noopener noreffer ">https://github.com/typehero/typehero</a></li>
-<li>作者: typehero</li>
-</ul>
-<h4 id="排名-24explangcnnucleitp">排名 24:/ExpLangcn/NucleiTP</h4>
-<ul>
-<li>简介: 自动整合全网Nuclei的漏洞POC实时同步更新最新POC</li>
-<li>URL: <a href="https://github.com/ExpLangcn/NucleiTP" target="_blank" rel="noopener noreffer ">https://github.com/ExpLangcn/NucleiTP</a></li>
-<li>作者: ExpLangcn</li>
-</ul>
-<h2 id="v2ex-热门帖子">v2ex 热门帖子</h2>
-<ul>
-<li>1.<a href="https://www.v2ex.com/t/997361#reply20" target="_blank" rel="noopener noreffer ">AppleMusic已下载歌曲，经常无故被清空，反馈Apple支持也无果</a></li>
-<li>2.<a href="https://www.v2ex.com/t/997365#reply4" target="_blank" rel="noopener noreffer ">自己专注只能在十几分钟，过一会儿就思绪乱飞。</a></li>
-<li>3.<a href="https://www.v2ex.com/t/997362#reply2" target="_blank" rel="noopener noreffer ">分享一个基于Canvas的WEB端多功能画画板</a></li>
-<li>4.<a href="https://www.v2ex.com/t/997359#reply1" target="_blank" rel="noopener noreffer ">通过地理位置查询ip集</a></li>
-<li>5.<a href="https://www.v2ex.com/t/997364#reply1" target="_blank" rel="noopener noreffer ">卖少量的自家橙子🍊[产地：湖南]</a></li>
-<li>6.<a href="https://www.v2ex.com/t/997366#reply1" target="_blank" rel="noopener noreffer ">PageSpy开启远程调试新篇章</a></li>
-<li>7.<a href="https://www.v2ex.com/t/997367#reply1" target="_blank" rel="noopener noreffer ">上海地铁中哪个运营商网络好？</a></li>
-<li>8.<a href="https://www.v2ex.com/t/997356#reply0" target="_blank" rel="noopener noreffer ">macOS上数据恢复问题（已经尝试diskdrill）</a></li>
-<li>9.<a href="https://www.v2ex.com/t/997358#reply0" target="_blank" rel="noopener noreffer ">AppleOnePremier美区五缺一，季付140</a></li>
-<li>10.<a href="https://www.v2ex.com/t/997368#reply0" target="_blank" rel="noopener noreffer ">黑群晖高密度访问apiauth.quickconnect.to，有人遇到吗？</a></li>
-<li>11.<a href="https://www.v2ex.com/t/997369#reply0" target="_blank" rel="noopener noreffer ">有懂电吉他的么？</a></li>
-<li>12.<a href="https://www.v2ex.com/t/997370#reply0" target="_blank" rel="noopener noreffer ">轻便式RedisMonitor面向研发人员图形可视化监控平台</a></li>
-<li>13.<a href="https://www.v2ex.com/t/997371#reply0" target="_blank" rel="noopener noreffer ">Chrome怎么学起微软了啊,更新完扩展程序的间距变大了好多,还有个椭圆框的效果</a></li>
-<li>14.<a href="https://www.v2ex.com/t/997372#reply0" target="_blank" rel="noopener noreffer ">Zig中文月报202311|传值或传引用，这是个大问题</a></li>
-<li>15.<a href="https://www.v2ex.com/t/997373#reply0" target="_blank" rel="noopener noreffer ">鉴于clash跑路，用回passwall，但是这个DNS分流太难受了，求教</a></li>
-</ul>
-<h2 id="热点新闻">热点新闻</h2>
-<h4 id="坦桑尼亚马尼亚拉地区2日夜间至3日突降暴雨导致洪水和山体滑坡目前已造成47人死亡85人受伤-马尼亚拉地区专员奎因森迪加3日说该地区一个村庄已被泥石流">坦桑尼亚马尼亚拉地区2日夜间至3日突降暴雨导致洪水和山体滑坡，目前已造成47人死亡、85人受伤。 马尼亚拉地区专员奎因·森迪加3日说，该地区一个村庄已被泥石流&hellip;</h4>
-<p>坦桑尼亚马尼亚拉地区2日夜间至3日突降暴雨导致洪水和山体滑坡，目前已造成47人死亡、85人受伤。<br>马尼亚拉地区专员奎因·森迪加3日说，该地区一个村庄已被泥石流完全吞没，灾害死亡人数可能还会上升。坦桑尼亚人民国防军已派出一支特别救援队加入搜救行动，目前搜救工作仍在进行。<br>坦桑尼亚9月至12月为雨季。坦气象部门今年8月曾发布预警说，由于厄尔尼诺现象，今年雨季的降水可能会造成灾难性后果。<br>（<a href="http://www.news.cn/2023-12/04/c_1130006778.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">新华社</a>）</p>
-<h4 id="-以色列军方2日晚到3日轰炸了汗尤尼斯和拉法周边以及北部部分地区加沙北部的杰巴利耶难民营也是受袭地点之一以色列表示连夜袭击了加沙的地道竖井指挥">↩️ 以色列军方2日晚到3日轰炸了汗尤尼斯和拉法周边以及北部部分地区。加沙北部的杰巴利耶难民营也是受袭地点之一。以色列表示连夜袭击了加沙的地道竖井、指挥&hellip;</h4>
-<div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me/tnews365/28909"><b>竹新社</b>:</a></p>                                    <p><small>以色列与哈马斯12月1日恢复激烈冲突。 当天，以色列空袭了加沙地带的房屋。以色列称袭击了200多个哈马斯目标。加沙卫生部门表示，新一轮轰炸已造成至少184人死亡、589人受伤。以色列将平民伤亡归咎于武装分子，指责哈马斯在居民区开战活动。 哈马斯表示，他们从加沙向以色列发射了火箭弹。而在以色列北部，黎巴嫩真主党12月1日表示向边境沿线的一群以色列士兵开火。以色列则炮击真主党还击。 叙利亚军方2日发表声明说，当地时间2日凌晨1时35分左右，以色列自其占领的戈兰高地方向，对大马士革周边地区“部分地点”发动空袭，…</small></p>                                                                    </blockquote></div><p>以色列军方2日晚到3日轰炸了汗尤尼斯和拉法周边以及北部部分地区。加沙北部的杰巴利耶难民营也是受袭地点之一。以色列表示连夜袭击了加沙的地道竖井、指挥中心、军火库以及沿海的哈马斯船只等目标。<br>以色列军方3日扩大了汗尤尼斯及周边地区的疏散令，要求其他5个地区和社区的居民前往拉法或西南部沿海地区。加沙居民担心以色列很快将对南部地区发动地面攻势。以色列总理内塔尼亚胡2日曾表示正与美国和国际组织协调，为平民划定“安全区”。<br>哈马斯表示，他们向特拉维夫发射火箭弹。但目前尚无损毁报告。此外，以色列称，来自黎巴嫩的导弹击中了以北部地区的一辆汽车，造成数名士兵受伤。<br>以色列以谈判陷入僵局为由，从卡塔尔撤回了谈判代表。哈马斯官员受访时证实，在以色列继续袭击加沙的同时，不会进行停战或战俘交换谈判。<br>（<a href="https://apnews.com/article/israel-hamas-war-news-12-03-2023-1b93089ec82d10ce89df802d51acc108" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">美联社</a>，<a href="https://www.reuters.com/world/middle-east/israel-faces-growing-us-calls-restraint-amid-renewed-gaza-fighting-2023-12-02/" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">路透社</a>，<a href="https://chinese.aljazeera.net/palestine-israel-conflict/liveblog/2023/12/3/%E4%BB%A5%E8%89%B2%E5%88%97%E5%AF%B9%E5%8A%A0%E6%B2%99%E6%88%98%E4%BA%89%E7%9A%84%E4%BB%8A%E6%97%A5%E5%8F%91%E5%B1%95%E8%B0%88%E5%88%A4%E7%A0%B4%E8%A3%82%E5%90%8E%E4%BB%A5%E8%89%B2%E5%88%97%E8%BD%B0" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">半岛电视台</a>）</p>
-<h4 id="-菲律宾海纳图安东部海域12月3日1835东八区地震美国地质调查局测定为66级震源深度562千米-美国地质调查局">↩️🖼 菲律宾海纳图安东部海域12月3日18:35（东八区）地震，美国地质调查局测定为6.6级、震源深度56.2千米。 （美国地质调查局）</h4>
-<div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me/tnews365/28920"><b>竹新社</b>:</a></p>                                    <p><small>菲律宾棉兰老岛12月2日22:37（东八区）地震，美国地质调查局测定为7.7级、震源深度44.5千米。 受地震影响，日本气象厅针对日本太平洋沿岸多地发布海啸注意报。 中国自然资源部海啸预警中心初判，不会对中国沿岸造成灾害性影响。 （美国地质调查局，中国地震台网，自然资源部海啸预警中心）</small></p>                                                                    </blockquote></div><p>菲律宾海纳图安东部海域12月3日18:35（东八区）地震，美国地质调查局测定为6.6级、震源深度56.2千米。<br>（<a href="https://earthquake.usgs.gov/earthquakes/eventpage/pt23337002/executive" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">美国地质调查局</a>）</p>
-<h4 id="-菲律宾南部南拉瑙省马拉维市棉兰老国立大学体育馆3日上午发生爆炸已造成3人死亡9人受伤爆炸发生时体育馆内正在进行天主教弥撒仪式-当地警方正在">↩️ 菲律宾南部南拉瑙省马拉维市棉兰老国立大学体育馆3日上午发生爆炸，已造成3人死亡、9人受伤。爆炸发生时，体育馆内正在进行天主教弥撒仪式。 当地警方正在&hellip;</h4>
-<div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me/tnews365/28917"><b>竹新社</b>:</a></p>                                                                        <p>菲律宾军方2日说，军方人员在菲南部南马京达瑙省的一次行动中打死11名疑似伊斯兰激进分子。 菲军方发言人说，1日午间，军方人员对位于南马京达瑙省南部的一个极端组织据点发起进攻。行动持续约20分钟，军方人员在现场缴获极端分子使用的一批武器，现场找到了11名疑似武装分子的尸体。军方没有人员伤亡。 菲律宾南部安全形势不稳，多个反政府武装和极端组织盘踞在此，袭击频发。此次军事目标是邦萨摩洛伊斯兰自由战士组织，该组织进一步分为多个派别，部分与“伊斯兰国”结盟。 （美联社，新华社）</p>                                </blockquote></div><p>菲律宾南部南拉瑙省马拉维市棉兰老国立大学体育馆3日上午发生爆炸，已造成3人死亡、9人受伤。爆炸发生时，体育馆内正在进行天主教弥撒仪式。<br>当地警方正在对爆炸进行调查，其中一个调查方向是伊斯兰激进分子的报复。大学将暂时停学，直到另行通知。<br>（<a href="https://www.reuters.com/world/asia-pacific/three-dead-southern-philippines-university-gym-blast-media-2023-12-03/" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">路透社</a>，<a href="http://www.news.cn/2023-12/03/c_1130005972.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">新华社</a>）</p>
-<h4 id="-法国埃菲尔铁塔附近2日晚发生袭击事件致一死二伤死者是一名出生于菲律宾的德国游客施袭男子已被逮捕凶器为刀和锤子-法国内政部部长热拉尔德">↩️🖼 法国埃菲尔铁塔附近2日晚发生袭击事件，致一死二伤，死者是一名出生于菲律宾的德国游客。施袭男子已被逮捕，凶器为刀和锤子。 法国内政部部长热拉尔德&hellip;</h4>
-<div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me/tnews365/28909"><b>竹新社</b>:</a></p>                                    <p><small>以色列与哈马斯12月1日恢复激烈冲突。 当天，以色列空袭了加沙地带的房屋。以色列称袭击了200多个哈马斯目标。加沙卫生部门表示，新一轮轰炸已造成至少184人死亡、589人受伤。以色列将平民伤亡归咎于武装分子，指责哈马斯在居民区开战活动。 哈马斯表示，他们从加沙向以色列发射了火箭弹。而在以色列北部，黎巴嫩真主党12月1日表示向边境沿线的一群以色列士兵开火。以色列则炮击真主党还击。 叙利亚军方2日发表声明说，当地时间2日凌晨1时35分左右，以色列自其占领的戈兰高地方向，对大马士革周边地区“部分地点”发动空袭，…</small></p>                                                                    </blockquote></div><p>法国埃菲尔铁塔附近2日晚发生袭击事件，致一死二伤，死者是一名出生于菲律宾的德国游客。施袭男子已被逮捕，凶器为刀和锤子。<br>法国内政部部长热拉尔德·达尔马宁表示，施袭男子1997年出生，是出生于法国的法国公民。其曾于2016年因策划“暴力行动”而被判处四年监禁，情报部门已知其患有严重的精神问题。<br>达尔马宁表示，施袭男子在被捕后说“他再也不忍心看到穆斯林在阿富汗和巴勒斯坦死去。”警方表示，其在袭击时曾高喊“真主至上”。<br>（<a href="https://edition.cnn.com/2023/12/03/europe/paris-attack-eiffel-tower-hnk-intl/index.html" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">CNN</a>，<a href="https://www.reuters.com/world/europe/one-dead-one-injured-after-assailant-attacks-passersby-paris-minister-2023-12-02/" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">路透社</a>）</p>
-<h4 id="山东食品安全新规外卖不封口-消费者有权拒-山东省十四届人大常委会第六次会议审议通过了山东省食品安全条例规定外卖要封口否则消费者有权拒绝接收该">山东食品安全新规：外卖不封口 消费者有权拒 山东省十四届人大常委会第六次会议审议通过了《山东省食品安全条例》，规定外卖要封口，否则消费者有权拒绝接收。该&hellip;</h4>
-<p><b>山东食品安全新规：外卖不封口 消费者有权拒</b><br><br>山东省十四届人大常委会第六次会议审议通过了《山东省食品安全条例》，规定外卖要封口，否则消费者有权拒绝接收。该条例自2024年3月1日起施行。<br><br>消息来源:<a href="https://api3.cls.cn/share/article/1533721?" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">财联社</a></p>
-<h4 id="台湾自2024年1月起停止征收陆制鞋靴反倾销税-台财政部门日前宣布自2024年1月17号起停止征收所谓大陆制鞋靴反倾销税台媒称这项税收在台湾课征16年">台湾自2024年1月起停止征收陆制鞋靴“反倾销税” 台财政部门日前宣布，自2024年1月17号起停止征收所谓大陆制鞋靴“反倾销税”。台媒称，这项税收在台湾课征16年&hellip;</h4>
-<p><b>台湾自2024年1月起停止征收陆制鞋靴“反倾销税”</b><br><br>台财政部门日前宣布，自2024年1月17号起停止征收所谓大陆制鞋靴“反倾销税”。台媒称，这项税收在台湾课征16年即将走入历史，未来不论是实体店还是网络购物，岛内民众都有望买到更便宜的大陆制造的鞋子。<br><br>消息來源: 看台海</p>
-<h4 id="-朝鲜侦察卫星运用室开始运行-据朝中社朝鲜国家航空航天技术总局平壤综合管制所的侦察卫星运用室从2日起开始执行任务报道称朝鲜国家航空航天技术总局">↩️ 朝鲜侦察卫星运用室开始运行 据朝中社，朝鲜国家航空航天技术总局平壤综合管制所的侦察卫星运用室从2日起开始执行任务。报道称，朝鲜国家航空航天技术总局&hellip;</h4>
-<div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me/DNSPODT/2372"><b>LoopDNS资讯播报</b>:</a></p>                                                                        <p>朝鲜国防省：侵犯朝鲜太空资产将被视为宣战行为  据朝中社，就美国军方日前针对朝鲜侦察卫星的言论，朝鲜国防省发言人2日发表谈话指出，美国太空司令部官员日前称可使用多种“可逆及不可逆方法”削减敌国太空领域运用能力，这暗示针对朝鲜侦察卫星实施军事攻击的意图。美方针对朝鲜侦察卫星的令人担忧的敌对立场绝不能受到忽视。美方此举是对朝鲜主权的挑战，更准确地说是对朝鲜“宣战”。谈话警告说，当朝鲜国家战略资产遭到或被判断为即将遭到致命性军事攻击时，启动维护国家主权和领土完整的战争遏制力，是朝鲜武装力量的使命.  来源：格隆汇</p>                                </blockquote></div><p><b>朝鲜侦察卫星运用室开始运行</b><br><br>据朝中社，朝鲜国家航空航天技术总局平壤综合管制所的侦察卫星运用室从2日起开始执行任务。报道称，朝鲜国家航空航天技术总局平壤综合管制所侦察卫星运用室作为独立的军事情报组织将执行任务。这也意味着侦察卫星“万里镜-1”号正式开始运行。<br><br>消息來源: <a href="https://m.gelonghui.com/live/1320893" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">格隆汇</a></p>
-<h2 id="福利分享">福利分享</h2>
 ]]></description>
 </item>
 </channel>
