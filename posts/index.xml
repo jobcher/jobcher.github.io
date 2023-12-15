@@ -260,6 +260,471 @@
 ]]></description>
 </item>
 <item>
+    <title>测试策略：微服务架构</title>
+    <link>https://www.jobcher.com/test-way/</link>
+    <pubDate>Fri, 15 Dec 2023 00:00:00 &#43;0000</pubDate>
+    <author>jobcher</author>
+    <guid>https://www.jobcher.com/test-way/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/test.jpeg" referrerpolicy="no-referrer">
+            </div><p data-nodeid="886">可以从两个方面来保障微服务的质量：</p>
+<ol data-nodeid="887">
+<li data-nodeid="888">
+<p data-nodeid="889">选取合适的测试策略模型，确保测试活动全面且有效；</p>
+</li>
+<li data-nodeid="890">
+<p data-nodeid="891">建立质量保障体系，使质量保障内化为企业的组织能力。</p>
+</li>
+</ol>
+<h3 data-nodeid="892">如何选择合适的测试策略模型？</h3>
+<p data-nodeid="893">要想使面向微服务的测试活动全面且有效，可以借用“测试金字塔”的思想，针对不同类型和颗粒度的测试投入不同的精力，达到一个最佳平衡：</p>
+<ul data-nodeid="894">
+<li data-nodeid="895">
+<p data-nodeid="896">测试需要分层，每一层的测试颗粒度有所不同；</p>
+</li>
+<li data-nodeid="897">
+<p data-nodeid="898">不同层次的测试比重有差异，通常来说，层次越高，测试比重应越少。</p>
+</li>
+</ul>
+<p data-nodeid="899"></p>
+<p data-nodeid="900">需要说明的是，传统意义下的测试金字塔，在微服务架构下不再完全奏效。因为微服务中最大的复杂性不在于服务本身，而在于微服务之间的交互方式，这一点值得特别注意。</p>
+<p data-nodeid="901">因此，<strong data-nodeid="976">针对微服务架构，常见的测试策略模型</strong>有如下几种。</p>
+<p data-nodeid="902">（1） <strong data-nodeid="981">微服务“测试金字塔”</strong></p>
+<p data-nodeid="1106" class="">基于微服务架构的特点和测试金字塔的原理，Toby Clemson 有一篇关于<a href="https://www.martinfowler.com/articles/microservice-testing/" data-nodeid="1110">“微服务架构下的测试策略”</a>的文章，其中通过分析阐述了微服务架构下的通用测试策略。</p>
+<p data-nodeid="904"></p>
+<p data-nodeid="905">如图，该策略模型依然是金字塔形状，从下到上依次为单元测试、集成测试、组件测试、端到端测试、探索式测试。</p>
+<p data-nodeid="906">（2） <strong data-nodeid="991">微服务“测试蜂巢”</strong></p>
+<p data-nodeid="907">这种策略模型是蜂巢形状，它强调重点关注服务间的集成测试，而单元测试和端到端测试的占比较少。</p>
+<p data-nodeid="908"></p>
+<p data-nodeid="909">（3） <strong data-nodeid="1000">微服务“测试钻石”</strong></p>
+<p data-nodeid="910">这种策略模型是钻石形状的，组件测试和契约测试是重点，单元测试比率减少，另外增加了安全和性能等非功能的测试类型。</p>
+<p data-nodeid="911"></p>
+<p data-nodeid="912">我想，有多少个基于微服务架构的测试团队大概就有多少个测试策略模型吧。<strong data-nodeid="1010">“测试金字塔”是一种测试策略模型和抽象框架</strong>，当技术架构、系统特点、质量痛点、团队阶段不同时，每种测试的比例也不尽相同，而且最关键的，并不一定必须是金字塔结构。</p>
+<p data-nodeid="913">理解了测试策略模型的思考框架，我们看下应如何保障测试活动的全面性和有效性。</p>
+<h4 data-nodeid="914">全面性</h4>
+<p data-nodeid="915">微服务架构下，既需要保障各服务内部每个模块的完整性，又需要关注模块间、服务间的交互。只有这样才能提升测试覆盖率和全面性，因此，可以通过如下的分层测试来保证微服务的全面性。</p>
+<p data-nodeid="916"></p>
+<ul data-nodeid="917">
+<li data-nodeid="918">
+<p data-nodeid="919">单元测试（Unit Test） ：从服务中最小可测试单元视角验证代码行为符合预期，以便测试出方法、类级别的缺陷。</p>
+</li>
+<li data-nodeid="920">
+<p data-nodeid="921">集成测试（Integration Test）：验证当前服务与外部模块之间的通信方式或者交互符合预期，以便测试出接口缺陷。</p>
+</li>
+<li data-nodeid="922">
+<p data-nodeid="923">组件测试 （Component Test）：将测试范围限制在被测系统的一部分（一般是单个服务），使用测试替身（test doubles）将其与其他组件隔离，以便测试出被测代码的缺陷。</p>
+</li>
+<li data-nodeid="924">
+<p data-nodeid="925">契约测试（Contracts Test）：验证当前服务与外部服务之间的交互，以表明它符合消费者服务所期望的契约。</p>
+</li>
+<li data-nodeid="926">
+<p data-nodeid="927">端到端测试（End-to-end Test）：从用户视角验证整个系统的功能能否符合用户的预期。</p>
+</li>
+</ul>
+<p data-nodeid="928">可见，上述测试策略模型中的测试方法，是自下而上逐层扩大测试范围和边界，力保微服务架构的模块内、模块间交互、服务内、服务间交互、系统范围等维度的功能符合预期。</p>
+<h4 data-nodeid="929">有效性</h4>
+<p data-nodeid="930">确定了分层测试方法，我们应该如何选取每种测试方法的比例，来确保该测试策略的有效性呢？</p>
+<p data-nodeid="931">首先必须要明确的是不存在普适性的测试组合比例。我们都知道，测试的目的是解决企业的质量痛点、交付高质量的软件。因此不能为了测试而测试，更不能为了质量而不惜一切代价，需要<strong data-nodeid="1029">考虑资源的投入产出比。</strong></p>
+<p data-nodeid="932">测试策略如同测试技术、技术架构一样，并不是一成不变，它会随着业务或项目所处的阶段，以及基于此的其他影响因素的变化而不断演进。但归根结底，还是要从质量保障的目标出发，制定出适合当时的测试策略，并阶段性地对策略进行评估和度量，进而不断改进和优化测试策略。因此，<strong data-nodeid="1034">选取测试策略一定要基于现实情况的痛点出发，结果导向，通过调整测试策略来解决痛点。</strong></p>
+<p data-nodeid="933">比如，在项目早期阶段或某 MVP 项目中，业务的诉求是尽快发布到线上，对功能的质量要求不太高，但对发布的时间节点要求非常严格。那这种情况下快速地用端到端这种能模拟用户真实价值的测试方法保障项目质量也未尝不可；随着项目逐渐趋于平稳后，时间要求渐渐有了节奏，对功能的质量要求会逐渐变高，那么这时候可以再根据实际情况引入其他测试方法，如契约测试或组件测试等。</p>
+<p data-nodeid="934">你要永远记住，<strong data-nodeid="1040">适合自身项目阶段和团队的测试策略才是“完美”的策略。</strong></p>
+<p data-nodeid="935"></p>
+<h3 data-nodeid="936">如何建立质量保障体系？</h3>
+<p data-nodeid="937">上述分层的测试策略只是尽可能地对微服务进行全面的测试，确保系统的所有层次都被覆盖到，它更多体现在测试活动本身的全面性和有效性方面。要想将质量保障内化为企业的组织能力，就需要通过技术和管理手段形成系统化、标准化和规范化的机制，这就需要建设质量保障体系。</p>
+<p data-nodeid="938"><strong data-nodeid="1050">质量保障体系：通过一定的流程规范、测试技术和方法，借助于持续集成/持续交付等技术把质量保障活动有效组合，进而形成系统化、标准化和规范化的保障体系。</strong> 同时，还需要相应的度量、运营手段以及组织能力的保障。</p>
+<p data-nodeid="939">如下几个方面是质量保障体系的关键，后续课程也将按如下方式展开讲解。</p>
+<ul data-nodeid="940">
+<li data-nodeid="941">
+<p data-nodeid="942"><strong data-nodeid="1056">流程规范</strong>：没有规矩不成方圆，好的流程规范是保障质量中非常关键的一环。当出现交付质量差的情况时，过程质量也一定是差的。通常会出现某些关键动作未执行或执行不到位、对事情的不当处理等情况，而这些情况可以通过建立闭环、分工明确的流程规范完全可以避免。另外，研发过程中，过程质量跟执行人的质量意识、个人能力等直接相关，那么就需要建立易执行的流程规范，降低人员的执行门槛。同时需要特别注意，规范的不断完善是几乎所有团队的常态，但当规范执行效果不好时一定要及时跟进，分析其根本原因，必要时要进行简化。</p>
+</li>
+<li data-nodeid="943">
+<p data-nodeid="944"><strong data-nodeid="1061">测试技术</strong>： 测试策略模型中的分层测试方法可以使面向微服务的测试活动具有一定的全面性和有效性，使得被测内容在功能方面符合预期。除功能性之外，软件质量还有其他很多属性，如可靠性、易用性、可维护性、可移植性等，而这些质量属性就需要通过各种专项测试技术来保障了。同时，还有许多测试技术的首要价值在于提升测试效率。因此合理地组合这些测试技术，形成测试技术矩阵，有利于最大化发挥它们的价值。</p>
+</li>
+<li data-nodeid="945">
+<p data-nodeid="946"><strong data-nodeid="1066">持续集成与持续交付</strong>：微服务的优势需要通过持续集成和持续交付的支持才能充分发挥出来，这就要求在执行测试活动时提高反馈效率、尽快发现问题。一方面要明确各种“类生产环境”在交付流程中的位置和用途差异点，保证它们的稳定可用。另一方面需要将各种测试技术和自动化技术集成起来，使代码提交后能够自动进行构建、部署和测试等操作，形成工具链，实现真正意义上的持续集成和持续交付。</p>
+</li>
+<li data-nodeid="947">
+<p data-nodeid="948"><strong data-nodeid="1075">度量与运营</strong>：管理学大师德鲁克曾经说过“你如果无法度量它，就无法管理它（It you can’t measure it, you can’t manage it)”。要想能有效管理和改进，就难以绕开度量这个话题。对于研发过程来说，度量无疑是比较难的，它是一个脑力密集型的过程，指标多维度，且很多维度的内容难以清晰地度量。在质量保障体系中，我将基于质量、效率、价值等多维度视角建立起基础的度量体系，并结合定期运营做定向改进，形成 PDCA 正向循环，促使各项指标稳步提升。同时，需要特别警惕的是，<strong data-nodeid="1076">度量是一把双刃剑</strong>，这里我也会告诉一些我的经验教训和踩过的坑，避免走错方向。</p>
+</li>
+<li data-nodeid="949">
+<p data-nodeid="950"><strong data-nodeid="1081">组织保障</strong>：产品的交付离不开组织中每个参与部门成员的努力。正如质量大师戴明所说，质量是设计出来的，不是测试出来的。因此在组织中树立起“质量文化”至关重要。在这部分内容里，我将介绍常见的参与方的角色、职责和协作过程中的常见问题、对策，以及如何营造质量文化等内容。</p>
+</li>
+</ul>
+<h3 data-nodeid="951">总结</h3>
+<p data-nodeid="952">谈到了基于微服务架构下的各种质量挑战，可以从两个方面有效且高效地保障微服务的质量：<strong data-nodeid="1091">确保面向微服务的测试活动具备全面性和有效性</strong>，<strong data-nodeid="1092">质量保障需要内化为企业的组织能力。</strong></p>
+<p data-nodeid="953">通过对测试金字塔原理和微服务的特点分析，引入单元测试、集成测试、组件测试、契约测试和端到端测试等分层测试类型来确保测试活动的全面性，通过自身项目阶段和团队情况来选取合适的测试策略模型，以保障测试活动的有效性。</p>
+<p data-nodeid="954">要想把质量保障内化为企业的组织能力，就需要通过系统的技术和管理手段形成机制，在流程规范、测试技术、持续集成与持续交付、度量与运营、组织保障等方面构建质量保障体系。</p>
+<p data-nodeid="955">你是否测试过微服务架构的项目和服务？如果有，欢迎在留言区评论，说说你所经历过的项目的测试策略和质量保障体系是怎样的，期间遇到了哪些困难和问题。同时欢迎你能把这篇文章分享给你的同学、朋友和同事，大家一起交流。</p>
+<p data-nodeid="956"><strong data-nodeid="1099">相关链接</strong></p>
+<blockquote data-nodeid="957">
+<p data-nodeid="958" class="">Testing Strategies in a Microservice Architecture（微服务架构下的测试策略）：<br>
+：<a href="https://www.martinfowler.com/articles/microservice-testing/" data-nodeid="1105">https://www.martinfowler.com/articles/microservice-testing/</a></p>
+</blockquote>]]></description>
+</item>
+<item>
+    <title>单元测试：测试单元质量提升</title>
+    <link>https://www.jobcher.com/unit-test/</link>
+    <pubDate>Fri, 15 Dec 2023 00:00:00 &#43;0000</pubDate>
+    <author>jobcher</author>
+    <guid>https://www.jobcher.com/unit-test/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/junit.png" referrerpolicy="no-referrer">
+            </div><h3 data-nodeid="2018">单元测试的价值</h3>
+<p data-nodeid="2019">单元测试是一种白盒测试技术，通常由开发人员在编码阶段完成，目的是验证软件代码中的每个单元（方法或类等）是否符合预期，即<strong data-nodeid="2165">尽早</strong>在<strong data-nodeid="2166">尽量小的范围内</strong>暴露问题。</p>
+<p data-nodeid="2020">我们都知道，问题发现得越早，修复的代价越小。毫无疑问，在开发阶段进行正确的单元测试可以极大地节省时间和金钱。如果跳过单元测试，会导致在后续更高级别的测试阶段产生更高的缺陷修复成本。</p>
+<p data-nodeid="2021"></p>
+<p data-nodeid="2022">如图，假如有一个只包含两个单元 A 和 B 的程序，且只执行端到端测试，如果在测试过程中发现了缺陷，则可能有如下多种原因：</p>
+<ul data-nodeid="2023">
+<li data-nodeid="2024">
+<p data-nodeid="2025">该缺陷由单元 A 中的缺陷引起；</p>
+</li>
+<li data-nodeid="2026">
+<p data-nodeid="2027">该缺陷由单元 B 中的缺陷引起；</p>
+</li>
+<li data-nodeid="2028">
+<p data-nodeid="2029">该缺陷由单元 A 和单元 B 中的缺陷共同引起；</p>
+</li>
+<li data-nodeid="2030">
+<p data-nodeid="2031">该缺陷由单元 A 和单元 B 之间接口的缺陷引起；</p>
+</li>
+<li data-nodeid="2032">
+<p data-nodeid="2033">该缺陷是测试方法或测试用例的错误导致的。</p>
+</li>
+</ul>
+<p data-nodeid="2034">由此可见，忽略单元测试会导致后续发现缺陷时，要花费较高的成本来确认缺陷原因。</p>
+<p data-nodeid="2035">单元测试除了能够在较早阶段识别软件中的错误，它还有如下价值。</p>
+<ul data-nodeid="2036">
+<li data-nodeid="2037">
+<p data-nodeid="2038">反馈速度快：单元测试通常以自动化形式运行，执行速度非常快，可以快速反馈结果，跟持续集成结合起来，形成有效的反馈环。</p>
+</li>
+<li data-nodeid="2039">
+<p data-nodeid="2040">重构的有力保障：系统需要大规模重构时，单测可以确保对已有逻辑的兼容，如果单元测试都通过，基本上可以保证重构没有破坏原来代码逻辑的正确性。</p>
+</li>
+<li data-nodeid="2041">
+<p data-nodeid="2042">使更熟悉代码：写单元测试的过程本身就是一个审视代码的过程，可以发现一些设计上的问题（代码设计的不可测试）、代码编写方面的问题（边界条件的处理不当）等。</p>
+</li>
+</ul>
+<p data-nodeid="2043">既然单元测试由开发人员来设计和执行，那作为测试人员是不是就不需要学习这门技术了？不知道你是怎样看待这个想法的，我的观点是：</p>
+<ul data-nodeid="2044">
+<li data-nodeid="2045">
+<p data-nodeid="2046">单元测试只是通常情况下由开发人员完成，并不是绝对的，在一些公司或项目里也存在测试人员完成的情况；</p>
+</li>
+<li data-nodeid="2047">
+<p data-nodeid="2048">在你负责的模块或服务里，第一级别的测试不是你来完成的，那么你更有必要去了解它的设计思路和执行情况，这能帮助你发现单元测试可能存在的问题点，也有利于你设计和执行后续高级别的测试类型；</p>
+</li>
+<li data-nodeid="2049">
+<p data-nodeid="2050">开发人员总是不太擅长做测试类的工作，当你掌握了单元测试的技能，你便更有机会去帮助和影响到开发人员，赢得他对你的尊重，也有利于你们更好地合作；</p>
+</li>
+<li data-nodeid="2051">
+<p data-nodeid="2052">这种想法是测试人员的常见想法，所以掌握单元测试技能在测试人员群体中也会是稀缺技能，因此，掌握它将会获得额外的锻炼机会和个人影响力，要知道，机会总是留给有准备的人。</p>
+</li>
+</ul>
+<h3 data-nodeid="2053">微服务下的单元测试类型</h3>
+<p data-nodeid="2054">就像之前课程所说：<strong data-nodeid="2192">微服务中最大的复杂性不在于服务本身，而在于微服务之间的交互方式，服务与服务之间常常互相调用以实现更多更复杂的功能。</strong></p>
+<p data-nodeid="2055">举个例子，我们需要测试的是订单类（Order）中的获取总价方法（getTotalPrice()），而在该方法中除了自有的一些代码逻辑外，通常需要去调用其他类的方法。比如这里调用的是用户类（User）的优惠等级方法（reductionLevel ()）和商品类（Goods）中的商品价格方法（getUnitPrice()）。很显然，优惠等级方法或商品价格方法，只要一方有错误，就会导致订单类获取总价方法的测试失败。基于这种情况，可以有两种单元测试类型。</p>
+<h4 data-nodeid="2056">1. 社交型单元测试（Sociable Unit Testing）</h4>
+<p data-nodeid="2057"></p>
+<p data-nodeid="2058">如图，测试订单类的获取总价方法（Order.getTotalPrice()）时会真实调用用户类的优惠等级方法（User.reductionLevel()）和商品类的商品单价方法（Goods.getUnitPrice()）。将被测试单元视为黑盒子，直接对其进行测试，这种单元测试称之为<strong data-nodeid="2205">社交型单元测试（Sociable Unit Testing）</strong>。</p>
+<h4 data-nodeid="2059">2. 孤立型单元测试（Solitary Unit Testing）</h4>
+<p data-nodeid="2060"></p>
+<p data-nodeid="2061">如图，如果测试订单类的获取总价方法（Order.getTotalPrice()）时，使用测试替身 <strong data-nodeid="2225">（test doubles）</strong> 技术来替代用户类的优惠等级方法（User.reductionLevel()）和商品类的商品单价方法（Goods.getUnitPrice()）的效果。对象及其依赖项之间的交互和协作被<strong data-nodeid="2226">测试替身</strong>代替，这种单元测试称之为<strong data-nodeid="2227">孤立型单元测试（Solitary Unit Testing）</strong>。</p>
+<p data-nodeid="2062">另外，上述提到的测试替身是一种在测试中使用对象代替实际对象的技术，常用的技术如下。</p>
+<ul data-nodeid="22981">
+<li data-nodeid="22982">
+<p data-nodeid="22983"><strong data-nodeid="22990">桩代码（Stubs）</strong>：当在对象上调用特定方法时，会对其进行硬编码（临时代码）的方式来代替真实代码提供固定响应。比如，某函数 X 的实现中调用了一个函数 Y，而 Y 不能调用，为了对函数 X 进行测试，就需要模拟一个函数 Y，那么函数 Y 的实现就是所谓的桩代码。</p>
+</li>
+<li data-nodeid="22984">
+<p data-nodeid="22985" class=""><strong data-nodeid="22995">模拟代码（Mocks）</strong>：模拟代码跟桩代码类似，它除了代替真实代码的能力之外，更强调是否使用了特定的参数调用了特定方法，因此，这种对象成为我们测试结果的基础。</p>
+</li>
+</ul>
+<p data-nodeid="2068">根据被测单元是否与其交互者隔离，会产生以上两种单元测试类型，这两种类型的单元测试在微服务测试中都起着重要作用，它们用来解决不同的测试问题。</p>
+<p data-nodeid="2069"></p>
+<p data-nodeid="2070"><strong data-nodeid="2246">由上图可知，在微服务架构中，不同组成使用的单元测试类型不同：</strong></p>
+<p data-nodeid="2071"></p>
+<p data-nodeid="2072">特别注意：当微服务的（网关+仓库+资源+服务层）与（域逻辑）之比相对较大时，单元测试可能收益不大。常见的情况有小型服务或某些几乎只包含了网关+仓库+资源+服务层等内容的服务，例如适配服务等。</p>
+<h3 data-nodeid="2073">如何开展单元测试？</h3>
+<p data-nodeid="2074">在实际项目过程当中，应该怎样开展单元测试呢？通常来说，可以通过如下四个步骤来进行。</p>
+<h4 data-nodeid="2075">1. 确定使用单元测试的代码范围</h4>
+<p data-nodeid="2076">虽然单元测试很重要，但并不是所有代码都需要进行单元测试，可以重点关注核心模块代码或底层代码，如重要的业务逻辑代码或通用组件类等。</p>
+<h4 data-nodeid="2077">2. 确定技术选型（以 Java 语言为例）</h4>
+<p data-nodeid="2078">单元测试中的技术框架通常包括单元测试框架、Mock 代码框架、断言等。</p>
+<ul data-nodeid="2079">
+<li data-nodeid="2080">
+<p data-nodeid="2081">单元测试框架：和开发语言直接相关，最常用的单元测试框架是 Junit 和 TestNG，总体来说，Junit 比较轻量级，它天生是做单测的，而 TestNG 则提供了更丰富的测试功能，测试人员对它并不陌生，这里不多做介绍。</p>
+</li>
+<li data-nodeid="2082">
+<p data-nodeid="2083">Mock 代码框架：常见的有 EasyMock、Mockito、Jmockit、Powermock 等。</p>
+</li>
+<li data-nodeid="2084">
+<p data-nodeid="2085">断言：Junit 和 TestNG 自身都支持断言，除此还有专门用于断言的 Hamcrest 和 assertJ。</p>
+</li>
+</ul>
+<p data-nodeid="2086">关于它们的优劣网络上已有非常多的文章，这里不再赘述。综合来看，个人比较推荐使用Junit+Mockito+assertJ，我建议你根据自己的需求选型。</p>
+<h4 data-nodeid="2087">3. 引入衡量单测覆盖情况的代码覆盖率工具</h4>
+<p data-nodeid="2088">只单纯地看单元测试的执行通过率还比较单一，为了更全面地看到测试的覆盖情况，可以借助代码覆盖率工具和技术。在 Java 语言里，常用覆盖率工具有 Jacoco、Emma 和 Cobertura，个人推荐使用 Jacoco。</p>
+<h4 data-nodeid="2089">4. 接入持续集成工具</h4>
+<p data-nodeid="2090">接入持续集成工具是为了形成工具链，将单元测试、代码覆盖率统计集成在一起，使得代码有提交时便自动触发单元测试用例的执行，并伴随有代码覆盖率的统计，最后可以看到单元测试报告的数据（用例通过情况和代码层面各个维度的覆盖数据）。接着可以判断是否需要修改代码，这便形成了一个代码质量的反馈环，如下图所示。</p>
+<p data-nodeid="2091"></p>
+<p data-nodeid="2092">到代码覆盖率工具和持续集成工具。</p>
+<h3 data-nodeid="2093">单元测试最佳实践</h3>
+<p data-nodeid="2094">了解了如何开展单元测试，那么如何做到最好呢？我们都知道，代码产生错误无非是对一个业务逻辑或代码逻辑没有实现、实现不充分、实现错误或过分实现，所以无论是拆解业务逻辑还是拆解逻辑控制时都要做到 <strong data-nodeid="2283">MECE 原则</strong>（全称 Mutually Exclusive Collectively Exhaustive，中文意思是“相互独立，完全穷尽”，即日常沟通中常说的“不重不漏”）。</p>
+<p data-nodeid="2095">“不重不漏”说起来容易做起来难，为了努力做到它，写出好的单元测试，可以遵循如下具体的实践规范。</p>
+<ol data-nodeid="2096">
+<li data-nodeid="2097">
+<p data-nodeid="2098"><strong data-nodeid="2289">好的单元测试要符合 AIR 特点</strong>：Automatic（自动化）、Independent（独立性）、Repeatable（可重复）。为了凑够一个单词 AIR 的效果，所以有了如上顺序，但我觉得从实际的落地顺序上看，应该是 A-&gt;R-&gt;I。优先保障单元测试能够自动化执行，释放手工介入，再使单元测试可以重复执行，这样可以使得简单的用例先高效地执行起来，再逐渐追求用例的相互独立性。</p>
+</li>
+<li data-nodeid="2099">
+<p data-nodeid="2100"><strong data-nodeid="2293">常见的规范或标准做法有（以 Java 为例）</strong></p>
+</li>
+</ol>
+<ul data-nodeid="2101">
+<li data-nodeid="2102">
+<p data-nodeid="2103"><strong data-nodeid="2298">代码目录规范</strong>：单元测试代码必须放在“src/test/java”目录下，Maven 采用“约定优于配置”的原则，并对工程的目录布局做了约定——测试代码存放 src/test/java 目录，单元测试相关的配置资源文件存放 src/test/resources 目录。源码构建时会跳过此目录，而单元测试框架默认是扫描此目录。</p>
+</li>
+<li data-nodeid="2104">
+<p data-nodeid="2105"><strong data-nodeid="2311">测试类命名规范</strong>：同一个工程里测试类只用一种命名风格，推荐采用[类名]Test.java 或 Test[类名].java 的风格，比如源类名为 AccountServiceImpl.java，那么测试类名为 AccountServiceImplTest.java 或者 TestAccountServiceImpl.java。</p>
+</li>
+<li data-nodeid="2106">
+<p data-nodeid="2107"><strong data-nodeid="2330">测试方法命名规范</strong>：同一个工程里测试方法只用一种命名风格，推荐采用 test[源方法名]_[后缀]的风格。比如源方法名为 login()，则测试方法可以命名为 testLogin_XxxSuccess()、testLogin_XxxNotExist()、testLogin_XxxFail()。</p>
+</li>
+<li data-nodeid="2108">
+<p data-nodeid="2109"><strong data-nodeid="2335">测试数据要求</strong>：尽量使用生产环境的测试数据以保障有效性和多样性。</p>
+</li>
+<li data-nodeid="2110">
+<p data-nodeid="2111"><strong data-nodeid="2340">颗粒度要求</strong>：要保证测试粒度足够小，有助于精确定位问题。单测粒度一般是方法级别，最好不要超过类级别。只有测试粒度小才能在出错时尽快定位到出错位置，一个待测试方法建议关联一个测试方法，如果待测试方法逻辑复杂分支较多，建议拆分为多个测试方法。</p>
+</li>
+<li data-nodeid="2112">
+<p data-nodeid="2113"><strong data-nodeid="2345">验证结果必须要符合预期</strong>：简单来说就是单元测试必须执行通过，执行失败时要及时查明原因并修正问题。</p>
+</li>
+<li data-nodeid="2114">
+<p data-nodeid="2115"><strong data-nodeid="2350">代码要遵守 BCDE 原则</strong>，以保证被测试模块的交付质量。</p>
+<ul data-nodeid="2116">
+<li data-nodeid="2117">
+<p data-nodeid="2118">B：Border，边界值测试，包括循环边界、特殊取值、特殊时间点、数据顺序等。</p>
+</li>
+<li data-nodeid="2119">
+<p data-nodeid="2120">C：Correct，正确的输入，并得到预期的结果。</p>
+</li>
+<li data-nodeid="2121">
+<p data-nodeid="2122">D：Design，与设计文档相结合，来编写单元测试。</p>
+</li>
+<li data-nodeid="2123">
+<p data-nodeid="2124">E：Error，强制错误信息输入（如：非法数据、异常流程、非业务允许输入等），并得到预期的结果。</p>
+</li>
+</ul>
+</li>
+<li data-nodeid="2125">
+<p data-nodeid="2126"><strong data-nodeid="2359">实践风格</strong>：需加注释、遵守命名规范、公共方法抽象等保证可读性。编写测试代码时，有两种实践风格（至少要有相应的注释来区分）。</p>
+<ul data-nodeid="2127">
+<li data-nodeid="2128">
+<p data-nodeid="2129">准备-执行-断言（Arrange-Act-Assert）：先准备用于测试的对象，然后触发执行，最后对输出和行为进行断言。</p>
+</li>
+<li data-nodeid="2130">
+<p data-nodeid="2131">给定-当-那么（Given-When-Then）：给定某个上下文，当发生某些事情，那么期望某些结果。</p>
+</li>
+</ul>
+</li>
+<li data-nodeid="2132">
+<p data-nodeid="2133"><strong data-nodeid="2366">执行速度要尽量快</strong>：单个 CASE 的运行时间推荐不超过 5 秒&nbsp;，这样才能在持续集成中尽快暴露问题。</p>
+</li>
+<li data-nodeid="2134">
+<p data-nodeid="2135"><strong data-nodeid="2371">必须能自动验证</strong>：单测要能报错，不能只有调用，不准使用 System.out 等来进行人工验证，必须使用 Assert 来验证。</p>
+</li>
+<li data-nodeid="2136">
+<p data-nodeid="2137"><strong data-nodeid="2380">必须要有逻辑验证能力和强度</strong>：不允许使用恒真断言（如：Assert. <em data-nodeid="2381">assertTrue</em> (true) ; ）不允许使用弱测试断言（如测试方法返回数据，只验证其中某个单字段值就当作通过）。</p>
+</li>
+<li data-nodeid="2138">
+<p data-nodeid="2139"><strong data-nodeid="2386">必须有很强的针对性</strong>：可以有多个 Assert 断言，但每个测试方法只测试一种情况（如一个方法涉及 3 种异常需要去覆盖测试，就写三个不同的测试方法）。</p>
+</li>
+<li data-nodeid="2140">
+<p data-nodeid="2141"><strong data-nodeid="2391">必须独立稳定，可重复执行</strong>：单元测试通常会被放到持续集成中，如果单测对外部环境(发布环境、网络、服务、中间件等)有依赖，容易导致持续集成机制的不可用。对于测试需要的任何条件，都应该让它们成为测试自身的一个自动化组成部分。</p>
+</li>
+<li data-nodeid="2142">
+<p data-nodeid="2143"><strong data-nodeid="2396">同一个工程里只用一种代码框架</strong>；同一个工程里在能够满足需求的情况下只用一种单测框架、只用一种 Mock 框架、只用一种内存数据库等。</p>
+</li>
+<li data-nodeid="2144">
+<p data-nodeid="2145"><strong data-nodeid="2401">单元测试遵守基本质量卡点要求</strong>：增量及全量卡点必须有，但覆盖率具体卡点要求可以根据业务差异化、分阶段地要求，如起步推广阶段，提升覆盖率阶段，最终覆盖率目标。但一般来说，行覆盖率大于等于 60%（经验值），分支覆盖率大于等于 80%（经验值），所有单测通过率 100%。核心业务、核心应用、核心模块的增量代码确保单元测试增量覆盖率达到要求，并且全量单测 CASE 通过。</p>
+</li>
+</ul>
+<p data-nodeid="2146">上述规范和实践经验比较多，可能会因为落地难度和成本而使开发人员望而却步，事实上可以采取“小步快跑”的方式，逐次提升不同方面的要求，拉长落地的战线。</p>
+<h3 data-nodeid="2147">总结</h3>
+<p data-nodeid="2148">单元测试的定义：它是一种软件测试方法，目的是验证软件代码中的每个单元（方法或类等）是否符合预期，即<strong data-nodeid="2413">尽早</strong>在<strong data-nodeid="2414">尽量小的范围内</strong>暴露错误。</p>
+<p data-nodeid="2149">微服务架构下常见的交互场景，测试方式和对象的不同会出现<strong data-nodeid="2424">社交型单元测试</strong>和<strong data-nodeid="2425">孤立型单元测试</strong>两种单元测试类型。</p>
+<p data-nodeid="2150">实际如何开展单元测试，先确定要测试的代码范围，再引入单测框架、mock 框架、断言类型、代码覆盖率工具和持续集成工具，使代码提交过程形成一个有效的单元测试质量反馈环。紧接着我又给出了一系列的最佳实践或规范，包括类和方法的命名规范、目录规范、数据要求、验证结果要求、运行速度、质量卡点等，相信这些内容可以帮助你更好地设计和实现单元测试。</p>
+<p data-nodeid="2151">你所负责的项目或服务，是否运行过单元测试呢？如果有，欢迎在留言区评论，说说单元测试的落地情况是怎样的。同时欢迎你能把这篇文章分享给你的同学、朋友和同事，大家一起交流。</p>
+<blockquote data-nodeid="2152">
+<strong data-nodeid="2517">单元测试框架</strong><br>
+TestNG官网： <a href="https://testng.org/doc/" data-nodeid="2443">https://testng.org/doc/</a><br>
+TestNG教程： <a href="https://www.yiibai.com/testng/" data-nodeid="2448">https://www.yiibai.com/testng/</a><br>
+Junit官网： <a href="https://junit.org/junit5/" data-nodeid="2453">https://junit.org/junit5/</a><br>
+<strong data-nodeid="2518">Mock代码框架</strong><br>
+Mockito： <a href="https://site.mockito.org/" data-nodeid="2462">https://site.mockito.org/</a><br>
+jMock： <a href="http://jmock.org/" data-nodeid="2467">http://jmock.org/</a><br>
+Easymock： <a href="http://www.easymock.org/" data-nodeid="2472">http://www.easymock.org/</a><br>
+Powermock： <a href="https://github.com/powermock/powermock" data-nodeid="2477">https://github.com/powermock/powermock</a><br>
+Mock框架对比： <a href="https://stackoverflow.com/questions/22697/whats-the-best-mock-framework-for-java" data-nodeid="2482">https://stackoverflow.com/questions/22697/whats-the-best-mock-framework-for-java</a><br>
+<strong data-nodeid="2519">断言</strong><br>
+Hamcrest： <a href="http://hamcrest.org/JavaHamcrest/" data-nodeid="2491">http://hamcrest.org/JavaHamcrest/</a><br>
+assertJ： <a href="https://joel-costigliola.github.io/assertj/assertj-core.html" data-nodeid="2496">https://joel-costigliola.github.io/assertj/assertj-core.html</a><br>
+<strong data-nodeid="2520">覆盖率工具</strong><br>
+Jacoco： <a href="https://www.jacoco.org/jacoco/trunk/index.html" data-nodeid="2505">https://www.jacoco.org/jacoco/trunk/index.html</a><br>
+Emma： <a href="http://emma.sourceforge.net/" data-nodeid="2510">http://emma.sourceforge.net/</a><br>
+Cobertura： <a href="https://cobertura.github.io/cobertura/" data-nodeid="2515">https://cobertura.github.io/cobertura/</a></p>
+</blockquote>]]></description>
+</item>
+<item>
+    <title>端到端测试：模拟用户体验</title>
+    <link>https://www.jobcher.com/user-test/</link>
+    <pubDate>Fri, 15 Dec 2023 00:00:00 &#43;0000</pubDate>
+    <author>jobcher</author>
+    <guid>https://www.jobcher.com/user-test/</guid>
+    <description><![CDATA[<div class="featured-image">
+                <img src="/images/appium-logo-horiz.png" referrerpolicy="no-referrer">
+            </div><h3 data-nodeid="65872">端到端测试详解</h3>
+<h4 data-nodeid="65873">定义</h4>
+<p data-nodeid="68383"><strong data-nodeid="68389">端到端测试（End-to-end Test）是一种用于测试整个应用程序的流程是否符合预期的测试技术。</strong> 它模拟用户真实的使用场景，通过用户界面测试应用程序，如图所示：</p>
+<p data-nodeid="68384" class=""></p>
+<p data-nodeid="65877">与其他类型的测试相反，<strong data-nodeid="65995">端到端测试是面向业务的</strong>，其目的是验证应用程序系统整体上是否符合业务目标。为了实现这一目标，该系统通常被视为<strong data-nodeid="65996">黑盒子</strong>：尽可能完整地部署系统中的微服务，并主要通过 GUI 和 API 等公共接口对其进行操作。</p>
+<blockquote data-nodeid="65878">
+<p data-nodeid="65879">GUI：Graphical User Interface，又称图形用户界面或图形用户接口。它是采用图形方式显示的计算机操作用户界面，是一种人与计算机通信的界面显示格式，允许用户使用鼠标等输入设备操纵屏幕上的图标或菜单选项，以选择命令、调用文件、启动程序或执行其他一些日常任务。</p>
+<p data-nodeid="65880">API：Application Programming Interface，又称呼应用程序编程接口或应用程序接口。它是一组定义、程序及协议的集合，通过 API接口实现计算机软件之间的相互通信。API 的一个主要功能是提供通用功能集，同时也是一种中间件，为各种不同平台提供数据共享。</p>
+</blockquote>
+<p data-nodeid="65881">由于微服务架构包含多个具有相同行为的活动部件，因此端到端测试为服务之间传递消息的正确性提供了更多的信心，而且还可以确保正确配置了其他网络基础结构，例如防火墙、代理或负载均衡等。</p>
+<h4 data-nodeid="65882">测试范围</h4>
+<p data-nodeid="69511">通过微服务的分层测试策略可知，<strong data-nodeid="69517">端到端测试的范围比其他类型的测试大得多。</strong></p>
+<p data-nodeid="76384"></p>
+<div data-nodeid="76959" class=""><p style="text-align:center">分层测试策略-测试范围</p> </div>
+<p data-nodeid="70629">绝大多数情况下，微服务应用系统会依赖一个或多个由外部管理的微服务。通常，这些外部服务包含在端到端测试范围内。 但是，在极少数情况下，也可以主动排除它们。因为如果外部服务由第三方管理，可能会经常出现稳定性和可靠性问题，这会导致端到端测试因不可控的原因而失败。</p>
+<p data-nodeid="75803"></p>
+<div data-nodeid="77530" class=""><p style="text-align:center">微服务应用的典型示例 </p></div>
+<p data-nodeid="65890">比如，某个应用程序系统依赖公安部门的背景审查服务，通过调用该服务来查询用户是否有过违法前科。首先这样的服务通常会按调用次数付费（每次 5-10 元），具有较高的测试成本，其次背景审查服务不总是稳定可用的。在这种情况下，通过服务虚拟化技术模拟背景审查服务是个不错的选择，这虽然多少会降低端到端测试的信心，但增加了测试用例套件的稳定性。</p>
+<h4 data-nodeid="65891">测试入口</h4>
+<p data-nodeid="65892">因为端到端测试是面向业务的，那么测试时要从真实用户的使用场景来进行测试，根据应用程序系统是否有 GUI，可以分为两种情况：</p>
+<ul data-nodeid="72934">
+<li data-nodeid="72935">
+<p data-nodeid="72936"><strong data-nodeid="72944">应用程序系统有 GUI</strong>，这种情况下用户可以直接操作 GUI 来使用系统，那么诸如 Selenium WebDriver 之类的工具可以帮助驱动 GUI 触发系统内的特定行为。</p>
+</li>
+<li data-nodeid="72937">
+<p data-nodeid="72938" class=""><strong data-nodeid="72949">应用程序系统没有 GUI</strong>，这种情况下，使用 HTTP 客户端通过其公共的 API 直接操作微服务。没有真实的 GUI，不能直观地看到业务功能行为，但可以通过后台数据来确定系统的正确性，比如 API 的返回结果、持久化数据的变化情况，等等。</p>
+</li>
+</ul>
+<h4 data-nodeid="72939">测试设计</h4>
+<p data-nodeid="65899">确定测试范围和测试入口后，可以进一步梳理出要测试的功能列表或用例集，并对其按业务能力、优先级、重要性等维度进行分组。这样可以将它们拆分为较小的任务，以便整个团队可以排序处理，比如可以首先实施优先级较高的用例组，或按紧急程度处理关键的用例，这有助于我们尽早消除潜在的障碍。</p>
+<p data-nodeid="65900">另外，由于端到端测试的目标是完全集成后的系统的行为，使得<strong data-nodeid="66035">编写和维护测试用例会比其他类型的测试更加困难：</strong></p>
+<ul data-nodeid="65901">
+<li data-nodeid="65902">
+<p data-nodeid="65903">端到端测试涉及的活动部件比其他测试多得多；</p>
+</li>
+<li data-nodeid="65904">
+<p data-nodeid="65905">端到端测试须考虑系统中的异步处理。</p>
+</li>
+</ul>
+<p data-nodeid="65906">这些因素都可能给端到端测试带来挑战，比如测试过程不稳定、测试时间过长、测试用例集的维护成本高，等等。因此，应尽可能以<strong data-nodeid="66043">最粗粒度</strong>进行端到端的测试设计。</p>
+<h3 data-nodeid="65907">如何开展端到端测试？</h3>
+<p data-nodeid="65908">熟悉了端到端测试的基本内容，我们来看下如何开展端到端测试，主要有如下几类：</p>
+<ul data-nodeid="65909">
+<li data-nodeid="65910">
+<p data-nodeid="65911"><strong data-nodeid="66049">UI 自动化</strong></p>
+</li>
+</ul>
+<p data-nodeid="65912">对于带有 GUI 的应用程序系统，在进行端到端测试时，可以通过 UI 自动化的方式进行。如果 GUI 是 Web 形式，则 Selenium 是首选工具；如果 GUI 是 Native 形式，则可以使用 Appium。</p>
+<p data-nodeid="65913">使用 UI 自动化方式进行端到端测试时，UI 本身也存在不稳定性，因此在测试应用程序时避免使用 GUI 也许是个不错的主意。</p>
+<ul data-nodeid="65914">
+<li data-nodeid="65915">
+<p data-nodeid="65916"><strong data-nodeid="66055">API 自动化</strong></p>
+</li>
+</ul>
+<p data-nodeid="65917">REST-assured&nbsp;库可以绕开 GUI 来测试 REST API 的服务，它用于针对API 触发实际的 HTTP 请求并评估收到的响应是否符合业务需要。</p>
+<ul data-nodeid="65918">
+<li data-nodeid="65919">
+<p data-nodeid="65920"><strong data-nodeid="66060">手工测试</strong></p>
+</li>
+</ul>
+<p data-nodeid="65921">手工测试则是像真实用户那样通过用户界面使用应用程序系统，而且测试自动化工作从来都不可能是完美的。比如，几乎不可能通过编写自动化用例来检测特定的错误，有时会在自动化测试中错过某些边缘情况，某些质量问题在自动化测试中并不明显，不容易被发现，等等。因此，进行某种形式的手工测试依然是一个好主意，且当进行手工测试时，可以适当地引入探索式测试。</p>
+<blockquote data-nodeid="65922">
+<p data-nodeid="65923">探索式软件测试是一种手动测试方法，强调测试人员在运行系统中发现质量问题的自由度和创造力。只需使用破坏性的思维方式，并提出在应用程序中引发问题和错误的方法。记录所有找到的内容，以备日后使用。当心错误、设计问题、响应时间慢、丢包或错包、以及所有其他会困扰软件用户的问题。</p>
+</blockquote>
+<h3 data-nodeid="65924">端到端测试实践心得</h3>
+<p data-nodeid="65925">通过上述内容可知端到端测试的重要性、实用性、复杂性，这里跟你聊一下我对端到端测试的几点实践心得。</p>
+<ul data-nodeid="65926">
+<li data-nodeid="65927">
+<p data-nodeid="65928">编写尽可能少的端到端测试，但绝不能省略它</p>
+</li>
+</ul>
+<p data-nodeid="65929">由于可以通过较低级别的测试技术来获得微服务的质量信心，因此端到端测试的作用是确保一切都紧密联系在一起，从而实现业务目标。在端到端这个级别的测试上，全面地测试业务需求无疑是浪费的，尤其当微服务数量较多时，它的投入产出比必然很低。所以需要所有其他测试手段都用尽后，再进行端到端测试，并以此作为最终的质量保证。</p>
+<p data-nodeid="74088" class="">同时需要警惕的是，<strong data-nodeid="74094">端到端测试要尽可能地少，但绝不能省略它</strong>。因为微服务架构下的分层测试，每一层都有独特的作用，不可轻易省略某一层级的测试。对于端到端测试来说，无论如何也需要验证业务的核心链路和功能。微服务测试人员经常会犯的错误是，在充分进行了较低层次的测试后，会乐观地认为已不存在质量问题，结果问题被生产环境的真实用户发现后才追悔莫及。</p>
+<ul data-nodeid="65931">
+<li data-nodeid="65932">
+<p data-nodeid="65933">分析缺陷产生的层次，推进分层测试的落地与完善</p>
+</li>
+</ul>
+<p data-nodeid="65934">在微服务测试过程中，要善于对出现过的缺陷进行合理性分析。比如，如果较高级别的测试发现缺陷，并且没有进行较低级别的测试或较低级别的测试未执行失败，则需要推动落地或完善较低级别的测试。只有尽可能将测试推到测试金字塔的下方，才能逐渐将分层测试策略在项目中落地。</p>
+<ul data-nodeid="65935">
+<li data-nodeid="65936">
+<p data-nodeid="65937">测试设计时应专注于真实的用户操作</p>
+</li>
+</ul>
+<p data-nodeid="65938">为了确保端到端测试用例套件中的所有测试都是有价值的，可以围绕系统用户的角色以及这些用户在系统中进行的操作轨迹进行分析和场景设计。</p>
+<p data-nodeid="65939">例如，对于用户在网站上购物这个场景来说，应编写的是一个包含浏览商品、放入购物车、付款这三个操作的单个测试，而不是分别单独测试每一个操作。这种方法可以显著减少编写的测试数量并缩短测试执行时间。</p>
+<ul data-nodeid="65940">
+<li data-nodeid="65941">
+<p data-nodeid="65942">慎重选择测试入口</p>
+</li>
+</ul>
+<p data-nodeid="65943">如果特定的外部服务或 GUI 是测试用例套件中不稳定的主要原因，则可以重新确定测试范围以便排除掉不稳定的组件。但这里需要注意的是，虽然推荐使用服务虚拟化来模拟不稳定的服务，但尽量用真实的外部服务或 GUI 对核心链路进行至少一次的端到端测试，而不是一直使用服务虚拟化工具来模拟。</p>
+<ul data-nodeid="65944">
+<li data-nodeid="65945">
+<p data-nodeid="65946">使测试与数据无关</p>
+</li>
+</ul>
+<p data-nodeid="65947">端到端测试的常见困难来源是数据管理，有必要针对测试数据进行管理：如果数据可以用业务操作进行构造，则在端到端执行之前构造好需要的测试数据；如果不允许以业务操作方式构造，则可以在数据库中插入所需数据。</p>
+<ul data-nodeid="65948">
+<li data-nodeid="65949">
+<p data-nodeid="65950">端到端测试，从来都不 low</p>
+</li>
+</ul>
+<p data-nodeid="65951">一些测试人员认为端到端测试没有技术含量，我不太认同。因为测试过程中的关注点和验证点不同，个人的收获也不尽相同。你当然可以把端到端测试看成是一个纯黑盒测试，测试的过程就是不断“点点点”的过程，发现问题时直接反馈给研发同学，等研发同学排查解决后回归验证。你也可以提前梳理好核心链路服务调用关系、数据库表结构、核心类的代码逻辑等内容，在进行端到端测试时，针对关键操作实时查看接口调用情况、服务操作的日志、数据库等信息。并且当出现问题时，或许你自己就能定位出问题所在，即使未能定位出来，也可以把你排查到的中间结果告知给研发同学，使研发同学可以更快定位到问题所在。这种端到端测试属于灰盒测试（黑盒测试+白盒测试），测试效率变高、范围更加精准，研发人员对待你的态度也将大不一样。</p>
+<h3 data-nodeid="65952">总结</h3>
+<p data-nodeid="65953">本节课，我讲解了微服务架构下的端到端测试，它是一种用于测试整个应用程序的流程是否符合预期的测试技术。它的测试范围比其他类型的测试大得多。绝大多数情况下，微服务应用系统依赖的外部服务也应包含在端到端测试范围内。如果有必要，也可以主动排除它们。端到端测试是面向业务的，所以测试时要从真实用户使用场景来进行测试，尽可能完整地部署系统中的微服务，并主要通过 GUI 和 API 等公共接口对其进行操作。</p>
+<p data-nodeid="65954">紧接着我又讲解了如何开展端到端测试，主要通过 UI 自动化测试方式、API 自动化测试方式和手工测试方式来进行：通过端到端测试框架（如Selenium、Appium、&nbsp;REST-assured&nbsp;）和探索式软件测试方法发现整个应用程序的缺陷。</p>
+<p data-nodeid="65955">最后我给出了我在端到端测试方面的一些实践心得，包括端到端测试数量、缺陷分析和分层测试推进、测试设计时的关注点、对测试入口的选择、测试数据的准备和对端到端测试的基本认识等。</p>
+<p data-nodeid="75219">到目前为止，关于微服务的分层测试策略的内容就介绍完了，再来整体回顾一下。</p>
+<p data-nodeid="75220" class=""></p>
+<ul data-nodeid="65958">
+<li data-nodeid="65959">
+<p data-nodeid="65960">单元测试（Unit Test） ：从服务中最小可测试单元视角验证代码行为符合预期，以便测试出方法、类级别的缺陷。</p>
+</li>
+<li data-nodeid="65961">
+<p data-nodeid="65962">集成测试（Integration Test）：验证当前服务与外部模块之间的通信方式或者交互符合预期，以便测试出接口缺陷。</p>
+</li>
+<li data-nodeid="65963">
+<p data-nodeid="65964">组件测试 （Component Test）：将测试范围限制在被测系统的一部分（一般是单个服务），使用测试替身（test doubles）将其与其他组件隔离，以便测试出被测代码的缺陷。</p>
+</li>
+<li data-nodeid="65965">
+<p data-nodeid="65966">契约测试（Contracts Test）：验证当前服务与外部服务之间的交互，以表明它符合消费者服务所期望的契约。</p>
+</li>
+<li data-nodeid="65967">
+<p data-nodeid="65968">端到端测试（End-to-end Test）：从用户视角验证整个系统的功能能否符合用户的预期。</p>
+</li>
+</ul>
+<p data-nodeid="65969">你所负责的项目或服务，是否进行过端到端测试？我想，一定有。那么它具体的进展是怎样的？欢迎在留言区评论。同时欢迎你能把这篇文章分享给你的同学、朋友和同事，大家一起交流。</p>
+<blockquote data-nodeid="65970">
+<p data-nodeid="65971">相关链接<br>
+<a href="ttps://www.martinfowler.com/articles/microservice-testing/" data-nodeid="66101">https://www.martinfowler.com/articles/microservice-testing/ </a><br>
+<a href="https://www.martinfowler.com/articles/practical-test-pyramid.html" data-nodeid="66106">https://www.martinfowler.com/articles/practical-test-pyramid.html</a><br>
+<a href="https://engineering.zalando.com/posts/2019/02/end-to-end-microservices.html" data-nodeid="66110">https://engineering.zalando.com/posts/2019/02/end-to-end-microservices.html</a><br>
+<a href="https://opensource.com/article/18/6/five-microservice-testing-strategies-startups" data-nodeid="66114">https://opensource.com/article/18/6/five-microservice-testing-strategies-startups</a><br>
+<a href="https://www.intevity.com/insights/automated-testing-with-microservices" data-nodeid="66118">https://www.intevity.com/insights/automated-testing-with-microservices</a><br>
+端到端测试框架<br>
+Cypress： <a href="https://github.com/cypress-io/cypress" data-nodeid="66125">https://github.com/cypress-io/cypress</a><br>
+Zalenium： <a href="https://github.com/zalando/zalenium" data-nodeid="66130">https://github.com/zalando/zalenium</a><br>
+Chakram： <a href="https://www.npmjs.com/package/chakram" data-nodeid="66135">https://www.npmjs.com/package/chakram</a><br>
+REST-assured： <a href="https://github.com/rest-assured/rest-assured" data-nodeid="66140">https://github.com/rest-assured/rest-assured</a><br>
+Selenium： <a href="https://www.selenium.dev/" data-nodeid="66145">https://www.selenium.dev/</a><br>
+Appium： <a href="http://appium.io/" data-nodeid="66150">http://appium.io/</a></p>
+</blockquote>]]></description>
+</item>
+<item>
     <title>2023-12-14 打工人日报</title>
     <link>https://www.jobcher.com/github_trending_2023-12-14/</link>
     <pubDate>Thu, 14 Dec 2023 00:00:00 &#43;0000</pubDate>
@@ -2045,679 +2510,6 @@ CI/CD 可观察性是可观察性的一个子集，专注于软件开发生命�
 <p><span class="emoji">🗣️</span> SAO.FM-免费全球30000个广播电台在线收听<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6140?q=%23%E8%B6%A3%E7%AB%99">#趣站</a> <a href="https://t.me/abskoop/6140?q=%23%E5%B9%BF%E6%92%AD%E7%94%B5%E5%8F%B0">#广播电台</a> <a href="https://t.me/abskoop/6140?q=%23%E7%BD%91%E7%BB%9C%E5%B9%BF%E6%92%AD%E7%94%B5%E5%8F%B0">#网络广播电台</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/16294/" target="_blank" rel="noopener">https://www.ahhhhfs.com/16294/</a></p>
 <h4 id="--ttkmusicplayer-免费开源无损音乐下载和播放软件--windows-软件-无损音乐-无损音乐下载--httpswwwahhhhfscom51622">🖼 🗣️ TTKMusicPlayer-免费开源无损音乐下载和播放软件 🏷️ #Windows #软件 #无损音乐 #无损音乐下载 👉 <a href="https://www.ahhhhfs.com/51622/" target="_blank" rel="noopener noreffer ">https://www.ahhhhfs.com/51622/</a></h4>
 <p><span class="emoji">🗣️</span> TTKMusicPlayer-免费开源无损音乐下载和播放软件<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6139?q=%23Windows">#Windows</a> <a href="https://t.me/abskoop/6139?q=%23%E8%BD%AF%E4%BB%B6">#软件</a> <a href="https://t.me/abskoop/6139?q=%23%E6%97%A0%E6%8D%9F%E9%9F%B3%E4%B9%90">#无损音乐</a> <a href="https://t.me/abskoop/6139?q=%23%E6%97%A0%E6%8D%9F%E9%9F%B3%E4%B9%90%E4%B8%8B%E8%BD%BD">#无损音乐下载</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/51622/" target="_blank" rel="noopener">https://www.ahhhhfs.com/51622/</a></p>
-]]></description>
-</item>
-<item>
-    <title>2023-12-10 打工人日报</title>
-    <link>https://www.jobcher.com/github_trending_2023-12-10/</link>
-    <pubDate>Sun, 10 Dec 2023 00:00:00 &#43;0000</pubDate>
-    <author>jobcher</author>
-    <guid>https://www.jobcher.com/github_trending_2023-12-10/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/wallpaper/2023-12-10.jpg.webp" referrerpolicy="no-referrer">
-            </div><h2 id="微博热搜榜">微博热搜榜</h2>
-<ul>
-<li>排名 1.<a href="https://s.weibo.com/weibo?q=%e4%b8%ad%e5%85%b1%e4%b8%ad%e5%a4%ae%e6%94%bf%e6%b2%bb%e5%b1%80%e5%8f%ac%e5%bc%80%e4%bc%9a%e8%ae%ae" target="_blank" rel="noopener noreffer ">中共中央政治局召开会议</a></li>
-<li>排名 2.<a href="https://s.weibo.com/weibo?q=%e9%a5%b6%e9%9b%aa%e6%bc%ab%e8%b0%88%e5%85%ab%e5%b9%b4%e4%b8%8d%e6%95%a2%e8%81%94%e7%b3%bb%e9%99%88%e9%83%bd%e7%81%b5" target="_blank" rel="noopener noreffer ">饶雪漫谈八年不敢联系陈都灵</a></li>
-<li>排名 3.<a href="https://s.weibo.com/weibo?q=%e5%a8%9c%e6%89%8e%e7%bb%8f%e7%ba%aa%e4%ba%ba%e9%80%a0%e5%9e%8b%e5%8f%82%e8%80%83%e4%ba%ba%e7%89%a9%e6%98%af%e7%bb%b4%e7%ba%b3%e6%96%af" target="_blank" rel="noopener noreffer ">娜扎经纪人 造型参考人物是维纳斯</a></li>
-<li>排名 4.<a href="https://s.weibo.com/weibo?q=%e5%a4%aa%e7%a9%ba%e7%a7%8d%e8%8f%9c%e8%bf%98%e8%83%bd%e8%b0%83%e8%8a%82%e8%88%aa%e5%a4%a9%e5%91%98%e6%83%85%e7%bb%aa" target="_blank" rel="noopener noreffer ">太空种菜还能调节航天员情绪</a></li>
-<li>排名 5.<a href="https://s.weibo.com/weibo?q=%e6%98%93%e7%83%8a%e5%8d%83%e7%8e%ba%e7%9c%bc%e4%b8%ad%e6%9c%89%e5%85%89" target="_blank" rel="noopener noreffer ">易烊千玺眼中有光</a></li>
-<li>排名 6.<a href="https://s.weibo.com/weibo?q=%e5%86%b0%e7%ae%b1%e9%97%a8%e4%b8%8a%e6%94%be%e7%89%9b%e5%a5%b6%e9%9a%90%e6%82%a3%e6%9c%89%e5%a4%9a%e5%a4%a7" target="_blank" rel="noopener noreffer ">冰箱门上放牛奶隐患有多大</a></li>
-<li>排名 7.<a href="https://s.weibo.com/weibo?q=%e7%94%b7%e5%ad%90%e8%a7%a3%e5%bc%80%e5%ae%89%e5%85%a8%e5%b8%a6%e6%8b%bf%e5%90%83%e7%9a%84%e8%87%b4%e4%b8%80%e6%ad%bb%e4%b8%80%e4%bc%a4" target="_blank" rel="noopener noreffer ">男子解开安全带拿吃的致一死一伤</a></li>
-<li>排名 8.<a href="https://s.weibo.com/weibo?q=%e7%ac%ac%e4%b8%80%e5%ad%a6%e5%8e%86" target="_blank" rel="noopener noreffer ">第一学历</a></li>
-<li>排名 9.<a href="https://s.weibo.com/weibo?q=%e8%8f%b2%e8%88%b9%e5%8f%aa%e6%95%85%e6%84%8f%e5%86%b2%e6%92%9e%e6%88%91%e6%b5%b7%e8%ad%a6%e8%88%b9" target="_blank" rel="noopener noreffer ">菲船只故意冲撞我海警船</a></li>
-<li>排名 10.<a href="https://s.weibo.com/weibo?q=%e5%90%89%e7%a5%a5%e8%88%aa%e7%a9%ba%e6%89%bf%e8%ae%a4%e5%9b%a0%e5%a4%b1%e8%af%af%e5%af%bc%e8%87%b4%e4%b9%98%e5%ae%a2%e6%bb%9e%e7%95%99%e6%9c%ba%e5%9c%ba" target="_blank" rel="noopener noreffer ">吉祥航空承认因失误导致乘客滞留机场</a></li>
-<li>排名 11.<a href="https://s.weibo.com/weibo?q=%e4%b8%80%e4%b8%aa%e4%ba%ba%e4%b8%8d%e8%88%94%e4%ba%ba%e7%9a%84%e7%a4%be%e4%bc%9a%e4%bb%8e%e5%b0%8a%e9%87%8d%e6%9c%8d%e5%8a%a1%e4%b8%9a%e5%bc%80%e5%a7%8b" target="_blank" rel="noopener noreffer ">一个人不舔人的社会从尊重服务业开始</a></li>
-<li>排名 12.<a href="https://s.weibo.com/weibo?q=%e9%9a%be%e5%93%84%e5%88%ab%e5%93%84%e4%ba%86" target="_blank" rel="noopener noreffer ">难哄 别哄了</a></li>
-<li>排名 13.<a href="https://s.weibo.com/weibo?q=%e7%a8%8b%e5%b0%91%e5%95%86%e8%bf%99%e4%b8%80%e4%b8%96%e8%bf%98%e4%b8%8d%e9%80%89%e8%a2%81%e5%96%84%e8%a7%81" target="_blank" rel="noopener noreffer ">程少商这一世还不选袁善见</a></li>
-<li>排名 14.<a href="https://s.weibo.com/weibo?q=%e8%b5%b5%e4%b8%bd%e9%a2%96%e5%a5%b3%e4%ba%8c" target="_blank" rel="noopener noreffer ">赵丽颖 女二</a></li>
-<li>排名 15.<a href="https://s.weibo.com/weibo?q=TheShy%e9%99%8d%e8%96%aa" target="_blank" rel="noopener noreffer ">TheShy 降薪</a></li>
-<li>排名 16.<a href="https://s.weibo.com/weibo?q=%e5%bc%a0%e9%9b%aa%e5%b3%b0%e5%86%8d%e5%9b%9e%e5%ba%94%e6%96%87%e7%a7%91%e9%83%bd%e6%98%af%e6%9c%8d%e5%8a%a1%e4%b8%9a" target="_blank" rel="noopener noreffer ">张雪峰再回应文科都是服务业</a></li>
-<li>排名 17.<a href="https://s.weibo.com/weibo?q=%e6%9e%97%e4%bf%8a%e6%9d%b0%e5%8d%97%e5%ae%81%e5%90%83%e5%a4%aa%e9%a6%99%e4%ba%86" target="_blank" rel="noopener noreffer ">林俊杰南宁 吃太香了</a></li>
-<li>排名 18.<a href="https://s.weibo.com/weibo?q=%e5%a1%8c%e8%85%b0" target="_blank" rel="noopener noreffer ">塌腰</a></li>
-<li>排名 19.<a href="https://s.weibo.com/weibo?q=%e4%b8%93%e5%ae%b6%e7%a7%b0%e5%bc%a0%e9%9b%aa%e5%b3%b0%e8%a8%80%e8%ae%ba%e8%bf%87%e4%ba%8e%e6%9e%81%e7%ab%af" target="_blank" rel="noopener noreffer ">专家称张雪峰言论过于极端</a></li>
-<li>排名 20.<a href="https://s.weibo.com/weibo?q=%e8%ae%b8%e5%a4%9a%e4%ba%ba%e5%ae%b6%e6%9c%89%e7%9a%84%e8%bf%99%e7%a7%8d%e7%9f%b3%e5%a4%b4%e5%8f%af%e8%83%bd%e8%87%b4%e7%99%8c" target="_blank" rel="noopener noreffer ">许多人家有的这种石头可能致癌</a></li>
-</ul>
-<h2 id="github-热门榜单">GitHub 热门榜单</h2>
-<h4 id="排名-2xuchengshengspring-reading">排名 2:/xuchengsheng/spring-reading</h4>
-<ul>
-<li>简介: 涵盖了春天框架的核心概念和关键功能，包括控制反转（IOC）容器的使用，面向切面编程（AOP）的原理与实践，事务管理的方式与实现，Spring MVC的流程与控制器工作机制，以及春天中数据访问、安全、靴子自动配置等方面的深入研究。此外，它还包含了春天事件机制的应用、高级主题如缓存抽象和响应式编程，以及对春天源码的编程风格与设计模式的深入探讨。</li>
-<li>URL: <a href="https://github.com/xuchengsheng/spring-reading" target="_blank" rel="noopener noreffer ">https://github.com/xuchengsheng/spring-reading</a></li>
-<li>作者: xuchengsheng</li>
-</ul>
-<h4 id="排名-3microsoftpowertoys">排名 3:/microsoft/PowerToys</h4>
-<ul>
-<li>简介: Windows系统实用程序可最大限度地提高生产效率</li>
-<li>URL: <a href="https://github.com/microsoft/PowerToys" target="_blank" rel="noopener noreffer ">https://github.com/microsoft/PowerToys</a></li>
-<li>作者: microsoft</li>
-</ul>
-<h4 id="排名-4facebookresearchpurplellama">排名 4:/facebookresearch/PurpleLlama</h4>
-<ul>
-<li>简介: 一套用于评估和改进LLM安全性的工具。</li>
-<li>URL: <a href="https://github.com/facebookresearch/PurpleLlama" target="_blank" rel="noopener noreffer ">https://github.com/facebookresearch/PurpleLlama</a></li>
-<li>作者: facebookresearch</li>
-</ul>
-<h4 id="排名-5anomanamada-trusted-setup-claimer">排名 5:/anoma/namada-trusted-setup-claimer</h4>
-<ul>
-<li>简介: 使用从Namada的可信设置中获得的密钥对任意消息进行签名</li>
-<li>URL: <a href="https://github.com/anoma/namada-trusted-setup-claimer" target="_blank" rel="noopener noreffer ">https://github.com/anoma/namada-trusted-setup-claimer</a></li>
-<li>作者: anoma</li>
-</ul>
-<h4 id="排名-6catchorgcatch2">排名 6:/catchorg/Catch2</h4>
-<ul>
-<li>简介: 一个用于单元测试、TDD和BDD的现代C++本机测试框架，使用C++14、C++17及更高版本（C++11支持在v2.x分支中，C++03支持在Catch1.x分支中）</li>
-<li>URL: <a href="https://github.com/catchorg/Catch2" target="_blank" rel="noopener noreffer ">https://github.com/catchorg/Catch2</a></li>
-<li>作者: catchorg</li>
-</ul>
-<h4 id="排名-8reactivexrxswift">排名 8:/ReactiveX/RxSwift</h4>
-<ul>
-<li>简介: Swift中的反应式编程</li>
-<li>URL: <a href="https://github.com/ReactiveX/RxSwift" target="_blank" rel="noopener noreffer ">https://github.com/ReactiveX/RxSwift</a></li>
-<li>作者: ReactiveX</li>
-</ul>
-<h4 id="排名-9ml-exploremlx">排名 9:/ml-explore/mlx</h4>
-<ul>
-<li>简介: MLX:Apple silicon的阵列框架</li>
-<li>URL: <a href="https://github.com/ml-explore/mlx" target="_blank" rel="noopener noreffer ">https://github.com/ml-explore/mlx</a></li>
-<li>作者: ml-explore</li>
-</ul>
-<h4 id="排名-10michaelyuheai-group-tabs">排名 10:/MichaelYuhe/ai-group-tabs</h4>
-<ul>
-<li>简介: Chrome扩展程序可帮助您使用AI对标签进行分组。</li>
-<li>URL: <a href="https://github.com/MichaelYuhe/ai-group-tabs" target="_blank" rel="noopener noreffer ">https://github.com/MichaelYuhe/ai-group-tabs</a></li>
-<li>作者: MichaelYuhe</li>
-</ul>
-<h4 id="排名-11fmtlibfmt">排名 11:/fmtlib/fmt</h4>
-<ul>
-<li>简介: 现代格式库</li>
-<li>URL: <a href="https://github.com/fmtlib/fmt" target="_blank" rel="noopener noreffer ">https://github.com/fmtlib/fmt</a></li>
-<li>作者: fmtlib</li>
-</ul>
-<h4 id="排名-12jjtech0130pypush">排名 12:/JJTech0130/pypush</h4>
-<ul>
-<li>简介: 跨平台iMessage POC</li>
-<li>URL: <a href="https://github.com/JJTech0130/pypush" target="_blank" rel="noopener noreffer ">https://github.com/JJTech0130/pypush</a></li>
-<li>作者: JJTech0130</li>
-</ul>
-<h4 id="排名-13pris-cvdemofusion">排名 13:/PRIS-CV/DemoFusion</h4>
-<ul>
-<li>简介: 让我们民主化高分辨率的一代！（arXiv 2023）</li>
-<li>URL: <a href="https://github.com/PRIS-CV/DemoFusion" target="_blank" rel="noopener noreffer ">https://github.com/PRIS-CV/DemoFusion</a></li>
-<li>作者: PRIS-CV</li>
-</ul>
-<h4 id="排名-14ml-exploremlx-examples">排名 14:/ml-explore/mlx-examples</h4>
-<ul>
-<li>简介: MLX框架中的示例</li>
-<li>URL: <a href="https://github.com/ml-explore/mlx-examples" target="_blank" rel="noopener noreffer ">https://github.com/ml-explore/mlx-examples</a></li>
-<li>作者: ml-explore</li>
-</ul>
-<h4 id="排名-15yformerefficientsam">排名 15:/yformer/EfficientSAM</h4>
-<ul>
-<li>简介: EfficientSAM：利用掩模图像预训练实现高效分割任何内容</li>
-<li>URL: <a href="https://github.com/yformer/EfficientSAM" target="_blank" rel="noopener noreffer ">https://github.com/yformer/EfficientSAM</a></li>
-<li>作者: yformer</li>
-</ul>
-<h4 id="排名-16pybindpybind11">排名 16:/pybind/pybind11</h4>
-<ul>
-<li>简介: C++11和Python之间的无缝可操作性</li>
-<li>URL: <a href="https://github.com/pybind/pybind11" target="_blank" rel="noopener noreffer ">https://github.com/pybind/pybind11</a></li>
-<li>作者: pybind</li>
-</ul>
-<h4 id="排名-18songquanpengone-api">排名 18:/songquanpeng/one-api</h4>
-<ul>
-<li>简介: OpenAI接口管理 &amp; 分发系统，支持Azure、Anthropic Claude、Google PaLM 2、智谱ChatGLM、百度文心一言、讯飞星火认知、阿里通义千问、360智脑以及腾讯混元，可用于二次分发管理钥匙仅单可执行文件，已打包好Docker镜像，一键部署，开箱即用.OpenAI密钥管理和分发系统，为所有LLM使用单一的API，并具有英文用户界面。</li>
-<li>URL: <a href="https://github.com/songquanpeng/one-api" target="_blank" rel="noopener noreffer ">https://github.com/songquanpeng/one-api</a></li>
-<li>作者: songquanpeng</li>
-</ul>
-<h4 id="排名-19superduperdbsuperduperdb">排名 19:/SuperDuperDB/superduperdb</h4>
-<ul>
-<li>简介: 🔮SuperDuperDB：将人工智能带到您的数据库中：直接与您的数据库和数据集成、训练和管理任何人工智能模型和API。</li>
-<li>URL: <a href="https://github.com/SuperDuperDB/superduperdb" target="_blank" rel="noopener noreffer ">https://github.com/SuperDuperDB/superduperdb</a></li>
-<li>作者: SuperDuperDB</li>
-</ul>
-<h4 id="排名-20apachesuperset">排名 20:/apache/superset</h4>
-<ul>
-<li>简介: Apache Superset是一个数据可视化和数据探索平台</li>
-<li>URL: <a href="https://github.com/apache/superset" target="_blank" rel="noopener noreffer ">https://github.com/apache/superset</a></li>
-<li>作者: apache</li>
-</ul>
-<h4 id="排名-21keyvanakbarylearning-notes">排名 21:/keyvanakbary/learning-notes</h4>
-<ul>
-<li>简介: 关于我读的书、看的演讲、研究的文章和我喜欢的论文的笔记</li>
-<li>URL: <a href="https://github.com/keyvanakbary/learning-notes" target="_blank" rel="noopener noreffer ">https://github.com/keyvanakbary/learning-notes</a></li>
-<li>作者: keyvanakbary</li>
-</ul>
-<h4 id="排名-22opensalamandersalamander">排名 22:/OpenSalamander/salamander</h4>
-<ul>
-<li>简介: 打开Salamander</li>
-<li>URL: <a href="https://github.com/OpenSalamander/salamander" target="_blank" rel="noopener noreffer ">https://github.com/OpenSalamander/salamander</a></li>
-<li>作者: OpenSalamander</li>
-</ul>
-<h4 id="排名-24flode-labsvid2densepose">排名 24:/Flode-Labs/vid2densepose</h4>
-<ul>
-<li>简介: 将您的视频转换为densepose并在MagicAnimate上使用</li>
-<li>URL: <a href="https://github.com/Flode-Labs/vid2densepose" target="_blank" rel="noopener noreffer ">https://github.com/Flode-Labs/vid2densepose</a></li>
-<li>作者: Flode-Labs</li>
-</ul>
-<h4 id="排名-25firebasefirebase-ios-sdk">排名 25:/firebase/firebase-ios-sdk</h4>
-<ul>
-<li>简介: 用于苹果应用程序开发的Firebase SDK</li>
-<li>URL: <a href="https://github.com/firebase/firebase-ios-sdk" target="_blank" rel="noopener noreffer ">https://github.com/firebase/firebase-ios-sdk</a></li>
-<li>作者: firebase</li>
-</ul>
-<h2 id="v2ex-热门帖子">v2ex 热门帖子</h2>
-<ul>
-<li>1.<a href="https://www.v2ex.com/t/999068#reply2" target="_blank" rel="noopener noreffer ">老手机黑莓Passport和Palmone还能怎么发挥余热?</a></li>
-<li>2.<a href="https://www.v2ex.com/t/999071#reply2" target="_blank" rel="noopener noreffer ">个人网站遭受ddos，报警有用吗</a></li>
-<li>3.<a href="https://www.v2ex.com/t/999070#reply1" target="_blank" rel="noopener noreffer ">小米14闲鱼上300秒解bl锁可信不？</a></li>
-<li>4.<a href="https://www.v2ex.com/t/999072#reply1" target="_blank" rel="noopener noreffer ">玩过stablediffusion作图的大佬们，可以分享下你们的心得吗</a></li>
-<li>5.<a href="https://www.v2ex.com/t/999073#reply0" target="_blank" rel="noopener noreffer ">简单免费的spam检测API？</a></li>
-<li>6.<a href="https://www.v2ex.com/t/999074#reply0" target="_blank" rel="noopener noreffer ">看到一个帖子M1pro先给电脑充满电再外部充电宝供电效率更高？</a></li>
-</ul>
-<h2 id="热点新闻">热点新闻</h2>
-<h4 id="贵州省遵义市习水县马临街道金源建材厂9日12时许发生一起正在施工的防尘彩钢棚垮塌事故截至17时事故造成6人不幸遇难3人受伤目前事故善后和调查工作正">贵州省遵义市习水县马临街道金源建材厂9日12时许发生一起正在施工的防尘彩钢棚垮塌事故。截至17时，事故造成6人不幸遇难，3人受伤。目前，事故善后和调查工作正&hellip;</h4>
-<p>贵州省遵义市习水县马临街道金源建材厂9日12时许发生一起正在施工的防尘彩钢棚垮塌事故。截至17时，事故造成6人不幸遇难，3人受伤。目前，事故善后和调查工作正在开展中。<br>（<a href="http://www.news.cn/2023-12/09/c_1130017665.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">新华社</a>）</p>
-<h4 id="关于日本自民党安倍派清和政策研究会的政治集资宴会小金库疑云首相岸田文雄已在朝着撤换官房长官松野博一的方向展开探讨政权相关人士9日透露了该消">关于日本自民党安倍派（清和政策研究会）的政治集资宴会“小金库”疑云，首相岸田文雄已在朝着撤换官房长官松野博一的方向展开探讨。政权相关人士9日透露了该消&hellip;</h4>
-<p>关于日本自民党安倍派（清和政策研究会）的政治集资宴会“小金库”疑云，首相岸田文雄已在朝着撤换官房长官松野博一的方向展开探讨。政权相关人士9日透露了该消息。若官房长官被撤换，将是罕见事例。<br>松野在直至2021年10月的约2年里担任该派系事务总长。他被指出在近5年里接受了来自超出指标的宴会券销售额的“回扣”合计超过1000万日元（约合人民币49万元），没有写入政治资金收支报告。官房长官是内阁的关键人物，这将成为对岸田的打击。<br>岸田将在看清东京地方检察厅特搜部的调查走向后，包括换人时间在内做出最终判断。在执政党内要求松野辞职的意见增强的形势下，岸田似乎逐渐倾向于认为根据检方的调查情况，松野或许难以继续任职。<br>松野在8日上午和下午的记者会上，被询问超过30次，但他对安倍派“小金库”疑云仅回答称“派系正在进行确认”。在众参两院的预算委员会上，他反复表示：“也会仔细确认我的政治团体的情况，将妥善应对。”<br>（<a href="https://china.kyodonews.net/news/2023/12/45c5a47497f3--.html" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">共同社</a>）</p>
-<h4 id="中国和欧盟领导人7日举行会晤习近平和李强先后会见欧洲理事会主席米歇尔和欧盟委员会主席冯德莱恩双方虽然达成部分共识但仍在一些问题上存在分歧-在会后">中国和欧盟领导人7日举行会晤，习近平和李强先后会见欧洲理事会主席米歇尔和欧盟委员会主席冯德莱恩。双方虽然达成部分共识，但仍在一些问题上存在分歧。 在会后&hellip;</h4>
-<p>中国和欧盟领导人7日举行会晤，习近平和李强先后会见欧洲理事会主席米歇尔和欧盟委员会主席冯德莱恩。双方虽然达成部分共识，但仍在一些问题上存在分歧。<br>在会后，中国外交部欧洲司司长王鲁彤举行媒体吹风会，米歇尔和冯德莱恩则在欧洲联盟驻华代表团举行新闻发布会。<br>双方同意保持中欧关系战略稳定，继续开展中欧互利合作，共同应对全球性挑战。<br>在贸易失衡问题上，冯德莱恩认为贸易失衡不可持续。欧洲公司缺乏中国市场准入、中国国内公司具有优惠待遇以及中国产能过剩。王鲁彤则强调补贴是各国常用的产业政策工具。王鲁彤还称，中国新能源产业对欧盟绿色转型、全球应对气候变化可以发挥重要作用，希望欧方不要以所谓“产能过剩”为由，采取贸易保护主义措施。<br>在贸易补贴问题上，王鲁彤表示，就欧盟“去风险”和限制性经贸政策，包括对中国电动汽车的反补贴调查、5G等问题表明了关切，敦促欧方保持贸易和投资市场开放，为中国企业提供公平、非歧视的营商环境。冯德莱恩称，欧洲领导人无法容忍因不公平竞争而损害欧洲工业基础。欧盟无意与中国脱钩，只是希望通过供应链多元化解决过度依赖，做到“去风险”。<br>在乌克兰问题上，欧盟向中国重申不要向俄罗斯提供致命装备，希望中国利用对俄影响力制止战争。中国则表示俄罗斯是独立主权国家，欧美应与俄罗斯对话。<br>在台湾问题上，中国强调欧盟应以实际行动坚持一个中国原则和不干涉内政这一准则。欧盟则反对任何单方面通过武力或胁迫改变现状的行为。<br>《南华早报》援引多名知情人士透露，习近平放松且没有对抗性地告诉米歇尔和冯德莱恩，中国认为欧洲本身就是世界的“一极”，不是任何国家的“附属”。此外，欧盟向中国提交了一份据称向俄罗斯军方出口欧制军民两用产品的公司清单，习近平表示对此非常关注。<br>（<a href="https://apnews.com/article/china-eu-summit-divide-europe-b11a0c31182257fbca67a6fd16a2fe72" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">美联社</a>，<a href="https://www.fmprc.gov.cn/web/wjdt_674879/sjxw_674887/202312/t20231208_11197022.shtml" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">中国外交部</a>，<a href="https://ec.europa.eu/commission/presscorner/detail/en/STATEMENT_23_6409" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">欧盟委员会</a>，<a href="https://www.scmp.com/news/china/diplomacy/article/3244454/europe-no-ones-vassal-relaxed-xi-jinping-tells-eu-leaders-beijing" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">南华早报</a>）</p>
-<h4 id="-国际奥委会执委会8日宣布俄罗斯和白俄罗斯运动员可以中立个人身份参加2024年巴黎奥运会-新华社">↩️ 国际奥委会执委会8日宣布，俄罗斯和白俄罗斯运动员可以中立个人身份参加2024年巴黎奥运会。 （新华社）</h4>
-<div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me/tnews365/26624"><b>竹新社</b>:</a></p>                                                                        <p>国际奥委会建议允许俄罗斯和白俄罗斯运动员作为中立者参加国际赛事，但尚未就2024年巴黎奥运会做出决定。这项建议只适用于个人运动员，不适用于团队。此外，积极支持乌克兰战争或与军队签约的运动员或支持人员不应被允许参加比赛。 （国际奥委会）</p>                                </blockquote></div><p>国际奥委会执委会8日宣布，俄罗斯和白俄罗斯运动员可以中立个人身份参加2024年巴黎奥运会。<br>（<a href="http://www.news.cn/2023-12/09/c_1130016933.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">新华社</a>）</p>
-<h4 id="经过近24小时的辩论和近15小时的谈判后欧盟8日就人工智能法案达成临时协议-该协议要求人工智能基础模型在投放市场前遵守透明度义务包括起草技术文件">经过近24小时的辩论和近15小时的谈判后，欧盟8日就《人工智能法案》达成临时协议。 该协议要求人工智能基础模型在投放市场前遵守透明度义务，包括起草技术文件、&hellip;</h4>
-<p>经过近24小时的辩论和近15小时的谈判后，欧盟8日就《人工智能法案》达成临时协议。<br>该协议要求人工智能基础模型在投放市场前遵守透明度义务，包括起草技术文件、遵守欧盟版权法以及公开用于模型训练的内容摘要。具有系统性风险的高影响基础模型必须进行评估，减轻系统性风险，进行对抗性测试，向欧盟委员会报告严重事件。<br>协议还对政府行为予以约束，政府只能在面临恐怖袭击等真正、当前或可预见威胁时，才可使用实时生物识别监视。协议禁止认知行为操纵、禁止从互联网或监控视频中抓取面部图像、进行社会评分、或者对种族、宗教信仰、性取向等进行识别分类。<br>欧盟成员国和欧洲议会成员将在未来几天讨论细节，一旦双方正式批准，法案预计将在明年初生效，并在两年后实施。<br>虽然欧盟委员会委员称赞欧盟起到了全球标准制定者的角色。但“数字化欧洲组织”批评此举给公司增加负担，“欧洲数字权利中心”也批评法案将使得欧盟范围内的实时公开面部识别合法化。<br>（<a href="https://www.reuters.com/technology/stalled-eu-ai-act-talks-set-resume-2023-12-08/" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">路透社</a>）</p>
-<h4 id="-今年12月10日世界人权日前美国加拿大和英国联合发起一轮人权制裁行动其中包括数十个在俄罗斯缅甸伊朗海地叙利亚等国侵犯人权的个人与实体-">↩️ 今年12月10日世界人权日前，美国、加拿大和英国联合发起一轮人权制裁行动，其中包括数十个在俄罗斯、缅甸、伊朗、海地、叙利亚等国侵犯人权的个人与实体。 &hellip;</h4>
-<div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me/tnews365/18996"><b>竹新社</b>:</a></p>                                                                        <p>在世界人权日，美国财政部宣布制裁中国、缅甸、朝鲜以及孟加拉涉侵犯人权的15名个人及10个实体。 制裁名单包括新疆前自治区主席雪克来提·扎克尔、前副主席艾尔肯·吐尼亚孜，以及宣传拥有识别维族人脸特征技术的商汤科技。 清单还包括朝鲜的SEK工作室、柠色动漫（音）、上海弘漫动漫设计工作室及控制人吕和争（音）、魔星动漫（音），以及俄罗斯高校European Institute Justo及其教务长Dmitriy Yurevich Soin，他们涉及为朝鲜劳工提供非工作签证、或是帮助逃避对朝出口制裁。 加拿大和英国…</p>                                </blockquote></div><p>今年12月10日世界人权日前，美国、加拿大和英国联合发起一轮人权制裁行动，其中包括数十个在俄罗斯、缅甸、伊朗、海地、叙利亚等国侵犯人权的个人与实体。<br>美国涉疆制裁名单中包括新疆伊犁哈萨克自治州副州长兼公安局党委书记高琪和中央新疆工作协调小组办公室副主任胡联合；另有中粮糖业控股股份有限公司、四川经纬达科技集团有限公司和安徽新雅新材料有限公司被列入《防止强迫维吾尔人劳动法》实体清单。<br>英国涉柬埔寨、老挝、缅甸强迫劳动制裁名单中包含正恒集团、赵伟（音）、苏贵清（音）等多个华人个人与实体。<br>（<a href="https://home.treasury.gov/news/press-releases/jy1972" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">美国财政部</a>，<a href="https://www.gov.uk/government/news/uk-and-allies-sanction-human-rights-abusers" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">英国政府</a>，<a href="https://www.canada.ca/en/global-affairs/news/2023/12/backgrounder-sanctions-in-response-to-long-standing-human-rights-violations-in-russia-iran-and-myanmar.html" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">加拿大全球事务部</a>，<a href="https://www.dhs.gov/news/2023/12/08/dhs-designates-three-additional-prc-based-companies-uflpa-entity-list" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">美国国土安全部</a>）</p>
-<h4 id="墨西哥特斯卡尔蒂特兰市一个村庄的村民8日与犯罪团伙发生冲突造成11人死亡-网传视频显示戴着牛仔帽手持镰刀和猎枪的居民在枪声中追赶可疑的犯罪团伙成员">墨西哥特斯卡尔蒂特兰市一个村庄的村民8日与犯罪团伙发生冲突，造成11人死亡。 网传视频显示，戴着牛仔帽、手持镰刀和猎枪的居民在枪声中追赶可疑的犯罪团伙成员&hellip;</h4>
-<p>墨西哥特斯卡尔蒂特兰市一个村庄的村民8日与犯罪团伙发生冲突，造成11人死亡。<br>网传视频显示，戴着牛仔帽、手持镰刀和猎枪的居民在枪声中追赶可疑的犯罪团伙成员。袭击者身着类似军装的制服，部分人戴着头盔。居民们看样子焚烧了袭击者的尸体和车辆。<br>当地媒体报道称，一直盘踞在当地的贩毒团伙米却肯家族的枪手早些时候出现在村庄，要求当地农民支付勒索费用。警方称，其中8名死者是犯罪团伙成员，3人是村庄居民。但警方没有透露犯罪团伙的身份。<br>（<a href="https://apnews.com/article/mexico-farming-town-11-dead-drug-cartel-c38c846aa25052dee1e21c2c8e9d1660" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">美联社</a>）</p>
-<h4 id="-以色列8日继续袭击加沙地带美国否决了联合国安理会立即停火的要求-在加沙南部汗尤尼斯中部努赛赖特和北部加沙城均发生袭击造成至少数十人死亡以">↩️ 以色列8日继续袭击加沙地带，美国否决了联合国安理会立即停火的要求。 在加沙南部汗尤尼斯、中部努赛赖特和北部加沙城均发生袭击，造成至少数十人死亡。以&hellip;</h4>
-<div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me/tnews365/28953"><b>竹新社</b>:</a></p>                                    <p><small>以色列军队6日继续在加沙南部城市汗尤尼斯与哈马斯武装分子作战。 汗尤尼斯是哈马斯多名领导人的童年住所，因此在以色列的进攻中极具象征意义。以军表示，部队已经突破了哈马斯的防线，并袭击哈马斯在市中心的阵地，占领了多个前哨和军火库。战机摧毁了地道竖井。相关说法无法得到独立证实。 此外，在加沙北部杰巴利耶难民营和舒贾亚地区的战斗也仍在继续。哈马斯发布的视频显示其武装人员在舒贾亚穿过小巷，向以色列装甲车发射火箭弹，多辆车起火。 在以色列的呼吁下，数万人已从汗尤尼斯等地逃往拉法。埃及在边界部署数千名军队和障碍，防止难…</small></p>                                                                    </blockquote></div><p>以色列8日继续袭击加沙地带，美国否决了联合国安理会立即停火的要求。<br>在加沙南部汗尤尼斯、中部努赛赖特和北部加沙城均发生袭击，造成至少数十人死亡。以色列指挥官称，部队正挨家挨户、逐个竖井进行战斗。哈马斯报告称，在谢贾亚和汗尤尼斯和以色列发生激烈冲突。联合国称，杰巴利耶难民营的一家医院被以军包围，并因以色列炮击而遭到破坏。以色列还对约旦河西岸发动数次袭击。<br>以色列方面表示，在过去48小时内在加沙逮捕了200多人，其中数十人被带回以色列接受审问，以确定他们是否是激进组织成员。总部位于英国的《新阿拉伯人报》称，被捕者之一是该报驻加沙记者。<br>以军8日早些时候试图在加沙一处地点解救以色列人质，但没有成功。在冲突中，以军两名士兵受重伤，没有人质获释。哈马斯称，其武装分子击退了这一企图。<br>一枚从加沙地带发射的火箭弹8日落在特拉维夫市中心，一辆停放的汽车受损。<br>在联合国安理会，15个理事国就阿联酋提出的要求交战双方立即停火的决议草案投票，13个国家投赞成票、英国弃权、美国反对。美国驻联合国代表表示，这项决议呼吁的停火不可持续，只会为下一场战争埋下种子，美国将继续开展外交工作。<br>巴勒斯坦驻联合国代表称，投票结果意味着数百万巴勒斯坦人的生命悬而未决。哈马斯政治局成员伊扎特·拉希克谴责美国的否决不人道。以色列驻联合国代表称，只有所有人质返回并摧毁哈马斯，才有可能实现停火。<br>尽管美国投了反对票，但美国一直在敦促以色列采取措施保护平民，称保护平民的意愿和实地看到的结果存在差距。<br>（<a href="https://www.reuters.com/world/middle-east/gaza-fighting-intensifies-us-vetoes-security-council-demand-ceasefire-2023-12-08/" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">路透社</a>，<a href="https://apnews.com/article/israel-hamas-war-news-12-8-2023-364b8f23ced3704273faede6f2ca6f38" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">美联社</a>，<a href="https://chinese.aljazeera.net/palestine-israel-conflict/liveblog/2023/12/9/%E4%BB%A5%E8%89%B2%E5%88%97%E5%AF%B9%E5%8A%A0%E6%B2%99%E6%88%98%E4%BA%89%E7%9A%84%E4%BB%8A%E6%97%A5%E5%8F%91%E5%B1%95%E5%B7%B4%E5%8B%92%E6%96%AF%E5%9D%A6%E4%BA%BA%E7%8C%9B%E7%83%88%E6%8A%A8%E5%87%BB" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">半岛电视台</a>）</p>
-<h4 id="-一辅警因追星威胁人肉网友查开房记录西安公安深夜通报工作人员张某女24岁被解除劳务合同-12月8日深夜西安市公安局阎良分局发布情况通报">🖼 一辅警因追星威胁“人肉”网友，查开房记录？西安公安深夜通报：工作人员张某（女，24岁）被解除劳务合同 12月8日深夜，西安市公安局阎良分局发布情况通报&hellip;</h4>
-<p><b>一辅警因追星威胁“人肉”网友，查开房记录？西安公安深夜通报：工作人员张某（女，24岁）被解除劳务合同 </b><br><br>12月8日深夜，西安市公安局阎良分局发布情况通报称，12月7日，网传我局工作人员私信某网民声称要查询其公民个人信息。<br><br>经查，我局警务辅助人员张某（女，24岁）在与某网民私信过程中发生争执，导致情绪失控，为恐吓对方，信口编造要查询其个人信息。经进一步调查，<b>其没有接触、查询公民个人信息的条件和权限，也未发现其通过他人非法获取公民个人信息情况。</b><br><br>目前，<b>我局已根据辅警管理工作规定解除张某劳动合同，并依法予以行政处罚。</b>同时，给予张某原所在部门负直接管理责任的民警田某责令检查，给予负有领导责任的毛某诫勉。<br><br>此事件反映出我们队伍中个别民辅警存在的特权思想，损害了公安机关形象，我们将以此为鉴，不断强化民辅警队伍教育管理和日常监督。再次感谢社会各界对公安工作的监督和支持。 <br><br>消息来源: <a href="https://www.nbd.com.cn/articles/2023-12-09/3156092.html" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">每日经济新闻</a></p>
-<h4 id="12月9日国家统计局公布数据显示中国11月cpi同比下降05前值为下降02扣除食品和能源价格的核心cpi同比上涨06涨幅与上月相同继续保持温和上涨-">12月9日，国家统计局公布数据显示，中国11月CPI同比下降0.5%，前值为下降0.2%。扣除食品和能源价格的核心CPI同比上涨0.6%，涨幅与上月相同，继续保持温和上涨。 &hellip;</h4>
-<p>12月9日，国家统计局公布数据显示，中国11月CPI同比下降0.5%，前值为下降0.2%。扣除食品和能源价格的核心CPI同比上涨0.6%，涨幅与上月相同，继续保持温和上涨。<br><br>与此同时，11月PPI同比下滑3%，前值为下降2.6%，降幅进一步扩大；中国11月PPI环比下降0.3%，前值为持平。</p>
-<h4 id="-陀螺仪故障已修复哈勃太空望远镜重新开始科学观测任务-美国宇航局今天发布新闻稿宣布哈勃天空望远镜已经重返工作岗位重新开始科学观测任务-此">🖼 陀螺仪故障已修复，哈勃太空望远镜重新开始科学观测任务 美国宇航局今天发布新闻稿，宣布哈勃天空望远镜已经“重返工作岗位”，重新开始科学观测任务。 此&hellip;</h4>
-<p><b>陀螺仪故障已修复，哈勃太空望远镜重新开始科学观测任务</b><br><br>美国宇航局今天发布新闻稿，宣布哈勃天空望远镜已经“重返工作岗位”，重新开始科学观测任务。<br><br>此前哈勃太空望远镜辅助转向的 3 个陀螺仪中，11 月 19 日其中 1 个返回错误读数，让其进入安全模式。<br><br>团队发现问题之后迅速采用行动，修复了这个问题。但陀螺仪并不稳定，导致系统在 11 月 21 日和 11 月 23 日两次进入安全模式。<br><br>美国宇航局随后宣布暂停哈勃太空望远镜的观测任务，团队在经过远程数据调校之后，让所有三个陀螺仪再次恢复正常运行。<br><br>美国宇航局表示“3 号宽视场相机”（Wide Field Camera 3）和“高级测量相机”（Advanced Camera for Surveys,）两个主要相机，已经于本周五恢复了科学观测。<br><br>该团队计划在本月晚些时候恢复“宇宙起源光谱仪”（ Cosmic Origins Spectrograph）和“太空望远镜成像光谱仪”（Space Telescope Imaging Spectrograph ）的运行。<br><br>消息来源: <a href="https://www.ithome.com/0/738/125.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">IT之家</a></p>
-<h4 id="朱雀二号遥三运载火箭发射成功-北京时间2023年12月9日07时39分朱雀二号遥三运载火箭在我国酒泉卫星发射中心发射升空将搭载的鸿鹄卫星天仪33卫星及鸿鹄二号">朱雀二号遥三运载火箭发射成功 北京时间2023年12月9日07时39分，朱雀二号遥三运载火箭在我国酒泉卫星发射中心发射升空，将搭载的鸿鹄卫星、天仪33卫星及鸿鹄二号&hellip;</h4>
-<p><b>朱雀二号遥三运载火箭发射成功</b><br><br>北京时间2023年12月9日07时39分，朱雀二号遥三运载火箭在我国酒泉卫星发射中心发射升空，将搭载的鸿鹄卫星、天仪33卫星及鸿鹄二号卫星顺利送入预定轨道，发射任务获得圆满成功。<br><br>此次任务是朱雀二号运载火箭第3次飞行。<br><br><b>此前朱雀二号成为世界首款入轨的液氧甲烷液体火箭</b></p>
-<h2 id="福利分享">福利分享</h2>
-<h4 id="--新闻女王-2023-国粤双语-4k-2160p--影视-4k-夸克网盘-阿里云盘--httpswwwahhhhfscom51614">🖼 🗣️ 新闻女王 (2023) 国粤双语 4K 2160p 🏷️ #影视 #4K #夸克网盘 #阿里云盘 👉 <a href="https://www.ahhhhfs.com/51614/" target="_blank" rel="noopener noreffer ">https://www.ahhhhfs.com/51614/</a></h4>
-<p><span class="emoji">🗣️</span> 新闻女王 (2023) 国粤双语 4K 2160p<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6138?q=%23%E5%BD%B1%E8%A7%86">#影视</a> <a href="https://t.me/abskoop/6138?q=%234K">#4K</a> <a href="https://t.me/abskoop/6138?q=%23%E5%A4%B8%E5%85%8B%E7%BD%91%E7%9B%98">#夸克网盘</a> <a href="https://t.me/abskoop/6138?q=%23%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98">#阿里云盘</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/51614/" target="_blank" rel="noopener">https://www.ahhhhfs.com/51614/</a></p>
-<h4 id="--免费节点服务器流量订阅地址-用完即止--福利-服务器-流量-流量_服务器-网络--httpswwwahhhhfscom32616">🖼 🗣️ 免费节点服务器流量订阅地址 用完即止 🏷️ #福利 #服务器 #流量 #流量_服务器 #网络 👉 <a href="https://www.ahhhhfs.com/32616/" target="_blank" rel="noopener noreffer ">https://www.ahhhhfs.com/32616/</a></h4>
-<p><span class="emoji">🗣️</span> 免费节点服务器流量订阅地址 用完即止<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6137?q=%23%E7%A6%8F%E5%88%A9">#福利</a> <a href="https://t.me/abskoop/6137?q=%23%E6%9C%8D%E5%8A%A1%E5%99%A8">#服务器</a> <a href="https://t.me/abskoop/6137?q=%23%E6%B5%81%E9%87%8F">#流量</a> <a href="https://t.me/abskoop/6137?q=%23%E6%B5%81%E9%87%8F_%E6%9C%8D%E5%8A%A1%E5%99%A8">#流量_服务器</a> <a href="https://t.me/abskoop/6137?q=%23%E7%BD%91%E7%BB%9C">#网络</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/32616/" target="_blank" rel="noopener">https://www.ahhhhfs.com/32616/</a></p>
-<h4 id="--国内外赚钱副业项目收集分享--趣站-副业-网赚项目--httpswwwahhhhfscom51597">🖼 🗣️ 国内外赚钱副业项目收集分享 🏷️ #趣站 #副业 #网赚项目 👉 <a href="https://www.ahhhhfs.com/51597/" target="_blank" rel="noopener noreffer ">https://www.ahhhhfs.com/51597/</a></h4>
-<p><span class="emoji">🗣️</span> 国内外赚钱副业项目收集分享<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6136?q=%23%E8%B6%A3%E7%AB%99">#趣站</a> <a href="https://t.me/abskoop/6136?q=%23%E5%89%AF%E4%B8%9A">#副业</a> <a href="https://t.me/abskoop/6136?q=%23%E7%BD%91%E8%B5%9A%E9%A1%B9%E7%9B%AE">#网赚项目</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/51597/" target="_blank" rel="noopener">https://www.ahhhhfs.com/51597/</a></p>
-<h4 id="--免费专业的英文电子书下载网站-freebookcentre--资源下载-趣站-电子书-电子书下载-英文电子书-英文电子书pdf-英文电子书网站--htt">🖼 🗣️ 免费专业的英文电子书下载网站-Freebookcentre 🏷️ #资源下载 #趣站 #电子书 #电子书下载 #英文电子书 #英文电子书pdf #英文电子书网站 👉 htt&hellip;</h4>
-<p><span class="emoji">🗣️</span> 免费专业的英文电子书下载网站-Freebookcentre<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6135?q=%23%E8%B5%84%E6%BA%90%E4%B8%8B%E8%BD%BD">#资源下载</a> <a href="https://t.me/abskoop/6135?q=%23%E8%B6%A3%E7%AB%99">#趣站</a> <a href="https://t.me/abskoop/6135?q=%23%E7%94%B5%E5%AD%90%E4%B9%A6">#电子书</a> <a href="https://t.me/abskoop/6135?q=%23%E7%94%B5%E5%AD%90%E4%B9%A6%E4%B8%8B%E8%BD%BD">#电子书下载</a> <a href="https://t.me/abskoop/6135?q=%23%E8%8B%B1%E6%96%87%E7%94%B5%E5%AD%90%E4%B9%A6">#英文电子书</a> <a href="https://t.me/abskoop/6135?q=%23%E8%8B%B1%E6%96%87%E7%94%B5%E5%AD%90%E4%B9%A6pdf">#英文电子书pdf</a> <a href="https://t.me/abskoop/6135?q=%23%E8%8B%B1%E6%96%87%E7%94%B5%E5%AD%90%E4%B9%A6%E7%BD%91%E7%AB%99">#英文电子书网站</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/29958/" target="_blank" rel="noopener">https://www.ahhhhfs.com/29958/</a></p>
-<h4 id="--mylens-ai时间线生成工具-为任何主题生成时间线--ai工具-趣站-ai--httpswwwahhhhfscom51584">🖼 🗣️ MyLens-AI时间线生成工具 为任何主题生成时间线 🏷️ #AI工具 #趣站 #AI 👉 <a href="https://www.ahhhhfs.com/51584/" target="_blank" rel="noopener noreffer ">https://www.ahhhhfs.com/51584/</a></h4>
-<p><span class="emoji">🗣️</span> MyLens-AI时间线生成工具 为任何主题生成时间线<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6134?q=%23AI%E5%B7%A5%E5%85%B7">#AI工具</a> <a href="https://t.me/abskoop/6134?q=%23%E8%B6%A3%E7%AB%99">#趣站</a> <a href="https://t.me/abskoop/6134?q=%23AI">#AI</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/51584/" target="_blank" rel="noopener">https://www.ahhhhfs.com/51584/</a></p>
-<h4 id="--某英文字母-绳子类学习课程集合--大人学习课程-资源-pikpak-pikpak网盘-大人学习资源-夸克网盘--httpswwwahhhhfscom51608">🖼 🗣️ 某英文字母 绳子类学习课程集合 🏷️ #大人学习课程 #资源 #PikPak #PikPak网盘 #大人学习资源 #夸克网盘 👉 <a href="https://www.ahhhhfs.com/51608/" target="_blank" rel="noopener noreffer ">https://www.ahhhhfs.com/51608/</a></h4>
-<p><span class="emoji">🗣️</span> 某英文字母 绳子类学习课程集合<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6133?q=%23%E5%A4%A7%E4%BA%BA%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B">#大人学习课程</a> <a href="https://t.me/abskoop/6133?q=%23%E8%B5%84%E6%BA%90">#资源</a> <a href="https://t.me/abskoop/6133?q=%23PikPak">#PikPak</a> <a href="https://t.me/abskoop/6133?q=%23PikPak%E7%BD%91%E7%9B%98">#PikPak网盘</a> <a href="https://t.me/abskoop/6133?q=%23%E5%A4%A7%E4%BA%BA%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90">#大人学习资源</a> <a href="https://t.me/abskoop/6133?q=%23%E5%A4%B8%E5%85%8B%E7%BD%91%E7%9B%98">#夸克网盘</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/51608/" target="_blank" rel="noopener">https://www.ahhhhfs.com/51608/</a></p>
-<h4 id="--闺蜜都不会分享给你的情商真相--社交职场-资源-夸克网盘--httpswwwahhhhfscom51602">🖼 🗣️ 闺蜜都不会分享给你的情商真相 🏷️ #社交职场 #资源 #夸克网盘 👉 <a href="https://www.ahhhhfs.com/51602/" target="_blank" rel="noopener noreffer ">https://www.ahhhhfs.com/51602/</a></h4>
-<p><span class="emoji">🗣️</span> 闺蜜都不会分享给你的情商真相<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6132?q=%23%E7%A4%BE%E4%BA%A4%E8%81%8C%E5%9C%BA">#社交职场</a> <a href="https://t.me/abskoop/6132?q=%23%E8%B5%84%E6%BA%90">#资源</a> <a href="https://t.me/abskoop/6132?q=%23%E5%A4%B8%E5%85%8B%E7%BD%91%E7%9B%98">#夸克网盘</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/51602/" target="_blank" rel="noopener">https://www.ahhhhfs.com/51602/</a></p>
-<h4 id="--excalidraw-开源虚拟手绘风格白板--github项目-趣站-画板--httpswwwahhhhfscom51593">🖼 🗣️ Excalidraw-开源虚拟手绘风格白板 🏷️ #GitHub项目 #趣站 #画板 👉 <a href="https://www.ahhhhfs.com/51593/" target="_blank" rel="noopener noreffer ">https://www.ahhhhfs.com/51593/</a></h4>
-<p><span class="emoji">🗣️</span> Excalidraw-开源虚拟手绘风格白板<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6131?q=%23GitHub%E9%A1%B9%E7%9B%AE">#GitHub项目</a> <a href="https://t.me/abskoop/6131?q=%23%E8%B6%A3%E7%AB%99">#趣站</a> <a href="https://t.me/abskoop/6131?q=%23%E7%94%BB%E6%9D%BF">#画板</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/51593/" target="_blank" rel="noopener">https://www.ahhhhfs.com/51593/</a></p>
-<h4 id="--quodb-英文影视台词搜索引擎-电影台词数据库--趣站-搜索引擎--httpswwwahhhhfscom51579">🖼 🗣️ QuoDB-英文影视台词搜索引擎 电影台词数据库 🏷️ #趣站 #搜索引擎 👉 <a href="https://www.ahhhhfs.com/51579/" target="_blank" rel="noopener noreffer ">https://www.ahhhhfs.com/51579/</a></h4>
-<p><span class="emoji">🗣️</span> QuoDB-英文影视台词搜索引擎 电影台词数据库<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6130?q=%23%E8%B6%A3%E7%AB%99">#趣站</a> <a href="https://t.me/abskoop/6130?q=%23%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E">#搜索引擎</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/51579/" target="_blank" rel="noopener">https://www.ahhhhfs.com/51579/</a></p>
-<h4 id="--我爱abc-中英文早教资源网-百度网盘--趣站--httpswwwahhhhfscom51575">🖼 🗣️ 我爱ABC-中英文早教资源网 百度网盘 🏷️ #趣站 👉 <a href="https://www.ahhhhfs.com/51575/" target="_blank" rel="noopener noreffer ">https://www.ahhhhfs.com/51575/</a></h4>
-<p><span class="emoji">🗣️</span> 我爱ABC-中英文早教资源网 百度网盘<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6129?q=%23%E8%B6%A3%E7%AB%99">#趣站</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/51575/" target="_blank" rel="noopener">https://www.ahhhhfs.com/51575/</a></p>
-]]></description>
-</item>
-<item>
-    <title>2023-12-09 打工人日报</title>
-    <link>https://www.jobcher.com/github_trending_2023-12-09/</link>
-    <pubDate>Sat, 09 Dec 2023 00:00:00 &#43;0000</pubDate>
-    <author>jobcher</author>
-    <guid>https://www.jobcher.com/github_trending_2023-12-09/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/wallpaper/2023-12-09.jpg.webp" referrerpolicy="no-referrer">
-            </div><h2 id="微博热搜榜">微博热搜榜</h2>
-<ul>
-<li>排名 1.<a href="https://s.weibo.com/weibo?q=%e5%8f%91%e5%b1%95%e4%b8%ad%e6%ac%a7%e5%85%b3%e7%b3%bb%e8%a6%81%e5%81%9a%e5%a5%bd%e8%bf%99%e4%ba%9b%e5%8a%a0%e5%87%8f%e6%b3%95" target="_blank" rel="noopener noreffer ">发展中欧关系要做好这些加减法</a></li>
-<li>排名 2.<a href="https://s.weibo.com/weibo?q=%e8%a7%a3%e6%b8%85%e5%b8%85%e5%92%8c%e5%a5%b3%e5%8f%8b%e6%9c%89%e8%b0%88%e5%a9%9a%e8%ae%ba%e5%ab%81" target="_blank" rel="noopener noreffer ">解清帅和女友有谈婚论嫁</a></li>
-<li>排名 3.<a href="https://s.weibo.com/weibo?q=%e6%9c%b1%e4%b8%b9%e7%8e%8b%e7%89%8c%e4%b8%bb%e6%8c%81%e4%ba%ba%e5%ae%9e%e5%8a%9b" target="_blank" rel="noopener noreffer ">朱丹 王牌主持人实力</a></li>
-<li>排名 4.<a href="https://s.weibo.com/weibo?q=%e5%a4%aa%e7%a9%ba%e8%a7%86%e8%a7%92%e8%a7%81%e8%af%81%e4%b8%ad%e5%9b%bd%e5%bc%8f%e7%8e%b0%e4%bb%a3%e5%8c%96" target="_blank" rel="noopener noreffer ">太空视角见证中国式现代化</a></li>
-<li>排名 5.<a href="https://s.weibo.com/weibo?q=%e5%ae%98%e6%96%b9%e9%80%9a%e6%8a%a5%e8%ad%a6%e5%8a%a1%e8%be%85%e5%8a%a9%e4%ba%ba%e5%91%98%e7%a7%b0%e8%a6%81%e6%9f%a5%e7%bd%91%e5%8f%8b%e4%b8%aa%e4%ba%ba%e4%bf%a1%e6%81%af" target="_blank" rel="noopener noreffer ">官方通报警务辅助人员称要查网友个人信息</a></li>
-<li>排名 6.<a href="https://s.weibo.com/weibo?q=%e5%88%98%e8%af%97%e8%af%97%e6%88%8f%e4%bb%bd" target="_blank" rel="noopener noreffer ">刘诗诗 戏份</a></li>
-<li>排名 7.<a href="https://s.weibo.com/weibo?q=%e5%b0%8f%e6%9d%a8%e5%93%a5%e5%9b%9e%e5%ba%94%e5%be%92%e5%bc%9f%e7%9b%b4%e6%92%ad%e9%97%b4%e5%bc%80%e6%92%ad%e7%a7%92%e5%b0%81" target="_blank" rel="noopener noreffer ">小杨哥回应徒弟直播间开播秒封</a></li>
-<li>排名 8.<a href="https://s.weibo.com/weibo?q=PUBG%e6%96%b0%e5%9c%b0%e5%9b%be%e8%8d%a3%e9%83%bd" target="_blank" rel="noopener noreffer ">PUBG新地图荣都</a></li>
-<li>排名 9.<a href="https://s.weibo.com/weibo?q=%e7%9f%ad%e8%a7%86%e9%a2%91%e6%88%90%e7%98%be%e7%9a%84%e8%b4%9f%e9%9d%a2%e5%bd%b1%e5%93%8d" target="_blank" rel="noopener noreffer ">短视频成瘾的负面影响</a></li>
-<li>排名 10.<a href="https://s.weibo.com/weibo?q=%e7%a8%8b%e5%ba%8f%e5%91%98%e6%af%8f%e6%9c%88%e5%8f%aa%e7%bb%99%e8%87%aa%e5%b7%b1%e7%95%992%e5%8d%83%e5%a6%bb%e5%ad%90%e5%8d%b4%e8%a6%81%e7%a6%bb%e5%a9%9a" target="_blank" rel="noopener noreffer ">程序员每月只给自己留2千妻子却要离婚</a></li>
-<li>排名 11.<a href="https://s.weibo.com/weibo?q=%e7%a0%94%e7%a9%b6%e5%8f%91%e7%8e%b0%e8%a2%ab%e5%ad%90%e9%87%8d%e7%9d%a1%e5%be%97%e9%a6%99" target="_blank" rel="noopener noreffer ">研究发现被子重睡得香</a></li>
-<li>排名 12.<a href="https://s.weibo.com/weibo?q=%e5%91%a8%e4%b8%80%e5%9b%b4%e6%88%91%e7%88%b1%e4%bd%a0%e4%bd%86%e4%b8%8e%e4%bd%a0%e6%97%a0%e5%85%b3" target="_blank" rel="noopener noreffer ">周一围 我爱你但与你无关</a></li>
-<li>排名 13.<a href="https://s.weibo.com/weibo?q=%e5%87%ba%e7%94%9f%e7%8e%87%e4%b8%8b%e9%99%8d%e5%af%bc%e8%87%b4%e5%b9%bc%e5%84%bf%e5%9b%ad%e5%85%b3%e5%81%9c%e6%bd%ae" target="_blank" rel="noopener noreffer ">出生率下降导致幼儿园关停潮</a></li>
-<li>排名 14.<a href="https://s.weibo.com/weibo?q=%e5%be%90%e5%86%ac%e5%86%ac%e9%80%80%e8%b5%9b" target="_blank" rel="noopener noreffer ">徐冬冬退赛</a></li>
-<li>排名 15.<a href="https://s.weibo.com/weibo?q=%e5%a4%96%e5%8d%96%e5%b0%8f%e5%93%a5%e9%80%81%e9%a4%90%e9%80%94%e4%b8%ad%e8%a2%ab%e9%a3%8e%e7%ad%9d%e7%ba%bf%e5%89%b2%e5%96%89" target="_blank" rel="noopener noreffer ">外卖小哥送餐途中被风筝线割喉</a></li>
-<li>排名 16.<a href="https://s.weibo.com/weibo?q=%e8%82%96%e6%88%98%e7%ba%a2%e6%b5%b7" target="_blank" rel="noopener noreffer ">肖战 红海</a></li>
-<li>排名 17.<a href="https://s.weibo.com/weibo?q=%e7%99%bd%e9%b9%bf%e5%bc%a0%e5%87%8c%e8%b5%abGQ%e5%90%8e%e5%8f%b0%e5%90%88%e7%85%a7" target="_blank" rel="noopener noreffer ">白鹿张凌赫GQ后台合照</a></li>
-<li>排名 18.<a href="https://s.weibo.com/weibo?q=%e8%92%bf%e4%bf%8a%e9%97%b5%e7%a6%bb%e5%a9%9a" target="_blank" rel="noopener noreffer ">蒿俊闵离婚</a></li>
-<li>排名 19.<a href="https://s.weibo.com/weibo?q=%e8%a7%a3%e6%b8%85%e5%b8%85%e5%b7%b2%e8%be%9e%e8%81%8c" target="_blank" rel="noopener noreffer ">解清帅已辞职</a></li>
-<li>排名 20.<a href="https://s.weibo.com/weibo?q=%e6%9d%a8%e5%b9%82%e5%b7%a5%e4%bd%9c%e5%ae%a4%e6%8c%a1%e4%ba%86%e5%8f%88%e5%a5%bd%e5%83%8f%e6%b2%a1%e6%8c%a1" target="_blank" rel="noopener noreffer ">杨幂工作室 挡了又好像没挡</a></li>
-</ul>
-<h2 id="github-热门榜单">GitHub 热门榜单</h2>
-<h4 id="排名-1ml-exploremlx">排名 1:/ml-explore/mlx</h4>
-<ul>
-<li>简介: MLX:Apple silicon的阵列框架</li>
-<li>URL: <a href="https://github.com/ml-explore/mlx" target="_blank" rel="noopener noreffer ">https://github.com/ml-explore/mlx</a></li>
-<li>作者: ml-explore</li>
-</ul>
-<h4 id="排名-2ml-exploremlx-examples">排名 2:/ml-explore/mlx-examples</h4>
-<ul>
-<li>简介: MLX框架中的示例</li>
-<li>URL: <a href="https://github.com/ml-explore/mlx-examples" target="_blank" rel="noopener noreffer ">https://github.com/ml-explore/mlx-examples</a></li>
-<li>作者: ml-explore</li>
-</ul>
-<h4 id="排名-3superduperdbsuperduperdb">排名 3:/SuperDuperDB/superduperdb</h4>
-<ul>
-<li>简介: 🔮SuperDuperDB：将人工智能带到您的数据库中：直接与您的数据库和数据集成、训练和管理任何人工智能模型和API。</li>
-<li>URL: <a href="https://github.com/SuperDuperDB/superduperdb" target="_blank" rel="noopener noreffer ">https://github.com/SuperDuperDB/superduperdb</a></li>
-<li>作者: SuperDuperDB</li>
-</ul>
-<h4 id="排名-4copilotkitcopilotkit">排名 4:/CopilotKit/CopilotKit</h4>
-<ul>
-<li>简介: 构建应用内AI聊天机器人🤖,和人工智能支持的文本区域✨,进入react web应用程序。</li>
-<li>URL: <a href="https://github.com/CopilotKit/CopilotKit" target="_blank" rel="noopener noreffer ">https://github.com/CopilotKit/CopilotKit</a></li>
-<li>作者: CopilotKit</li>
-</ul>
-<h4 id="排名-5facebookstylex">排名 5:/facebook/stylex</h4>
-<ul>
-<li>简介: StyleX是用于雄心勃勃的用户界面的样式系统。</li>
-<li>URL: <a href="https://github.com/facebook/stylex" target="_blank" rel="noopener noreffer ">https://github.com/facebook/stylex</a></li>
-<li>作者: facebook</li>
-</ul>
-<h4 id="排名-6magic-researchmagic-animate">排名 6:/magic-research/magic-animate</h4>
-<ul>
-<li>简介: MagicAnimate:使用扩散模型的时间一致的人体图像动画</li>
-<li>URL: <a href="https://github.com/magic-research/magic-animate" target="_blank" rel="noopener noreffer ">https://github.com/magic-research/magic-animate</a></li>
-<li>作者: magic-research</li>
-</ul>
-<h4 id="排名-7jjtech0130pypush">排名 7:/JJTech0130/pypush</h4>
-<ul>
-<li>简介: 跨平台iMessage POC</li>
-<li>URL: <a href="https://github.com/JJTech0130/pypush" target="_blank" rel="noopener noreffer ">https://github.com/JJTech0130/pypush</a></li>
-<li>作者: JJTech0130</li>
-</ul>
-<h4 id="排名-8prismaprisma">排名 8:/prisma/prisma</h4>
-<ul>
-<li>简介: Node.js&amp;TypeScript|PostgreSQL、MySQL、MariaDB、SQL Server、SQLite、MongoDB和CockratchDB的下一代ORM</li>
-<li>URL: <a href="https://github.com/prisma/prisma" target="_blank" rel="noopener noreffer ">https://github.com/prisma/prisma</a></li>
-<li>作者: prisma</li>
-</ul>
-<h4 id="排名-9pris-cvdemofusion">排名 9:/PRIS-CV/DemoFusion</h4>
-<ul>
-<li>简介: 让我们民主化高分辨率的一代！（arXiv 2023）</li>
-<li>URL: <a href="https://github.com/PRIS-CV/DemoFusion" target="_blank" rel="noopener noreffer ">https://github.com/PRIS-CV/DemoFusion</a></li>
-<li>作者: PRIS-CV</li>
-</ul>
-<h4 id="排名-12xuchengshengspring-reading">排名 12:/xuchengsheng/spring-reading</h4>
-<ul>
-<li>简介: 涵盖了春天框架的核心概念和关键功能，包括控制反转（IOC）容器的使用，面向切面编程（AOP）的原理与实践，事务管理的方式与实现，Spring MVC的流程与控制器工作机制，以及春天中数据访问、安全、靴子自动配置等方面的深入研究。此外，它还包含了春天事件机制的应用、高级主题如缓存抽象和响应式编程，以及对春天源码的编程风格与设计模式的深入探讨。</li>
-<li>URL: <a href="https://github.com/xuchengsheng/spring-reading" target="_blank" rel="noopener noreffer ">https://github.com/xuchengsheng/spring-reading</a></li>
-<li>作者: xuchengsheng</li>
-</ul>
-<h4 id="排名-13yformerefficientsam">排名 13:/yformer/EfficientSAM</h4>
-<ul>
-<li>简介: EfficientSAM：利用掩模图像预训练实现高效分割任何内容</li>
-<li>URL: <a href="https://github.com/yformer/EfficientSAM" target="_blank" rel="noopener noreffer ">https://github.com/yformer/EfficientSAM</a></li>
-<li>作者: yformer</li>
-</ul>
-<h4 id="排名-14kata-containerskata-containers">排名 14:/kata-containers/kata-containers</h4>
-<ul>
-<li>简介: Kata Containers是一个开源项目和社区，致力于构建轻量级虚拟机（VM）的标准实现，其感觉和性能与容器相似，但提供了VM的工作负载隔离和安全优势。https://katacontainers.io/</li>
-<li>URL: <a href="https://github.com/kata-containers/kata-containers" target="_blank" rel="noopener noreffer ">https://github.com/kata-containers/kata-containers</a></li>
-<li>作者: kata-containers</li>
-</ul>
-<h4 id="排名-15xaoyaoopywxdump">排名 15:/xaoyaoo/PyWxDump</h4>
-<ul>
-<li>简介: 获取微信账号信息(昵称/账号/手机/邮箱/数据库密钥/wxid）个人计算机微信数据库读取、解密脚本；聊天记录查看工具；聊天记录导出为html(包含语音图片)。支持多账户信息获取，支持所有微信版本。</li>
-<li>URL: <a href="https://github.com/xaoyaoo/PyWxDump" target="_blank" rel="noopener noreffer ">https://github.com/xaoyaoo/PyWxDump</a></li>
-<li>作者: xaoyaoo</li>
-</ul>
-<h4 id="排名-16catchorgcatch2">排名 16:/catchorg/Catch2</h4>
-<ul>
-<li>简介: 一个用于单元测试、TDD和BDD的现代C++本机测试框架，使用C++14、C++17及更高版本（C++11支持在v2.x分支中，C++03支持在Catch1.x分支中）</li>
-<li>URL: <a href="https://github.com/catchorg/Catch2" target="_blank" rel="noopener noreffer ">https://github.com/catchorg/Catch2</a></li>
-<li>作者: catchorg</li>
-</ul>
-<h4 id="排名-17microsoftpowertoys">排名 17:/microsoft/PowerToys</h4>
-<ul>
-<li>简介: Windows系统实用程序可最大限度地提高生产效率</li>
-<li>URL: <a href="https://github.com/microsoft/PowerToys" target="_blank" rel="noopener noreffer ">https://github.com/microsoft/PowerToys</a></li>
-<li>作者: microsoft</li>
-</ul>
-<h4 id="排名-18googlestyle-aligned">排名 18:/google/style-aligned</h4>
-<ul>
-<li>简介: “通过共同关注生成风格一致的图像”的官方代码</li>
-<li>URL: <a href="https://github.com/google/style-aligned" target="_blank" rel="noopener noreffer ">https://github.com/google/style-aligned</a></li>
-<li>作者: google</li>
-</ul>
-<h4 id="排名-19hashicorpterraform">排名 19:/hashicorp/terraform</h4>
-<ul>
-<li>简介: Terraform使您能够安全地、可预测地创建、更改和改进基础设施。它是一个源代码可用的工具，可以将API编码为声明性配置文件，这些文件可以在团队成员之间共享、作为代码处理、编辑、审查和版本控制。</li>
-<li>URL: <a href="https://github.com/hashicorp/terraform" target="_blank" rel="noopener noreffer ">https://github.com/hashicorp/terraform</a></li>
-<li>作者: hashicorp</li>
-</ul>
-<h4 id="排名-20fmtlibfmt">排名 20:/fmtlib/fmt</h4>
-<ul>
-<li>简介: 现代格式库</li>
-<li>URL: <a href="https://github.com/fmtlib/fmt" target="_blank" rel="noopener noreffer ">https://github.com/fmtlib/fmt</a></li>
-<li>作者: fmtlib</li>
-</ul>
-<h4 id="排名-21awesome-selfhostedawesome-selfhosted">排名 21:/awesome-selfhosted/awesome-selfhosted</h4>
-<ul>
-<li>简介: 可以托管在您自己的服务器上的免费软件网络服务和web应用程序列表</li>
-<li>URL: <a href="https://github.com/awesome-selfhosted/awesome-selfhosted" target="_blank" rel="noopener noreffer ">https://github.com/awesome-selfhosted/awesome-selfhosted</a></li>
-<li>作者: awesome-selfhosted</li>
-</ul>
-<h4 id="排名-23trekhlebjavascript-algorithms">排名 23:/trekhleb/javascript-algorithms</h4>
-<ul>
-<li>简介: 📝用JavaScript实现的算法和数据结构，以及解释和进一步阅读的链接</li>
-<li>URL: <a href="https://github.com/trekhleb/javascript-algorithms" target="_blank" rel="noopener noreffer ">https://github.com/trekhleb/javascript-algorithms</a></li>
-<li>作者: trekhleb</li>
-</ul>
-<h4 id="排名-24pybindpybind11">排名 24:/pybind/pybind11</h4>
-<ul>
-<li>简介: C++11和Python之间的无缝可操作性</li>
-<li>URL: <a href="https://github.com/pybind/pybind11" target="_blank" rel="noopener noreffer ">https://github.com/pybind/pybind11</a></li>
-<li>作者: pybind</li>
-</ul>
-<h4 id="排名-25reactivexrxswift">排名 25:/ReactiveX/RxSwift</h4>
-<ul>
-<li>简介: Swift中的反应式编程</li>
-<li>URL: <a href="https://github.com/ReactiveX/RxSwift" target="_blank" rel="noopener noreffer ">https://github.com/ReactiveX/RxSwift</a></li>
-<li>作者: ReactiveX</li>
-</ul>
-<h2 id="v2ex-热门帖子">v2ex 热门帖子</h2>
-<ul>
-<li>1.<a href="https://www.v2ex.com/t/998879#reply4" target="_blank" rel="noopener noreffer ">邻居经常半夜吵架</a></li>
-<li>2.<a href="https://www.v2ex.com/t/998881#reply4" target="_blank" rel="noopener noreffer ">给手机换更轻的电池怎么样？</a></li>
-<li>3.<a href="https://www.v2ex.com/t/998882#reply3" target="_blank" rel="noopener noreffer ">感觉现在地图开发必须用付费的？</a></li>
-<li>4.<a href="https://www.v2ex.com/t/998880#reply0" target="_blank" rel="noopener noreffer ">解决thinkpade560睡眠黑屏问题</a></li>
-<li>5.<a href="https://www.v2ex.com/t/998883#reply0" target="_blank" rel="noopener noreffer ">为什么win11微软输入法输入中文时没有没有文字选择栏，必须换成旧版时才有？</a></li>
-<li>6.<a href="https://www.v2ex.com/t/998884#reply0" target="_blank" rel="noopener noreffer ">Express.js写的后端服务怎样平稳迁移到Strapi上？</a></li>
-<li>7.<a href="https://www.v2ex.com/t/998885#reply0" target="_blank" rel="noopener noreffer ">有可以语音交互，连接车机的NAS吗</a></li>
-<li>8.<a href="https://www.v2ex.com/t/998886#reply0" target="_blank" rel="noopener noreffer ">现在购买的GV卖家都这么不靠谱的吗？</a></li>
-</ul>
-<h2 id="热点新闻">热点新闻</h2>
-<h4 id="-俄罗斯总统普京已决定参加2024年总统选举-顿涅茨克亲俄武装斯巴达营的营长代表很多人请求普京参加总统选举希望在普京的领导下完成融入工作-普京">↩️ 俄罗斯总统普京已决定参加2024年总统选举。 顿涅茨克亲俄武装“斯巴达营”的营长代表很多人请求普京参加总统选举，希望在普京的领导下完成融入工作。 普京&hellip;</h4>
-<div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me/tnews365/28709"><b>竹新社</b>:</a></p>                                    <p><small>6名消息人士称，俄罗斯总统普京已决定参加2024年3月的总统选举。普京的顾问正为其参选做准备。 克里姆林宫发言人佩斯科夫表示，普京尚未就此事置评，竞选活动尚未正式宣布。 （路透社）</small></p>                                                                    </blockquote></div><p>俄罗斯总统普京已决定参加2024年总统选举。<br>顿涅茨克亲俄武装“斯巴达营”的营长代表很多人请求普京参加总统选举，希望在普京的领导下完成融入工作。<br>普京坦言自己在不同时期有不同想法，但现在需要做出决定，他将竞选俄罗斯总统一职。<br>除了“斯巴达营”营长之外，还有多名参加“金星”奖章授勋仪式的人也都表达了希望普京连任总统。<br>俄罗斯2024年总统选举将于明年3月17日举行。若连任，普京将至少掌权至2030年。<br>（<a href="https://tass.ru/politika/19491299" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">塔斯社</a>，<a href="https://www.interfax.ru/russia/935384" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">国际文传电讯社</a>，<a href="http://kremlin.ru/events/president/news/72935" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">克里姆林宫</a>）</p>
-<h4 id="-国务院11月30日发空气质量持续改善行动计划要求2025年相比2020年-pm25浓度华北地区下降20汾渭平原下降15长三角平原地区达标北京市控制在3">↩️ 国务院11月30日发《空气质量持续改善行动计划》要求2025年相比2020年： PM2.5浓度：华北地区下降20%，汾渭平原下降15%，长三角平原地区达标，北京市控制在3&hellip;</h4>
-<div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me/tnews365/18238"><b>竹新社</b>:</a></p>                                                                        <p>中共中央国务院印发《关于深入打好污染防治攻坚战的意见》，要求到2025年： 地级以上城市PM2.5下降10%，空气质量优良天数比例达到87.5%，重污染天数在1%以内。 京津冀及周边、长三角地区煤炭消费量分别下降10%、5%左右，汾渭平原煤炭消费量实现负增长。原则上不再新增自备燃煤机组，支持鼓励自备电厂实施清洁能源替代或转为公用电厂。 地表水Ⅰ－Ⅲ类水体达到85%，近岸海域水质优良（一、二类）达到79%。黄河干流上中游（花园口以上）水质达到Ⅱ类。 农村生活污水治理率达40%，化肥农药利用率减到43%，全国…</p>                                </blockquote></div><p>国务院11月30日发《空气质量持续改善行动计划》要求2025年相比2020年：<br>PM2.5浓度：华北地区下降20%，汾渭平原下降15%，长三角平原地区达标，北京市控制在32μg/m³内。<br>煤炭消费量：华北下降10%、长三角下降5%、汾渭负增长。<br>对上述重点区域（具体区划内详）钢铁、焦化、电解铝等产业有序调整优化；原则上不再新建除集中供暖外的燃煤锅炉；平原地区散煤基本清零；基本淘汰35蒸吨/小时及以下炉灶等燃煤设施；不再新增燃料类煤气发生炉；基本消除铁路机车“冒黑烟”。<br>高速服务区快充站，上述重点区域覆盖率不低于80%、其他地区60%。<br>（<a href="https://www.gov.cn/zhengce/content/202312/content_6919000.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">中国政府网</a>）</p>
-<h4 id="-中央经济工作会议即将召开中共中央政治局12月8日开会准备认为-明年要切实增强经济活力防范化解风险改善社会预期坚持稳中求进以进促稳先立">↩️ 中央经济工作会议即将召开。中共中央政治局12月8日开会准备，认为： 明年要切实增强经济活力、防范化解风险、改善社会预期，坚持稳中求进、以进促稳、先立&hellip;</h4>
-<div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me/tnews365/28637"><b>竹新社</b>:</a></p>                                                                        <p>中共10月30至31日开中央金融工作会议，习近平讲话、李强具体部署工作、何立峰总结。 习近平说，经济金融风险隐患仍较多、各种矛盾问题相互交织影响，金融服务实体经济的质效不高，金融乱象和腐败问题屡禁不止，金融监管和治理能力薄弱。 他要求做好科技金融、绿色金融、普惠金融、养老金融、数字金融五篇大文章。 建立防范化解地方债务风险长效机制，建立同高质量发展相适应的政府债务管理机制，优化中央和地方政府债务结构。完善房地产金融宏观审慎管理。 规范金融市场发行和交易行为，合理引导预期，防范风险跨区域、跨市场、跨境传递共振。…</p>                                </blockquote></div><p>中央经济工作会议即将召开。中共中央政治局12月8日开会准备，认为：<br>明年要切实增强经济活力、防范化解风险、改善社会预期，坚持稳中求进、以进促稳、先立后破，强化宏观政策逆周期和跨周期调节。增强宏观政策取向一致性，加强经济宣传和舆论引导。政治局又同意，1月8至10日开二十届中纪委三次全会。<br><a href="http://www.news.cn/2023-12/08/c_1130015474.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">12月6日就此召开的党外人士座谈会</a>，发言主题分别是：深化对外经贸合作（民革）实施积极的财政政策（民盟）构建公平竞争市场环境（民建）扩大有效投资（民进）推动新材料产业发展（农工）加快消费转型升级（致公）促进科技成果转化（九三）深化两岸融合发展（台盟）优化国际化营商环境（工商联）提升一带一路建设水平（刘卫东、无党派）。<br>（<a href="http://www.news.cn/2023-12/08/c_1130015316.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">新华社</a>，视频：<a href="https://tv.cctv.com/2023/12/08/VIDEfTBFcWE5pSaOL3xJxQaT231208.shtml" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">新闻联播</a>）</p>
-<h4 id="简讯-telegram-创始人du-roves-channel-发文庆祝-telegram-premium-订阅者数量现已突破-400-万">简讯: Telegram 创始人Du Rove&rsquo;s Channel 发文庆祝 Telegram Premium 订阅者数量现已突破 400 万。</h4>
-<p><b>简讯:</b> Telegram 创始人Du Rove's Channel 发文庆祝 Telegram Premium 订阅者数量现已突破 400 万。</p>
-<h4 id="简讯-证监会制定中国证监会信访工作办法自2024年1月1日起施行">简讯: 证监会制定《中国证监会信访工作办法》，自2024年1月1日起施行。</h4>
-<p><b>简讯: 证监会制定《中国证监会信访工作办法》，自2024年1月1日起施行。</b></p>
-<h4 id="朱鹤新接任潘功勝国家外汇管理局局长职位来源cnstock-潘功胜曾在中国人民银行在副行长任上因打击资本外流而崭露头角他对货币投机者采取了强硬立场并">朱鹤新接任潘功勝国家外汇管理局局长职位。（来源：cnstock） 潘功胜曾在中国人民银行在副行长任上因打击资本外流而崭露头角。他对货币投机者采取了强硬立场，并&hellip;</h4>
-<p>朱鹤新接任潘功勝国家外汇管理局局长职位。（来源：<a href="https://news.cnstock.com/news,bwkx-202312-5161208.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">cnstock</a>）<br><br>潘功胜曾在中国人民银行在副行长任上因打击资本外流而崭露头角。他对货币投机者采取了强硬立场，并参与了国家银行业改革、收紧房地产市场、金融科技监管以及禁止加密货币。<br><br>朱鹤新曾在2016年6月，当选四川省人民政府副省长，负责金融、商务、投资促进、外事侨台、工商行政管理、民营经济、服务业等工作，协助常务副省长分管发展改革（含粮食、能源）工作。2018年2月24日，当选为第十三届全国人大代表。2018年8月，任中国人民银行副行长。<br><br>2020年3月，任中国中信集团董事长。</p>
-<h4 id="-中共中央政治局我国经济回升向好高质量发展扎实推进-中共中央政治局12月8日召开会议会议认为今年是全面贯彻党的二十大精神的开局之年是三年新冠">↩️ 中共中央政治局：我国经济回升向好，高质量发展扎实推进 中共中央政治局12月8日召开会议。会议认为，今年是全面贯彻党的二十大精神的开局之年，是三年新冠&hellip;</h4>
-<div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me/DNSPODT/2413"><b>LoopDNS资讯播报</b>:</a></p>                                                                        <p>中共中央政治局：明年要着力扩大国内需求，形成消费和投资相互促进的良性循环  中共中央政治局12月8日召开会议。会议指出，明年要着力扩大国内需求，形成消费和投资相互促进的良性循环。要深化重点领域改革，为高质量发展持续注入强大动力。要扩大高水平对外开放，巩固外贸外资基本盘。要持续有效防范化解重点领域风险，坚决守住不发生系统性风险的底线。  消息来源:新华社</p>                                </blockquote></div><p><b>中共中央政治局：我国经济回升向好，高质量发展扎实推进</b><br><br>中共中央政治局12月8日召开会议。会议认为，今年是全面贯彻党的二十大精神的开局之年，<b>是三年新冠疫情防控转段后经济恢复发展的一年</b>。以习近平同志为核心的党中央团结带领全党全国各族人民，顶住外部压力、克服内部困难，着力扩大内需、优化结构、提振信心、防范化解风险，我国经济回升向好，高质量发展扎实推进，现代化产业体系建设取得重要进展，科技创新实现新的突破，改革开放向纵深推进，安全发展基础巩固夯实，民生保障有力有效，全面建设社会主义现代化国家迈出坚实步伐。<br><br>消息来源:新华社</p>
-<h4 id="中共中央政治局明年要着力扩大国内需求形成消费和投资相互促进的良性循环-中共中央政治局12月8日召开会议会议指出明年要着力扩大国内需求形成消费和投">中共中央政治局：明年要着力扩大国内需求，形成消费和投资相互促进的良性循环 中共中央政治局12月8日召开会议。会议指出，明年要着力扩大国内需求，形成消费和投&hellip;</h4>
-<p><b>中共中央政治局：明年要着力扩大国内需求，形成消费和投资相互促进的良性循环</b><br><br>中共中央政治局12月8日召开会议。会议指出，明年要着力扩大国内需求，形成消费和投资相互促进的良性循环。要深化重点领域改革，为高质量发展持续注入强大动力。要扩大高水平对外开放，巩固外贸外资基本盘。要持续有效防范化解重点领域风险，坚决守住不发生系统性风险的底线。<br><br>消息来源:新华社</p>
-<h4 id="塔塔集团将在印度新建-iphone-组装厂-据彭博社引述匿名知情人士报道称在苹果公司推动在印度提高产量的背景下印度塔塔集团计划建立一个雇佣-50000-名员工的-">塔塔集团将在印度新建 iPhone 组装厂 据彭博社引述匿名知情人士报道称，在苹果公司推动在印度提高产量的背景下，印度塔塔集团计划建立一个雇佣 50,000 名员工的 &hellip;</h4>
-<p><b>塔塔集团将在印度新建 iPhone 组装厂</b><br><br>据彭博社引述匿名知情人士报道称，在苹果公司推动在印度提高产量的背景下，印度塔塔集团计划建立一个雇佣 50,000 名员工的 iPhone 组装厂。报道称，这家印度企业计划在泰米尔纳德邦建立的这座工厂将拥有约 20 条组装线，并在 12-18 个月内投入运营。<br><br>来源： <a href="https://cn.wsj.com/amp/articles/%E6%8A%A5%E9%81%93-%E5%A1%94%E5%A1%94%E9%9B%86%E5%9B%A2%E5%B0%86%E5%9C%A8%E5%8D%B0%E5%BA%A6%E6%96%B0%E5%BB%BAiphone%E7%BB%84%E8%A3%85%E5%8E%82-79ee7392" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">华尔街日报</a></p>
-<h4 id="-确实-北京商报评论称3000点附近的大盘指数震荡整理总让一些股民颇为敏感生怕一不留神失守了3000点整数关口实际上这样的担心毫无必要-北京商报">↩️ 确实 “北京商报评论称，3000点附近的大盘指数震荡整理总让一些股民颇为敏感，生怕一不留神失守了3000点整数关口，实际上这样的担心毫无必要。” 北京商报&hellip;</h4>
-<div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me/DNSPODT/1530"><b>LoopDNS资讯播报</b>:</a></p>                                                                        <p>北京商报：外资今天对A股爱答不理，明天就让他们高攀不起  北京商报评论称，3000点附近的大盘指数震荡整理总让一些股民颇为敏感，生怕一不留神失守了3000点整数关口，实际上这样的担心毫无必要。指数只是反映股价涨跌的一个数值，股价的涨跌才是决定因素，投资者把握好自己的持股才是最重要的。尤其是一些技术派股民，格外在意大盘某个特定点位的得失，诸如跌破某个点位就是破位，曾经可能是，但现如今这套技术指标在A股市场已经完全不灵验。  在目前股票具有极高投资价值的阶段，有一些外资流出A股，可能他们就是所谓的技术派典型代…</p>                                </blockquote></div><p>确实<br><br>“北京商报评论称，3000点附近的大盘指数震荡整理总让一些股民颇为敏感，生怕一不留神失守了3000点整数关口，实际上这样的担心毫无必要。”<br><br>北京商报于2023年8月25日</p>
-<h2 id="福利分享">福利分享</h2>
-<h4 id="--磁力搜索大全-懂你的磁力搜索导航网站-bt蚂蚁磁力--趣站--httpswwwahhhhfscom51565">🖼 🗣️ 磁力搜索大全 懂你的磁力搜索导航网站-BT蚂蚁磁力 🏷️ #趣站 👉 <a href="https://www.ahhhhfs.com/51565/" target="_blank" rel="noopener noreffer ">https://www.ahhhhfs.com/51565/</a></h4>
-<p><span class="emoji">🗣️</span> 磁力搜索大全 懂你的磁力搜索导航网站-BT蚂蚁磁力<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6128?q=%23%E8%B6%A3%E7%AB%99">#趣站</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/51565/" target="_blank" rel="noopener">https://www.ahhhhfs.com/51565/</a></p>
-<h4 id="--18个国外大模型和188个中国大模型列表-llms-in-china--github项目-趣站-ai--httpswwwahhhhfscom51492">🖼 🗣️ 18个国外大模型和188个中国大模型列表-LLMs-In-China 🏷️ #GitHub项目 #趣站 #AI 👉 <a href="https://www.ahhhhfs.com/51492/" target="_blank" rel="noopener noreffer ">https://www.ahhhhfs.com/51492/</a></h4>
-<p><span class="emoji">🗣️</span> 18个国外大模型和188个中国大模型列表-LLMs-In-China<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6127?q=%23GitHub%E9%A1%B9%E7%9B%AE">#GitHub项目</a> <a href="https://t.me/abskoop/6127?q=%23%E8%B6%A3%E7%AB%99">#趣站</a> <a href="https://t.me/abskoop/6127?q=%23AI">#AI</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/51492/" target="_blank" rel="noopener">https://www.ahhhhfs.com/51492/</a></p>
-<h4 id="--电脑报2023年第46期-pdf图片-电脑报系列2012-2023--资源-夸克网盘-阿里云盘--httpswwwahhhhfscom50450">🖼 🗣️ 电脑报2023年第46期 PDF+图片 电脑报系列2012-2023 🏷️ #资源 #夸克网盘 #阿里云盘 👉 <a href="https://www.ahhhhfs.com/50450/" target="_blank" rel="noopener noreffer ">https://www.ahhhhfs.com/50450/</a></h4>
-<p><span class="emoji">🗣️</span> 电脑报2023年第46期 PDF+图片 电脑报系列2012-2023<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6126?q=%23%E8%B5%84%E6%BA%90">#资源</a> <a href="https://t.me/abskoop/6126?q=%23%E5%A4%B8%E5%85%8B%E7%BD%91%E7%9B%98">#夸克网盘</a> <a href="https://t.me/abskoop/6126?q=%23%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98">#阿里云盘</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/50450/" target="_blank" rel="noopener">https://www.ahhhhfs.com/50450/</a></p>
-<h4 id="--创意年会策划-全套方案--资源-夸克网盘-阿里云盘--httpswwwahhhhfscom51365">🖼 🗣️ 创意年会策划 全套方案 🏷️ #资源 #夸克网盘 #阿里云盘 👉 <a href="https://www.ahhhhfs.com/51365/" target="_blank" rel="noopener noreffer ">https://www.ahhhhfs.com/51365/</a></h4>
-<p><span class="emoji">🗣️</span> 创意年会策划 全套方案<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6125?q=%23%E8%B5%84%E6%BA%90">#资源</a> <a href="https://t.me/abskoop/6125?q=%23%E5%A4%B8%E5%85%8B%E7%BD%91%E7%9B%98">#夸克网盘</a> <a href="https://t.me/abskoop/6125?q=%23%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98">#阿里云盘</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/51365/" target="_blank" rel="noopener">https://www.ahhhhfs.com/51365/</a></p>
-]]></description>
-</item>
-<item>
-    <title>2023-12-08 打工人日报</title>
-    <link>https://www.jobcher.com/github_trending_2023-12-08/</link>
-    <pubDate>Fri, 08 Dec 2023 00:00:00 &#43;0000</pubDate>
-    <author>jobcher</author>
-    <guid>https://www.jobcher.com/github_trending_2023-12-08/</guid>
-    <description><![CDATA[<div class="featured-image">
-                <img src="/images/wallpaper/2023-12-08.jpg.webp" referrerpolicy="no-referrer">
-            </div><h2 id="微博热搜榜">微博热搜榜</h2>
-<ul>
-<li>排名 1.<a href="https://s.weibo.com/weibo?q=%e4%b9%a0%e8%bf%91%e5%b9%b3%e4%bc%9a%e8%a7%81%e7%b1%b3%e6%ad%87%e5%b0%94%e5%92%8c%e5%86%af%e5%be%b7%e8%8e%b1%e6%81%a9" target="_blank" rel="noopener noreffer ">习近平会见米歇尔和冯德莱恩</a></li>
-<li>排名 2.<a href="https://s.weibo.com/weibo?q=%e4%b8%ad%e5%9b%bd%e7%a6%8f%e5%bd%a9%e5%ae%a2%e6%9c%8d%e8%af%81%e5%ae%9e2.2%e4%ba%bf%e5%b7%a8%e5%a5%96%e7%b3%bb%e5%90%8c%e4%b8%80%e4%ba%ba%e6%89%80%e4%b8%ad" target="_blank" rel="noopener noreffer ">中国福彩客服证实2.2亿巨奖系同一人所中</a></li>
-<li>排名 3.<a href="https://s.weibo.com/weibo?q=%e5%bd%a9%e7%a5%a82.2%e4%ba%bf" target="_blank" rel="noopener noreffer ">彩票2.2亿</a></li>
-<li>排名 4.<a href="https://s.weibo.com/weibo?q=%e6%bb%9a%e6%bb%9a%e6%b1%9f%e6%b0%b4%e8%a7%81%e8%af%81%e7%94%9f%e6%80%81%e8%bd%ac%e5%9e%8b%e5%8f%91%e5%b1%95%e4%b9%8b%e8%b7%af" target="_blank" rel="noopener noreffer ">滚滚江水见证生态转型发展之路</a></li>
-<li>排名 5.<a href="https://s.weibo.com/weibo?q=%e4%ba%ba%e7%94%9f%e4%b8%8b%e4%b8%80Part%e5%b0%b1%e4%b8%8d%e6%80%95%e4%ba%86" target="_blank" rel="noopener noreffer ">人生下一Part就不怕了</a></li>
-<li>排名 6.<a href="https://s.weibo.com/weibo?q=GQ%e5%9d%90%e8%88%b9%e6%97%b6%e9%95%bf" target="_blank" rel="noopener noreffer ">GQ 坐船时长</a></li>
-<li>排名 7.<a href="https://s.weibo.com/weibo?q=%e5%8c%97%e4%ba%ac%e5%85%ac%e5%b8%83%e5%85%83%e6%97%a6%e6%94%be%e5%81%87%e5%ae%89%e6%8e%92" target="_blank" rel="noopener noreffer ">北京公布元旦放假安排</a></li>
-<li>排名 8.<a href="https://s.weibo.com/weibo?q=%e9%93%b6%e6%9d%8f%e6%b4%bb%e7%9d%80%e7%9b%b4%e5%88%b0%e8%a2%ab%e6%ad%bb%e7%a5%9e%e9%81%97%e5%bf%98" target="_blank" rel="noopener noreffer ">银杏 活着直到被死神遗忘</a></li>
-<li>排名 9.<a href="https://s.weibo.com/weibo?q=%e6%9d%a8%e5%b9%82%e6%9d%a8%e7%b4%ab%e7%8e%8b%e4%b8%80%e5%8d%9a%e5%9d%90%e4%b8%80%e6%a1%8c" target="_blank" rel="noopener noreffer ">杨幂杨紫王一博坐一桌</a></li>
-<li>排名 10.<a href="https://s.weibo.com/weibo?q=%e7%9d%a1%e7%9c%a0%e7%9c%9f%e7%9a%84%e8%b6%85%e7%ba%a7%e9%87%8d%e8%a6%81" target="_blank" rel="noopener noreffer ">睡眠真的超级重要</a></li>
-<li>排名 11.<a href="https://s.weibo.com/weibo?q=TGA2023" target="_blank" rel="noopener noreffer ">TGA2023</a></li>
-<li>排名 12.<a href="https://s.weibo.com/weibo?q=GQ%e7%9a%84%e5%b0%8f%e8%88%b9%e5%b0%b4%e5%b0%ac" target="_blank" rel="noopener noreffer ">GQ的小船 尴尬</a></li>
-<li>排名 13.<a href="https://s.weibo.com/weibo?q=%e4%b8%80%e5%bf%b5%e5%85%b3%e5%b1%b1%e5%ae%98%e9%85%8d" target="_blank" rel="noopener noreffer ">一念关山官配</a></li>
-<li>排名 14.<a href="https://s.weibo.com/weibo?q=%e6%9d%a8%e5%b9%82%e6%99%92%e4%ba%86%e4%b8%89%e5%bc%a0%e5%b0%8f%e6%97%b6%e5%80%99%e7%85%a7%e7%89%87" target="_blank" rel="noopener noreffer ">杨幂晒了三张小时候照片</a></li>
-<li>排名 15.<a href="https://s.weibo.com/weibo?q=%e5%bc%a0%e9%95%87%e9%ba%9f%e6%b1%82%e5%a9%9a" target="_blank" rel="noopener noreffer ">张镇麟求婚</a></li>
-<li>排名 16.<a href="https://s.weibo.com/weibo?q=%e6%af%9b%e6%99%93%e5%bd%a4%e9%bc%bb%e5%ad%90" target="_blank" rel="noopener noreffer ">毛晓彤鼻子</a></li>
-<li>排名 17.<a href="https://s.weibo.com/weibo?q=%e8%bf%aa%e4%b8%bd%e7%83%ad%e5%b7%b4%e7%89%b9%e6%84%8f%e5%b8%a6%e4%ba%86%e5%9b%bd%e6%97%97" target="_blank" rel="noopener noreffer ">迪丽热巴特意带了国旗</a></li>
-<li>排名 18.<a href="https://s.weibo.com/weibo?q=%e4%b8%ba%e4%ba%86%e5%90%83%e4%b8%ad%e9%a4%90%e6%b7%b7%e8%bf%9b%e7%be%a4%e8%81%8a%e7%9a%84%e5%a4%96%e5%9b%bd%e6%95%99%e6%8e%88" target="_blank" rel="noopener noreffer ">为了吃中餐混进群聊的外国教授</a></li>
-<li>排名 19.<a href="https://s.weibo.com/weibo?q=%e5%80%aa%e5%a6%ae%e6%ac%a2%e8%bf%8e%e6%9d%a5%e5%8f%82%e5%8a%a0%e6%88%91%e4%bb%ac%e7%9a%84%e5%a9%9a%e7%a4%bc" target="_blank" rel="noopener noreffer ">倪妮 欢迎来参加我们的婚礼</a></li>
-<li>排名 20.<a href="https://s.weibo.com/weibo?q=Faker%e8%8e%b7TGA%e6%9c%80%e4%bd%b3%e7%94%b5%e7%ab%9e%e9%80%89%e6%89%8b" target="_blank" rel="noopener noreffer ">Faker获TGA最佳电竞选手</a></li>
-</ul>
-<h2 id="github-热门榜单">GitHub 热门榜单</h2>
-<h4 id="排名-1jjtech0130pypush">排名 1:/JJTech0130/pypush</h4>
-<ul>
-<li>简介: 跨平台iMessage POC</li>
-<li>URL: <a href="https://github.com/JJTech0130/pypush" target="_blank" rel="noopener noreffer ">https://github.com/JJTech0130/pypush</a></li>
-<li>作者: JJTech0130</li>
-</ul>
-<h4 id="排名-2magic-researchmagic-animate">排名 2:/magic-research/magic-animate</h4>
-<ul>
-<li>简介: MagicAnimate:使用扩散模型的时间一致的人体图像动画</li>
-<li>URL: <a href="https://github.com/magic-research/magic-animate" target="_blank" rel="noopener noreffer ">https://github.com/magic-research/magic-animate</a></li>
-<li>作者: magic-research</li>
-</ul>
-<h4 id="排名-3googlestyle-aligned">排名 3:/google/style-aligned</h4>
-<ul>
-<li>简介: “通过共同关注生成风格一致的图像”的官方代码</li>
-<li>URL: <a href="https://github.com/google/style-aligned" target="_blank" rel="noopener noreffer ">https://github.com/google/style-aligned</a></li>
-<li>作者: google</li>
-</ul>
-<h4 id="排名-4ise-uiucmagicoder">排名 4:/ise-uiuc/magicoder</h4>
-<ul>
-<li>简介: Magicoder:源代码就是你所需要的一切</li>
-<li>URL: <a href="https://github.com/ise-uiuc/magicoder" target="_blank" rel="noopener noreffer ">https://github.com/ise-uiuc/magicoder</a></li>
-<li>作者: ise-uiuc</li>
-</ul>
-<h4 id="排名-5pris-cvdemofusion">排名 5:/PRIS-CV/DemoFusion</h4>
-<ul>
-<li>简介: 让我们民主化高分辨率的一代！（arXiv 2023）</li>
-<li>URL: <a href="https://github.com/PRIS-CV/DemoFusion" target="_blank" rel="noopener noreffer ">https://github.com/PRIS-CV/DemoFusion</a></li>
-<li>作者: PRIS-CV</li>
-</ul>
-<h4 id="排名-6microsoftpowertoys">排名 6:/microsoft/PowerToys</h4>
-<ul>
-<li>简介: Windows系统实用程序可最大限度地提高生产效率</li>
-<li>URL: <a href="https://github.com/microsoft/PowerToys" target="_blank" rel="noopener noreffer ">https://github.com/microsoft/PowerToys</a></li>
-<li>作者: microsoft</li>
-</ul>
-<h4 id="排名-7xaoyaoopywxdump">排名 7:/xaoyaoo/PyWxDump</h4>
-<ul>
-<li>简介: 获取微信账号信息(昵称/账号/手机/邮箱/数据库密钥/wxid）个人计算机微信数据库读取、解密脚本；聊天记录查看工具；聊天记录导出为html(包含语音图片)。支持多账户信息获取，支持所有微信版本。</li>
-<li>URL: <a href="https://github.com/xaoyaoo/PyWxDump" target="_blank" rel="noopener noreffer ">https://github.com/xaoyaoo/PyWxDump</a></li>
-<li>作者: xaoyaoo</li>
-</ul>
-<h4 id="排名-8facebookstylex">排名 8:/facebook/stylex</h4>
-<ul>
-<li>简介: StyleX是用于雄心勃勃的用户界面的样式系统。</li>
-<li>URL: <a href="https://github.com/facebook/stylex" target="_blank" rel="noopener noreffer ">https://github.com/facebook/stylex</a></li>
-<li>作者: facebook</li>
-</ul>
-<h4 id="排名-9superduperdbsuperduperdb">排名 9:/SuperDuperDB/superduperdb</h4>
-<ul>
-<li>简介: 🔮SuperDuperDB：将人工智能带到您的数据库中：直接与您的数据库和数据集成、训练和管理任何人工智能模型和API。</li>
-<li>URL: <a href="https://github.com/SuperDuperDB/superduperdb" target="_blank" rel="noopener noreffer ">https://github.com/SuperDuperDB/superduperdb</a></li>
-<li>作者: SuperDuperDB</li>
-</ul>
-<h4 id="排名-12lc044wechatmsg">排名 12:/LC044/WeChatMsg</h4>
-<ul>
-<li>简介: 提取微信聊天记录，将其导出成HTML、Word、CSV文档永久保存，对聊天记录进行分析生成年度聊天报告</li>
-<li>URL: <a href="https://github.com/LC044/WeChatMsg" target="_blank" rel="noopener noreffer ">https://github.com/LC044/WeChatMsg</a></li>
-<li>作者: LC044</li>
-</ul>
-<h4 id="排名-13microsofttaskweaver">排名 13:/microsoft/TaskWeaver</h4>
-<ul>
-<li>简介: 一个代码优先的代理框架，用于无缝规划和执行数据分析任务。</li>
-<li>URL: <a href="https://github.com/microsoft/TaskWeaver" target="_blank" rel="noopener noreffer ">https://github.com/microsoft/TaskWeaver</a></li>
-<li>作者: microsoft</li>
-</ul>
-<h4 id="排名-14linexjlingpts">排名 14:/linexjlin/GPTs</h4>
-<ul>
-<li>简介: 泄露的GPT提示</li>
-<li>URL: <a href="https://github.com/linexjlin/GPTs" target="_blank" rel="noopener noreffer ">https://github.com/linexjlin/GPTs</a></li>
-<li>作者: linexjlin</li>
-</ul>
-<h4 id="排名-16hiroi-soraumi-ocr">排名 16:/hiroi-sora/Umi-OCR</h4>
-<ul>
-<li>简介: OCR软件，免费和离线。开源、免费的离线OCR软件。支持截屏/粘贴/批量导入图片，段落排版/排除水印，扫描/生成二维码。内置多国语言库。</li>
-<li>URL: <a href="https://github.com/hiroi-sora/Umi-OCR" target="_blank" rel="noopener noreffer ">https://github.com/hiroi-sora/Umi-OCR</a></li>
-<li>作者: hiroi-sora</li>
-</ul>
-<h4 id="排名-18modularmlmojo">排名 18:/modularml/mojo</h4>
-<ul>
-<li>简介: Mojo程序设计语言</li>
-<li>URL: <a href="https://github.com/modularml/mojo" target="_blank" rel="noopener noreffer ">https://github.com/modularml/mojo</a></li>
-<li>作者: modularml</li>
-</ul>
-<h4 id="排名-19nocodbnocodb">排名 19:/nocodb/nocodb</h4>
-<ul>
-<li>简介: 🔥 🔥 🔥开源Airtable替代方案</li>
-<li>URL: <a href="https://github.com/nocodb/nocodb" target="_blank" rel="noopener noreffer ">https://github.com/nocodb/nocodb</a></li>
-<li>作者: nocodb</li>
-</ul>
-<h4 id="排名-20gkd-kitgkd">排名 20:/gkd-kit/gkd</h4>
-<ul>
-<li>简介: 基于 无障碍 + 高级选择器 + 订阅规则 的自定义屏幕点击安卓应用</li>
-<li>URL: <a href="https://github.com/gkd-kit/gkd" target="_blank" rel="noopener noreffer ">https://github.com/gkd-kit/gkd</a></li>
-<li>作者: gkd-kit</li>
-</ul>
-<h4 id="排名-21xuchengshengspring-reading">排名 21:/xuchengsheng/spring-reading</h4>
-<ul>
-<li>简介: 涵盖了春天框架的核心概念和关键功能，包括控制反转（IOC）容器的使用，面向切面编程（AOP）的原理与实践，事务管理的方式与实现，Spring MVC的流程与控制器工作机制，以及春天中数据访问、安全、靴子自动配置等方面的深入研究。此外，它还包含了春天事件机制的应用、高级主题如缓存抽象和响应式编程，以及对春天源码的编程风格与设计模式的深入探讨。</li>
-<li>URL: <a href="https://github.com/xuchengsheng/spring-reading" target="_blank" rel="noopener noreffer ">https://github.com/xuchengsheng/spring-reading</a></li>
-<li>作者: xuchengsheng</li>
-</ul>
-<h4 id="排名-22kata-containerskata-containers">排名 22:/kata-containers/kata-containers</h4>
-<ul>
-<li>简介: Kata Containers是一个开源项目和社区，致力于构建轻量级虚拟机（VM）的标准实现，其感觉和性能与容器相似，但提供了VM的工作负载隔离和安全优势。https://katacontainers.io/</li>
-<li>URL: <a href="https://github.com/kata-containers/kata-containers" target="_blank" rel="noopener noreffer ">https://github.com/kata-containers/kata-containers</a></li>
-<li>作者: kata-containers</li>
-</ul>
-<h4 id="排名-23keyvanakbarylearning-notes">排名 23:/keyvanakbary/learning-notes</h4>
-<ul>
-<li>简介: 关于我读的书、看的演讲、研究的文章和我喜欢的论文的笔记</li>
-<li>URL: <a href="https://github.com/keyvanakbary/learning-notes" target="_blank" rel="noopener noreffer ">https://github.com/keyvanakbary/learning-notes</a></li>
-<li>作者: keyvanakbary</li>
-</ul>
-<h4 id="排名-24catchorgcatch2">排名 24:/catchorg/Catch2</h4>
-<ul>
-<li>简介: 一个用于单元测试、TDD和BDD的现代C++本机测试框架，使用C++14、C++17及更高版本（C++11支持在v2.x分支中，C++03支持在Catch1.x分支中）</li>
-<li>URL: <a href="https://github.com/catchorg/Catch2" target="_blank" rel="noopener noreffer ">https://github.com/catchorg/Catch2</a></li>
-<li>作者: catchorg</li>
-</ul>
-<h4 id="排名-25awesome-selfhostedawesome-selfhosted">排名 25:/awesome-selfhosted/awesome-selfhosted</h4>
-<ul>
-<li>简介: 可以托管在您自己的服务器上的免费软件网络服务和web应用程序列表</li>
-<li>URL: <a href="https://github.com/awesome-selfhosted/awesome-selfhosted" target="_blank" rel="noopener noreffer ">https://github.com/awesome-selfhosted/awesome-selfhosted</a></li>
-<li>作者: awesome-selfhosted</li>
-</ul>
-<h2 id="v2ex-热门帖子">v2ex 热门帖子</h2>
-<ul>
-<li>1.<a href="https://www.v2ex.com/t/998533#reply16" target="_blank" rel="noopener noreffer ">讲真,现在已经有强制的官方app备案,微信小程序内部备案每年收的这300块法理在哪里</a></li>
-<li>2.<a href="https://www.v2ex.com/t/998534#reply9" target="_blank" rel="noopener noreffer ">有人要移动云电脑优惠补贴么？只限北京移动</a></li>
-<li>3.<a href="https://www.v2ex.com/t/998532#reply7" target="_blank" rel="noopener noreffer ">公司介绍说给员工家的感觉。今天终于体会了一把</a></li>
-<li>4.<a href="https://www.v2ex.com/t/998535#reply5" target="_blank" rel="noopener noreffer ">是不是不应该相信“无货源”电商？</a></li>
-<li>5.<a href="https://www.v2ex.com/t/998542#reply5" target="_blank" rel="noopener noreffer ">键鼠全部更换到无线之后的问题</a></li>
-<li>6.<a href="https://www.v2ex.com/t/998544#reply5" target="_blank" rel="noopener noreffer ">杭州电信又收回ipv4公网了</a></li>
-<li>7.<a href="https://www.v2ex.com/t/998531#reply3" target="_blank" rel="noopener noreffer ">最近开始学Flutter与Dart有相关的社群嘛?</a></li>
-<li>8.<a href="https://www.v2ex.com/t/998538#reply3" target="_blank" rel="noopener noreffer ">二三房东纠纷，如何拿回房租押金</a></li>
-<li>9.<a href="https://www.v2ex.com/t/998543#reply2" target="_blank" rel="noopener noreffer ">开源免费和离线版Notion笔记目前可以堪用了</a></li>
-<li>10.<a href="https://www.v2ex.com/t/998545#reply2" target="_blank" rel="noopener noreffer ">有人一起团购chatgptswiftuiios源码吗</a></li>
-<li>11.<a href="https://www.v2ex.com/t/998550#reply1" target="_blank" rel="noopener noreffer ">求家用服务器推荐组合</a></li>
-<li>12.<a href="https://www.v2ex.com/t/998537#reply0" target="_blank" rel="noopener noreffer ">独立开发变现周刊（第115期）：开发一个健身管理软件，月收入6万美元</a></li>
-<li>13.<a href="https://www.v2ex.com/t/998539#reply0" target="_blank" rel="noopener noreffer ">寻求有关视频处理等相关的朋友一直做产品</a></li>
-<li>14.<a href="https://www.v2ex.com/t/998541#reply0" target="_blank" rel="noopener noreffer ">大家有使用过go的go-ole库操作windows防火墙规则修改和禁用么</a></li>
-<li>15.<a href="https://www.v2ex.com/t/998546#reply0" target="_blank" rel="noopener noreffer ">各品牌的吹风机有啥区别？</a></li>
-<li>16.<a href="https://www.v2ex.com/t/998547#reply0" target="_blank" rel="noopener noreffer ">tunnelbroker.net不分配/48子网了吗？</a></li>
-<li>17.<a href="https://www.v2ex.com/t/998548#reply0" target="_blank" rel="noopener noreffer ">谁有好的欧美移民渠道？最好全家能一起的.</a></li>
-<li>18.<a href="https://www.v2ex.com/t/998549#reply0" target="_blank" rel="noopener noreffer ">设计电话回访需要语音回复的人是怎么想的？</a></li>
-</ul>
-<h2 id="热点新闻">热点新闻</h2>
-<h4 id="丹麦议会7日通过法律将公开或以在更广泛圈子中传播为目的不当对待对宗教团体具有重大宗教意义的著作或物品的行为定为犯罪仅少部分包含亵渎的艺术作品不在">丹麦议会7日通过法律，将公开或以在更广泛圈子中传播为目的，不当对待对宗教团体具有重大宗教意义的著作或物品的行为定为犯罪。仅少部分包含亵渎的艺术作品不在&hellip;</h4>
-<p>丹麦议会7日通过法律，将公开或以在更广泛圈子中传播为目的，不当对待对宗教团体具有重大宗教意义的著作或物品的行为定为犯罪。仅少部分包含亵渎的艺术作品不在禁令范围内。<br>司法部表示，该法律是为了打击“系统性的嘲讽”，这种嘲讽加剧了丹麦的恐怖主义威胁。<br>此前，该国及<a href="https://t.me/tnews365/27657" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">瑞典</a>等国多次有活动人士在穆斯林国家使馆等场所附近焚烧《古兰经》，引发穆斯林群体的不满和抗议。<br>（<a href="https://apnews.com/article/denmark-desecration-law-holy-texts-quran-931120e5463a3e15c372a13c862aa775" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">美联社</a>）</p>
-<h4 id="-因塞舌尔一建筑公司存放爆炸物的仓库发生爆炸以及该国持续降雨引发洪水灾害塞舌尔总统拉姆卡拉旺7日宣布该国进入紧急状态-塞舌尔总统府当天发布公报说">🎬 因塞舌尔一建筑公司存放爆炸物的仓库发生爆炸以及该国持续降雨引发洪水灾害，塞舌尔总统拉姆卡拉旺7日宣布该国进入紧急状态。 塞舌尔总统府当天发布公报说&hellip;</h4>
-<p>因塞舌尔一建筑公司存放爆炸物的仓库发生爆炸以及该国持续降雨引发洪水灾害，塞舌尔总统拉姆卡拉旺7日宣布该国进入紧急状态。<br>塞舌尔总统府当天发布公报说，仓库爆炸对其所处的普罗维登斯工业区及周边地区造成严重损坏；同时，暴雨引发的洪水造成巨大破坏。因此，总统宣布国家进入紧急状态。<br>公报说，除关键服务行业人员及正在旅行中的人士可自由行动外，其他所有人员被要求待在家中。此外，全国所有学校暂时关闭。<br>据了解，目前爆炸现场的搜救工作仍在继续，事故原因仍在调查中。另据塞舌尔通讯社援引该国医疗部门数据报道，爆炸目前已造成178人入院治疗。<br>（<a href="http://www.news.cn/2023-12/07/c_1130014443.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">新华社</a>，<a href="https://apnews.com/article/seychelles-blast-explosives-state-of-emergency-79d4361fe9ab817c1ffe1ba19fa15373" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">美联社</a>，<a href="https://www.bbc.com/news/av/world-67650491" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">BBC</a>）</p> <blockquote><b>Video is too big</b><br></blockquote> 
-<h4 id="-国务院11月26日发全面对接国际高标准经贸规则推进上海自贸区高水平制度型开放总体方案设7章80条-支持依法依规引进境外电子支付机构监管机构应及时">↩️ 国务院11月26日发《全面对接国际高标准经贸规则推进上海自贸区高水平制度型开放总体方案》设7章80条。 支持依法依规引进境外电子支付机构。监管机构应及时&hellip;</h4>
-<div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me/tnews365/27755"><b>竹新社</b>:</a></p>                                    <p><small>中国联通董事长刘烈宏已任国家数据局长。乐玉成（1963年6月生）已离任广电总局副局长。国务院7月28日公布上述任免。 刘烈宏1968年生，2009年1月任中国电子总经理，2017年2月任电科集团总经理，2018年7月任中央网信办副主任，2020年6月任工信部副部长，2021年8月任中国联通董事长。 此外，李强7月26至27日在上海调研，视察临港新片区跨境数据科技有限公司等地。他要求全国各自贸区在实现货物贸易更高水平自由便利、引领服务贸易创新发展、深化重点领域改革开放、探索构建跨境数据管理新模式、对接“边境后”规则等方面积极试点。…</small></p>                                                                    </blockquote></div><p>国务院11月26日发《<a href="https://www.gov.cn/zhengce/content/202312/content_6918913.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">全面对接国际高标准经贸规则推进上海自贸区高水平制度型开放总体方案</a>》设7章80条。<br>支持依法依规引进境外电子支付机构。监管机构应及时公开电子支付相关法律法规。<br>审慎探索在临港新片区内放宽非居民并购贷款限制，由本地金监机构制定业务指引。<br>在临港新片区内建设再保险国际板。支持保险资金依托上海自贸试验区内有关交易所试点投资黄金等大宗商品。<br>研究完善与国际接轨的数字身份认证制度，开展数字身份互认试点。<br>探索开展高度自动驾驶车辆在高速公路和高架道路上测试及示范应用。<br>习近平11月28至12月2日视察上海：28日下午参观上期所、张江人工智能馆“上海科技创新成果展”，<a href="http://www.news.cn/2023-12/01/c_1130003753.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">29日上午视察海警东海分局</a>，29日下午参观马桥“<a href="https://mp.weixin.qq.com/s/RtORxZP4EyqvvQ6TN8kCaw" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">新时代城市建设者管理者之家</a>”保障性公寓，<a href="http://www.news.cn/2023-11/30/c_1130001743.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">30日上午开长三角一体化发展座谈会</a>，<a href="http://www.news.cn/2023-12/03/c_1130006474.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">1日上午听取市委市政府汇报</a>。他要求：全方位大力度推进首创性改革引领性开放，推进浦东新区综合改革试点，在临港新片区率先开展压力测试，加快形成具有国际竞争力的政策和制度体系。<br>深化文化体制改革，巩固马克思主义在意识形态领域的指导地位，在各种文化交汇融合中进一步壮大主流价值、舆论、文化。<br>（中国政府网）</p>
-<h4 id="-河北霸州扬芬港镇政府通报多名楼盘业主10月23日进京到国家信访局来访接待司越级上访是以访施压政府12月6日宣布将组织串联的胡某某赵某">↩️ 河北霸州扬芬港镇政府通报，多名楼盘业主10月23日进京到国家信访局来访接待司“越级”上访，是“以访施压”；政府12月6日宣布将“组织串联”的胡某某、赵某&hellip;</h4>
-<div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me/tnews365/19417"><b>竹新社</b>:</a></p>                                                                        <p>今年下半年，河北霸州以安全生产执法检查等多种名义，对中小微企业和个体工商户进行集中罚款、摊派、收费。近两个月来，“被罚多少”、“交了吗”、“退了吗”成为霸州三大热门谈资。总结起来，只要是街上有门脸的，有工厂的，甚至是街上卖冰糖葫芦的，都会因各种名目被罚。 9月1日公布的霸州市2021年财政收支预算调整方案中，霸州市财政局提到“上半年，受房地产限购、雄安新区土地调控、土地出让收入缓缴等政策影响”，霸州市政府性基金短收30亿元，难以完成年初预算，因此拟将政府性基金预算收入部分，从年初的54.89亿元调整为24…</p>                                </blockquote></div><p>河北霸州扬芬港镇政府通报，多名楼盘业主10月23日进京到国家信访局来访接待司“越级”上访，是“以访施压”；政府12月6日宣布将“组织串联”的胡某某、赵某某行政拘留7天。<br>（<a href="https://mp.weixin.qq.com/s/-dx6YFt5WeQq9TN-_gyDHQ" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">美丽扬芬港</a>）</p>
-<h4 id="-习近平定于12月12至13日对越南国事访问中国外交部发言人7日宣布该消息-新华社">↩️ 习近平定于12月12至13日对越南国事访问。中国外交部发言人7日宣布该消息。 （新华社）</h4>
-<div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me/tnews365/24792"><b>竹新社</b>:</a></p>                                    <p><small>越共中央总书记阮富仲10月30日下午抵达北京，31日下午在人民大会堂同中共中央总书记习近平会谈。王毅、何立峰、刘建超、王文涛等出席。 习近平指出双方要坚持社会主义的正确政治方向，决不让任何势力动摇发展的制度根基；重视越南在东盟中的地位作用，期待共同推进东亚区域经济一体化。 阮富仲说，越南不参加任何军事联盟、不容许任何国家在越南建立军事基地，不使用武力对付任何国家、不联合一国反对另一国；不让海上问题影响中越总体关系发展。 （新华社，越通社，视频：新闻联播）</small></p>                                                                    </blockquote></div><p>习近平定于12月12至13日对越南国事访问。中国外交部发言人7日宣布该消息。<br>（<a href="http://www.news.cn/2023-12/07/c_1130013492.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">新华社</a>）</p>
-<h4 id="-秘鲁前总统阿尔韦托藤森6日因人道主义原因被释放-现年85岁的藤森因与上世纪90年代25名秘鲁人遭暗杀事件有关而被判25年监禁-2017年时任秘鲁总统">↩️🖼 秘鲁前总统阿尔韦托·藤森6日因人道主义原因被释放。 现年85岁的藤森因与上世纪90年代25名秘鲁人遭暗杀事件有关而被判25年监禁。 2017年，时任秘鲁总统&hellip;</h4>
-<div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me/tnews365/21597"><b>竹新社</b>:</a></p>                                    <p><small>秘鲁宪法法院周四批准前总统阿尔韦托·藤森从监狱获释。 虽然没有明确出狱时间，但有人聚集在监狱外等待。同时，也有人在首都其他地方集会，抗议法院的裁决。总统卡斯蒂略周四称，秘鲁所属的国际司法机构必须为人民有效行使正义。总理托雷斯表示，裁决对国家造成了“伤害”，但将会得到遵守。 藤森在1990年至2000年执政，口碑两极分化。一些秘鲁人称赞他击败了毛派“光辉道路”组织，另一些人则反感他执政期间侵犯人权的行为。 2017年，时任总统佩德罗·巴勃罗·库琴斯基对藤森进行人道主义赦免。2018年，该国最高法院废除了赦免…</small></p>                                                                    </blockquote></div><p>秘鲁前总统阿尔韦托·藤森6日因人道主义原因被释放。<br>现年85岁的藤森因与上世纪90年代25名秘鲁人遭暗杀事件有关而被判25年监禁。<br>2017年，时任秘鲁总统佩德罗·巴勃罗·库琴斯基批准赦免藤森。2018年，该赦免令在美洲人权法院的压力下宣告无效，藤森随后返回监狱服刑。<br>秘鲁宪法法院5日在裁决中决定支持赦免决定。此后，虽然美洲人权法院院长要求推迟释放藤森。不过藤森在6日还是得到释放。<br>（<a href="https://apnews.com/article/peru-alberto-fujimori-release-prison-death-squads-d277d1615e7aeb40e1211ea4472d0bf6" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">美联社</a>）</p>
-<h4 id="-在委内瑞拉和圭亚那局势紧张之际一架载有7人的圭亚那军用直升机6日在边境地区失踪其中5人为圭亚那的高级军官军方表示当地天气恶劣没有迹象表">↩️🖼 在委内瑞拉和圭亚那局势紧张之际，一架载有7人的圭亚那军用直升机6日在边境地区失踪，其中5人为圭亚那的高级军官。军方表示，当地天气恶劣，没有迹象表&hellip;</h4>
-<div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me/tnews365/28932"><b>竹新社</b>:</a></p>                                    <p><small>委内瑞拉人3日通过了马杜罗政府发起的公投，要求对邻国圭亚那埃塞奎博地区拥有主权。目前尚不清楚马杜罗政府如何执行投票结果。 埃塞奎博地区拥有丰富的石油和矿产资源。埃塞奎博在西班牙殖民时期属于委内瑞拉，因此委内瑞拉一直将其视为自己的领土。1899年，英国、俄罗斯和美国仲裁员裁定了边界，将埃塞奎博划归圭亚那。 委内瑞拉声称美国人和欧洲人合谋骗取了委内瑞拉的土地，并表示1966年解决争端的协议使得1899年的仲裁无效。但圭亚那坚持最初协议具有约束力，并于2018年请联合国国际法院进行裁决，但裁决还需要数年时间。 …</small></p>                                                                    </blockquote></div><p>在委内瑞拉和圭亚那局势紧张之际，一架载有7人的圭亚那军用直升机6日在边境地区失踪，其中5人为圭亚那的高级军官。军方表示，当地天气恶劣，没有迹象表明飞机被委内瑞拉击落。目前搜救工作正在开展。<br>当天早些时候，圭亚那总统伊尔凡·阿里表示，正在采取一切必要措施来保卫自己的国家。此外，圭亚那政府还在和巴西、美国、英国、法国、联合国以及美军南方司令部接触。如果委内瑞拉继续以鲁莽和冒险的方式行事，将不得不做出回应。<br>委内瑞拉指责圭亚那的行为不负责任，为美国南方司令部进入埃塞奎博地区开了绿灯。委内瑞拉呼吁圭亚那恢复对话，放弃不稳定、威胁性和危险的行为。<br>委内瑞拉总检察长6日以密谋反对公投为由，下令逮捕包括前议会主席胡安·瓜伊多在内的12名反对派成员。但12人中仅有3人目前居住在委内瑞拉。<br>（美联社 <a href="https://apnews.com/article/guyana-helicopter-missing-venezuela-eed6b27465e6ad02f4f02aa569f715de" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">1</a>，<a href="https://apnews.com/article/venezuela-opposition-referendum-machado-guaido-0f615a5aa835a4cae7d83403321c6c6d" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">2</a>）</p>
-<h4 id="-以色列军队6日继续在加沙南部城市汗尤尼斯与哈马斯武装分子作战-汗尤尼斯是哈马斯多名领导人的童年住所因此在以色列的进攻中极具象征意义以军表">↩️🖼 以色列军队6日继续在加沙南部城市汗尤尼斯与哈马斯武装分子作战。 汗尤尼斯是哈马斯多名领导人的童年住所，因此在以色列的进攻中极具象征意义。以军表&hellip;</h4>
-<div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me/tnews365/28941"><b>竹新社</b>:</a></p>                                    <p><small>以色列5日表示，以军已位于加沙第二大城市汗尤尼斯的中心，并包围了该市。军方称，这是自地面攻势以来战斗最激烈的一天。哈马斯表示，其武装分子与以色列发生了暴力冲突。 在南部汗尤尼斯，一所学校5日遭袭，数百名难民当时正在那里避难。附近的纳赛尔医院伤亡者众多，许多伤员躺在满是血迹的地板上。 在加沙中部的代尔拜拉赫，5日的袭击摧毁了数十名难民避难的房屋，造成数十名平民死亡。视频显示，妇女们在一栋房子的废墟上尖叫，人们试图从废墟中将儿童拖出。附近医院内，医护人员试图抢救躺在担架上的儿童。 在北部，以色列军方表示正在杰…</small></p>                                                                    </blockquote></div><p></p><div class="tgme_widget_message_text js-message_text" dir="auto">以色列军队6日继续在加沙南部城市汗尤尼斯与哈马斯武装分子作战。<br>汗尤尼斯是哈马斯多名领导人的童年住所，因此在以色列的进攻中极具象征意义。以军表示，部队已经突破了哈马斯的防线，并袭击哈马斯在市中心的阵地，占领了多个前哨和军火库。战机摧毁了地道竖井。相关说法无法得到独立证实。<br>此外，在加沙北部杰巴利耶难民营和舒贾亚地区的战斗也仍在继续。哈马斯发布的视频显示其武装人员在舒贾亚穿过小巷，向以色列装甲车发射火箭弹，多辆车起火。<br>在以色列的呼吁下，数万人已从汗尤尼斯等地逃往拉法。埃及在边界部署数千名军队和障碍，防止难民大规模涌入。但与此同时，以色列对拉法的袭击也仍在继续。<br>联合国秘书长古特雷斯6日援引《联合国宪章》中很少被提及的第十五章第九十九条，致函安理会主席，呼吁安理会成员在加沙努力避免人道主义灾难，并呼吁以色列和巴勒斯坦武装分子之间实现全面的人道主义停火。但常任理事国仍然拥有否决权。<br>（<a href="https://apnews.com/article/israel-hamas-war-news-12-06-2023-156afcb1626f1cb4e9e26e5430c7185c" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">美联社</a>，<a href="https://chinese.aljazeera.net/palestine-israel-conflict/liveblog/2023/12/7/%E4%BB%A5%E8%89%B2%E5%88%97%E5%AF%B9%E5%8A%A0%E6%B2%99%E6%88%98%E4%BA%89%E7%9A%84%E4%BB%8A%E6%97%A5%E5%8F%91%E5%B1%95%E5%B7%B4%E5%8B%92%E6%96%AF%E5%9D%A6%E4%BA%BA%E5%B0%86%E9%9D%A2%E4%B8%B4%E4%BB%A5" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">半岛电视台</a>，<a href="https://news.un.org/zh/story/2023/12/1124672" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">联合国新闻</a>）</div><p></p>
-<h4 id="-中国与新加坡拟互免持普通护照人员签证30天丁薛祥与新加坡副总理兼财政部长黄循财12月7日开中新双边合作联委会jcbc会议宣布了上述成果双">↩️🖼 中国与新加坡拟互免持普通护照人员签证（30天）。丁薛祥与新加坡副总理兼财政部长黄循财12月7日开中新双边合作联委会（JCBC）会议，宣布了上述成果。双&hellip;</h4>
-<div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me/tnews365/28866"><b>竹新社</b>:</a></p>                                                                        <p>中国宣布对法国、德国、意大利、荷兰、西班牙、马来西亚试行单方面免签，自12月1日起暂行一年。持普通护照人员来华经商、旅游观光、探亲访友和过境不超过15天，可免办签证入境。 中国已于7月26日恢复对新加坡、文莱的单方面免签，未恢复对日本的单方面免签。 此外，马来西亚拟自12月1日起对中国试行30天的单方面免签。 （央视新闻，星洲网）</p>                                </blockquote></div><p>中国与新加坡拟互免持普通护照人员签证（30天）。丁薛祥与新加坡副总理兼财政部长黄循财12月7日开中新双边合作联委会（JCBC）会议，宣布了上述成果。双方正研究免签的具体细则，目标是2024年初落地实施。<br>双方共达成了进一步升级《自由贸易协定》的议定书等24项成果。<br>（<a href="http://www.news.cn/2023-12/07/c_1130014242.htm" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">新华社</a>，<a href="https://www.mfa.gov.sg/Newsroom/Press-Statements-Transcripts-and-Photos/2023/12/DPM-Wong-Meetings-in-Tianjin-on-7-December-2023" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">新加坡外交部</a>）</p>
-<h4 id="-美国众议院前议长麦卡锡将于今年年底辞去众议员职务结束近16年的国会生涯-由于此前桑托斯被驱逐出众议院另有共和党众议员比尔约翰逊计划于明年一月">↩️ 美国众议院前议长麦卡锡将于今年年底辞去众议员职务，结束近16年的国会生涯。 由于此前桑托斯被驱逐出众议院、另有共和党众议员比尔·约翰逊计划于明年一月&hellip;</h4>
-<div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me/tnews365/28337"><b>竹新社</b>:</a></p>                                                                        <p>美国众议院以216票赞成、210票反对的结果，罢免了众议院议长麦卡锡。这是美国历史上第一次通过罢免众议院议长的动议。216名支持罢免的议员中，包括马特·盖茨等8名共和党议员。 结果公布时，现场一片寂静，一些众议院共和党议员对此感到震惊。不久之后，麦卡锡的盟友、共和党议员帕特里克·麦克亨利被任命为临时议长，直至选出新议长。麦卡锡事前提交的替代者名单上有他的名字。 麦卡锡当晚告诉议员，他不会再次竞选议长。他表示自己不后悔为建立联盟并找到解决方案所做的努力。众议院将休会至10月10日，然后在晚些时候就选举新议长…</p>                                </blockquote></div><p>美国众议院前议长麦卡锡将于今年年底辞去众议员职务，结束近16年的国会生涯。<br>由于此前<a href="https://t.me/tnews365/28914" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">桑托斯被驱逐</a>出众议院、另有共和党众议员比尔·约翰逊计划于明年一月或二月辞职。众议院共和党不久后将只剩下219个席位，距离维持多数所需的218个席位仅余一席。<br>（<a href="https://www.axios.com/2023/12/06/kevin-mccarthy-congress-retire-speaker" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">Axios</a>）</p>
-<h4 id="-受鹿儿岛鱼鹰运输机坠海事件影响美空军特殊作战司令部6日下令全球范围内暂停空军cv-22鱼鹰运输机的飞行-有关搜救活动美军5日表示因生存希望渺茫">↩️ 受鹿儿岛鱼鹰运输机坠海事件影响，美空军特殊作战司令部6日下令全球范围内暂停空军CV-22鱼鹰运输机的飞行。 有关搜救活动，美军5日表示，因生存希望渺茫，&hellip;</h4>
-<div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me/tnews365/28896"><b>竹新社</b>:</a></p>                                                                        <p>驻日美军一架鱼鹰运输机今天下午在鹿儿岛县屋久岛附近海域坠海，机上载有8人，目前伤亡情况不详。 （NHK）</p>                                </blockquote></div><p>受鹿儿岛鱼鹰运输机坠海事件影响，美空军特殊作战司令部6日下令全球范围内暂停空军CV-22鱼鹰运输机的飞行。<br>有关搜救活动，美军5日表示，因生存希望渺茫，已将搜救活动转向遗体打捞。现已打捞出6名机组成员遗体，另2人仍未被寻获。<br>（NHK <a href="https://www3.nhk.or.jp/news/html/20231207/k10014280661000.html" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">1</a>，<a href="https://www3.nhk.or.jp/news/html/20231206/k10014279321000.html" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">2</a>，<a href="https://china.kyodonews.net/news/2023/12/400dea0a0ce5-cv-22.html" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">共同社</a>）</p>
-<h4 id="白宫将通过行政权力剥夺某些高价药品的专利-美国白宫周四发文称将行使权力通过强硬手段剥夺某些高价药品专利从而降低高昂的药品价格促进制药行业的竞">白宫：将通过行政权力剥夺某些高价药品的专利 美国白宫周四发文称，将行使权力，通过强硬手段剥夺某些高价药品专利，从而降低高昂的药品价格，促进制药行业的竞&hellip;</h4>
-<p><b>白宫：将通过行政权力剥夺某些高价药品的专利</b><br><br>美国白宫周四发文称，将行使权力，通过强硬手段剥夺某些高价药品专利，从而降低高昂的药品价格，促进制药行业的竞争。拜登政府计划使用所谓的"march-in rights(介入权)"政策，<b>即在一些由政府资助开发但公众无法广泛获得的药物上进行专利干预。</b></p>
-<h4 id="亚马逊试水prime会员无限制送货服务-每月收费999美元-据cnbc亚马逊当地时间周四表示正在为其prime会员试行一项新的杂货送货服务这标志着其在线超市服务的">亚马逊试水Prime会员无限制送货服务 每月收费9.99美元 据CNBC，亚马逊当地时间周四表示，正在为其Prime会员试行一项新的杂货送货服务，这标志着其在线超市服务的&hellip;</h4>
-<p><b>亚马逊试水Prime会员无限制送货服务 每月收费9.99美元</b><br><br>据CNBC，亚马逊当地时间周四表示，正在为其Prime会员试行一项新的杂货送货服务，这标志着其在线超市服务的最新调整。该公司Prime计划的会员可以选择每月支付9.99美元，<b>在订单超过35美元的情况下，无限制地从全食超市(Whole Foods)和亚马逊生鲜(Amazon Fresh)获得杂货送货服务</b>。他们还可以在30分钟内取走任何大小的订单。首先，这项服务将在科罗拉多州丹佛市推出。<br><br>消息来源: <a href="https://m.gelonghui.com/live/1326705" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">格隆汇</a></p>
-<h4 id="-日本滨松市居民铃木得偿所愿-无需手术改变性别-户籍性别改为男性-家住日本静冈县滨松市的铃木gen49岁7日终于收到了市政府开具的户籍誊本和居民证明">🎬 日本滨松市居民铃木得偿所愿 “无需手术改变性别” 户籍性别改为男性 家住日本静冈县滨松市的铃木GEN（49岁）7日终于收到了市政府开具的户籍誊本和居民证明&hellip;</h4>
-<p><b>日本滨松市居民铃木得偿所愿  “无需手术改变性别” 户籍性别改为男性</b><br><br>家住日本静冈县滨松市的铃木GEN（49岁）7日终于收到了市政府开具的户籍誊本和居民证明“住民票”，其中的性别一栏从女性改为了男性。现行法律规定，有性别认同障碍者想要在户籍上变更性别，必须接受去除生殖能力的手术。静冈家庭法院滨松支部已作出了该规定违反《宪法》且无效的判定，铃木因此得偿所愿。铃木向媒体表示，自我认同的性别和户籍上的性别终于一致，“可以安心生活”。<br><br>来源：<a href="https://www3.nhk.or.jp/lnews/shizuoka/20231207/3030022421.html" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">日本广播协会</a>、<a href="https://china.kyodonews.net/news/2023/12/102880a29642--.html" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">共同社</a></p> <video src="https://cdn5.cdn-telegram.org/file/a16af05df1.mp4?token=RdyrIinRPzTdReRpIqZBcwQVurHVZyLfO0kVr3EG17fFjntwnX69DbTrmQyiPw0notGxOmfwbJlE-xdTVFmi8E4vc7wQaGaHyLo2t-YaHQuTK7XRdUUpqEn8hVqCXcXANifKSy9z79imBI6U9DP0420f7xxwjP2pgAozKX5BeoNcIKf0h5x2t-dWCM-azsszlzbvcOfExfM3EuR9EQp2ArNEHRGLrVzXWzwd5RVi_dQ8eUL-xs6oSRTS9rJAVp4fyv_Iah61Rfx9Btl5UMDD5_28UFYs51RKTnonwJPn2EpU0EXppZe6orr3mEuuwPW04ZYlcsbQCni1beniP78VADzoLYYGMqknLXWitR9ENcuYlvuH2_duRcW1gSNrDutwJRiNb4oohoOr2QiJZhWoYyGpijaw_6z9cGAq5qraeb67jIHbQJRGf3qFSIx1nXYKlYBH2IGEFbmyeDQT784STQ5YPI-eEt4U2NpNTzs5qqOhyJVQlX8AwFaoOXyE8JMF1U5N6F2kgYRk9lSL-fG7i4rS94h3rQJ8XKuOf9GXGF6tJT-wZRWgCS1AQJnzDxJQ0sz9GR52DM9Ho7mOsVJxsH0JrprSkZ-jLGCuNWz4izHcr0djjMAgjRxHVogYUkwXcmv5R27x7EdgEMGthHOr_gJwSqXM3BRMKCcD7HrBjy0" controls="controls" poster="https://cdn5.cdn-telegram.org/file/R2y3Wx0AjywK7jZmfDnv-tFP0oa6OMySsIVb69sgoH18zzdmYAG7Ug0kbAMTDubP0sOJaECGUkiI2Jd7_rACGovQ37fInsjfwtOYeCsbD-x9iXMotvXEdkiAYUDEyUC3C9qIfuHcKiRBdnD3pZdUResLgNKWXvzcBDPr_GhMk6n2Afnu-eI-tEsbI3hkP2WfT7_aBJWnGJDeXqfucc937D4AstHJISq7lOVSrQHN5hNhOcXi_mJbGl63T4aeq6yf3y9wt25T-PMxJ188VqPaVuMkfsOUngNp-TnyUJCwRII9d5q8Un7cMRZZY0-bKHJNc3pXdjdcsrHel6RpeWz8qg" style="width:100%"></video> 
-<h4 id="-卫报揭露塞拉菲尔德核设施泄漏可能对公众构成风险-塞拉菲尔德核设施发生严重泄漏卫报报道位于欧洲的塞拉菲尔德核设施出现了放射性废物硅仓的">🖼 《卫报》揭露：塞拉菲尔德核设施泄漏可能对公众构成风险 塞拉菲尔德核设施发生严重泄漏：《卫报》报道，位于欧洲的塞拉菲尔德核设施出现了放射性废物硅仓的&hellip;</h4>
-<p><b>《卫报》揭露：塞拉菲尔德核设施泄漏可能对公众构成风险</b><br><br>塞拉菲尔德核设施发生严重泄漏：《卫报》报道，位于欧洲的塞拉菲尔德核设施出现了放射性废物硅仓的恶化泄漏，可能对公众构成风险。泄漏液体来自英国最高核危险之一的设施，预计持续至2050年。泄漏加速可能污染地下水。同时塞拉菲尔德还是欧洲最大的核废物处理设施<br><br><a href="https://www.theguardian.com/business/2023/dec/05/sellafield-nuclear-site-leak-could-pose-risk-to-public" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">原文</a></p>
-<h4 id="曾经在数码圈有一个传言说2023年底的ssd可以做到1毛1g-于是在等待的过程中--等到了nand-flash厂商清空库存--等到了ai潮流爆发b端服务器需求上升--等到了美">曾经在数码圈有一个传言，说2023年底的ssd可以做到1毛1g 于是在等待的过程中： -等到了nand flash厂商清空库存 -等到了ai潮流爆发，b端服务器需求上升 -等到了美&hellip;</h4>
-<p>曾经在数码圈有一个传言，说2023年底的ssd可以做到1毛1g<br><br>于是在等待的过程中：<br>-等到了nand flash厂商清空库存<br><br>-等到了ai潮流爆发，b端服务器需求上升<br><br>-等到了美国2024年第二季度降息预期打满<br><br>-等到了今年双11固态的价格还没今年618便宜<br><br>数码界不大，创造神话，让我们期待人定胜天打破市场供需规律<br><br><a href="https://t.me/DNSPODT/2404?q=%23%E6%AC%A2%E4%B9%90%E4%B8%80%E5%88%BB">#欢乐一刻</a></p>
-<h4 id="-外汇交易员-twitter-中国财经资讯平台格隆汇创始人格隆的微博疑似因评论ai应用而被清空并禁言">🖼 外汇交易员 (Twitter) 中国财经资讯平台“格隆汇”创始人格隆的微博疑似因评论AI应用而被清空并禁言。</h4>
-<p></p><div class="tgme_widget_message_text js-message_text" dir="auto"><a href="https://twitter.com/myfxtrader/status/1732750480135381093" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">外汇交易员 (Twitter)</a><br><br>中国财经资讯平台“格隆汇”创始人格隆的微博疑似因评论AI应用而被清空并禁言。</div><p></p>
-<h4 id="英政府俄安全局网络攻击英政治和公众人物-干预民主-英国政府称俄罗斯联邦安全局长期针对英国政治人士和其他公众人物开展网络黑客活动英国政府已传唤俄罗斯">英政府：俄安全局网络攻击英政治和公众人物 干预民主 英国政府称，俄罗斯联邦安全局长期针对英国政治人士和其他公众人物开展网络黑客活动。英国政府已传唤俄罗斯&hellip;</h4>
-<p><b>英政府：俄安全局网络攻击英政治和公众人物 干预民主<br></b><br>英国政府称，俄罗斯联邦安全局长期针对英国政治人士和其他公众人物开展网络黑客活动。<b>英国政府已传唤俄罗斯大使，并制裁两名个人。</b><br><br>综合路透社和英国广播公司（BBC）报道，英国外交部星期四（12月7日）发布声明说，一个名为“冷河”（Cold River）的黑客组织为俄罗斯联邦安全局（Federal Security Service，简称FSB）效力，<b>在数年时间里，针对英国政界人士、记者和非营利组织进行网络攻击。</b><br><br>外交部初级部长多彻蒂（Leo Docherty）在一份致立法者的声明中说：“我今天可以确认，俄罗斯联邦安全局正在幕后持续努力干预我们的民主进程。”<br><br>她指出，俄方的黑客行动“一直以知名人士和实体为目标，意图明确，利用获取的信息干涉英国政治”。<br><br>外交部长卡梅伦也对此事评论称，“冷河”黑客组织的行为“完全不可接受”，“尽管他们一再努力，还是失败了。我们将继续与盟友合作，揭露俄罗斯的秘密网络活动，并追究俄罗斯对其行为的责任。”<br><br>多彻蒂告诉议会下议院，政府已经传唤俄罗斯大使，并对两名个人实施制裁，其中一人是俄罗斯联邦安全局的在任官员。<br><br>BBC称，俄罗斯大使星期三（6日）受到传唤后并未到场，但英国官员会见了俄罗斯大使馆副馆长，并表达了英国对网络攻击一事的深切关注。<br><br><br>消息来源:<a href="https://www.zaobao.com.sg/realtime/world/story20231207-1454818" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">联合早报</a></p>
-<h4 id="快手开启年内最大规模组织架构调整-涉主站电商等多个业务线-界面新闻独家获悉快手发布内部邮件宣布新一轮组织调整此次组织调整涉及主站电商商业化社">快手开启年内最大规模组织架构调整 涉主站、电商等多个业务线 界面新闻独家获悉，快手发布内部邮件宣布新一轮组织调整。此次组织调整涉及主站、电商、商业化、社&hellip;</h4>
-<p><b>快手开启年内最大规模组织架构调整 涉主站、电商等多个业务线<br></b><br>界面新闻独家获悉，快手发布内部邮件宣布新一轮组织调整。此次组织调整涉及主站、电商、商业化、社区科学等多个业务线，是快手今年以来最大范围的一次组织架构调整。具体来看，快手商业化事业部下本地消费业务部调整至主站线下，更名为招聘房产业务部，负责快聘、房产相关业务，取消主站产品部，主站线下成立孵化产品部，负责快影、一甜相机、回森等独立APP产品。<br><br>消息来源: 界面新闻</p>
-<h4 id="检方要求对京都动画案被告判处死刑-共同社12月7日电有关造成36人死亡的2019年京都动画纵火杀人案审判员审判的结案陈词及求刑公审7日在京都地方法院审判">检方要求对京都动画案被告判处死刑 【共同社12月7日电】有关造成36人死亡的2019年京都动画纵火杀人案，审判员审判的结案陈词及求刑公审7日在京都地方法院（审判&hellip;</h4>
-<p><b>检方要求对京都动画案被告判处死刑</b><br><br>【共同社12月7日电】有关造成36人死亡的2019年京都动画纵火杀人案，审判员审判的结案陈词及求刑公审7日在京都地方法院（审判长为增田启祐）举行，检方要求对被控杀人等罪名的青叶真司（45岁）判处死刑。检方就被告抱有的妄想指出，“影响有限。有妄想无法成为避免极刑的理由”，并称“此案有预谋、极度危险且非常残忍和反人道，社会影响也很大”。<br><br>被告是否具备刑事责任能力及其程度是最大争论点。经过当天下午的辩方最终辩护和被告最终意见陈述后，案件审理结束。判决日期为明年1月25日。<br><br>这起案件是平成以来死亡人数最多的杀人案，检方指出“受害者人数之多在日本刑事审判史上尤为突出”，并表示“轻视生命的程度很高”。<br><br>被告承认起诉内容，并就作案动机解释称小说创意被京都动画盗用。在6日的公审中，他首次明确向遗属道歉。<br><br>辩方称不能说案发当时他具有责任能力，要求认定无罪或减刑。<br><br>公审9月开始，围绕责任能力经过双方辩论等过程，从11月27日起继续就量刑进行审理。<br><br>起诉书称，2019年7月18日上午10点半左右，被告闯入有员工等70人的京都动画第一工作室，向员工泼洒汽油并纵火，杀害36人并导致32人不同程度受伤。</p>
-<h4 id="中国11月外汇储备317181亿美元前值3101224亿美元">中国11月外汇储备31718.1亿美元，前值31012.24亿美元</h4>
-<p>中国11月外汇储备31718.1亿美元，前值31012.24亿美元</p>
-<h4 id="-今日-大雪-梅须逊雪三分白雪却输梅一段香">🖼 今日: 大雪 梅须逊雪三分白，雪却输梅一段香</h4>
-<p><b>今日: 大雪<br><br>梅须逊雪三分白，雪却输梅一段香</b></p>
-<h4 id="外汇交易员-twitter-海关总署今年前11个月我国货物贸易进出口总值3796万亿元同比基本持平其中出口216万亿元增长03进口1636万亿元下降05">外汇交易员 (Twitter) 海关总署：今年前11个月，我国货物贸易进出口总值37.96万亿元，同比基本持平。其中，出口21.6万亿元，增长0.3%；进口16.36万亿元，下降0.5&hellip;</h4>
-<p><a href="https://twitter.com/myfxtrader/status/1732596130012442966" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">外汇交易员 (Twitter)</a><br><br>海关总署：今年前11个月，我国货物贸易进出口总值37.96万亿元，同比基本持平。其中，出口21.6万亿元，增长0.3%；进口16.36万亿元，下降0.5%。<br>11月当月，进出口3.7万亿元，同比增长1.2%；出口2.1万亿元，增长1.7%；进口1.6万亿元，增长0.6%。<br>今年11月份，我国货物贸易进出口总值3.7万亿元，同比增长1.2%，外贸稳中向好态势进一步巩固。</p>
-<h4 id="美空军下令暂停cv-22鱼鹰飞行-有关日本鹿儿岛县屋久岛近海发生的美空军cv-22鱼鹰运输机坠毁事故美军6日宣布将暂停包括空军海军和海军陆战队在内所有">美空军下令暂停CV-22“鱼鹰”飞行 有关日本鹿儿岛县屋久岛近海发生的美空军CV-22“鱼鹰”运输机坠毁事故，美军6日宣布将暂停包括空军、海军和海军陆战队在内所有&hellip;</h4>
-<p><b>美空军下令暂停CV-22“鱼鹰”飞行</b><br><br>有关日本鹿儿岛县屋久岛近海发生的美空军CV-22“鱼鹰”运输机坠毁事故，美军6日宣布将暂停包括空军、海军和海军陆战队在内所有“鱼鹰”的飞行。预备调查结果显示有可能是器材存在缺陷引发了事故。美军表示现阶段详细情况不明，将通过暂停飞行展开彻底调查。<br><br>此次事故11月29日发生。横田基地部署的CV-22当时在岩国基地 (山口县) 起飞前往嘉手纳基地 (冲绳县)，但机影从雷达上消失并坠毁。美军认定8名机组人员全部遇难。日本防卫省称，这是除开发阶段外“鱼鹰”事故中死亡人数最多的一次。<br><br>来源：<a href="https://china.kyodonews.net/news/2023/12/400dea0a0ce5-cv-22.html" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">共同社</a></p>
-<h2 id="福利分享">福利分享</h2>
-<h4 id="--绿夜-2023韩语中字1080p--影视-夸克网盘-阿里云盘--httpswwwahhhhfscom51548">🖼 🗣️ 绿夜 (2023)韩语中字1080p 🏷️ #影视 #夸克网盘 #阿里云盘 👉 <a href="https://www.ahhhhfs.com/51548/" target="_blank" rel="noopener noreffer ">https://www.ahhhhfs.com/51548/</a></h4>
-<p><span class="emoji">🗣️</span> 绿夜 (2023)韩语中字1080p<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6124?q=%23%E5%BD%B1%E8%A7%86">#影视</a> <a href="https://t.me/abskoop/6124?q=%23%E5%A4%B8%E5%85%8B%E7%BD%91%E7%9B%98">#夸克网盘</a> <a href="https://t.me/abskoop/6124?q=%23%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98">#阿里云盘</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/51548/" target="_blank" rel="noopener">https://www.ahhhhfs.com/51548/</a></p>
-<h4 id="--亚马逊新品推广实战技巧-闯盟跨境--电商运营-资源-亚马逊-夸克网盘-阿里云盘--httpswwwahhhhfscom51519">🖼 🗣️ 亚马逊新品推广实战技巧 闯盟跨境 🏷️ #电商运营 #资源 #亚马逊 #夸克网盘 #阿里云盘 👉 <a href="https://www.ahhhhfs.com/51519/" target="_blank" rel="noopener noreffer ">https://www.ahhhhfs.com/51519/</a></h4>
-<p><span class="emoji">🗣️</span> 亚马逊新品推广实战技巧 闯盟跨境<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6123?q=%23%E7%94%B5%E5%95%86%E8%BF%90%E8%90%A5">#电商运营</a> <a href="https://t.me/abskoop/6123?q=%23%E8%B5%84%E6%BA%90">#资源</a> <a href="https://t.me/abskoop/6123?q=%23%E4%BA%9A%E9%A9%AC%E9%80%8A">#亚马逊</a> <a href="https://t.me/abskoop/6123?q=%23%E5%A4%B8%E5%85%8B%E7%BD%91%E7%9B%98">#夸克网盘</a> <a href="https://t.me/abskoop/6123?q=%23%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98">#阿里云盘</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/51519/" target="_blank" rel="noopener">https://www.ahhhhfs.com/51519/</a></p>
-<h4 id="--保姆级pr剪辑指南入行课程--设计师-资源-夸克网盘-阿里云盘--httpswwwahhhhfscom51522">🖼 🗣️ 保姆级PR剪辑指南入行课程 🏷️ #设计师 #资源 #夸克网盘 #阿里云盘 👉 <a href="https://www.ahhhhfs.com/51522/" target="_blank" rel="noopener noreffer ">https://www.ahhhhfs.com/51522/</a></h4>
-<p><span class="emoji">🗣️</span> 保姆级PR剪辑指南入行课程<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6122?q=%23%E8%AE%BE%E8%AE%A1%E5%B8%88">#设计师</a> <a href="https://t.me/abskoop/6122?q=%23%E8%B5%84%E6%BA%90">#资源</a> <a href="https://t.me/abskoop/6122?q=%23%E5%A4%B8%E5%85%8B%E7%BD%91%E7%9B%98">#夸克网盘</a> <a href="https://t.me/abskoop/6122?q=%23%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98">#阿里云盘</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/51522/" target="_blank" rel="noopener">https://www.ahhhhfs.com/51522/</a></p>
-<h4 id="--前任4英年早婚-2023国语中字-1080p--影视-夸克网盘-阿里云盘--httpswwwahhhhfscom51543">🖼 🗣️ 前任4：英年早婚 (2023)国语中字 1080p 🏷️ #影视 #夸克网盘 #阿里云盘 👉 <a href="https://www.ahhhhfs.com/51543/" target="_blank" rel="noopener noreffer ">https://www.ahhhhfs.com/51543/</a></h4>
-<p><span class="emoji">🗣️</span> 前任4：英年早婚 (2023)国语中字 1080p<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6121?q=%23%E5%BD%B1%E8%A7%86">#影视</a> <a href="https://t.me/abskoop/6121?q=%23%E5%A4%B8%E5%85%8B%E7%BD%91%E7%9B%98">#夸克网盘</a> <a href="https://t.me/abskoop/6121?q=%23%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98">#阿里云盘</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/51543/" target="_blank" rel="noopener">https://www.ahhhhfs.com/51543/</a></p>
-<h4 id="--丁香医生人体调查组电子版电子书--书籍-资源-夸克网盘-阿里云盘--httpswwwahhhhfscom51515">🖼 🗣️ 丁香医生人体调查组电子版电子书 🏷️ #书籍 #资源 #夸克网盘 #阿里云盘 👉 <a href="https://www.ahhhhfs.com/51515/" target="_blank" rel="noopener noreffer ">https://www.ahhhhfs.com/51515/</a></h4>
-<p><span class="emoji">🗣️</span> 丁香医生人体调查组电子版电子书<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6120?q=%23%E4%B9%A6%E7%B1%8D">#书籍</a> <a href="https://t.me/abskoop/6120?q=%23%E8%B5%84%E6%BA%90">#资源</a> <a href="https://t.me/abskoop/6120?q=%23%E5%A4%B8%E5%85%8B%E7%BD%91%E7%9B%98">#夸克网盘</a> <a href="https://t.me/abskoop/6120?q=%23%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98">#阿里云盘</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/51515/" target="_blank" rel="noopener">https://www.ahhhhfs.com/51515/</a></p>
-<h4 id="--某字母类型中文全彩漫画网站-ho5--趣站-大人学习网站-大人学习资源-学习网站-漫画网站--httpswwwahhhhfscom51528">🖼 🗣️ 某字母类型中文全彩漫画网站-Ho5 🏷️ #趣站 #大人学习网站 #大人学习资源 #学习网站 #漫画网站 👉 <a href="https://www.ahhhhfs.com/51528/" target="_blank" rel="noopener noreffer ">https://www.ahhhhfs.com/51528/</a></h4>
-<p><span class="emoji">🗣️</span> 某字母类型中文全彩漫画网站-Ho5<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6119?q=%23%E8%B6%A3%E7%AB%99">#趣站</a> <a href="https://t.me/abskoop/6119?q=%23%E5%A4%A7%E4%BA%BA%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99">#大人学习网站</a> <a href="https://t.me/abskoop/6119?q=%23%E5%A4%A7%E4%BA%BA%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90">#大人学习资源</a> <a href="https://t.me/abskoop/6119?q=%23%E5%AD%A6%E4%B9%A0%E7%BD%91%E7%AB%99">#学习网站</a> <a href="https://t.me/abskoop/6119?q=%23%E6%BC%AB%E7%94%BB%E7%BD%91%E7%AB%99">#漫画网站</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/51528/" target="_blank" rel="noopener">https://www.ahhhhfs.com/51528/</a></p>
-<h4 id="--53bk报刊-国内外报纸期刊大全--趣站--httpswwwahhhhfscom22541">🖼 🗣️ 53BK报刊 国内外报纸期刊大全 🏷️ #趣站 👉 <a href="https://www.ahhhhfs.com/22541/" target="_blank" rel="noopener noreffer ">https://www.ahhhhfs.com/22541/</a></h4>
-<p><span class="emoji">🗣️</span> 53BK报刊 国内外报纸期刊大全<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6118?q=%23%E8%B6%A3%E7%AB%99">#趣站</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/22541/" target="_blank" rel="noopener">https://www.ahhhhfs.com/22541/</a></p>
-<h4 id="--丁香医生人体调查组电子版电子书--书籍-资源-夸克网盘-阿里云盘--httpswwwahhhhfscom51515-1">🖼 🗣️ 丁香医生人体调查组电子版电子书 🏷️ #书籍 #资源 #夸克网盘 #阿里云盘 👉 <a href="https://www.ahhhhfs.com/51515/" target="_blank" rel="noopener noreffer ">https://www.ahhhhfs.com/51515/</a></h4>
-<p><span class="emoji">🗣️</span> 丁香医生人体调查组电子版电子书<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6117?q=%23%E4%B9%A6%E7%B1%8D">#书籍</a> <a href="https://t.me/abskoop/6117?q=%23%E8%B5%84%E6%BA%90">#资源</a> <a href="https://t.me/abskoop/6117?q=%23%E5%A4%B8%E5%85%8B%E7%BD%91%E7%9B%98">#夸克网盘</a> <a href="https://t.me/abskoop/6117?q=%23%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98">#阿里云盘</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/51515/" target="_blank" rel="noopener">https://www.ahhhhfs.com/51515/</a></p>
-<h4 id="--新-macbook-pro-装机记录-mac软件推荐列表--趣站-mac软件推荐--httpswwwahhhhfscom51460">🖼 🗣️ 新 Macbook Pro 装机记录-Mac软件推荐列表 🏷️ #趣站 #mac软件推荐 👉 <a href="https://www.ahhhhfs.com/51460/" target="_blank" rel="noopener noreffer ">https://www.ahhhhfs.com/51460/</a></h4>
-<p><span class="emoji">🗣️</span> 新 Macbook Pro 装机记录-Mac软件推荐列表<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6116?q=%23%E8%B6%A3%E7%AB%99">#趣站</a> <a href="https://t.me/abskoop/6116?q=%23mac%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90">#mac软件推荐</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/51460/" target="_blank" rel="noopener">https://www.ahhhhfs.com/51460/</a></p>
-<h4 id="--aepr-高能秘籍课全集--资源-ae-pr-夸克网盘-阿里云盘--httpswwwahhhhfscom51510">🖼 🗣️ AE+Pr 高能秘籍课全集 🏷️ #资源 #ae #PR #夸克网盘 #阿里云盘 👉 <a href="https://www.ahhhhfs.com/51510/" target="_blank" rel="noopener noreffer ">https://www.ahhhhfs.com/51510/</a></h4>
-<p><span class="emoji">🗣️</span> AE+Pr 高能秘籍课全集<br><br><span class="emoji">🏷️</span> <a href="https://t.me/abskoop/6115?q=%23%E8%B5%84%E6%BA%90">#资源</a> <a href="https://t.me/abskoop/6115?q=%23ae">#ae</a> <a href="https://t.me/abskoop/6115?q=%23PR">#PR</a> <a href="https://t.me/abskoop/6115?q=%23%E5%A4%B8%E5%85%8B%E7%BD%91%E7%9B%98">#夸克网盘</a> <a href="https://t.me/abskoop/6115?q=%23%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98">#阿里云盘</a><br><br><span class="emoji">👉</span> <a href="https://www.ahhhhfs.com/51510/" target="_blank" rel="noopener">https://www.ahhhhfs.com/51510/</a></p>
 ]]></description>
 </item>
 </channel>
