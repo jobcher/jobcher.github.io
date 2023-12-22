@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Terraform on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/tags/terraform/</link>
+    <description>Recent content in Terraform on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Mon, 27 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/tags/terraform/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>安装配置 Terraform</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-terraform/</link>
+      <pubDate>Mon, 27 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-terraform/</guid>
+      <description>安装配置 Terraform 安装 macOS 苹果系统安装 1#安装 2brew tap hashicorp/tap 3brew install hashicorp/tap/terraform 4# 更新 5brew update 6brew upgrade hashicorp/tap/terraform 7#验证安装 8terraform -help windows 系统安装 1#安装 2choco install terraform 3#直接到这个url里下载64位系统 4https://www.terraform.io/downloads 5#验证安装 6terraform -help Linux 安装 1curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add - 2sudo apt-add-repository &amp;#34;deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main&amp;#34; 3sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install terraform 4#验证安装 5terraform -help 1wget -O- https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo | sudo tee /etc/yum.repos.d/hashicorp.repo 2sudo yum install terraform -y terrafrom 控制 proxmox 虚拟机 来源：https://github.</description>
+    </item>
+  </channel>
+</rss>

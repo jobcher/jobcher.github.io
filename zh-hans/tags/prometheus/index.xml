@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>prometheus on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/tags/prometheus/</link>
+    <description>Recent content in prometheus on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Wed, 08 Jun 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/tags/prometheus/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>nginx exporter 安装配置</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/06/nginx-exporter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Wed, 08 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/06/nginx-exporter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</guid>
+      <description>nginx exporter 安装配置 二进制安装 1wget https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v0.10.0/nginx-prometheus-exporter_0.10.0_linux_amd64.tar.gz 2tar -zxvf nginx-prometheus-exporter_0.10.0_linux_amd64.tar.gz -C ./nginx-exporter 在 nginx 上配置 1./configure \ 2… \ 3--with-http_stub_status_module 4make 5sudo make install 在 nginx.config 上配置&#xA;server { # 新增 location /nginx_status { stub_status on; access_log off; } } 重启 nginx 服务&#xA;1nginx -t 2nginx -s reload 启动 nginx exporter 1nginx-prometheus-exporter -nginx.scrape-uri http://&amp;lt;nginx&amp;gt;:8080/nginx_status 配置 prometheus 添加 prometheus.yml 1- job_name: &amp;#34;nginx-exporter&amp;#34; 2 file_sd_configs: 3 - files: 4 - &amp;#34;./file_sd/nginx-exporter.yaml&amp;#34; 在 ./file_sd/新建 nginx-exporter.</description>
+    </item>
+    <item>
+      <title>prometheus grafana alertmanager 安装配置</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/01/prometheus-grafana-alertmanager-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Thu, 13 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/01/prometheus-grafana-alertmanager-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</guid>
+      <description>prometheus+grafana+alertmanager 安装配置 服务器监控告警系统搭建，通过 exporter 获取节点信息到 prometheus。prometheus 配置规则，使 garfana 和 alertmanager 能够接受到数据，分别展示数据和发送告警&#xA;参数 VM :192.168.99.78&#xA;端口 服务 9100 node_exporter 3000 grafana 9090 prometheus 9115 blackbox_exporter 安装 grafa 安装 docker 安装 1docker run -d -p 3000:3000 \ 2--name=grafana \ 3-v grafana-storage:/var/lib/grafana \ 4grafana/grafana:8.3.3 prometheus 安装 下载 1wget https://github.com/prometheus/prometheus/releases/download/v2.32.1/prometheus-2.32.1.linux-amd64.tar.gz 2tar -zxvf prometheus-2.32.1.linux-amd64.tar.gz 3cd prometheus-2.32.1.linux-amd64 4mkdir -p file_sd 5mkdir -p rules 运行 prometheus 1killall prometheus 2nohup ./prometheus --config.file=prometheus.yml &amp;amp; 3# 查看运行状况 4tail -f nohup.out node_exporter 安装 docker-compose 安装 1version: &amp;#34;3&amp;#34; 2services: 3 node-exporter: 4 image: prom/node-exporter:v1.</description>
+    </item>
+    <item>
+      <title>prometheus 配置</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/01/prometheus-%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Thu, 13 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/01/prometheus-%E9%85%8D%E7%BD%AE/</guid>
+      <description>prometheus 配置 Prometheus 是由 SoundCloud 开源监控告警解决方案&#xA;组件 Prometheus Server， 主要用于抓取数据和存储时序数据，另外还提供查询和 Alert Rule 配置管理。 client libraries，用于对接 Prometheus Server, 可以查询和上报数据。 push gateway ，用于批量，短期的监控数据的汇总节点，主要用于业务数据汇报等。 各种汇报数据的 exporters ，例如汇报机器数据的 node_exporter, 汇报 MongoDB 信息的 MongoDB exporter 等等。 用于告警通知管理的 alertmanager 。 运行逻辑 Prometheus server 定期从静态配置的 targets 或者服务发现的 targets 拉取数据。 当新拉取的数据大于配置内存缓存区的时候，Prometheus 会将数据持久化到磁盘（如果使用 remote storage 将持久化到云端）。 Prometheus 可以配置 rules，然后定时查询数据，当条件触发的时候，会将 alert 推送到配置的 Alertmanager。 Alertmanager 收到警告的时候，可以根据配置，聚合，去重，降噪，最后发送警告。 可以使用 API， Prometheus Console 或者 Grafana 查询和聚合数据。 安装 prometheus 使用预编译的二进制文件安装 1wget https://github.com/prometheus/prometheus/releases/download/v2.32.1/prometheus-2.32.1.linux-amd64.tar.gz 2tar -zxvf prometheus-2.32.1.linux-amd64.tar.gz 3cd prometheus-2.</description>
+    </item>
+  </channel>
+</rss>

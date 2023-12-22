@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>docker进阶系列 on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/series/docker%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97/</link>
+    <description>Recent content in docker进阶系列 on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Fri, 18 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/series/docker%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>docker 命令(2)</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/02/docker-%E5%91%BD%E4%BB%A42/</link>
+      <pubDate>Fri, 18 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/02/docker-%E5%91%BD%E4%BB%A42/</guid>
+      <description>docker 命令(2) docker ps 命令 docker ps 能查看所有运行中的容器&#xA;docker ps -a 能查看所有的容器&#xA;docker rm -f $(docker ps -aq) 强制删除所有容器&#xA;docker run和docker create有什么区别 docker create命令能够基于镜像创建容器。&#xA;该命令执行的效果类似于docker run -d，即创建一个将在系统后台运行的容器。&#xA;但是与docker run -d不同的是，docker create创建的容器并未实际启动，还需要执行docker start命令或docker run命令以启动容器。&#xA;事实上，docker create 命令常用于在启动容器之前进行必要的设置。</description>
+    </item>
+    <item>
+      <title>清理Docker的container，image与volume</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/02/%E6%B8%85%E7%90%86docker%E7%9A%84containerimage%E4%B8%8Evolume/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/02/%E6%B8%85%E7%90%86docker%E7%9A%84containerimage%E4%B8%8Evolume/</guid>
+      <description>清理 Docker 的 container，image 与 volume Docker 的镜像（image）、容器（container）、数据卷（volume）， 都是由 daemon 托管的。 因此，在需要清理时，也需要使用其自带的手段。&#xA;清理技巧 清理所有停止运行的容器：&#xA;1docker container prune 2# or 3docker rm $(docker ps -aq) 清理所有悬挂（&amp;lt;none&amp;gt;）镜像：&#xA;1docker image prune 2# or 3docker rmi $(docker images -qf &amp;#34;dangling=true&amp;#34;) 清理所有无用数据卷：&#xA;1docker volume prune 由于prune操作是批量删除类的危险操作，所以会有一次确认。 如果不想输入y&amp;lt;CR&amp;gt;来确认，可以添加-f操作。慎用！&#xA;清理停止的容器 docker rm -lv CONTAINER -l是清理 link，v是清理 volume。 这里的 CONTAINER 是容器的 name 或 ID，可以是一个或多个。&#xA;参数列表：&#xA;Name shorthand Default Description –force,-f false Force the removal of a running container (uses SIGKILL) –link, -l false Remove the specified link –volumes, -v false Remove the volumes associated with the container 清理所有停止的容器 通过docker ps可以查询当前运行的容器信息。 而通过docker ps -a，可以查询所有的容器信息，包括已停止的。</description>
+    </item>
+    <item>
+      <title>docker进阶使用</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/docker%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/docker%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/</guid>
+      <description>docker 进阶使用 dockerfile 和 docker compose 的配置&#xA;Dockerfile 使用 Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。&#xA;例子：&#xA;1 FROM nginx 2 RUN echo &amp;#39;这是一个本地构建的nginx镜像&amp;#39; &amp;gt; /usr/share/nginx/html/index.html 保存 Dockerfile 文件并在本地路径执行&#xA;1 docker build -t nginx:v1-test . 2 docker run -name docker run --name nginx-test -d -p 8080:80 nginx:v1-test 浏览 nginx 页面确认更新内容&#xA;curl 127.0.0.1:8080 输出： 这是一个本地构建的nginx镜像 Docker 命令详解 COPY 复制指令，从上下文目录中复制文件或者目录到容器里指定路径。&#xA;1 COPY [--chown=&amp;lt;user&amp;gt;:&amp;lt;group&amp;gt;] &amp;lt;源路径1&amp;gt;... &amp;lt;目标路径&amp;gt; 2 COPY [--chown=&amp;lt;user&amp;gt;:&amp;lt;group&amp;gt;] [&amp;#34;&amp;lt;源路径1&amp;gt;&amp;#34;,... &amp;#34;&amp;lt;目标路径&amp;gt;&amp;#34;] &amp;lt;源路径&amp;gt;：源文件或者源目录，这里可以是通配符表达式，其通配符规则要满足 Go 的 filepath.Match 规则。例如：&#xA;1 COPY hom* /mydir/ 2 COPY hom?</description>
+    </item>
+  </channel>
+</rss>

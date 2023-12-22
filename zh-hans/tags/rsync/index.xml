@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rsync on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/tags/rsync/</link>
+    <description>Recent content in rsync on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Mon, 20 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/tags/rsync/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>rsync 文件同步</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/rsync-%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/</link>
+      <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/rsync-%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/</guid>
+      <description>rsync 文件同步 rsync 是一个常用的 Linux 应用程序，用于文件同步&#xA;安装 1# Debian or Ubuntu 2$ sudo apt-get install rsync 3 4# Red Hat 5$ sudo yum install rsync 6 7# Arch Linux 8$ sudo pacman -S rsync 基本用法 使用 rsync 命令时，可以作为 cp 和 mv 命令的替代方法，将源目录同步到目标目录。&#xA;-r 表示递归，即包含子目录。注意，-r 是必须的，否则 rsync 运行不会成功。source 目录表示源目录，destination 表示目标目录。&#xA;-a 参数可以替代-r，除了可以递归同步以外，还可以同步元信息（比如修改时间、权限等）。由于 rsync 默认使用文件大小和修改时间决定文件是否需要更新&#xA;1rsync -r source destination 远程同步&#xA;1rsync -av &amp;lt;源地址&amp;gt;/ &amp;lt;用户名&amp;gt;@&amp;lt;ip地址&amp;gt;:/&amp;lt;目标地址&amp;gt; 友情地址：mysql 迁移 </description>
+    </item>
+  </channel>
+</rss>

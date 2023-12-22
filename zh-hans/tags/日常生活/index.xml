@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>日常生活 on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/tags/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/</link>
+    <description>Recent content in 日常生活 on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Tue, 01 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/tags/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>黑群晖最新安装教程</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/08/%E9%BB%91%E7%BE%A4%E6%99%96%E6%9C%80%E6%96%B0%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Tue, 01 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/08/%E9%BB%91%E7%BE%A4%E6%99%96%E6%9C%80%E6%96%B0%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</guid>
+      <description>黑群晖最新安装教程 我这里拿蜗牛星际举例讲解，如何安装群晖最新引导文件，如何正常使用黑群晖。&#xA;准备 黑群晖设备一台 电源线 hdmi 或者其他视频线 有线鼠标 有线键盘 显示器 8g 以上U盘 一块1T以上硬盘 开始安装 1. 制作U盘启动器 下载 大白菜U盘制作器 https://www.dabaicai.com/&#xA;1、打开大白菜超级U盘装机工具，点击主界面的【U盘启动】模块，然后选择【默认模式】。&#xA;2、在【请选择】后面选择需要制作启动的设备（插入的USB设备，一般会默认读取该设备）。&#xA;3、模式选择【USB-HDD】，格式选择【NTFS】，然后点击【一键制作USB启动盘】。&#xA;4、在点击一键制作后会弹出一个关于【U盘数据删除且不可恢复】的窗口，选择【是】。&#xA;2. 引导文件复制 开始前先拔掉前面4个盘位的硬盘，以防写错盘导致数据丢失。&#xA;1、载写盘软件和群晖引导文件，然后二个文件复制到U盘上&#xA;引导文件下载链接: https://pan.baidu.com/s/1F-Mva0AuEehUNk4q19QyxA&#xA;提取码: amf3&#xA;复制到U盘!&#xA;3. U盘启动黑群晖，写入文件 开始前先拔掉前面4个盘位的硬盘，以防写错盘导致数据丢失。&#xA;1、大白菜U盘启动,插上U盘开机自检页面 按F11或F7（根据机型不同快捷按键不同），选U盘启动&#xA;2、桌面找到 分区工具DiskGenius&#xA;3、点选 第一个硬盘 即便是内置的16G硬盘，右键选删除所有分区&#xA;4、保存更改&#xA;5、删除分区完毕后 打开此电脑 找 默认的第一个分区里面的写盘工具&#xA;6、选择写盘工具软件 打开&#xA;7、全部保存默认参数，只需要找到群晖引导文件 打开&#xA;8、找到U盘上的群晖引导文件IMG，然后点 右下角的Start 按钮开始写入&#xA;写入完毕的 提示，此时就写入完成了，拔掉U盘重启系统即可。&#xA;4. 重启设备后安装DSM系统 这里为了保证系统稳定性，使用DSM6.2.3系统，我们这边使用DS918+4盘符&#xA;1、下载群晖助手软件和系统文件&#xA;Synology Assistant: https://cndl.synology.cn/download/Utility/Assistant/7.0.4-50051/Windows/synology-assistant-7.0.4-50051.exe?model=DS918%2B&amp;amp;bays=4&amp;amp;dsm_version=6.2.4&amp;amp;build_number=25556&#xA;2、DSM6.2.3系统：https://pan.baidu.com/s/15CYI12-P1GcdLOa-FqNWrA&#xA;提取码: riub&#xA;2、安装群晖助手软件：在同一网段内的电脑上安装群晖助手软件&#xA;3、打开群晖助手搜索到IP,如果要在线安装系统 就选联机 如果本地安装系统就选 安装</description>
+    </item>
+    <item>
+      <title>推荐一下 容器云资源</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/06/%E6%8E%A8%E8%8D%90%E4%B8%80%E4%B8%8B-%E5%AE%B9%E5%99%A8%E4%BA%91%E8%B5%84%E6%BA%90/</link>
+      <pubDate>Wed, 21 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/06/%E6%8E%A8%E8%8D%90%E4%B8%80%E4%B8%8B-%E5%AE%B9%E5%99%A8%E4%BA%91%E8%B5%84%E6%BA%90/</guid>
+      <description>背景 很多同学在开发软件和测试软件的早期，都会遇到一个问题：如何快速的搭建一个测试环境。这个问题在开发软件的早期是非常棘手的，因为开发软件的早期，往往是没有任何的资源的。这个时候，我们就需要借助一些云资源来帮助我们快速的搭建一个测试环境。接下我会推荐一些云资源，希望能够帮助到大家。&#xA;推荐 1.vercel vercel是一个提供托管服务的网站，它可以帮助我们快速的部署一个静态网站。它的优点是：免费、快速、简单。它的缺点是：只能部署静态网站。如果你的项目是一个静态网站，那么我强烈推荐你使用vercel。&#xA;2。zeabur zeabur是一个帮助开发者一键部署自己的服务的平台，免费方案限制1个项目数量，1vCPU,内存512M，存储1GB 适合做文档和个人博客&#xA;3.腾讯云 国内的良心云，但是现在也不太良心了，不太推荐了，毕竟没什么福利了，如果你是学生的话可以考虑买他们的轻量云来部署他们的服务&#xA;总结 我随便推荐一下，建议大家可以先试用一下1和2的方案，希望能够帮助到大家，如果你有更好的推荐，欢迎在评论区留言。</description>
+    </item>
+    <item>
+      <title>如何礼貌回绝不合理的需求</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/05/%E5%A6%82%E4%BD%95%E7%A4%BC%E8%B2%8C%E5%9B%9E%E7%BB%9D%E4%B8%8D%E5%90%88%E7%90%86%E7%9A%84%E9%9C%80%E6%B1%82/</link>
+      <pubDate>Wed, 24 May 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/05/%E5%A6%82%E4%BD%95%E7%A4%BC%E8%B2%8C%E5%9B%9E%E7%BB%9D%E4%B8%8D%E5%90%88%E7%90%86%E7%9A%84%E9%9C%80%E6%B1%82/</guid>
+      <description>背景 最近在做一个项目，项目的需求是这样的： spring-cloud有一个服务A，服务A有一个接口，接口的功能是根据传入的参数，返回一个字符串。但是服务响应非常的慢，大概需要4秒左右。这个响应速度是不能忍受的！但是这个服务的开发强行说要上线。我们有几个选项：&#xA;1.不上线，但是这个服务的开发无法按期交付 2.上线，但是这个服务的响应速度太慢了，运维背锅 3.劝说服务的开发，让他们优化接口的响应速度&#xA;相信大家都会选择第3个选择，那我们站在运维的角度如何劝说服务的开发呢？ 劝说 故障级联（Cascading Failures）：连接超时的服务可能会导致其他服务出现故障级联效应。这是因为微服务系统中的服务通常会相互调用和依赖。当一个服务连接超时时，其他依赖该服务的服务可能无法及时获取所需的数据或执行必要的操作，从而导致它们自身出现故障。&#xA;响应时间延迟（Increased Response Time）：如果一个服务连接超时，它的调用方可能需要等待更长的时间来获取响应或超时处理。这会增加整个系统的响应时间，因为其他服务的请求也需要等待超时的服务返回结果。这可能会导致用户体验下降，甚至可能导致其他服务的性能问题。&#xA;资源耗尽（Resource Exhaustion）：连接超时可能会导致调用方服务的资源耗尽。当一个服务长时间等待连接超时的服务时，它可能会保持与该服务的连接打开，消耗额外的内存和网络资源。这可能导致调用方服务的资源不足，无法为其他请求提供充足的资源，进而影响整个系统的性能。&#xA;重试和失败处理（Retry and Failure Handling）：当一个服务连接超时时，调用方服务通常会尝试重新连接或执行其他失败处理机制。这可能导致调用方服务增加额外的负载，因为它需要多次尝试连接超时的服务。同时，如果没有适当的失败处理机制，连接超时的服务可能无法正确处理重试请求，导致进一步的问题。&#xA;结论 综上所述，连接超时的服务对Spring Cloud微服务系统可能会带来级联故障、响应时间延迟、资源耗尽、重试和失败处理的问题，并增加监控和故障排除的成本。因此，及时发现和解决连接超时问题对于确保系统的稳定性和性能至关重要。希望领导能够听取意见，不要让运维背锅。</description>
+    </item>
+    <item>
+      <title>linux服务器 删除空间却未释放</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/07/linux%E6%9C%8D%E5%8A%A1%E5%99%A8-%E5%88%A0%E9%99%A4%E7%A9%BA%E9%97%B4%E5%8D%B4%E6%9C%AA%E9%87%8A%E6%94%BE/</link>
+      <pubDate>Wed, 20 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/07/linux%E6%9C%8D%E5%8A%A1%E5%99%A8-%E5%88%A0%E9%99%A4%E7%A9%BA%E9%97%B4%E5%8D%B4%E6%9C%AA%E9%87%8A%E6%94%BE/</guid>
+      <description>linux 服务器 删除空间却未释放 在Linux或者Unix系统中，通过rm或者文件管理器删除文件将会从文件系统的目录结构上解除链接(unlink)，然而如果文件是被打开的（有一个进程正在使用），那么进程将仍然可以读取该文件，磁盘空间也一直被占用，这样就会导致我们明明删除了文件，但是磁盘空间却未被释放&#xA;获取占用列表状态 1lsof | grep deleted 可以看到哪些文件还被使用，未被释放空间。&#xA;释放磁盘空间 一种方法是 kill 掉相应的进程，或者停掉使用这个文件的应用，让 os 自动回收磁盘空间，当 linux 打开一个文件的时候,Linux 内核会为每一个进程在/proc/, /proc/nnnn/fd/目录（nnnn 为 pid）建立一个以其 pid 为名的目录用来保存进程的相关信息，而其子目录 fd 保存的是该进程打开的所有文件的 fd（fd：file descriptor）；&#xA;kill进程是通过截断 proc 文件系统中的文件可以强制要求系统回收分配给正在使用的的文件，这是一项高级技术，仅当管理员确定不会对运行中的进程造成影响时使用。 1kill -9 12345 # PID 重启服务 lsof 命令 lsof全名list opened files，也就是列举系统中已经被打开的文件。我们都知道，linux 环境中，任何事物都是文件，设备是文件，目录是文件，甚至sockets也是文件。</description>
+    </item>
+    <item>
+      <title>VSCode插件推荐=&gt; Code Runner</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/04/vscode%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90-code-runner/</link>
+      <pubDate>Mon, 25 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/04/vscode%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90-code-runner/</guid>
+      <description>VSCode 插件推荐=&amp;gt; Code Runner Run code snippet or code file for multiple languages: C, C++, Java, JavaScript, PHP, Python, Perl, Perl 6, Ruby, Go, Lua, Groovy, PowerShell, BAT/CMD, BASH/SH, F# Script, F# (.NET Core), C# Script, C# (.NET Core), VBScript, TypeScript, CoffeeScript, Scala, Swift, Julia, Crystal, OCaml Script, R, AppleScript, Elixir, Visual Basic .NET, Clojure, Haxe, Objective-C, Rust, Racket, Scheme, AutoHotkey, AutoIt, Kotlin, Dart, Free Pascal, Haskell, Nim, D, Lisp, Kit, V, SCSS, Sass, CUDA, Less, Fortran, Ring, and custom command</description>
+    </item>
+    <item>
+      <title>记录一次上门打散工</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/04/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E4%B8%8A%E9%97%A8%E6%89%93%E6%95%A3%E5%B7%A5/</link>
+      <pubDate>Sun, 17 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/04/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E4%B8%8A%E9%97%A8%E6%89%93%E6%95%A3%E5%B7%A5/</guid>
+      <description>记录一次上门打散工 壬寅年头磨难多&#xA;人间规则奈吾何&#xA;吟诗为把瘟神送&#xA;风起大江扬洪波&#xA;疫情减弱，遍邀亲友，无人相约，但闻昔日挚友，感怀往事邀吾往之。欲把殷勤牵挂诉，幸之。遂至友舍，诉之：帮忙装个监控吧～&#xA;买物料 和朋友两个人出发，帮朋友邻居家装个监控，他这个监控是要求装在车库里，但是网线要从 4 楼下放下去。所以，我们首先要出门购买一下物料：&#xA;带 RJ45 接口监控 足够长的网线 走了 10000 多步人都走傻了～&#xA;布线 这个没啥好说的，纯粹体力活，感谢朋友的暴风之锤，提高了工作效率，加快了项目进度 感谢 感谢朋友，给我这次项目实践和锻炼的机会让我认识到了自己的能力的不足～&#xA;欢迎关注我的博客www.jobcher.com</description>
+    </item>
+  </channel>
+</rss>

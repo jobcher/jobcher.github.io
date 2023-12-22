@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>树莓派 on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/</link>
+    <description>Recent content in 树莓派 on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Mon, 06 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>树莓派搭建k3s</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BAk3s/</link>
+      <pubDate>Mon, 06 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BAk3s/</guid>
+      <description>树莓派安装 k3s 1.安装 k3s 控制节点 1 curl -sfL https://get.k3s.io | sh - 2 cat /var/lib/rancher/k3s/server/node-token 工作节点 1 curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetoken sh - 树莓派特别要注意一个坑，就是关于内存的问题这个之后再讲&#xA;1 k3s kubectl get nodes 2 #显示正确的节点表示完成 卸载 k3s 1 #server 节点 2 /usr/local/bin/k3s-uninstall.sh 3 #agent 节点 4 /usr/local/bin/k3s-agent-uninstall.sh 2.安装 dashboard k3s 面板 部署 Kubernetes 仪表盘 1 GITHUB_URL=https://github.com/kubernetes/dashboard/releases 2 VERSION_KUBE_DASHBOARD=$(curl -w &amp;#39;%{url_effective}&amp;#39; -I -L -s -S ${GITHUB_URL}/latest -o /dev/null | sed -e &amp;#39;s|.*/||&amp;#39;) 3 sudo k3s kubectl create -f https://raw.</description>
+    </item>
+  </channel>
+</rss>

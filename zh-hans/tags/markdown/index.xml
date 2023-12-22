@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Markdown on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/tags/markdown/</link>
+    <description>Recent content in Markdown on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Fri, 03 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/tags/markdown/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Markdown教程</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/markdown%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/markdown%E6%95%99%E7%A8%8B/</guid>
+      <description>Markdown 教程 参考：https://www.runoob.com/markdown</description>
+    </item>
+  </channel>
+</rss>

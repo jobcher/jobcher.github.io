@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>问题库 on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/categories/%E9%97%AE%E9%A2%98%E5%BA%93/</link>
+    <description>Recent content in 问题库 on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Tue, 07 Nov 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/categories/%E9%97%AE%E9%A2%98%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>linux服务器进程打开文件过多导致服务异常</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/11/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9B%E7%A8%8B%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%E8%BF%87%E5%A4%9A%E5%AF%BC%E8%87%B4%E6%9C%8D%E5%8A%A1%E5%BC%82%E5%B8%B8/</link>
+      <pubDate>Tue, 07 Nov 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/11/linux%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%BF%9B%E7%A8%8B%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%E8%BF%87%E5%A4%9A%E5%AF%BC%E8%87%B4%E6%9C%8D%E5%8A%A1%E5%BC%82%E5%B8%B8/</guid>
+      <description>背景 我的logstash是多管道部署结果发现有大量日志丢失的情况查看logstash日志出现了以下报错&#xA;[2023-11-07T09:43:38,492][ERROR][logstash.javapipeline ][log] Pipeline worker error, the pipeline will be stopped {:pipeline_id=&amp;gt;&amp;ldquo;log&amp;rdquo;, :error=&amp;gt;&amp;quot;/var/lib/logstash/queue/log/checkpoint.head.tmp (Too many open files)&amp;quot;, :exception=&amp;gt;Java::JavaIo::FileNotFoundException, :backtrace=&amp;gt;[&amp;ldquo;java.base/java.io.FileOutputStream.open0(Native Method)&amp;rdquo;, &amp;ldquo;java.base/java.io.FileOutputStream.open(FileOutputStream.java:298)&amp;rdquo;, &amp;ldquo;java.base/java.io.FileOutputStream.(FileOutputStream.java:237)&amp;rdquo;, &amp;ldquo;java.base/java.io.FileOutputStream.(FileOutputStream.java:187)&amp;rdquo;, &amp;ldquo;org.logstash.ackedqueue.io.FileCheckpointIO.write(FileCheckpointIO.java:105)&amp;rdquo;, &amp;ldquo;org.logstash.ackedqueue.Page.headPageCheckpoint(Page.java:202)&amp;rdquo;,&#xA;这个问题是 Logstash Pipeline 在处理数据时报错,原因是打开文件过多导致&amp;quot;Too many open files&amp;quot;&#xA;解决方法 1. 检查操作系统的文件打开数量限制,使用ulimit -n查看。如果太低,可以提高这个限制 打开 /etc/profile 增加ulimit 值&#xA;1vim /etc/profile 2## 增加，保存并退出 3ulimit -n 10240 4# 重载配置 5source /etc/profile 2. 适当增大Logstash的heap size,如-Xms和-Xmx设置为2g。 1vim /etc/logstash/jvm.option 2# 修改参数 3-Xms 2g 4-Xmx 2g 5# 重启logstash服务 </description>
+    </item>
+    <item>
+      <title>解决Elasticsearch索引只读（read-only）</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/09/%E8%A7%A3%E5%86%B3elasticsearch%E7%B4%A2%E5%BC%95%E5%8F%AA%E8%AF%BBread-only/</link>
+      <pubDate>Wed, 20 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/09/%E8%A7%A3%E5%86%B3elasticsearch%E7%B4%A2%E5%BC%95%E5%8F%AA%E8%AF%BBread-only/</guid>
+      <description>背景 这两天有开发向我反馈说elasticsearch有报错，嘿，我定睛一看，这不是进入只读状态了，看来是存储达到额度，我马上加个新的数据节点，平衡一下存储压力&#xA;报错信息：&#xA;1Elasticsearch Error {type:cluster_block_exception,reason:”blocked by: [FORBIDDEN/12/index read-only / allow delete (api)];} 新建服务器，安装elasticsearch 为了和之前的服务器一样，我简单写一下我elasticsearch版本和服务器系统版本&#xA;软件 版本 centos 7.9 elasticsearch 6.7.2 JDK 1.8.61 内存 32G 安装和配置elasticsearch 使用rpm 安装&#xA;1wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.7.2.rpm 1rpm --install elasticsearch-6.7.2.rpm 配置参数，进入/etc/elasticsearch目录&#xA;修改配置vim elasticsearch.yml&#xA;1# ======================== Elasticsearch Configuration ========================= 2 3cluster.name: cluster-prod-es # 集群名称 4 5node.name: node-x # 节点名称 6 7path.data: /var/lib/elasticsearch # 数据存储 8 9path.logs: /var/log/elasticsearch # 日志存储 10 11network.host: 192.168.0.170 # 主机IP地址 12 13http.port: 9200 # 端口号 14 15discovery.</description>
+    </item>
+    <item>
+      <title>Linux 系统收包流程以及内核参数优化</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/08/linux-%E7%B3%BB%E7%BB%9F%E6%94%B6%E5%8C%85%E6%B5%81%E7%A8%8B%E4%BB%A5%E5%8F%8A%E5%86%85%E6%A0%B8%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Wed, 30 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/08/linux-%E7%B3%BB%E7%BB%9F%E6%94%B6%E5%8C%85%E6%B5%81%E7%A8%8B%E4%BB%A5%E5%8F%8A%E5%86%85%E6%A0%B8%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96/</guid>
+      <description>简介 高并发的系统架构中，任何细微调整，稍有不注意便会引起连锁反应，只有系统地了解整个网络栈，在处理疑难杂症或者系统优化工作中，才能做到手中有粮心中不慌。在本节，我们概览一个 Linux 系统收包的流程，以便了解高并发系统所面临的性能瓶颈问题以及相关的优化策略。&#xA;收包过程 网卡 eth0 收到数据包。 网卡通过 DMA 将数据包拷贝到内存的环形缓冲区(Ring Buffer，在网卡中有 RX Ring 和 TX Ring 两种缓冲)。 数据从网卡拷贝到内存后, 网卡产生 IRQ（Interupt ReQuest，硬件中断）告知内核有新的数据包达到。 内核收到中断后, 调用相应中断处理函数，开始唤醒 ksoftirqd 内核线程处理软中断。 内核进行软中断处理，调用 NAPI poll 接口来获取内存环形缓冲区(ring buffer)的数据包，送至更上层处理。 内核中网络协议栈：L2 处理。 内核中网络协议栈：L3 处理。 内核中网络协议栈：L4 处理。 网络协议栈处理数据后，并将其发送到对应应用的 socket 接收缓冲区。 高并发瓶颈 用户进程调用系统调用陷入内核态的开销。 CPU 响应包的硬中断 CPU 开销 ksoftirqd 内核线程的软中断上下文开销。 RX/TX Ring 优化 处理一个数据包会有各类的中断、softirq 等处理，因为分配给 Ring Buffer 的空间是有限的，当收到的数据包速率大于单个 CPU 处理速度的时，Ring Buffer 可能被占满并导致新数据包被自动丢弃。一个 CPU 去处理 Ring Buffer 数据会很低效，这个时候就产生 RSS、RPS 等多核并发机制来提升内核网络包的处理能力。&#xA;但是注意，开启多核并发特性，会挤压业务代码的执行时间，如果业务属于 CPU 密集型，会导致业务性能下降。是否开启多核处理，需要根据业务场景考虑，根据笔者的经验来看，例如此类负载均衡服务器、网关、集群核心转发节点等网络I/O 密集型场景可以尝试优化 RSS、RPS 等配置。</description>
+    </item>
+    <item>
+      <title>Vue3 &#43; vite &#43; nginx项目部署后404问题</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/08/vue3--vite--nginx%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%90%8E404%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Thu, 10 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/08/vue3--vite--nginx%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2%E5%90%8E404%E9%97%AE%E9%A2%98/</guid>
+      <description>Vue3 + vite + nginx项目部署后404问题 vue3 + vite + nginx&#xA;在服务器上部署后打开首页都没问题，打开其他路径全部 404。&#xA;nginx 报错日志：No such file or directory&#xA;其实查看 build 后的dist文件夹可以发现，只有一个index.html，当你访问别的路径时nignx查找不到所以就报错了&#xA;解决方案 在 nginx.conf 中添加: try_files $uri $uri/ /index.html;&#xA;server { listen 80; server_name localhost; location / { root /dist; index index.html index.htm; # 在配置文件的此处加上这句话 try_files $uri $uri/ /index.html; } } 总结 其实上述改动就是告诉 nignx 找不到文件的时候就访问 index.html 就可以了。&#xA;究其原因其实就是是 vue3 的 router 使用了history模式，该模式与之前hash模式的具体区别可以自行百度一下，不在此赘述。</description>
+    </item>
+    <item>
+      <title>githubAction set-output弃用错误</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/10/githubaction-set-output%E5%BC%83%E7%94%A8%E9%94%99%E8%AF%AF/</link>
+      <pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/10/githubaction-set-output%E5%BC%83%E7%94%A8%E9%94%99%E8%AF%AF/</guid>
+      <description>githubAction set-output 弃用错误 The set-output command is deprecated and will be disabled soon. Please upgrade to using Environment Files. For more information see: https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/&#xA;原因 如果您有一个使用 设置输出的GitHub Actionsecho ::set-output key=value工作流程，您已经开始看到无用的弃用警告。这是修复它的方法。查看官方链接基本上得不到什么帮助！&#xA;修复方法 更新其它人的 action 方法 1将 @actions/core 提升到 1.10.0 修改自己的 aciton 方法 1run: echo &amp;#34;::set-output name=KEY::VALUE&amp;#34; 2## 改为 3run: echo &amp;#34;KEY=VALUE&amp;#34; &amp;gt;&amp;gt;$GITHUB_OUTPUT 建议：使用自己的方法&#xA;总结 平台经营者非常肆意妄为的修改自己的代码内容弃用功能，无限的权力滋生傲慢……我相信大部分开发这并没有注意到这个告警，知道流水线服务报错之后才会注意到，希望微软可以对能更加包容不同的开发者，尊重开发者社区。</description>
+    </item>
+    <item>
+      <title>k8s CNI 问题 连接认证失效</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/09/k8s-cni-%E9%97%AE%E9%A2%98-%E8%BF%9E%E6%8E%A5%E8%AE%A4%E8%AF%81%E5%A4%B1%E6%95%88/</link>
+      <pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/09/k8s-cni-%E9%97%AE%E9%A2%98-%E8%BF%9E%E6%8E%A5%E8%AE%A4%E8%AF%81%E5%A4%B1%E6%95%88/</guid>
+      <description>k8s CNI 问题 连接认证失效 删除 calico 换成 flannel 后，容器没有正常启动&#xA;network: error getting ClusterInformation: connection is unauthorized: Unauthorized]&#xA;解决问题 删除掉 /etc/cni/net.d/ 目录下的 calico 配置文件即可。&#xA;要删除所有节点的配置文件&#xA;1sudo rm -rf /etc/cni/net.d/*calico* 不要重复网络插件 </description>
+    </item>
+    <item>
+      <title>k8s.gcr.io国内无法连接解决方法</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/09/k8s.gcr.io%E5%9B%BD%E5%86%85%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</link>
+      <pubDate>Thu, 22 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/09/k8s.gcr.io%E5%9B%BD%E5%86%85%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</guid>
+      <description>k8s.gcr.io 国内无法连接解决方法 Get https://k8s.gcr.io/v2/: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)&#xA;这个一看知道什么原因了，应该 GFW！那好吧，只能给 docker 加个代理了。&#xA;解决问题 添加 mirror 站点&#xA;1registry.cn-hangzhou.aliyuncs.com/google_containers </description>
+    </item>
+    <item>
+      <title>K8S 问题排查：cgroup 内存泄露问题</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/08/k8s-%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5cgroup-%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Tue, 30 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/08/k8s-%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5cgroup-%E5%86%85%E5%AD%98%E6%B3%84%E9%9C%B2%E9%97%AE%E9%A2%98/</guid>
+      <description>K8S 问题排查：cgroup 内存泄露问题 unable to ensure pod container exists: failed to create container for [kubepods besteffort pod5f26dae8-0421-4eab-a3f7-aa51c6848e2b] : mkdir /sys/fs/cgroup/memory/kubepods/besteffort/pod5f26dae8-0421-4eab-a3f7-aa51c6848e2b: cannot allocate memory 查看 linux 内核 1cat /proc/version 2uname -a 可以发现 linux 版本是 3.0 版本&#xA;原因 cgroup 的 kmem account 特性在 Linux 3.x 内核上有内存泄露问题，然后k8s用了这个特性，导致后面创建不出新的pod来了&#xA;解决方法 1# 修改/etc/default/grub 为 2GRUB_CMDLINE_LINUX=&amp;#34;crashkernel=auto rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb quiet cgroup.memory=nokmem&amp;#34; 3#加上了 cgroup.memory=nokmem 4# 生成配置 5/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg 6 7# 重启机器 8reboot 验证 1cat /sys/fs/cgroup/memory/kubepods/burstable/pod*/*/memory.kmem.slabinfo 输出信息&#xA;1cat: /sys/fs/cgroup/memory/kubepods/burstable/pod0fe273ca-42e0-4223-9fe8-16d8dd1774e9/0fdd5d9c16929fd600dbdf313b5c3ebabad912dc0cb076ed6e7799e028b31481/memory.</description>
+    </item>
+    <item>
+      <title>docker 问题处理</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/08/docker-%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/</link>
+      <pubDate>Thu, 04 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/08/docker-%E9%97%AE%E9%A2%98%E5%A4%84%E7%90%86/</guid>
+      <description>docker 无法启动 打开服务器输入docker ps,输出错误&#xA;Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?&#xA;怀疑是不是docker.services 部署没成功，systemctl start docker 启动 docker，结果服务器还是报错&#xA;Job for docker.service failed because the control process exited with error code.&#xA;See &amp;ldquo;systemctl status docker.service&amp;rdquo; and &amp;ldquo;journalctl -xe&amp;rdquo; for details.&#xA;systemctl status docker.service 输出日志：&#xA;1● docker.service - Docker Application Container Engine 2 Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled) 3 Active: failed (Result: exit-code) since Thu 2022-08-04 11:43:05 CST; 2min 57s ago 4TriggeredBy: ● docker.</description>
+    </item>
+    <item>
+      <title>ProXmoX VE升级 apt-get update 报错</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/01/proxmox-ve%E5%8D%87%E7%BA%A7-apt-get-update-%E6%8A%A5%E9%94%99/</link>
+      <pubDate>Sun, 30 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/01/proxmox-ve%E5%8D%87%E7%BA%A7-apt-get-update-%E6%8A%A5%E9%94%99/</guid>
+      <description>ProXmoX VE 升级 apt-get update 报错 解决方法 1vim /etc/apt/sources.list.d/pve-enterprise.list 2#注释掉 3#deb https://enterprise.proxmox.com/debian/pve stretch pve-enterprise 添加内容 1echo &amp;#34;deb http://download.proxmox.com/debian/pve stretch pve-no-subscription&amp;#34; &amp;gt; /etc/apt/sources.list.d/pve-install-repo.list 2wget http://download.proxmox.com/debian/proxmox-ve-release-5.x.gpg -O /etc/apt/trusted.gpg.d/proxmox-ve-release-5.x.gpg 更新系统 1apt update &amp;amp;&amp;amp; apt dist-upgrade 结尾 升级完成后，可以执行pveversion -v查看下最新的软件版本。然后执行reboot重启物理服务器</description>
+    </item>
+    <item>
+      <title>安装 docker 出现 ERROR: Unsupported distribution &#39;ol&#39; 问题</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/01/%E5%AE%89%E8%A3%85-docker-%E5%87%BA%E7%8E%B0-error-unsupported-distribution-ol-%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Tue, 11 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/01/%E5%AE%89%E8%A3%85-docker-%E5%87%BA%E7%8E%B0-error-unsupported-distribution-ol-%E9%97%AE%E9%A2%98/</guid>
+      <description>安装 docker 出现 ERROR: Unsupported distribution &amp;lsquo;ol&amp;rsquo; 问题 部署 docker 安装出现 ERROR: Unsupported distribution &amp;lsquo;ol&amp;rsquo;&#xA;确认是不是 arm 架构 1uname -r 确认使用的是不是 oracle 服务器系统,如果是请继续操作，安装依赖： 1dnf install -y dnf-utils zip unzip 2dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo 安装 docker 1dnf remove -y runc 2dnf install -y docker-ce --nobest 完成 docker 安装并检查 1systemctl enable docker.service 2systemctl start docker.service 1#检查 2systemctl status docker.service 3docker info 4docker version 结尾 该问题主要是 oracle 没有支持依赖导致的~oracle 还是很不错的~</description>
+    </item>
+  </channel>
+</rss>

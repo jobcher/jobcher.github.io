@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Planet on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/tags/planet/</link>
+    <description>Recent content in Planet on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Wed, 17 Aug 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/tags/planet/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Planet 下载及安装</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/08/planet-%E4%B8%8B%E8%BD%BD%E5%8F%8A%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Wed, 17 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/08/planet-%E4%B8%8B%E8%BD%BD%E5%8F%8A%E5%AE%89%E8%A3%85/</guid>
+      <description>Planet 下载及安装 官网下载 Planet 是一款用于发布和关注 Web 内容的免费开源软件，它不需要集中式服务器或服务。它使用 IPFS 来实现点对点的内容分发。此外，您可以将您的内容链接到以太坊名称 (.eth)，以便其他人可以通过 Planet 以 .eth 名称关注您。由于 IPFS 和 ENS 都是去中心化的，因此您可以以去中心化的方式构建您的网站或关注其他网站。&#xA;如何使用 标准是 EIP-1577，这个 Content Hash 字段可以接受一些可能的值。例如，IPFS——另一种去中心化的内容分发技术。而vitalik.eth 网站已经在 IPFS 上运行。&#xA;通过 Planet 关注来自 vitalik.eth 的更新&#xA;使用 Planet 创建网站后，右键单击侧栏中的项目，然后选择Copy IPNS，然后您将在粘贴板中看到如下所示的内容：&#xA;1k51qzi5uqu5dgv8kzl1anc0m74n6t9ffdjnypdh846ct5wgpljc7rulynxa74a 公开 ENS 然后您可以像这样将该 IPNS 放入您的 ENS ContentHash 中：&#xA;确保在该字符串之前添加了 ipns://。&#xA;完成！ 然后您的网站将链接到您的 ENS。恭喜！现在你有一个在 ENS + IPFS 上运行的去中心化网站！</description>
+    </item>
+  </channel>
+</rss>

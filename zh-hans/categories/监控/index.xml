@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>监控 on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/categories/%E7%9B%91%E6%8E%A7/</link>
+    <description>Recent content in 监控 on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Wed, 31 May 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/categories/%E7%9B%91%E6%8E%A7/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>skywalking python agent 安装和配置</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/05/skywalking-python-agent-%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Wed, 31 May 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/05/skywalking-python-agent-%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/</guid>
+      <description>背景 skywalking 是一个APM监控，在java和微服务领域非常流行。但是在python领域，skywalking的使用率并不高。本文将介绍如何安装和配置skywalking python agent。&#xA;SkyWalking Python 代理实现了一个命令行界面，可用于在部署期间将代理附加到出色的应用程序，而无需更改任何应用程序代码，就像 SkyWalking Java 代理一样。&#xA;安装skywalking python agent 1pip install apache-skywalking 运行 sw-python 以查看它是否可用，您需要按环境变量传递配置。&#xA;配置skywalking python agent 1export SW_AGENT_NAME=服务名称 2# 服务器地址 3export SW_AGENT_COLLECTOR_BACKEND_SERVICES=127.0.0.1:11800 执行python程序 1sw-python run -p python app.py 启用 CLI 调试模式，以便在启动应用程序时查看代理日志： 1sw-python -d run python app.py </description>
+    </item>
+    <item>
+      <title>Logstash 自动重载配置文件</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/10/logstash-%E8%87%AA%E5%8A%A8%E9%87%8D%E8%BD%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/10/logstash-%E8%87%AA%E5%8A%A8%E9%87%8D%E8%BD%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</guid>
+      <description>工作原理 检测到配置文件变化 通过停止所有输入停止当前pipline 用新的配置创建一个新的管道 检查配置文件语法是否正确 检查所有的输入和输出是否可以初始化 检查成功使用新的 pipeline 替换当前的pipeline 检查失败,使用旧的继续工作. 在重载过程中,jvm 没有重启. Logstash 自动重新加载配置 为了可以自动检测配置文件的变动和自动重新加载配置文件,需要在启动的时候使用以下命令:&#xA;1./bin/lagstash -f configfile.conf --config.reload.automatic 启动 Logstash 的时候使用--config.reload.automatic或-r选项来开启自动重载配置。&#xA;修改检测间隔时间 默认检测配置文件的间隔时间是3秒,可以通过以下命令改变&#xA;1--config.reload.interval &amp;lt;second&amp;gt; 如果 Logstash 已经运行并且没有开启自动重载，你可以强制 Logstash 重新载入配置文件并且重启管道通过发送一个 SIGHUP 信号。比如：&#xA;1kill -1 &amp;lt;pid&amp;gt; 其中是正在运行的 Logstash 的进程号。&#xA;注意！！！ stdin输入插件不支持自动重启.&#xA;syslog作为输入源,当重载配置文件时,会崩溃.&#xA;解决方法</description>
+    </item>
+    <item>
+      <title>windows-exporter 监控</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/10/windows-exporter-%E7%9B%91%E6%8E%A7/</link>
+      <pubDate>Sat, 08 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/10/windows-exporter-%E7%9B%91%E6%8E%A7/</guid>
+      <description>windows-exporter 监控安装 windows_exporter 下载安装 启动 下载 msi 版本，输入一下命令启动&#xA;1msiexec /i C:\Users\Administrator\Downloads\windows_exporter.msi ENABLED_COLLECTORS=&amp;#34;ad,iis,logon,memory,process,tcp,scheduled_task&amp;#34; TEXTFILE_DIR=&amp;#34;C:\custom_metrics\&amp;#34; 卸载&#xA;1msiexec /uninstall C:\Users\Administrator\Downloads\windows_exporter.msi 添加 prometheus 监控 prometheus.yaml&#xA;1# 新增 windows-exporter 2- job_name: &amp;#34;windows-exporter&amp;#34; 3 file_sd_configs: 4 - files: 5 - &amp;#34;./file_sd/windows-exporter.yaml&amp;#34; ./file_sd/windows-exporter.yaml&#xA;1# 新增 windows-exporter 2- targets: [&amp;#34;192.168.0.6:9182&amp;#34;] 3 labels: 4 instance: windows-task 添加 alertmanager 告警 1# 告警信息 2groups: 3 - name: sanjiang windows 任务计划程序告警 4 rules: 5 - alert: windows实例任务告警 6 expr: windows_scheduled_task_state{state=&amp;#34;disabled&amp;#34;,task=~&amp;#34;/ETL_kettle_tasks/.*&amp;#34;}==1 7 for: 30s 8 labels: 9 severity: critical 10 target: &amp;#34;{{$labels.</description>
+    </item>
+    <item>
+      <title>skywalking APM 监控</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/08/skywalking-apm-%E7%9B%91%E6%8E%A7/</link>
+      <pubDate>Wed, 10 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/08/skywalking-apm-%E7%9B%91%E6%8E%A7/</guid>
+      <description>skywalking 基于 OpenTracing 规范，专门为微服务架构以及云原生服务。&#xA;APM 监控 一个基于微服务架构的电商系统&#xA;APM (Application Performance Management) 即应用性能管理，属于 IT 运维管理（ITOM)范畴.&#xA;分为一下三个方面：&#xA;Logging&#xA;服务在处理某个请求时打印的错误日志，可以将这些日志信息记录到Elasticsearch或是其他存储中。通过 Kibana 或是其他工具来分析这些日志了解服务的行为和状态，大多数情况下。日志记录的数据很分散，并且相互独立。例如错误日志，请求处理过程中关键步骤的日志等等。 Metrics&#xA;Metric是可以聚合的，例如为电商系统中每个 HTTP 接口添加一个计数器，计算每个接口的 QPS，可以通过简单的加和计算得到系统的总负载情况。 Tracing&#xA;在微服务架构系统中一请求会经过很多服务处理，调用链路会非常长，要确定中间哪个服务出现异常是非常麻烦的事情，通过分布式链路追踪，运维人员就可以构建一个请求的视图。视图上战术了一个请求从进入系统开始到返回响应的整个流程。 系统交互图&#xA;系统加载图 &amp;gt; 目前流行的APM监控 Zipkin 对 web.xml 进行修改，代码侵入 twitter 开源 Cat 支持 Java、C/C++、Node.Js、Python、go 代码侵入，埋点 美团开源 Pinpoint 基于字节码注入技术，代码无侵入 韩国公司开发，社区交流滞后 只支持 hbase 颗粒度更细 Skywalking&#xA;观测性分析平台 基于字节码注入技术，代码无侵入 服务、服务实例、端点指标分析 服务拓扑图分析 服务、服务实例和端点（Endpont）SLA 分析 支持 es，h2,mysql,TiDb,sharding-sphere skywalking 整体框架 上部分 Agent ：负责从应用中，收集链路信息，发送给 SkyWalking OAP 服务器。目前支持 SkyWalking、Zikpin、Jaeger 等提供的 Tracing 数据信息。而我们目前采用的是，SkyWalking Agent 收集 SkyWalking Tracing 数据，传递给服务器。 下部分 SkyWalking OAP ：负责接收 Agent 发送的 Tracing 数据信息，然后进行分析(Analysis Core) ，存储到外部存储器( Storage )，最终提供查询( Query )功能。 右部分 Storage ：Tracing 数据存储。目前支持 ES、MySQL、Sharding Sphere、TiDB、H2 多种存储器。而我们目前采用的是 ES ，主要考虑是 SkyWalking 开发团队自己的生产环境采用 ES 为主。 左部分 SkyWalking UI ：负责提供控台，查看链路等等。 skywalking 配置 使用 docker-compose 安装 使用 mysql 作为存储</description>
+    </item>
+    <item>
+      <title>logstash 多管道部署</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/07/logstash-%E5%A4%9A%E7%AE%A1%E9%81%93%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Tue, 19 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/07/logstash-%E5%A4%9A%E7%AE%A1%E9%81%93%E9%83%A8%E7%BD%B2/</guid>
+      <description>logstash 多管道部署 找到 logstash 目录位置，一般来说在 /etc/logstash 路径下,修改 logstash.yml&#xA;1#增加 日志记录 2path.logs: /var/log/logstash 增加管道 增加 conf.d目录下 test.conf&#xA;input { beats { host =&amp;gt; &amp;#34;0.0.0.0&amp;#34; port =&amp;gt; 23000 # 修改端口IP } } filter { mutate{ add_field =&amp;gt; { &amp;#34;cluster&amp;#34; =&amp;gt; &amp;#34;test&amp;#34; # 修改标签 &amp;#34;job&amp;#34; =&amp;gt; &amp;#34;logstash&amp;#34; } } } output { file { path =&amp;gt; &amp;#34;/data/路径名称&amp;#34; # 路径名称 gzip =&amp;gt; false #匹配以空格开头的行 } } 修改 pipelines.yml&#xA;1- pipeline.id: 名称 2 path.config: &amp;#34;/etc/logstash/conf.d/配置文件.conf&amp;#34; 3 queue.</description>
+    </item>
+    <item>
+      <title>nginx exporter 安装配置</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/06/nginx-exporter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Wed, 08 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/06/nginx-exporter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</guid>
+      <description>nginx exporter 安装配置 二进制安装 1wget https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v0.10.0/nginx-prometheus-exporter_0.10.0_linux_amd64.tar.gz 2tar -zxvf nginx-prometheus-exporter_0.10.0_linux_amd64.tar.gz -C ./nginx-exporter 在 nginx 上配置 1./configure \ 2… \ 3--with-http_stub_status_module 4make 5sudo make install 在 nginx.config 上配置&#xA;server { # 新增 location /nginx_status { stub_status on; access_log off; } } 重启 nginx 服务&#xA;1nginx -t 2nginx -s reload 启动 nginx exporter 1nginx-prometheus-exporter -nginx.scrape-uri http://&amp;lt;nginx&amp;gt;:8080/nginx_status 配置 prometheus 添加 prometheus.yml 1- job_name: &amp;#34;nginx-exporter&amp;#34; 2 file_sd_configs: 3 - files: 4 - &amp;#34;./file_sd/nginx-exporter.yaml&amp;#34; 在 ./file_sd/新建 nginx-exporter.</description>
+    </item>
+    <item>
+      <title>prometheus grafana alertmanager 安装配置</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/01/prometheus-grafana-alertmanager-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Thu, 13 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/01/prometheus-grafana-alertmanager-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</guid>
+      <description>prometheus+grafana+alertmanager 安装配置 服务器监控告警系统搭建，通过 exporter 获取节点信息到 prometheus。prometheus 配置规则，使 garfana 和 alertmanager 能够接受到数据，分别展示数据和发送告警&#xA;参数 VM :192.168.99.78&#xA;端口 服务 9100 node_exporter 3000 grafana 9090 prometheus 9115 blackbox_exporter 安装 grafa 安装 docker 安装 1docker run -d -p 3000:3000 \ 2--name=grafana \ 3-v grafana-storage:/var/lib/grafana \ 4grafana/grafana:8.3.3 prometheus 安装 下载 1wget https://github.com/prometheus/prometheus/releases/download/v2.32.1/prometheus-2.32.1.linux-amd64.tar.gz 2tar -zxvf prometheus-2.32.1.linux-amd64.tar.gz 3cd prometheus-2.32.1.linux-amd64 4mkdir -p file_sd 5mkdir -p rules 运行 prometheus 1killall prometheus 2nohup ./prometheus --config.file=prometheus.yml &amp;amp; 3# 查看运行状况 4tail -f nohup.out node_exporter 安装 docker-compose 安装 1version: &amp;#34;3&amp;#34; 2services: 3 node-exporter: 4 image: prom/node-exporter:v1.</description>
+    </item>
+    <item>
+      <title>prometheus 配置</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/01/prometheus-%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Thu, 13 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/01/prometheus-%E9%85%8D%E7%BD%AE/</guid>
+      <description>prometheus 配置 Prometheus 是由 SoundCloud 开源监控告警解决方案&#xA;组件 Prometheus Server， 主要用于抓取数据和存储时序数据，另外还提供查询和 Alert Rule 配置管理。 client libraries，用于对接 Prometheus Server, 可以查询和上报数据。 push gateway ，用于批量，短期的监控数据的汇总节点，主要用于业务数据汇报等。 各种汇报数据的 exporters ，例如汇报机器数据的 node_exporter, 汇报 MongoDB 信息的 MongoDB exporter 等等。 用于告警通知管理的 alertmanager 。 运行逻辑 Prometheus server 定期从静态配置的 targets 或者服务发现的 targets 拉取数据。 当新拉取的数据大于配置内存缓存区的时候，Prometheus 会将数据持久化到磁盘（如果使用 remote storage 将持久化到云端）。 Prometheus 可以配置 rules，然后定时查询数据，当条件触发的时候，会将 alert 推送到配置的 Alertmanager。 Alertmanager 收到警告的时候，可以根据配置，聚合，去重，降噪，最后发送警告。 可以使用 API， Prometheus Console 或者 Grafana 查询和聚合数据。 安装 prometheus 使用预编译的二进制文件安装 1wget https://github.com/prometheus/prometheus/releases/download/v2.32.1/prometheus-2.32.1.linux-amd64.tar.gz 2tar -zxvf prometheus-2.32.1.linux-amd64.tar.gz 3cd prometheus-2.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>logstash on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/tags/logstash/</link>
+    <description>Recent content in logstash on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Mon, 31 Oct 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/tags/logstash/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Logstash 自动重载配置文件</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/10/logstash-%E8%87%AA%E5%8A%A8%E9%87%8D%E8%BD%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/10/logstash-%E8%87%AA%E5%8A%A8%E9%87%8D%E8%BD%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/</guid>
+      <description>工作原理 检测到配置文件变化 通过停止所有输入停止当前pipline 用新的配置创建一个新的管道 检查配置文件语法是否正确 检查所有的输入和输出是否可以初始化 检查成功使用新的 pipeline 替换当前的pipeline 检查失败,使用旧的继续工作. 在重载过程中,jvm 没有重启. Logstash 自动重新加载配置 为了可以自动检测配置文件的变动和自动重新加载配置文件,需要在启动的时候使用以下命令:&#xA;1./bin/lagstash -f configfile.conf --config.reload.automatic 启动 Logstash 的时候使用--config.reload.automatic或-r选项来开启自动重载配置。&#xA;修改检测间隔时间 默认检测配置文件的间隔时间是3秒,可以通过以下命令改变&#xA;1--config.reload.interval &amp;lt;second&amp;gt; 如果 Logstash 已经运行并且没有开启自动重载，你可以强制 Logstash 重新载入配置文件并且重启管道通过发送一个 SIGHUP 信号。比如：&#xA;1kill -1 &amp;lt;pid&amp;gt; 其中是正在运行的 Logstash 的进程号。&#xA;注意！！！ stdin输入插件不支持自动重启.&#xA;syslog作为输入源,当重载配置文件时,会崩溃.&#xA;解决方法</description>
+    </item>
+    <item>
+      <title>苏州旅行</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/09/%E8%8B%8F%E5%B7%9E%E6%97%85%E8%A1%8C/</link>
+      <pubDate>Tue, 27 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/09/%E8%8B%8F%E5%B7%9E%E6%97%85%E8%A1%8C/</guid>
+      <description>苏州旅行 新冠肺炎 COVID-19 警告 苏州，古称吴，现简称苏，是中华人民共和国江苏省东南部的一个地级市，位于长江三角洲和太湖平原的中心地带，著名的鱼米之乡、状元之乡、院士之乡、经济重镇、历史文化名城，自古与杭州共享有“上有天堂、下有苏杭”美誉。&#xA;苏州景点 day1 金鸡湖 苏州金鸡湖，是国家5A级景区，但却是免费开放的。湖东与湖西高楼林立，展现了苏州现代的一面。夜晚，灯光璀璨，如群星般夺目；霓虹闪烁，如银河般绚烂~ 金鸡湖十景 苏州中心 东方之门 音乐喷泉 金鸡湖大桥 文化艺术中心 月光码头 诚品书店 国金中心 望湖角 李公堤 day2 苏州博物馆 地址：姑苏区东北街204号 交通：乘坐游1、游2、游5、55、178、202、309、313、518、529路等到苏州博物馆 门票：免费(可在官网提前预约) 开放时间：每星期二至星期日- 9:00~17:00（16:00停止入馆） ◆建议用时：2-3小时 拙政园 拙政园和苏州博物馆紧临，两者之间步行不会超过3分钟，而平江路是在拙政园的南门沿着门前的东北街往东走，大约在150米处右转过桥就是了，因此可以把这三处安排在同一天，建议游览顺序是拙政园—苏州博物馆—平江路。 淡季（1、2、3、6、11、12月）：70元 旺季（4、5、7、8、9、10月）：90元 day3 虎丘 地址：姑苏区山塘街虎丘山门内8号 交通：南门入口：146、游1、游2路虎丘首末站；北门入口：32、快线3号虎丘北门站 门票：淡季：60.00元 旺季：80.00元 开放时间： 7:30-17:30/17：00 建议用时：2-3小时 苏州美食 饭店 苏帮菜——浓油赤酱里的姑苏风情 鲃肺汤是取生长于太湖一带的鲃鱼，将其肉与肝加入火腿、香菇、笋片等辅料，在鸡汤中共同熬煮，汤鲜味美，是一道不可多得的汤品。 酱方是采用上乘猪五花为原料，经 24 小时腌制后，加入卤汁炖煮 3 小时而成。肉的色泽鲜亮诱人，入口外皮 Q 弹、肉质紧实。 响油鳝糊是以将新鲜鳝鱼切成段，加酱油等佐料爆炒。因鳝糊上桌时油滋滋作响，而得名“响油鳝糊”。菜色深红，口味鲜甜，油而不腻。 樱桃肉因肉形状及色泽极似樱桃而得名，是将优质的五花肉切成小块，以文火炖煮七八小时而成。肥而不腻，满口精华。 松鼠鳜鱼是将鳜鱼在油锅内炸至金黄，再淋上由番茄酱等熬制的酱汁而成。因炸开的鱼肉形似松鼠而得名，入口酥脆酸甜。 碧螺虾仁是将新鲜虾仁配以碧螺春为佐料烹制而成，色泽清淡雅致，虾肉饱满 Q 弹，鲜甜中夹杂了茶叶的香味。 推荐餐厅： 珍珠饭店：蚌肉金花菜 吴门人家：吴门人家6:30-9:00供应早茶，提供糖粥、豆腐花、苏式面、馄饨等各类苏式点心，价格为20元/人 得月楼：松鼠桂鱼、响油鳝糊、清炒虾仁、油爆虾、蟹粉豆腐、狮子头等 松鹤楼：店内供应的菜品与得月楼也是大同小异 小吃 苏式汤面——老苏州的早餐 推荐餐厅： 同得兴：枫镇大肉面 孙盛兴奥灶面馆: 奥灶鸭和爆鱼的浇头 韦复兴: 阳春面 苏式点心——吴侬软语般的甜糯滋味 推荐餐厅： 随柳居:糖粥、泡泡小馄饨 新梅华·茶点餐厅：糖芋艿 老苏州大客堂·特色小吃：响油鳝糊、生煎、锅贴 生煎——一口爆汁的苏州人气美食 推荐餐厅： 哑巴生煎：泡泡小馄饨、牛肉粉丝汤 大阿二生煎：两面黄、生煎 馄饨——别具风味的平凡美食 推荐餐厅： 绿杨馄饨:鲜肉、三鲜、鸡丝、鸡汁虾肉、荠菜、香菇馄饨 熙盛源:无锡小笼、红汤馄饨、开洋馄饨、蟹粉小笼 烧饼豆浆——寻常美食中的苏州味道 推荐餐厅： 王氏林记烧饼(双塔菜场店)：大饼油条、豆浆 阊门姚记豆浆：24 小时通宵营业，咸豆浆、荷叶包美人 糕团——苏州风俗必备美食 推荐餐厅： 黄天源：定胜糕、猪油糕、薄荷糕 明月楼(糕团店)：桂花糕、炒肉团子 长发西饼：鲜肉月饼 胥城鲜肉月饼：鲜肉月饼 </description>
+    </item>
+    <item>
+      <title>logstash 多管道部署</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/07/logstash-%E5%A4%9A%E7%AE%A1%E9%81%93%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Tue, 19 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/07/logstash-%E5%A4%9A%E7%AE%A1%E9%81%93%E9%83%A8%E7%BD%B2/</guid>
+      <description>logstash 多管道部署 找到 logstash 目录位置，一般来说在 /etc/logstash 路径下,修改 logstash.yml&#xA;1#增加 日志记录 2path.logs: /var/log/logstash 增加管道 增加 conf.d目录下 test.conf&#xA;input { beats { host =&amp;gt; &amp;#34;0.0.0.0&amp;#34; port =&amp;gt; 23000 # 修改端口IP } } filter { mutate{ add_field =&amp;gt; { &amp;#34;cluster&amp;#34; =&amp;gt; &amp;#34;test&amp;#34; # 修改标签 &amp;#34;job&amp;#34; =&amp;gt; &amp;#34;logstash&amp;#34; } } } output { file { path =&amp;gt; &amp;#34;/data/路径名称&amp;#34; # 路径名称 gzip =&amp;gt; false #匹配以空格开头的行 } } 修改 pipelines.yml&#xA;1- pipeline.id: 名称 2 path.config: &amp;#34;/etc/logstash/conf.d/配置文件.conf&amp;#34; 3 queue.</description>
+    </item>
+  </channel>
+</rss>

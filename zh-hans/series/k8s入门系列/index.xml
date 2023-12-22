@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>k8s入门系列 on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/</link>
+    <description>Recent content in k8s入门系列 on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Mon, 04 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Argo cd 安装和部署</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/12/argo-cd-%E5%AE%89%E8%A3%85%E5%92%8C%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Mon, 04 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/12/argo-cd-%E5%AE%89%E8%A3%85%E5%92%8C%E9%83%A8%E7%BD%B2/</guid>
+      <description>Argo cd 安装和部署 Argo CD 是一个为 Kubernetes 而生的，遵循声明式 GitOps 理念的持续部署（CD）工具。Argo CD 可在 Git 存储库更改时自动同步和部署应用程序 安装 前提：你已经安装好了 k8s 环境，我们将在国内的k8s环境下部署argocd&#xA;1k3s kubectl create namespace argocd 2kubectl apply -n argocd -f https://github.jobcher.com/gh/https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml 检查是否正常部署 1kubectl get po -n argocd 如果没有错误的情况下应该是全部都runnning，但是如果出现argocd-repo-server CrashLoopBackOff错误有以下解决途径：&#xA;使用以下补丁修补了部署。删除后，错误消失，repo 服务器可以启动。 1apiVersion: apps/v1 2kind: Deployment 3metadata: 4 name: argocd-repo-server 5spec: 6 template: 7 spec: 8 securityContext: 9 seccompProfile: 10 type: RuntimeDefault 如果出现argocd-dex-server imagepullbackoff错误有以下解决方法：&#xA;1docker pull ghcr.io/dexidp/dex:v2.37.0 2docker tag ghcr.io/dexidp/dex:v2.37.0 harbor/dexidp/dex:v2.37.0 3docker push harbor/dexidp/adex:v2.</description>
+    </item>
+    <item>
+      <title>Kubernetes — kubecost 分析 Kubernetes 成本</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/08/kubernetes-kubecost-%E5%88%86%E6%9E%90-kubernetes-%E6%88%90%E6%9C%AC/</link>
+      <pubDate>Thu, 31 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/08/kubernetes-kubecost-%E5%88%86%E6%9E%90-kubernetes-%E6%88%90%E6%9C%AC/</guid>
+      <description>简介 企业在上云之后，云计算基础设施支出不断创造新高，但 IT 团队却难以找到成本失控的源头，跟每一个业务沟通，所需要的资源都是必须的，降本增效无从谈起。&#xA;引入FinOps 的目标是在云上创造一种财务问责制度，每个业务团队需要根据 FinOps 团队的数据做出更加合理的配置、规划，从而在财务成本、业务稳定之间找到一种平衡。FinOps 并不是一次性、短暂的任务，而是在规划实施之后依旧需要进行持续管理，这要求企业必须设定明确的、持续的角色和责任，以保持对成本长期控制。&#xA;概念 建立对云成本的共识：企业中各个相关角色应该意识到云成本的重要性，并将成本管理纳入到决策过程中。通过提高成本意识，可以更好地控制和优化云资源的使用。 明确云成本管理的责任和角色：确定负责 FinOps 团队成员，建立相应责任制度。这样确保有专门人员负责云成本的监控、分析和优化，从而提高整体的财务管理效果。 提供培训和教育资源：培训企业成员了解成本管理的基本概念、工具和技术。这有助于增强团队的能力，使他们能够更好地理解和应对云成本挑战。 促进不同团队之间的合作：财务团队、开发团队和运维团队应该紧密合作，共同制定和实施成本管理策略。通过协作，可以更好地理解业务需求、优化资源配置，并确保成本管理策略与业务目标相一致。 利用自动化技术提高效率和准确性：通过采用自动化工具收集、分析和报告云成本数据。自动化还可以帮助实现实时监控和警报，以及自动化资源管理，从而提高成本管理的效率和准确性。 使用 kubecost 分析 Kubernetes 成本 接下来我们展开今天的具体内容，如何使用 kubecost 分析 Kubernetes 成本。&#xA;kubecost 是目前较优秀的开源 Kubernetes 成本分析工具，它提供了丰富的功能和仪表板，帮助用户更好地理解和控制其容器化工作负载的成本。&#xA;kubecost 目前支持 阿里云、AWS 等云厂商对接，它能够提供集群中命名空间、应用等各类资源成本分配，用户还可以基于这些信息在 Kubecost 中设置预算和警报，帮助运维和财务管理人员进一步实现成本管理。&#xA;安装 Kubecost 安装 Kubecost 建议使用 Helm 进行安装，使用以下命令：&#xA;1helm repo add kubecost https://kubecost.github.io/cost-analyzer/ 2helm repo update 3helm upgrade --install kubecost kubecost/cost-analyzer --namespace kubecost --create-namespace 几分钟后，检查以确保 Kubecost 已启动并运行：&#xA;1kubectl get pods -n kubecost 2# Connect to the Kubecost dashboard UI 3kubectl port-forward -n kubecost svc/kubecost-cost-analyzer 9090:9090 现在可以打开浏览器并指向 http://127.</description>
+    </item>
+    <item>
+      <title>Ansible部署ceph集群</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/07/ansible%E9%83%A8%E7%BD%B2ceph%E9%9B%86%E7%BE%A4/</link>
+      <pubDate>Tue, 18 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/07/ansible%E9%83%A8%E7%BD%B2ceph%E9%9B%86%E7%BE%A4/</guid>
+      <description>基础配置 三台环境为centos7.9，以下配置需要在每台机器上执行&#xA;配置hosts解析 1cat &amp;gt;&amp;gt; /etc/hosts &amp;lt;&amp;lt;EOF 2192.168.2.23 node1 3192.168.2.24 node2 4192.168.2.25 node3 5EOF 关闭防火墙和selinux 1systemctl stop firewalld &amp;amp;&amp;amp; systemctl disable firewalld 2setenforce 0 &amp;amp;&amp;amp; sed -i &amp;#39;s/SELINUX=enforcing/SELINUX=disabled/g&amp;#39; /etc/selinux/config 分别在三个节点设置主机名 1hostnamectl set-hostname node1 2hostnamectl set-hostname node2 3hostnamectl set-hostname node3 配置主机时间同步 1systemctl restart chronyd.service &amp;amp;&amp;amp; systemctl enable chronyd.service 配置免密登录 1ssh-keygen 2ssh-copy-id -i .ssh/id_rsa.pub node1 3ssh-copy-id -i .ssh/id_rsa.pub node2 4ssh-copy-id -i .ssh/id_rsa.pub node3 安装pip和ansible、git 1yum install python-pip ansible git -y 部署ceph集群 克隆存储库 这里我选择安装的是ceph nautilus版本</description>
+    </item>
+    <item>
+      <title>Kubernetes — 更新证书</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/11/kubernetes-%E6%9B%B4%E6%96%B0%E8%AF%81%E4%B9%A6/</link>
+      <pubDate>Tue, 15 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/11/kubernetes-%E6%9B%B4%E6%96%B0%E8%AF%81%E4%B9%A6/</guid>
+      <description>背景 使用 kubeadm 安装 kubernetes 集群非常方便，但是也有一个比较烦人的问题就是默认的证书有效期只有一年时间，所以需要考虑证书升级的问题&#xA;检查证书 由 kubeadm 生成的客户端证书默认只有一年有效期，我们可以通过 check-expiration 命令来检查证书是否过期：&#xA;1kubeadm alpha certs check-expiration 该命令显示 /etc/kubernetes/pki 文件夹中的客户端证书以及 kubeadm 使用的 KUBECONFIG 文件中嵌入的客户端证书的到期时间/剩余时间。&#xA;手动更新 kubeadm alpha certs renew&#xA;这个命令用 CA（或者 front-proxy-CA ）证书和存储在 /etc/kubernetes/pki 中的密钥执行更新。&#xA;高可用的集群，这个命令需要在所有控制面板节点上执行&#xA;具体执行 接下来我们来更新我们的集群证书，下面的操作都是在 master 节点上进行&#xA;备份节点 1$ mkdir /etc/kubernetes.bak 2$ cp -r /etc/kubernetes/pki/ /etc/kubernetes.bak 3$ cp /etc/kubernetes/*.conf /etc/kubernetes.bak 备份 etcd 数据目录 1$ cp -r /var/lib/etcd /var/lib/etcd.bak 执行更新证书的命令 1kubeadm alpha certs renew all --config=kubeadm.yaml 检查更新 1kubeadm alpha certs check-expiration 更新下 kubeconfig 文件 1kubeadm init phase kubeconfig all --config kubeadm.</description>
+    </item>
+    <item>
+      <title>Kubernetes — Rook云存储介绍和部署</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/10/kubernetes-rook%E4%BA%91%E5%AD%98%E5%82%A8%E4%BB%8B%E7%BB%8D%E5%92%8C%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Tue, 11 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/10/kubernetes-rook%E4%BA%91%E5%AD%98%E5%82%A8%E4%BB%8B%E7%BB%8D%E5%92%8C%E9%83%A8%E7%BD%B2/</guid>
+      <description>Rook 云存储介绍和部署 Rook 将分布式存储软件转变为自我管理，自我缩放和自我修复的存储服务。它通过自动化部署，引导、配置、供应、扩展、升级、迁移、灾难恢复、监控和资源管理来实现。 Rook 使用基础的云原生容器管理、调度和编排平台提供的功能来履行其职责。&#xA;Rook 利用扩展点深入融入云原生环境，为调度、生命周期管理、资源管理、安全性、监控和用户体验提供无缝体验。&#xA;部署 使用 helm 部署 1helm init -i jimmysong/kubernetes-helm-tiller:v2.8.1 2helm repo add rook-alpha https://charts.rook.io/alpha 3helm install rook-alpha/rook --name rook --namespace rook-system 直接使用 yaml 文件部署 1kubectl apply -f rook-operator.yaml 不论使用那种方式部署的 rook operator，都会在 rook-agent 中看到 rook-agent 用户无法列出集群中某些资源的错误，可以通过为 rook-agent 的分配 cluster-admin 权限临时解决，详见 Issue 1472。&#xA;使用如下 yaml 文件创建一个 ClusterRoleBinding 并应用到集群中。&#xA;1kind: ClusterRoleBinding 2apiVersion: rbac.authorization.k8s.io/v1beta1 3metadata: 4 name: rookagent-clusterrolebinding 5subjects: 6 - kind: ServiceAccount 7 name: rook-agent 8 namespace: rook-system 9roleRef: 10 kind: ClusterRole 11 name: cluster-admin 12 apiGroup: &amp;#34;&amp;#34; 部署 rook cluster 创建完 rook operator 后，我们再部署 rook cluster。</description>
+    </item>
+    <item>
+      <title>Kubernetes — 基于K8S搭建Ceph分布式存储</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/10/kubernetes-%E5%9F%BA%E4%BA%8Ek8s%E6%90%AD%E5%BB%BAceph%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8/</link>
+      <pubDate>Tue, 11 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/10/kubernetes-%E5%9F%BA%E4%BA%8Ek8s%E6%90%AD%E5%BB%BAceph%E5%88%86%E5%B8%83%E5%BC%8F%E5%AD%98%E5%82%A8/</guid>
+      <description>基于 K8S 搭建 Ceph 分布式存储 前提 正常运行的多节点 K8S 集群，可以是两个节点也可以是更多。 每一个节点需要一个没有被分区的硬盘，最好大小一致不然会浪费。 没错其实就是一个要求，必须有集群才能进行容器管理，必须有硬盘才能做存储这些都是基础。 添加硬盘 主机 IP 磁盘 master01 10.12.12.51 SATA 20G master02 10.12.12.52 SATA 20G master03 10.12.12.53 SATA 20G worker01 10.12.12.54 SATA 20G worker02 10.12.12.55 SATA 20G 在 5 个节点都加 20g 存储&#xA;重启 k8s 节点 1kubectl cordon &amp;lt;节点&amp;gt; 2kubectl drain &amp;lt;节点&amp;gt; --ignore-daemonsets --delete-emptydir-data 3# 虚拟机重启后 4kubectl uncordon &amp;lt;节点&amp;gt; 查看新增存储 1fdisk -l 看到新增 20g 存储,不要格式化分区硬盘！！！&#xA;1Disk /dev/sdb: 20 GiB, 21474836480 bytes, 41943040 sectors 2Disk model: QEMU HARDDISK 3Units: sectors of 1 * 512 = 512 bytes 4Sector size (logical/physical): 512 bytes / 512 bytes 5I/O size (minimum/optimal): 512 bytes / 512 bytes ROOK 自动创建 Rook 是一个开源的cloud-native storage编排, 提供平台和框架；为各种存储解决方案提供平台、框架和支持，以便与云原生环境本地集成。 Rook 将存储软件转变为自我管理、自我扩展和自我修复的存储服务，它通过自动化部署、引导、配置、置备、扩展、升级、迁移、灾难恢复、监控和资源管理来实现此目的。 Rook 使用底层云本机容器管理、调度和编排平台提供的工具来实现它自身的功能。 Rook 目前支持Ceph、NFS、Minio Object Store和CockroachDB。 Rook 使用Kubernetes原语使Ceph存储系统能够在Kubernetes上运行。 下载 1git clone https://github.</description>
+    </item>
+    <item>
+      <title>Kubernetes — 探针和生命周期</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/10/kubernetes-%E6%8E%A2%E9%92%88%E5%92%8C%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</link>
+      <pubDate>Sat, 08 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/10/kubernetes-%E6%8E%A2%E9%92%88%E5%92%8C%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</guid>
+      <description>Kubernetes — 探针和生命周期 用于判断容器内应用程序是否已经启动。&#xA;存活（Liveness）探针 用于探测容器是否运行，如果探测失败，kubelet 会根据配置的重启策略进行相应的处理，若没有配置探针该返回值默认为 success 就绪（Readiness）探针 用于探测容器内的程序是否健康，如果返回值为 success，那么代表这个容器已经完全启动，并且程序已经是可以接受流量的状态 启动（Startup）探针 用于探测容器是否启动，如果配置了 startup 就会先禁止其他探测，直到它成功，成功后将不在运行探测 Pod 检测方式 ExecAction：在容器执行一个命令，返回值为 0，则认为容器健康 TCPSocketAction：通过 TCP 连接检查容器是否联通，通的话，则认为容器正常 HTTPGetAction：通过应用程序暴露的 API 地址来检查程序是否正常的，如果状态码为 200-400 之间，则认为容器健康 gRPCAction：通过 gRPC 的检查机制，判断容器是不是正常 StartupProbe 启动探针 有时候，会有一些现有的应用在启动时需要较长的初始化时间。 要这种情况下，若要不影响对死锁作出快速响应的探测，设置存活探测参数是要技巧的。 技巧就是使用相同的命令来设置启动探测，针对 HTTP 或 TCP 检测，可以通过将 failureThreshold * periodSeconds 参数设置为足够长的时间来应对糟糕情况下的启动时间。&#xA;1ports: 2 - name: liveness-port 3 containerPort: 8080 4 hostPort: 8080 5 6livenessProbe: 7 httpGet: 8 path: /healthz 9 port: liveness-port 10 failureThreshold: 1 11 periodSeconds: 10 12 13startupProbe: 14 httpGet: 15 path: /healthz 16 port: liveness-port 17 failureThreshold: 30 18 periodSeconds: 10 幸亏有启动探测，应用程序将会有最多 5 分钟（30 * 10 = 300s）的时间来完成其启动过程。 一旦启动探测成功一次，存活探测任务就会接管对容器的探测，对容器死锁作出快速响应。 如果启动探测一直没有成功，容器会在 300 秒后被杀死，并且根据restartPolicy来执行进一步处置。</description>
+    </item>
+    <item>
+      <title>Kubernetes — 开放标准（OCI、CRI、CNI、CSI、SMI、CPI）概述</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/10/kubernetes-%E5%BC%80%E6%94%BE%E6%A0%87%E5%87%86ocicricnicsismicpi%E6%A6%82%E8%BF%B0/</link>
+      <pubDate>Fri, 07 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/10/kubernetes-%E5%BC%80%E6%94%BE%E6%A0%87%E5%87%86ocicricnicsismicpi%E6%A6%82%E8%BF%B0/</guid>
+      <description>Kubernetes — 开放标准（OCI、CRI、CNI、CSI、SMI、CPI）概述 什么是 Kubernetes 开放标准？— K8s 开放标准简介&#xA;开放标准有助于和补充像 Kubernetes 这样的系统，Kubernetes 是用于编排容器的事实上的标准平台。开放标准定义了实施 Kubernetes 的最佳实践，并在支持此实施方面发挥着至关重要的作用。开放标准由开源 Kubernetes 社区而非某个特定供应商制定，以确保更高的效率、避免供应商锁定以及更轻松地将其他软件集成到技术堆栈中。&#xA;OCI 容器开放接口规范，由多家公司共同组成于 2015 年 6 月成立的项目（Docker, Google, CoreOS 等公司），并由 Linux 基金会运行管理，旨在围绕容器格式和运行时制定一个开放的工业化标准，目前主要有两个标准文档：容器运行时标准 （runtime spec）和 容器镜像标准（image spec）&#xA;OCI 是一个开放的治理结构，其明确目的是围绕容器格式和运行时创建开放的行业标准。 它提供了必须由容器运行时引擎实现的规范。两个重要的规格是： runC：种子容器运行时引擎。大多数现代容器运行时环境都使用 runC 并围绕这个种子引擎开发附加功能。 这种低级运行时用于启动容器的各种工具，包括 Docker 本身。 OCI 规范：关于如何运行、构建和分发容器的映像、运行时和分发规范。 虽然 Docker 经常与容器技术同步使用，但社区一直致力于 OCI 的开放行业标准。 Image-Spec image-spec 定义了如何构建和打包容器镜像。 本规范的目标是创建可互操作的工具，用于构建、传输和准备要运行的容器映像。 Runtime-Spec runtime-spec 指定容器的配置、执行环境和生命周期。 这概述了如何运行在磁盘上解压的“文件系统包(filesystem bundle)”。概括地说，OCI 实现会下载一个 OCI 映像，然后将该映像解压缩到一个 OCI 运行时文件系统包中。 Distribution-Spec Distribution-Spec 提供了一个标准，用于一般内容的分发，特别是容器图像的分发。它是 OCI 项目的最新补充。 实现分发规范的容器注册表为容器映像提供可靠、高度可扩展、安全的存储服务。 客户要么使用云提供商实施、供应商实施，要么使用分发的开源实施。&#xA;CRI CRI（Container Runtime Interface）：容器运行时接口，提供计算资源。​ ​kubernetes1.</description>
+    </item>
+    <item>
+      <title>kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/10/kubernetes-%E9%83%A8%E7%BD%B2%E6%8F%92%E4%BB%B6-flannelweb-uicorednsingress-controller/</link>
+      <pubDate>Fri, 07 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/10/kubernetes-%E9%83%A8%E7%BD%B2%E6%8F%92%E4%BB%B6-flannelweb-uicorednsingress-controller/</guid>
+      <description>k8s 部署插件 Kubernetes 是高度可配置且可扩展的。因此，大多数情况下， 你不需要派生自己的 Kubernetes 副本或者向项目代码提交补丁，本文会介绍几种常用的 k8s 插件，如果大家喜欢的话，希望大家点赞支持。&#xA;1. Flannel 网络插件 Flannel是由 go 语言开发，是一种基于 Overlay 网络的跨主机容器网络解决方案，也就是将TCP数据包封装在另一种网络包里面进行路由转发和通信，Flannel 是 CoreOS 开发，专门用于 docker 多主机互联的一个工具，简单来说，它的功能是让集群中的不同节点主机创建的容器都具有全局唯一的虚拟IP地址&#xA;主要功能：&#xA;为每个 node 分配 subnet，容器将自动从该子网中获取 IP 地址 当有 node 加入到网络中时，为每个 node 增加路由配置 下载并安装 1wget https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml 2kubectl apply -f kube-flannel.yml 如果 yml 中的&amp;quot;Network&amp;quot;: 10.244.0.0/16和kubeadm init xxx --pod-network-cidr不一样，就需要修改成一样的。不然可能会使得Node间Cluster IP不通。&#xA;2. Ingress Controller Ingress 是对集群中服务的外部访问进行管理的 API 对象，典型的访问方式是 HTTP。&#xA;Ingress 可以提供负载均衡、SSL 终结和基于名称的虚拟托管&#xA;下面是一个将所有流量都发送到同一 Service 的简单 Ingress 示例：&#xA;Ingress 可为 Service 提供外部可访问的 URL、负载均衡流量、终止 SSL/TLS，以及基于名称的虚拟托管。 Ingress 控制器 通常负责通过负载均衡器来实现 Ingress，尽管它也可以配置边缘路由器或其他前端来帮助处理流量。</description>
+    </item>
+    <item>
+      <title>kubernetes 存储</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/08/kubernetes-%E5%AD%98%E5%82%A8/</link>
+      <pubDate>Mon, 01 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/08/kubernetes-%E5%AD%98%E5%82%A8/</guid>
+      <description>kubernetes 存储 k8s 支持多种途径的多种类型的存储。例如 iSCSI,SMB,NFS，以及对象存储。都是不同类型的部署在云上或者自建数据中心的外部存储系统。k8s 上的所有存储都被称作卷&#xA;CSI 容器存储接口 CSI 是 k8s 存储体系中一部分，是一个开源项目，定义了一套基于标准的接口，从而使容器能够以一种统一的方式被不同的容器编排的工具使用。可以将插件称为provisioner&#xA;持久化 持久化卷 （pv） 持久化卷申请 （pvc） 存储类 （sv） PV 代表 k8s 的存储，pvc 代表的是许可证，赋予 pod 访问 pv 的权限。cs 使分配过程是动态的。&#xA;使用 iSCSI 操作存储 iscsi 卷能将 iSCSI (基于 IP 的 SCSI) 卷挂载到你的 Pod 中。 不像 emptyDir 那样会在删除 Pod 的同时也会被删除，iscsi 卷的内容在删除 Pod 时会被保留，卷只是被卸载。 这意味着 iscsi 卷可以被预先填充数据，并且这些数据可以在 Pod 之间共享。&#xA;iSCSI 的一个特点是它可以同时被多个用户以只读方式挂载。 这意味着你可以用数据集预先填充卷，然后根据需要在尽可能多的 Pod 上使用它。 不幸的是，iSCSI 卷只能由单个使用者以读写模式挂载。不允许同时写入。&#xA;创建 iscsi-pv.yaml iscsi-pvc.yaml iscsi-pv.yaml&#xA;1apiVersion: v1 2kind: PersistentVolume 3metadata: 4 name: iscsi-pv 5spec: 6 capacity: 7 storage: 500Gi 8 accessModes: 9 - ReadWriteOnce 10 iscsi: 11 targetPortal: 10.</description>
+    </item>
+    <item>
+      <title>kubernetes 从1.23.x 升级到 1.24.x</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/06/kubernetes-%E4%BB%8E1.23.x-%E5%8D%87%E7%BA%A7%E5%88%B0-1.24.x/</link>
+      <pubDate>Wed, 29 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/06/kubernetes-%E4%BB%8E1.23.x-%E5%8D%87%E7%BA%A7%E5%88%B0-1.24.x/</guid>
+      <description>kubernetes 从1.23.x 升级到 1.24.x k8s 在1.24.x之后的版本放弃了和 docker 的兼容，使用 containerd 作为底层的容器，直接参照官方文档的资料进行更新就会报错。因为你没有安装 containerd，所以要安装 containerd 并配置才能正确的升级 k8s&#xA;我用的是CentOS7.9的版本，因此以下操作都是在CentOS下操作。&#xA;Master 节点操作 1.升级 kubeadm 1yum install -y kubeadm-1.24.2-0 --disableexcludes=kubernetes 2kubeadm version 3kubeadm upgrade plan 4sudo kubeadm upgrade apply v1.24.2 2.安装 containerd 1yum install containerd.io -y 2containerd config default &amp;gt; /etc/containerd/config.toml 3vim /var/lib/kubelet/kubeadm-flags.env 修改 kubeadm-flags.env 变量：&#xA;1KUBELET_KUBEADM_ARGS=&amp;#34;--pod-infra-container-image=k8s.gcr.io/pause:3.6 --container-runtime=remote --container-runtime-endpoint=unix:///run/containerd/containerd.sock&amp;#34; 3.升级 kubelet 1yum install -y kubelet-1.24.2-0 kubectl-1.24.2-0 --disableexcludes=kubernetes 2systemctl daemon-reload &amp;amp;&amp;amp; systemctl restart containerd &amp;amp;&amp;amp; systemctl restart kubelet 查看状态：</description>
+    </item>
+    <item>
+      <title>编写 kubernetes 资源描述文件</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/06/%E7%BC%96%E5%86%99-kubernetes-%E8%B5%84%E6%BA%90%E6%8F%8F%E8%BF%B0%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Mon, 27 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/06/%E7%BC%96%E5%86%99-kubernetes-%E8%B5%84%E6%BA%90%E6%8F%8F%E8%BF%B0%E6%96%87%E4%BB%B6/</guid>
+      <description>编写 kubernetes 资源描述文件 1. 部署一个应用 1apiVersion: apps/v1 #与k8s集群版本有关，使用 kubectl api-versions 即可查看当前集群支持的版本 2kind: Deployment #该配置的类型，我们使用的是 Deployment 3metadata: #译名为元数据，即 Deployment 的一些基本属性和信息 4 name: nginx-deployment #Deployment 的名称 5 labels: #标签，可以灵活定位一个或多个资源，其中key和value均可自定义，可以定义多组，目前不需要理解 6 app: nginx #为该Deployment设置key为app，value为nginx的标签 7spec: #这是关于该Deployment的描述，可以理解为你期待该Deployment在k8s中如何使用 8 replicas: 1 #使用该Deployment创建一个应用程序实例 9 selector: #标签选择器，与上面的标签共同作用，目前不需要理解 10 matchLabels: #选择包含标签app:nginx的资源 11 app: nginx 12 template: #这是选择或创建的Pod的模板 13 metadata: #Pod的元数据 14 labels: #Pod的标签，上面的selector即选择包含标签app:nginx的Pod 15 app: nginx 16 spec: #期望Pod实现的功能（即在pod中部署） 17 containers: #生成container，与docker中的container是同一种 18 - name: nginx #container的名称 19 image: nginx:1.</description>
+    </item>
+    <item>
+      <title>kubernetes manual expansion</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/06/kubernetes-manual-expansion/</link>
+      <pubDate>Mon, 13 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/06/kubernetes-manual-expansion/</guid>
+      <description>k8s manual expansion We find k8s-master node.Input the Command：&#xA;expand 1kubectl scale --replicas=3 deploy my-test-deploy shrink 1kubectl scale --replicas=1 deploy my-test-deploy trouble cleaning get resource list 1kubectl get deployment 2kubectl get pods 3kubectl get nodes 4# exists in the namespace 5kubectl api-resources --namespaced=true 6# not exists in the namespace 7kubectl api-resources --namespaced=false show info 1kubectl describe pod my-test-pod 2kubectl describe deployment my-test-pod exec container 1kubectl exec -ti my-test-pod /bin/bash </description>
+    </item>
+    <item>
+      <title>kubernetes 调度过程</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/04/kubernetes-%E8%B0%83%E5%BA%A6%E8%BF%87%E7%A8%8B/</link>
+      <pubDate>Thu, 21 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/04/kubernetes-%E8%B0%83%E5%BA%A6%E8%BF%87%E7%A8%8B/</guid>
+      <description>k8s 调度过程 执行滚动升级 修改 deployment.yml 文件，追加 rollingUpdate&#xA;1# 部署应用 2apiVersion: apps/v1 3kind: Deployment 4metadata: 5 name: jobcher-blog-deployment 6 labels: 7 app: jobcher-blog 8spec: 9 replicas: 3 10 selector: 11 matchLabels: 12 app: jobcher-blog 13 minReadySeconds: 10 #准备10s 14 strategy: 15 type: RollingUpdate 16 rollingUpdate: 17 maxUnavailable: 1 #更新期间不少于3-1 18 maxSurge: 1 #更新期间不超过3+1 19 template: 20 metadata: 21 labels: 22 app: jobcher-blog 23 spec: 24 containers: 25 - name: jobcher-blog-pod 26 image: hub.</description>
+    </item>
+    <item>
+      <title>k8s本地联调神器kt-connect</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/04/k8s%E6%9C%AC%E5%9C%B0%E8%81%94%E8%B0%83%E7%A5%9E%E5%99%A8kt-connect/</link>
+      <pubDate>Thu, 14 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/04/k8s%E6%9C%AC%E5%9C%B0%E8%81%94%E8%B0%83%E7%A5%9E%E5%99%A8kt-connect/</guid>
+      <description>k8s 本地联调神器 kt-connect 转载自 Bboysoul&amp;rsquo;sBlog&#xA;k8s 集群内部的服务网络怎么和我们本地网络打通。kt-connect 就是用来解决这个问题的&#xA;使用方法 下载安装什么的都很简单，一个二进制而已&#xA;1https://github.com/alibaba/kt-connect 如果你安装好了，那么直接使用下面的命令使用就好了&#xA;1sudo ktctl connect 当然也可以指定配置文件&#xA;1sudo ktctl --kubeconfig ~/.kube/local connect 执行完成之后，这个集群的所有svc都可以直接在本地解析，当然直接 ping pod 的 ip 也是可以的</description>
+    </item>
+    <item>
+      <title>OpenELB：让k8s私有环境对外暴露端口</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/04/openelb%E8%AE%A9k8s%E7%A7%81%E6%9C%89%E7%8E%AF%E5%A2%83%E5%AF%B9%E5%A4%96%E6%9A%B4%E9%9C%B2%E7%AB%AF%E5%8F%A3/</link>
+      <pubDate>Wed, 13 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/04/openelb%E8%AE%A9k8s%E7%A7%81%E6%9C%89%E7%8E%AF%E5%A2%83%E5%AF%B9%E5%A4%96%E6%9A%B4%E9%9C%B2%E7%AB%AF%E5%8F%A3/</guid>
+      <description>OpenELB：云原生负载均衡器插件 OpenELB 是一个开源的云原生负载均衡器实现，可以在基于裸金属服务器、边缘以及虚拟化的 Kubernetes 环境中使用 LoadBalancer 类型的 Service 对外暴露服务。&#xA;在 Kubernetes 中安装 OpenELB 1kubectl apply -f https://raw.githubusercontent.com/openelb/openelb/master/deploy/openelb.yaml 查看状态 1kubectl get po -n openelb-system 使用 kubectl 删除 OpenELB 1kubectl delete -f https://raw.githubusercontent.com/openelb/openelb/master/deploy/openelb.yaml 1kubectl get ns 配置 OpenELB 1kubectl edit configmap kube-proxy -n kube-system 2 3# 修改 网卡 4ipvs: 5 strictARP: true 重启组件 1kubectl rollout restart daemonset kube-proxy -n kube-system 为 master1 节点添加一个 annotation 来指定网卡： 1kubectl annotate nodes master1 layer2.openelb.kubesphere.io/v1alpha1=&amp;#34;192.168.0.2&amp;#34; 创建地址池 layer2-eip.yaml 1apiVersion: network.</description>
+    </item>
+    <item>
+      <title>kubernetes ansible自动化部署</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/04/kubernetes-ansible%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Fri, 08 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/04/kubernetes-ansible%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/</guid>
+      <description>kubernetes ansible 自动化部署 服务器规划 角色 IP 组件 k8s-master1 10.12.12.15 kube-apiserver kube-controller-manager kube-scheduler etcd k8s-master2 10.12.12.17 kube-apiserver kube-controller-manager kube-scheduler etcd k8s-02 10.12.12.22 kubelet kube-proxy docker etcd k8s-03 10.12.12.21 kubelet kube-proxy docker etcd load Balancer(master) 10.12.12.15 10.12.12.23(VIP) nginx keepalived load Balancer(backup) 10.12.12.17 nginx keepalived 系统初始化 关闭 selinux，firewalld 关闭 swap 时间同步 写 hosts ssh 免密（可选） etcd 集群部署 生成 etcd 证书 部署三个 ETC 集群 查看集群状态 部署 Masterß 生成 apiserver 证书 部署 apiserver、controller-manager 和 scheduler 组件 启动 TLS Bootstrapping 部署 Node 安装 Docker 部署 Kubelet 和 kube-proxy 在 Master 上运行为新 Node 颁发证书 授权 apiserver 访问 kubelet 部署插件（准备好镜像） Flannel Web UI CoreDNS Ingress Controller Master 高可用 增加 Master 节点（与 Master1 一致） 部署 nginx 负载均衡器 Nginx+Keepalived 高可用 修改 Node 连接 VIP </description>
+    </item>
+    <item>
+      <title>kubernetes 脚本快速安装</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/03/kubernetes-%E8%84%9A%E6%9C%AC%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Thu, 10 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/03/kubernetes-%E8%84%9A%E6%9C%AC%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/</guid>
+      <description>kubernetes 脚本快速安装 1、三台机器设置自己的 hostname（不能是 localhost） 1# 修改 hostname; k8s-01要变为自己的hostname 2hostnamectl set-hostname k8s-01 3# 设置 hostname 解析 4echo &amp;#34;127.0.0.1 $(hostname)&amp;#34; &amp;gt;&amp;gt; /etc/hosts 2、所有机器批量执行如下脚本&#xA;1#先在所有机器执行 vi k8s.sh 2# 进入编辑模式（输入i），把如下脚本复制 3# 所有机器给脚本权限 chmod +x k8s.sh 4#执行脚本 ./k8s.sh 1#/bin/sh 2 3#######################开始设置环境##################################### \n 4 5 6printf &amp;#34;##################正在配置所有基础环境信息################## \n&amp;#34; 7 8 9printf &amp;#34;##################关闭selinux################## \n&amp;#34; 10sed -i &amp;#39;s/enforcing/disabled/&amp;#39; /etc/selinux/config 11setenforce 0 12printf &amp;#34;##################关闭swap################## \n&amp;#34; 13swapoff -a 14sed -ri &amp;#39;s/.*swap.*/#&amp;amp;/&amp;#39; /etc/fstab 15 16printf &amp;#34;##################配置路由转发################## \n&amp;#34; 17cat &amp;lt;&amp;lt;EOF | sudo tee /etc/modules-load.</description>
+    </item>
+    <item>
+      <title>kubernetes面试题汇总</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/02/kubernetes%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB/</link>
+      <pubDate>Wed, 16 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/02/kubernetes%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB/</guid>
+      <description>kubernetes 面试题汇总 1、 k8s 是什么？请说出你的了解？ 答：Kubenetes 是一个针对容器应用，进行自动部署，弹性伸缩和管理的开源系统。主要功能是生产环境中的容器编排。&#xA;K8S 是 Google 公司推出的，它来源于由 Google 公司内部使用了 15 年的 Borg 系统，集结了 Borg 的精华。&#xA;2、 K8s 架构的组成是什么？ 答：和大多数分布式系统一样，K8S 集群至少需要一个主节点（Master）和多个计算节点（Node）。&#xA;主节点主要用于暴露 API，调度部署和节点的管理；&#xA;计算节点运行一个容器运行环境，一般是 docker 环境（类似 docker 环境的还有 rkt），同时运行一个 K8s 的代理（kubelet）用于和 master 通信。计算节点也会运行一些额外的组件，像记录日志，节点监控，服务发现等等。计算节点是 k8s 集群中真正工作的节点。&#xA;1K8S架构细分： 21、Master节点（默认不参加实际工作）： 3 4Kubectl：客户端命令行工具，作为整个K8s集群的操作入口； 5Api Server：在K8s架构中承担的是“桥梁”的角色，作为资源操作的唯一入口，它提供了认证、授权、访问控制、API注册和发现等机制。客户端与k8s群集及K8s内部组件的通信，都要通过Api Server这个组件； 6Controller-manager：负责维护群集的状态，比如故障检测、自动扩展、滚动更新等； 7Scheduler：负责资源的调度，按照预定的调度策略将pod调度到相应的node节点上； 8Etcd：担任数据中心的角色，保存了整个群集的状态； 92、Node节点： 10Kubelet：负责维护容器的生命周期，同时也负责Volume和网络的管理，一般运行在所有的节点，是Node节点的代理，当Scheduler确定某个node上运行pod之后，会将pod的具体信息（image，volume）等发送给该节点的kubelet，kubelet根据这些信息创建和运行容器，并向master返回运行状态。（自动修复功能：如果某个节点中的容器宕机，它会尝试重启该容器，若重启无效，则会将该pod杀死，然后重新创建一个容器）； 11Kube-proxy：Service在逻辑上代表了后端的多个pod。负责为Service提供cluster内部的服务发现和负载均衡（外界通过Service访问pod提供的服务时，Service接收到的请求后就是通过kube-proxy来转发到pod上的）； 12container-runtime：是负责管理运行容器的软件，比如docker 13Pod：是k8s集群里面最小的单位。每个pod里边可以运行一个或多个container（容器），如果一个pod中有两个container，那么container的USR（用户）、MNT（挂载点）、PID（进程号）是相互隔离的，UTS（主机名和域名）、IPC（消息队列）、NET（网络栈）是相互共享的。我比较喜欢把pod来当做豌豆夹，而豌豆就是pod中的container； 3、 容器和主机部署应用的区别是什么？ 答：容器的中心思想就是秒级启动；一次封装、到处运行；这是主机部署应用无法达到的效果，但同时也更应该注重容器的数据持久化问题。 另外，容器部署可以将各个服务进行隔离，互不影响，这也是容器的另一个核心概念。&#xA;4、请你说一下 kubenetes 针对 pod 资源对象的健康监测机制？ 答：K8s 中对于pod资源对象的健康状态检测，提供了三类probe（探针）来执行对 pod 的健康监测：&#xA;livenessProbe探针&#xA;可以根据用户自定义规则来判定 pod 是否健康，如果 livenessProbe 探针探测到容器不健康，则 kubelet 会根据其重启策略来决定是否重启，如果一个容器不包含 livenessProbe 探针，则 kubelet 会认为容器的 livenessProbe 探针的返回值永远成功。 ReadinessProbe探针</description>
+    </item>
+    <item>
+      <title>Kubernetes 安装</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/02/kubernetes-%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Sun, 13 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/02/kubernetes-%E5%AE%89%E8%A3%85/</guid>
+      <description>Kubernetes 安装 环境配置 关闭防火墙： 如果是云服务器，需要设置安全组策略放行端口 1systemctl stop firewalld 2systemctl disable firewalld 修改 hostname 1hostnamectl set-hostname k8s-01 2echo &amp;#34;127.0.0.1 $(hostname)&amp;#34; &amp;gt;&amp;gt; /etc/hosts 3reboot 关闭 selinux： 1sed -i &amp;#39;s/enforcing/disabled/&amp;#39; /etc/selinux/config 2setenforce 0 关闭 swap： 1swapoff -a 2sed -ri &amp;#39;s/.*swap.*/#&amp;amp;/&amp;#39; /etc/fstab 修改 /etc/sysctl.conf 1# 如果有配置，则修改 2sed -i &amp;#34;s#^net.ipv4.ip_forward.*#net.ipv4.ip_forward=1#g&amp;#34; /etc/sysctl.conf 3sed -i &amp;#34;s#^net.bridge.bridge-nf-call-ip6tables.*#net.bridge.bridge-nf-call-ip6tables=1#g&amp;#34; /etc/sysctl.conf 4sed -i &amp;#34;s#^net.bridge.bridge-nf-call-iptables.*#net.bridge.bridge-nf-call-iptables=1#g&amp;#34; /etc/sysctl.conf 5sed -i &amp;#34;s#^net.ipv6.conf.all.disable_ipv6.*#net.ipv6.conf.all.disable_ipv6=1#g&amp;#34; /etc/sysctl.conf 6sed -i &amp;#34;s#^net.ipv6.conf.default.disable_ipv6.*#net.ipv6.conf.default.disable_ipv6=1#g&amp;#34; /etc/sysctl.conf 7sed -i &amp;#34;s#^net.ipv6.conf.lo.disable_ipv6.*#net.ipv6.conf.lo.disable_ipv6=1#g&amp;#34; /etc/sysctl.conf 8sed -i &amp;#34;s#^net.ipv6.conf.all.forwarding.*#net.ipv6.conf.all.forwarding=1#g&amp;#34; /etc/sysctl.conf 9# 可能没有，追加 10echo &amp;#34;net.</description>
+    </item>
+    <item>
+      <title>Harbor 搭建</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/01/harbor-%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Fri, 14 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/01/harbor-%E6%90%AD%E5%BB%BA/</guid>
+      <description>Harbor 搭建 Harbor 是一个开源可信的云原生注册表项目，用于存储、签名和扫描内容。用于存储 docker image&#xA;要求 Linux 主机 docker 17.06.0-ce 以上 docker-compose 1.18.0 以上 链接跳转：docker 安装&#xA;安装 下载程序 在线安装包&#xA;1wget https://github.com/goharbor/harbor/releases/download/v1.10.10/harbor-online-installer-v1.10.10.tgz 离线安装包&#xA;1wget https://github.com/goharbor/harbor/releases/download/v1.10.10/harbor-offline-installer-v1.10.10.tgz 安装 1mkdir -p /data 2cd /data 3tar -zxvf harbor-offline-installer-v1.10.10.tgz 4cd /harbor 5./install.sh 接下来只要安静的等待安装就可以了&#xA;配置 1# Configuration file of Harbor 2 3# The IP address or hostname to access admin UI and registry service. 4# DO NOT use localhost or 127.0.0.1, because Harbor needs to be accessed by external clients.</description>
+    </item>
+    <item>
+      <title>Kubernetes 实验手册（1）</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/01/kubernetes-%E5%AE%9E%E9%AA%8C%E6%89%8B%E5%86%8C1/</link>
+      <pubDate>Fri, 07 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/01/kubernetes-%E5%AE%9E%E9%AA%8C%E6%89%8B%E5%86%8C1/</guid>
+      <description>Kubernetes 实验手册（1） 通过在 pve 创建 5 台虚拟机：&#xA;节点 IP 作用 node0 192.168.99.69 k8s-master01 node1 192.168.99.9 k8s-master02 node2 192.168.99.53 k8s-master03 node3 192.168.99.41 k8s-node01 node4 192.168.99.219 k8s-node02 node5 192.168.99.42 k8s-master-lb 配置信息 备注 系统版本 Ubuntu Docker 20.10.12 pod 网段 172.168.0.0/12 service 网段 10.96.0.0/12 VIP 不要和内网 IP 重复，VIP 需要和主机在同一个局域网内&#xA;更新 ansible 连接 1ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.155 2ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.199 3ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.87 4#ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.41 5#ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.219 1vim /etc/hosts 2192.</description>
+    </item>
+    <item>
+      <title>Keepalived高可用</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/01/keepalived%E9%AB%98%E5%8F%AF%E7%94%A8/</link>
+      <pubDate>Wed, 05 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/01/keepalived%E9%AB%98%E5%8F%AF%E7%94%A8/</guid>
+      <description>Keepalived 高可用 配置文件存放位置：/usr/share/doc/keepalived/samples&#xA;VVRP 虚拟路由冗余协议&#xA;组成 LB 集群：Load Balancing，负载均衡集群，平均分配给多个节点&#xA;HA 集群：High Availability，高可用集群，保证服务可用&#xA;HPC 集群：High Performance Computing，高性能集群&#xA;配置 keepalived+LVS+nginx&#xA;各节点时间必须同步：ntp, chrony 关闭防火墙及 SELinux 同步各节点时间 1#安装ntpdate 2apt install ntpdate 3#更改时区 4timedatectl set-timezone &amp;#39;Asia/Shanghai&amp;#39; 5#查看时间 6timedatectl 7datetime 安装 keepalived 1#安装 2apt install keepalived 3#更改模板 4cd /usr/share/doc/keepalived/samples </description>
+    </item>
+    <item>
+      <title>k3s 升级版本</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/k3s-%E5%8D%87%E7%BA%A7%E7%89%88%E6%9C%AC/</link>
+      <pubDate>Mon, 27 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/k3s-%E5%8D%87%E7%BA%A7%E7%89%88%E6%9C%AC/</guid>
+      <description>k3s 升级版本 停止所有的 K3s 容器（慎用） 从 server 节点运行 killall 脚本&#xA;1/usr/local/bin/k3s-killall.sh 开始升级 使用安装脚本升级 K3s 1curl -sfL https://get.k3s.io | sh - 2#国内可用 3curl -sfL http://rancher-mirror.cnrancher.com/k3s/k3s-install.sh | INSTALL_K3S_MIRROR=cn sh - 重启 k3s 1sudo systemctl restart k3s </description>
+    </item>
+    <item>
+      <title>helm 安装</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/helm-%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Thu, 16 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/helm-%E5%AE%89%E8%A3%85/</guid>
+      <description>helm 安装 脚本安装 1curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 2chmod 700 get_helm.sh 3./get_helm.sh 4 5#或者可以使用这个命令 6curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash 7 8helm help 二进制安装 1wget https://get.helm.sh/helm-v3.7.2-linux-amd64.tar.gz 2tar -zxvf helm-v3.7.2-linux-amd64.tar.gz 3cd helm-v3.7.2-linux-amd64 4mv linux-amd64/helm /usr/local/bin/helm 5helm help </description>
+    </item>
+    <item>
+      <title>k8s 部署loki日志</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/k8s-%E9%83%A8%E7%BD%B2loki%E6%97%A5%E5%BF%97/</link>
+      <pubDate>Thu, 16 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/k8s-%E9%83%A8%E7%BD%B2loki%E6%97%A5%E5%BF%97/</guid>
+      <description>k8s 部署 loki 日志 helm 拉取 loki 1#加源 2helm repo add grafana https://grafana.github.io/helm-charts 3helm repo update 4#拉取 5helm fetch grafana/loki-stack --untar --untardir . 6cd loki-stack 7# 生成 k8s 配置 8helm template loki . &amp;gt; loki.yaml 9# 部署（如果要修改默认配置必须要修改一下yaml） 10k3s kubectl apply -f loki.yaml </description>
+    </item>
+    <item>
+      <title>Kubernetes 创建nfs存储类</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/kubernetes-%E5%88%9B%E5%BB%BAnfs%E5%AD%98%E5%82%A8%E7%B1%BB/</link>
+      <pubDate>Mon, 13 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/kubernetes-%E5%88%9B%E5%BB%BAnfs%E5%AD%98%E5%82%A8%E7%B1%BB/</guid>
+      <description>Kubernetes 创建 nfs 存储类 首先你需要在别的终端上创建 nfs 服务并能提供 nfs 访问&#xA;Kubernetes 不包含内部 NFS 驱动。你需要使用外部驱动为 NFS 创建 StorageClass。&#xA;https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner&#xA;安装 nfs 驱动&#xA;安装 nfs 驱动 1#安装nfs客户端 2apt-get install nfs-common 3git clone https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner.git 4cd nfs-subdir-external-provisioner/deploy 5k3s kubectl create -f rbac.yaml 6vim deployment.yaml 编辑 deployment.yaml 1apiVersion: apps/v1 2kind: Deployment 3metadata: 4 name: nfs-client-provisioner 5 labels: 6 app: nfs-client-provisioner 7 # replace with namespace where provisioner is deployed 8 namespace: default 9spec: 10 replicas: 1 11 strategy: 12 type: Recreate 13 selector: 14 matchLabels: 15 app: nfs-client-provisioner 16 template: 17 metadata: 18 labels: 19 app: nfs-client-provisioner 20 spec: 21 serviceAccountName: nfs-client-provisioner 22 containers: 23 - name: nfs-client-provisioner 24 image: k8s.</description>
+    </item>
+    <item>
+      <title>Kubernetes k8s 组件</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/kubernetes-k8s-%E7%BB%84%E4%BB%B6/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/kubernetes-k8s-%E7%BB%84%E4%BB%B6/</guid>
+      <description>Kubernetes k8s 组件 控制平面组件（Control Plane Components） 控制平面的组件对集群做出全局决策(比如调度)，以及检测和响应集群事件（例如，当不满足部署的 replicas 字段时，启动新的 pod）。&#xA;kube-apiserver API 服务器是 Kubernetes 控制面的组件， 该组件公开了 Kubernetes API。 API 服务器是 Kubernetes 控制面的前端。&#xA;etcd etcd 是兼具一致性和高可用性的键值数据库，可以作为保存 Kubernetes 所有集群数据的后台数据库。&#xA;kube-scheduler 控制平面组件，负责监视新创建的、未指定运行节点（node）的 Pods，选择节点让 Pod 在上面运行。&#xA;kube-controller-manager 运行控制器进程的控制平面组件。&#xA;cloud-controller-manager 云控制器管理器是指嵌入特定云的控制逻辑的 控制平面组件。 云控制器管理器使得你可以将你的集群连接到云提供商的 API 之上， 并将与该云平台交互的组件同与你的集群交互的组件分离开来。&#xA;Node 组件 节点组件在每个节点上运行，维护运行的 Pod 并提供 Kubernetes 运行环境。&#xA;kubelet 一个在集群中每个节点（node）上运行的代理。 它保证容器（containers）都 运行在 Pod 中。&#xA;kube-proxy kube-proxy 是集群中每个节点上运行的网络代理， 实现 Kubernetes 服务（Service） 概念的一部分。&#xA;容器运行时（Container Runtime） 容器运行环境是负责运行容器的软件。&#xA;Kubernetes 支持多个容器运行环境: Docker、 containerd、CRI-O 以及任何实现 Kubernetes CRI (容器运行环境接口)。</description>
+    </item>
+  </channel>
+</rss>

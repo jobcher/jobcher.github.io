@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>扩容磁盘 on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/tags/%E6%89%A9%E5%AE%B9%E7%A3%81%E7%9B%98/</link>
+    <description>Recent content in 扩容磁盘 on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Wed, 19 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/tags/%E6%89%A9%E5%AE%B9%E7%A3%81%E7%9B%98/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Proxmox VE 在线扩容磁盘分区</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/01/proxmox-ve-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA/</link>
+      <pubDate>Wed, 19 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/01/proxmox-ve-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA/</guid>
+      <description>Proxmox VE 在线扩容磁盘分区 添加磁盘大小 在 VM 上做扩容操作 安装 growpart 1yum install -y epel-release 2yum install -y cloud-utils 查看系统盘 路径 1fdisk -l 2df -h 扩容设备并重启 1growpart /dev/sda 2 #2代表是第二块系统分区，不是sda2,中间有空格 2reboot 重启执行命令 1xfs_growfs /dev/sda2 #(xfs 文件系统) 2resize2fs /dev/sda2 #(ext4 文件系统) 更新完成 1df -h 逻辑卷没有正常扩容的情况 检查当前逻辑卷属于哪个卷组: 1vgdisplay 检查卷组中是有足够的空间可以扩容,还有99g&#xA;扩展逻辑卷大小到200G: 1lvextend -L +99G /dev/mapper/ubuntu--vg-ubuntu--lv 调整文件系统大小到逻辑卷大小: 1resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv 4. 检查&#xA;1df -h /dev/mapper/ubuntu--vg-ubuntu--lv 成功扩容</description>
+    </item>
+  </channel>
+</rss>

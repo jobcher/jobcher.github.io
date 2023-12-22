@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>work on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/tags/work/</link>
+    <description>Recent content in work on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Thu, 30 Mar 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/tags/work/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用scrapy-redis实现增量爬取</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/03/%E4%BD%BF%E7%94%A8scrapy-redis%E5%AE%9E%E7%8E%B0%E5%A2%9E%E9%87%8F%E7%88%AC%E5%8F%96/</link>
+      <pubDate>Thu, 30 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/03/%E4%BD%BF%E7%94%A8scrapy-redis%E5%AE%9E%E7%8E%B0%E5%A2%9E%E9%87%8F%E7%88%AC%E5%8F%96/</guid>
+      <description>使用scrapy-redis实现增量爬取 Scrapy-Redis是Scrapy框架的一个插件，可以使用Redis实现Scrapy的分布式爬虫。它使用Redis作为分布式队列，可以轻松地将爬虫分布在多个机器上。同时，它还提供了一些功能，如去重、持久化、增量爬取等。&#xA;要使用Scrapy-Redis实现增量爬取，可以采取以下步骤： 在Scrapy项目中安装Scrapy-Redis插件。可以使用pip安装：pip install scrapy-redis 在Scrapy的settings.py中添加如下配置： 1# 使用Redis调度器 2SCHEDULER = &amp;#34;scrapy_redis.scheduler.Scheduler&amp;#34; 3# 使用Redis去重过滤器 4DUPEFILTER_CLASS = &amp;#34;scrapy_redis.dupefilter.RFPDupeFilter&amp;#34; 5# 允许暂停、恢复爬取 6SCHEDULER_PERSIST = True 将Spider的爬取链接放入Redis队列中。可以在Spider中重载start_requests()方法，从Redis队列中获取链接开始爬取。 1import scrapy 2from scrapy_redis.spiders import RedisSpider 3 4class MySpider(RedisSpider): 5 name = &amp;#39;myspider&amp;#39; 6 redis_key = &amp;#39;myspider:start_urls&amp;#39; 7 8 def parse(self, response): 9 # 处理响应 10 pass 在Spider中实现增量爬取。可以通过重载Spider中的start_requests()方法或者使用SpiderMiddleware来实现增量爬取。这里提供一种通过修改Redis队列来实现增量爬取的方法。 1import scrapy 2import redis 3from scrapy_redis.spiders import RedisSpider 4from scrapy.utils.project import get_project_settings 5 6class MySpider(RedisSpider): 7 name = &amp;#39;myspider&amp;#39; 8 redis_key = &amp;#39;myspider:start_urls&amp;#39; 9 redis_conn = None 10 11 def __init__(self, *args, **kwargs): 12 super(MySpider, self).</description>
+    </item>
+    <item>
+      <title>Chrome浏览器启动参数大全（命令行参数）</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/11/chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%AF%E5%8A%A8%E5%8F%82%E6%95%B0%E5%A4%A7%E5%85%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0/</link>
+      <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/11/chrome%E6%B5%8F%E8%A7%88%E5%99%A8%E5%90%AF%E5%8A%A8%E5%8F%82%E6%95%B0%E5%A4%A7%E5%85%A8%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0/</guid>
+      <description>背景 在开发 Web 项目当中，浏览器必不可少，而浏览器的启动参数可以帮我们实现很多功能。&#xA;常用参数 序号 参数 说明 1 &amp;ndash;allow- ted-plugins 不停用过期的插件。 2 &amp;ndash;allow-running-insecure-content 默认情况下，https 页面不允许从 http 链接引用 javascript/css/plug-ins。添加这一参数会放行这些内容。 3 &amp;ndash;allow-scripting-gallery 允许拓展脚本在官方应用中心生效。默认情况下，出于安全因素考虑这些脚本都会被阻止。 4 &amp;ndash;disable-desktop-notifications 禁用桌面通知，在 Windows 中桌面通知默认是启用的。 5 &amp;ndash;disable-file-system 停用 FileSystem API。 6 &amp;ndash;disable-preconnect 停用 TCP/IP 预连接。 7 &amp;ndash;disable-remote-fonts 关闭远程字体支持。SVG 中字体不受此参数影响。 8 &amp;ndash;disable-web-security 不遵守同源策略。 9 &amp;ndash;disk-cache-dir 将缓存设置在给定的路径。 10 &amp;ndash;disk-cache-size 设置缓存大小上限，以字节为单位。 11 &amp;ndash;dns-prefetch-disable 停用 DNS 预读。 12 &amp;ndash;enable-print-preview 启用打印预览。 13 &amp;ndash;extensions-update-frequency 设定拓展自动更新频率，以秒为单位。 14 &amp;ndash;incognito 让浏览器直接以隐身模式启动。 15 &amp;ndash;keep-alive-for-test 最后一个标签关闭后仍保持浏览器进程。（某种意义上可以提高热启动速度，不过你最好得有充足的内存） 16 &amp;ndash;kiosk 启用 kiosk 模式。（一种类似于全屏的浏览模式） 17 &amp;ndash;lang 使用指定的语言。 18 &amp;ndash;no-displaying-insecure-content 默认情况下，https 页面允许从 http 链接引用图片/字体/框架。添加这一参数会阻止这些内容。 19 &amp;ndash;no-referrers 不发送 Http-Referer 头。 20 &amp;ndash;no-startup-window 启动时不建立窗口。 21 &amp;ndash;proxy-server 使用给定的代理服务器，这个参数只对 http 和 https 有效。 22 &amp;ndash;start-maximized 启动时最大化。 23 &amp;ndash;single-process 以单进程模式运行 Chromium。（启动时浏览器会给出不安全警告）。 24 &amp;ndash;user-agent 使用给定的 User-Agent 字符串。 25 &amp;ndash;process-per-tab 每个分页使用单独进程。 26 &amp;ndash;process-per-site 每个站点使用单独进程。 27 &amp;ndash;in-process-plugins 插件不启用单独进程。 28 &amp;ndash;disable-popup-blocking 禁用弹出拦截。 29 &amp;ndash;disable-javascript 禁用 JavaScript。 30 &amp;ndash;disable-java 禁用 Java。 31 &amp;ndash;disable-plugins 禁用插件。 32 –disable-images 禁用图像。 更多参数 由于水平有限，下表为网络翻译，了解跟多可根基参数，查找相关资料。</description>
+    </item>
+    <item>
+      <title>Jenkins 编译Android apk 流水线</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/11/jenkins-%E7%BC%96%E8%AF%91android-apk-%E6%B5%81%E6%B0%B4%E7%BA%BF/</link>
+      <pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/11/jenkins-%E7%BC%96%E8%AF%91android-apk-%E6%B5%81%E6%B0%B4%E7%BA%BF/</guid>
+      <description>背景 Jenkins 编译 Android apk，上传 apk 包，生成下载二维码，并推送钉钉&#xA;安装 Android 环境 安装 JDK 1# 这里使用的是openjdk 1.8.0版本，有需要的话需要到java官网上进行下载对应的JDK版本。 2$ yum install java -y 3 4# 其他版本JDK的安装方式 5$ mv jdk1.8.0_161 /usr/local/ 6$ ln -s /usr/local/jdk1.8.0_161 /usr/local/jdk 7$ vim /etc/profile #配置JDK的环境变量 8export JAVA_HOME=/usr/local/jdk 9export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH 10export CLASSPATH=.$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib:$JAVA_HOME/lib/tools.jar 11$ source /etc/profile #重新加载系统环境变量 12$ java -version #查看java版本 Android SDK 安装 1# 下载sdk工具包 2$ wget https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip 3 4# 创建sdk工具文件夹和解压工具包 5$ mkdir -p /opt/android/sdk 6$ unzip sdk-tools-linux-3859397.zip -d /opt/android/sdk 7 8# 使用sdkmanager工具配置构建工具和平台版本 9$ cd /opt/android/sdk/tools/bin/ 10$ .</description>
+    </item>
+    <item>
+      <title>Nexus3 使用和部署</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/10/nexus3-%E4%BD%BF%E7%94%A8%E5%92%8C%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/10/nexus3-%E4%BD%BF%E7%94%A8%E5%92%8C%E9%83%A8%E7%BD%B2/</guid>
+      <description>Nexus3 docker-compose 安装 创建外部存储&#xA;1mkdir -p /data/nexus 2chmod +777 -R /data/nexus 运行 docker-compose&#xA;1version: &amp;#39;3&amp;#39; 2services: 3 nexus3: 4 image: sonatype/nexus3:3.42.0 5 container_name: nexus3 6 ports: 7 - 8081:8081 8 - 5000:5000 9 volumes: 10 - /data/nexus:/nexus-data 11 environment: 12 - INSTALL4J_ADD_VM_PARAMS=-Xms1024m -Xmx1024m -XX:MaxDirectMemorySize=1024m -Djava.util.prefs.userRoot=/some-other-dir 13 restart: always 14 # 赋予外部root权限 15 privileged: true docker-compose up -d 运行 docker-compose</description>
+    </item>
+    <item>
+      <title>shell 脚本（1）</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/03/shell-%E8%84%9A%E6%9C%AC1/</link>
+      <pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/03/shell-%E8%84%9A%E6%9C%AC1/</guid>
+      <description>shell 脚本之变量 变量替换 语法 说明 ${变量名#匹配规则} 从变量开头进行规则匹配，将符合最短的数据删除 ${变量名##匹配规则} 从变量开头进行规则匹配，将符合最长的数据删除 ${变量名%匹配规则} 从变量尾部进行规则匹配，将符合最短的数据删除 ${变量名%%匹配规则} 从变量尾部进行规则匹配，将符合最长的数据删除 ${变量名/旧字符串/新字符串} 变量内容符合旧字符串则，则第一个旧字符串会被新字符串取代 ${变量名//旧字符串/新字符串} 变量内容符合旧字符串则，则全部的旧字符串会被新字符串取代 字符串处理 计算字符串长度 - 语法 说明 方法一 ${#string} 无 方法二 expr length &amp;ldquo;$string&amp;rdquo; string 有空格，则必须加双引号 获取子串在字符串中的索引位置&#xA;语法： expr index $string $substring&#xA;计算子串长度&#xA;语法： expr match $string substr&#xA;抽取子串&#xA;${string:position} ：从 string 中的 position 开始 ${string:position:length}：从 position 开始，匹配长度为 length ${string:-position}：从右边开始匹配 ${string:(position)}：从左边开始匹配 expr substr $string $position $length：从 position 开始，匹配长度为 length </description>
+    </item>
+    <item>
+      <title>Maven 安装编译</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/03/maven-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91/</link>
+      <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/03/maven-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91/</guid>
+      <description>Maven 安装编译 Maven 就是专门为 Java 项目打造的管理和构建工具，它的主要功能有：&#xA;提供了一套标准化的项目结构； 提供了一套标准化的构建流程（编译，测试，打包，发布……）； 提供了一套依赖管理机制。 默认结构：&#xA;1a-maven-project 2├── pom.xml 3├── src 4│ ├── main 5│ │ ├── java 6│ │ └── resources 7│ └── test 8│ ├── java 9│ └── resources 10└── target 项目的根目录a-maven-project是项目名，&#xA;它有一个项目描述文件pom.xml，&#xA;存放Java源码的目录是src/main/java，&#xA;存放资源文件的目录是src/main/resources，&#xA;存放测试源码的目录是src/test/java，&#xA;存放测试资源的目录是src/test/resources，&#xA;最后，所有编译、打包生成的文件都放在target目录里。&#xA;这些就是一个 Maven 项目的标准目录结构。&#xA;pom.xml 文件:&#xA;1&amp;lt;project ...&amp;gt; 2&#x9;&amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; 3&#x9;&amp;lt;groupId&amp;gt;com.itranswarp.learnjava&amp;lt;/groupId&amp;gt; 4&#x9;&amp;lt;artifactId&amp;gt;hello&amp;lt;/artifactId&amp;gt; 5&#x9;&amp;lt;version&amp;gt;1.0&amp;lt;/version&amp;gt; 6&#x9;&amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt; 7&#x9;&amp;lt;properties&amp;gt; 8 ... 9&#x9;&amp;lt;/properties&amp;gt; 10&#x9;&amp;lt;dependencies&amp;gt; 11 &amp;lt;dependency&amp;gt; 12 &amp;lt;groupId&amp;gt;commons-logging&amp;lt;/groupId&amp;gt; 13 &amp;lt;artifactId&amp;gt;commons-logging&amp;lt;/artifactId&amp;gt; 14 &amp;lt;version&amp;gt;1.</description>
+    </item>
+    <item>
+      <title>Nodejs 安装编译</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/03/nodejs-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91/</link>
+      <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/03/nodejs-%E5%AE%89%E8%A3%85%E7%BC%96%E8%AF%91/</guid>
+      <description>Nodejs 安装编译 Node.js 平台是在后端运行 JavaScript 代码，必须首先在本机安装 Node 环境。&#xA;安装 Node.js 安装 npm npm 其实是 Node.js 的包管理工具（package manager）。</description>
+    </item>
+    <item>
+      <title>ruoyi-cloud docker部署</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/03/ruoyi-cloud-docker%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/03/ruoyi-cloud-docker%E9%83%A8%E7%BD%B2/</guid>
+      <description>基础环境安装 1# docker 脚本安装 2curl -sSL https://get.daocloud.io/docker | sh 3 4#docker compose 脚本安装 5curl -L https://get.daocloud.io/docker/compose/releases/download/v2.4.1/docker-compose-`uname -s`-`uname -m` &amp;gt; /usr/local/bin/docker-compose 6 7 8#可执行权限 9sudo chmod +x /usr/local/bin/docker-compose 10#创建软链： 11sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose 12#测试是否安装成功 13docker-compose --version 下载安装 1git clone https://gitlab.sanjiang.com/it-group/ruoyi-cloud.git 编译 1cd ruoyi-cloud 2mvn clean install -DskipTests 复制 jar 包 1cd ./docker 2./copy.sh 部署 docker 1./deploy.sh base 2./deploy.sh modules 检查 docker 1docker ps -a | grep ruoyi 2docker logs -f ruoyi-auth 3docker logs -f ruoyi-gateway 4docker logs -f ruoyi-modules-system </description>
+    </item>
+  </channel>
+</rss>

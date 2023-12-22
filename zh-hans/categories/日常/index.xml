@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>日常 on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/categories/%E6%97%A5%E5%B8%B8/</link>
+    <description>Recent content in 日常 on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Tue, 01 Aug 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/categories/%E6%97%A5%E5%B8%B8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>黑群晖最新安装教程</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/08/%E9%BB%91%E7%BE%A4%E6%99%96%E6%9C%80%E6%96%B0%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Tue, 01 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/08/%E9%BB%91%E7%BE%A4%E6%99%96%E6%9C%80%E6%96%B0%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/</guid>
+      <description>黑群晖最新安装教程 我这里拿蜗牛星际举例讲解，如何安装群晖最新引导文件，如何正常使用黑群晖。&#xA;准备 黑群晖设备一台 电源线 hdmi 或者其他视频线 有线鼠标 有线键盘 显示器 8g 以上U盘 一块1T以上硬盘 开始安装 1. 制作U盘启动器 下载 大白菜U盘制作器 https://www.dabaicai.com/&#xA;1、打开大白菜超级U盘装机工具，点击主界面的【U盘启动】模块，然后选择【默认模式】。&#xA;2、在【请选择】后面选择需要制作启动的设备（插入的USB设备，一般会默认读取该设备）。&#xA;3、模式选择【USB-HDD】，格式选择【NTFS】，然后点击【一键制作USB启动盘】。&#xA;4、在点击一键制作后会弹出一个关于【U盘数据删除且不可恢复】的窗口，选择【是】。&#xA;2. 引导文件复制 开始前先拔掉前面4个盘位的硬盘，以防写错盘导致数据丢失。&#xA;1、载写盘软件和群晖引导文件，然后二个文件复制到U盘上&#xA;引导文件下载链接: https://pan.baidu.com/s/1F-Mva0AuEehUNk4q19QyxA&#xA;提取码: amf3&#xA;复制到U盘!&#xA;3. U盘启动黑群晖，写入文件 开始前先拔掉前面4个盘位的硬盘，以防写错盘导致数据丢失。&#xA;1、大白菜U盘启动,插上U盘开机自检页面 按F11或F7（根据机型不同快捷按键不同），选U盘启动&#xA;2、桌面找到 分区工具DiskGenius&#xA;3、点选 第一个硬盘 即便是内置的16G硬盘，右键选删除所有分区&#xA;4、保存更改&#xA;5、删除分区完毕后 打开此电脑 找 默认的第一个分区里面的写盘工具&#xA;6、选择写盘工具软件 打开&#xA;7、全部保存默认参数，只需要找到群晖引导文件 打开&#xA;8、找到U盘上的群晖引导文件IMG，然后点 右下角的Start 按钮开始写入&#xA;写入完毕的 提示，此时就写入完成了，拔掉U盘重启系统即可。&#xA;4. 重启设备后安装DSM系统 这里为了保证系统稳定性，使用DSM6.2.3系统，我们这边使用DS918+4盘符&#xA;1、下载群晖助手软件和系统文件&#xA;Synology Assistant: https://cndl.synology.cn/download/Utility/Assistant/7.0.4-50051/Windows/synology-assistant-7.0.4-50051.exe?model=DS918%2B&amp;amp;bays=4&amp;amp;dsm_version=6.2.4&amp;amp;build_number=25556&#xA;2、DSM6.2.3系统：https://pan.baidu.com/s/15CYI12-P1GcdLOa-FqNWrA&#xA;提取码: riub&#xA;2、安装群晖助手软件：在同一网段内的电脑上安装群晖助手软件&#xA;3、打开群晖助手搜索到IP,如果要在线安装系统 就选联机 如果本地安装系统就选 安装</description>
+    </item>
+    <item>
+      <title>推荐一下 容器云资源</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/06/%E6%8E%A8%E8%8D%90%E4%B8%80%E4%B8%8B-%E5%AE%B9%E5%99%A8%E4%BA%91%E8%B5%84%E6%BA%90/</link>
+      <pubDate>Wed, 21 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/06/%E6%8E%A8%E8%8D%90%E4%B8%80%E4%B8%8B-%E5%AE%B9%E5%99%A8%E4%BA%91%E8%B5%84%E6%BA%90/</guid>
+      <description>背景 很多同学在开发软件和测试软件的早期，都会遇到一个问题：如何快速的搭建一个测试环境。这个问题在开发软件的早期是非常棘手的，因为开发软件的早期，往往是没有任何的资源的。这个时候，我们就需要借助一些云资源来帮助我们快速的搭建一个测试环境。接下我会推荐一些云资源，希望能够帮助到大家。&#xA;推荐 1.vercel vercel是一个提供托管服务的网站，它可以帮助我们快速的部署一个静态网站。它的优点是：免费、快速、简单。它的缺点是：只能部署静态网站。如果你的项目是一个静态网站，那么我强烈推荐你使用vercel。&#xA;2。zeabur zeabur是一个帮助开发者一键部署自己的服务的平台，免费方案限制1个项目数量，1vCPU,内存512M，存储1GB 适合做文档和个人博客&#xA;3.腾讯云 国内的良心云，但是现在也不太良心了，不太推荐了，毕竟没什么福利了，如果你是学生的话可以考虑买他们的轻量云来部署他们的服务&#xA;总结 我随便推荐一下，建议大家可以先试用一下1和2的方案，希望能够帮助到大家，如果你有更好的推荐，欢迎在评论区留言。</description>
+    </item>
+    <item>
+      <title>2010年的天涯神贴聊房价</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/06/2010%E5%B9%B4%E7%9A%84%E5%A4%A9%E6%B6%AF%E7%A5%9E%E8%B4%B4%E8%81%8A%E6%88%BF%E4%BB%B7/</link>
+      <pubDate>Mon, 05 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/06/2010%E5%B9%B4%E7%9A%84%E5%A4%A9%E6%B6%AF%E7%A5%9E%E8%B4%B4%E8%81%8A%E6%88%BF%E4%BB%B7/</guid>
+      <description>天涯神贴（持续更新中&amp;hellip;） 调控降房价是刚需的一厢情愿 1、人人都有居住权。房子是用来住的，不是用来炒的。 2、房子太贵了，租售比严重不合理，空置率太高，人均收入太低，早晚要崩盘。 3、房价上涨造成物价上涨，人民生活变得困难 调控的真正目的：防范金融风险 &amp;amp; 通过垄断实现gj利益最大化 官方公布的统计数据，只要关系到某个群体的利益，就一定会被修饰导致失真 税收从来都是向下游转嫁的 &amp;amp; 房产税迟迟不出台的真正原因 房地产的现状 房价持续上涨的本质是稀缺性让好房子成为资金最好的去处 关于垄断 1、垄断的好处是没有风险 2、垄断可以解决社会稳定 3、房屋垄断只会愈演愈烈，底层人民想要拥有一套房子的难度只会越来越难 民生问题 房产税的制定原则 维稳的本质是人民能吃饱饭 公租房是为体制内服务的 房产税一定会转嫁给租房人 巨大的税收消耗也决定了GDP必须快速增长 调控的好处是让zf利益最大化&amp;amp;防范金融风险 垄断可以控制价格，维持稳定 体制内的住房问题有国家保驾护航 依靠但又不能完全依靠开发商建公租房 体制内的住房问题不难解决 解决体制外的住房问题：国家垄断，细水长流收租 普通人买得起「优质商品房」就尽早买把 商品房和公租房的区别 提议通过征普税调节贫富差距，不是傻，就是坏（制定政策的人不会让政策针对自己，那么政策都是谁制定的呢） 调控带来的影响 农产品的价格关系到影响稳定的吃饭问题 农产品价格的抬头会导致物价全面上涨，但国家不会坐视不管且有能力管 资金会在优质资产之间流动，而决定优质资产价格的是精英阶层的购买力 资金流向规律决定了农产品和资产价格总有一个要涨，人为压制，一定会按下葫芦浮起瓢 资金流向规律决定了洼地不会一直是洼地 大城市对近距离的小城市有虹吸效应 决定房价的因素有很多，具体情况具体分析 房价暴涨是相对于钱而言的，不是相对于实际购买力而言的 土地不稀缺，优质土地稀缺 集中发展大城市是导致优质土地稀缺的原因 为人民服务是说给人民听的 历史是一面镜子，不同的国情决定了采取同样的政策结果可能是南辕北辙 zf限制政策房的利润，那kfs就一定会偷工减料 屁股决定脑袋，人民不知厉害关系选房子，zf选农产品 各个阶层的住房问题都安排的妥妥的 顶层的岁月静好来自于底层的负重前行 底层指的是体制外底薪白领 资金终会流向具有稀缺性的资产 土地的稀缺决定了大多数人永远买不起想买的房子 不同阶层的人对收入高低有不同的理解 一二线买房只会越来越难，最终租房会成为主流 人需要一个安身之所，能买早买比晚买好 股市 如果房价不涨，那其他产品会怎么涨 zf如何利用公租房控制租房市场 城中村不会长期存在 三四线城市的未来 房租价格涨不上去，本质是买房还看起来有希望 稀缺房的价格永远涨 粮食和房子的不同是，房子无法和土地剥离 购买房价基数低的省会城市，怎么都不会亏的 房地产是资本市场还是实体经济？ 什么是傻空 什么是真买不起房 具体情况具体分析，如果看不懂，一定是没有抓住问题本质 桂林 vs 南宁 公租房的量级不会冲击到商品房市场 贵阳，资源的稀缺导致权贵更容易垄断，通过低收入高物价的方式剥削底层群体 重庆：高层和别墅怎么选？ 货币贬值 为什么美国人工高于中国，但大多数商品的物价却低于中国 还能上车的赶紧上车 武汉：城市发展空间的大小，往往和房价的升值空间成正比 权利让革族成为苗族的一支 房价是否会跌，如果会，会怎么跌 通货膨胀是减缓灭亡最好的良药 货币供应不足是明朝的真正原因 经济问题是导致清朝灭亡 房产投资的几点建议 人民币对外升值，对内贬值 南宁买房建议 经济适用房都是内部分配的 普通人怎么办：尽早买房，努力挣钱抵御通胀 房价会出现很多上下波动 买房时机的选择（真TM厉害，这竟然是2010年的建议，可恨的是2020年才看到） 收入分配改革跟体制外的人没关系 体制外的人要早早考虑养老问题 永远不要和白痴争辩，因为他会把你的智商拉到和他同一水平，然后用丰富的经验打败你 当个农民也要懂政策，要顺政策而为 存钱不如存资产，钱会贬值，资产会升值 房子越早买越好，zf想钱想疯了 利益才是zf行为的指挥棒 建议一定是建立在严肃考察的基础上 石家庄 投资最重要的是稀缺性，买房首选公务员小区 远离垃圾人 高房价或许有天会崩盘，但你等不到那一天 房子不仅要早买，而且有能力的话不要怕压力，争取一步到位 金融杠杆是炒房赚钱的放大器 要用发展的眼光看问题，只要努力，只会越来越好，越来越轻松 性格决定命运 2012年不取消调控，还有房价维稳顺利换届考虑 洼地最终都会被填平，多数城市是早买胜于晚买 西部 短期波动属于正常现象，需要关注的是长期趋势 领导人的智慧和才干决定了国家的命运，统帅的智慧和才干决定了军队的命运，而个人的智慧和才干决定了个人的命运 对于具备投资属性的商品，供求关系是指货币与商品之间的关系 早买的风险小于晚买 小开发商的房子能不能买？ 大兴土木搞建设的城市，房价都底不了 北京老式砖混板楼的最终命运？ 把房买在zf边，差不了 天子脚下：二手老房买得好，拆迁补偿少不了 3万入手北京四环，你也是幸运的 君为贵，商人、技工次之，农民为轻，打工人为底 10年的调控和08年调控的区别、带来的影响、机会 历史总是惊人的相似 关于房贷 买卖商品房会逐渐变成富人的游戏 zf还是更在意农民问题 治国需要用贪官、反贪官 二线城市典型代表 关于商铺和住宅投资 关于房产调控 关于房产税 老公房的拆迁问题 投资新房还是老公房 高端盘有房价带动作用 买房和没买房的差距 房产交易历史 契税的历史 廉租房的历史 历史上买房最好的朝代 未来房地产市场的发展 房产到期 买学区房问题 历史的结局 人口普查 昆山房价分析与买房 为什么现在租售比这么低 &amp;amp; 同小区买一套大还是两套小 买房难之回不去的乡 &amp;amp; 拉美人过得比你想象的好 租房的苦 北京西三旗 买房争取一步到位 收入稳定的家庭如何买房 北京回龙观 贷款还是全款 00后的买房需求从何而来 意大利的住房模式 中国的学术 北京远洋山水 精英的资产 北京三环塔楼 普通人买房的未来 北京房价超香港 中国的新闻不可信，精英的有钱是你想象不到的 40年的商住房没有70年的住宅有投资价值 限贷对精英没用 外汇管制决定了大部分有钱人只能在国内投资 外国国籍在中国生活是更好的选择 分期付款买房，如果房价上涨，很容易毁约 &amp;amp; 自住要选大品牌开发商 通货膨胀和房价的关系 南京买房分析 &amp;amp; 买房要做好调查分析工作 北京华清嘉园 中国的朝代更替 中国可以无限印钞吗 读史读的不是故事，还是找历史规律，以古鉴今 毛太阳往事 北京大兴 贵阳 富人越富、穷人越穷 通货膨胀的形成原因 深圳 &amp;amp; 昆明仇书记 &amp;amp; 通货膨胀体制内高枕无忧、体制外自求多福 长春 佛山 首付提高的逻辑 四线城市 苏州工业园 住房公积金利率 济南 &amp;amp; 大规律拆迁的城市房价不会下降 公务员小区牛逼 房屋朝向只要不是纯北西就行 &amp;amp; 买房首选市中心、公园地产 zf搬迁 俄罗斯 珠海 &amp;amp; 唯一自住房不只是投资 &amp;amp; 调控是最佳的选房时机 经济崩溃，最后接盘的是老百姓 命运之矛 除非外族入侵或全国大饥荒，否则双轨制决定了房价不会崩盘 kkndme聊北宋、唐朝 宋代房奴 ZG民主 王安石的青苗法之国家出政策的动机 什么是社会公平 还是有很多有钱人 双轨制之体制内的福利 开发商思维 农民政权的缺点 郑州有前景 公园地产是稀缺资源 张献忠屠川 洪秀全、黄巢、李自成 朱元璋 曹参治国 晁错 民营小企业的老板和打工者 郭解 2010年的中国房地产 房奴算不上不幸，相当当不了才算 精英人群的平均收入决定房价 内地不是香港、海南 历史是一面镜子 买房一次性到位比较好 外汇管制 一线和二线 吕后篡权 小产权房 商铺和住宅 体制内外 2010年的上海 买房：物业与房贷 收紧住房贷款 买房：物业与房贷 奸臣蔡京 体制内的28原则 贾谊 kkndme 推荐的历史书 年轻人要早买房 不要低估通货膨胀 二三线城市与重庆 城区和郊区 守着金碗要饭吃 人制的社会，人就是制度 准公务员的好处 小城市房价会因为人民币贬值涨价，但依然难变现 一线杭州 二三线城市的发展靠拆迁 转篇文章：一个忽悠了几亿中国人的伪概念：所谓“中国房地产泡沫” 拆迁补偿 城市底层 垄断企业 农村自来水 袁盎 二三线城市，选新城还是老城 在中国，普通人手上闲钱不多的人被剥削 三分天注定七分靠打拼 人的前程有的时候不掌握在自己手里 河南郑州与洛阳 杭州 西安与重庆 谢国中「空置率」 打工不如有一技之长的小老板 一线、二线的生活 讲故事含沙射影ZG之房子不属于市场经济 什么是好的政策 李商隐「渣男」祖师爷 西五环内的别墅，是相当稀缺的资源 调控降房价是刚需的一厢情愿 2010年的房地产调控，让很多人看到了希望：让房价降得再猛烈些吧。还有人更是幸灾乐祸似的呼喊：让房地产赶紧崩盘吧。让没房子的好好看看有房子的笑话，是人生的一大快事。</description>
+    </item>
+    <item>
+      <title>如何礼貌回绝不合理的需求</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/05/%E5%A6%82%E4%BD%95%E7%A4%BC%E8%B2%8C%E5%9B%9E%E7%BB%9D%E4%B8%8D%E5%90%88%E7%90%86%E7%9A%84%E9%9C%80%E6%B1%82/</link>
+      <pubDate>Wed, 24 May 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/05/%E5%A6%82%E4%BD%95%E7%A4%BC%E8%B2%8C%E5%9B%9E%E7%BB%9D%E4%B8%8D%E5%90%88%E7%90%86%E7%9A%84%E9%9C%80%E6%B1%82/</guid>
+      <description>背景 最近在做一个项目，项目的需求是这样的： spring-cloud有一个服务A，服务A有一个接口，接口的功能是根据传入的参数，返回一个字符串。但是服务响应非常的慢，大概需要4秒左右。这个响应速度是不能忍受的！但是这个服务的开发强行说要上线。我们有几个选项：&#xA;1.不上线，但是这个服务的开发无法按期交付 2.上线，但是这个服务的响应速度太慢了，运维背锅 3.劝说服务的开发，让他们优化接口的响应速度&#xA;相信大家都会选择第3个选择，那我们站在运维的角度如何劝说服务的开发呢？ 劝说 故障级联（Cascading Failures）：连接超时的服务可能会导致其他服务出现故障级联效应。这是因为微服务系统中的服务通常会相互调用和依赖。当一个服务连接超时时，其他依赖该服务的服务可能无法及时获取所需的数据或执行必要的操作，从而导致它们自身出现故障。&#xA;响应时间延迟（Increased Response Time）：如果一个服务连接超时，它的调用方可能需要等待更长的时间来获取响应或超时处理。这会增加整个系统的响应时间，因为其他服务的请求也需要等待超时的服务返回结果。这可能会导致用户体验下降，甚至可能导致其他服务的性能问题。&#xA;资源耗尽（Resource Exhaustion）：连接超时可能会导致调用方服务的资源耗尽。当一个服务长时间等待连接超时的服务时，它可能会保持与该服务的连接打开，消耗额外的内存和网络资源。这可能导致调用方服务的资源不足，无法为其他请求提供充足的资源，进而影响整个系统的性能。&#xA;重试和失败处理（Retry and Failure Handling）：当一个服务连接超时时，调用方服务通常会尝试重新连接或执行其他失败处理机制。这可能导致调用方服务增加额外的负载，因为它需要多次尝试连接超时的服务。同时，如果没有适当的失败处理机制，连接超时的服务可能无法正确处理重试请求，导致进一步的问题。&#xA;结论 综上所述，连接超时的服务对Spring Cloud微服务系统可能会带来级联故障、响应时间延迟、资源耗尽、重试和失败处理的问题，并增加监控和故障排除的成本。因此，及时发现和解决连接超时问题对于确保系统的稳定性和性能至关重要。希望领导能够听取意见，不要让运维背锅。</description>
+    </item>
+    <item>
+      <title>github 国内代理访问下载</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/04/github-%E5%9B%BD%E5%86%85%E4%BB%A3%E7%90%86%E8%AE%BF%E9%97%AE%E4%B8%8B%E8%BD%BD/</link>
+      <pubDate>Tue, 11 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/04/github-%E5%9B%BD%E5%86%85%E4%BB%A3%E7%90%86%E8%AE%BF%E9%97%AE%E4%B8%8B%E8%BD%BD/</guid>
+      <description>演示代理 前缀 https://github.jobcher.com/gh/&#xA;下载仓库 git clone https://github.jobcher.com/gh/&amp;lt;你要下载的GitHub地址&amp;gt;&#xA;1#例子 2git clone https://github.jobcher.com/gh/https://github.com/jobcher/blog.git 部署 复制js到cloudflare worker&#xA;1&amp;#39;use strict&amp;#39; 2 3/** 4 * static files (404.html, sw.js, conf.js) 5 */ 6const ASSET_URL = &amp;#39;https://jobcher.github.io/&amp;#39; 7// 前缀，如果自定义路由为example.com/gh/*，将PREFIX改为 &amp;#39;/gh/&amp;#39;，注意，少一个杠都会错！ 8const PREFIX = &amp;#39;/gh/&amp;#39; 9// 分支文件使用jsDelivr镜像的开关，0为关闭，默认关闭 10const Config = { 11 jsdelivr: 0 12} 13 14const whiteList = [] // 白名单，路径里面有包含字符的才会通过，e.g. [&amp;#39;/username/&amp;#39;] 15 16/** @type {RequestInit} */ 17const PREFLIGHT_INIT = { 18 status: 204, 19 headers: new Headers({ 20 &amp;#39;access-control-allow-origin&amp;#39;: &amp;#39;*&amp;#39;, 21 &amp;#39;access-control-allow-methods&amp;#39;: &amp;#39;GET,POST,PUT,PATCH,TRACE,DELETE,HEAD,OPTIONS&amp;#39;, 22 &amp;#39;access-control-max-age&amp;#39;: &amp;#39;1728000&amp;#39;, 23 }), 24} 25 26 27const exp1 = /^(?</description>
+    </item>
+    <item>
+      <title>逆境和成长-2022年终总结</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/12/%E9%80%86%E5%A2%83%E5%92%8C%E6%88%90%E9%95%BF-2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/12/%E9%80%86%E5%A2%83%E5%92%8C%E6%88%90%E9%95%BF-2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</guid>
+      <description> 转眼间来到了 2022 年的尾声，2022 年不仅仅对于世界来说，还是对于我个人来说都是意义非凡的一年。&#xA;逆境和成长 2022 年初在中国大陆仍然实行着最为严格的清零政策并愈演愈烈，城市居民被限制人身自由，就连农村地区也被大量要求居家隔离，严重损害了中国经济和社会活力。中国失业人口再创新高，大量的毕业生找不到工作。在美国，最为严重的通货膨胀席卷全国，高昂的加息政策，损害了底层人民和工薪阶层。在中东，塔利班武装重新占领阿富汗，重新实行政教合一的暴力统治。在俄罗斯，爆发了乌克兰战争，将俄罗斯真正从苏联的阴影中脱离出来。在世界各地发生了太多的变化，2022 年注定是要被载入史册的一年。&#xA;对于我个人来说，2022 年也是成长非常大的一年，我经历了自工作来最大的变化，我从一家工作了多年的企业毕业，再次进入了社会的试炼场中求职，接触了更多的人，碰到了更多的事，也有了更多的感悟。曾经的我会讲工作看的比一切都重要，通过勤奋和努力可以改变一切，但是，社会的规则并不是这样的。决定你的个人价值并不是这些外在的东西，决定你个人价值的是你自己对自己的看法。你认为自己有价值，你就是你能够做到有价值。你觉得自己不重要，别人自然觉得你不重要。&#xA;在 🆕 的 2023 年，希望世界和平，人人幸福，愿生活在苦难中的人们，能够早日远离苦难，让幸福来敲门……&#xA;欢迎关注我的博客[www.jobcher.com](https://www.jobcher.com/) </description>
+    </item>
+    <item>
+      <title>优雅的使用Conda管理python环境</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/12/%E4%BC%98%E9%9B%85%E7%9A%84%E4%BD%BF%E7%94%A8conda%E7%AE%A1%E7%90%86python%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Wed, 14 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/12/%E4%BC%98%E9%9B%85%E7%9A%84%E4%BD%BF%E7%94%A8conda%E7%AE%A1%E7%90%86python%E7%8E%AF%E5%A2%83/</guid>
+      <description>背景 很多时候,避免不了同时使用 python2 和 python3 的环境,也避免不了不同的工作所需要不同版本的库文件,比如在想用 TensorFlow 较早版本的同时;还想运行 Pytorch 最新版；还想顺便学习 Nao 机器人编程,学习 Django 后台,这个时候,一款非常好用的包管理工具就显得十分重要了,这就是我写这篇博客的原因,这篇博客将会讲解：&#xA;如何安装 conda; 如何更换 conda 的下载源; 如何使用 canda; 安装 conda 在安装时这两个选项需要点上：&#xA;更换 conda 的下载源 Conda官方的下载源太慢了,而且经常会出现 HTTPERROR 之类的错误,如果想要用 Conda 愉快的创建不同工作环境,愉快的下载安装各种库,那么换下载源是必不可少的&#xA;1conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ 2conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge 3conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/ 4 5conda config --set show_channel_urls yes 6# 设置搜索时显示通道地址 具体操作同时按 Win+R 键打开运行窗口,输入 cmd,回车：&#xA;将上面的命令全部复制,到命令行里单击右键就会自动执行复制的命令,添加清华源&#xA;使用 conda 查看环境&#xA;1conda info -e 2conda info --envs 创建环境</description>
+    </item>
+    <item>
+      <title>shell功能脚本集合</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/11/shell%E5%8A%9F%E8%83%BD%E8%84%9A%E6%9C%AC%E9%9B%86%E5%90%88/</link>
+      <pubDate>Thu, 10 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/11/shell%E5%8A%9F%E8%83%BD%E8%84%9A%E6%9C%AC%E9%9B%86%E5%90%88/</guid>
+      <description>28 合 1 多功能脚本 脚本说明: 多合一脚本，DD 系统，BBR，xray,TG 搭建等等·常用的各种脚本基本都有！ 系统支持: CentOS6+ / Debian6+ / Ubuntu14+ 支持安装 BBR，搭建 KCPtun，ssr 多用户版 安装 V2ary，Tg 专用代理（Go 版），安装 Goflyway 小鸡性能测试，回程线路测试，云监控 傻瓜式一键 DD 包 一键开启默认 bbr Netflix 解锁检测 xray 安装 宝塔面板，闲蛋面板，x-ui 面板，WARP 一键配置 脚本特点: 目前网上的各个一键脚本基本都是只有 安装/启动/重启 等基础功能，对于小白来说还是不够简单方便。常用的各种脚本基本都有！&#xA;下载安装: 1bash &amp;lt;(curl -s -L https://git.io/JPj82) gfw_push 一键安装 脚本说明: 监测服务器 IP 是否被墙并推送至 Telegram 一键脚本 系统支持: CentOS6+ / Debian6+ / Ubuntu14+ 下载安装: 1bash &amp;lt;(curl -s -L git.io/JPjzm) 服务器测速 脚本说明: 服务器一键测速脚本 系统支持: CentOS7 / Debian7+ / Ubuntu14+ 下载安装: 1bash &amp;lt;(curl -s -L git.</description>
+    </item>
+    <item>
+      <title>Cloudflare Zero Trust 内网穿透</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/09/cloudflare-zero-trust-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</link>
+      <pubDate>Fri, 30 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/09/cloudflare-zero-trust-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</guid>
+      <description>Cloudflare Zero Trust 内网穿透 最快的 Zero Trust 应用访问和互联网浏览平台&#xA;增加可见性，消除复杂性，降低远程和办公室用户的风险。杜绝数据丢失、恶意软件和网络钓鱼，保护用户、应用程序和设备安全。&#xA;使用 Tunnel 隧道来实现内网传统，实现内网访问各类应用&#xA;安装部署 https://dash.teams.cloudflare.com/&#xA;Docker 部署 在 docker 环境运行 &amp;lt;token&amp;gt; 是你个人令牌&#xA;1docker run -d --name cloudflared cloudflare/cloudflared:latest tunnel --no-autoupdate run --token &amp;lt;token&amp;gt; Linux 部署 X86-64 位 1curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-x86_64.rpm &amp;amp;&amp;amp; \ 2sudo yum localinstall -y cloudflared.rpm &amp;amp;&amp;amp; \ 3sudo cloudflared service install &amp;lt;token&amp;gt; X86-32 位 1curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386.rpm &amp;amp;&amp;amp; 2 3sudo yum localinstall -y cloudflared.rpm &amp;amp;&amp;amp; 4 5sudo cloudflared service install &amp;lt;token&amp;gt; arm64 1curl -L --output cloudflared.</description>
+    </item>
+    <item>
+      <title>headscale 部署使用</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/09/headscale-%E9%83%A8%E7%BD%B2%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Wed, 21 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/09/headscale-%E9%83%A8%E7%BD%B2%E4%BD%BF%E7%94%A8/</guid>
+      <description>Headscale Tailscale 的控制服务器是不开源的，而且对免费用户有诸多限制，这是人家的摇钱树，可以理解。好在目前有一款开源的实现叫 Headscale，这也是唯一的一款，希望能发展壮大。&#xA;Headscale 由欧洲航天局的 Juan Font 使用 Go 语言开发，在 BSD 许可下发布，实现了 Tailscale 控制服务器的所有主要功能，可以部署在企业内部，没有任何设备数量的限制，且所有的网络流量都由自己控制。&#xA;Headscale 部署 我决定使用docker-compose进行部署&#xA;创建存储 1#!/bin/bash 2mkdir -p /opt/headscale 3mkdir -p ./config 4touch ./config/db.sqlite 5curl https://raw.githubusercontent.com/juanfont/headscale/main/config-example.yaml -o ./config/config.yaml 运行 docker-compose 文件 创建 docker-compose.yaml&#xA;1version: &amp;#34;3&amp;#34; 2services: 3 headscale: 4 image: headscale/headscale:latest 5 volumes: 6 - ./config:/etc/headscale/ 7 - ./data:/var/lib/headscale 8 ports: 9 - 8080:8080 10 - 9090:9090 11 - 50443:50443 12 command: headscale serve 13 restart: unless-stopped 运行</description>
+    </item>
+    <item>
+      <title>羊了个羊小程序 破解通关</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/09/%E7%BE%8A%E4%BA%86%E4%B8%AA%E7%BE%8A%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E7%A0%B4%E8%A7%A3%E9%80%9A%E5%85%B3/</link>
+      <pubDate>Fri, 16 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/09/%E7%BE%8A%E4%BA%86%E4%B8%AA%E7%BE%8A%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E7%A0%B4%E8%A7%A3%E9%80%9A%E5%85%B3/</guid>
+      <description>注意此教程需要通过电脑端完成&#xA;操作步骤 1、微信打开羊了个羊小程序，玩第一关 2、进入当前登录的微信数据文件夹 微信左下角 -&amp;gt; 设置 -&amp;gt; 文件管理 -&amp;gt; 打开文件夹&#xA;打开后进入当前登录的微信数据文件夹&#xA;3、进入当前登录微信数据文件夹后，依次进入 \Applet\wx141bfb9b73c970a9\usr\gamecaches\resources&#xA;注意 wx141bfb9b73c970a9 文件名可能不同，但以 a9 结尾&#xA;4、修改游戏配置文件 在此文件夹下，有很多 json 文件，找到默认排序的第三个，大小 2k 的文件&#xA;我的电脑是 16632884479734.json 文件，用记事本打开，清空里面内容，将 new.txt 文件中的代码复制进此 json 文件，保存关闭&#xA;1[1,0,0,[[&amp;#34;cc.JsonAsset&amp;#34;,[&amp;#34;_name&amp;#34;,&amp;#34;json&amp;#34;],1]],[[0,0,1,3]],[[0,&amp;#34;levelConfigData&amp;#34;,{&amp;#34;dailyLevel&amp;#34;:[[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001]],&amp;#34;topicLevel&amp;#34;:[[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017]]}]],0,0,[],[],[]] 之后打开游戏，仅需要完成 4 次第一关九宫格样式即可加入羊群！</description>
+    </item>
+    <item>
+      <title>RocketMQ k8s部署 4主4从集群</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/08/rocketmq-k8s%E9%83%A8%E7%BD%B2-4%E4%B8%BB4%E4%BB%8E%E9%9B%86%E7%BE%A4/</link>
+      <pubDate>Mon, 29 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/08/rocketmq-k8s%E9%83%A8%E7%BD%B2-4%E4%B8%BB4%E4%BB%8E%E9%9B%86%E7%BE%A4/</guid>
+      <description>RocketMQ k8s 部署 4 主 4 从集群 使用 NFS 配置 StatefulSet 的动态持久化存储 安装 NFS 服务端 1sudo apt update 2sudo apt install nfs-kernel-server nfs-common 安装 NFS 客户端 所有的节点都得执行&#xA;sudo apt install nfs-common -y&#xA;创建目录 1mkdir -p /data/storage/k8s/rocketmq 使用 NFS 作为StatefulSet持久化存储的操作记录，分别需要创建nfs-provisioner的rbac、storageclass、nfs-client-provisioner和statefulset的pod&#xA;创建 nfs 的 rbac 1--- 2apiVersion: v1 3kind: ServiceAccount 4metadata: 5 name: nfs-provisioner 6 namespace: sanjiang 7--- 8kind: ClusterRole 9apiVersion: rbac.authorization.k8s.io/v1 10metadata: 11 name: nfs-provisioner-runner 12 namespace: sanjiang 13rules: 14 - apiGroups: [&amp;#34;&amp;#34;] 15 resources: [&amp;#34;persistentvolumes&amp;#34;] 16 verbs: [&amp;#34;get&amp;#34;, &amp;#34;list&amp;#34;, &amp;#34;watch&amp;#34;, &amp;#34;create&amp;#34;, &amp;#34;delete&amp;#34;] 17 - apiGroups: [&amp;#34;&amp;#34;] 18 resources: [&amp;#34;persistentvolumeclaims&amp;#34;] 19 verbs: [&amp;#34;get&amp;#34;, &amp;#34;list&amp;#34;, &amp;#34;watch&amp;#34;, &amp;#34;update&amp;#34;] 20 - apiGroups: [&amp;#34;storage.</description>
+    </item>
+    <item>
+      <title>linux服务器 删除空间却未释放</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/07/linux%E6%9C%8D%E5%8A%A1%E5%99%A8-%E5%88%A0%E9%99%A4%E7%A9%BA%E9%97%B4%E5%8D%B4%E6%9C%AA%E9%87%8A%E6%94%BE/</link>
+      <pubDate>Wed, 20 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/07/linux%E6%9C%8D%E5%8A%A1%E5%99%A8-%E5%88%A0%E9%99%A4%E7%A9%BA%E9%97%B4%E5%8D%B4%E6%9C%AA%E9%87%8A%E6%94%BE/</guid>
+      <description>linux 服务器 删除空间却未释放 在Linux或者Unix系统中，通过rm或者文件管理器删除文件将会从文件系统的目录结构上解除链接(unlink)，然而如果文件是被打开的（有一个进程正在使用），那么进程将仍然可以读取该文件，磁盘空间也一直被占用，这样就会导致我们明明删除了文件，但是磁盘空间却未被释放&#xA;获取占用列表状态 1lsof | grep deleted 可以看到哪些文件还被使用，未被释放空间。&#xA;释放磁盘空间 一种方法是 kill 掉相应的进程，或者停掉使用这个文件的应用，让 os 自动回收磁盘空间，当 linux 打开一个文件的时候,Linux 内核会为每一个进程在/proc/, /proc/nnnn/fd/目录（nnnn 为 pid）建立一个以其 pid 为名的目录用来保存进程的相关信息，而其子目录 fd 保存的是该进程打开的所有文件的 fd（fd：file descriptor）；&#xA;kill进程是通过截断 proc 文件系统中的文件可以强制要求系统回收分配给正在使用的的文件，这是一项高级技术，仅当管理员确定不会对运行中的进程造成影响时使用。 1kill -9 12345 # PID 重启服务 lsof 命令 lsof全名list opened files，也就是列举系统中已经被打开的文件。我们都知道，linux 环境中，任何事物都是文件，设备是文件，目录是文件，甚至sockets也是文件。</description>
+    </item>
+    <item>
+      <title>VSCode插件推荐=&gt; Code Runner</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/04/vscode%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90-code-runner/</link>
+      <pubDate>Mon, 25 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/04/vscode%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90-code-runner/</guid>
+      <description>VSCode 插件推荐=&amp;gt; Code Runner Run code snippet or code file for multiple languages: C, C++, Java, JavaScript, PHP, Python, Perl, Perl 6, Ruby, Go, Lua, Groovy, PowerShell, BAT/CMD, BASH/SH, F# Script, F# (.NET Core), C# Script, C# (.NET Core), VBScript, TypeScript, CoffeeScript, Scala, Swift, Julia, Crystal, OCaml Script, R, AppleScript, Elixir, Visual Basic .NET, Clojure, Haxe, Objective-C, Rust, Racket, Scheme, AutoHotkey, AutoIt, Kotlin, Dart, Free Pascal, Haskell, Nim, D, Lisp, Kit, V, SCSS, Sass, CUDA, Less, Fortran, Ring, and custom command</description>
+    </item>
+    <item>
+      <title>ant build.xml 编写</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/04/ant-build.xml-%E7%BC%96%E5%86%99/</link>
+      <pubDate>Thu, 21 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/04/ant-build.xml-%E7%BC%96%E5%86%99/</guid>
+      <description>ant build.xml 编写 生成 build.xml Eclipse 自动生成 Ant 的Build.xml 配置文件,生成的方法很隐蔽&#xA;选择你要生成Build.xml文件的项目,右键. Export-&amp;gt; General -&amp;gt; Ant Buildfiles .&#xA;点 Next,选择项目，再点Finish.&#xA;编写 build.xml 1&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34; standalone=&amp;#34;no&amp;#34;?&amp;gt; 2 3&amp;lt;!-- 每个构建文件对应一个项目。&amp;lt;project&amp;gt;标签时构建文件的根标签。它可以有多个内在属性，就如代码中所示，其各个属性的含义分别如下。 4(1) default表示默认的运行目标，这个属性是必须的。 5(2) basedir表示项目的基准目录。 6(3) name表示项目名。 7(4) description表示项目的描述。 8 --&amp;gt; 9&amp;lt;project default=&amp;#34;build&amp;#34; name=&amp;#34;Sort&amp;#34;&amp;gt; 10&#x9;&amp;lt;!-- 设置属性或文件路径，读取属性使用${property}，value路径默认项目根目录 --&amp;gt; 11&#x9;&amp;lt;property file=&amp;#34;ant/builds.properties&amp;#34; /&amp;gt; 12 13&#x9;&amp;lt;property name=&amp;#34;src.dir&amp;#34; value=&amp;#34;src/statics&amp;#34; /&amp;gt; 14 15&#x9;&amp;lt;property name=&amp;#34;classes.dir&amp;#34; value=&amp;#34;ant/classes&amp;#34; /&amp;gt; 16 17&#x9;&amp;lt;property name=&amp;#34;lib.dir&amp;#34; value=&amp;#34;lib&amp;#34; /&amp;gt; 18 19&#x9;&amp;lt;property name=&amp;#34;dist.</description>
+    </item>
+    <item>
+      <title>记录一次上门打散工</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/04/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E4%B8%8A%E9%97%A8%E6%89%93%E6%95%A3%E5%B7%A5/</link>
+      <pubDate>Sun, 17 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/04/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E4%B8%8A%E9%97%A8%E6%89%93%E6%95%A3%E5%B7%A5/</guid>
+      <description>记录一次上门打散工 壬寅年头磨难多&#xA;人间规则奈吾何&#xA;吟诗为把瘟神送&#xA;风起大江扬洪波&#xA;疫情减弱，遍邀亲友，无人相约，但闻昔日挚友，感怀往事邀吾往之。欲把殷勤牵挂诉，幸之。遂至友舍，诉之：帮忙装个监控吧～&#xA;买物料 和朋友两个人出发，帮朋友邻居家装个监控，他这个监控是要求装在车库里，但是网线要从 4 楼下放下去。所以，我们首先要出门购买一下物料：&#xA;带 RJ45 接口监控 足够长的网线 走了 10000 多步人都走傻了～&#xA;布线 这个没啥好说的，纯粹体力活，感谢朋友的暴风之锤，提高了工作效率，加快了项目进度 感谢 感谢朋友，给我这次项目实践和锻炼的机会让我认识到了自己的能力的不足～&#xA;欢迎关注我的博客www.jobcher.com</description>
+    </item>
+    <item>
+      <title>Ant中如何添加第三方jar包依赖</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/04/ant%E4%B8%AD%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E7%AC%AC%E4%B8%89%E6%96%B9jar%E5%8C%85%E4%BE%9D%E8%B5%96/</link>
+      <pubDate>Thu, 14 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/04/ant%E4%B8%AD%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E7%AC%AC%E4%B8%89%E6%96%B9jar%E5%8C%85%E4%BE%9D%E8%B5%96/</guid>
+      <description>Ant 中如何添加第三方 jar 包依赖 如果使用 ant 进行 java 项目的编译部署，那怎么添加第三方 jar 包的依赖呢？方法如下：&#xA;在项目的根目录下创建 lib 目录，并把所有需要的第三方 jar 包放到此目录下。 在 build.xml 中依次添加：path、property，并在 javac 中添加 classpath，添加 unjar。完整配置如下： 1&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; 2&amp;lt;project name=&amp;#34;MyTool&amp;#34; default=&amp;#34;build&amp;#34; basedir=&amp;#34;.&amp;#34;&amp;gt; 3 &amp;lt;description&amp;gt;The ant project to build MyTool.&amp;lt;/description&amp;gt; 4 &amp;lt;property name=&amp;#34;srcDir&amp;#34; location=&amp;#34;src&amp;#34; description=&amp;#34;源文件的存放目录&amp;#34; /&amp;gt; 5 &amp;lt;property name=&amp;#34;libDir&amp;#34; location=&amp;#34;lib&amp;#34; description=&amp;#34;第三方jar包的存放目录&amp;#34; /&amp;gt; 6 &amp;lt;property name=&amp;#34;antDir&amp;#34; location=&amp;#34;ant&amp;#34; description=&amp;#34;编译后所有文件存放的根目录&amp;#34; /&amp;gt; 7 &amp;lt;property name=&amp;#34;binDir&amp;#34; location=&amp;#34;${antDir}/bin&amp;#34; description=&amp;#34;编译后class文件的存放目录&amp;#34; /&amp;gt; 8 &amp;lt;property name=&amp;#34;jarDir&amp;#34; location=&amp;#34;${antDir}/jar&amp;#34; description=&amp;#34;打包后jar包的存放目录&amp;#34; /&amp;gt; 9 &amp;lt;property name=&amp;#34;jarFile&amp;#34; location=&amp;#34;${jarDir}/MyTool.</description>
+    </item>
+    <item>
+      <title>linux 网络测速</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/02/linux-%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%80%9F/</link>
+      <pubDate>Tue, 22 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/02/linux-%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%80%9F/</guid>
+      <description>linux 网络测速 一键测试脚本bench.sh 适用于各种 Linux 发行版的网络（下行）和 IO 测试：&#xA;显示当前测试的各种系统信息 取自世界多处的知名数据中心的测试点，下载测试比较全面 支持 IPv6 下载测速 IO 测试三次，并显示平均值 1wget -qO- bench.sh | bash 2#或者下面这命令下载执行 3curl -Lso- bench.sh | bash 欢迎关注我的博客www.jobcher.com</description>
+    </item>
+    <item>
+      <title>网心云挂机教程 | 轻松实现睡后收入~</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/02/%E7%BD%91%E5%BF%83%E4%BA%91%E6%8C%82%E6%9C%BA%E6%95%99%E7%A8%8B-%E8%BD%BB%E6%9D%BE%E5%AE%9E%E7%8E%B0%E7%9D%A1%E5%90%8E%E6%94%B6%E5%85%A5~/</link>
+      <pubDate>Fri, 11 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/02/%E7%BD%91%E5%BF%83%E4%BA%91%E6%8C%82%E6%9C%BA%E6%95%99%E7%A8%8B-%E8%BD%BB%E6%9D%BE%E5%AE%9E%E7%8E%B0%E7%9D%A1%E5%90%8E%E6%94%B6%E5%85%A5~/</guid>
+      <description>网心云挂机教程 | 轻松实现睡后收入~ 首先，本文章只是分享，造成一切的后果，博主概不负责！都是成年人了……&#xA;我采用 docker 容器魔方来挂载网心云&#xA;docker 部署 /mnt/money/wxedge_storage这个路径改为自己的存储路径建议&amp;gt;200G&#xA;1docker run \ 2--name=wxedge \ 3--restart=always \ 4--privileged \ 5--net=host \ 6--tmpfs /run \ 7--tmpfs /tmp \ 8-v /mnt/money/wxedge_storage:/storage:rw \ 9-d \ 10registry.cn-hangzhou.aliyuncs.com/onething/wxedge 设备绑定 进入 dockerip 地址 （http://127.0.0.1:18888) 下载 app 扫码绑定 成功 然后坐等第二天收益到账就可以了，记得19:00-23:00是收益高峰期尽量保持在线~</description>
+    </item>
+    <item>
+      <title>Proxmox VE 在线扩容磁盘分区</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/01/proxmox-ve-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA/</link>
+      <pubDate>Wed, 19 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/01/proxmox-ve-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA/</guid>
+      <description>Proxmox VE 在线扩容磁盘分区 添加磁盘大小 在 VM 上做扩容操作 安装 growpart 1yum install -y epel-release 2yum install -y cloud-utils 查看系统盘 路径 1fdisk -l 2df -h 扩容设备并重启 1growpart /dev/sda 2 #2代表是第二块系统分区，不是sda2,中间有空格 2reboot 重启执行命令 1xfs_growfs /dev/sda2 #(xfs 文件系统) 2resize2fs /dev/sda2 #(ext4 文件系统) 更新完成 1df -h 逻辑卷没有正常扩容的情况 检查当前逻辑卷属于哪个卷组: 1vgdisplay 检查卷组中是有足够的空间可以扩容,还有99g&#xA;扩展逻辑卷大小到200G: 1lvextend -L +99G /dev/mapper/ubuntu--vg-ubuntu--lv 调整文件系统大小到逻辑卷大小: 1resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv 4. 检查&#xA;1df -h /dev/mapper/ubuntu--vg-ubuntu--lv 成功扩容</description>
+    </item>
+    <item>
+      <title>centos7.9 网络配置</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/01/centos7.9-%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Tue, 11 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/01/centos7.9-%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/</guid>
+      <description>centos7.9 网络配置 解决 centos 新机器网络不通的问题，CentOS7 默认不启动网卡的。CentOS 安装成功后,进行一下 ping 的操作,验证网络是否联通.&#xA;1ping 1.1.1.1 2ip addr 3# 查看ip网络名称 启用网卡 进入 /etc/sysconfig/network-scipts 文件夹下，找到 IP 网卡名称 1cd /etc/sysconfig/network-scipts 2vim ifcfg-eth0 启用 ONBOOT 1#vim ifcfg-eth0 2#修改 3ONBOOT=YES 4# esc 并:wq退出保存 重启机器 1shutdown -r now 结尾 centos 用的挺别扭，不考虑性能和性价比，我还是喜欢用 ubuntu……，简单的配置，初学者我建议还是先用 ubuntu，会少踩很多坑。当然了，用 x86 不然初学者用树莓派和 arm 设备，会碰到很多兼容性的问题。</description>
+    </item>
+    <item>
+      <title>RocketMQ 安装和启动</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/01/rocketmq-%E5%AE%89%E8%A3%85%E5%92%8C%E5%90%AF%E5%8A%A8/</link>
+      <pubDate>Fri, 07 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/01/rocketmq-%E5%AE%89%E8%A3%85%E5%92%8C%E5%90%AF%E5%8A%A8/</guid>
+      <description>RocketMQ 安装和部署 部署 RocketMQ&#xA;单机安装构建 安装 JDK 1.8.0 1yum install java-1.8.0-openjdk* 安装 Maven 1wget http://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz 2tar -zxvf apache-maven-3.8.4-bin.tar.gz 3mv -f apache-maven-3.8.4 /usr/local/ 4vim /etc/profile 5# 末尾添加 6export MAVEN_HOME=/usr/local/apache-maven-3.8.4 7export PATH=${PATH}:${MAVEN_HOME}/bin 8# 保存 9source /etc/profile 10# 查看maven是否正常 11mvn -v 快速部署 1#构建 DLedger 2git clone https://github.com/openmessaging/openmessaging-storage-dledger.git 3cd openmessaging-storage-dledger 4mvn clean install -DskipTests 5# 构建 RocketMQ 6git clone https://github.com/apache/rocketmq.git 7cd rocketmq 8git checkout -b store_with_dledger origin/store_with_dledger 9mvn -Prelease-all -DskipTests clean install -U 10# 部署 11cd rocketmq/distribution/target/apache-rocketmq 12sh bin/dledger/fast-try.</description>
+    </item>
+    <item>
+      <title>安装 minIO Azure S3网关</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/01/%E5%AE%89%E8%A3%85-minio-azure-s3%E7%BD%91%E5%85%B3/</link>
+      <pubDate>Fri, 07 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/01/%E5%AE%89%E8%A3%85-minio-azure-s3%E7%BD%91%E5%85%B3/</guid>
+      <description>安装 minIO 通过 docker 安装 1docker run -p 9000:9000 -p 41863:41863 -d --name azure-s3 \ 2 -e &amp;#34;MINIO_ACCESS_KEY=azure存储账户&amp;#34; \ 3 -e &amp;#34;MINIO_SECRET_KEY=azure存储密码&amp;#34; \ 4 minio/minio gateway azure --console-address &amp;#34;:41863&amp;#34; 通过 docker-compose 安装 1version: &amp;#34;3&amp;#34; 2services: 3 minio: 4 image: &amp;#34;minio/minio:RELEASE.2022-01-04T07-41-07Z.fips&amp;#34; 5 container_name: &amp;#34;minio&amp;#34; 6 restart: &amp;#34;always&amp;#34; 7 volumes: 8 - &amp;#34;/etc/localtime:/etc/localtime&amp;#34; 9 ports: 10 - &amp;#34;9000:9000&amp;#34; 11 - &amp;#34;9001:9001&amp;#34; 12 environment: 13 - &amp;#34;MINIO_ROOT_USER=azure存储账户&amp;#34; 14 - &amp;#34;MINIO_ROOT_PASSWORD=azure存储密码&amp;#34; 15 command: 16 - --console-address &amp;#34;:41863&amp;#34; </description>
+    </item>
+    <item>
+      <title>logrotate 日志滚动的使用</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/logrotate-%E6%97%A5%E5%BF%97%E6%BB%9A%E5%8A%A8%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Wed, 29 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/logrotate-%E6%97%A5%E5%BF%97%E6%BB%9A%E5%8A%A8%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>logrotate 日志滚动的使用 logrotate 日志滚动切割工具，是 linux 默认安装的工具，配置文件位置：&#xA;1/etc/logrotate.conf 2/etc/logrotate.d/ 参数 以 nginx 配置为例&#xA;1/opt/log/nginx/*.log { 2&#x9;daily 3&#x9;missingok 4&#x9;rotate 14 5 errors &amp;#34;nb@nbtyfood.com&amp;#34; 6&#x9;compress 7&#x9;delaycompress 8&#x9;notifempty 9&#x9;create 0640 www-data adm 10&#x9;sharedscripts 11&#x9;prerotate 12&#x9;if [ -d /etc/logrotate.d/httpd-prerotate ]; then \ 13&#x9;run-parts /etc/logrotate.d/httpd-prerotate; \ 14&#x9;fi \ 15&#x9;endscript 16&#x9;postrotate 17&#x9;invoke-rc.d nginx rotate &amp;gt;/dev/null 2&amp;gt;&amp;amp;1 18&#x9;endscript 19} 参数 作用 compress 压缩日志文件的所有非当前版本 daily,weekly,monthly 按指定计划轮换日志文件 delaycompress 压缩所有版本，除了当前和下一个最近的 endscript 标记 prerotate 或 postrotate 脚本的结束 errors &amp;ldquo;emailid&amp;rdquo; 给指定邮箱发送错误通知 missingok 如果日志文件丢失，不要显示错误 notifempty 如果日志文件为空，则不轮换日志文件 olddir &amp;ldquo;dir&amp;rdquo; 指定日志文件的旧版本放在 “dir” 中 postrotate 引入一个在日志被轮换后执行的脚本 prerotate 引入一个在日志被轮换前执行的脚本 rotate &amp;rsquo;n&#39; 在轮换方案中包含日志的 n 个版本 sharedscripts 对于整个日志组只运行一次脚本 size=&amp;lsquo;logsize&amp;rsquo; 在日志大小大于 logsize（例如 100K，4M）时轮换 </description>
+    </item>
+    <item>
+      <title>安装配置 Terraform</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-terraform/</link>
+      <pubDate>Mon, 27 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-terraform/</guid>
+      <description>安装配置 Terraform 安装 macOS 苹果系统安装 1#安装 2brew tap hashicorp/tap 3brew install hashicorp/tap/terraform 4# 更新 5brew update 6brew upgrade hashicorp/tap/terraform 7#验证安装 8terraform -help windows 系统安装 1#安装 2choco install terraform 3#直接到这个url里下载64位系统 4https://www.terraform.io/downloads 5#验证安装 6terraform -help Linux 安装 1curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add - 2sudo apt-add-repository &amp;#34;deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main&amp;#34; 3sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install terraform 4#验证安装 5terraform -help 1wget -O- https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo | sudo tee /etc/yum.repos.d/hashicorp.repo 2sudo yum install terraform -y terrafrom 控制 proxmox 虚拟机 来源：https://github.</description>
+    </item>
+    <item>
+      <title>rsync 文件同步</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/rsync-%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/</link>
+      <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/rsync-%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/</guid>
+      <description>rsync 文件同步 rsync 是一个常用的 Linux 应用程序，用于文件同步&#xA;安装 1# Debian or Ubuntu 2$ sudo apt-get install rsync 3 4# Red Hat 5$ sudo yum install rsync 6 7# Arch Linux 8$ sudo pacman -S rsync 基本用法 使用 rsync 命令时，可以作为 cp 和 mv 命令的替代方法，将源目录同步到目标目录。&#xA;-r 表示递归，即包含子目录。注意，-r 是必须的，否则 rsync 运行不会成功。source 目录表示源目录，destination 表示目标目录。&#xA;-a 参数可以替代-r，除了可以递归同步以外，还可以同步元信息（比如修改时间、权限等）。由于 rsync 默认使用文件大小和修改时间决定文件是否需要更新&#xA;1rsync -r source destination 远程同步&#xA;1rsync -av &amp;lt;源地址&amp;gt;/ &amp;lt;用户名&amp;gt;@&amp;lt;ip地址&amp;gt;:/&amp;lt;目标地址&amp;gt; 友情地址：mysql 迁移 </description>
+    </item>
+    <item>
+      <title>获取用户浏览器默认语言设置，自动判断跳转不同网站</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E6%B5%8F%E8%A7%88%E5%99%A8%E9%BB%98%E8%AE%A4%E8%AF%AD%E8%A8%80%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%8A%A8%E5%88%A4%E6%96%AD%E8%B7%B3%E8%BD%AC%E4%B8%8D%E5%90%8C%E7%BD%91%E7%AB%99/</link>
+      <pubDate>Thu, 16 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E6%B5%8F%E8%A7%88%E5%99%A8%E9%BB%98%E8%AE%A4%E8%AF%AD%E8%A8%80%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%8A%A8%E5%88%A4%E6%96%AD%E8%B7%B3%E8%BD%AC%E4%B8%8D%E5%90%8C%E7%BD%91%E7%AB%99/</guid>
+      <description>自动判断跳转不同网站 根据用户目前的浏览器配置语言进行显示 供语言切换按钮，用户自定义选择不同的语言显示 根据识别用户的浏览器语言，自动判断并跳转到相应的语言网页，让你的网站更加灵动。&#xA;以下需要将代码放在 HTML 的内即可，然后自行制作多语言页面。&#xA;代码如下：&#xA;1&amp;lt;script type=&amp;#34;text/javascript&amp;#34;&amp;gt; 2 //获取用户语言的顺序是 3 //1.获取本地缓存里的内容 4 //2.用户浏览器的语言设置 5 //如果上面2个都没有获取到，就直接使用&amp;#39;en&amp;#39;作为用户选择的语言 6 var language = 7 localStorage.getItem(&amp;#34;locale&amp;#34;) || 8 window.navigator.language.toLowerCase() || 9 &amp;#34;en&amp;#34;; 10 //把用户的语言写入缓存，供下次获取使用 11 localStorage.setItem(&amp;#34;locale&amp;#34;, language); 12 //判断用户的语言，跳转到不同的地方 13 if (language.indexOf(&amp;#34;zh-&amp;#34;) !== -1) { 14 window.location = &amp;#34;/zh-cn/index.html&amp;#34;; 15 } else if (language.indexOf(&amp;#34;en&amp;#34;) !== -1) { 16 window.location = &amp;#34;/en/index.html&amp;#34;; 17 } else { 18 //其它的都使用英文 19 window.location = &amp;#34;/en/index.html&amp;#34;; 20 } 21&amp;lt;/script&amp;gt; 核心代码</description>
+    </item>
+    <item>
+      <title>linux系统开启root权限</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/linux%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%90%AFroot%E6%9D%83%E9%99%90/</link>
+      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/linux%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%90%AFroot%E6%9D%83%E9%99%90/</guid>
+      <description>linux 系统开启 root 权限 修改 ssh 服务配置文件 1sudo su - 2sudo vim /etc/ssh/sshd_config 增加权限&#xA;在# Authentication: 下输入 1PermitRootLogin yes 更改 root 密码，重启服务 1sudo passwd root 2service sshd restart </description>
+    </item>
+    <item>
+      <title>163企业邮箱设置教程</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/163%E4%BC%81%E4%B8%9A%E9%82%AE%E7%AE%B1%E8%AE%BE%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Fri, 10 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/163%E4%BC%81%E4%B8%9A%E9%82%AE%E7%AE%B1%E8%AE%BE%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
+      <description>163 企业邮箱设置教程 请进入这个网站 https://qiye.163.com/help/l-11.html</description>
+    </item>
+    <item>
+      <title>2021年第50周记</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/2021%E5%B9%B4%E7%AC%AC50%E5%91%A8%E8%AE%B0/</link>
+      <pubDate>Wed, 08 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/2021%E5%B9%B4%E7%AC%AC50%E5%91%A8%E8%AE%B0/</guid>
+      <description>2021 年第 50 周周记 这周完成了以下任务&#xA;搭建 hugo 博客 使用 docker 封装了 blog 搭建 k3s 环境 计划：&#xA;学习 k8s 总结：没啥好总结，刚开始写周记，就随便写一点吧&#xA;欢迎关注我的博客www.jobcher.com</description>
+    </item>
+    <item>
+      <title>自建服务器内网穿透</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/%E8%87%AA%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</link>
+      <pubDate>Wed, 08 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/%E8%87%AA%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</guid>
+      <description>内网穿透 文章中使用的内网穿透前提是必须具有公网 IP 的云服务器，不符合条件的同学可以跳过了。&#xA;nps 内网穿透 nps 是一款轻量级、高性能、功能强大的内网穿透代理服务器。&#xA;在公网服务器上安装 nps sever 端 1 wget https://github.com/ehang-io/nps/releases/download/v0.26.10/linux_amd64_server.tar.gz 2 tar -zxvf linux_amd64_server.tar.gz 3 sudo ./nps install 4 sudo nps start 在控制端安装 npc client 端 1 wget https://github.com/ehang-io/nps/releases/download/v0.26.10/linux_amd64_client.tar.gz 2 tar -zxvf linux_amd64_client.tar.gz 3 sudo ./npc -server=ip:port -vkey=web界面中显示的密钥 4 sudo npc start npc 安装完成可以进入 web 页面穿透端口和域名&#xA;http://localhost:8080&#xA;frps 内网穿透 frps 相对于 nps 的劣势是有断流的风险&#xA;frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可靠的支持&#xA;安装 frps 1 wget https://code.aliyun.com/MvsCode/frps-onekey/raw/master/install-frps.sh -O ./install-frps.sh 2 chmod 700 .</description>
+    </item>
+    <item>
+      <title>树莓派搭建k3s</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BAk3s/</link>
+      <pubDate>Mon, 06 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BAk3s/</guid>
+      <description>树莓派安装 k3s 1.安装 k3s 控制节点 1 curl -sfL https://get.k3s.io | sh - 2 cat /var/lib/rancher/k3s/server/node-token 工作节点 1 curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetoken sh - 树莓派特别要注意一个坑，就是关于内存的问题这个之后再讲&#xA;1 k3s kubectl get nodes 2 #显示正确的节点表示完成 卸载 k3s 1 #server 节点 2 /usr/local/bin/k3s-uninstall.sh 3 #agent 节点 4 /usr/local/bin/k3s-agent-uninstall.sh 2.安装 dashboard k3s 面板 部署 Kubernetes 仪表盘 1 GITHUB_URL=https://github.com/kubernetes/dashboard/releases 2 VERSION_KUBE_DASHBOARD=$(curl -w &amp;#39;%{url_effective}&amp;#39; -I -L -s -S ${GITHUB_URL}/latest -o /dev/null | sed -e &amp;#39;s|.*/||&amp;#39;) 3 sudo k3s kubectl create -f https://raw.</description>
+    </item>
+  </channel>
+</rss>

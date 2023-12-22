@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DockerCompose on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/tags/dockercompose/</link>
+    <description>Recent content in DockerCompose on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Thu, 09 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/tags/dockercompose/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>docker进阶使用</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/docker%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/docker%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/</guid>
+      <description>docker 进阶使用 dockerfile 和 docker compose 的配置&#xA;Dockerfile 使用 Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。&#xA;例子：&#xA;1 FROM nginx 2 RUN echo &amp;#39;这是一个本地构建的nginx镜像&amp;#39; &amp;gt; /usr/share/nginx/html/index.html 保存 Dockerfile 文件并在本地路径执行&#xA;1 docker build -t nginx:v1-test . 2 docker run -name docker run --name nginx-test -d -p 8080:80 nginx:v1-test 浏览 nginx 页面确认更新内容&#xA;curl 127.0.0.1:8080 输出： 这是一个本地构建的nginx镜像 Docker 命令详解 COPY 复制指令，从上下文目录中复制文件或者目录到容器里指定路径。&#xA;1 COPY [--chown=&amp;lt;user&amp;gt;:&amp;lt;group&amp;gt;] &amp;lt;源路径1&amp;gt;... &amp;lt;目标路径&amp;gt; 2 COPY [--chown=&amp;lt;user&amp;gt;:&amp;lt;group&amp;gt;] [&amp;#34;&amp;lt;源路径1&amp;gt;&amp;#34;,... &amp;#34;&amp;lt;目标路径&amp;gt;&amp;#34;] &amp;lt;源路径&amp;gt;：源文件或者源目录，这里可以是通配符表达式，其通配符规则要满足 Go 的 filepath.Match 规则。例如：&#xA;1 COPY hom* /mydir/ 2 COPY hom?</description>
+    </item>
+  </channel>
+</rss>

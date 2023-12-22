@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>福利系列 on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/series/%E7%A6%8F%E5%88%A9%E7%B3%BB%E5%88%97/</link>
+    <description>Recent content in 福利系列 on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Tue, 26 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/series/%E7%A6%8F%E5%88%A9%E7%B3%BB%E5%88%97/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iOS 17 「待机显示」适配普通 iPhone（非 Pro/Max），屏幕在充电时常亮</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/09/ios-17-%E5%BE%85%E6%9C%BA%E6%98%BE%E7%A4%BA%E9%80%82%E9%85%8D%E6%99%AE%E9%80%9A-iphone%E9%9D%9E-pro/max%E5%B1%8F%E5%B9%95%E5%9C%A8%E5%85%85%E7%94%B5%E6%97%B6%E5%B8%B8%E4%BA%AE/</link>
+      <pubDate>Tue, 26 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/09/ios-17-%E5%BE%85%E6%9C%BA%E6%98%BE%E7%A4%BA%E9%80%82%E9%85%8D%E6%99%AE%E9%80%9A-iphone%E9%9D%9E-pro/max%E5%B1%8F%E5%B9%95%E5%9C%A8%E5%85%85%E7%94%B5%E6%97%B6%E5%B8%B8%E4%BA%AE/</guid>
+      <description>让 iOS 17 「待机显示」适配普通 iPhone（非 Pro/Max），屏幕在充电时常亮 背景 让 iPhone 14/15 Pro/Max 以下机型也可以在屏幕激活待机显示功能（充电且横置）时保持常亮，以显示小组件内容。&#xA;2023 年新发布的 iOS 17 有一个新功能：待机显示 StandBy，它能在 iPhone 横向放置且充电时，全屏显示小组件，比如时钟、日历等等，但所有的非 Pro/Max 机型，由于没有全天候显示屏（显示屏能够以低至 1 Hz 的刷新率运行），所以并不能持续使用待机显示，会在几秒钟之后熄灭屏幕，当感受到震动（轻轻拍一下桌子），或有新通知时，再次点亮。&#xA;原理 如果 iPhone 接入充电器充电 &amp;gt; 等待 19 秒 &amp;gt; 开关一次低电量模式 &amp;gt; 再运行一次脚本 如果没有充电 &amp;gt; 关闭低电量模式 &amp;gt; 停止脚本 之后，使用自动化功能，当 iPhone 接入充电器时，自动运行这个脚本就行了。 教程 获取链接 自带19秒等待间隔，如果遇到熄屏可以修改为15秒。 注意 小组件自动轮换失效 烧屏：请务必小心，长期使用可能会导致的屏幕问题 充电前需要手动熄屏，否则会因为不断的开关低电量模式而无法进入待机显示 </description>
+    </item>
+    <item>
+      <title>【福利】埃隆·马斯克传 [沃尔特·艾萨克森] 在线下载</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/09/%E7%A6%8F%E5%88%A9%E5%9F%83%E9%9A%86%E9%A9%AC%E6%96%AF%E5%85%8B%E4%BC%A0-%E6%B2%83%E5%B0%94%E7%89%B9%E8%89%BE%E8%90%A8%E5%85%8B%E6%A3%AE-%E5%9C%A8%E7%BA%BF%E4%B8%8B%E8%BD%BD/</link>
+      <pubDate>Tue, 19 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/09/%E7%A6%8F%E5%88%A9%E5%9F%83%E9%9A%86%E9%A9%AC%E6%96%AF%E5%85%8B%E4%BC%A0-%E6%B2%83%E5%B0%94%E7%89%B9%E8%89%BE%E8%90%A8%E5%85%8B%E6%A3%AE-%E5%9C%A8%E7%BA%BF%E4%B8%8B%E8%BD%BD/</guid>
+      <description>介绍 著名传记作家艾萨克森以近距离的观察视角，揭开了如今全球引人注目、富有争议性的创新企业家的神秘面纱：他善于突破常规，引领全球进入电动汽车时代、私人太空探索时代和人工智能时代，还将推特收入囊中。 埃隆·马斯克小时候在南非生活，那时他经常遭受校园欺凌，但同父亲给他造成的情感创伤相比，这些伤痛都微不足道。他的童年浸透了人性，这将他塑造为一个坚强而又脆弱的男孩，他对风险的容忍度极高，渴望营造出富有戏剧性的生活，让人类文明成为星际文明是他的宏大目标。 2008年，SpaceX的火箭在前三次发射过程中接连爆炸，特斯拉也即将破产，这是他生命中地狱般的至暗时期。在飓风来临时，他是最兴奋的人之一。动荡的环境和剧烈的冲突对他有着莫大的吸引力，有时他甚至渴望这些东西，无论是在工作中，还是在他努力维持却未能持久的恋爱关系中。每当面临艰巨的挑战，紧张感常常让他夜不能寐，甚至呕吐不止，但这些都是他赖以为生的养分。 2022年年初，也就是在SpaceX成功发射了31颗卫星、特斯拉卖出了近100万辆汽车、埃隆成为地球上最富有的人一年后，对于自己一再挑起戏剧性冲突的背后动机，他略带感伤地谈起了他的反思。 他说：“我需要改变我的思维模式，不能一直处于危机战备状态，我这种状态已经持续了大概14年，或者说我人生的大部分时间。”这更像是一个自怨自艾的评价，而不是在表达新年新气象的决心。他一边做出了这些反思和保证，一边还在秘密买入推特的股票。 两年来，艾萨克森形影不离地跟访马斯克，参加他大大小小的会议，与他一起走访工厂，深度采访了他本人，以及他的家人、朋友、同事、前妻和对手。艾萨克森揭开了马斯克内幕故事的面纱，其中有荡气回肠的胜利，也有跌宕起伏的乱局，令人拍案称奇。这些故事回答了这样一个问题：那个在马斯克心底驱使着他的恶魔，是不是也是推动创新与进步所必需的呢？&#xA;下载链接 埃隆·马斯克传 [沃尔特·艾萨克森].pdf&#xA;埃隆·马斯克传 [沃尔特·艾萨克森].epub</description>
+    </item>
+    <item>
+      <title>【破解】小鹏P5和小鹏G9开启adb和网络adb</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/09/%E7%A0%B4%E8%A7%A3%E5%B0%8F%E9%B9%8Fp5%E5%92%8C%E5%B0%8F%E9%B9%8Fg9%E5%BC%80%E5%90%AFadb%E5%92%8C%E7%BD%91%E7%BB%9Cadb/</link>
+      <pubDate>Thu, 14 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/09/%E7%A0%B4%E8%A7%A3%E5%B0%8F%E9%B9%8Fp5%E5%92%8C%E5%B0%8F%E9%B9%8Fg9%E5%BC%80%E5%90%AFadb%E5%92%8C%E7%BD%91%E7%BB%9Cadb/</guid>
+      <description>LET&amp;rsquo;S HACK NOW! 本文章可以帮助当前正式版本的小鹏P5和小鹏G9开启adb和网络adb&#xA;重要提示 如果你对第三方软件的需求高于OTA需求，请关闭OTA功能，P5和G9的下一个版本大概率或已经启用了更高级的加密方式，无法获取解锁码，需要等待其他方式破解 开启adb步骤 首先确认您的爱车是小鹏P5（OTA3.5.0及之前）或小鹏G9（OTA4.3.1及之前）或小鹏G6（未测试）或小鹏P7（OTA2.10及之前）或小鹏G3（版本不确定，最新版不行）&#xA;将您的笔记本电脑（已安装adb组件）或安卓手机（已安装甲壳虫adb软件）和您的车机连接到同一无线局域网中（此处可使用另一台手机打开热点），以下使用笔记本电脑举例&#xA;打开车机的拨号界面，输入*#9925*111#*&#xA;此时车机会显示一个页面，其中包含一个二维码&#xA;使用微信扫描您的车机的二维码，并将内容保存备用&#xA;在任意输入框中输入内容https://hackxpeng.bgcpdd.eu.org/xpeng?m=hackxpeng&amp;amp;id=，然后将您获取到的二维码内容复制到最后面，注意此处不要有任何的空格&#xA;使用浏览器打开您输入框中的所有内容（网址拼接，如：https://hackxpeng.bgcpdd.eu.org/xpeng?m=hackxpeng&amp;amp;id=XPENGD55xxxxxxxxxxxxxx）&#xA;浏览器返回一个解锁码（如：*#03*12345678*#）&#xA;将该解锁码输入车机的拨号界面，此时解锁码会自动消失，如果没有消失请手动删除所有内容&#xA;使用拨号界面输入*#9387*141#*&#xA;打开调试和网络调试（一般是前两个选项）&#xA;笔记本电脑使用win+r，输入cmd回车，输入adb connect 车机页面中的ip:5050（如adb connect 172.20.10.2:5050）&#xA;cmd显示连接成功&#xA;下载你需要安装的apk&#xA;使用adb install安装软件（如：adb install C:\abc\a.apk）&#xA;安装成功&#xA;adb还有更多好玩有趣的玩法等你发现&#xA;笔记本电脑安装adb套件 打开https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn&#xA;下载windows版本 并解压&#xA;将所有文件放入c盘windows目录下的system32和syswow64 注意两个都要放&#xA;致小鹏汽车：以下是关闭获取解锁码api的步骤 将P7 P5的地图更新到高德地图最新版本（包括红绿灯倒计时，最新版高精地图，组队功能，普通道路沉浸导航，语音包等）&#xA;将P7 P5的QQ音乐更新到最新版本&#xA;承诺定期公布OTA进度（最低界限为每月公布）&#xA;将P5 p版sr下放到e版车型（显示车辆运动轨迹）&#xA;优化P7 P5 G3/i自动泊车&#xA;优化NGP并将速度上限设置为130&#xA;将P7 P5的夜晚/白天切换逻辑修改为根据光线传感器，而非日出日落时间&#xA;上线P5的智慧场景或私人定制2.0&#xA;重新评估P7 P5适配新版UI的可行性&#xA;重新评估P7更换8155车机的可行性&#xA;全部完成后使用小鹏汽车官方Github账号在本仓库发送issue&#xA;文章转载于网络，侵权即删 原文连接</description>
+    </item>
+    <item>
+      <title>3D Gaussian Splatting：3D模型渲染</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/08/3d-gaussian-splatting3d%E6%A8%A1%E5%9E%8B%E6%B8%B2%E6%9F%93/</link>
+      <pubDate>Wed, 30 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/08/3d-gaussian-splatting3d%E6%A8%A1%E5%9E%8B%E6%B8%B2%E6%9F%93/</guid>
+      <description>简介 只需要一组照片或者一个视频，就能快速地生成一个3D模型。&#xA;它使了用一种叫做“3D高斯函数”的数学工具来表示这个3D模型，并找到了一种更快的算法来渲染（即生成）3D模型。&#xA;介绍 想象一下，你有一堆照片或视频，你想从一个全新的角度看这些场景。3D Gaussian Splatting 就是一个能让你做到这一点的高级工具。它用一种特别快和高质量的方式来“重建”这些场景，让你能够从任何角度观看它们，就像你实际站在那里一样。&#xA;这个工具的“大脑”使用了一种叫做3D高斯的数学模型，这个模型能够非常精确地描述场景的每一个细节。更酷的是，这个工具还能实时地显示这些新角度的场景，这意味着你不必等待很长时间就能看到结果。&#xA;简而言之，这是一个能让你以全新、快速和高质量的方式探索照片和视频场景的工具。&#xA;使用 硬件要求 具有计算能力 7.0+ 的 CUDA 就绪 GPU 24 GB VRAM（用于训练论文评估质量） 软件要求 Conda（推荐使用，以便于设置） 用于 PyTorch 扩展的 C++ 编译器（我们使用 Visual Studio 2019 for Windows） 用于 PyTorch 扩展的 CUDA SDK 11，在 Visual Studio 之后安装（我们使用 11.8，11.6 存在已知问题） C++编译器和CUDA SDK必须兼容 设置 1SET DISTUTILS_USE_SDK=1 # Windows only 2conda env create --file environment.yml 3conda activate gaussian_splatting 请注意，此过程假设您安装了 CUDA SDK 11，而不是 12。有关修改，请参阅下文。&#xA;1conda config --add pkgs_dirs &amp;lt;Drive&amp;gt;/&amp;lt;pkg_path&amp;gt; 2conda env create --file environment.</description>
+    </item>
+    <item>
+      <title>2023亚运会电竞门票民购买指南（报名&#43;抽签）</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/08/2023%E4%BA%9A%E8%BF%90%E4%BC%9A%E7%94%B5%E7%AB%9E%E9%97%A8%E7%A5%A8%E6%B0%91%E8%B4%AD%E4%B9%B0%E6%8C%87%E5%8D%97%E6%8A%A5%E5%90%8D-%E6%8A%BD%E7%AD%BE/</link>
+      <pubDate>Mon, 14 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/08/2023%E4%BA%9A%E8%BF%90%E4%BC%9A%E7%94%B5%E7%AB%9E%E9%97%A8%E7%A5%A8%E6%B0%91%E8%B4%AD%E4%B9%B0%E6%8C%87%E5%8D%97%E6%8A%A5%E5%90%8D-%E6%8A%BD%E7%AD%BE/</guid>
+      <description>2023亚运会电竞门票民购买指南（报名+抽签） 杭州亚运会电子竞技项目门票于8月14日陆续启动销售，门票实名登记。杭州亚运会电子竞技项目以报名抽签，中签支付的形式对公众销售&#xA;杭州亚运会电子竞技项目以报名抽签，中签支付的形式对公众销售，包括梦三国2、DOTA2、王者荣耀亚运版本、FIFAOnline4、和平精英亚运版本、街霸V、英雄联盟7个小项全部可售场次。&#xA;根据竞赛日程安排，上述7个项目将分4批次启动报名，每个批次的报名、抽签、支付时间不同，具体安排如下：&#xA;电子竞技项目报名抽签工作在杭州市国立公证处监督下，通过系统随机抽签、订单中签的方式进行，系统不设任何加权抽签系数。&#xA;报名阶段 报名渠道:杭州亚运会公众售票官方网站PC端或H5页面、智能亚运一站通·票务通（点击进入选择项目进行报名）。 用户报名申请单需如实提交以下内容:姓名、证件类型、证件号。 报名规则:在有效报名时间内，注册用户仅可成功提交同一场次1个报名申请单，且报名时间内可随时取消报名申请单，最多可取消同一场次报名申请单10次。每个申请单最多包含2名观赛人，每一名观赛人每一场次只允许成功报名一次。单场次报名申请单如达到200万个则将提前截止报名，截止后不可再提交报名申请单。 调剂规则:用户可选择是否接受调剂。如未能中签首选票档，在调剂票档有库存时系统将自动调剂至调剂票档进行抽签。 通知结果阶段 抽签结果告知方式 :用户可在“用户中心-我的报名”中查看抽签结果。&#xA;支付阶段 用户在“用户中心-我的报名”确认支付后，已完成支付报名单可在“我的订单”查询门票订单信息。用户在报名单支付有效期内如需放弃门票可随时点击“放弃购买资格，或在支付阶段支付截止时间前未支付也视为放弃门票。&#xA;出票及配送阶段 配座规则:根据订单支付时间先后顺序进行配座出票，含多张门票的订单尽量满足连座。 出票方式:电子竞技项目门票配座完成出票后，选择电子票的用户可在票夹中查看具体门票信息，选择纸质票的用户可在“我的订单”页查看门票信息。 门票购票规则 购票要求:购票人需年满18周岁，18周岁以下应在法定代理人陪同下购票。购票时需填写与门票数量一一对应的实名制信息。 实名制购票及入场:用户需携带门票(纸质票或电子票) 及购票时填写的有效身份证件入场。 不支持转售及转送:电子竞技项目门票为报名抽签项目，电子票与纸质票订单和门票均不支持转售及转送。 门票退票规则 所购门票一旦售出，除杭州亚组委另有规定或者比赛取消外一律不予退换。如比赛取消，持票观众无需在线提交退票申请，杭州亚组委统一安排退票事宜，纸质票无需寄回，电子票在线作废。不能要求更换其他比赛场次的门票。</description>
+    </item>
+    <item>
+      <title>大麦抢票辅助软件(福利 TFBOYS十年之约演唱会 2023 全机位 视频)</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/08/%E5%A4%A7%E9%BA%A6%E6%8A%A2%E7%A5%A8%E8%BE%85%E5%8A%A9%E8%BD%AF%E4%BB%B6%E7%A6%8F%E5%88%A9-tfboys%E5%8D%81%E5%B9%B4%E4%B9%8B%E7%BA%A6%E6%BC%94%E5%94%B1%E4%BC%9A-2023-%E5%85%A8%E6%9C%BA%E4%BD%8D-%E8%A7%86%E9%A2%91/</link>
+      <pubDate>Tue, 08 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/08/%E5%A4%A7%E9%BA%A6%E6%8A%A2%E7%A5%A8%E8%BE%85%E5%8A%A9%E8%BD%AF%E4%BB%B6%E7%A6%8F%E5%88%A9-tfboys%E5%8D%81%E5%B9%B4%E4%B9%8B%E7%BA%A6%E6%BC%94%E5%94%B1%E4%BC%9A-2023-%E5%85%A8%E6%9C%BA%E4%BD%8D-%E8%A7%86%E9%A2%91/</guid>
+      <description>大麦抢票辅助软件(福利 TFBOYS十年之约演唱会 2023 全机位 视频) 只限android手机！IOS手机不支持！&#xA;DaMaiHelper是一款大麦抢票辅助软件（只抢待开抢中的），软件原理是抓取页面ui控件id，通过模拟点击实现的大麦辅助抢票，软件需要开启相应的权限，如果页面渲染太慢，就会抓取失败导致点击超时无效，所以可以手动辅助点击，该软件只能起到辅助效果，帮忙快速点击，一定要提前选好场次、价格还有观影人，收藏到想看。&#xA;项目地址&#xA;软件下载&#xA;使用教程 先去演唱会主页预选好场次、价格还有观演人，点击想看 （可选）手机后台杀掉大麦app任务 打开辅助app，给于对应权限 （可选）输入歌手名字，默认五月天 点击开抢按钮即可 如果点击开抢后，页面未开始自动跳转，可手动杀死大麦，再次切到辅助app点击开抢 如果想终止辅助app，点击右上角悬浮窗&amp;lt;点击停止&amp;gt;即可 福利 TFBOYS十年之约演唱会 2023 全机位&#xA;百度网盘下载 链接: https://pan.baidu.com/s/1mry1Mib5TSAuTJWpasoG-g&#xA;提取码: icep</description>
+    </item>
+    <item>
+      <title>最好的微信朋友圈集赞神器-福利推荐</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/07/%E6%9C%80%E5%A5%BD%E7%9A%84%E5%BE%AE%E4%BF%A1%E6%9C%8B%E5%8F%8B%E5%9C%88%E9%9B%86%E8%B5%9E%E7%A5%9E%E5%99%A8-%E7%A6%8F%E5%88%A9%E6%8E%A8%E8%8D%90/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/07/%E6%9C%80%E5%A5%BD%E7%9A%84%E5%BE%AE%E4%BF%A1%E6%9C%8B%E5%8F%8B%E5%9C%88%E9%9B%86%E8%B5%9E%E7%A5%9E%E5%99%A8-%E7%A6%8F%E5%88%A9%E6%8E%A8%E8%8D%90/</guid>
+      <description>最好的微信朋友圈集赞神器-集赞2.0 奶茶店活动，朋友圈集满50个赞，送一杯奶茶。 饭店新开张，朋友圈集满98个赞，全场7折优惠。 旅游景点拉人气，朋友圈集满60个赞，送门票。&#xA;还在为这些恼人的朋友圈集赞发愁吗？ 还在为拿着其他地方生成的集赞图片，怕被发现而胆战心惊吗？ 翻遍通讯录，求着好友帮忙点赞。还是不够数？&#xA;现在“集赞”发布，1比1还原微信，轻松设置点赞数，再也不用担心点赞数量，大大方方展示，不惧查验，轻松薅羊毛。 应付生活中各种需要转发点赞场景，体验效果绝非是那种仅仅生成一张点赞图片能比的。&#xA;如果你有这样的烦恼，我推荐你试试这款免费的微信朋友圈集赞神器，简单体验了一下，发现这款工具高度还原了一个整个微信界面ui，现在“集赞2.0 ”发布，逻辑重构，去除一天只能发布一条朋友圈的限制，删除“三连”功能，现在可以无限制的发布，1比1还原微信，轻松设置点赞数，再也不用担心点赞数量。&#xA;集赞神器使用帮助页面：https://blog.itakeo.com/help</description>
+    </item>
+  </channel>
+</rss>

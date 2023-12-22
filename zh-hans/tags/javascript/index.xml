@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>javascript on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/tags/javascript/</link>
+    <description>Recent content in javascript on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Thu, 14 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/tags/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ant中如何添加第三方jar包依赖</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/04/ant%E4%B8%AD%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E7%AC%AC%E4%B8%89%E6%96%B9jar%E5%8C%85%E4%BE%9D%E8%B5%96/</link>
+      <pubDate>Thu, 14 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/04/ant%E4%B8%AD%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E7%AC%AC%E4%B8%89%E6%96%B9jar%E5%8C%85%E4%BE%9D%E8%B5%96/</guid>
+      <description>Ant 中如何添加第三方 jar 包依赖 如果使用 ant 进行 java 项目的编译部署，那怎么添加第三方 jar 包的依赖呢？方法如下：&#xA;在项目的根目录下创建 lib 目录，并把所有需要的第三方 jar 包放到此目录下。 在 build.xml 中依次添加：path、property，并在 javac 中添加 classpath，添加 unjar。完整配置如下： 1&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; 2&amp;lt;project name=&amp;#34;MyTool&amp;#34; default=&amp;#34;build&amp;#34; basedir=&amp;#34;.&amp;#34;&amp;gt; 3 &amp;lt;description&amp;gt;The ant project to build MyTool.&amp;lt;/description&amp;gt; 4 &amp;lt;property name=&amp;#34;srcDir&amp;#34; location=&amp;#34;src&amp;#34; description=&amp;#34;源文件的存放目录&amp;#34; /&amp;gt; 5 &amp;lt;property name=&amp;#34;libDir&amp;#34; location=&amp;#34;lib&amp;#34; description=&amp;#34;第三方jar包的存放目录&amp;#34; /&amp;gt; 6 &amp;lt;property name=&amp;#34;antDir&amp;#34; location=&amp;#34;ant&amp;#34; description=&amp;#34;编译后所有文件存放的根目录&amp;#34; /&amp;gt; 7 &amp;lt;property name=&amp;#34;binDir&amp;#34; location=&amp;#34;${antDir}/bin&amp;#34; description=&amp;#34;编译后class文件的存放目录&amp;#34; /&amp;gt; 8 &amp;lt;property name=&amp;#34;jarDir&amp;#34; location=&amp;#34;${antDir}/jar&amp;#34; description=&amp;#34;打包后jar包的存放目录&amp;#34; /&amp;gt; 9 &amp;lt;property name=&amp;#34;jarFile&amp;#34; location=&amp;#34;${jarDir}/MyTool.</description>
+    </item>
+    <item>
+      <title>linux 网络测速</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/02/linux-%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%80%9F/</link>
+      <pubDate>Tue, 22 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/02/linux-%E7%BD%91%E7%BB%9C%E6%B5%8B%E9%80%9F/</guid>
+      <description>linux 网络测速 一键测试脚本bench.sh 适用于各种 Linux 发行版的网络（下行）和 IO 测试：&#xA;显示当前测试的各种系统信息 取自世界多处的知名数据中心的测试点，下载测试比较全面 支持 IPv6 下载测速 IO 测试三次，并显示平均值 1wget -qO- bench.sh | bash 2#或者下面这命令下载执行 3curl -Lso- bench.sh | bash 欢迎关注我的博客www.jobcher.com</description>
+    </item>
+    <item>
+      <title>获取用户浏览器默认语言设置，自动判断跳转不同网站</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E6%B5%8F%E8%A7%88%E5%99%A8%E9%BB%98%E8%AE%A4%E8%AF%AD%E8%A8%80%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%8A%A8%E5%88%A4%E6%96%AD%E8%B7%B3%E8%BD%AC%E4%B8%8D%E5%90%8C%E7%BD%91%E7%AB%99/</link>
+      <pubDate>Thu, 16 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E6%B5%8F%E8%A7%88%E5%99%A8%E9%BB%98%E8%AE%A4%E8%AF%AD%E8%A8%80%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%8A%A8%E5%88%A4%E6%96%AD%E8%B7%B3%E8%BD%AC%E4%B8%8D%E5%90%8C%E7%BD%91%E7%AB%99/</guid>
+      <description>自动判断跳转不同网站 根据用户目前的浏览器配置语言进行显示 供语言切换按钮，用户自定义选择不同的语言显示 根据识别用户的浏览器语言，自动判断并跳转到相应的语言网页，让你的网站更加灵动。&#xA;以下需要将代码放在 HTML 的内即可，然后自行制作多语言页面。&#xA;代码如下：&#xA;1&amp;lt;script type=&amp;#34;text/javascript&amp;#34;&amp;gt; 2 //获取用户语言的顺序是 3 //1.获取本地缓存里的内容 4 //2.用户浏览器的语言设置 5 //如果上面2个都没有获取到，就直接使用&amp;#39;en&amp;#39;作为用户选择的语言 6 var language = 7 localStorage.getItem(&amp;#34;locale&amp;#34;) || 8 window.navigator.language.toLowerCase() || 9 &amp;#34;en&amp;#34;; 10 //把用户的语言写入缓存，供下次获取使用 11 localStorage.setItem(&amp;#34;locale&amp;#34;, language); 12 //判断用户的语言，跳转到不同的地方 13 if (language.indexOf(&amp;#34;zh-&amp;#34;) !== -1) { 14 window.location = &amp;#34;/zh-cn/index.html&amp;#34;; 15 } else if (language.indexOf(&amp;#34;en&amp;#34;) !== -1) { 16 window.location = &amp;#34;/en/index.html&amp;#34;; 17 } else { 18 //其它的都使用英文 19 window.location = &amp;#34;/en/index.html&amp;#34;; 20 } 21&amp;lt;/script&amp;gt; 核心代码</description>
+    </item>
+  </channel>
+</rss>

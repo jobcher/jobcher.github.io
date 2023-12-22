@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>daliy on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/tags/daliy/</link>
+    <description>Recent content in daliy on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Tue, 26 Sep 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/tags/daliy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iOS 17 「待机显示」适配普通 iPhone（非 Pro/Max），屏幕在充电时常亮</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/09/ios-17-%E5%BE%85%E6%9C%BA%E6%98%BE%E7%A4%BA%E9%80%82%E9%85%8D%E6%99%AE%E9%80%9A-iphone%E9%9D%9E-pro/max%E5%B1%8F%E5%B9%95%E5%9C%A8%E5%85%85%E7%94%B5%E6%97%B6%E5%B8%B8%E4%BA%AE/</link>
+      <pubDate>Tue, 26 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/09/ios-17-%E5%BE%85%E6%9C%BA%E6%98%BE%E7%A4%BA%E9%80%82%E9%85%8D%E6%99%AE%E9%80%9A-iphone%E9%9D%9E-pro/max%E5%B1%8F%E5%B9%95%E5%9C%A8%E5%85%85%E7%94%B5%E6%97%B6%E5%B8%B8%E4%BA%AE/</guid>
+      <description>让 iOS 17 「待机显示」适配普通 iPhone（非 Pro/Max），屏幕在充电时常亮 背景 让 iPhone 14/15 Pro/Max 以下机型也可以在屏幕激活待机显示功能（充电且横置）时保持常亮，以显示小组件内容。&#xA;2023 年新发布的 iOS 17 有一个新功能：待机显示 StandBy，它能在 iPhone 横向放置且充电时，全屏显示小组件，比如时钟、日历等等，但所有的非 Pro/Max 机型，由于没有全天候显示屏（显示屏能够以低至 1 Hz 的刷新率运行），所以并不能持续使用待机显示，会在几秒钟之后熄灭屏幕，当感受到震动（轻轻拍一下桌子），或有新通知时，再次点亮。&#xA;原理 如果 iPhone 接入充电器充电 &amp;gt; 等待 19 秒 &amp;gt; 开关一次低电量模式 &amp;gt; 再运行一次脚本 如果没有充电 &amp;gt; 关闭低电量模式 &amp;gt; 停止脚本 之后，使用自动化功能，当 iPhone 接入充电器时，自动运行这个脚本就行了。 教程 获取链接 自带19秒等待间隔，如果遇到熄屏可以修改为15秒。 注意 小组件自动轮换失效 烧屏：请务必小心，长期使用可能会导致的屏幕问题 充电前需要手动熄屏，否则会因为不断的开关低电量模式而无法进入待机显示 </description>
+    </item>
+    <item>
+      <title>【福利】埃隆·马斯克传 [沃尔特·艾萨克森] 在线下载</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/09/%E7%A6%8F%E5%88%A9%E5%9F%83%E9%9A%86%E9%A9%AC%E6%96%AF%E5%85%8B%E4%BC%A0-%E6%B2%83%E5%B0%94%E7%89%B9%E8%89%BE%E8%90%A8%E5%85%8B%E6%A3%AE-%E5%9C%A8%E7%BA%BF%E4%B8%8B%E8%BD%BD/</link>
+      <pubDate>Tue, 19 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/09/%E7%A6%8F%E5%88%A9%E5%9F%83%E9%9A%86%E9%A9%AC%E6%96%AF%E5%85%8B%E4%BC%A0-%E6%B2%83%E5%B0%94%E7%89%B9%E8%89%BE%E8%90%A8%E5%85%8B%E6%A3%AE-%E5%9C%A8%E7%BA%BF%E4%B8%8B%E8%BD%BD/</guid>
+      <description>介绍 著名传记作家艾萨克森以近距离的观察视角，揭开了如今全球引人注目、富有争议性的创新企业家的神秘面纱：他善于突破常规，引领全球进入电动汽车时代、私人太空探索时代和人工智能时代，还将推特收入囊中。 埃隆·马斯克小时候在南非生活，那时他经常遭受校园欺凌，但同父亲给他造成的情感创伤相比，这些伤痛都微不足道。他的童年浸透了人性，这将他塑造为一个坚强而又脆弱的男孩，他对风险的容忍度极高，渴望营造出富有戏剧性的生活，让人类文明成为星际文明是他的宏大目标。 2008年，SpaceX的火箭在前三次发射过程中接连爆炸，特斯拉也即将破产，这是他生命中地狱般的至暗时期。在飓风来临时，他是最兴奋的人之一。动荡的环境和剧烈的冲突对他有着莫大的吸引力，有时他甚至渴望这些东西，无论是在工作中，还是在他努力维持却未能持久的恋爱关系中。每当面临艰巨的挑战，紧张感常常让他夜不能寐，甚至呕吐不止，但这些都是他赖以为生的养分。 2022年年初，也就是在SpaceX成功发射了31颗卫星、特斯拉卖出了近100万辆汽车、埃隆成为地球上最富有的人一年后，对于自己一再挑起戏剧性冲突的背后动机，他略带感伤地谈起了他的反思。 他说：“我需要改变我的思维模式，不能一直处于危机战备状态，我这种状态已经持续了大概14年，或者说我人生的大部分时间。”这更像是一个自怨自艾的评价，而不是在表达新年新气象的决心。他一边做出了这些反思和保证，一边还在秘密买入推特的股票。 两年来，艾萨克森形影不离地跟访马斯克，参加他大大小小的会议，与他一起走访工厂，深度采访了他本人，以及他的家人、朋友、同事、前妻和对手。艾萨克森揭开了马斯克内幕故事的面纱，其中有荡气回肠的胜利，也有跌宕起伏的乱局，令人拍案称奇。这些故事回答了这样一个问题：那个在马斯克心底驱使着他的恶魔，是不是也是推动创新与进步所必需的呢？&#xA;下载链接 埃隆·马斯克传 [沃尔特·艾萨克森].pdf&#xA;埃隆·马斯克传 [沃尔特·艾萨克森].epub</description>
+    </item>
+    <item>
+      <title>【破解】小鹏P5和小鹏G9开启adb和网络adb</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/09/%E7%A0%B4%E8%A7%A3%E5%B0%8F%E9%B9%8Fp5%E5%92%8C%E5%B0%8F%E9%B9%8Fg9%E5%BC%80%E5%90%AFadb%E5%92%8C%E7%BD%91%E7%BB%9Cadb/</link>
+      <pubDate>Thu, 14 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/09/%E7%A0%B4%E8%A7%A3%E5%B0%8F%E9%B9%8Fp5%E5%92%8C%E5%B0%8F%E9%B9%8Fg9%E5%BC%80%E5%90%AFadb%E5%92%8C%E7%BD%91%E7%BB%9Cadb/</guid>
+      <description>LET&amp;rsquo;S HACK NOW! 本文章可以帮助当前正式版本的小鹏P5和小鹏G9开启adb和网络adb&#xA;重要提示 如果你对第三方软件的需求高于OTA需求，请关闭OTA功能，P5和G9的下一个版本大概率或已经启用了更高级的加密方式，无法获取解锁码，需要等待其他方式破解 开启adb步骤 首先确认您的爱车是小鹏P5（OTA3.5.0及之前）或小鹏G9（OTA4.3.1及之前）或小鹏G6（未测试）或小鹏P7（OTA2.10及之前）或小鹏G3（版本不确定，最新版不行）&#xA;将您的笔记本电脑（已安装adb组件）或安卓手机（已安装甲壳虫adb软件）和您的车机连接到同一无线局域网中（此处可使用另一台手机打开热点），以下使用笔记本电脑举例&#xA;打开车机的拨号界面，输入*#9925*111#*&#xA;此时车机会显示一个页面，其中包含一个二维码&#xA;使用微信扫描您的车机的二维码，并将内容保存备用&#xA;在任意输入框中输入内容https://hackxpeng.bgcpdd.eu.org/xpeng?m=hackxpeng&amp;amp;id=，然后将您获取到的二维码内容复制到最后面，注意此处不要有任何的空格&#xA;使用浏览器打开您输入框中的所有内容（网址拼接，如：https://hackxpeng.bgcpdd.eu.org/xpeng?m=hackxpeng&amp;amp;id=XPENGD55xxxxxxxxxxxxxx）&#xA;浏览器返回一个解锁码（如：*#03*12345678*#）&#xA;将该解锁码输入车机的拨号界面，此时解锁码会自动消失，如果没有消失请手动删除所有内容&#xA;使用拨号界面输入*#9387*141#*&#xA;打开调试和网络调试（一般是前两个选项）&#xA;笔记本电脑使用win+r，输入cmd回车，输入adb connect 车机页面中的ip:5050（如adb connect 172.20.10.2:5050）&#xA;cmd显示连接成功&#xA;下载你需要安装的apk&#xA;使用adb install安装软件（如：adb install C:\abc\a.apk）&#xA;安装成功&#xA;adb还有更多好玩有趣的玩法等你发现&#xA;笔记本电脑安装adb套件 打开https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn&#xA;下载windows版本 并解压&#xA;将所有文件放入c盘windows目录下的system32和syswow64 注意两个都要放&#xA;致小鹏汽车：以下是关闭获取解锁码api的步骤 将P7 P5的地图更新到高德地图最新版本（包括红绿灯倒计时，最新版高精地图，组队功能，普通道路沉浸导航，语音包等）&#xA;将P7 P5的QQ音乐更新到最新版本&#xA;承诺定期公布OTA进度（最低界限为每月公布）&#xA;将P5 p版sr下放到e版车型（显示车辆运动轨迹）&#xA;优化P7 P5 G3/i自动泊车&#xA;优化NGP并将速度上限设置为130&#xA;将P7 P5的夜晚/白天切换逻辑修改为根据光线传感器，而非日出日落时间&#xA;上线P5的智慧场景或私人定制2.0&#xA;重新评估P7 P5适配新版UI的可行性&#xA;重新评估P7更换8155车机的可行性&#xA;全部完成后使用小鹏汽车官方Github账号在本仓库发送issue&#xA;文章转载于网络，侵权即删 原文连接</description>
+    </item>
+    <item>
+      <title>3D Gaussian Splatting：3D模型渲染</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/08/3d-gaussian-splatting3d%E6%A8%A1%E5%9E%8B%E6%B8%B2%E6%9F%93/</link>
+      <pubDate>Wed, 30 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/08/3d-gaussian-splatting3d%E6%A8%A1%E5%9E%8B%E6%B8%B2%E6%9F%93/</guid>
+      <description>简介 只需要一组照片或者一个视频，就能快速地生成一个3D模型。&#xA;它使了用一种叫做“3D高斯函数”的数学工具来表示这个3D模型，并找到了一种更快的算法来渲染（即生成）3D模型。&#xA;介绍 想象一下，你有一堆照片或视频，你想从一个全新的角度看这些场景。3D Gaussian Splatting 就是一个能让你做到这一点的高级工具。它用一种特别快和高质量的方式来“重建”这些场景，让你能够从任何角度观看它们，就像你实际站在那里一样。&#xA;这个工具的“大脑”使用了一种叫做3D高斯的数学模型，这个模型能够非常精确地描述场景的每一个细节。更酷的是，这个工具还能实时地显示这些新角度的场景，这意味着你不必等待很长时间就能看到结果。&#xA;简而言之，这是一个能让你以全新、快速和高质量的方式探索照片和视频场景的工具。&#xA;使用 硬件要求 具有计算能力 7.0+ 的 CUDA 就绪 GPU 24 GB VRAM（用于训练论文评估质量） 软件要求 Conda（推荐使用，以便于设置） 用于 PyTorch 扩展的 C++ 编译器（我们使用 Visual Studio 2019 for Windows） 用于 PyTorch 扩展的 CUDA SDK 11，在 Visual Studio 之后安装（我们使用 11.8，11.6 存在已知问题） C++编译器和CUDA SDK必须兼容 设置 1SET DISTUTILS_USE_SDK=1 # Windows only 2conda env create --file environment.yml 3conda activate gaussian_splatting 请注意，此过程假设您安装了 CUDA SDK 11，而不是 12。有关修改，请参阅下文。&#xA;1conda config --add pkgs_dirs &amp;lt;Drive&amp;gt;/&amp;lt;pkg_path&amp;gt; 2conda env create --file environment.</description>
+    </item>
+    <item>
+      <title>2023亚运会电竞门票民购买指南（报名&#43;抽签）</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/08/2023%E4%BA%9A%E8%BF%90%E4%BC%9A%E7%94%B5%E7%AB%9E%E9%97%A8%E7%A5%A8%E6%B0%91%E8%B4%AD%E4%B9%B0%E6%8C%87%E5%8D%97%E6%8A%A5%E5%90%8D-%E6%8A%BD%E7%AD%BE/</link>
+      <pubDate>Mon, 14 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/08/2023%E4%BA%9A%E8%BF%90%E4%BC%9A%E7%94%B5%E7%AB%9E%E9%97%A8%E7%A5%A8%E6%B0%91%E8%B4%AD%E4%B9%B0%E6%8C%87%E5%8D%97%E6%8A%A5%E5%90%8D-%E6%8A%BD%E7%AD%BE/</guid>
+      <description>2023亚运会电竞门票民购买指南（报名+抽签） 杭州亚运会电子竞技项目门票于8月14日陆续启动销售，门票实名登记。杭州亚运会电子竞技项目以报名抽签，中签支付的形式对公众销售&#xA;杭州亚运会电子竞技项目以报名抽签，中签支付的形式对公众销售，包括梦三国2、DOTA2、王者荣耀亚运版本、FIFAOnline4、和平精英亚运版本、街霸V、英雄联盟7个小项全部可售场次。&#xA;根据竞赛日程安排，上述7个项目将分4批次启动报名，每个批次的报名、抽签、支付时间不同，具体安排如下：&#xA;电子竞技项目报名抽签工作在杭州市国立公证处监督下，通过系统随机抽签、订单中签的方式进行，系统不设任何加权抽签系数。&#xA;报名阶段 报名渠道:杭州亚运会公众售票官方网站PC端或H5页面、智能亚运一站通·票务通（点击进入选择项目进行报名）。 用户报名申请单需如实提交以下内容:姓名、证件类型、证件号。 报名规则:在有效报名时间内，注册用户仅可成功提交同一场次1个报名申请单，且报名时间内可随时取消报名申请单，最多可取消同一场次报名申请单10次。每个申请单最多包含2名观赛人，每一名观赛人每一场次只允许成功报名一次。单场次报名申请单如达到200万个则将提前截止报名，截止后不可再提交报名申请单。 调剂规则:用户可选择是否接受调剂。如未能中签首选票档，在调剂票档有库存时系统将自动调剂至调剂票档进行抽签。 通知结果阶段 抽签结果告知方式 :用户可在“用户中心-我的报名”中查看抽签结果。&#xA;支付阶段 用户在“用户中心-我的报名”确认支付后，已完成支付报名单可在“我的订单”查询门票订单信息。用户在报名单支付有效期内如需放弃门票可随时点击“放弃购买资格，或在支付阶段支付截止时间前未支付也视为放弃门票。&#xA;出票及配送阶段 配座规则:根据订单支付时间先后顺序进行配座出票，含多张门票的订单尽量满足连座。 出票方式:电子竞技项目门票配座完成出票后，选择电子票的用户可在票夹中查看具体门票信息，选择纸质票的用户可在“我的订单”页查看门票信息。 门票购票规则 购票要求:购票人需年满18周岁，18周岁以下应在法定代理人陪同下购票。购票时需填写与门票数量一一对应的实名制信息。 实名制购票及入场:用户需携带门票(纸质票或电子票) 及购票时填写的有效身份证件入场。 不支持转售及转送:电子竞技项目门票为报名抽签项目，电子票与纸质票订单和门票均不支持转售及转送。 门票退票规则 所购门票一旦售出，除杭州亚组委另有规定或者比赛取消外一律不予退换。如比赛取消，持票观众无需在线提交退票申请，杭州亚组委统一安排退票事宜，纸质票无需寄回，电子票在线作废。不能要求更换其他比赛场次的门票。</description>
+    </item>
+    <item>
+      <title>大麦抢票辅助软件(福利 TFBOYS十年之约演唱会 2023 全机位 视频)</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/08/%E5%A4%A7%E9%BA%A6%E6%8A%A2%E7%A5%A8%E8%BE%85%E5%8A%A9%E8%BD%AF%E4%BB%B6%E7%A6%8F%E5%88%A9-tfboys%E5%8D%81%E5%B9%B4%E4%B9%8B%E7%BA%A6%E6%BC%94%E5%94%B1%E4%BC%9A-2023-%E5%85%A8%E6%9C%BA%E4%BD%8D-%E8%A7%86%E9%A2%91/</link>
+      <pubDate>Tue, 08 Aug 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/08/%E5%A4%A7%E9%BA%A6%E6%8A%A2%E7%A5%A8%E8%BE%85%E5%8A%A9%E8%BD%AF%E4%BB%B6%E7%A6%8F%E5%88%A9-tfboys%E5%8D%81%E5%B9%B4%E4%B9%8B%E7%BA%A6%E6%BC%94%E5%94%B1%E4%BC%9A-2023-%E5%85%A8%E6%9C%BA%E4%BD%8D-%E8%A7%86%E9%A2%91/</guid>
+      <description>大麦抢票辅助软件(福利 TFBOYS十年之约演唱会 2023 全机位 视频) 只限android手机！IOS手机不支持！&#xA;DaMaiHelper是一款大麦抢票辅助软件（只抢待开抢中的），软件原理是抓取页面ui控件id，通过模拟点击实现的大麦辅助抢票，软件需要开启相应的权限，如果页面渲染太慢，就会抓取失败导致点击超时无效，所以可以手动辅助点击，该软件只能起到辅助效果，帮忙快速点击，一定要提前选好场次、价格还有观影人，收藏到想看。&#xA;项目地址&#xA;软件下载&#xA;使用教程 先去演唱会主页预选好场次、价格还有观演人，点击想看 （可选）手机后台杀掉大麦app任务 打开辅助app，给于对应权限 （可选）输入歌手名字，默认五月天 点击开抢按钮即可 如果点击开抢后，页面未开始自动跳转，可手动杀死大麦，再次切到辅助app点击开抢 如果想终止辅助app，点击右上角悬浮窗&amp;lt;点击停止&amp;gt;即可 福利 TFBOYS十年之约演唱会 2023 全机位&#xA;百度网盘下载 链接: https://pan.baidu.com/s/1mry1Mib5TSAuTJWpasoG-g&#xA;提取码: icep</description>
+    </item>
+    <item>
+      <title>最好的微信朋友圈集赞神器-福利推荐</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/07/%E6%9C%80%E5%A5%BD%E7%9A%84%E5%BE%AE%E4%BF%A1%E6%9C%8B%E5%8F%8B%E5%9C%88%E9%9B%86%E8%B5%9E%E7%A5%9E%E5%99%A8-%E7%A6%8F%E5%88%A9%E6%8E%A8%E8%8D%90/</link>
+      <pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/07/%E6%9C%80%E5%A5%BD%E7%9A%84%E5%BE%AE%E4%BF%A1%E6%9C%8B%E5%8F%8B%E5%9C%88%E9%9B%86%E8%B5%9E%E7%A5%9E%E5%99%A8-%E7%A6%8F%E5%88%A9%E6%8E%A8%E8%8D%90/</guid>
+      <description>最好的微信朋友圈集赞神器-集赞2.0 奶茶店活动，朋友圈集满50个赞，送一杯奶茶。 饭店新开张，朋友圈集满98个赞，全场7折优惠。 旅游景点拉人气，朋友圈集满60个赞，送门票。&#xA;还在为这些恼人的朋友圈集赞发愁吗？ 还在为拿着其他地方生成的集赞图片，怕被发现而胆战心惊吗？ 翻遍通讯录，求着好友帮忙点赞。还是不够数？&#xA;现在“集赞”发布，1比1还原微信，轻松设置点赞数，再也不用担心点赞数量，大大方方展示，不惧查验，轻松薅羊毛。 应付生活中各种需要转发点赞场景，体验效果绝非是那种仅仅生成一张点赞图片能比的。&#xA;如果你有这样的烦恼，我推荐你试试这款免费的微信朋友圈集赞神器，简单体验了一下，发现这款工具高度还原了一个整个微信界面ui，现在“集赞2.0 ”发布，逻辑重构，去除一天只能发布一条朋友圈的限制，删除“三连”功能，现在可以无限制的发布，1比1还原微信，轻松设置点赞数，再也不用担心点赞数量。&#xA;集赞神器使用帮助页面：https://blog.itakeo.com/help</description>
+    </item>
+    <item>
+      <title>2010年的天涯神贴聊房价</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/06/2010%E5%B9%B4%E7%9A%84%E5%A4%A9%E6%B6%AF%E7%A5%9E%E8%B4%B4%E8%81%8A%E6%88%BF%E4%BB%B7/</link>
+      <pubDate>Mon, 05 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/06/2010%E5%B9%B4%E7%9A%84%E5%A4%A9%E6%B6%AF%E7%A5%9E%E8%B4%B4%E8%81%8A%E6%88%BF%E4%BB%B7/</guid>
+      <description>天涯神贴（持续更新中&amp;hellip;） 调控降房价是刚需的一厢情愿 1、人人都有居住权。房子是用来住的，不是用来炒的。 2、房子太贵了，租售比严重不合理，空置率太高，人均收入太低，早晚要崩盘。 3、房价上涨造成物价上涨，人民生活变得困难 调控的真正目的：防范金融风险 &amp;amp; 通过垄断实现gj利益最大化 官方公布的统计数据，只要关系到某个群体的利益，就一定会被修饰导致失真 税收从来都是向下游转嫁的 &amp;amp; 房产税迟迟不出台的真正原因 房地产的现状 房价持续上涨的本质是稀缺性让好房子成为资金最好的去处 关于垄断 1、垄断的好处是没有风险 2、垄断可以解决社会稳定 3、房屋垄断只会愈演愈烈，底层人民想要拥有一套房子的难度只会越来越难 民生问题 房产税的制定原则 维稳的本质是人民能吃饱饭 公租房是为体制内服务的 房产税一定会转嫁给租房人 巨大的税收消耗也决定了GDP必须快速增长 调控的好处是让zf利益最大化&amp;amp;防范金融风险 垄断可以控制价格，维持稳定 体制内的住房问题有国家保驾护航 依靠但又不能完全依靠开发商建公租房 体制内的住房问题不难解决 解决体制外的住房问题：国家垄断，细水长流收租 普通人买得起「优质商品房」就尽早买把 商品房和公租房的区别 提议通过征普税调节贫富差距，不是傻，就是坏（制定政策的人不会让政策针对自己，那么政策都是谁制定的呢） 调控带来的影响 农产品的价格关系到影响稳定的吃饭问题 农产品价格的抬头会导致物价全面上涨，但国家不会坐视不管且有能力管 资金会在优质资产之间流动，而决定优质资产价格的是精英阶层的购买力 资金流向规律决定了农产品和资产价格总有一个要涨，人为压制，一定会按下葫芦浮起瓢 资金流向规律决定了洼地不会一直是洼地 大城市对近距离的小城市有虹吸效应 决定房价的因素有很多，具体情况具体分析 房价暴涨是相对于钱而言的，不是相对于实际购买力而言的 土地不稀缺，优质土地稀缺 集中发展大城市是导致优质土地稀缺的原因 为人民服务是说给人民听的 历史是一面镜子，不同的国情决定了采取同样的政策结果可能是南辕北辙 zf限制政策房的利润，那kfs就一定会偷工减料 屁股决定脑袋，人民不知厉害关系选房子，zf选农产品 各个阶层的住房问题都安排的妥妥的 顶层的岁月静好来自于底层的负重前行 底层指的是体制外底薪白领 资金终会流向具有稀缺性的资产 土地的稀缺决定了大多数人永远买不起想买的房子 不同阶层的人对收入高低有不同的理解 一二线买房只会越来越难，最终租房会成为主流 人需要一个安身之所，能买早买比晚买好 股市 如果房价不涨，那其他产品会怎么涨 zf如何利用公租房控制租房市场 城中村不会长期存在 三四线城市的未来 房租价格涨不上去，本质是买房还看起来有希望 稀缺房的价格永远涨 粮食和房子的不同是，房子无法和土地剥离 购买房价基数低的省会城市，怎么都不会亏的 房地产是资本市场还是实体经济？ 什么是傻空 什么是真买不起房 具体情况具体分析，如果看不懂，一定是没有抓住问题本质 桂林 vs 南宁 公租房的量级不会冲击到商品房市场 贵阳，资源的稀缺导致权贵更容易垄断，通过低收入高物价的方式剥削底层群体 重庆：高层和别墅怎么选？ 货币贬值 为什么美国人工高于中国，但大多数商品的物价却低于中国 还能上车的赶紧上车 武汉：城市发展空间的大小，往往和房价的升值空间成正比 权利让革族成为苗族的一支 房价是否会跌，如果会，会怎么跌 通货膨胀是减缓灭亡最好的良药 货币供应不足是明朝的真正原因 经济问题是导致清朝灭亡 房产投资的几点建议 人民币对外升值，对内贬值 南宁买房建议 经济适用房都是内部分配的 普通人怎么办：尽早买房，努力挣钱抵御通胀 房价会出现很多上下波动 买房时机的选择（真TM厉害，这竟然是2010年的建议，可恨的是2020年才看到） 收入分配改革跟体制外的人没关系 体制外的人要早早考虑养老问题 永远不要和白痴争辩，因为他会把你的智商拉到和他同一水平，然后用丰富的经验打败你 当个农民也要懂政策，要顺政策而为 存钱不如存资产，钱会贬值，资产会升值 房子越早买越好，zf想钱想疯了 利益才是zf行为的指挥棒 建议一定是建立在严肃考察的基础上 石家庄 投资最重要的是稀缺性，买房首选公务员小区 远离垃圾人 高房价或许有天会崩盘，但你等不到那一天 房子不仅要早买，而且有能力的话不要怕压力，争取一步到位 金融杠杆是炒房赚钱的放大器 要用发展的眼光看问题，只要努力，只会越来越好，越来越轻松 性格决定命运 2012年不取消调控，还有房价维稳顺利换届考虑 洼地最终都会被填平，多数城市是早买胜于晚买 西部 短期波动属于正常现象，需要关注的是长期趋势 领导人的智慧和才干决定了国家的命运，统帅的智慧和才干决定了军队的命运，而个人的智慧和才干决定了个人的命运 对于具备投资属性的商品，供求关系是指货币与商品之间的关系 早买的风险小于晚买 小开发商的房子能不能买？ 大兴土木搞建设的城市，房价都底不了 北京老式砖混板楼的最终命运？ 把房买在zf边，差不了 天子脚下：二手老房买得好，拆迁补偿少不了 3万入手北京四环，你也是幸运的 君为贵，商人、技工次之，农民为轻，打工人为底 10年的调控和08年调控的区别、带来的影响、机会 历史总是惊人的相似 关于房贷 买卖商品房会逐渐变成富人的游戏 zf还是更在意农民问题 治国需要用贪官、反贪官 二线城市典型代表 关于商铺和住宅投资 关于房产调控 关于房产税 老公房的拆迁问题 投资新房还是老公房 高端盘有房价带动作用 买房和没买房的差距 房产交易历史 契税的历史 廉租房的历史 历史上买房最好的朝代 未来房地产市场的发展 房产到期 买学区房问题 历史的结局 人口普查 昆山房价分析与买房 为什么现在租售比这么低 &amp;amp; 同小区买一套大还是两套小 买房难之回不去的乡 &amp;amp; 拉美人过得比你想象的好 租房的苦 北京西三旗 买房争取一步到位 收入稳定的家庭如何买房 北京回龙观 贷款还是全款 00后的买房需求从何而来 意大利的住房模式 中国的学术 北京远洋山水 精英的资产 北京三环塔楼 普通人买房的未来 北京房价超香港 中国的新闻不可信，精英的有钱是你想象不到的 40年的商住房没有70年的住宅有投资价值 限贷对精英没用 外汇管制决定了大部分有钱人只能在国内投资 外国国籍在中国生活是更好的选择 分期付款买房，如果房价上涨，很容易毁约 &amp;amp; 自住要选大品牌开发商 通货膨胀和房价的关系 南京买房分析 &amp;amp; 买房要做好调查分析工作 北京华清嘉园 中国的朝代更替 中国可以无限印钞吗 读史读的不是故事，还是找历史规律，以古鉴今 毛太阳往事 北京大兴 贵阳 富人越富、穷人越穷 通货膨胀的形成原因 深圳 &amp;amp; 昆明仇书记 &amp;amp; 通货膨胀体制内高枕无忧、体制外自求多福 长春 佛山 首付提高的逻辑 四线城市 苏州工业园 住房公积金利率 济南 &amp;amp; 大规律拆迁的城市房价不会下降 公务员小区牛逼 房屋朝向只要不是纯北西就行 &amp;amp; 买房首选市中心、公园地产 zf搬迁 俄罗斯 珠海 &amp;amp; 唯一自住房不只是投资 &amp;amp; 调控是最佳的选房时机 经济崩溃，最后接盘的是老百姓 命运之矛 除非外族入侵或全国大饥荒，否则双轨制决定了房价不会崩盘 kkndme聊北宋、唐朝 宋代房奴 ZG民主 王安石的青苗法之国家出政策的动机 什么是社会公平 还是有很多有钱人 双轨制之体制内的福利 开发商思维 农民政权的缺点 郑州有前景 公园地产是稀缺资源 张献忠屠川 洪秀全、黄巢、李自成 朱元璋 曹参治国 晁错 民营小企业的老板和打工者 郭解 2010年的中国房地产 房奴算不上不幸，相当当不了才算 精英人群的平均收入决定房价 内地不是香港、海南 历史是一面镜子 买房一次性到位比较好 外汇管制 一线和二线 吕后篡权 小产权房 商铺和住宅 体制内外 2010年的上海 买房：物业与房贷 收紧住房贷款 买房：物业与房贷 奸臣蔡京 体制内的28原则 贾谊 kkndme 推荐的历史书 年轻人要早买房 不要低估通货膨胀 二三线城市与重庆 城区和郊区 守着金碗要饭吃 人制的社会，人就是制度 准公务员的好处 小城市房价会因为人民币贬值涨价，但依然难变现 一线杭州 二三线城市的发展靠拆迁 转篇文章：一个忽悠了几亿中国人的伪概念：所谓“中国房地产泡沫” 拆迁补偿 城市底层 垄断企业 农村自来水 袁盎 二三线城市，选新城还是老城 在中国，普通人手上闲钱不多的人被剥削 三分天注定七分靠打拼 人的前程有的时候不掌握在自己手里 河南郑州与洛阳 杭州 西安与重庆 谢国中「空置率」 打工不如有一技之长的小老板 一线、二线的生活 讲故事含沙射影ZG之房子不属于市场经济 什么是好的政策 李商隐「渣男」祖师爷 西五环内的别墅，是相当稀缺的资源 调控降房价是刚需的一厢情愿 2010年的房地产调控，让很多人看到了希望：让房价降得再猛烈些吧。还有人更是幸灾乐祸似的呼喊：让房地产赶紧崩盘吧。让没房子的好好看看有房子的笑话，是人生的一大快事。</description>
+    </item>
+    <item>
+      <title>github 国内代理访问下载</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/04/github-%E5%9B%BD%E5%86%85%E4%BB%A3%E7%90%86%E8%AE%BF%E9%97%AE%E4%B8%8B%E8%BD%BD/</link>
+      <pubDate>Tue, 11 Apr 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/04/github-%E5%9B%BD%E5%86%85%E4%BB%A3%E7%90%86%E8%AE%BF%E9%97%AE%E4%B8%8B%E8%BD%BD/</guid>
+      <description>演示代理 前缀 https://github.jobcher.com/gh/&#xA;下载仓库 git clone https://github.jobcher.com/gh/&amp;lt;你要下载的GitHub地址&amp;gt;&#xA;1#例子 2git clone https://github.jobcher.com/gh/https://github.com/jobcher/blog.git 部署 复制js到cloudflare worker&#xA;1&amp;#39;use strict&amp;#39; 2 3/** 4 * static files (404.html, sw.js, conf.js) 5 */ 6const ASSET_URL = &amp;#39;https://jobcher.github.io/&amp;#39; 7// 前缀，如果自定义路由为example.com/gh/*，将PREFIX改为 &amp;#39;/gh/&amp;#39;，注意，少一个杠都会错！ 8const PREFIX = &amp;#39;/gh/&amp;#39; 9// 分支文件使用jsDelivr镜像的开关，0为关闭，默认关闭 10const Config = { 11 jsdelivr: 0 12} 13 14const whiteList = [] // 白名单，路径里面有包含字符的才会通过，e.g. [&amp;#39;/username/&amp;#39;] 15 16/** @type {RequestInit} */ 17const PREFLIGHT_INIT = { 18 status: 204, 19 headers: new Headers({ 20 &amp;#39;access-control-allow-origin&amp;#39;: &amp;#39;*&amp;#39;, 21 &amp;#39;access-control-allow-methods&amp;#39;: &amp;#39;GET,POST,PUT,PATCH,TRACE,DELETE,HEAD,OPTIONS&amp;#39;, 22 &amp;#39;access-control-max-age&amp;#39;: &amp;#39;1728000&amp;#39;, 23 }), 24} 25 26 27const exp1 = /^(?</description>
+    </item>
+    <item>
+      <title>逆境和成长-2022年终总结</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/12/%E9%80%86%E5%A2%83%E5%92%8C%E6%88%90%E9%95%BF-2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Fri, 30 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/12/%E9%80%86%E5%A2%83%E5%92%8C%E6%88%90%E9%95%BF-2022%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</guid>
+      <description> 转眼间来到了 2022 年的尾声，2022 年不仅仅对于世界来说，还是对于我个人来说都是意义非凡的一年。&#xA;逆境和成长 2022 年初在中国大陆仍然实行着最为严格的清零政策并愈演愈烈，城市居民被限制人身自由，就连农村地区也被大量要求居家隔离，严重损害了中国经济和社会活力。中国失业人口再创新高，大量的毕业生找不到工作。在美国，最为严重的通货膨胀席卷全国，高昂的加息政策，损害了底层人民和工薪阶层。在中东，塔利班武装重新占领阿富汗，重新实行政教合一的暴力统治。在俄罗斯，爆发了乌克兰战争，将俄罗斯真正从苏联的阴影中脱离出来。在世界各地发生了太多的变化，2022 年注定是要被载入史册的一年。&#xA;对于我个人来说，2022 年也是成长非常大的一年，我经历了自工作来最大的变化，我从一家工作了多年的企业毕业，再次进入了社会的试炼场中求职，接触了更多的人，碰到了更多的事，也有了更多的感悟。曾经的我会讲工作看的比一切都重要，通过勤奋和努力可以改变一切，但是，社会的规则并不是这样的。决定你的个人价值并不是这些外在的东西，决定你个人价值的是你自己对自己的看法。你认为自己有价值，你就是你能够做到有价值。你觉得自己不重要，别人自然觉得你不重要。&#xA;在 🆕 的 2023 年，希望世界和平，人人幸福，愿生活在苦难中的人们，能够早日远离苦难，让幸福来敲门……&#xA;欢迎关注我的博客[www.jobcher.com](https://www.jobcher.com/) </description>
+    </item>
+    <item>
+      <title>优雅的使用Conda管理python环境</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/12/%E4%BC%98%E9%9B%85%E7%9A%84%E4%BD%BF%E7%94%A8conda%E7%AE%A1%E7%90%86python%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Wed, 14 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/12/%E4%BC%98%E9%9B%85%E7%9A%84%E4%BD%BF%E7%94%A8conda%E7%AE%A1%E7%90%86python%E7%8E%AF%E5%A2%83/</guid>
+      <description>背景 很多时候,避免不了同时使用 python2 和 python3 的环境,也避免不了不同的工作所需要不同版本的库文件,比如在想用 TensorFlow 较早版本的同时;还想运行 Pytorch 最新版；还想顺便学习 Nao 机器人编程,学习 Django 后台,这个时候,一款非常好用的包管理工具就显得十分重要了,这就是我写这篇博客的原因,这篇博客将会讲解：&#xA;如何安装 conda; 如何更换 conda 的下载源; 如何使用 canda; 安装 conda 在安装时这两个选项需要点上：&#xA;更换 conda 的下载源 Conda官方的下载源太慢了,而且经常会出现 HTTPERROR 之类的错误,如果想要用 Conda 愉快的创建不同工作环境,愉快的下载安装各种库,那么换下载源是必不可少的&#xA;1conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ 2conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge 3conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/ 4 5conda config --set show_channel_urls yes 6# 设置搜索时显示通道地址 具体操作同时按 Win+R 键打开运行窗口,输入 cmd,回车：&#xA;将上面的命令全部复制,到命令行里单击右键就会自动执行复制的命令,添加清华源&#xA;使用 conda 查看环境&#xA;1conda info -e 2conda info --envs 创建环境</description>
+    </item>
+    <item>
+      <title>shell功能脚本集合</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/11/shell%E5%8A%9F%E8%83%BD%E8%84%9A%E6%9C%AC%E9%9B%86%E5%90%88/</link>
+      <pubDate>Thu, 10 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/11/shell%E5%8A%9F%E8%83%BD%E8%84%9A%E6%9C%AC%E9%9B%86%E5%90%88/</guid>
+      <description>28 合 1 多功能脚本 脚本说明: 多合一脚本，DD 系统，BBR，xray,TG 搭建等等·常用的各种脚本基本都有！ 系统支持: CentOS6+ / Debian6+ / Ubuntu14+ 支持安装 BBR，搭建 KCPtun，ssr 多用户版 安装 V2ary，Tg 专用代理（Go 版），安装 Goflyway 小鸡性能测试，回程线路测试，云监控 傻瓜式一键 DD 包 一键开启默认 bbr Netflix 解锁检测 xray 安装 宝塔面板，闲蛋面板，x-ui 面板，WARP 一键配置 脚本特点: 目前网上的各个一键脚本基本都是只有 安装/启动/重启 等基础功能，对于小白来说还是不够简单方便。常用的各种脚本基本都有！&#xA;下载安装: 1bash &amp;lt;(curl -s -L https://git.io/JPj82) gfw_push 一键安装 脚本说明: 监测服务器 IP 是否被墙并推送至 Telegram 一键脚本 系统支持: CentOS6+ / Debian6+ / Ubuntu14+ 下载安装: 1bash &amp;lt;(curl -s -L git.io/JPjzm) 服务器测速 脚本说明: 服务器一键测速脚本 系统支持: CentOS7 / Debian7+ / Ubuntu14+ 下载安装: 1bash &amp;lt;(curl -s -L git.</description>
+    </item>
+    <item>
+      <title>headscale 部署使用</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/09/headscale-%E9%83%A8%E7%BD%B2%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Wed, 21 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/09/headscale-%E9%83%A8%E7%BD%B2%E4%BD%BF%E7%94%A8/</guid>
+      <description>Headscale Tailscale 的控制服务器是不开源的，而且对免费用户有诸多限制，这是人家的摇钱树，可以理解。好在目前有一款开源的实现叫 Headscale，这也是唯一的一款，希望能发展壮大。&#xA;Headscale 由欧洲航天局的 Juan Font 使用 Go 语言开发，在 BSD 许可下发布，实现了 Tailscale 控制服务器的所有主要功能，可以部署在企业内部，没有任何设备数量的限制，且所有的网络流量都由自己控制。&#xA;Headscale 部署 我决定使用docker-compose进行部署&#xA;创建存储 1#!/bin/bash 2mkdir -p /opt/headscale 3mkdir -p ./config 4touch ./config/db.sqlite 5curl https://raw.githubusercontent.com/juanfont/headscale/main/config-example.yaml -o ./config/config.yaml 运行 docker-compose 文件 创建 docker-compose.yaml&#xA;1version: &amp;#34;3&amp;#34; 2services: 3 headscale: 4 image: headscale/headscale:latest 5 volumes: 6 - ./config:/etc/headscale/ 7 - ./data:/var/lib/headscale 8 ports: 9 - 8080:8080 10 - 9090:9090 11 - 50443:50443 12 command: headscale serve 13 restart: unless-stopped 运行</description>
+    </item>
+    <item>
+      <title>羊了个羊小程序 破解通关</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/09/%E7%BE%8A%E4%BA%86%E4%B8%AA%E7%BE%8A%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E7%A0%B4%E8%A7%A3%E9%80%9A%E5%85%B3/</link>
+      <pubDate>Fri, 16 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/09/%E7%BE%8A%E4%BA%86%E4%B8%AA%E7%BE%8A%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E7%A0%B4%E8%A7%A3%E9%80%9A%E5%85%B3/</guid>
+      <description>注意此教程需要通过电脑端完成&#xA;操作步骤 1、微信打开羊了个羊小程序，玩第一关 2、进入当前登录的微信数据文件夹 微信左下角 -&amp;gt; 设置 -&amp;gt; 文件管理 -&amp;gt; 打开文件夹&#xA;打开后进入当前登录的微信数据文件夹&#xA;3、进入当前登录微信数据文件夹后，依次进入 \Applet\wx141bfb9b73c970a9\usr\gamecaches\resources&#xA;注意 wx141bfb9b73c970a9 文件名可能不同，但以 a9 结尾&#xA;4、修改游戏配置文件 在此文件夹下，有很多 json 文件，找到默认排序的第三个，大小 2k 的文件&#xA;我的电脑是 16632884479734.json 文件，用记事本打开，清空里面内容，将 new.txt 文件中的代码复制进此 json 文件，保存关闭&#xA;1[1,0,0,[[&amp;#34;cc.JsonAsset&amp;#34;,[&amp;#34;_name&amp;#34;,&amp;#34;json&amp;#34;],1]],[[0,0,1,3]],[[0,&amp;#34;levelConfigData&amp;#34;,{&amp;#34;dailyLevel&amp;#34;:[[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001],[80001,80001]],&amp;#34;topicLevel&amp;#34;:[[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017],[10017,10017]]}]],0,0,[],[],[]] 之后打开游戏，仅需要完成 4 次第一关九宫格样式即可加入羊群！</description>
+    </item>
+    <item>
+      <title>logrotate 日志滚动的使用</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/logrotate-%E6%97%A5%E5%BF%97%E6%BB%9A%E5%8A%A8%E7%9A%84%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Wed, 29 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/logrotate-%E6%97%A5%E5%BF%97%E6%BB%9A%E5%8A%A8%E7%9A%84%E4%BD%BF%E7%94%A8/</guid>
+      <description>logrotate 日志滚动的使用 logrotate 日志滚动切割工具，是 linux 默认安装的工具，配置文件位置：&#xA;1/etc/logrotate.conf 2/etc/logrotate.d/ 参数 以 nginx 配置为例&#xA;1/opt/log/nginx/*.log { 2&#x9;daily 3&#x9;missingok 4&#x9;rotate 14 5 errors &amp;#34;nb@nbtyfood.com&amp;#34; 6&#x9;compress 7&#x9;delaycompress 8&#x9;notifempty 9&#x9;create 0640 www-data adm 10&#x9;sharedscripts 11&#x9;prerotate 12&#x9;if [ -d /etc/logrotate.d/httpd-prerotate ]; then \ 13&#x9;run-parts /etc/logrotate.d/httpd-prerotate; \ 14&#x9;fi \ 15&#x9;endscript 16&#x9;postrotate 17&#x9;invoke-rc.d nginx rotate &amp;gt;/dev/null 2&amp;gt;&amp;amp;1 18&#x9;endscript 19} 参数 作用 compress 压缩日志文件的所有非当前版本 daily,weekly,monthly 按指定计划轮换日志文件 delaycompress 压缩所有版本，除了当前和下一个最近的 endscript 标记 prerotate 或 postrotate 脚本的结束 errors &amp;ldquo;emailid&amp;rdquo; 给指定邮箱发送错误通知 missingok 如果日志文件丢失，不要显示错误 notifempty 如果日志文件为空，则不轮换日志文件 olddir &amp;ldquo;dir&amp;rdquo; 指定日志文件的旧版本放在 “dir” 中 postrotate 引入一个在日志被轮换后执行的脚本 prerotate 引入一个在日志被轮换前执行的脚本 rotate &amp;rsquo;n&#39; 在轮换方案中包含日志的 n 个版本 sharedscripts 对于整个日志组只运行一次脚本 size=&amp;lsquo;logsize&amp;rsquo; 在日志大小大于 logsize（例如 100K，4M）时轮换 </description>
+    </item>
+    <item>
+      <title>rsync 文件同步</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/rsync-%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/</link>
+      <pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/rsync-%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/</guid>
+      <description>rsync 文件同步 rsync 是一个常用的 Linux 应用程序，用于文件同步&#xA;安装 1# Debian or Ubuntu 2$ sudo apt-get install rsync 3 4# Red Hat 5$ sudo yum install rsync 6 7# Arch Linux 8$ sudo pacman -S rsync 基本用法 使用 rsync 命令时，可以作为 cp 和 mv 命令的替代方法，将源目录同步到目标目录。&#xA;-r 表示递归，即包含子目录。注意，-r 是必须的，否则 rsync 运行不会成功。source 目录表示源目录，destination 表示目标目录。&#xA;-a 参数可以替代-r，除了可以递归同步以外，还可以同步元信息（比如修改时间、权限等）。由于 rsync 默认使用文件大小和修改时间决定文件是否需要更新&#xA;1rsync -r source destination 远程同步&#xA;1rsync -av &amp;lt;源地址&amp;gt;/ &amp;lt;用户名&amp;gt;@&amp;lt;ip地址&amp;gt;:/&amp;lt;目标地址&amp;gt; 友情地址：mysql 迁移 </description>
+    </item>
+    <item>
+      <title>163企业邮箱设置教程</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/163%E4%BC%81%E4%B8%9A%E9%82%AE%E7%AE%B1%E8%AE%BE%E7%BD%AE%E6%95%99%E7%A8%8B/</link>
+      <pubDate>Fri, 10 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/163%E4%BC%81%E4%B8%9A%E9%82%AE%E7%AE%B1%E8%AE%BE%E7%BD%AE%E6%95%99%E7%A8%8B/</guid>
+      <description>163 企业邮箱设置教程 请进入这个网站 https://qiye.163.com/help/l-11.html</description>
+    </item>
+    <item>
+      <title>2021年第50周记</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/2021%E5%B9%B4%E7%AC%AC50%E5%91%A8%E8%AE%B0/</link>
+      <pubDate>Wed, 08 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/2021%E5%B9%B4%E7%AC%AC50%E5%91%A8%E8%AE%B0/</guid>
+      <description>2021 年第 50 周周记 这周完成了以下任务&#xA;搭建 hugo 博客 使用 docker 封装了 blog 搭建 k3s 环境 计划：&#xA;学习 k8s 总结：没啥好总结，刚开始写周记，就随便写一点吧&#xA;欢迎关注我的博客www.jobcher.com</description>
+    </item>
+  </channel>
+</rss>

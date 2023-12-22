@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ChatGPT on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/tags/chatgpt/</link>
+    <description>Recent content in ChatGPT on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Sun, 09 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/tags/chatgpt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>探索midjourney(二)：midjourney prompt初体验</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/07/%E6%8E%A2%E7%B4%A2midjourney%E4%BA%8Cmidjourney-prompt%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
+      <pubDate>Sun, 09 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/07/%E6%8E%A2%E7%B4%A2midjourney%E4%BA%8Cmidjourney-prompt%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
+      <description>紧接上文，我们继续探索midjourney prompt，这次我们来看看midjourney prompt的基础用法。&#xA;midjourney 参数使用 参数是添加到提示中的选项，用于更改图像的生成方式。参数可以更改图像的长宽比、在中途模型版本之间切换、更改使用的 Upscaler 等等。参数始终添加到提示的末尾。您可以向每个提示添加多个参数&#xA;许多 Apple 设备会自动将双连字符 (&amp;ndash;) 更改为长破折号 (—)。midjourney接受两者！&#xA;基础参数列表 参数 描述 &amp;ndash;aspect, &amp;ndash;ar 更改生成图像的长宽比。 &amp;ndash;chaos &amp;lt;nummber 8-100&amp;gt; 更改生成图像的混乱程度。 &amp;ndash;fast 使用快速模式运行单个作业 &amp;ndash;iw &amp;lt;0-2&amp;gt; 设置相对于文本粗细的图像提示粗细。默认值为 1。 &amp;ndash;no 负面提示, --no plant 将生成没有植物的图像。 &amp;ndash;quality &amp;lt;.25, .5 ,1&amp;gt;, &amp;ndash;q &amp;lt;.25, .5, 1&amp;gt; 您想要花费多少渲染质量时间。默认值为 1。值越高，使用的 GPU 分钟数越多；较低的值使用较少 &amp;ndash;repeat &amp;lt;1-40&amp;gt;, &amp;ndash;r &amp;lt;1-40&amp;gt; 从单个提示创建多个作业。 --repeat 对于快速重新运行作业多次很有用。 &amp;ndash;seed &amp;lt;integer between 0–4294967295&amp;gt; Midjourney 机器人使用种子号来创建视觉噪声场（如电视静态），作为生成初始图像网格的起点。种子数是为每个图像随机生成的，但可以使用 --seed 或 --sameseed 参数指定。使用相同的种子编号和提示将产生相似的结局图像。 &amp;ndash;stop &amp;lt;integer between 10–100&amp;gt; 使用 &amp;ndash;stop 参数在流程中途完成作业。以较早的百分比停止作业可能会产生更模糊、不太详细的结果。 &amp;ndash;tile 参数生成可用作重复图块以创建无缝图案的图像。 &amp;ndash;Turbo 使用 Turbo 模式运行单个作业。 &amp;ndash;Weird &amp;lt;number 0-3000&amp;gt; 使用实验性 &amp;ndash;weird 参数探索不寻常的美学。 参数示例 我了解那么多的参数变化，但是我不知道如何使用它们。让我们看看一些示例，以便您可以开始使用它们。</description>
+    </item>
+    <item>
+      <title>探索midjourney(一)：人工智能生成图像软件的惊人之旅</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/07/%E6%8E%A2%E7%B4%A2midjourney%E4%B8%80%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%94%9F%E6%88%90%E5%9B%BE%E5%83%8F%E8%BD%AF%E4%BB%B6%E7%9A%84%E6%83%8A%E4%BA%BA%E4%B9%8B%E6%97%85/</link>
+      <pubDate>Fri, 07 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/07/%E6%8E%A2%E7%B4%A2midjourney%E4%B8%80%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%94%9F%E6%88%90%E5%9B%BE%E5%83%8F%E8%BD%AF%E4%BB%B6%E7%9A%84%E6%83%8A%E4%BA%BA%E4%B9%8B%E6%97%85/</guid>
+      <description>人工智能（AI）的快速发展为我们带来了许多令人兴奋的技术创新。其中一项令人瞩目的成果是人工智能生成图像软件，它通过机器学习和深度学习算法，能够创造出惊人逼真的图像。在本文中，我将分享我的旅程，探索这项令人着迷的技术，并展示它的潜力与魅力。这个系列我会长期更新下去&#xA;midjourney是什么？ midjourney是一个人工智能生成图像软件，它可以生成惊人逼真的图像。它的工作原理是：它通过机器学习和深度学习算法，学习了大量的图像数据，然后通过这些数据，生成惊人逼真的图像。&#xA;midjourney的使用 midjourney的使用非常简单，你只需要在这里注册并订阅输入你想要生成的图像的描述，然后点击生成按钮，midjourney就会生成一个惊人逼真的图像。&#xA;需要付费订阅，偶尔有放开免费体验的时候，可以去试试&#xA;midjourney的demo 下面是我使用midjourney生成的一些惊人逼真的图像。我会为大家推荐一下我最喜欢的几张图像。&#xA;1. 数字墙纸，抽象艺术，曲线流畅，紫色，粉色和蓝色，32k超高清，微妙的渐变，充满活力的，夸张的场景，Dariusz Klimczak，新地形，红移，深弯曲，超细节 1digital wallpaper, abstract art, in the style of smooth curves, purple and pink and blue, 32k uhd, subtle gradients, vibrant, exaggerated scenes, dariusz klimczak, new topographics, redshift, deep curving, hyper-detailed 2. 白色背景线条灰色卡通贴纸，一名宇航员坐在漂浮在太空中的沙发上看电视。背景中有星星和月亮。 1white background linework greyscale cartoon sticker of an astronaut watching Television while sitting on a couch that is floating in space. Stars and moon in the background. 3.</description>
+    </item>
+    <item>
+      <title>NVIDIA GPU 的 docker 安装和部署</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/06/nvidia-gpu-%E7%9A%84-docker-%E5%AE%89%E8%A3%85%E5%92%8C%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/06/nvidia-gpu-%E7%9A%84-docker-%E5%AE%89%E8%A3%85%E5%92%8C%E9%83%A8%E7%BD%B2/</guid>
+      <description>背景 在人工智能领域，GPU 是必不可少的。在本文中，我们将介绍如何在服务器上安装和部署 NVIDIA GPU 的 docker&#xA;升级你的CUDA 官网链接&#xA;选择你的系统对应版本进行安装&#xA;安装 确保你的系统已经安装了NVIDIA驱动和Docker引擎。确保驱动版本与Docker引擎兼容。你还需要安装nvidia-docker2软件包，它是NVIDIA Docker的一个插件。可以在https://github.com/NVIDIA/nvidia-docker上找到安装说明&#xA;1.1 卸载旧版本的nvidia-docker(如果已安装) 1sudo apt-get remove nvidia-docker 1.2 添加nvidia-docker2仓库&#xA;1distribution=$(. /etc/os-release;echo $ID$VERSION_ID) 2curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add - 3curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list 1.3 更新软件包列表和安装nvidia-docker2&#xA;1sudo apt-get update 2sudo apt-get install nvidia-docker2 1.4 重启Docker守护进程&#xA;1sudo systemctl restart docker 通过以下命令测试是否安装成功 1docker run --gpus all nvidia/cuda:10.0-base nvidia-smi 如果安装成功，你将看到类似下面的输出 1+-----------------------------------------------------------------------------+ 2| NVIDIA-SMI 440.33.01 Driver Version: 440.</description>
+    </item>
+    <item>
+      <title>调教Chat GPT生成Midjourney提示词</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/05/%E8%B0%83%E6%95%99chat-gpt%E7%94%9F%E6%88%90midjourney%E6%8F%90%E7%A4%BA%E8%AF%8D/</link>
+      <pubDate>Fri, 26 May 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/05/%E8%B0%83%E6%95%99chat-gpt%E7%94%9F%E6%88%90midjourney%E6%8F%90%E7%A4%BA%E8%AF%8D/</guid>
+      <description>实现功能 Priming GPT4 for Midjourney V5 将每一步直接输入给chatgpt即可，记住要一步步输入&#xA;第一步： Hello ，Today we are gonna create Images with a Diffusion model. I am gonna feed you some information about it. okey?&#xA;第二步： This is how Midjourney work: Midjourney is another AI-powered tool that generates images from user prompts. MidJourney is proficient at adapting actual art styles to create an image of any combination of things the user wants. It excels at creating environments, especially fantasy and sci-fi scenes, with dramatic lighting that looks like rendered concept art from a video game.</description>
+    </item>
+    <item>
+      <title>🧠ChatGPT 中文使用指南</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/03/chatgpt-%E4%B8%AD%E6%96%87%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</link>
+      <pubDate>Thu, 09 Mar 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/03/chatgpt-%E4%B8%AD%E6%96%87%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/</guid>
+      <description>🧠ChatGPT 中文使用指南 ChatGPT是由OpenAI训练的一款大型语言模型，能够生成类人文本。&#xA;国内中文版 它能够生成类似于人类写作的文本。您只需要给出提示或提出问题，它就可以生成你想要的东西。&#xA;在此页面中，您将找到可与 ChatGPT 一起使用的各种提示。&#xA;它能干什么? 包括但不限于：&#xA;类别 描述 学术论文 它可以写各种类型的学术论文，包括科技论文、文学论文、社科论文等。它可以帮助你进行研究、分析、组织思路并编写出符合学术标准的论文。 创意写作 它可以写小说、故事、剧本、诗歌等创意性的文学作品，能够在描述情节和角色方面提供帮助。 内容创作 它可以写SEO文章、博客文章、社交媒体帖子、产品描述等各种类型的内容创作。它能够为你提供有趣、独特、易读的内容，帮助你吸引读者和提升品牌知名度。 商业写作 它可以帮助你编写商业计划书、市场调研报告、营销策略、商业简报、销售信件等。它可以用清晰、精炼的语言向你的潜在客户或投资者传达你的信息。 学术编辑 它可以帮助你进行学术论文、研究报告、学位论文等的编辑和校对工作，确保文本的正确性、一致性和完整性，并提供改进建议。 翻译 它可以进行英语和中文之间的翻译工作，包括但不限于学术文献、商业文档、网站内容、软件界面等。它可以保证翻译的准确性和专业性。 数据分析 它可以帮助你进行各种类型的数据分析，包括统计分析、文本分析、数据可视化等。它可以使用Python、R等工具来分析你的数据，并提供数据报告和可视化结果。 技术文档 它可以编写各种类型的技术文档，包括用户手册、技术规范、API文档、代码注释等。它可以使用清晰、准确、易懂的语言描述你的技术产品和流程。 教育培训 它可以编写各种类型的教育培训材料，包括课程大纲、课件、教学指南、教育评估等。它可以帮助你设计课程内容和教学方法，并为你制定适合你目标受众的培训计划。 网站内容 它可以编写网站的各种类型内容，包括首页、关于我们、服务介绍、博客文章等。它可以根据你的品牌和目标读者为你提供优质、富有吸引力的内容。 研究咨询 它可以帮助你进行研究、提供咨询意见和建议。它可以进行文献综述、研究设计、数据分析等工作，为你提供高质量、可靠的研究结果和建议。 演讲稿 它可以帮助你编写演讲稿、PPT等，包括商业演讲、学术演讲、庆典致辞等。它可以根据你的主题、目标听众和场合为你编写一份有说服力、生动有趣的演讲稿。 个人陈述 它可以帮助你编写个人陈述，包括申请大学、研究生、博士生、奖学金、工作等的个人陈述。它可以帮助你展现你的优势和价值观，并提供专业的写作建议。 简历和求职信 它可以帮助你编写简历和求职信，帮助你突出你的技能和经验，并为你提供吸引雇主和HR的技巧和建议。 广告文案 它可以编写各种类型的广告文案，包括产品广告、服务广告、品牌广告、活动宣传等。它可以为你编写具有吸引力、清晰明了的广告文案，让你的目标受众更容易接受你的产品或服务。 SEO优化 它可以帮助你优化你的网站、文章或其他内容的SEO。它可以使用关键词研究、内容优化等技术，帮助你提高排名、获得更多的流量和转换率。 社交媒体 它可以为你编写社交媒体内容，包括微博、脸书、Instagram等。它可以帮助你设计吸引人的标题、内容和图片，并为你提供有用的社交媒体营销策略。 新闻稿 它可以帮助你编写新闻稿，包括公司新闻、产品发布、重大事件等。它可以为你编写新闻稿、编辑和发布，以吸引媒体关注并提高品牌知名度。 多语言翻译 它可以提供各种语言之间的翻译服务，包括英文、中文、法文、德文、西班牙文、俄文等。它可以翻译各种类型的文件，包括技术文档、商务合同、宣传资料、学术论文等。 电子商务 它可以编写各种类型的电子商务内容，包括产品描述、产品说明书、电子商务博客文章等。它可以帮助你编写吸引人的产品描述，以及建立与客户的信任和忠诚度。 旅游文案 它可以帮助你编写旅游文案，包括旅游目的地介绍、旅游路线规划、旅游攻略、旅游博客等。它可以帮助你为你的读者提供有用的信息和建议，帮助他们计划自己的旅行。 医疗文案 它可以帮助你编写医疗文案，包括医疗产品说明、疾病预防、健康知识、医疗博客等。它可以帮助你使用专业的术语和语言，使你的文案更易于理解和接受。 儿童读物 它可以帮助你编写儿童读物，包括故事书、绘本、启蒙读物、课外阅读等。它可以使用有趣、生动的语言和图片，吸引孩子们的注意力，并帮助他们学习和成长。 小说 它可以帮助你编写小说，包括各种类型的小说，如言情、悬疑、恐怖、科幻等。它可以帮助你创造有趣、引人入胜的情节和角色，并为你提供专业的写作技巧和建议。 充当 Linux 终端 我想让你充当 Linux 终端。我将输入命令，您将回复终端应显示的内容。我希望您只在一个唯一的代码块内回复终端输出，而不是其他任何内容。不要写解释。除非我指示您这样做，否则不要键入命令。当我需要用英语告诉你一些事情时，我会把文字放在中括号内[就像这样]。我的第一个命令是 pwd&#xA;充当英语翻译和改进者 替代：语法，谷歌翻译&#xA;我希望你能担任英语翻译、拼写校对和修辞改进的角色。我会用任何语言和你交流，你会识别语言，将其翻译并用更为优美和精炼的英语回答我。请将我简单的词汇和句子替换成更为优美和高雅的表达方式，确保意思不变，但使其更具文学性。请仅回答更正和改进的部分，不要写解释。我的第一句话是“how are you ?</description>
+    </item>
+    <item>
+      <title>ChatGPT Plus开通教程攻略</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/02/chatgpt-plus%E5%BC%80%E9%80%9A%E6%95%99%E7%A8%8B%E6%94%BB%E7%95%A5/</link>
+      <pubDate>Tue, 28 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/02/chatgpt-plus%E5%BC%80%E9%80%9A%E6%95%99%E7%A8%8B%E6%94%BB%E7%95%A5/</guid>
+      <description>ChatGPT Plus开通教程攻略 鉴于免费的ChatGPT账号经常无响应或者响应慢，一些已经顺利注册到ChatGPT的推特用户私信我，问我怎么开通ChatGPT Plus，于是我收集了各大佬们的各种开通ChatGPT Plus的方法，挑一个比较简单的测试了一下，目前顺利开通了ChatGPT Plus，20美金一个月，想要体验的同学可以跟着试试，目前国内大部分的master或者visa信用卡都无法通过验证的，我也是使用网友推荐的Depay信用卡成功开通ChatGPT Plus的。&#xA;而且这卡还可以绑定美区的Apple ID作为付款方式，虽然美区Apple ID可以使用支付宝或者购买礼品卡进行充值，况且我已经绑定了Paypal，这卡还可以绑定国内微信支付宝进行消费，挺不错的。ChatGPT Plus开通攻略&#xA;1、硬性条件 如果你具有两个条件，那么可以试试这个方法，能够顺利开通到ChatGPT Plus。&#xA;ChatGPT账号 纯净可访问ChatGPT的网络（全局美国IP网络） 如果你没有可以在这里跟着注册一个：ChatGPT注册详细步骤攻略 亲测成功&#xA;2、注册领取虚拟信用卡 首先，你得注册一个可以绑定ChatGPT付款的信用卡：邀请注册地址&#xA;使用手机或者邮箱都可以，注册完下载app&#xA;iOS需要外区账号&#xA;安卓用户直接下载apk安装即可&#xA;下载安装完app，使用账号登录，点击申请卡，然后根据自己的情况进行选择卡片类型&#xA;免费开卡需要进行KYC验证 免KYC信息认证的需要支付10USDT 我选择的是免费开卡-标准卡，根据提示提交信息进行认证即可（大佬可以直接充钱免认证，看个人）&#xA;3、钱包充值 目前激活该卡片需要充值USDT，而且仅支持USDT-TRC20方式进行充值&#xA;我不是高级玩家，可以通过OKX、Bitop等等交易市场进行USDT-TRC20充值即可&#xA;或者身边有朋友有的，直接转到你钱包也可，A姐使用的是OKX，&#xA;不过发现我是新账号，需要7天才可以提币（不知道是不是针对我的，我也是小白）&#xA;于是没有等，喊朋友直接转到我钱包了，身边没有朋友使用的，可以使用OKX试试&#xA;开通ChatGPT需要20美元，其中转账或者兑换会有点汇率或者手续费&#xA;充值25USDT够了，我充值了30USDT，开通完剩余8USDT多一点&#xA;4、激活信用卡 等待到账号，点击充值，然后把收到的USDT充值到卡片进行激活信用卡，然后会提示余额不足，提示你把USDT兑换成USD，按要求操作即可&#xA;5、订阅开通ChatGPT Plus 激活完信用卡后，登录你的ChatGPT账号，点击Upgrade to Plus，然后点击Upgrade plan&#xA;然后填写卡片信息和账单信息&#xA;卡片信息点击信用卡app 旁边的CVV安全码获取&#xA;账单地址可以使用 虚拟美国人信息生成器获取，需要是免税州的地址，不然有额外的费用，账单地址不会填的可以抄我的。&#xA;填写完信息，点击订阅/Subscribe 等待验证即可成功订阅开通ChatGPT Plus。&#xA;欢迎关注我的博客 [www.jobcher.com](https://www.jobcher.com/) 转载自（https://www.ahhhhfs.com/） </description>
+    </item>
+  </channel>
+</rss>

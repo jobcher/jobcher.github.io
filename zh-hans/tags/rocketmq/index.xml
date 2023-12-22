@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RocketMQ on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/tags/rocketmq/</link>
+    <description>Recent content in RocketMQ on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Mon, 29 Aug 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/tags/rocketmq/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>RocketMQ k8s部署 4主4从集群</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/08/rocketmq-k8s%E9%83%A8%E7%BD%B2-4%E4%B8%BB4%E4%BB%8E%E9%9B%86%E7%BE%A4/</link>
+      <pubDate>Mon, 29 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/08/rocketmq-k8s%E9%83%A8%E7%BD%B2-4%E4%B8%BB4%E4%BB%8E%E9%9B%86%E7%BE%A4/</guid>
+      <description>RocketMQ k8s 部署 4 主 4 从集群 使用 NFS 配置 StatefulSet 的动态持久化存储 安装 NFS 服务端 1sudo apt update 2sudo apt install nfs-kernel-server nfs-common 安装 NFS 客户端 所有的节点都得执行&#xA;sudo apt install nfs-common -y&#xA;创建目录 1mkdir -p /data/storage/k8s/rocketmq 使用 NFS 作为StatefulSet持久化存储的操作记录，分别需要创建nfs-provisioner的rbac、storageclass、nfs-client-provisioner和statefulset的pod&#xA;创建 nfs 的 rbac 1--- 2apiVersion: v1 3kind: ServiceAccount 4metadata: 5 name: nfs-provisioner 6 namespace: sanjiang 7--- 8kind: ClusterRole 9apiVersion: rbac.authorization.k8s.io/v1 10metadata: 11 name: nfs-provisioner-runner 12 namespace: sanjiang 13rules: 14 - apiGroups: [&amp;#34;&amp;#34;] 15 resources: [&amp;#34;persistentvolumes&amp;#34;] 16 verbs: [&amp;#34;get&amp;#34;, &amp;#34;list&amp;#34;, &amp;#34;watch&amp;#34;, &amp;#34;create&amp;#34;, &amp;#34;delete&amp;#34;] 17 - apiGroups: [&amp;#34;&amp;#34;] 18 resources: [&amp;#34;persistentvolumeclaims&amp;#34;] 19 verbs: [&amp;#34;get&amp;#34;, &amp;#34;list&amp;#34;, &amp;#34;watch&amp;#34;, &amp;#34;update&amp;#34;] 20 - apiGroups: [&amp;#34;storage.</description>
+    </item>
+    <item>
+      <title>RocketMQ 安装和启动</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/01/rocketmq-%E5%AE%89%E8%A3%85%E5%92%8C%E5%90%AF%E5%8A%A8/</link>
+      <pubDate>Fri, 07 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/01/rocketmq-%E5%AE%89%E8%A3%85%E5%92%8C%E5%90%AF%E5%8A%A8/</guid>
+      <description>RocketMQ 安装和部署 部署 RocketMQ&#xA;单机安装构建 安装 JDK 1.8.0 1yum install java-1.8.0-openjdk* 安装 Maven 1wget http://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz 2tar -zxvf apache-maven-3.8.4-bin.tar.gz 3mv -f apache-maven-3.8.4 /usr/local/ 4vim /etc/profile 5# 末尾添加 6export MAVEN_HOME=/usr/local/apache-maven-3.8.4 7export PATH=${PATH}:${MAVEN_HOME}/bin 8# 保存 9source /etc/profile 10# 查看maven是否正常 11mvn -v 快速部署 1#构建 DLedger 2git clone https://github.com/openmessaging/openmessaging-storage-dledger.git 3cd openmessaging-storage-dledger 4mvn clean install -DskipTests 5# 构建 RocketMQ 6git clone https://github.com/apache/rocketmq.git 7cd rocketmq 8git checkout -b store_with_dledger origin/store_with_dledger 9mvn -Prelease-all -DskipTests clean install -U 10# 部署 11cd rocketmq/distribution/target/apache-rocketmq 12sh bin/dledger/fast-try.</description>
+    </item>
+  </channel>
+</rss>

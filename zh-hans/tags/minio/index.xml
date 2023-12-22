@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>minIO on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/tags/minio/</link>
+    <description>Recent content in minIO on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Fri, 07 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/tags/minio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>安装 minIO Azure S3网关</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/01/%E5%AE%89%E8%A3%85-minio-azure-s3%E7%BD%91%E5%85%B3/</link>
+      <pubDate>Fri, 07 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/01/%E5%AE%89%E8%A3%85-minio-azure-s3%E7%BD%91%E5%85%B3/</guid>
+      <description>安装 minIO 通过 docker 安装 1docker run -p 9000:9000 -p 41863:41863 -d --name azure-s3 \ 2 -e &amp;#34;MINIO_ACCESS_KEY=azure存储账户&amp;#34; \ 3 -e &amp;#34;MINIO_SECRET_KEY=azure存储密码&amp;#34; \ 4 minio/minio gateway azure --console-address &amp;#34;:41863&amp;#34; 通过 docker-compose 安装 1version: &amp;#34;3&amp;#34; 2services: 3 minio: 4 image: &amp;#34;minio/minio:RELEASE.2022-01-04T07-41-07Z.fips&amp;#34; 5 container_name: &amp;#34;minio&amp;#34; 6 restart: &amp;#34;always&amp;#34; 7 volumes: 8 - &amp;#34;/etc/localtime:/etc/localtime&amp;#34; 9 ports: 10 - &amp;#34;9000:9000&amp;#34; 11 - &amp;#34;9001:9001&amp;#34; 12 environment: 13 - &amp;#34;MINIO_ROOT_USER=azure存储账户&amp;#34; 14 - &amp;#34;MINIO_ROOT_PASSWORD=azure存储密码&amp;#34; 15 command: 16 - --console-address &amp;#34;:41863&amp;#34; </description>
+    </item>
+  </channel>
+</rss>

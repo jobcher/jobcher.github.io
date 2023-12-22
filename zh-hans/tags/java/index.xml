@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>java on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/tags/java/</link>
+    <description>Recent content in java on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Thu, 21 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ant build.xml 编写</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/04/ant-build.xml-%E7%BC%96%E5%86%99/</link>
+      <pubDate>Thu, 21 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/04/ant-build.xml-%E7%BC%96%E5%86%99/</guid>
+      <description>ant build.xml 编写 生成 build.xml Eclipse 自动生成 Ant 的Build.xml 配置文件,生成的方法很隐蔽&#xA;选择你要生成Build.xml文件的项目,右键. Export-&amp;gt; General -&amp;gt; Ant Buildfiles .&#xA;点 Next,选择项目，再点Finish.&#xA;编写 build.xml 1&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34; standalone=&amp;#34;no&amp;#34;?&amp;gt; 2 3&amp;lt;!-- 每个构建文件对应一个项目。&amp;lt;project&amp;gt;标签时构建文件的根标签。它可以有多个内在属性，就如代码中所示，其各个属性的含义分别如下。 4(1) default表示默认的运行目标，这个属性是必须的。 5(2) basedir表示项目的基准目录。 6(3) name表示项目名。 7(4) description表示项目的描述。 8 --&amp;gt; 9&amp;lt;project default=&amp;#34;build&amp;#34; name=&amp;#34;Sort&amp;#34;&amp;gt; 10&#x9;&amp;lt;!-- 设置属性或文件路径，读取属性使用${property}，value路径默认项目根目录 --&amp;gt; 11&#x9;&amp;lt;property file=&amp;#34;ant/builds.properties&amp;#34; /&amp;gt; 12 13&#x9;&amp;lt;property name=&amp;#34;src.dir&amp;#34; value=&amp;#34;src/statics&amp;#34; /&amp;gt; 14 15&#x9;&amp;lt;property name=&amp;#34;classes.dir&amp;#34; value=&amp;#34;ant/classes&amp;#34; /&amp;gt; 16 17&#x9;&amp;lt;property name=&amp;#34;lib.dir&amp;#34; value=&amp;#34;lib&amp;#34; /&amp;gt; 18 19&#x9;&amp;lt;property name=&amp;#34;dist.</description>
+    </item>
+  </channel>
+</rss>

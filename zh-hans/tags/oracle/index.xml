@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>oracle on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/tags/oracle/</link>
+    <description>Recent content in oracle on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Tue, 15 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/tags/oracle/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Oracle Instant Client 安装配置实现远程连接oracle</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/11/oracle-instant-client-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E5%AE%9E%E7%8E%B0%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5oracle/</link>
+      <pubDate>Tue, 15 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/11/oracle-instant-client-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E5%AE%9E%E7%8E%B0%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5oracle/</guid>
+      <description>背景 关于 Oracle 数据库一直是许多初学者比较头疼的地方，一方面受限于线上文档比较少，令一方面在企业中不得不接触和使用 Oracle 数据库，这篇文章是教大家如何通过配置 oracle client 来远程访问 Oracle 数据库。本文会通过 python3 和 cx_Oracle 来实现对 Oracle 的访问和增删改查&#xA;下载 oracle 客户端 官方地址下载&#xA;安装 下载并安装你的 oracle client，因为我连接的 11g oracle，所以下载 11.2 版本&#xA;1# 下载 2wget https://download.oracle.com/otn/linux/instantclient/11204/oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm 3# 安装 4rpm -ivh oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm 配置环境变量 1# 直接运行 2export ORACLE_HOME=/usr/lib/oracle/11.2/client64 3export ORABIN=/usr/lib/oracle/11.2/client64/bin 1# 编辑环境变量配置文件 2vim /etc/profile 1# 底部增加内容 2export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL 3export ORACLE_HOME=/usr/lib/oracle/11.2/client64 4export TNS_ADMIN=/usr/lib/oracle/11.2/client64 5export LD_LIBRARY_PATH=/usr/lib/oracle/11.2/client64/lib 6export ORABIN=/usr/lib/oracle/11.2/client64/bin 7PATH=$PATH:$ORABIN 8export PATH 9 10export PATH=$ORACLE_HOME:$PATH 11export PATH=$PATH:$HOME/bin:$ORACLE_HOME/bin 1# 刷新环境变量 2source /etc/profile 下载 cx_Oracle 1pip3 install cx_Oracle 创建 Oracle.</description>
+    </item>
+  </channel>
+</rss>

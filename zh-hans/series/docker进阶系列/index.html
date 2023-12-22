@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html data-bs-theme="light" itemscope="" itemtype="http://schema.org/WebPage" lang="zh-hans">
+  <head><meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+
+
+
+
+    <link rel="manifest" href="https://www.jobcher.com/zh-hans/manifest.webmanifest" />
+
+  <link
+    rel="alternate"
+    type="application/rss&#43;xml"
+    href="https://www.jobcher.com/zh-hans/series/docker%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97/index.xml"
+  />
+<meta name="description" content="docker进阶系列" />
+
+
+
+      <link
+        rel="icon"
+        href="/images/logo_hu212c4235ec694c68a44045c031d18f63_184363_16x16_resize_box_3.png"
+        sizes="16x16"
+        type="image/png"
+      />
+      <link
+        rel="icon"
+        href="/images/logo_hu212c4235ec694c68a44045c031d18f63_184363_32x32_resize_box_3.png"
+        sizes="32x32"
+        type="image/png"
+      />
+      <link
+        rel="icon"
+        href="/images/logo_hu212c4235ec694c68a44045c031d18f63_184363_150x150_resize_box_3.png"
+        sizes="150x150"
+        type="image/png"
+      />
+      <link
+        rel="apple-touch-icon"
+        href="/images/logo_hu212c4235ec694c68a44045c031d18f63_184363_180x180_resize_box_3.png"
+        sizes="180x180"
+        type="image/png"
+      />
+      <link
+        rel="icon"
+        href="/images/logo_hu212c4235ec694c68a44045c031d18f63_184363_192x192_resize_box_3.png"
+        sizes="192x192"
+        type="image/png"
+      />
+
+  <link
+    rel="mask-icon"
+    href="/mask-icon.svg"
+    color="#000000"
+  />
+
+
+<meta property="og:title" content="docker进阶系列" />
+<meta property="og:description" content="keep simple, keep stupid" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.jobcher.com/zh-hans/series/docker%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97/" />
+
+
+<meta itemprop="name" content="docker进阶系列">
+<meta itemprop="description" content="keep simple, keep stupid"><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="docker进阶系列"/>
+<meta name="twitter:description" content="keep simple, keep stupid"/>
+
+
+
+    <title>
+  
+
+
+docker进阶系列 - 专栏 - 打工人日志</title>
+
+  
+  
+  
+
+
+    <link href="/css/hb.cf9e5bc8f0b2b287241c737c30a3454c9cd6a9c5e58b35a7cdd47073df98ad21.css" rel="stylesheet" />
+
+
+
+
+
+
+<script
+  src="/js/init.577d4e90bff5601d5756fcf799b0e53568bf56cea3b80fe43f66c9d365e8100c.js"
+  
+    integrity="sha256-V31OkL/1YB1XVvz3mbDlNWi/Vs6juA/kP2bJ02XoEAw="
+  ></script>
+
+
+
+  
+<link rel="stylesheet" href="/css/search.ee67fb063f2e4be8eff1be9d9806279c3c3d43570b6266c759281faac3804b11.css" />
+
+
+
+
+
+
+  </head>
+  <body 
+><noscript>
+  <div class="alert alert-danger text-center rounded-0" role="alert"><svg aria-hidden="true" class="bi bi-exclamation-square-fillbi bi-exclamation-square-fill hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6 4c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 4.995A.905.905 0 0 1 8 4m.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2"/>
+</svg>你的浏览器不支持 JavaScript。</div>
+</noscript>
+
+
+
+    
+<header class="hb-header"
+  >
+  
+
+  <nav class="hb-header-nav navbar navbar-expand-lg">
+    
+
+    <div
+      class="container-fluid">
+      
+
+
+  <a
+    class="navbar-brand d-flex align-items-center"
+    href="/zh-hans/">
+  <img
+    src="https://www.jobcher.com/images/logo_hu212c4235ec694c68a44045c031d18f63_184363_0x64_resize_box_3.png"
+    alt="Logo"
+    width="64"
+    height="64"
+    class="hb-header-logo d-inline-block align-text-top me-2" />打工人日志</a>
+
+      <div class="d-flex order-5">
+        
+<div class="search-modal-toggle hb-header-search-form position-relative d-flex ms-lg-1">
+  <button
+    type="button"
+    class="hb-header-search-icon border-0 bg-transparent px-2"
+    aria-label="Toggle search">
+    <svg aria-hidden="true" class="bi bi-searchbi bi-search hi-svg-inline" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+</svg>
+  </button>
+  <input
+    class="form-control rounded-5 d-none d-lg-block ms-lg-1"
+    id="hb-header-search-input"
+    placeholder="搜索" />
+    <span class="hb-header-search-keys position-absolute d-none d-lg-block">
+        <kbd>CTRL</kbd>
+        <kbd>K</kbd>
+    </span>
+</div>
+
+
+
+        <button
+          class="navbar-toggler border-0 shadow-none"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#hb-header-content"
+          aria-controls="hb-header-content"
+          aria-label="Toggle navigation"><svg aria-hidden="true" class="bi bi-three-dotsbi bi-three-dots hi-svg-inline" fill="currentColor" height="1.25em" viewBox="0 0 16 16" width="1.25em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+</svg>
+        </button>
+        
+
+      </div>
+      <div
+        class="offcanvas offcanvas-lg offcanvas-end"
+        tabindex="-1"
+        id="hb-header-content"
+        aria-labelledby="hb-header-content-label">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="hb-header-content-label">打工人日志</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          
+          <ul class="hb-header-menus navbar-nav flex-row flex-wrap"><li
+    class="hb-header-menu nav-item col-6 col-lg-auto">
+    <a
+      class="nav-link"
+      
+      href="https://k8sbook.jobcher.com/"
+      target="_blank"
+      rel="external"><svg aria-hidden="true" class="bi bi-bookbi bi-book hi-svg-inline hb-header-menu-icon me-1" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1 2.828c.885-.37 2.154-.769 3.388-.893 1.33-.134 2.458.063 3.112.752v9.746c-.935-.53-2.12-.603-3.213-.493-1.18.12-2.37.461-3.287.811V2.828zm7.5-.141c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783"/>
+</svg>k8s文档</a>
+  </li><li
+    class="hb-header-menu nav-item col-6 col-lg-auto">
+    <a
+      class="nav-link"
+      
+      href="https://nav.jobcher.com/"
+      target="_blank"
+      rel="external"><svg aria-hidden="true" class="hi-svg-inline hb-header-menu-icon me-1" fill="currentColor" height="1em" style="color: red;" viewBox="0 0 512 512" width="1em" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. --><path d="M256 48C141.1 48 48 141.1 48 256v40c0 13.3-10.7 24-24 24s-24-10.7-24-24V256C0 114.6 114.6 0 256 0S512 114.6 512 256V400.1c0 48.6-39.4 88-88.1 88L313.6 488c-8.3 14.3-23.8 24-41.6 24H240c-26.5 0-48-21.5-48-48s21.5-48 48-48h32c17.8 0 33.3 9.7 41.6 24l110.4 .1c22.1 0 40-17.9 40-40V256c0-114.9-93.1-208-208-208zM144 208h16c17.7 0 32 14.3 32 32V352c0 17.7-14.3 32-32 32H144c-35.3 0-64-28.7-64-64V272c0-35.3 28.7-64 64-64zm224 0c35.3 0 64 28.7 64 64v48c0 35.3-28.7 64-64 64H352c-17.7 0-32-14.3-32-32V240c0-17.7 14.3-32 32-32h16z"/></svg>导航</a>
+  </li>
+  <li class="hb-header-menu dropdown nav-item col-12 col-lg-auto">
+    
+      <a
+        class="nav-link pe-0 d-inline-flex align-items-center"
+        href="/zh-hans/blog/"
+        
+        
+        ><svg aria-hidden="true" class="hi-svg-inline hb-header-menu-icon me-1" fill="currentColor" height="1em" viewBox="0 0 512 512" width="1em" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. --><path d="M192 32c0 17.7 14.3 32 32 32c123.7 0 224 100.3 224 224c0 17.7 14.3 32 32 32s32-14.3 32-32C512 128.9 383.1 0 224 0c-17.7 0-32 14.3-32 32zm0 96c0 17.7 14.3 32 32 32c70.7 0 128 57.3 128 128c0 17.7 14.3 32 32 32s32-14.3 32-32c0-106-86-192-192-192c-17.7 0-32 14.3-32 32zM96 144c0-26.5-21.5-48-48-48S0 117.5 0 144V368c0 79.5 64.5 144 144 144s144-64.5 144-144s-64.5-144-144-144H128v96h16c26.5 0 48 21.5 48 48s-21.5 48-48 48s-48-21.5-48-48V144z"/></svg>博客</a>
+      <a
+        class="nav-link ps-0 d-inline-flex"
+        href="#"
+        id="header-menu-blog"
+        role="button"
+        data-bs-toggle="dropdown"
+        aria-expanded="false">
+        <span class="visually-hidden">Toggle Dropdown</span><svg aria-hidden="true" class="bi bi-chevron-compact-downbi bi-chevron-compact-down hi-svg-inline" fill="currentColor" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67z"/>
+</svg>
+      </a>
+    <ul
+      class="hb-header-submenus dropdown-menu"
+      aria-labelledby="header-menu-blog"
+      
+      data-bs-popper="none">
+<li
+  >
+    <a
+      class="hb-header-submenu dropdown-item d-flex align-items-center active"
+      href="https://www.jobcher.com/zh-hans/series/"
+      
+      >
+        <div
+          class="dropdown-item-icon d-flex align-items-center bg-body-secondary bg-gradient rounded me-2 p-2">
+<svg aria-hidden="true" class="bi bi-columnsbi bi-columns hi-svg-inline" fill="currentColor" height="2em" viewBox="0 0 16 16" width="2em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm8.5 0v8H15V2zm0 9v3H15v-3zm-1-9H1v3h6.5zM1 14h6.5V6H1z"/>
+</svg>
+
+        </div>
+      <div class="dropdown-item-content">
+        <div
+          class="dropdown-item-title mb-1">专栏</div>
+          <p class="dropdown-item-desc mb-0 text-wrap">所有专栏。</p>
+      </div></a></li>
+
+<li
+  >
+    <a
+      class="hb-header-submenu dropdown-item d-flex align-items-center"
+      href="https://www.jobcher.com/zh-hans/authors/"
+      
+      >
+        <div
+          class="dropdown-item-icon d-flex align-items-center bg-body-secondary bg-gradient rounded me-2 p-2">
+<svg aria-hidden="true" class="bi bi-pencilbi bi-pencil hi-svg-inline" fill="currentColor" height="2em" style="color: #0f5e97;" viewBox="0 0 16 16" width="2em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+</svg>
+
+        </div>
+      <div class="dropdown-item-content">
+        <div
+          class="dropdown-item-title mb-1">作者</div>
+          <p class="dropdown-item-desc mb-0 text-wrap">作者列表。</p>
+      </div></a></li>
+
+<li
+  >
+    <a
+      class="hb-header-submenu dropdown-item d-flex align-items-center"
+      href="https://www.jobcher.com/zh-hans/categories/"
+      
+      >
+        <div
+          class="dropdown-item-icon d-flex align-items-center bg-body-secondary bg-gradient rounded me-2 p-2">
+<svg aria-hidden="true" class="bi bi-folderbi bi-folder hi-svg-inline" fill="currentColor" height="2em" style="color: orange;" viewBox="0 0 16 16" width="2em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M.54 3.87.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.826a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31zM2.19 4a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4H2.19zm4.69-1.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707z"/>
+</svg>
+
+        </div>
+      <div class="dropdown-item-content">
+        <div
+          class="dropdown-item-title mb-1">分类</div>
+          <p class="dropdown-item-desc mb-0 text-wrap">所有分类。</p>
+      </div></a></li>
+
+<li
+  >
+    <a
+      class="hb-header-submenu dropdown-item d-flex align-items-center"
+      href="https://www.jobcher.com/zh-hans/archives/"
+      
+      >
+        <div
+          class="dropdown-item-icon d-flex align-items-center bg-body-secondary bg-gradient rounded me-2 p-2">
+<svg aria-hidden="true" class="bi bi-archivebi bi-archive hi-svg-inline" fill="currentColor" height="2em" style="color: 384955;" viewBox="0 0 16 16" width="2em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5zm13-3H1v2h14zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/>
+</svg>
+
+        </div>
+      <div class="dropdown-item-content">
+        <div
+          class="dropdown-item-title mb-1">归档</div>
+          <p class="dropdown-item-desc mb-0 text-wrap">文章归档。</p>
+      </div></a></li>
+
+<li
+  >
+    <a
+      class="hb-header-submenu dropdown-item d-flex align-items-center"
+      href="https://www.jobcher.com/zh-hans/tags/"
+      
+      >
+        <div
+          class="dropdown-item-icon d-flex align-items-center bg-body-secondary bg-gradient rounded me-2 p-2">
+<svg aria-hidden="true" class="bi bi-tagsbi bi-tags hi-svg-inline" fill="currentColor" height="2em" style="color: green;" viewBox="0 0 16 16" width="2em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M3 2v4.586l7 7L14.586 9l-7-7zM2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586z"/>
+  <path d="M5.5 5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1m0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1z"/>
+</svg>
+
+        </div>
+      <div class="dropdown-item-content">
+        <div
+          class="dropdown-item-title mb-1">标签</div>
+          <p class="dropdown-item-desc mb-0 text-wrap">所有标签。</p>
+      </div></a></li>
+
+    </ul>
+  </li></ul>
+          
+          
+          <ul class="hb-header-panel navbar-nav flex-row flex-wrap">
+              <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+                <hr class="d-lg-none my-2 text-body-50" />
+              </li>
+            
+  <li class="nav-item col-6 col-lg-auto d-flex align-items-center">
+<a
+  class="hb-social btn btn-link nav-link py-2 px-0 px-lg-2 d-flex justify-content-center align-items-center"
+  href="https://github.com/jobcher"
+  target="_blank"
+  rel="nofollow me"
+  title="GitHub"><svg aria-hidden="true" class="hi-svg-inline hb-social-icon" fill="currentColor" height="1em" role="img" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+    <span class="hb-social-text d-lg-none ms-1">GitHub</span>
+</a>
+
+  </li>
+  <li class="nav-item col-6 col-lg-auto d-flex align-items-center">
+<a
+  class="hb-social btn btn-link nav-link py-2 px-0 px-lg-2 d-flex justify-content-center align-items-center"
+  href="/zh-hans/index.xml"
+  target="_blank"
+  rel="nofollow me"
+  title="RSS"><svg aria-hidden="true" class="bi bi-rss-fillbi bi-rss-fill hi-svg-inline hb-social-icon" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm1.5 2.5c5.523 0 10 4.477 10 10a1 1 0 1 1-2 0 8 8 0 0 0-8-8 1 1 0 0 1 0-2m0 4a6 6 0 0 1 6 6 1 1 0 1 1-2 0 4 4 0 0 0-4-4 1 1 0 0 1 0-2m.5 7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+</svg>
+    <span class="hb-social-text d-lg-none ms-1">RSS</span>
+</a>
+
+  </li>
+  <li class="nav-item col-6 col-lg-auto d-flex align-items-center">
+<a
+  class="hb-social btn btn-link nav-link py-2 px-0 px-lg-2 d-flex justify-content-center align-items-center"
+  href="https://twitter.com/jobcher1"
+  target="_blank"
+  rel="nofollow me"
+  title="推特"><svg aria-hidden="true" class="hi-svg-inline hb-social-icon" fill="currentColor" height="1em" role="img" viewBox="0 0 24 24" width="1em" xmlns="http://www.w3.org/2000/svg"><title>Twitter</title><path d="M21.543 7.104c.015.211.015.423.015.636 0 6.507-4.954 14.01-14.01 14.01v-.003A13.94 13.94 0 0 1 0 19.539a9.88 9.88 0 0 0 7.287-2.041 4.93 4.93 0 0 1-4.6-3.42 4.916 4.916 0 0 0 2.223-.084A4.926 4.926 0 0 1 .96 9.167v-.062a4.887 4.887 0 0 0 2.235.616A4.928 4.928 0 0 1 1.67 3.148 13.98 13.98 0 0 0 11.82 8.292a4.929 4.929 0 0 1 8.39-4.49 9.868 9.868 0 0 0 3.128-1.196 4.941 4.941 0 0 1-2.165 2.724A9.828 9.828 0 0 0 24 4.555a10.019 10.019 0 0 1-2.457 2.549z"/></svg>
+    <span class="hb-social-text d-lg-none ms-1">推特</span>
+</a>
+
+  </li>
+
+  <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
+    <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-body"></div>
+    <hr class="d-lg-none my-2 text-body-50" />
+  </li>
+  <li class="language-picker nav-item dropdown col-6 col-lg-auto d-flex flex-column justify-content-center">
+    <a
+      class="btn btn-link nav-link py-2 px-0 px-lg-2 d-flex justify-content-start justify-content-lg-center align-items-center"
+      href="#"
+      role="button"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+      title="Language picker">
+      <svg aria-hidden="true" class="bi bi-globebi bi-globe hi-svg-inline my-1 language-picker-icon" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472M3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z"/>
+</svg>
+      <span class="d-lg-none ms-1">简体中文</span>
+    </a>
+
+    <ul class="language-picker-menu dropdown-menu dropdown-menu-end">
+        <li>
+          <a
+            class="language-picker-item dropdown-item active"
+            href="https://www.jobcher.com/zh-hans/"
+          >简体中文</a>
+        </li>
+        <li>
+          <a
+            class="language-picker-item dropdown-item"
+            href="https://www.jobcher.com/en/"
+          >English</a>
+        </li>
+    </ul>
+  </li>
+
+
+<li class="theme-toggle nav-item dropdown col-6 col-lg-auto d-flex flex-column justify-content-center">
+  <button
+    class="btn btn-link btn-theme-toggle nav-link py-2 px-0 px-lg-2 d-flex justify-content-start justify-content-lg-center align-items-center"
+    
+    data-style="switch"
+    aria-expanded="false"
+    title="主题">
+    <svg aria-hidden="true" class="bi bi-circle-halfbi bi-circle-half hi-svg-inline my-1 theme-toggle-icon" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16"/>
+</svg>
+    <span class="d-lg-none ms-1 theme-name">主题</span>
+</button>
+
+  <ul class="theme-toggle-menu dropdown-menu dropdown-menu-end">
+      <li>
+        <button
+          class="theme-toggle-item dropdown-item d-flex align-items-center justify-content-center"
+          data-bs-theme-name="自动"
+          data-bs-theme-value="auto">
+          <span class="theme-toggle-item-icon me-1 d-flex align-items-center">
+            <svg aria-hidden="true" class="bi bi-circle-halfbi bi-circle-half hi-svg-inline my-1" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M8 15A7 7 0 1 0 8 1zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16"/>
+</svg>
+          </span>
+          自动
+        </button>
+      </li>
+      <li>
+        <button
+          class="theme-toggle-item dropdown-item d-flex align-items-center justify-content-center"
+          data-bs-theme-name="暗色"
+          data-bs-theme-value="dark">
+          <span class="theme-toggle-item-icon me-1 d-flex align-items-center">
+            <svg aria-hidden="true" class="bi bi-moon-starsbi bi-moon-stars hi-svg-inline my-1" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278M4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z"/>
+  <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"/>
+</svg>
+          </span>
+          暗色
+        </button>
+      </li>
+      <li>
+        <button
+          class="theme-toggle-item dropdown-item d-flex align-items-center justify-content-center"
+          data-bs-theme-name="亮色"
+          data-bs-theme-value="light">
+          <span class="theme-toggle-item-icon me-1 d-flex align-items-center">
+            <svg aria-hidden="true" class="bi bi-brightness-highbi bi-brightness-high hi-svg-inline my-1" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6m0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+</svg>
+          </span>
+          亮色
+        </button>
+      </li>
+  </ul>
+</li>
+
+
+
+          </ul>
+          
+        </div>
+      </div>
+    </div>
+    
+
+  </nav>
+  
+
+</header>
+
+
+
+    
+
+    <div class="hb-main container">
+  <div class="hb-blog-main-container">
+    <div class="hb-blog-main">
+      <div class="container-fluid px-0 mb-4">
+    <nav aria-label="breadcrumb">
+      <ol class="hb-breadcrumb breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="/zh-hans/" title="打工人日志">主页</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="/zh-hans/series/" title="专栏">专栏</a>
+          </li><li class="breadcrumb-item active" aria-current="page">
+          <a href="/zh-hans/series/docker%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97/" title="docker进阶系列">docker进阶系列</a>
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+
+      <div
+  class="hb-blog-term-profile hb-module d-flex flex-column align-items-center">
+  
+  <h1 class="text-center h4 mb-3 mt-2">
+    <a class="text-decoration-none" href="/zh-hans/series/docker%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97/">docker进阶系列</a>
+  </h1>
+  
+<ul class="nav justify-content-center mt-auto mb-0">
+  
+    <li
+      class="nav-item d-flex flex-column justify-content-center align-items-center my-2 mx-3">
+      <span class="mb-1 fw-bold btn btn-secondary rounded">3</span>
+      <span class="text-body-secondary">文章</span>
+    </li>
+  
+    <li
+      class="nav-item d-flex flex-column justify-content-center align-items-center my-2 mx-3">
+      <span class="mb-1 fw-bold btn btn-secondary rounded">1</span>
+      <span class="text-body-secondary">板块</span>
+    </li>
+  
+    <li
+      class="nav-item d-flex flex-column justify-content-center align-items-center my-2 mx-3">
+      <span class="mb-1 fw-bold btn btn-secondary rounded">1</span>
+      <span class="text-body-secondary">类型</span>
+    </li>
+  
+</ul>
+
+</div>
+
+      <div class="hb-terms-posts row row-cols-1 row-cols-md-2">
+          <div class="mb-3 mb-lg-4">
+            
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/zh-hans/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年2月18日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/zh-hans/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/zh-hans/blog/2022/02/docker-%E5%91%BD%E4%BB%A42/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="docker 命令(2)"
+        href="/zh-hans/blog/2022/02/docker-%E5%91%BD%E4%BB%A42/">docker 命令(2)</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/zh-hans/categories/docker/">docker</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/zh-hans/series/docker%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97/">docker进阶系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/zh-hans/tags/docker/">docker</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">docker 命令(2) docker ps 命令 docker ps 能查看所有运行中的容器
+docker ps -a 能查看所有的容器
+docker rm -f $(docker ps -aq) 强制删除所有容器
+docker run和docker create有什么区别 docker create命令能够基于镜像创建容器。
+该命令执行的效果类似于docker run -d，即创建一个将在系统后台运行的容器。
+但是与docker run -d不同的是，docker create创建的容器并未实际启动，还需要执行docker start命令或docker run命令以启动容器。
+事实上，docker create 命令常用于在启动容器之前进行必要的设置。</div>
+  </div>
+</div>
+
+          </div>
+          <div class="mb-3 mb-lg-4">
+            
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/zh-hans/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年2月10日</span>
+
+        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/zh-hans/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/zh-hans/blog/2022/02/%E6%B8%85%E7%90%86docker%E7%9A%84containerimage%E4%B8%8Evolume/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="清理Docker的container，image与volume"
+        href="/zh-hans/blog/2022/02/%E6%B8%85%E7%90%86docker%E7%9A%84containerimage%E4%B8%8Evolume/">清理Docker的container，image与volume</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/zh-hans/categories/docker/">docker</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/zh-hans/series/docker%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97/">docker进阶系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/zh-hans/tags/docker/">docker</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">清理 Docker 的 container，image 与 volume Docker 的镜像（image）、容器（container）、数据卷（volume）， 都是由 daemon 托管的。 因此，在需要清理时，也需要使用其自带的手段。
+清理技巧 清理所有停止运行的容器：
+1docker container prune 2# or 3docker rm $(docker ps -aq) 清理所有悬挂（&lt;none&gt;）镜像：
+1docker image prune 2# or 3docker rmi $(docker images -qf &#34;dangling=true&#34;) 清理所有无用数据卷：
+1docker volume prune 由于prune操作是批量删除类的危险操作，所以会有一次确认。 如果不想输入y&lt;CR&gt;来确认，可以添加-f操作。慎用！
+清理停止的容器 docker rm -lv CONTAINER -l是清理 link，v是清理 volume。 这里的 CONTAINER 是容器的 name 或 ID，可以是一个或多个。
+参数列表：
+Name shorthand Default Description –force,-f false Force the removal of a running container (uses SIGKILL) –link, -l false Remove the specified link –volumes, -v false Remove the volumes associated with the container 清理所有停止的容器 通过docker ps可以查询当前运行的容器信息。 而通过docker ps -a，可以查询所有的容器信息，包括已停止的。</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/zh-hans/blog/2022/02/%E6%B8%85%E7%90%86docker%E7%9A%84containerimage%E4%B8%8Evolume/">阅读更多关于清理Docker的container，image与volume的内容。</a>
+        </div>
+  </div>
+</div>
+
+          </div>
+          <div class="mb-3 mb-lg-4">
+            
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/zh-hans/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2021年12月9日</span>
+
+        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/zh-hans/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/zh-hans/blog/2021/12/docker%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="docker进阶使用"
+        href="/zh-hans/blog/2021/12/docker%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/">docker进阶使用</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/zh-hans/categories/docker/">docker</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/zh-hans/series/docker%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97/">docker进阶系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/zh-hans/tags/docker/">docker</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/zh-hans/tags/dockerfile/">dockerfile</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/zh-hans/tags/dockercompose/">DockerCompose</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">docker 进阶使用 dockerfile 和 docker compose 的配置
+Dockerfile 使用 Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。
+例子：
+1 FROM nginx 2 RUN echo &#39;这是一个本地构建的nginx镜像&#39; &gt; /usr/share/nginx/html/index.html 保存 Dockerfile 文件并在本地路径执行
+1 docker build -t nginx:v1-test . 2 docker run -name docker run --name nginx-test -d -p 8080:80 nginx:v1-test 浏览 nginx 页面确认更新内容
+curl 127.0.0.1:8080 输出： 这是一个本地构建的nginx镜像 Docker 命令详解 COPY 复制指令，从上下文目录中复制文件或者目录到容器里指定路径。
+1 COPY [--chown=&lt;user&gt;:&lt;group&gt;] &lt;源路径1&gt;... &lt;目标路径&gt; 2 COPY [--chown=&lt;user&gt;:&lt;group&gt;] [&#34;&lt;源路径1&gt;&#34;,... &#34;&lt;目标路径&gt;&#34;] &lt;源路径&gt;：源文件或者源目录，这里可以是通配符表达式，其通配符规则要满足 Go 的 filepath.Match 规则。例如：
+1 COPY hom* /mydir/ 2 COPY hom?</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/zh-hans/blog/2021/12/docker%E8%BF%9B%E9%98%B6%E4%BD%BF%E7%94%A8/">阅读更多关于docker进阶使用的内容。</a>
+        </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+      
+      
+
+    </div>
+    <div class="hb-blog-sidebar pe-lg-1">
+      
+  <div
+    class="hb-blog-sidebar-profile hb-module d-flex flex-column justify-content-center align-items-center">
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+    <source srcset="/images/logo_hu212c4235ec694c68a44045c031d18f63_184363_95b129ec0c9ac480b7db044054d215d0.webp" type="image/webp" />
+  <img
+    class="hb-blog-sidebar-profile-img rounded-circle img-fluid mb-3"
+    src="https://www.jobcher.com/images/logo_hu212c4235ec694c68a44045c031d18f63_184363_100x0_resize_box_3.24b0c3ba128acac45603f551e9a391d0.png"
+    alt=""
+    loading="lazy"
+    height="100"
+    width="100"
+    
+    
+    
+     />
+</picture>
+
+    <p class="hb-blog-sidebar-profile-title text-center h5 mb-2">
+      打工人日志
+    </p>
+    <p class="hb-blog-sidebar-profile-desc text-center mb-2">
+      keep simple, keep stupid
+    </p>
+    <p class="hb-blog-sidebar-profile-meta mb-0">
+        <span class="mx-1"><svg aria-hidden="true" class="bi bi-geo-altbi bi-geo-alt hi-svg-inline me-1" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10"/>
+  <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+</svg>Earth</span>
+    </p>
+      <div class="hb-footer-socials d-flex mb-0 mt-1 justify-content-center">
+          
+          
+<a
+  class="hb-social p-2"
+  href="https://github.com/jobcher"
+  target="_blank"
+  rel="nofollow me"
+  title="GitHub"><svg aria-hidden="true" class="hi-svg-inline hb-social-icon" fill="currentColor" height="1.75em" role="img" style="color: %!s(bool=true);" viewBox="0 0 24 24" width="1.75em" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+</a>
+
+          
+          
+<a
+  class="hb-social p-2"
+  href="/zh-hans/index.xml"
+  target="_blank"
+  rel="nofollow me"
+  title="RSS"><svg aria-hidden="true" class="bi bi-rss-fillbi bi-rss-fill hi-svg-inline hb-social-icon" fill="currentColor" height="1.75em" style="color: %!s(bool=true);" viewBox="0 0 16 16" width="1.75em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm1.5 2.5c5.523 0 10 4.477 10 10a1 1 0 1 1-2 0 8 8 0 0 0-8-8 1 1 0 0 1 0-2m0 4a6 6 0 0 1 6 6 1 1 0 1 1-2 0 4 4 0 0 0-4-4 1 1 0 0 1 0-2m.5 7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+</svg>
+</a>
+
+          
+          
+<a
+  class="hb-social p-2"
+  href="https://twitter.com/jobcher1"
+  target="_blank"
+  rel="nofollow me"
+  title="推特"><svg aria-hidden="true" class="hi-svg-inline hb-social-icon" fill="currentColor" height="1.75em" role="img" style="color: #1d9bf0;" viewBox="0 0 24 24" width="1.75em" xmlns="http://www.w3.org/2000/svg"><title>Twitter</title><path d="M21.543 7.104c.015.211.015.423.015.636 0 6.507-4.954 14.01-14.01 14.01v-.003A13.94 13.94 0 0 1 0 19.539a9.88 9.88 0 0 0 7.287-2.041 4.93 4.93 0 0 1-4.6-3.42 4.916 4.916 0 0 0 2.223-.084A4.926 4.926 0 0 1 .96 9.167v-.062a4.887 4.887 0 0 0 2.235.616A4.928 4.928 0 0 1 1.67 3.148 13.98 13.98 0 0 0 11.82 8.292a4.929 4.929 0 0 1 8.39-4.49 9.868 9.868 0 0 0 3.128-1.196 4.941 4.941 0 0 1-2.165 2.724A9.828 9.828 0 0 0 24 4.555a10.019 10.019 0 0 1-2.457 2.549z"/></svg>
+</a>
+
+      </div>
+  </div>
+<div class="hb-module text-center bg-primary text-white p-3">
+  系统改版 欢迎关注
+</div>
+
+  <div class="hb-blog-sidebar-posts hb-module">
+    <ul class="nav nav-pills nav-fill" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active"
+            id="featured-posts-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#featured-posts"
+            type="button"
+            role="tab"
+            aria-controls="featured-posts"
+            aria-selected="true">
+            精选文章
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="recent-posts-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#recent-posts"
+            type="button"
+            role="tab"
+            aria-controls="recent-posts"
+            aria-selected="true">
+            最近文章
+          </button>
+        </li>
+    </ul>
+
+    <div class="tab-content mt-2">
+        <div
+          class="tab-pane active"
+          id="featured-posts"
+          role="tabpanel"
+          aria-labelledby="featured-posts-tab"
+          tabindex="0">
+          
+  <div class="slide">
+  <div class="slide-inner row row-cols-1">
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/zh-hans/blog/2022/09/featured-post-without-image/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="Featured Post without Image"
+        href="/zh-hans/blog/2022/09/featured-post-without-image/">Featured Post without Image</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+  </div>
+  
+<button class="slide-control-left">
+  <svg aria-hidden="true" class="bi bi-arrow-left-circlebi bi-arrow-left-circle hi-svg-inline slide-control-left-icon" fill="currentColor" height="2em" viewBox="0 0 16 16" width="2em" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+</svg>
+  <span class="visually-hidden">向左</span>
+</button>
+<button class="slide-control-right">
+  <svg aria-hidden="true" class="bi bi-arrow-right-circlebi bi-arrow-right-circle hi-svg-inline slide-control-right-icon" fill="currentColor" height="2em" viewBox="0 0 16 16" width="2em" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+</svg>
+  <span class="visually-hidden">向右</span>
+</button>
+
+</div>
+
+
+        </div>
+        <div
+          class="tab-pane slide"
+          id="recent-posts"
+          role="tabpanel"
+          aria-labelledby="recent-posts-tab"
+          tabindex="0">
+          
+  <div class="slide">
+  <div class="slide-inner row row-cols-1">
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/zh-hans/blog/2023/12/2023-12-22-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2023-12-22.jpg.cfc48c06c03ddac16cb134d1ce37b4d6.webp"
+    alt="2023-12-22 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2023-12-22 打工人日报"
+        href="/zh-hans/blog/2023/12/2023-12-22-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-22 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/zh-hans/blog/2023/12/2023-12-21-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2023-12-21.jpg.8ef3e3ee4aabd451b5d2103057c79602.webp"
+    alt="2023-12-21 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2023-12-21 打工人日报"
+        href="/zh-hans/blog/2023/12/2023-12-21-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-21 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/zh-hans/blog/2023/12/2023-12-20-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2023-12-20.jpg.7e60526b209009ce8888c241d2eaa5b2.webp"
+    alt="2023-12-20 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2023-12-20 打工人日报"
+        href="/zh-hans/blog/2023/12/2023-12-20-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-20 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/zh-hans/blog/2023/12/2023-12-19-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2023-12-19.jpg.6429fed1c308a6d27c1960b41baec7de.webp"
+    alt="2023-12-19 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2023-12-19 打工人日报"
+        href="/zh-hans/blog/2023/12/2023-12-19-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-19 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/zh-hans/blog/2023/12/2023-12-18-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2023-12-18.jpg.77e32e2fb94af3dc71848f44d924ef4e.webp"
+    alt="2023-12-18 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2023-12-18 打工人日报"
+        href="/zh-hans/blog/2023/12/2023-12-18-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-18 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+  </div>
+  
+<button class="slide-control-left">
+  <svg aria-hidden="true" class="bi bi-arrow-left-circlebi bi-arrow-left-circle hi-svg-inline slide-control-left-icon" fill="currentColor" height="2em" viewBox="0 0 16 16" width="2em" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+</svg>
+  <span class="visually-hidden">向左</span>
+</button>
+<button class="slide-control-right">
+  <svg aria-hidden="true" class="bi bi-arrow-right-circlebi bi-arrow-right-circle hi-svg-inline slide-control-right-icon" fill="currentColor" height="2em" viewBox="0 0 16 16" width="2em" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5z"/>
+</svg>
+  <span class="visually-hidden">向右</span>
+</button>
+
+</div>
+
+
+        </div>
+    </div>
+  </div>
+
+  <div class="hb-blog-sidebar-taxonomies hb-module">
+    
+<ul class="nav nav-pills nav-justified mb-2" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link active"
+        id="taxonomy-authors-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#taxonomy-authors-tab-pane"
+        type="button"
+        role="tab"
+        aria-controls="taxonomy-authors-tab-pane"
+        aria-selected="true">作者</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link"
+        id="taxonomy-categories-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#taxonomy-categories-tab-pane"
+        type="button"
+        role="tab"
+        aria-controls="taxonomy-categories-tab-pane"
+        aria-selected="false">分类</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link"
+        id="taxonomy-series-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#taxonomy-series-tab-pane"
+        type="button"
+        role="tab"
+        aria-controls="taxonomy-series-tab-pane"
+        aria-selected="false">专栏</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button
+        class="nav-link"
+        id="taxonomy-tags-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#taxonomy-tags-tab-pane"
+        type="button"
+        role="tab"
+        aria-controls="taxonomy-tags-tab-pane"
+        aria-selected="false">标签</button>
+    </li>
+</ul>
+<div class="tab-content">
+    <div
+      class="tab-pane fade show active"
+      id="taxonomy-authors-tab-pane"
+      role="tabpanel"
+      aria-labelledby="taxonomy-authors-tab"
+      tabindex="0">
+        <a
+          class="taxonomy-term taxonomy-term-authors btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/authors/jobcher/">
+          <span class="taxonomy-term-title">jobcher</span>
+            <small class="taxonomy-term-count border rounded px-1">346</small>
+        </a>
+    </div>
+    <div
+      class="tab-pane fade"
+      id="taxonomy-categories-tab-pane"
+      role="tabpanel"
+      aria-labelledby="taxonomy-categories-tab"
+      tabindex="0">
+        <a
+          class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/categories/github/">
+          <span class="taxonomy-term-title">github</span>
+            <small class="taxonomy-term-count border rounded px-1">167</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/categories/%E6%97%A5%E5%B8%B8/">
+          <span class="taxonomy-term-title">日常</span>
+            <small class="taxonomy-term-count border rounded px-1">32</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/categories/k8s/">
+          <span class="taxonomy-term-title">k8s</span>
+            <small class="taxonomy-term-count border rounded px-1">29</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/categories/gitlab/">
+          <span class="taxonomy-term-title">gitlab</span>
+            <small class="taxonomy-term-count border rounded px-1">15</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/categories/%E5%9F%BA%E7%A1%80/">
+          <span class="taxonomy-term-title">基础</span>
+            <small class="taxonomy-term-count border rounded px-1">15</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/categories/%E9%97%AE%E9%A2%98%E5%BA%93/">
+          <span class="taxonomy-term-title">问题库</span>
+            <small class="taxonomy-term-count border rounded px-1">11</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/categories/docker/">
+          <span class="taxonomy-term-title">docker</span>
+            <small class="taxonomy-term-count border rounded px-1">9</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/categories/work/">
+          <span class="taxonomy-term-title">work</span>
+            <small class="taxonomy-term-count border rounded px-1">8</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/categories/%E5%91%A8%E6%8A%A5/">
+          <span class="taxonomy-term-title">周报</span>
+            <small class="taxonomy-term-count border rounded px-1">8</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/categories/%E7%9B%91%E6%8E%A7/">
+          <span class="taxonomy-term-title">监控</span>
+            <small class="taxonomy-term-count border rounded px-1">8</small>
+        </a>
+    </div>
+    <div
+      class="tab-pane fade"
+      id="taxonomy-series-tab-pane"
+      role="tabpanel"
+      aria-labelledby="taxonomy-series-tab"
+      tabindex="0">
+        <a
+          class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/series/github/">
+          <span class="taxonomy-term-title">github</span>
+            <small class="taxonomy-term-count border rounded px-1">167</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/">
+          <span class="taxonomy-term-title">日常系列</span>
+            <small class="taxonomy-term-count border rounded px-1">32</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">
+          <span class="taxonomy-term-title">k8s入门系列</span>
+            <small class="taxonomy-term-count border rounded px-1">28</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/">
+          <span class="taxonomy-term-title">问题库系列</span>
+            <small class="taxonomy-term-count border rounded px-1">19</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/series/git%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">
+          <span class="taxonomy-term-title">git入门系列</span>
+            <small class="taxonomy-term-count border rounded px-1">15</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/series/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97/">
+          <span class="taxonomy-term-title">基础知识系列</span>
+            <small class="taxonomy-term-count border rounded px-1">15</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/series/%E5%91%A8%E6%8A%A5%E7%B3%BB%E5%88%97/">
+          <span class="taxonomy-term-title">周报系列</span>
+            <small class="taxonomy-term-count border rounded px-1">8</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/series/%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7%E7%B3%BB%E5%88%97/">
+          <span class="taxonomy-term-title">运维监控系列</span>
+            <small class="taxonomy-term-count border rounded px-1">8</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/series/web%E6%9C%8D%E5%8A%A1%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">
+          <span class="taxonomy-term-title">web服务入门系列</span>
+            <small class="taxonomy-term-count border rounded px-1">7</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/series/%E7%A6%8F%E5%88%A9%E7%B3%BB%E5%88%97/">
+          <span class="taxonomy-term-title">福利系列</span>
+            <small class="taxonomy-term-count border rounded px-1">7</small>
+        </a>
+    </div>
+    <div
+      class="tab-pane fade"
+      id="taxonomy-tags-tab-pane"
+      role="tabpanel"
+      aria-labelledby="taxonomy-tags-tab"
+      tabindex="0">
+        <a
+          class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/tags/github/">
+          <span class="taxonomy-term-title">github</span>
+            <small class="taxonomy-term-count border rounded px-1">167</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/tags/k8s/">
+          <span class="taxonomy-term-title">k8s</span>
+            <small class="taxonomy-term-count border rounded px-1">28</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/tags/daliy/">
+          <span class="taxonomy-term-title">daliy</span>
+            <small class="taxonomy-term-count border rounded px-1">18</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/tags/%E8%BF%90%E7%BB%B4/">
+          <span class="taxonomy-term-title">运维</span>
+            <small class="taxonomy-term-count border rounded px-1">14</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/tags/error/">
+          <span class="taxonomy-term-title">error</span>
+            <small class="taxonomy-term-count border rounded px-1">11</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/tags/gitlab/">
+          <span class="taxonomy-term-title">gitlab</span>
+            <small class="taxonomy-term-count border rounded px-1">11</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/tags/docker/">
+          <span class="taxonomy-term-title">docker</span>
+            <small class="taxonomy-term-count border rounded px-1">9</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/tags/linux/">
+          <span class="taxonomy-term-title">linux</span>
+            <small class="taxonomy-term-count border rounded px-1">9</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/tags/work/">
+          <span class="taxonomy-term-title">work</span>
+            <small class="taxonomy-term-count border rounded px-1">8</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/zh-hans/tags/%E5%91%A8%E6%8A%A5/">
+          <span class="taxonomy-term-title">周报</span>
+            <small class="taxonomy-term-count border rounded px-1">8</small>
+        </a>
+    </div>
+</div>
+
+  </div>
+
+
+    </div>
+  </div>
+    </div>
+    
+
+    <footer class="hb-footer pt-4 pt-md-5 pb-2 pb-md-3 bg-body-tertiary">
+  <div class="container-fluid container-lg px-4 px-md-3">
+
+    <div class="row"><div class="hb-footer-site-info col mb-2 text-center">
+
+  <div class="h5">打工人日志</div>
+  <ul class="list-unstyled small mb-2">
+      <li class="mt-2">keep simple, keep stupid</li>
+      <li class="mt-2">Copyright © 2022-2023 All Rights Reserved.</li>
+  <li class="mt-2">
+    Built with ❤️ from <a class="text-body-emphasis" href="https://gohugo.io/" target="_blank" rel="external" title="Hugo">Hugo</a>, <a class="text-body-emphasis" href="https://hugomods.com/" target="_blank" rel="external" title="HugoMods">HugoMods</a> and <a class="text-body-emphasis" href="https://hbstack.dev/" target="_blank" rel="external" title="HB Framework">HB Framework</a>.
+  </li>
+  </ul>
+  <div class="hb-footer-socials d-flex mb-2 justify-content-center">
+      
+      
+      
+<a
+  class="hb-social p-2"
+  href="https://github.com/jobcher"
+  target="_blank"
+  rel="nofollow me"
+  title="GitHub"><svg aria-hidden="true" class="hi-svg-inline hb-social-icon" fill="currentColor" height="1.75em" role="img" style="color: %!s(bool=true);" viewBox="0 0 24 24" width="1.75em" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+</a>
+
+      
+      
+<a
+  class="hb-social p-2"
+  href="/zh-hans/index.xml"
+  target="_blank"
+  rel="nofollow me"
+  title="RSS"><svg aria-hidden="true" class="bi bi-rss-fillbi bi-rss-fill hi-svg-inline hb-social-icon" fill="currentColor" height="1.75em" style="color: %!s(bool=true);" viewBox="0 0 16 16" width="1.75em" xmlns="http://www.w3.org/2000/svg">
+  <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm1.5 2.5c5.523 0 10 4.477 10 10a1 1 0 1 1-2 0 8 8 0 0 0-8-8 1 1 0 0 1 0-2m0 4a6 6 0 0 1 6 6 1 1 0 1 1-2 0 4 4 0 0 0-4-4 1 1 0 0 1 0-2m.5 7a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+</svg>
+</a>
+
+      
+      
+<a
+  class="hb-social p-2"
+  href="https://twitter.com/jobcher1"
+  target="_blank"
+  rel="nofollow me"
+  title="推特"><svg aria-hidden="true" class="hi-svg-inline hb-social-icon" fill="currentColor" height="1.75em" role="img" style="color: #1d9bf0;" viewBox="0 0 24 24" width="1.75em" xmlns="http://www.w3.org/2000/svg"><title>Twitter</title><path d="M21.543 7.104c.015.211.015.423.015.636 0 6.507-4.954 14.01-14.01 14.01v-.003A13.94 13.94 0 0 1 0 19.539a9.88 9.88 0 0 0 7.287-2.041 4.93 4.93 0 0 1-4.6-3.42 4.916 4.916 0 0 0 2.223-.084A4.926 4.926 0 0 1 .96 9.167v-.062a4.887 4.887 0 0 0 2.235.616A4.928 4.928 0 0 1 1.67 3.148 13.98 13.98 0 0 0 11.82 8.292a4.929 4.929 0 0 1 8.39-4.49 9.868 9.868 0 0 0 3.128-1.196 4.941 4.941 0 0 1-2.165 2.724A9.828 9.828 0 0 0 24 4.555a10.019 10.019 0 0 1-2.457 2.549z"/></svg>
+</a>
+
+  </div>
+
+</div>
+
+
+    </div>
+
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+<script
+  src="/js/hb.5e3b0b1a5749d3e1608d11565123e466067278399dc00aa59fae87cdb2e3e6de.js"
+  integrity="sha256-XjsLGldJ0&#43;FgjRFWUSPkZgZyeDmdwAqln66HzbLj5t4="
+  defer></script>
+
+
+
+
+
+  
+<script src="/js/search.85740bbf6cc28da41c730a4589295f053c5ad881b2f10ec87a0a99e0f17ffdaa.js" defer></script>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+  window.addEventListener('DOMContentLoaded', function() {
+    navigator.serviceWorker.register('\/sw.js');
+  });
+}
+</script>
+
+
+
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ansible on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/tags/ansible/</link>
+    <description>Recent content in ansible on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Thu, 14 Apr 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/tags/ansible/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ansible 命令</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/04/ansible-%E5%91%BD%E4%BB%A4/</link>
+      <pubDate>Thu, 14 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/04/ansible-%E5%91%BD%E4%BB%A4/</guid>
+      <description>ansible 命令 Inventory：Ansible 管理的主机信息，包括 IP 地址、SSH 端口、账号、密码等 Modules：任务均有模块完成，也可以自定义模块，例如经常用的脚本。 Plugins：使用插件增加 Ansible 核心功能，自身提供了很多插件，也可以自定义插件。例如 connection 插件，用于连接目标主机。 Playbooks：“剧本”，模块化定义一系列任务，供外部统一调用。Ansible 核心功能。 编辑主机清单 1[webservers] 2192.168.0.20 ansible_ssh_user=root ansible_ssh_pass=’200271200’ 3192.168.0.21 ansible_ssh_user=root ansible_ssh_pass=’200271200’ 4192.168.0.22 ansible_ssh_user=root ansible_ssh_pass=’200271200’ 5 6[dbservers] 710.12.0.100 810.12.0.101 1sed -i &amp;#34;s/#host_key_checking = .*/host_key_checking = False/g&amp;#34; /etc/ansible/ansible.cfg 命令行 1ansible all -m ping 2ansible all -m shell -a &amp;#34;ls /root&amp;#34; -u root -k 常用模块 在目标主机执行 shell 命令。&#xA;shell 1- name: 将命令结果输出到指定文件 2 shell: somescript.sh &amp;gt;&amp;gt; somelog.txt 3- name: 切换目录执行命令 4 shell: 5 cmd: ls -l | grep log 6 chdir: somedir/ 7- name: 编写脚本 8 shell: | 9 if [ 0 -eq 0 ]; then 10 echo yes &amp;gt; /tmp/result 11 else 12 echo no &amp;gt; /tmp/result 13 fi 14 args: 15 executable: /bin/bash copy 将文件复制到远程主机。 1- name: 拷贝文件 2 copy: 3 src: /srv/myfiles/foo.</description>
+    </item>
+    <item>
+      <title>ansible 安装和部署</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/ansible-%E5%AE%89%E8%A3%85%E5%92%8C%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Thu, 30 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/ansible-%E5%AE%89%E8%A3%85%E5%92%8C%E9%83%A8%E7%BD%B2/</guid>
+      <description>ansible 安装和部署 Ansible 默认通过 SSH 协议管理机器.&#xA;安装 ansible 下载安装 1# ubuntu 安装 2apt-get install software-properties-common 3apt-add-repository ppa:ansible/ansible 4apt-get update 5apt-get install ansible 6# centos 安装 7yum install ansible 检查文件 1#检查 2ansible --version ansible 配置 添加主机 1vim /etc/ansible/hosts 2#添加你需要添加的被控主机地址和IP 配置 SSH key 授权访问 1# 控制主机生成ssh 密钥对（一路回车） 2ssh-keygen -t rsa 3# 复制公钥IP到被控主机 4ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.0.2 5ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.0.3 6ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.0.4 7# ssh-copy-id命令会自动将id_rsa.pub文件的内容追加到远程主机root用户下.ssh/authorized_keys文件中。 更改 ansible 配置 1vim /etc/ansible/ansible.cfg 2 3#禁用每次执行ansbile命令检查ssh key host 4host_key_checking = False 5# 开启日志记录 6log_path = /var/log/ansible.</description>
+    </item>
+  </channel>
+</rss>

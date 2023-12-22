@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>midjourney on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/tags/midjourney/</link>
+    <description>Recent content in midjourney on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Sun, 09 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/tags/midjourney/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>探索midjourney(二)：midjourney prompt初体验</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/07/%E6%8E%A2%E7%B4%A2midjourney%E4%BA%8Cmidjourney-prompt%E5%88%9D%E4%BD%93%E9%AA%8C/</link>
+      <pubDate>Sun, 09 Jul 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/07/%E6%8E%A2%E7%B4%A2midjourney%E4%BA%8Cmidjourney-prompt%E5%88%9D%E4%BD%93%E9%AA%8C/</guid>
+      <description>紧接上文，我们继续探索midjourney prompt，这次我们来看看midjourney prompt的基础用法。&#xA;midjourney 参数使用 参数是添加到提示中的选项，用于更改图像的生成方式。参数可以更改图像的长宽比、在中途模型版本之间切换、更改使用的 Upscaler 等等。参数始终添加到提示的末尾。您可以向每个提示添加多个参数&#xA;许多 Apple 设备会自动将双连字符 (&amp;ndash;) 更改为长破折号 (—)。midjourney接受两者！&#xA;基础参数列表 参数 描述 &amp;ndash;aspect, &amp;ndash;ar 更改生成图像的长宽比。 &amp;ndash;chaos &amp;lt;nummber 8-100&amp;gt; 更改生成图像的混乱程度。 &amp;ndash;fast 使用快速模式运行单个作业 &amp;ndash;iw &amp;lt;0-2&amp;gt; 设置相对于文本粗细的图像提示粗细。默认值为 1。 &amp;ndash;no 负面提示, --no plant 将生成没有植物的图像。 &amp;ndash;quality &amp;lt;.25, .5 ,1&amp;gt;, &amp;ndash;q &amp;lt;.25, .5, 1&amp;gt; 您想要花费多少渲染质量时间。默认值为 1。值越高，使用的 GPU 分钟数越多；较低的值使用较少 &amp;ndash;repeat &amp;lt;1-40&amp;gt;, &amp;ndash;r &amp;lt;1-40&amp;gt; 从单个提示创建多个作业。 --repeat 对于快速重新运行作业多次很有用。 &amp;ndash;seed &amp;lt;integer between 0–4294967295&amp;gt; Midjourney 机器人使用种子号来创建视觉噪声场（如电视静态），作为生成初始图像网格的起点。种子数是为每个图像随机生成的，但可以使用 --seed 或 --sameseed 参数指定。使用相同的种子编号和提示将产生相似的结局图像。 &amp;ndash;stop &amp;lt;integer between 10–100&amp;gt; 使用 &amp;ndash;stop 参数在流程中途完成作业。以较早的百分比停止作业可能会产生更模糊、不太详细的结果。 &amp;ndash;tile 参数生成可用作重复图块以创建无缝图案的图像。 &amp;ndash;Turbo 使用 Turbo 模式运行单个作业。 &amp;ndash;Weird &amp;lt;number 0-3000&amp;gt; 使用实验性 &amp;ndash;weird 参数探索不寻常的美学。 参数示例 我了解那么多的参数变化，但是我不知道如何使用它们。让我们看看一些示例，以便您可以开始使用它们。</description>
+    </item>
+  </channel>
+</rss>

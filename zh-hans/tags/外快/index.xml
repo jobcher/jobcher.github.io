@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>外快 on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/tags/%E5%A4%96%E5%BF%AB/</link>
+    <description>Recent content in 外快 on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Fri, 11 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/tags/%E5%A4%96%E5%BF%AB/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>网心云挂机教程 | 轻松实现睡后收入~</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/02/%E7%BD%91%E5%BF%83%E4%BA%91%E6%8C%82%E6%9C%BA%E6%95%99%E7%A8%8B-%E8%BD%BB%E6%9D%BE%E5%AE%9E%E7%8E%B0%E7%9D%A1%E5%90%8E%E6%94%B6%E5%85%A5~/</link>
+      <pubDate>Fri, 11 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/02/%E7%BD%91%E5%BF%83%E4%BA%91%E6%8C%82%E6%9C%BA%E6%95%99%E7%A8%8B-%E8%BD%BB%E6%9D%BE%E5%AE%9E%E7%8E%B0%E7%9D%A1%E5%90%8E%E6%94%B6%E5%85%A5~/</guid>
+      <description>网心云挂机教程 | 轻松实现睡后收入~ 首先，本文章只是分享，造成一切的后果，博主概不负责！都是成年人了……&#xA;我采用 docker 容器魔方来挂载网心云&#xA;docker 部署 /mnt/money/wxedge_storage这个路径改为自己的存储路径建议&amp;gt;200G&#xA;1docker run \ 2--name=wxedge \ 3--restart=always \ 4--privileged \ 5--net=host \ 6--tmpfs /run \ 7--tmpfs /tmp \ 8-v /mnt/money/wxedge_storage:/storage:rw \ 9-d \ 10registry.cn-hangzhou.aliyuncs.com/onething/wxedge 设备绑定 进入 dockerip 地址 （http://127.0.0.1:18888) 下载 app 扫码绑定 成功 然后坐等第二天收益到账就可以了，记得19:00-23:00是收益高峰期尽量保持在线~</description>
+    </item>
+  </channel>
+</rss>

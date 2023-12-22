@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nps on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/tags/nps/</link>
+    <description>Recent content in nps on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Fri, 30 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/tags/nps/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloudflare Zero Trust 内网穿透</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/09/cloudflare-zero-trust-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</link>
+      <pubDate>Fri, 30 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/09/cloudflare-zero-trust-%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</guid>
+      <description>Cloudflare Zero Trust 内网穿透 最快的 Zero Trust 应用访问和互联网浏览平台&#xA;增加可见性，消除复杂性，降低远程和办公室用户的风险。杜绝数据丢失、恶意软件和网络钓鱼，保护用户、应用程序和设备安全。&#xA;使用 Tunnel 隧道来实现内网传统，实现内网访问各类应用&#xA;安装部署 https://dash.teams.cloudflare.com/&#xA;Docker 部署 在 docker 环境运行 &amp;lt;token&amp;gt; 是你个人令牌&#xA;1docker run -d --name cloudflared cloudflare/cloudflared:latest tunnel --no-autoupdate run --token &amp;lt;token&amp;gt; Linux 部署 X86-64 位 1curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-x86_64.rpm &amp;amp;&amp;amp; \ 2sudo yum localinstall -y cloudflared.rpm &amp;amp;&amp;amp; \ 3sudo cloudflared service install &amp;lt;token&amp;gt; X86-32 位 1curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386.rpm &amp;amp;&amp;amp; 2 3sudo yum localinstall -y cloudflared.rpm &amp;amp;&amp;amp; 4 5sudo cloudflared service install &amp;lt;token&amp;gt; arm64 1curl -L --output cloudflared.</description>
+    </item>
+    <item>
+      <title>自建服务器内网穿透</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/%E8%87%AA%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</link>
+      <pubDate>Wed, 08 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/%E8%87%AA%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</guid>
+      <description>内网穿透 文章中使用的内网穿透前提是必须具有公网 IP 的云服务器，不符合条件的同学可以跳过了。&#xA;nps 内网穿透 nps 是一款轻量级、高性能、功能强大的内网穿透代理服务器。&#xA;在公网服务器上安装 nps sever 端 1 wget https://github.com/ehang-io/nps/releases/download/v0.26.10/linux_amd64_server.tar.gz 2 tar -zxvf linux_amd64_server.tar.gz 3 sudo ./nps install 4 sudo nps start 在控制端安装 npc client 端 1 wget https://github.com/ehang-io/nps/releases/download/v0.26.10/linux_amd64_client.tar.gz 2 tar -zxvf linux_amd64_client.tar.gz 3 sudo ./npc -server=ip:port -vkey=web界面中显示的密钥 4 sudo npc start npc 安装完成可以进入 web 页面穿透端口和域名&#xA;http://localhost:8080&#xA;frps 内网穿透 frps 相对于 nps 的劣势是有断流的风险&#xA;frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可靠的支持&#xA;安装 frps 1 wget https://code.aliyun.com/MvsCode/frps-onekey/raw/master/install-frps.sh -O ./install-frps.sh 2 chmod 700 .</description>
+    </item>
+  </channel>
+</rss>

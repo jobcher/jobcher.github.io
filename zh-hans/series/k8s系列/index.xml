@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>k8s系列 on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/series/k8s%E7%B3%BB%E5%88%97/</link>
+    <description>Recent content in k8s系列 on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Wed, 13 Dec 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/series/k8s%E7%B3%BB%E5%88%97/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Kubernetes — containerd 安装和部署</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2023/12/kubernetes-containerd-%E5%AE%89%E8%A3%85%E5%92%8C%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Wed, 13 Dec 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2023/12/kubernetes-containerd-%E5%AE%89%E8%A3%85%E5%92%8C%E9%83%A8%E7%BD%B2/</guid>
+      <description>containerd 现在很多人说起容器都会说到docker，docker凭借镜像（images）快捷的部署，占领了极大的技术市场，docker公司将自己的核心依赖 Contanerd 捐给了 CNCF，这个就是contanerd的由来，containerd 在kubernetes在 v1.24之后的版本作为底层核心进行使用。&#xA;Containerd架构 可以看到 Containerd 仍然采用标准的 C/S 架构，服务端通过 GRPC 协议提供稳定的 API，客户端通过调用服务端的 API 进行高级的操作。 为了解耦，Containerd 将不同的职责划分给不同的组件，每个组件就相当于一个子系统（subsystem）。连接不同子系统的组件被称为模块。 总体上 Containerd 被划分为两个子系统：&#xA;Bundle : 在 Containerd 中，Bundle 包含了配置、元数据和根文件系统数据，你可以理解为容器的文件系统。而 Bundle 子系统允许用户从镜像中提取和打包 Bundles。 Runtime : Runtime 子系统用来执行 Bundles，比如创建容器。 其中，每一个子系统的行为都由一个或多个模块协作完成（架构图中的 Core 部分）。每一种类型的模块都以插件的形式集成到 Containerd 中，而且插件之间是相互依赖的。例如，上图中的每一个长虚线的方框都表示一种类型的插件，包括 Service Plugin、Metadata Plugin、GC Plugin、Runtime Plugin 等，其中 Service Plugin 又会依赖 Metadata Plugin、GC Plugin 和 Runtime Plugin。每一个小方框都表示一个细分的插件，例如 Metadata Plugin 依赖 Containers Plugin、Content Plugin 等。 总之，万物皆插件，插件就是模块，模块就是插件。&#xA;常用插件 Content Plugin : 提供对镜像中可寻址内容的访问，所有不可变的内容都被存储在这里。 Snapshot Plugin : 用来管理容器镜像的文件系统快照。镜像中的每一个 layer 都会被解压成文件系统快照，类似于 Docker 中的 graphdriver。 Metrics : 暴露各个组件的监控指标。 安装 卸载docker 首先要保证环境干净整洁，如果你有安装docker服务，需要先卸载docker，如果没有安装可以跳过</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>go系列 on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/series/go%E7%B3%BB%E5%88%97/</link>
+    <description>Recent content in go系列 on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Wed, 21 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/series/go%E7%B3%BB%E5%88%97/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Golang 初识（安装、使用）</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/09/golang-%E5%88%9D%E8%AF%86%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Wed, 21 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/09/golang-%E5%88%9D%E8%AF%86%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/</guid>
+      <description>Golang 初识（安装、使用） Go 导学 go 语言由 google 公司推出。&#xA;运行速度快，简单易学 适合区块链开发 拥有丰富指令 可以直接包含 C 语言 语言层面支持并发 Go 方向 网络编程 服务器编程 区块链开发 环境安装 安装环境 安装包下载&#xA;https://golang.google.cn/dl/&#xA;windows 部署 1wget https://golang.google.cn/dl/go1.19.1.windows-amd64.msi 2# 直接安装 GOPATH 设置 在环境变量 PATH 上直接配置安装地址&#xA;编写第一个程序 1package main 2 3import &amp;#34;fmt&amp;#34; 4 5func main() { 6&#x9;fmt.Println(&amp;#34;Hello World!&amp;#34;) 7} </description>
+    </item>
+    <item>
+      <title>go Struct 结构体</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/04/go-struct-%E7%BB%93%E6%9E%84%E4%BD%93/</link>
+      <pubDate>Tue, 26 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/04/go-struct-%E7%BB%93%E6%9E%84%E4%BD%93/</guid>
+      <description>go Struct 结构体 结构体是将零个或多个任意类型的变量，组合在一起的聚合数据类型，也可以看做是数据的集合。&#xA;声明结构体 1//demo_11.go 2package main 3 4import ( 5&#x9;&amp;#34;fmt&amp;#34; 6) 7 8type Person struct { 9&#x9;Name string 10&#x9;Age int 11} 12 13func main() { 14&#x9;var p1 Person 15&#x9;p1.Name = &amp;#34;Tom&amp;#34; 16&#x9;p1.Age = 30 17&#x9;fmt.Println(&amp;#34;p1 =&amp;#34;, p1) 18 19&#x9;var p2 = Person{Name:&amp;#34;Burke&amp;#34;, Age:31} 20&#x9;fmt.Println(&amp;#34;p2 =&amp;#34;, p2) 21 22&#x9;p3 := Person{Name:&amp;#34;Aaron&amp;#34;, Age:32} 23&#x9;fmt.Println(&amp;#34;p2 =&amp;#34;, p3) 24 25&#x9;//匿名结构体 26&#x9;p4 := struct { 27&#x9;Name string 28&#x9;Age int 29&#x9;} {Name:&amp;#34;匿名&amp;#34;, Age:33} 30&#x9;fmt.</description>
+    </item>
+    <item>
+      <title>go Slice切片语法</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/04/go-slice%E5%88%87%E7%89%87%E8%AF%AD%E6%B3%95/</link>
+      <pubDate>Mon, 25 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/04/go-slice%E5%88%87%E7%89%87%E8%AF%AD%E6%B3%95/</guid>
+      <description>go Slice 切片语法 切片是一种动态数组，比数组操作灵活，长度不是固定的，可以进行追加和删除。&#xA;len() 和 cap() 返回结果可相同和不同。&#xA;声明切片 1//demo_7.go 2package main 3 4import ( 5&#x9;&amp;#34;fmt&amp;#34; 6) 7 8func main() { 9&#x9;var sli_1 [] int //nil 切片 10&#x9;fmt.Printf(&amp;#34;len=%d cap=%d slice=%v\n&amp;#34;,len(sli_1),cap(sli_1),sli_1) 11 12&#x9;var sli_2 = [] int {} //空切片 13&#x9;fmt.Printf(&amp;#34;len=%d cap=%d slice=%v\n&amp;#34;,len(sli_1),cap(sli_2),sli_2) 14 15&#x9;var sli_3 = [] int {1, 2, 3, 4, 5} 16&#x9;fmt.Printf(&amp;#34;len=%d cap=%d slice=%v\n&amp;#34;,len(sli_3),cap(sli_3),sli_3) 17 18&#x9;sli_4 := [] int {1, 2, 3, 4, 5} 19&#x9;fmt.</description>
+    </item>
+    <item>
+      <title>go 基础知识</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/04/go-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</link>
+      <pubDate>Mon, 25 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/04/go-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/</guid>
+      <description>go 基础知识 目录结构 1├─ code -- 代码根目录 2│ ├─ bin 3│ ├─ pkg 4│ ├─ src 5│ ├── hello 6│ ├── hello.go bin 存放编译后可执行的文件。 pkg 存放编译后的应用包。 src 存放应用源代码。 Hello World 代码&#xA;1//在 hello 目录下创建 hello.go 2package main 3 4import ( 5&#x9;&amp;#34;fmt&amp;#34; 6) 7 8func main() { 9&#x9;fmt.Println(&amp;#34;Hello World!&amp;#34;) 10} 基础命令 1go build hello 2#在src目录或hello目录下执行 go build hello，只在对应当前目录下生成文件。 3go install hello 4#在src目录或hello目录下执行 go install hello，会把编译好的结果移动到 $GOPATH/bin。 5go run hello 6#在src目录或hello目录下执行 go run hello，不生成任何文件只运行程序。 7go fmt hello 8#在src目录或hello目录下执行 go run hello，格式化代码，将代码修改成标准格式。 数据类型 类型 表示 备注 字符串 string 只能用一对双引号（&amp;quot;&amp;quot;）或反引号（``）括起来定义，不能用单引号（&amp;rsquo;&amp;rsquo;）定义！ 布尔 bool 只有 true 和 false，默认为 false。 整型 int8 uint8 int16 uint16 int32 uint32 int64 uint64 int uint 具体长度取决于 CPU 位数。 浮点型 float32 float64 常量声明 常量，在程序编译阶段就确定下来的值，而程序在运行时无法改变该值。</description>
+    </item>
+    <item>
+      <title>Golang go build 编译不同版本</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/04/golang-go-build-%E7%BC%96%E8%AF%91%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/</link>
+      <pubDate>Sun, 17 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/04/golang-go-build-%E7%BC%96%E8%AF%91%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/</guid>
+      <description>Golang go build 编译不同系统下的可执行文件 Mac 系统编译 1CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build test.go 2CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build test.go Linux 系统编译 1CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build test.go 2CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build test.go windows 系统编译 1SET CGO_ENABLED=0 SET GOOS=darwin3 SET GOARCH=amd64 go build test.go 2SET CGO_ENABLED=0 SET GOOS=linux SET GOARCH=amd64 go build test.go GOOS：目标可执行程序运行操作系统，支持 darwin，freebsd，linux，windows GOARCH：目标可执行程序操作系统构架，包括 386，amd64，arm </description>
+    </item>
+  </channel>
+</rss>

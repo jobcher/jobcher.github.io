@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>数据库 on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+    <description>Recent content in 数据库 on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Tue, 15 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Oracle Instant Client 安装配置实现远程连接oracle</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/11/oracle-instant-client-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E5%AE%9E%E7%8E%B0%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5oracle/</link>
+      <pubDate>Tue, 15 Nov 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/11/oracle-instant-client-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE%E5%AE%9E%E7%8E%B0%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5oracle/</guid>
+      <description>背景 关于 Oracle 数据库一直是许多初学者比较头疼的地方，一方面受限于线上文档比较少，令一方面在企业中不得不接触和使用 Oracle 数据库，这篇文章是教大家如何通过配置 oracle client 来远程访问 Oracle 数据库。本文会通过 python3 和 cx_Oracle 来实现对 Oracle 的访问和增删改查&#xA;下载 oracle 客户端 官方地址下载&#xA;安装 下载并安装你的 oracle client，因为我连接的 11g oracle，所以下载 11.2 版本&#xA;1# 下载 2wget https://download.oracle.com/otn/linux/instantclient/11204/oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm 3# 安装 4rpm -ivh oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm 配置环境变量 1# 直接运行 2export ORACLE_HOME=/usr/lib/oracle/11.2/client64 3export ORABIN=/usr/lib/oracle/11.2/client64/bin 1# 编辑环境变量配置文件 2vim /etc/profile 1# 底部增加内容 2export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL 3export ORACLE_HOME=/usr/lib/oracle/11.2/client64 4export TNS_ADMIN=/usr/lib/oracle/11.2/client64 5export LD_LIBRARY_PATH=/usr/lib/oracle/11.2/client64/lib 6export ORABIN=/usr/lib/oracle/11.2/client64/bin 7PATH=$PATH:$ORABIN 8export PATH 9 10export PATH=$ORACLE_HOME:$PATH 11export PATH=$PATH:$HOME/bin:$ORACLE_HOME/bin 1# 刷新环境变量 2source /etc/profile 下载 cx_Oracle 1pip3 install cx_Oracle 创建 Oracle.</description>
+    </item>
+    <item>
+      <title>关系数据库 索引操作</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/08/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93-%E7%B4%A2%E5%BC%95%E6%93%8D%E4%BD%9C/</link>
+      <pubDate>Tue, 16 Aug 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/08/%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93-%E7%B4%A2%E5%BC%95%E6%93%8D%E4%BD%9C/</guid>
+      <description>索引 在关系数据库中，如果有上万甚至上亿条记录，在查找记录的时候，想要获得非常快的速度，就需要使用索引。&#xA;索引是关系数据库中对某一列或多个列的值进行预排序的数据结构。通过使用索引，可以让数据库系统不必扫描整个表，而是直接定位到符合条件的记录，这样就大大加快了查询速度。&#xA;students表:&#xA;id class_id name gender score 1 1 小明 M 90 2 1 小红 F 95 3 1 小军 M 88 如果要经常根据score列进行查询，就可以对score列创建索引： 1ALTER TABLE students 2ADD INDEX idx_score (score); 使用ADD INDEX idx_score (score)就创建了一个名称为idx_score，使用列score的索引。索引名称是任意的，索引如果有多列，可以在括号里依次写上，例如： 1ALTER TABLE students 2ADD INDEX idx_name_score (name, score); 索引的效率取决于索引列的值是否散列，即该列的值如果越互不相同，那么索引效率越高。反过来，如果记录的列存在大量相同的值，例如gender列，大约一半的记录值是M，另一半是F，因此，对该列创建索引就没有意义。&#xA;唯一索引 在设计关系数据表的时候，看上去唯一的列，例如身份证号、邮箱地址等，因为他们具有业务含义，因此不宜作为主键。&#xA;但是，这些列根据业务要求，又具有唯一性约束：即不能出现两条记录存储了同一个身份证号。这个时候，就可以给该列添加一个唯一索引。例如，我们假设students表的name不能重复：&#xA;1ALTER TABLE students 2ADD UNIQUE INDEX uni_name (name); 通过UNIQUE关键字我们就添加了一个唯一索引。&#xA;也可以只对某一列添加一个唯一约束而不创建唯一索引：&#xA;1ALTER TABLE students 2ADD CONSTRAINT uni_name UNIQUE (name); 这种情况下，name列没有索引，但仍然具有唯一性保证。&#xA;无论是否创建索引，对于用户和应用程序来说，使用关系数据库不会有任何区别。这里的意思是说，当我们在数据库中查询时，如果有相应的索引可用，数据库系统就会自动使用索引来提高查询效率，如果没有索引，查询也能正常执行，只是速度会变慢。因此，索引可以在使用数据库的过程中逐步优化&#xA;通过对数据库表创建索引，可以提高查询速度。 通过创建唯一索引，可以保证某一列的值具有唯一性。 数据库索引对于用户和应用程序来说都是透明的。</description>
+    </item>
+    <item>
+      <title>Navicat 查看导出连接的密码 | navicat查看密码方案</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/02/navicat-%E6%9F%A5%E7%9C%8B%E5%AF%BC%E5%87%BA%E8%BF%9E%E6%8E%A5%E7%9A%84%E5%AF%86%E7%A0%81-navicat%E6%9F%A5%E7%9C%8B%E5%AF%86%E7%A0%81%E6%96%B9%E6%A1%88/</link>
+      <pubDate>Tue, 08 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/02/navicat-%E6%9F%A5%E7%9C%8B%E5%AF%BC%E5%87%BA%E8%BF%9E%E6%8E%A5%E7%9A%84%E5%AF%86%E7%A0%81-navicat%E6%9F%A5%E7%9C%8B%E5%AF%86%E7%A0%81%E6%96%B9%E6%A1%88/</guid>
+      <description>Navicat 查看密码方案 解决问题： 我们经常使用 navicat 连接数据库，有时候时间久了之后，会忘记之前的密码，那么现在我们有办法获得只要正常连接的数据库的密码&#xA;步骤： 导出连接 connections.ncx，拿到保存到本地的 connections.ncx 文件中的 Password，粘贴到下面的代码中 登陆https://tool.lu/coderunner/，使用 PHP 在线运行工具，粘贴下面添加密码后的代码&#xA;备用工具网址（https://zixuephp.net/tool-runcode.html） 1&amp;lt;?php 2class NavicatPassword 3{ 4 protected $version = 0; 5 protected $aesKey = &amp;#39;libcckeylibcckey&amp;#39;; 6 protected $aesIv = &amp;#39;libcciv libcciv &amp;#39;; 7 protected $blowString = &amp;#39;3DC5CA39&amp;#39;; 8 protected $blowKey = null; 9 protected $blowIv = null; 10 11 public function __construct($version = 12) 12 { 13 $this-&amp;gt;version = $version; 14 $this-&amp;gt;blowKey = sha1(&amp;#39;3DC5CA39&amp;#39;, true); 15 $this-&amp;gt;blowIv = hex2bin(&amp;#39;d9c7c3c8870d64bd&amp;#39;); 16 } 17 18 public function encrypt($string) 19 { 20 $result = FALSE; 21 switch ($this-&amp;gt;version) { 22 case 11: 23 $result = $this-&amp;gt;encryptEleven($string); 24 break; 25 case 12: 26 $result = $this-&amp;gt;encryptTwelve($string); 27 break; 28 default: 29 break; 30 } 31 32 return $result; 33 } 34 35 protected function encryptEleven($string) 36 { 37 $round = intval(floor(strlen($string) / 8)); 38 $leftLength = strlen($string) % 8; 39 $result = &amp;#39;&amp;#39;; 40 $currentVector = $this-&amp;gt;blowIv; 41 42 for ($i = 0; $i &amp;lt; $round; $i++) { 43 $temp = $this-&amp;gt;encryptBlock($this-&amp;gt;xorBytes(substr($string, 8 * $i, 8), $currentVector)); 44 $currentVector = $this-&amp;gt;xorBytes($currentVector, $temp); 45 $result .</description>
+    </item>
+    <item>
+      <title>mysql 笔记（2）</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2022/01/mysql-%E7%AC%94%E8%AE%B02/</link>
+      <pubDate>Fri, 21 Jan 2022 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2022/01/mysql-%E7%AC%94%E8%AE%B02/</guid>
+      <description>mysql 学习笔记（2） mysql 主从复制 MySQL 主从复制是指数据可以从一个MySQL数据库服务器主节点复制到一个或多个从节点。MySQL 默认采用异步复制方式，这样从节点不用一直访问主服务器来更新自己的数据，数据的更新可以在远程连接上进行，从节点可以复制主数据库中的所有数据库或者特定的数据库，或者特定的表。&#xA;MySQL 主从复制的主要用途 读写分离 数据实时备份，当系统中某个节点发生故障时，可以方便的故障切换(主从切换) 高可用（HA） 架构扩展 MySQL 主从复制的原理 MySQL 主从复制涉及到三个线程，一个运行在主节点（log dump thread），其余两个(I/O thread, SQL thread)运行在从节点，如下图所示:&#xA;主节点 log dump 线程&#xA;当从节点连接主节点时，主节点会为其创建一个 log dump 线程，用于发送和读取 bin-log 的内容。在读取 bin-log 中的操作时，log dump 线程会对主节点上的 bin-log 加锁，当读取完成，在发送给从节点之前，锁会被释放。主节点会为自己的每一个从节点创建一个log dump 线程。&#xA;从节点 I/O 线程&#xA;当从节点上执行start slave命令之后，从节点会创建一个 I/O 线程用来连接主节点，请求主库中更新的 bin-log。I/O 线程接收到主节点的 blog dump 进程发来的更新之后，保存在本地relay-log（中继日志）中。&#xA;从节点 SQL 线程&#xA;SQL 线程负责读取 relay-log 中的内容，解析成具体的操作并执行，最终保证主从数据的一致性。&#xA;对于每一个主从连接，都需要这三个进程来完成。当主节点有多个从节点时，主节点会为每一个当前连接的从节点建一个log dump 进程，而每个从节点都有自己的I/O进程，SQL进程。从节点用两个线程将从主库拉取更新和执行分成独立的任务，这样在执行同步数据任务的时候，不会降低读操作的性能。比如，如果从节点没有运行，此时 I/O 进程可以很快从主节点获取更新，尽管 SQL 进程还没有执行。如果在 SQL 进程执行之前从节点服务停止，至少 I/O 进程已经从主节点拉取到了最新的变更并且保存在本地 relay 日志中，当服务再次起来之后，就可以完成数据的同步。</description>
+    </item>
+    <item>
+      <title>mysql数据库备份迁移</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E8%BF%81%E7%A7%BB/</link>
+      <pubDate>Fri, 24 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E8%BF%81%E7%A7%BB/</guid>
+      <description>mysql 数据库备份迁移 使用 mydumper 做数据备份迁移&#xA;备份数据库 安装 1# 安装 centos 2yum install https://github.com/mydumper/mydumper/releases/download/v0.11.5/mydumper-0.11.5-1.el7.x86_64.rpm 3yum install https://github.com/mydumper/mydumper/releases/download/v0.11.5/mydumper-0.11.5-1.el8.x86_64.rpm 1# 安装 ubuntu 2apt-get install libatomic1 3wget https://github.com/mydumper/mydumper/releases/download/v0.11.5/mydumper_0.11.5-1.$(lsb_release -cs)_amd64.deb 4dpkg -i mydumper_0.11.5-1.$(lsb_release -cs)_amd64.deb 备份 1nohup mydumper -h &amp;#39;备份数据库&amp;#39; \ 2-u &amp;#39;用户名&amp;#39; \ 3-p &amp;#39;密码&amp;#39; \ 4--threads=16 \ 5-B 备份数据库 \ 6-v 3 \ 7--outputdir=./backup --rows=100000 \ 8-L mydumper-logs.log &amp;amp; 迁移数据库 还原数据 1nohup myloader -h &amp;#39;迁移数据库&amp;#39; \ 2-u &amp;#39;用户名&amp;#39; \ 3-p &amp;#39;密码&amp;#39; \ 4--directory=./backup \ 5-s 来源数据库 \ 6-B 还原数据库 \ 7-t 16 \ 8-v 3 \ 9-e 2&amp;gt;myloader-logs.</description>
+    </item>
+    <item>
+      <title>mysql 笔记（1）</title>
+      <link>https://www.jobcher.com/zh-hans/blog/2021/12/mysql-%E7%AC%94%E8%AE%B01/</link>
+      <pubDate>Sun, 12 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/zh-hans/blog/2021/12/mysql-%E7%AC%94%E8%AE%B01/</guid>
+      <description>mysql 学习笔记（1） 本文章不涉及到关于 mysql 开放上的问题，主要记录关于 mysql 出现的问题，以及如何去维护 mysql 数据的日常。&#xA;mysql 各类信息的收集 收集变量信息 1show global variables; 收集进程信息 1show PROCESSLIST; 收集错误日志 1show global variables like &amp;#39;log_error&amp;#39;; 收集慢日志信息 1show global variables like &amp;#39;slow_querry_log_file&amp;#39;; 收集锁信息，高峰时期运行三次，每次间隔 10s 1SELECT locked_table, 2 locked_index, 3 locked_type, 4 blocking_pid, 5 T2.USER blocking_user, 6 T2.HOST blocking_host, 7 blocking_lock_mode, 8 blocking_trx_rows_modified, 9 waiting_pid, 10 T3.USER waiting_user, 11 T3.HOST waiting_host, 12 waiting_lock_mode, 13 waiting_trx_row_modified, 14 wait_age_secs, 15 waiting_query 16FROM sys.x$innodb_lock_waits T1 17LEFT JOIN INFROMATION_SCHEMA.</description>
+    </item>
+  </channel>
+</rss>
