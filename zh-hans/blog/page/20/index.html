@@ -548,6 +548,102 @@
 
     </a>
 
+      <span class="hb-blog-post-date">2022年10月31日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/zh-hans/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/zh-hans/blog/2022/10/nexus3-%E4%BD%BF%E7%94%A8%E5%92%8C%E9%83%A8%E7%BD%B2/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="Nexus3 使用和部署"
+        href="/zh-hans/blog/2022/10/nexus3-%E4%BD%BF%E7%94%A8%E5%92%8C%E9%83%A8%E7%BD%B2/">Nexus3 使用和部署</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/zh-hans/categories/work/">work</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/zh-hans/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/">问题库系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/zh-hans/tags/work/">work</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">Nexus3 docker-compose 安装 创建外部存储
+1mkdir -p /data/nexus 2chmod +777 -R /data/nexus 运行 docker-compose
+1version: &#39;3&#39; 2services: 3 nexus3: 4 image: sonatype/nexus3:3.42.0 5 container_name: nexus3 6 ports: 7 - 8081:8081 8 - 5000:5000 9 volumes: 10 - /data/nexus:/nexus-data 11 environment: 12 - INSTALL4J_ADD_VM_PARAMS=-Xms1024m -Xmx1024m -XX:MaxDirectMemorySize=1024m -Djava.util.prefs.userRoot=/some-other-dir 13 restart: always 14 # 赋予外部root权限 15 privileged: true docker-compose up -d 运行 docker-compose</div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/zh-hans/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
       <span class="hb-blog-post-date">2022年10月21日</span>
 
         <span class="hb-blog-post-reading-time">1 分钟阅读</span>
@@ -1623,104 +1719,6 @@ Docker 部署 在 docker 环境运行 &lt;token&gt; 是你个人令牌
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/zh-hans/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2022年9月23日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/zh-hans/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2022/09/k8s-cni-%E9%97%AE%E9%A2%98-%E8%BF%9E%E6%8E%A5%E8%AE%A4%E8%AF%81%E5%A4%B1%E6%95%88/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="k8s CNI 问题 连接认证失效"
-        href="/zh-hans/blog/2022/09/k8s-cni-%E9%97%AE%E9%A2%98-%E8%BF%9E%E6%8E%A5%E8%AE%A4%E8%AF%81%E5%A4%B1%E6%95%88/">k8s CNI 问题 连接认证失效</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/zh-hans/categories/%E9%97%AE%E9%A2%98%E5%BA%93/">问题库</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/zh-hans/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/">问题库系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/zh-hans/tags/error/">error</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">k8s CNI 问题 连接认证失效 删除 calico 换成 flannel 后，容器没有正常启动
-network: error getting ClusterInformation: connection is unauthorized: Unauthorized]
-解决问题 删除掉 /etc/cni/net.d/ 目录下的 calico 配置文件即可。
-要删除所有节点的配置文件
-1sudo rm -rf /etc/cni/net.d/*calico* 不要重复网络插件 </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
     
@@ -1985,6 +1983,69 @@ network: error getting ClusterInformation: connection is unauthorized: Unauthori
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/zh-hans/blog/2023/12/2023-12-25-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2023-12-25.jpg.8d4338ea54badd159bf2615400c0ac61.webp"
+    alt="2023-12-25 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2023-12-25 打工人日报"
+        href="/zh-hans/blog/2023/12/2023-12-25-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-25 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/zh-hans/blog/2023/12/2023-12-24-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
     
 
@@ -2225,69 +2286,6 @@ network: error getting ClusterInformation: connection is unauthorized: Unauthori
         class="hb-blog-post-title-link d-block"
         title="2023-12-21 打工人日报"
         href="/zh-hans/blog/2023/12/2023-12-21-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-21 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2023/12/2023-12-20-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2023-12-20.jpg.7e60526b209009ce8888c241d2eaa5b2.webp"
-    alt="2023-12-20 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2023-12-20 打工人日报"
-        href="/zh-hans/blog/2023/12/2023-12-20-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-20 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2666,7 +2664,7 @@ network: error getting ClusterInformation: connection is unauthorized: Unauthori
 
 
   
-<script src="/js/search.ef6a7d482a00dfa99837ee23dabfc899b03bba548bec651b57ee795b2d0ec34c.js" defer></script>
+<script src="/js/search.143ca4bcb56cdf583de41bebcd5f646cd3be5a4eed2196bfa4935788d78c892a.js" defer></script>
 
 
 

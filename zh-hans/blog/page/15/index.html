@@ -548,6 +548,150 @@
 
     </a>
 
+      <span class="hb-blog-post-date">2023年7月31日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/zh-hans/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/zh-hans/blog/2023/07/cocoapods-%E5%AE%89%E8%A3%85%E5%8F%8A%E7%A2%B0%E5%88%B0%E9%97%AE%E9%A2%98/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+    <source srcset="/images/cocoapods-orange-on-grey-1_hu5cd5e6eee3d6c29eb5116a6f3cdbb035_76377_2338x1653_resize_q75_h2_box.webp" type="image/webp" />
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/cocoapods-orange-on-grey-1.f720c1058e49eb16aa3238aed5df1ffd.jpg"
+    alt="CocoaPods 安装及碰到问题"
+    loading="lazy"
+    height="1653"
+    width="2338"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="CocoaPods 安装及碰到问题"
+        href="/zh-hans/blog/2023/07/cocoapods-%E5%AE%89%E8%A3%85%E5%8F%8A%E7%A2%B0%E5%88%B0%E9%97%AE%E9%A2%98/">CocoaPods 安装及碰到问题</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/zh-hans/categories/ios-%E5%BC%80%E5%8F%91/">IOS 开发</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/zh-hans/series/ios-%E5%BC%80%E5%8F%91/">IOS 开发</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/zh-hans/tags/ios-%E5%BC%80%E5%8F%91/">IOS 开发</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">背景 CocoaPods 是OS X和IOS 下的第三类库管理工具，通过CocoaPods工具我们可以为项目添加被称为Pods的依赖库
+检查环境 ruby -v gem -v 出现异常问题 /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/universal-darwin22/rbconfig.rb:21: warning: Insecure world writable dir /opt/homebrew/bin in PATH, mode 040777
+该警告信息表明在你的PATH环境变量中包含了一个“不安全可写”（Insecure world writable）的目录/opt/homebrew/bin。这可能会导致潜在的安全问题。
+为了解决这个警告，你需要修复/opt/homebrew/bin目录的权限，以使其不再被标记为“不安全可写”。
+解决问题 chmod 755 /opt/homebrew/bin chmod 755 /opt/homebrew chmod 755 /opt/homebrew/sbin 安装cocoapods 输入安装命令
+1sudo gem install cocoapods 出现异常问题 ERROR: While executing gem &hellip; (Gem::FilePermissionError) You don&rsquo;t have write permissions for the /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/gems/2.6.0 directory. /Library/Ruby/Site/2.6.0/rubygems/installer.rb:714:in verify_gem_home' /Library/Ruby/Site/2.6.0/rubygems/installer.rb:904:in pre_install_checks' ……
+在 macOS 系统中，系统的Ruby目录通常是受保护的，并且普通用户没有对这些目录进行写操作的权限。为了解决这个问题，你应该避免在系统级别的Ruby目录中进行Gem的安装。相反，你应该使用用户级别的Gem安装目录。
+解决方案 1mkdir -p ~/.gem/ruby/2.6.0 2export PATH=&#34;$HOME/.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/zh-hans/blog/2023/07/cocoapods-%E5%AE%89%E8%A3%85%E5%8F%8A%E7%A2%B0%E5%88%B0%E9%97%AE%E9%A2%98/">阅读更多关于CocoaPods 安装及碰到问题的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/zh-hans/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
       <span class="hb-blog-post-date">2023年7月30日</span>
 
         <span class="hb-blog-post-reading-time">1 分钟阅读</span>
@@ -2002,142 +2146,6 @@
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/zh-hans/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2023年7月19日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/zh-hans/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2023/07/2023-07-19-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2023-07-19.jpg.1367987f35fdf5429a9b00fd8769d091.webp"
-    alt="2023-07-19 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2023-07-19 打工人日报"
-        href="/zh-hans/blog/2023/07/2023-07-19-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-07-19 打工人日报</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/zh-hans/categories/github/">github</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/zh-hans/series/github/">github</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/zh-hans/tags/github/">github</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 排名 1.生态画卷这样绘就 排名 2.周杰伦演唱会2张连座票黄牛叫价15万 排名 3.人间烟火 没有共情到女主的窒息 排名 4.生态保护硬核成绩单 排名 5.公司1.2亿租楼300每月租给员工住 排名 6.刘奕君这身材都怕输在年轻 排名 7.宋焰这是在PUA孟宴臣吧 排名 8.金泰亨 卡地亚 排名 9.食堂异物高度可能为鸭眼球巩膜 排名 10.教育局通报考生质疑成绩被偷 排名 11.音乐节一元瓶装水分杯卖十元违法吗 排名 12.产后会阴裂伤真的像那个芒果吗 排名 13.大奉打更人开机 排名 14.现在再看杨洋王楚然李木戈翻答案之书 排名 15.广州每走一步就有一个蔡文姬 排名 16.人民文娱评我的人间烟火 排名 17.芭比 排名 18.看到谢允救时影 排名 19.我怀疑大麦根本就没有票 排名 20.空调使用3到5小时后要开窗通风 GitHub 热门榜单 排名 1:/EbookFoundation/free-programming-books 简介: 📚 免费提供的编程书籍 URL: https://github.com/EbookFoundation/free-programming-books 作者: EbookFoundation 排名 2:/Shaunwei/RealChar 简介: 🎙️🤖创建、自定义并实时与您的AI角色/伙伴交谈（一体式代码库！）。使用LLM OpenAI GPT3.5/4、Anthropic Claude2、Chroma Vector DB、Whisper Speech2Text、ElevenLabs Text2Speech，在任何地方（移动、网络和终端）与人工智能进行自然无缝的对话🎙️🤖 URL: https://github.com/Shaunwei/RealChar 作者: Shaunwei 排名 3:/orioledb/orioledb 简介: OrioleDB——构建一个现代云原生存储引擎（…并解决一些PostgreSQL的邪恶问题）🇺🇦 URL: https://github.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/zh-hans/blog/2023/07/2023-07-19-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">阅读更多关于2023-07-19 打工人日报的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
     
@@ -2402,6 +2410,69 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/zh-hans/blog/2023/12/2023-12-25-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2023-12-25.jpg.8d4338ea54badd159bf2615400c0ac61.webp"
+    alt="2023-12-25 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2023-12-25 打工人日报"
+        href="/zh-hans/blog/2023/12/2023-12-25-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-25 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/zh-hans/blog/2023/12/2023-12-24-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
     
 
@@ -2642,69 +2713,6 @@
         class="hb-blog-post-title-link d-block"
         title="2023-12-21 打工人日报"
         href="/zh-hans/blog/2023/12/2023-12-21-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-21 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2023/12/2023-12-20-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2023-12-20.jpg.7e60526b209009ce8888c241d2eaa5b2.webp"
-    alt="2023-12-20 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2023-12-20 打工人日报"
-        href="/zh-hans/blog/2023/12/2023-12-20-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-20 打工人日报</a>
     </div>
   </div>
 </div>
@@ -3083,7 +3091,7 @@
 
 
   
-<script src="/js/search.ef6a7d482a00dfa99837ee23dabfc899b03bba548bec651b57ee795b2d0ec34c.js" defer></script>
+<script src="/js/search.143ca4bcb56cdf583de41bebcd5f646cd3be5a4eed2196bfa4935788d78c892a.js" defer></script>
 
 
 
