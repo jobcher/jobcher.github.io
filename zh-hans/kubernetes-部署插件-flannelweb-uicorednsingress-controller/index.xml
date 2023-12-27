@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller) on 打工人日志</title>
+    <link>https://www.jobcher.com/zh-hans/kubernetes-%E9%83%A8%E7%BD%B2%E6%8F%92%E4%BB%B6-flannelweb-uicorednsingress-controller/</link>
+    <description>Recent content in kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller) on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Fri, 07 Oct 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/zh-hans/kubernetes-%E9%83%A8%E7%BD%B2%E6%8F%92%E4%BB%B6-flannelweb-uicorednsingress-controller/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
