@@ -566,6 +566,107 @@
 
     </a>
 
+      <span class="hb-blog-post-date">2022年1月19日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/zh-hans/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/zh-hans/blog/2022/01/proxmox-ve-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="Proxmox VE 在线扩容磁盘分区"
+        href="/zh-hans/blog/2022/01/proxmox-ve-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA/">Proxmox VE 在线扩容磁盘分区</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/zh-hans/categories/%E6%97%A5%E5%B8%B8/">日常</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/zh-hans/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/">日常系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/zh-hans/tags/%E6%89%A9%E5%AE%B9%E7%A3%81%E7%9B%98/">扩容磁盘</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/zh-hans/tags/pve/">pve</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">Proxmox VE 在线扩容磁盘分区 添加磁盘大小 在 VM 上做扩容操作 安装 growpart 1yum install -y epel-release 2yum install -y cloud-utils 查看系统盘 路径 1fdisk -l 2df -h 扩容设备并重启 1growpart /dev/sda 2 #2代表是第二块系统分区，不是sda2,中间有空格 2reboot 重启执行命令 1xfs_growfs /dev/sda2 #(xfs 文件系统) 2resize2fs /dev/sda2 #(ext4 文件系统) 更新完成 1df -h 逻辑卷没有正常扩容的情况 检查当前逻辑卷属于哪个卷组: 1vgdisplay 检查卷组中是有足够的空间可以扩容,还有99g
+扩展逻辑卷大小到200G: 1lvextend -L +99G /dev/mapper/ubuntu--vg-ubuntu--lv 调整文件系统大小到逻辑卷大小: 1resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv 4. 检查
+1df -h /dev/mapper/ubuntu--vg-ubuntu--lv 成功扩容</div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/zh-hans/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
       <span class="hb-blog-post-date">2022年1月14日</span>
 
         <span class="hb-blog-post-reading-time">1 分钟阅读</span>
@@ -1613,103 +1714,6 @@ HPC 集群：High Performance Computing，高性能集群
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/zh-hans/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2021年12月30日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/zh-hans/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2021/12/yaml-%E8%AF%AD%E6%B3%95/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="yaml 语法"
-        href="/zh-hans/blog/2021/12/yaml-%E8%AF%AD%E6%B3%95/">yaml 语法</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/zh-hans/categories/%E5%9F%BA%E7%A1%80/">基础</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/zh-hans/series/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97/">基础知识系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/zh-hans/tags/%E8%BF%90%E7%BB%B4/">运维</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">yaml 语法 我们使用 YAML 是因为它像 XML 或 JSON 是一种利于人们读写的数据格式. 此外在大多数变成语言中有使用 YAML 的库.YAML 语法的基本概述, 它被用来描述一个 playbooks(我们的配置管理语言).
-基本的 YAML 对于 Ansible, 每一个 YAML 文件都是从一个列表开始. 列表中的每一项都是一个键值对, 通常它们被称为一个 “哈希” 或 “字典”. 所以, 我们需要知道如何在 YAML 中编写列表和字典.
-YAML 还有一个小的怪癖. 所有的 YAML 文件(无论和 Ansible 有没有关系)开始行都应该是 &mdash;. 这是 YAML 格式的一部分, 表明一个文件的开始.
-1--- 2# 一个美味水果的列表 3- Apple 4- Orange 5- Strawberry 6- Mango </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
     
@@ -1974,6 +1978,69 @@ YAML 还有一个小的怪癖. 所有的 YAML 文件(无论和 Ansible 有没有
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/zh-hans/blog/2023/12/2023-12-27-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2023-12-27.jpg.fa228bbf1af83c974416891c7f57644a.webp"
+    alt="2023-12-27 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2023-12-27 打工人日报"
+        href="/zh-hans/blog/2023/12/2023-12-27-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-27 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/zh-hans/blog/2023/12/2023-12-26-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
     
 
@@ -2214,69 +2281,6 @@ YAML 还有一个小的怪癖. 所有的 YAML 文件(无论和 Ansible 有没有
         class="hb-blog-post-title-link d-block"
         title="2023-12-23 打工人日报"
         href="/zh-hans/blog/2023/12/2023-12-23-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-23 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2023/12/2023-12-22-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2023-12-22.jpg.cfc48c06c03ddac16cb134d1ce37b4d6.webp"
-    alt="2023-12-22 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2023-12-22 打工人日报"
-        href="/zh-hans/blog/2023/12/2023-12-22-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-22 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2655,7 +2659,7 @@ YAML 还有一个小的怪癖. 所有的 YAML 文件(无论和 Ansible 有没有
 
 
   
-<script src="/js/search.a4281d76a5fd41bad3b69078e1ba2d188400fc7c5aafbcdc68a4b9059b6af93c.js" defer></script>
+<script src="/js/search.ed8909aa0c3997c14bc5ebd473d30fe3ddf6dd66e446a7aa253452796e698db7.js" defer></script>
 
 
 
