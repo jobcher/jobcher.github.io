@@ -60,14 +60,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/zh-hans/blog/2022/01/centos7.9-%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-01-11T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-12-27T09:36:47+08:00" />
+<meta property="article:modified_time" content="2023-12-27T14:09:34+08:00" />
 
 
 
 <meta itemprop="name" content="centos7.9 网络配置">
 <meta itemprop="description" content="centos7.9 网络配置 解决 centos 新机器网络不通的问题，CentOS7 默认不启动网卡的。CentOS 安装成功后,进行一下 ping 的操作,验证网络是否联通.
 1ping 1.1.1.1 2ip addr 3# 查看ip网络名称 启用网卡 进入 /etc/sysconfig/network-scipts 文件夹下，找到 IP 网卡名称 1cd /etc/sysconfig/network-scipts 2vim ifcfg-eth0 启用 ONBOOT 1#vim ifcfg-eth0 2#修改 3ONBOOT=YES 4# esc 并:wq退出保存 重启机器 1shutdown -r now 结尾 centos 用的挺别扭，不考虑性能和性价比，我还是喜欢用 ubuntu……，简单的配置，初学者我建议还是先用 ubuntu，会少踩很多坑。当然了，用 x86 不然初学者用树莓派和 arm 设备，会碰到很多兼容性的问题。"><meta itemprop="datePublished" content="2022-01-11T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2023-12-27T09:36:47+08:00" />
+<meta itemprop="dateModified" content="2023-12-27T14:09:34+08:00" />
 <meta itemprop="wordCount" content="47">
 <meta itemprop="keywords" content="linux," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="centos7.9 网络配置"/>
 <meta name="twitter:description" content="centos7.9 网络配置 解决 centos 新机器网络不通的问题，CentOS7 默认不启动网卡的。CentOS 安装成功后,进行一下 ping 的操作,验证网络是否联通.
@@ -710,11 +710,11 @@ centos7.9 网络配置 - 博客 - 打工人日志</title>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/hbstack/theme/commit/bcd17a1c3decfb669062cf94f19d668708e32d5e"
+            href="https://github.com/hbstack/theme/commit/49a85ea34f70f3af0d336a53307a2238ff27be46"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>更新</a>
+</svg>测试</a>
         </li>
     </ul>
   </div>
@@ -1925,7 +1925,7 @@ centos7.9 网络配置 - 博客 - 打工人日志</title>
 
 
   
-<script src="/js/search.98e6b88d0d4ad28aa85509d60d7b7b70a782b6c8da436dbb0b9ddc8306f86737.js" defer></script>
+<script src="/js/search.42ec6b79ff685aeb9595b3e394c69388ff09af7c8f3a1b55e2fd1981f09a8353.js" defer></script>
 
 
 
