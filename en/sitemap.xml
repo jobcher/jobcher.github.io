@@ -3,6 +3,8 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.jobcher.com/en/authors/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hans"
@@ -15,6 +17,8 @@
                 />
   </url><url>
     <loc>https://www.jobcher.com/en/categories/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hans"
@@ -27,6 +31,8 @@
                 />
   </url><url>
     <loc>https://www.jobcher.com/en/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hans"
@@ -39,6 +45,8 @@
                 />
   </url><url>
     <loc>https://www.jobcher.com/en/series/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hans"
@@ -51,6 +59,8 @@
                 />
   </url><url>
     <loc>https://www.jobcher.com/en/tags/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
     <xhtml:link
                 rel="alternate"
                 hreflang="zh-hans"

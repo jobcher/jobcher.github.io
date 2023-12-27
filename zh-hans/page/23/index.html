@@ -526,7 +526,7 @@
           
   <a
     class="carousel-img-placeholder carousel-link d-flex align-items-center justify-content-center text-decoration-none h5 mb-0"
-    href="/zh-hans/blog/2022/09/featured-post-without-image/">Featured Post without Image</a>
+    href="/zh-hans/featured-post-without-image/">Featured Post without Image</a>
 
         </div>
     </div>
@@ -670,7 +670,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2022/06/nginx-exporter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">
+  href="/zh-hans/nginx-exporter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -682,7 +682,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="nginx exporter 安装配置"
-        href="/zh-hans/blog/2022/06/nginx-exporter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">nginx exporter 安装配置</a>
+        href="/zh-hans/nginx-exporter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">nginx exporter 安装配置</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -708,7 +708,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
 1nginx -t 2nginx -s reload 启动 nginx exporter 1nginx-prometheus-exporter -nginx.scrape-uri http://&lt;nginx&gt;:8080/nginx_status 配置 prometheus 添加 prometheus.yml 1- job_name: &#34;nginx-exporter&#34; 2 file_sd_configs: 3 - files: 4 - &#34;./file_sd/nginx-exporter.yaml&#34; 在 ./file_sd/新建 nginx-exporter.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/blog/2022/06/nginx-exporter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">阅读更多关于nginx exporter 安装配置的内容。</a>
+            class="text-secondary" href="/zh-hans/nginx-exporter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">阅读更多关于nginx exporter 安装配置的内容。</a>
         </div>
   </div>
 </div>
@@ -770,7 +770,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2022/04/go-struct-%E7%BB%93%E6%9E%84%E4%BD%93/">
+  href="/zh-hans/go-struct-%E7%BB%93%E6%9E%84%E4%BD%93/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -782,7 +782,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
       <a
         class="hb-blog-post-title-link d-block"
         title="go Struct 结构体"
-        href="/zh-hans/blog/2022/04/go-struct-%E7%BB%93%E6%9E%84%E4%BD%93/">go Struct 结构体</a>
+        href="/zh-hans/go-struct-%E7%BB%93%E6%9E%84%E4%BD%93/">go Struct 结构体</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -807,7 +807,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
 声明结构体 1//demo_11.go 2package main 3 4import ( 5	&#34;fmt&#34; 6) 7 8type Person struct { 9	Name string 10	Age int 11} 12 13func main() { 14	var p1 Person 15	p1.Name = &#34;Tom&#34; 16	p1.Age = 30 17	fmt.Println(&#34;p1 =&#34;, p1) 18 19	var p2 = Person{Name:&#34;Burke&#34;, Age:31} 20	fmt.Println(&#34;p2 =&#34;, p2) 21 22	p3 := Person{Name:&#34;Aaron&#34;, Age:32} 23	fmt.Println(&#34;p2 =&#34;, p3) 24 25	//匿名结构体 26	p4 := struct { 27	Name string 28	Age int 29	} {Name:&#34;匿名&#34;, Age:33} 30	fmt.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/blog/2022/04/go-struct-%E7%BB%93%E6%9E%84%E4%BD%93/">阅读更多关于go Struct 结构体的内容。</a>
+            class="text-secondary" href="/zh-hans/go-struct-%E7%BB%93%E6%9E%84%E4%BD%93/">阅读更多关于go Struct 结构体的内容。</a>
         </div>
   </div>
 </div>
@@ -869,7 +869,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2022/04/go-slice%E5%88%87%E7%89%87%E8%AF%AD%E6%B3%95/">
+  href="/zh-hans/go-slice%E5%88%87%E7%89%87%E8%AF%AD%E6%B3%95/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -881,7 +881,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
       <a
         class="hb-blog-post-title-link d-block"
         title="go Slice切片语法"
-        href="/zh-hans/blog/2022/04/go-slice%E5%88%87%E7%89%87%E8%AF%AD%E6%B3%95/">go Slice切片语法</a>
+        href="/zh-hans/go-slice%E5%88%87%E7%89%87%E8%AF%AD%E6%B3%95/">go Slice切片语法</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -907,7 +907,7 @@ len() 和 cap() 返回结果可相同和不同。
 声明切片 1//demo_7.go 2package main 3 4import ( 5	&#34;fmt&#34; 6) 7 8func main() { 9	var sli_1 [] int //nil 切片 10	fmt.Printf(&#34;len=%d cap=%d slice=%v\n&#34;,len(sli_1),cap(sli_1),sli_1) 11 12	var sli_2 = [] int {} //空切片 13	fmt.Printf(&#34;len=%d cap=%d slice=%v\n&#34;,len(sli_1),cap(sli_2),sli_2) 14 15	var sli_3 = [] int {1, 2, 3, 4, 5} 16	fmt.Printf(&#34;len=%d cap=%d slice=%v\n&#34;,len(sli_3),cap(sli_3),sli_3) 17 18	sli_4 := [] int {1, 2, 3, 4, 5} 19	fmt.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/blog/2022/04/go-slice%E5%88%87%E7%89%87%E8%AF%AD%E6%B3%95/">阅读更多关于go Slice切片语法的内容。</a>
+            class="text-secondary" href="/zh-hans/go-slice%E5%88%87%E7%89%87%E8%AF%AD%E6%B3%95/">阅读更多关于go Slice切片语法的内容。</a>
         </div>
   </div>
 </div>
@@ -969,7 +969,7 @@ len() 和 cap() 返回结果可相同和不同。
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2022/04/go-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+  href="/zh-hans/go-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -981,7 +981,7 @@ len() 和 cap() 返回结果可相同和不同。
       <a
         class="hb-blog-post-title-link d-block"
         title="go 基础知识"
-        href="/zh-hans/blog/2022/04/go-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">go 基础知识</a>
+        href="/zh-hans/go-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">go 基础知识</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1006,7 +1006,7 @@ len() 和 cap() 返回结果可相同和不同。
 1//在 hello 目录下创建 hello.go 2package main 3 4import ( 5	&#34;fmt&#34; 6) 7 8func main() { 9	fmt.Println(&#34;Hello World!&#34;) 10} 基础命令 1go build hello 2#在src目录或hello目录下执行 go build hello，只在对应当前目录下生成文件。 3go install hello 4#在src目录或hello目录下执行 go install hello，会把编译好的结果移动到 $GOPATH/bin。 5go run hello 6#在src目录或hello目录下执行 go run hello，不生成任何文件只运行程序。 7go fmt hello 8#在src目录或hello目录下执行 go run hello，格式化代码，将代码修改成标准格式。 数据类型 类型 表示 备注 字符串 string 只能用一对双引号（&quot;&quot;）或反引号（``）括起来定义，不能用单引号（&rsquo;&rsquo;）定义！ 布尔 bool 只有 true 和 false，默认为 false。 整型 int8 uint8 int16 uint16 int32 uint32 int64 uint64 int uint 具体长度取决于 CPU 位数。 浮点型 float32 float64 常量声明 常量，在程序编译阶段就确定下来的值，而程序在运行时无法改变该值。</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/blog/2022/04/go-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">阅读更多关于go 基础知识的内容。</a>
+            class="text-secondary" href="/zh-hans/go-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">阅读更多关于go 基础知识的内容。</a>
         </div>
   </div>
 </div>
@@ -1068,7 +1068,7 @@ len() 和 cap() 返回结果可相同和不同。
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2022/04/vscode%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90-code-runner/">
+  href="/zh-hans/vscode%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90-code-runner/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1080,7 +1080,7 @@ len() 和 cap() 返回结果可相同和不同。
       <a
         class="hb-blog-post-title-link d-block"
         title="VSCode插件推荐=&gt; Code Runner"
-        href="/zh-hans/blog/2022/04/vscode%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90-code-runner/">VSCode插件推荐=&gt; Code Runner</a>
+        href="/zh-hans/vscode%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90-code-runner/">VSCode插件推荐=&gt; Code Runner</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1104,7 +1104,7 @@ len() 和 cap() 返回结果可相同和不同。
       <div class="hb-blog-post-summary card-text text-secondary mb-auto">VSCode 插件推荐=&gt; Code Runner Run code snippet or code file for multiple languages: C, C++, Java, JavaScript, PHP, Python, Perl, Perl 6, Ruby, Go, Lua, Groovy, PowerShell, BAT/CMD, BASH/SH, F# Script, F# (.NET Core), C# Script, C# (.NET Core), VBScript, TypeScript, CoffeeScript, Scala, Swift, Julia, Crystal, OCaml Script, R, AppleScript, Elixir, Visual Basic .NET, Clojure, Haxe, Objective-C, Rust, Racket, Scheme, AutoHotkey, AutoIt, Kotlin, Dart, Free Pascal, Haskell, Nim, D, Lisp, Kit, V, SCSS, Sass, CUDA, Less, Fortran, Ring, and custom command</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/blog/2022/04/vscode%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90-code-runner/">阅读更多关于VSCode插件推荐=&gt; Code Runner的内容。</a>
+            class="text-secondary" href="/zh-hans/vscode%E6%8F%92%E4%BB%B6%E6%8E%A8%E8%8D%90-code-runner/">阅读更多关于VSCode插件推荐=&gt; Code Runner的内容。</a>
         </div>
   </div>
 </div>
@@ -1166,7 +1166,7 @@ len() 和 cap() 返回结果可相同和不同。
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2022/04/ant-build.xml-%E7%BC%96%E5%86%99/">
+  href="/zh-hans/ant-build.xml-%E7%BC%96%E5%86%99/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1178,7 +1178,7 @@ len() 和 cap() 返回结果可相同和不同。
       <a
         class="hb-blog-post-title-link d-block"
         title="ant build.xml 编写"
-        href="/zh-hans/blog/2022/04/ant-build.xml-%E7%BC%96%E5%86%99/">ant build.xml 编写</a>
+        href="/zh-hans/ant-build.xml-%E7%BC%96%E5%86%99/">ant build.xml 编写</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1205,7 +1205,7 @@ len() 和 cap() 返回结果可相同和不同。
 编写 build.xml 1&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; standalone=&#34;no&#34;?&gt; 2 3&lt;!-- 每个构建文件对应一个项目。&lt;project&gt;标签时构建文件的根标签。它可以有多个内在属性，就如代码中所示，其各个属性的含义分别如下。 4(1) default表示默认的运行目标，这个属性是必须的。 5(2) basedir表示项目的基准目录。 6(3) name表示项目名。 7(4) description表示项目的描述。 8 --&gt; 9&lt;project default=&#34;build&#34; name=&#34;Sort&#34;&gt; 10	&lt;!-- 设置属性或文件路径，读取属性使用${property}，value路径默认项目根目录 --&gt; 11	&lt;property file=&#34;ant/builds.properties&#34; /&gt; 12 13	&lt;property name=&#34;src.dir&#34; value=&#34;src/statics&#34; /&gt; 14 15	&lt;property name=&#34;classes.dir&#34; value=&#34;ant/classes&#34; /&gt; 16 17	&lt;property name=&#34;lib.dir&#34; value=&#34;lib&#34; /&gt; 18 19	&lt;property name=&#34;dist.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/blog/2022/04/ant-build.xml-%E7%BC%96%E5%86%99/">阅读更多关于ant build.xml 编写的内容。</a>
+            class="text-secondary" href="/zh-hans/ant-build.xml-%E7%BC%96%E5%86%99/">阅读更多关于ant build.xml 编写的内容。</a>
         </div>
   </div>
 </div>
@@ -1267,7 +1267,7 @@ len() 和 cap() 返回结果可相同和不同。
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2022/04/kubernetes-%E8%B0%83%E5%BA%A6%E8%BF%87%E7%A8%8B/">
+  href="/zh-hans/kubernetes-%E8%B0%83%E5%BA%A6%E8%BF%87%E7%A8%8B/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1279,7 +1279,7 @@ len() 和 cap() 返回结果可相同和不同。
       <a
         class="hb-blog-post-title-link d-block"
         title="kubernetes 调度过程"
-        href="/zh-hans/blog/2022/04/kubernetes-%E8%B0%83%E5%BA%A6%E8%BF%87%E7%A8%8B/">kubernetes 调度过程</a>
+        href="/zh-hans/kubernetes-%E8%B0%83%E5%BA%A6%E8%BF%87%E7%A8%8B/">kubernetes 调度过程</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1304,7 +1304,7 @@ len() 和 cap() 返回结果可相同和不同。
 1# 部署应用 2apiVersion: apps/v1 3kind: Deployment 4metadata: 5 name: jobcher-blog-deployment 6 labels: 7 app: jobcher-blog 8spec: 9 replicas: 3 10 selector: 11 matchLabels: 12 app: jobcher-blog 13 minReadySeconds: 10 #准备10s 14 strategy: 15 type: RollingUpdate 16 rollingUpdate: 17 maxUnavailable: 1 #更新期间不少于3-1 18 maxSurge: 1 #更新期间不超过3+1 19 template: 20 metadata: 21 labels: 22 app: jobcher-blog 23 spec: 24 containers: 25 - name: jobcher-blog-pod 26 image: hub.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/blog/2022/04/kubernetes-%E8%B0%83%E5%BA%A6%E8%BF%87%E7%A8%8B/">阅读更多关于kubernetes 调度过程的内容。</a>
+            class="text-secondary" href="/zh-hans/kubernetes-%E8%B0%83%E5%BA%A6%E8%BF%87%E7%A8%8B/">阅读更多关于kubernetes 调度过程的内容。</a>
         </div>
   </div>
 </div>
@@ -1366,7 +1366,7 @@ len() 和 cap() 返回结果可相同和不同。
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2022/04/golang-go-build-%E7%BC%96%E8%AF%91%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/">
+  href="/zh-hans/golang-go-build-%E7%BC%96%E8%AF%91%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1378,7 +1378,7 @@ len() 和 cap() 返回结果可相同和不同。
       <a
         class="hb-blog-post-title-link d-block"
         title="Golang go build 编译不同版本"
-        href="/zh-hans/blog/2022/04/golang-go-build-%E7%BC%96%E8%AF%91%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/">Golang go build 编译不同版本</a>
+        href="/zh-hans/golang-go-build-%E7%BC%96%E8%AF%91%E4%B8%8D%E5%90%8C%E7%89%88%E6%9C%AC/">Golang go build 编译不同版本</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1460,7 +1460,7 @@ len() 和 cap() 返回结果可相同和不同。
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2022/04/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E4%B8%8A%E9%97%A8%E6%89%93%E6%95%A3%E5%B7%A5/">
+  href="/zh-hans/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E4%B8%8A%E9%97%A8%E6%89%93%E6%95%A3%E5%B7%A5/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1472,7 +1472,7 @@ len() 和 cap() 返回结果可相同和不同。
       <a
         class="hb-blog-post-title-link d-block"
         title="记录一次上门打散工"
-        href="/zh-hans/blog/2022/04/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E4%B8%8A%E9%97%A8%E6%89%93%E6%95%A3%E5%B7%A5/">记录一次上门打散工</a>
+        href="/zh-hans/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E4%B8%8A%E9%97%A8%E6%89%93%E6%95%A3%E5%B7%A5/">记录一次上门打散工</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1562,7 +1562,7 @@ len() 和 cap() 返回结果可相同和不同。
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2022/04/ansible-%E5%91%BD%E4%BB%A4/">
+  href="/zh-hans/ansible-%E5%91%BD%E4%BB%A4/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1574,7 +1574,7 @@ len() 和 cap() 返回结果可相同和不同。
       <a
         class="hb-blog-post-title-link d-block"
         title="ansible 命令"
-        href="/zh-hans/blog/2022/04/ansible-%E5%91%BD%E4%BB%A4/">ansible 命令</a>
+        href="/zh-hans/ansible-%E5%91%BD%E4%BB%A4/">ansible 命令</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1599,7 +1599,7 @@ len() 和 cap() 返回结果可相同和不同。
 shell 1- name: 将命令结果输出到指定文件 2 shell: somescript.sh &gt;&gt; somelog.txt 3- name: 切换目录执行命令 4 shell: 5 cmd: ls -l | grep log 6 chdir: somedir/ 7- name: 编写脚本 8 shell: | 9 if [ 0 -eq 0 ]; then 10 echo yes &gt; /tmp/result 11 else 12 echo no &gt; /tmp/result 13 fi 14 args: 15 executable: /bin/bash copy 将文件复制到远程主机。 1- name: 拷贝文件 2 copy: 3 src: /srv/myfiles/foo.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/blog/2022/04/ansible-%E5%91%BD%E4%BB%A4/">阅读更多关于ansible 命令的内容。</a>
+            class="text-secondary" href="/zh-hans/ansible-%E5%91%BD%E4%BB%A4/">阅读更多关于ansible 命令的内容。</a>
         </div>
   </div>
 </div>
@@ -1661,7 +1661,7 @@ shell 1- name: 将命令结果输出到指定文件 2 shell: somescript.sh &gt;&
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2022/04/ant%E4%B8%AD%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E7%AC%AC%E4%B8%89%E6%96%B9jar%E5%8C%85%E4%BE%9D%E8%B5%96/">
+  href="/zh-hans/ant%E4%B8%AD%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E7%AC%AC%E4%B8%89%E6%96%B9jar%E5%8C%85%E4%BE%9D%E8%B5%96/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1673,7 +1673,7 @@ shell 1- name: 将命令结果输出到指定文件 2 shell: somescript.sh &gt;&
       <a
         class="hb-blog-post-title-link d-block"
         title="Ant中如何添加第三方jar包依赖"
-        href="/zh-hans/blog/2022/04/ant%E4%B8%AD%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E7%AC%AC%E4%B8%89%E6%96%B9jar%E5%8C%85%E4%BE%9D%E8%B5%96/">Ant中如何添加第三方jar包依赖</a>
+        href="/zh-hans/ant%E4%B8%AD%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E7%AC%AC%E4%B8%89%E6%96%B9jar%E5%8C%85%E4%BE%9D%E8%B5%96/">Ant中如何添加第三方jar包依赖</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1698,7 +1698,7 @@ shell 1- name: 将命令结果输出到指定文件 2 shell: somescript.sh &gt;&
 在项目的根目录下创建 lib 目录，并把所有需要的第三方 jar 包放到此目录下。 在 build.xml 中依次添加：path、property，并在 javac 中添加 classpath，添加 unjar。完整配置如下： 1&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt; 2&lt;project name=&#34;MyTool&#34; default=&#34;build&#34; basedir=&#34;.&#34;&gt; 3 &lt;description&gt;The ant project to build MyTool.&lt;/description&gt; 4 &lt;property name=&#34;srcDir&#34; location=&#34;src&#34; description=&#34;源文件的存放目录&#34; /&gt; 5 &lt;property name=&#34;libDir&#34; location=&#34;lib&#34; description=&#34;第三方jar包的存放目录&#34; /&gt; 6 &lt;property name=&#34;antDir&#34; location=&#34;ant&#34; description=&#34;编译后所有文件存放的根目录&#34; /&gt; 7 &lt;property name=&#34;binDir&#34; location=&#34;${antDir}/bin&#34; description=&#34;编译后class文件的存放目录&#34; /&gt; 8 &lt;property name=&#34;jarDir&#34; location=&#34;${antDir}/jar&#34; description=&#34;打包后jar包的存放目录&#34; /&gt; 9 &lt;property name=&#34;jarFile&#34; location=&#34;${jarDir}/MyTool.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/blog/2022/04/ant%E4%B8%AD%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E7%AC%AC%E4%B8%89%E6%96%B9jar%E5%8C%85%E4%BE%9D%E8%B5%96/">阅读更多关于Ant中如何添加第三方jar包依赖的内容。</a>
+            class="text-secondary" href="/zh-hans/ant%E4%B8%AD%E5%A6%82%E4%BD%95%E6%B7%BB%E5%8A%A0%E7%AC%AC%E4%B8%89%E6%96%B9jar%E5%8C%85%E4%BE%9D%E8%B5%96/">阅读更多关于Ant中如何添加第三方jar包依赖的内容。</a>
         </div>
   </div>
 </div>
@@ -1760,7 +1760,7 @@ shell 1- name: 将命令结果输出到指定文件 2 shell: somescript.sh &gt;&
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2022/04/k8s%E6%9C%AC%E5%9C%B0%E8%81%94%E8%B0%83%E7%A5%9E%E5%99%A8kt-connect/">
+  href="/zh-hans/k8s%E6%9C%AC%E5%9C%B0%E8%81%94%E8%B0%83%E7%A5%9E%E5%99%A8kt-connect/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1772,7 +1772,7 @@ shell 1- name: 将命令结果输出到指定文件 2 shell: somescript.sh &gt;&
       <a
         class="hb-blog-post-title-link d-block"
         title="k8s本地联调神器kt-connect"
-        href="/zh-hans/blog/2022/04/k8s%E6%9C%AC%E5%9C%B0%E8%81%94%E8%B0%83%E7%A5%9E%E5%99%A8kt-connect/">k8s本地联调神器kt-connect</a>
+        href="/zh-hans/k8s%E6%9C%AC%E5%9C%B0%E8%81%94%E8%B0%83%E7%A5%9E%E5%99%A8kt-connect/">k8s本地联调神器kt-connect</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -2013,7 +2013,7 @@ k8s 集群内部的服务网络怎么和我们本地网络打通。kt-connect �
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2022/09/featured-post-without-image/">
+  href="/zh-hans/featured-post-without-image/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -2025,7 +2025,7 @@ k8s 集群内部的服务网络怎么和我们本地网络打通。kt-connect �
       <a
         class="hb-blog-post-title-link d-block"
         title="Featured Post without Image"
-        href="/zh-hans/blog/2022/09/featured-post-without-image/">Featured Post without Image</a>
+        href="/zh-hans/featured-post-without-image/">Featured Post without Image</a>
     </div>
   </div>
 </div>
@@ -2066,7 +2066,7 @@ k8s 集群内部的服务网络怎么和我们本地网络打通。kt-connect �
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2023/12/2023-12-27-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/2023-12-27-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
     
 
 
@@ -2116,7 +2116,7 @@ k8s 集群内部的服务网络怎么和我们本地网络打通。kt-connect �
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-27 打工人日报"
-        href="/zh-hans/blog/2023/12/2023-12-27-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-27 打工人日报</a>
+        href="/zh-hans/2023-12-27-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-27 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2129,7 +2129,7 @@ k8s 集群内部的服务网络怎么和我们本地网络打通。kt-connect �
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2023/12/2023-12-26-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/2023-12-26-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
     
 
 
@@ -2179,7 +2179,7 @@ k8s 集群内部的服务网络怎么和我们本地网络打通。kt-connect �
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-26 打工人日报"
-        href="/zh-hans/blog/2023/12/2023-12-26-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-26 打工人日报</a>
+        href="/zh-hans/2023-12-26-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-26 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2192,7 +2192,7 @@ k8s 集群内部的服务网络怎么和我们本地网络打通。kt-connect �
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2023/12/2023-12-25-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/2023-12-25-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
     
 
 
@@ -2242,7 +2242,7 @@ k8s 集群内部的服务网络怎么和我们本地网络打通。kt-connect �
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-25 打工人日报"
-        href="/zh-hans/blog/2023/12/2023-12-25-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-25 打工人日报</a>
+        href="/zh-hans/2023-12-25-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-25 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2255,7 +2255,7 @@ k8s 集群内部的服务网络怎么和我们本地网络打通。kt-connect �
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2023/12/2023-12-24-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/2023-12-24-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
     
 
 
@@ -2305,7 +2305,7 @@ k8s 集群内部的服务网络怎么和我们本地网络打通。kt-connect �
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-24 打工人日报"
-        href="/zh-hans/blog/2023/12/2023-12-24-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-24 打工人日报</a>
+        href="/zh-hans/2023-12-24-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-24 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2318,7 +2318,7 @@ k8s 集群内部的服务网络怎么和我们本地网络打通。kt-connect �
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2023/12/2023-12-23-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/2023-12-23-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
     
 
 
@@ -2368,7 +2368,7 @@ k8s 集群内部的服务网络怎么和我们本地网络打通。kt-connect �
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-23 打工人日报"
-        href="/zh-hans/blog/2023/12/2023-12-23-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-23 打工人日报</a>
+        href="/zh-hans/2023-12-23-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-23 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2747,7 +2747,7 @@ k8s 集群内部的服务网络怎么和我们本地网络打通。kt-connect �
 
 
   
-<script src="/js/search.42ec6b79ff685aeb9595b3e394c69388ff09af7c8f3a1b55e2fd1981f09a8353.js" defer></script>
+<script src="/js/search.7f29ea12c02aeeffd246fc144ccb9128dc80d692eb495f2d3bba2632f515a236.js" defer></script>
 
 
 

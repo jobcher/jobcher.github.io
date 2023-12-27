@@ -611,7 +611,7 @@ gitlab - 标签 - 打工人日志</title>
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2023/12/ci/cd-%E5%8F%AF%E8%A7%82%E5%AF%9F%E6%80%A7-%E5%9F%BA%E4%BA%8Egrafana/">
+  href="/zh-hans/ci/cd-%E5%8F%AF%E8%A7%82%E5%AF%9F%E6%80%A7-%E5%9F%BA%E4%BA%8Egrafana/">
     
 
 
@@ -662,7 +662,7 @@ gitlab - 标签 - 打工人日志</title>
       <a
         class="hb-blog-post-title-link d-block"
         title="CI/CD 可观察性-基于grafana"
-        href="/zh-hans/blog/2023/12/ci/cd-%E5%8F%AF%E8%A7%82%E5%AF%9F%E6%80%A7-%E5%9F%BA%E4%BA%8Egrafana/">CI/CD 可观察性-基于grafana</a>
+        href="/zh-hans/ci/cd-%E5%8F%AF%E8%A7%82%E5%AF%9F%E6%80%A7-%E5%9F%BA%E4%BA%8Egrafana/">CI/CD 可观察性-基于grafana</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -693,7 +693,7 @@ Flakiness 片状 片状测试是 CI/CD 方程中不可预测的变量。当测�
 次优测试计划。 CI/CD 管道遵循一条关键路径，其中每个步骤都依赖于前一个步骤。如果步骤未设置为按正确的顺序执行或正在等待非依赖项，则可能会导致效率低下。 次优容量规划。未配置足够的资源或对所需工作负载规划不当可能会导致管道出现瓶颈。如果 CI/CD 流程在关键阶段没有必要的能力，则可能会减慢整个工作流程或导致中断和故障。 DORA 指标 Deployment frequency 部署频率 (DF)：组织成功发布到生产环境的频率 Mean Lead time for changes 变更平均前置时间 (MLT)：从代码提交到代码在生产中运行所需的时间 Mean time to recover 平均恢复时间 (MTTR)：发生服务事件或缺陷后恢复服务需要多长时间 Change failure rate 变更失败率 (CFR)：导致失败的变更百分比 优化 CI/CD 可观察性 目前GraCIe 是 Grafana 正在使用的应用程序插件，旨在为用户提供一种简单的方法来了解他们的 CI/CD 系统。它非常适合评估构建性能、识别测试结果中的不一致以及分析构建输出。该应用程序简化了这些流程，旨在轻松提供有关管道的见解。</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/blog/2023/12/ci/cd-%E5%8F%AF%E8%A7%82%E5%AF%9F%E6%80%A7-%E5%9F%BA%E4%BA%8Egrafana/">阅读更多关于CI/CD 可观察性-基于grafana的内容。</a>
+            class="text-secondary" href="/zh-hans/ci/cd-%E5%8F%AF%E8%A7%82%E5%AF%9F%E6%80%A7-%E5%9F%BA%E4%BA%8Egrafana/">阅读更多关于CI/CD 可观察性-基于grafana的内容。</a>
         </div>
   </div>
 </div>
@@ -754,7 +754,7 @@ Flakiness 片状 片状测试是 CI/CD 方程中不可预测的变量。当测�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2023/11/sonarqube-docker%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/">
+  href="/zh-hans/sonarqube-docker%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/">
     
 
 
@@ -805,7 +805,7 @@ Flakiness 片状 片状测试是 CI/CD 方程中不可预测的变量。当测�
       <a
         class="hb-blog-post-title-link d-block"
         title="sonarqube docker安装和配置"
-        href="/zh-hans/blog/2023/11/sonarqube-docker%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/">sonarqube docker安装和配置</a>
+        href="/zh-hans/sonarqube-docker%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/">sonarqube docker安装和配置</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -830,7 +830,7 @@ Flakiness 片状 片状测试是 CI/CD 方程中不可预测的变量。当测�
 安装 sonarqube服务器 1.执行脚本文件 config.sh 1#!/bin/bash 2sysctl -w vm.max_map_count=262144 3sysctl -w fs.file-max=65536 4ulimit -n 65536 5ulimit -u 4096 6# # 永久改变 7# echo &#34;vm.max_map_count=262144&#34; &gt;&gt; /etc/sysctl.conf 8# sysctl -p 1sh config.sh 2.执行docker-compose文件 1version: &#39;3&#39; 2services: 3 postgres: 4 image: postgres:15 5 container_name: postgres 6 ports: 7 - 5432:5432 8 volumes: 9 - ./sonar/postgres/postgresql:/var/lib/postgresql 10 - ./sonar/postgres/data:/var/lib/postgresql/data 11 environment: 12 TZ: Asia/Shanghai 13 POSTGRES_USER: user #数据库用户 14 POSTGRES_PASSWORD: password #数据库密码 15 POSTGRES_DB: sonar 16 17 sonarqube: 18 depends_on: 19 - postgres 20 image: sonarqube:9.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/blog/2023/11/sonarqube-docker%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/">阅读更多关于sonarqube docker安装和配置的内容。</a>
+            class="text-secondary" href="/zh-hans/sonarqube-docker%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/">阅读更多关于sonarqube docker安装和配置的内容。</a>
         </div>
   </div>
 </div>
@@ -891,7 +891,7 @@ Flakiness 片状 片状测试是 CI/CD 方程中不可预测的变量。当测�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2023/09/ssh-%E9%80%9A%E8%BF%87-443-%E7%AB%AF%E5%8F%A3%E8%BF%9E%E6%8E%A5-github/">
+  href="/zh-hans/ssh-%E9%80%9A%E8%BF%87-443-%E7%AB%AF%E5%8F%A3%E8%BF%9E%E6%8E%A5-github/">
     
 
 
@@ -942,7 +942,7 @@ Flakiness 片状 片状测试是 CI/CD 方程中不可预测的变量。当测�
       <a
         class="hb-blog-post-title-link d-block"
         title="SSH 通过 443 端口连接 GitHub"
-        href="/zh-hans/blog/2023/09/ssh-%E9%80%9A%E8%BF%87-443-%E7%AB%AF%E5%8F%A3%E8%BF%9E%E6%8E%A5-github/">SSH 通过 443 端口连接 GitHub</a>
+        href="/zh-hans/ssh-%E9%80%9A%E8%BF%87-443-%E7%AB%AF%E5%8F%A3%E8%BF%9E%E6%8E%A5-github/">SSH 通过 443 端口连接 GitHub</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1026,7 +1026,7 @@ Flakiness 片状 片状测试是 CI/CD 方程中不可预测的变量。当测�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2022/03/git-%E8%A7%84%E5%88%99/">
+  href="/zh-hans/git-%E8%A7%84%E5%88%99/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1038,7 +1038,7 @@ Flakiness 片状 片状测试是 CI/CD 方程中不可预测的变量。当测�
       <a
         class="hb-blog-post-title-link d-block"
         title="Git 规则"
-        href="/zh-hans/blog/2022/03/git-%E8%A7%84%E5%88%99/">Git 规则</a>
+        href="/zh-hans/git-%E8%A7%84%E5%88%99/">Git 规则</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1062,7 +1062,7 @@ Flakiness 片状 片状测试是 CI/CD 方程中不可预测的变量。当测�
       <div class="hb-blog-post-summary card-text text-secondary mb-auto">Git 飞行规则(Flight Rules) 编辑提交(editting commits) 我刚才提交了什么? 我的提交信息(commit message)写错了 我提交(commit)里的用户名和邮箱不对 我想从一个提交(commit)里移除一个文件 我想删除我的的最后一次提交(commit) 删除任意提交(commit) 我尝试推一个修正后的提交(amended commit)到远程，但是报错： 我意外的做了一次硬重置(hard reset)，我想找回我的内容 暂存(Staging) 我需要把暂存的内容添加到上一次的提交(commit) 我想要暂存一个新文件的一部分，而不是这个文件的全部 我想把在一个文件里的变化(changes)加到两个提交(commit)里 我想把暂存的内容变成未暂存，把未暂存的内容暂存起来 未暂存(Unstaged)的内容 我想把未暂存的内容移动到一个新分支 我想把未暂存的内容移动到另一个已存在的分支 我想丢弃本地未提交的变化(uncommitted changes) 我想丢弃某些未暂存的内容 分支(Branches) 我从错误的分支拉取了内容，或把内容拉取到了错误的分支 我想扔掉本地的提交(commit)，以便我的分支与远程的保持一致 我需要提交到一个新分支，但错误的提交到了 main 我想保留来自另外一个 ref-ish 的整个文件 我把几个提交(commit)提交到了同一个分支，而这些提交应该分布在不同的分支里 我想删除上游(upstream)分支被删除了的本地分支 我不小心删除了我的分支 我想删除一个分支 我想从别人正在工作的远程分支签出(checkout)一个分支 Rebasing 和合并(Merging) 我想撤销 rebase/merge 我已经 rebase 过, 但是我不想强推(force push) 我需要组合(combine)几个提交(commit) 安全合并(merging)策略 我需要将一个分支合并成一个提交(commit) 我只想组合(combine)未推的提交(unpushed commit) 检查是否分支上的所有提交(commit)都合并(merge)过了 交互式 rebase(interactive rebase)可能出现的问题 这个 rebase 编辑屏幕出现&rsquo;noop&rsquo; 有冲突的情况 Stash 暂存所有改动 暂存指定文件 暂存时记录消息 使用某个指定暂存 暂存时保留未暂存的内容 杂项(Miscellaneous Objects) 克隆所有子模块 删除标签(tag) 恢复已删除标签(tag) 已删除补丁(patch) 跟踪文件(Tracking Files) 我只想改变一个文件名字的大小写，而不修改内容 我想从 Git 删除一个文件，但保留该文件 配置(Configuration) 我想给一些 Git 命令添加别名(alias) 我想缓存一个仓库(repository)的用户名和密码 我不知道我做错了些什么 其它资源(Other Resources) 书(Books) 教程(Tutorials) 脚本和工具(Scripts and Tools) GUI 客户端(GUI Clients) 编辑提交(editting commits) 我刚才提交了什么?</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/blog/2022/03/git-%E8%A7%84%E5%88%99/">阅读更多关于Git 规则的内容。</a>
+            class="text-secondary" href="/zh-hans/git-%E8%A7%84%E5%88%99/">阅读更多关于Git 规则的内容。</a>
         </div>
   </div>
 </div>
@@ -1123,7 +1123,7 @@ Flakiness 片状 片状测试是 CI/CD 方程中不可预测的变量。当测�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2022/02/git%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">
+  href="/zh-hans/git%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1135,7 +1135,7 @@ Flakiness 片状 片状测试是 CI/CD 方程中不可预测的变量。当测�
       <a
         class="hb-blog-post-title-link d-block"
         title="git版本控制"
-        href="/zh-hans/blog/2022/02/git%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">git版本控制</a>
+        href="/zh-hans/git%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">git版本控制</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1164,7 +1164,7 @@ Flakiness 片状 片状测试是 CI/CD 方程中不可预测的变量。当测�
 1┌────┐ 2│HEAD│ 3└────┘ 4 │ 5 │ ○ update 6 │ │ 7 └──&gt; ○ Create README.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/blog/2022/02/git%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">阅读更多关于git版本控制的内容。</a>
+            class="text-secondary" href="/zh-hans/git%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">阅读更多关于git版本控制的内容。</a>
         </div>
   </div>
 </div>
@@ -1225,7 +1225,7 @@ Flakiness 片状 片状测试是 CI/CD 方程中不可预测的变量。当测�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2022/02/cicd-%E6%A6%82%E5%BF%B5/">
+  href="/zh-hans/cicd-%E6%A6%82%E5%BF%B5/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1237,7 +1237,7 @@ Flakiness 片状 片状测试是 CI/CD 方程中不可预测的变量。当测�
       <a
         class="hb-blog-post-title-link d-block"
         title="CICD 概念"
-        href="/zh-hans/blog/2022/02/cicd-%E6%A6%82%E5%BF%B5/">CICD 概念</a>
+        href="/zh-hans/cicd-%E6%A6%82%E5%BF%B5/">CICD 概念</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1322,7 +1322,7 @@ devOps 看作开发（软件工程）、技术运营和质量保障（QA）三�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2022/02/git%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
+  href="/zh-hans/git%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1334,7 +1334,7 @@ devOps 看作开发（软件工程）、技术运营和质量保障（QA）三�
       <a
         class="hb-blog-post-title-link d-block"
         title="git使用方法"
-        href="/zh-hans/blog/2022/02/git%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">git使用方法</a>
+        href="/zh-hans/git%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">git使用方法</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1358,7 +1358,7 @@ devOps 看作开发（软件工程）、技术运营和质量保障（QA）三�
       <div class="hb-blog-post-summary card-text text-secondary mb-auto">git 使用方法 一、git 安装配置 Debian/Ubuntu 1 apt-get install libcurl4-gnutls-dev libexpat1-dev gettext \ 2 libz-dev libssl-dev 3 4 apt-get install git 5 6 git --version 7 git version 1.8.1.2 Centos/RedHat 1 yum install curl-devel expat-devel gettext-devel \ 2 openssl-devel zlib-devel 3 4 yum -y install git-core 5 6 git --version 7 git version 1.7.1 二、git 拉取异常如何重新拉取 1.同一文件有修改，产生冲突。 先将本地修改存储起来 使用git stash命令，这样本地的所有修改就都被暂时存储起来 。其中stash@{0}就是刚才保存的标记。后续可以通过此标记访问。 再次拉取代码 1git pull 还原暂存的内容 1git stash pop stash@{0} 解决冲突 在存在冲突的文件中，Updated upstream 和=====之间的内容为拉取下来的代码，=====和stashed changes之间的内容就为本地修改的代码。解决完成之后，就可以正常的提交了。 5.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/blog/2022/02/git%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">阅读更多关于git使用方法的内容。</a>
+            class="text-secondary" href="/zh-hans/git%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">阅读更多关于git使用方法的内容。</a>
         </div>
   </div>
 </div>
@@ -1419,7 +1419,7 @@ devOps 看作开发（软件工程）、技术运营和质量保障（QA）三�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2022/02/jenkins-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/">
+  href="/zh-hans/jenkins-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1431,7 +1431,7 @@ devOps 看作开发（软件工程）、技术运营和质量保障（QA）三�
       <a
         class="hb-blog-post-title-link d-block"
         title="Jenkins 安装与使用"
-        href="/zh-hans/blog/2022/02/jenkins-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/">Jenkins 安装与使用</a>
+        href="/zh-hans/jenkins-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/">Jenkins 安装与使用</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1459,7 +1459,7 @@ docker 安装 jenkins 1docker run \ 2 -u root \ 3 -d \ 4 -p 8080:8080 \ 5 -p 500
 1docker exec -ti &lt;容器名称&gt; sh 2cat /var/jenkins_home/secrets/initialAdminPassword 工作流程 先定义一个流水线项目，指定项目的 git 位置 git 位置自动拉取代码 解析拉取代码里面的 Jenkinsfile 文件 按照 Jenkinsfile 指定的流水线开始加工项目 Jenkinsfile 语法 基础语法,在仓库创建一个 Jenkinsfile 文件</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/blog/2022/02/jenkins-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/">阅读更多关于Jenkins 安装与使用的内容。</a>
+            class="text-secondary" href="/zh-hans/jenkins-%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/">阅读更多关于Jenkins 安装与使用的内容。</a>
         </div>
   </div>
 </div>
@@ -1520,7 +1520,7 @@ docker 安装 jenkins 1docker run \ 2 -u root \ 3 -d \ 4 -p 8080:8080 \ 5 -p 500
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2021/12/gitlab%E4%B8%8Egithub%E5%90%8C%E6%AD%A5%E9%A1%B9%E7%9B%AE/">
+  href="/zh-hans/gitlab%E4%B8%8Egithub%E5%90%8C%E6%AD%A5%E9%A1%B9%E7%9B%AE/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1532,7 +1532,7 @@ docker 安装 jenkins 1docker run \ 2 -u root \ 3 -d \ 4 -p 8080:8080 \ 5 -p 500
       <a
         class="hb-blog-post-title-link d-block"
         title="gitlab与github同步项目"
-        href="/zh-hans/blog/2021/12/gitlab%E4%B8%8Egithub%E5%90%8C%E6%AD%A5%E9%A1%B9%E7%9B%AE/">gitlab与github同步项目</a>
+        href="/zh-hans/gitlab%E4%B8%8Egithub%E5%90%8C%E6%AD%A5%E9%A1%B9%E7%9B%AE/">gitlab与github同步项目</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1613,7 +1613,7 @@ docker 安装 jenkins 1docker run \ 2 -u root \ 3 -d \ 4 -p 8080:8080 \ 5 -p 500
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2021/12/git%E6%8A%80%E5%B7%A7/">
+  href="/zh-hans/git%E6%8A%80%E5%B7%A7/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1625,7 +1625,7 @@ docker 安装 jenkins 1docker run \ 2 -u root \ 3 -d \ 4 -p 8080:8080 \ 5 -p 500
       <a
         class="hb-blog-post-title-link d-block"
         title="git技巧"
-        href="/zh-hans/blog/2021/12/git%E6%8A%80%E5%B7%A7/">git技巧</a>
+        href="/zh-hans/git%E6%8A%80%E5%B7%A7/">git技巧</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1652,7 +1652,7 @@ docker 安装 jenkins 1docker run \ 2 -u root \ 3 -d \ 4 -p 8080:8080 \ 5 -p 500
 一定要先测试命令的效果后，再用于工作环境中，以防造成不能弥补的后果！到时候别拿着砍刀来找我 所有的命令都在git version 2.7.4 (Apple Git-66)下测试通过 统一概念： 工作区：改动（增删文件和内容） 暂存区：输入命令：git add 改动的文件名，此次改动就放到了 ‘暂存区’ 本地仓库(简称：本地)：输入命令：git commit 此次修改的描述，此次改动就放到了 ’本地仓库’，每个 commit，我叫它为一个 ‘版本’。 远程仓库(简称：远程)：输入命令：git push 远程仓库，此次改动就放到了 ‘远程仓库’（GitHub 等) commit-id：输出命令：git log，最上面那行 commit xxxxxx，后面的字符串就是 commit-id 如果喜欢这个项目，欢迎 Star、提交 Pr、反馈问题😊 目录 脑图 展示帮助信息 回到远程仓库的状态 重设第一个 commit 查看冲突文件列表 展示工作区和暂存区的不同 展示暂存区和最近版本的不同 展示暂存区、工作区和最近版本的不同 快速切换到上一个分支 删除已经合并到 master 的分支 展示本地分支关联远程仓库的情况 关联远程分支 列出所有远程分支 列出本地和远程分支 查看远程分支和本地分支的对应关系 远程删除了分支本地也想删除 创建并切换到本地分支 从远程分支中创建并切换到本地分支 删除本地分支 删除远程分支 重命名本地分支 查看标签 查看标签详细信息 本地创建标签 推送标签到远程仓库 删除本地标签 删除远程标签 切回到某个标签 放弃工作区的修改 恢复删除的文件 以新增一个 commit 的方式还原某一个 commit 的修改 回到某个 commit 的状态，并删除后面的 commit 修改上一个 commit 的描述 查看 commit 历史 显示本地更新过 HEAD 的 git 命令记录 修改作者名 修改远程仓库的 url 增加远程仓库 列出所有远程仓库 查看两个星期内的改动 把 A 分支的某一个 commit，放到 B 分支上 给 git 命令起别名 存储当前的修改，但不用提交 commit 保存当前状态，包括 untracked 的文件 展示所有 stashes 回到某个 stash 的状态 回到最后一个 stash 的状态，并删除这个 stash 删除所有的 stash 从 stash 中拿出某个文件的修改 展示所有 tracked 的文件 展示所有 untracked 的文件 展示所有忽略的文件 强制删除 untracked 的文件 强制删除 untracked 的目录 展示简化的 commit 历史 查看某段代码是谁写的 把某一个分支导出成一个文件 从包中导入分支 执行 rebase 之前自动 stash 从远程仓库根据 ID，拉下某一状态，到本地分支 详细展示一行中的修改 清除 .</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/blog/2021/12/git%E6%8A%80%E5%B7%A7/">阅读更多关于git技巧的内容。</a>
+            class="text-secondary" href="/zh-hans/git%E6%8A%80%E5%B7%A7/">阅读更多关于git技巧的内容。</a>
         </div>
   </div>
 </div>
@@ -1713,7 +1713,7 @@ docker 安装 jenkins 1docker run \ 2 -u root \ 3 -d \ 4 -p 8080:8080 \ 5 -p 500
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2021/12/gitlab-ci/cd-%E7%9A%84%E4%BD%BF%E7%94%A8/">
+  href="/zh-hans/gitlab-ci/cd-%E7%9A%84%E4%BD%BF%E7%94%A8/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1725,7 +1725,7 @@ docker 安装 jenkins 1docker run \ 2 -u root \ 3 -d \ 4 -p 8080:8080 \ 5 -p 500
       <a
         class="hb-blog-post-title-link d-block"
         title="gitlab CI/CD 的使用"
-        href="/zh-hans/blog/2021/12/gitlab-ci/cd-%E7%9A%84%E4%BD%BF%E7%94%A8/">gitlab CI/CD 的使用</a>
+        href="/zh-hans/gitlab-ci/cd-%E7%9A%84%E4%BD%BF%E7%94%A8/">gitlab CI/CD 的使用</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1762,7 +1762,7 @@ docker exec -it gitlab-runner gitlab-runner register 非 docker 方式安装 2.1
 1 curl -L --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/blog/2021/12/gitlab-ci/cd-%E7%9A%84%E4%BD%BF%E7%94%A8/">阅读更多关于gitlab CI/CD 的使用的内容。</a>
+            class="text-secondary" href="/zh-hans/gitlab-ci/cd-%E7%9A%84%E4%BD%BF%E7%94%A8/">阅读更多关于gitlab CI/CD 的使用的内容。</a>
         </div>
   </div>
 </div>
@@ -1919,7 +1919,7 @@ docker exec -it gitlab-runner gitlab-runner register 非 docker 方式安装 2.1
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2022/09/featured-post-without-image/">
+  href="/zh-hans/featured-post-without-image/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1931,7 +1931,7 @@ docker exec -it gitlab-runner gitlab-runner register 非 docker 方式安装 2.1
       <a
         class="hb-blog-post-title-link d-block"
         title="Featured Post without Image"
-        href="/zh-hans/blog/2022/09/featured-post-without-image/">Featured Post without Image</a>
+        href="/zh-hans/featured-post-without-image/">Featured Post without Image</a>
     </div>
   </div>
 </div>
@@ -1972,7 +1972,7 @@ docker exec -it gitlab-runner gitlab-runner register 非 docker 方式安装 2.1
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2023/12/2023-12-27-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/2023-12-27-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
     
 
 
@@ -2022,7 +2022,7 @@ docker exec -it gitlab-runner gitlab-runner register 非 docker 方式安装 2.1
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-27 打工人日报"
-        href="/zh-hans/blog/2023/12/2023-12-27-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-27 打工人日报</a>
+        href="/zh-hans/2023-12-27-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-27 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2035,7 +2035,7 @@ docker exec -it gitlab-runner gitlab-runner register 非 docker 方式安装 2.1
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2023/12/2023-12-26-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/2023-12-26-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
     
 
 
@@ -2085,7 +2085,7 @@ docker exec -it gitlab-runner gitlab-runner register 非 docker 方式安装 2.1
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-26 打工人日报"
-        href="/zh-hans/blog/2023/12/2023-12-26-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-26 打工人日报</a>
+        href="/zh-hans/2023-12-26-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-26 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2098,7 +2098,7 @@ docker exec -it gitlab-runner gitlab-runner register 非 docker 方式安装 2.1
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2023/12/2023-12-25-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/2023-12-25-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
     
 
 
@@ -2148,7 +2148,7 @@ docker exec -it gitlab-runner gitlab-runner register 非 docker 方式安装 2.1
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-25 打工人日报"
-        href="/zh-hans/blog/2023/12/2023-12-25-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-25 打工人日报</a>
+        href="/zh-hans/2023-12-25-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-25 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2161,7 +2161,7 @@ docker exec -it gitlab-runner gitlab-runner register 非 docker 方式安装 2.1
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2023/12/2023-12-24-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/2023-12-24-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
     
 
 
@@ -2211,7 +2211,7 @@ docker exec -it gitlab-runner gitlab-runner register 非 docker 方式安装 2.1
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-24 打工人日报"
-        href="/zh-hans/blog/2023/12/2023-12-24-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-24 打工人日报</a>
+        href="/zh-hans/2023-12-24-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-24 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2224,7 +2224,7 @@ docker exec -it gitlab-runner gitlab-runner register 非 docker 方式安装 2.1
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/blog/2023/12/2023-12-23-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/2023-12-23-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
     
 
 
@@ -2274,7 +2274,7 @@ docker exec -it gitlab-runner gitlab-runner register 非 docker 方式安装 2.1
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-23 打工人日报"
-        href="/zh-hans/blog/2023/12/2023-12-23-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-23 打工人日报</a>
+        href="/zh-hans/2023-12-23-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-23 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2651,7 +2651,7 @@ docker exec -it gitlab-runner gitlab-runner register 非 docker 方式安装 2.1
 
 
   
-<script src="/js/search.42ec6b79ff685aeb9595b3e394c69388ff09af7c8f3a1b55e2fd1981f09a8353.js" defer></script>
+<script src="/js/search.7f29ea12c02aeeffd246fc144ccb9128dc80d692eb495f2d3bba2632f515a236.js" defer></script>
 
 
 
