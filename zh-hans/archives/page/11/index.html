@@ -588,7 +588,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/proxmox-ve-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA/">
+  href="/zh-hans/pve1/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -600,7 +600,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="Proxmox VE 在线扩容磁盘分区"
-        href="/zh-hans/proxmox-ve-%E5%9C%A8%E7%BA%BF%E6%89%A9%E5%AE%B9%E7%A3%81%E7%9B%98%E5%88%86%E5%8C%BA/">Proxmox VE 在线扩容磁盘分区</a>
+        href="/zh-hans/pve1/">Proxmox VE 在线扩容磁盘分区</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -689,7 +689,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/gitlab%E6%89%B9%E9%87%8F%E5%AF%BC%E5%87%BA%E7%94%A8%E6%88%B7/">
+  href="/zh-hans/exportuser/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -701,7 +701,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="Gitlab批量导出用户"
-        href="/zh-hans/gitlab%E6%89%B9%E9%87%8F%E5%AF%BC%E5%87%BA%E7%94%A8%E6%88%B7/">Gitlab批量导出用户</a>
+        href="/zh-hans/exportuser/">Gitlab批量导出用户</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -732,7 +732,7 @@
 1gitlabhq_production=# SELECT name FROM users; (7)登出数据库</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/gitlab%E6%89%B9%E9%87%8F%E5%AF%BC%E5%87%BA%E7%94%A8%E6%88%B7/">阅读更多关于Gitlab批量导出用户的内容。</a>
+            class="text-secondary" href="/zh-hans/exportuser/">阅读更多关于Gitlab批量导出用户的内容。</a>
         </div>
   </div>
 </div>
@@ -794,7 +794,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/harbor-%E6%90%AD%E5%BB%BA/">
+  href="/zh-hans/harbor/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -806,7 +806,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="Harbor 搭建"
-        href="/zh-hans/harbor-%E6%90%AD%E5%BB%BA/">Harbor 搭建</a>
+        href="/zh-hans/harbor/">Harbor 搭建</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -835,7 +835,7 @@
 配置 1# Configuration file of Harbor 2 3# The IP address or hostname to access admin UI and registry service. 4# DO NOT use localhost or 127.0.0.1, because Harbor needs to be accessed by external clients.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/harbor-%E6%90%AD%E5%BB%BA/">阅读更多关于Harbor 搭建的内容。</a>
+            class="text-secondary" href="/zh-hans/harbor/">阅读更多关于Harbor 搭建的内容。</a>
         </div>
   </div>
 </div>
@@ -897,7 +897,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/prometheus-grafana-alertmanager-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">
+  href="/zh-hans/prometheus1/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -909,7 +909,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="prometheus grafana alertmanager 安装配置"
-        href="/zh-hans/prometheus-grafana-alertmanager-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">prometheus grafana alertmanager 安装配置</a>
+        href="/zh-hans/prometheus1/">prometheus grafana alertmanager 安装配置</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -935,7 +935,7 @@
 端口 服务 9100 node_exporter 3000 grafana 9090 prometheus 9115 blackbox_exporter 安装 grafa 安装 docker 安装 1docker run -d -p 3000:3000 \ 2--name=grafana \ 3-v grafana-storage:/var/lib/grafana \ 4grafana/grafana:8.3.3 prometheus 安装 下载 1wget https://github.com/prometheus/prometheus/releases/download/v2.32.1/prometheus-2.32.1.linux-amd64.tar.gz 2tar -zxvf prometheus-2.32.1.linux-amd64.tar.gz 3cd prometheus-2.32.1.linux-amd64 4mkdir -p file_sd 5mkdir -p rules 运行 prometheus 1killall prometheus 2nohup ./prometheus --config.file=prometheus.yml &amp; 3# 查看运行状况 4tail -f nohup.out node_exporter 安装 docker-compose 安装 1version: &#34;3&#34; 2services: 3 node-exporter: 4 image: prom/node-exporter:v1.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/prometheus-grafana-alertmanager-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">阅读更多关于prometheus grafana alertmanager 安装配置的内容。</a>
+            class="text-secondary" href="/zh-hans/prometheus1/">阅读更多关于prometheus grafana alertmanager 安装配置的内容。</a>
         </div>
   </div>
 </div>
@@ -997,7 +997,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/prometheus-%E9%85%8D%E7%BD%AE/">
+  href="/zh-hans/prometheus/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1009,7 +1009,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="prometheus 配置"
-        href="/zh-hans/prometheus-%E9%85%8D%E7%BD%AE/">prometheus 配置</a>
+        href="/zh-hans/prometheus/">prometheus 配置</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1034,7 +1034,7 @@
 组件 Prometheus Server， 主要用于抓取数据和存储时序数据，另外还提供查询和 Alert Rule 配置管理。 client libraries，用于对接 Prometheus Server, 可以查询和上报数据。 push gateway ，用于批量，短期的监控数据的汇总节点，主要用于业务数据汇报等。 各种汇报数据的 exporters ，例如汇报机器数据的 node_exporter, 汇报 MongoDB 信息的 MongoDB exporter 等等。 用于告警通知管理的 alertmanager 。 运行逻辑 Prometheus server 定期从静态配置的 targets 或者服务发现的 targets 拉取数据。 当新拉取的数据大于配置内存缓存区的时候，Prometheus 会将数据持久化到磁盘（如果使用 remote storage 将持久化到云端）。 Prometheus 可以配置 rules，然后定时查询数据，当条件触发的时候，会将 alert 推送到配置的 Alertmanager。 Alertmanager 收到警告的时候，可以根据配置，聚合，去重，降噪，最后发送警告。 可以使用 API， Prometheus Console 或者 Grafana 查询和聚合数据。 安装 prometheus 使用预编译的二进制文件安装 1wget https://github.com/prometheus/prometheus/releases/download/v2.32.1/prometheus-2.32.1.linux-amd64.tar.gz 2tar -zxvf prometheus-2.32.1.linux-amd64.tar.gz 3cd prometheus-2.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/prometheus-%E9%85%8D%E7%BD%AE/">阅读更多关于prometheus 配置的内容。</a>
+            class="text-secondary" href="/zh-hans/prometheus/">阅读更多关于prometheus 配置的内容。</a>
         </div>
   </div>
 </div>
@@ -1096,7 +1096,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/centos7.9-%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/">
+  href="/zh-hans/linux-network/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1108,7 +1108,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="centos7.9 网络配置"
-        href="/zh-hans/centos7.9-%E7%BD%91%E7%BB%9C%E9%85%8D%E7%BD%AE/">centos7.9 网络配置</a>
+        href="/zh-hans/linux-network/">centos7.9 网络配置</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1191,7 +1191,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/%E5%AE%89%E8%A3%85-docker-%E5%87%BA%E7%8E%B0-error-unsupported-distribution-ol-%E9%97%AE%E9%A2%98/">
+  href="/zh-hans/error1/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1203,7 +1203,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="安装 docker 出现 ERROR: Unsupported distribution &#39;ol&#39; 问题"
-        href="/zh-hans/%E5%AE%89%E8%A3%85-docker-%E5%87%BA%E7%8E%B0-error-unsupported-distribution-ol-%E9%97%AE%E9%A2%98/">安装 docker 出现 ERROR: Unsupported distribution &#39;ol&#39; 问题</a>
+        href="/zh-hans/error1/">安装 docker 出现 ERROR: Unsupported distribution &#39;ol&#39; 问题</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1286,7 +1286,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/kubernetes-%E5%AE%9E%E9%AA%8C%E6%89%8B%E5%86%8C1/">
+  href="/zh-hans/k8s1/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1298,7 +1298,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="Kubernetes 实验手册（1）"
-        href="/zh-hans/kubernetes-%E5%AE%9E%E9%AA%8C%E6%89%8B%E5%86%8C1/">Kubernetes 实验手册（1）</a>
+        href="/zh-hans/k8s1/">Kubernetes 实验手册（1）</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1324,7 +1324,7 @@
 更新 ansible 连接 1ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.155 2ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.199 3ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.87 4#ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.41 5#ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.219 1vim /etc/hosts 2192.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/kubernetes-%E5%AE%9E%E9%AA%8C%E6%89%8B%E5%86%8C1/">阅读更多关于Kubernetes 实验手册（1）的内容。</a>
+            class="text-secondary" href="/zh-hans/k8s1/">阅读更多关于Kubernetes 实验手册（1）的内容。</a>
         </div>
   </div>
 </div>
@@ -1386,7 +1386,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/rocketmq-%E5%AE%89%E8%A3%85%E5%92%8C%E5%90%AF%E5%8A%A8/">
+  href="/zh-hans/rocketmq/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1398,7 +1398,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="RocketMQ 安装和启动"
-        href="/zh-hans/rocketmq-%E5%AE%89%E8%A3%85%E5%92%8C%E5%90%AF%E5%8A%A8/">RocketMQ 安装和启动</a>
+        href="/zh-hans/rocketmq/">RocketMQ 安装和启动</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1423,7 +1423,7 @@
 单机安装构建 安装 JDK 1.8.0 1yum install java-1.8.0-openjdk* 安装 Maven 1wget http://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz 2tar -zxvf apache-maven-3.8.4-bin.tar.gz 3mv -f apache-maven-3.8.4 /usr/local/ 4vim /etc/profile 5# 末尾添加 6export MAVEN_HOME=/usr/local/apache-maven-3.8.4 7export PATH=${PATH}:${MAVEN_HOME}/bin 8# 保存 9source /etc/profile 10# 查看maven是否正常 11mvn -v 快速部署 1#构建 DLedger 2git clone https://github.com/openmessaging/openmessaging-storage-dledger.git 3cd openmessaging-storage-dledger 4mvn clean install -DskipTests 5# 构建 RocketMQ 6git clone https://github.com/apache/rocketmq.git 7cd rocketmq 8git checkout -b store_with_dledger origin/store_with_dledger 9mvn -Prelease-all -DskipTests clean install -U 10# 部署 11cd rocketmq/distribution/target/apache-rocketmq 12sh bin/dledger/fast-try.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/rocketmq-%E5%AE%89%E8%A3%85%E5%92%8C%E5%90%AF%E5%8A%A8/">阅读更多关于RocketMQ 安装和启动的内容。</a>
+            class="text-secondary" href="/zh-hans/rocketmq/">阅读更多关于RocketMQ 安装和启动的内容。</a>
         </div>
   </div>
 </div>
@@ -1485,7 +1485,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/%E5%AE%89%E8%A3%85-minio-azure-s3%E7%BD%91%E5%85%B3/">
+  href="/zh-hans/minio/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1497,7 +1497,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="安装 minIO Azure S3网关"
-        href="/zh-hans/%E5%AE%89%E8%A3%85-minio-azure-s3%E7%BD%91%E5%85%B3/">安装 minIO Azure S3网关</a>
+        href="/zh-hans/minio/">安装 minIO Azure S3网关</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1579,7 +1579,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/keepalived%E9%AB%98%E5%8F%AF%E7%94%A8/">
+  href="/zh-hans/keepalived/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1591,7 +1591,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="Keepalived高可用"
-        href="/zh-hans/keepalived%E9%AB%98%E5%8F%AF%E7%94%A8/">Keepalived高可用</a>
+        href="/zh-hans/keepalived/">Keepalived高可用</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1694,7 +1694,7 @@ HPC 集群：High Performance Computing，高性能集群
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/ansible-%E5%AE%89%E8%A3%85%E5%92%8C%E9%83%A8%E7%BD%B2/">
+  href="/zh-hans/ansible/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1706,7 +1706,7 @@ HPC 集群：High Performance Computing，高性能集群
       <a
         class="hb-blog-post-title-link d-block"
         title="ansible 安装和部署"
-        href="/zh-hans/ansible-%E5%AE%89%E8%A3%85%E5%92%8C%E9%83%A8%E7%BD%B2/">ansible 安装和部署</a>
+        href="/zh-hans/ansible/">ansible 安装和部署</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1731,7 +1731,7 @@ HPC 集群：High Performance Computing，高性能集群
 安装 ansible 下载安装 1# ubuntu 安装 2apt-get install software-properties-common 3apt-add-repository ppa:ansible/ansible 4apt-get update 5apt-get install ansible 6# centos 安装 7yum install ansible 检查文件 1#检查 2ansible --version ansible 配置 添加主机 1vim /etc/ansible/hosts 2#添加你需要添加的被控主机地址和IP 配置 SSH key 授权访问 1# 控制主机生成ssh 密钥对（一路回车） 2ssh-keygen -t rsa 3# 复制公钥IP到被控主机 4ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.0.2 5ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.0.3 6ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.0.4 7# ssh-copy-id命令会自动将id_rsa.pub文件的内容追加到远程主机root用户下.ssh/authorized_keys文件中。 更改 ansible 配置 1vim /etc/ansible/ansible.cfg 2 3#禁用每次执行ansbile命令检查ssh key host 4host_key_checking = False 5# 开启日志记录 6log_path = /var/log/ansible.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/ansible-%E5%AE%89%E8%A3%85%E5%92%8C%E9%83%A8%E7%BD%B2/">阅读更多关于ansible 安装和部署的内容。</a>
+            class="text-secondary" href="/zh-hans/ansible/">阅读更多关于ansible 安装和部署的内容。</a>
         </div>
   </div>
 </div>
@@ -1793,7 +1793,7 @@ HPC 集群：High Performance Computing，高性能集群
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/yaml-%E8%AF%AD%E6%B3%95/">
+  href="/zh-hans/yaml/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1805,7 +1805,7 @@ HPC 集群：High Performance Computing，高性能集群
       <a
         class="hb-blog-post-title-link d-block"
         title="yaml 语法"
-        href="/zh-hans/yaml-%E8%AF%AD%E6%B3%95/">yaml 语法</a>
+        href="/zh-hans/yaml/">yaml 语法</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1890,7 +1890,7 @@ YAML 还有一个小的怪癖. 所有的 YAML 文件(无论和 Ansible 有没有
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/logrotate-%E6%97%A5%E5%BF%97%E6%BB%9A%E5%8A%A8%E7%9A%84%E4%BD%BF%E7%94%A8/">
+  href="/zh-hans/logrotate/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1902,7 +1902,7 @@ YAML 还有一个小的怪癖. 所有的 YAML 文件(无论和 Ansible 有没有
       <a
         class="hb-blog-post-title-link d-block"
         title="logrotate 日志滚动的使用"
-        href="/zh-hans/logrotate-%E6%97%A5%E5%BF%97%E6%BB%9A%E5%8A%A8%E7%9A%84%E4%BD%BF%E7%94%A8/">logrotate 日志滚动的使用</a>
+        href="/zh-hans/logrotate/">logrotate 日志滚动的使用</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1986,7 +1986,7 @@ YAML 还有一个小的怪癖. 所有的 YAML 文件(无论和 Ansible 有没有
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/docker-%E5%91%BD%E4%BB%A4/">
+  href="/zh-hans/docker/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1998,7 +1998,7 @@ YAML 还有一个小的怪癖. 所有的 YAML 文件(无论和 Ansible 有没有
       <a
         class="hb-blog-post-title-link d-block"
         title="docker 命令"
-        href="/zh-hans/docker-%E5%91%BD%E4%BB%A4/">docker 命令</a>
+        href="/zh-hans/docker/">docker 命令</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -2082,7 +2082,7 @@ YAML 还有一个小的怪癖. 所有的 YAML 文件(无论和 Ansible 有没有
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/gitlab%E4%B8%8Egithub%E5%90%8C%E6%AD%A5%E9%A1%B9%E7%9B%AE/">
+  href="/zh-hans/gitrsync/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -2094,7 +2094,7 @@ YAML 还有一个小的怪癖. 所有的 YAML 文件(无论和 Ansible 有没有
       <a
         class="hb-blog-post-title-link d-block"
         title="gitlab与github同步项目"
-        href="/zh-hans/gitlab%E4%B8%8Egithub%E5%90%8C%E6%AD%A5%E9%A1%B9%E7%9B%AE/">gitlab与github同步项目</a>
+        href="/zh-hans/gitrsync/">gitlab与github同步项目</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -2176,7 +2176,7 @@ YAML 还有一个小的怪癖. 所有的 YAML 文件(无论和 Ansible 有没有
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/iptables-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+  href="/zh-hans/iptable/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -2188,7 +2188,7 @@ YAML 还有一个小的怪癖. 所有的 YAML 文件(无论和 Ansible 有没有
       <a
         class="hb-blog-post-title-link d-block"
         title="iptables 基础知识"
-        href="/zh-hans/iptables-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">iptables 基础知识</a>
+        href="/zh-hans/iptable/">iptables 基础知识</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -2216,7 +2216,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
 1iptables -L -t nat 禁止本机对 192.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/iptables-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">阅读更多关于iptables 基础知识的内容。</a>
+            class="text-secondary" href="/zh-hans/iptable/">阅读更多关于iptables 基础知识的内容。</a>
         </div>
   </div>
 </div>
@@ -2278,7 +2278,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/k3s-%E5%8D%87%E7%BA%A7%E7%89%88%E6%9C%AC/">
+  href="/zh-hans/k3supgrade/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -2290,7 +2290,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
       <a
         class="hb-blog-post-title-link d-block"
         title="k3s 升级版本"
-        href="/zh-hans/k3s-%E5%8D%87%E7%BA%A7%E7%89%88%E6%9C%AC/">k3s 升级版本</a>
+        href="/zh-hans/k3supgrade/">k3s 升级版本</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -2373,7 +2373,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-terraform/">
+  href="/zh-hans/terraform/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -2385,7 +2385,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
       <a
         class="hb-blog-post-title-link d-block"
         title="安装配置 Terraform"
-        href="/zh-hans/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-terraform/">安装配置 Terraform</a>
+        href="/zh-hans/terraform/">安装配置 Terraform</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -2409,7 +2409,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
       <div class="hb-blog-post-summary card-text text-secondary mb-auto">安装配置 Terraform 安装 macOS 苹果系统安装 1#安装 2brew tap hashicorp/tap 3brew install hashicorp/tap/terraform 4# 更新 5brew update 6brew upgrade hashicorp/tap/terraform 7#验证安装 8terraform -help windows 系统安装 1#安装 2choco install terraform 3#直接到这个url里下载64位系统 4https://www.terraform.io/downloads 5#验证安装 6terraform -help Linux 安装 1curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add - 2sudo apt-add-repository &#34;deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main&#34; 3sudo apt-get update &amp;&amp; sudo apt-get install terraform 4#验证安装 5terraform -help 1wget -O- https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo | sudo tee /etc/yum.repos.d/hashicorp.repo 2sudo yum install terraform -y terrafrom 控制 proxmox 虚拟机 来源：https://github.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-terraform/">阅读更多关于安装配置 Terraform的内容。</a>
+            class="text-secondary" href="/zh-hans/terraform/">阅读更多关于安装配置 Terraform的内容。</a>
         </div>
   </div>
 </div>
@@ -2471,7 +2471,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/%E5%AD%9C%E7%84%B6%E6%9D%8F%E9%B2%8D%E8%8F%87-%E7%B4%A0%E9%A3%9F/">
+  href="/zh-hans/eryngii/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -2483,7 +2483,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
       <a
         class="hb-blog-post-title-link d-block"
         title="孜然杏鲍菇-素食"
-        href="/zh-hans/%E5%AD%9C%E7%84%B6%E6%9D%8F%E9%B2%8D%E8%8F%87-%E7%B4%A0%E9%A3%9F/">孜然杏鲍菇-素食</a>
+        href="/zh-hans/eryngii/">孜然杏鲍菇-素食</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -2565,7 +2565,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E8%BF%81%E7%A7%BB/">
+  href="/zh-hans/mysqldump/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -2577,7 +2577,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
       <a
         class="hb-blog-post-title-link d-block"
         title="mysql数据库备份迁移"
-        href="/zh-hans/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E8%BF%81%E7%A7%BB/">mysql数据库备份迁移</a>
+        href="/zh-hans/mysqldump/">mysql数据库备份迁移</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -2602,7 +2602,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
 备份数据库 安装 1# 安装 centos 2yum install https://github.com/mydumper/mydumper/releases/download/v0.11.5/mydumper-0.11.5-1.el7.x86_64.rpm 3yum install https://github.com/mydumper/mydumper/releases/download/v0.11.5/mydumper-0.11.5-1.el8.x86_64.rpm 1# 安装 ubuntu 2apt-get install libatomic1 3wget https://github.com/mydumper/mydumper/releases/download/v0.11.5/mydumper_0.11.5-1.$(lsb_release -cs)_amd64.deb 4dpkg -i mydumper_0.11.5-1.$(lsb_release -cs)_amd64.deb 备份 1nohup mydumper -h &#39;备份数据库&#39; \ 2-u &#39;用户名&#39; \ 3-p &#39;密码&#39; \ 4--threads=16 \ 5-B 备份数据库 \ 6-v 3 \ 7--outputdir=./backup --rows=100000 \ 8-L mydumper-logs.log &amp; 迁移数据库 还原数据 1nohup myloader -h &#39;迁移数据库&#39; \ 2-u &#39;用户名&#39; \ 3-p &#39;密码&#39; \ 4--directory=./backup \ 5-s 来源数据库 \ 6-B 还原数据库 \ 7-t 16 \ 8-v 3 \ 9-e 2&gt;myloader-logs.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/mysql%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD%E8%BF%81%E7%A7%BB/">阅读更多关于mysql数据库备份迁移的内容。</a>
+            class="text-secondary" href="/zh-hans/mysqldump/">阅读更多关于mysql数据库备份迁移的内容。</a>
         </div>
   </div>
 </div>
@@ -2664,7 +2664,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/nginx-%E7%BC%96%E8%AF%91%E5%8F%82%E6%95%B0%E8%AF%A6%E8%A7%A3/">
+  href="/zh-hans/nginx02/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -2676,7 +2676,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
       <a
         class="hb-blog-post-title-link d-block"
         title="nginx 编译参数详解"
-        href="/zh-hans/nginx-%E7%BC%96%E8%AF%91%E5%8F%82%E6%95%B0%E8%AF%A6%E8%A7%A3/">nginx 编译参数详解</a>
+        href="/zh-hans/nginx02/">nginx 编译参数详解</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -2763,7 +2763,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/nginx-%E9%87%8D%E5%86%99%E8%A7%84%E5%88%99-rewrite%E6%A8%A1%E5%9D%97/">
+  href="/zh-hans/nginx04/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -2775,7 +2775,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
       <a
         class="hb-blog-post-title-link d-block"
         title="nginx 重写规则 rewrite模块"
-        href="/zh-hans/nginx-%E9%87%8D%E5%86%99%E8%A7%84%E5%88%99-rewrite%E6%A8%A1%E5%9D%97/">nginx 重写规则 rewrite模块</a>
+        href="/zh-hans/nginx04/">nginx 重写规则 rewrite模块</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -2804,7 +2804,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
       <div class="hb-blog-post-summary card-text text-secondary mb-auto">nginx 重写规则 rewrite 模块 语法 语法 默认值 使用字段 作用 break none server, location, if 完成当前设置的重写规则，停止执行其他的重写规则。 set variable value none server, location, if 为给定的变量设置一个特定值。 return code none server, location, if 停止处理并为客户端返回状态码。非标准的 444 状态码将关闭连接，不发送任何响应头。可以使用的状态码有：204，400，402-406，408，410, 411, 413, 416 与 500-504。如果状态码附带文字段落，该文本将被放置在响应主体。相反，如果状态码后面是一个 URL，该 URL 将成为 location 头补值。没有状态码的 URL 将被视为一个 302 状态码。 rewrite_log on rewrite_log off server, location, if 启用时将在 error log 中记录 notice 级别的重写日志。 rewrite regex replacement flag none server, location, if 按照相关的正则表达式与字符串修改 URI，指令按照在配置文件中出现的顺序执行。可以在重写指令后面添加标记。注意：如果替换的字符串以 http://开头，请求将被重定向，并且不再执行多余的 rewrite 指令。尾部的标记(flag)可以是以下的值：last – 停止处理重写模块指令，之后搜索 location 与更改后的 URI 匹配.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/nginx-%E9%87%8D%E5%86%99%E8%A7%84%E5%88%99-rewrite%E6%A8%A1%E5%9D%97/">阅读更多关于nginx 重写规则 rewrite模块的内容。</a>
+            class="text-secondary" href="/zh-hans/nginx04/">阅读更多关于nginx 重写规则 rewrite模块的内容。</a>
         </div>
   </div>
 </div>
@@ -2866,7 +2866,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/nginx.conf-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/">
+  href="/zh-hans/nginx03/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -2878,7 +2878,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
       <a
         class="hb-blog-post-title-link d-block"
         title="nginx.conf 配置文件详解"
-        href="/zh-hans/nginx.conf-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/">nginx.conf 配置文件详解</a>
+        href="/zh-hans/nginx03/">nginx.conf 配置文件详解</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -2907,7 +2907,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
       <div class="hb-blog-post-summary card-text text-secondary mb-auto">nginx.conf 配置文件详解 1# vim nginx.conf 2user nobody nobody; # 运行 nginx 的所属组和所有者 3worker_processes 2; # 开启两个 nginx 工作进程,一般几个 CPU 核心就写几 4error_log logs/error.log notice; # 错误日志路径 5pid logs/nginx.pid; # pid 路径 6 7events 8{ 9 worker_connections 1024; # 一个进程能同时处理 1024 个请求 10} 11 12http 13{ 14 include mime.types; 15 default_type application/octet-stream; 16 17 log_format main ‘$remote_addr – $remote_user [$time_local] “$request” ‘ 18 ‘$status $body_bytes_sent “$http_referer” ‘ 19 ‘”$http_user_agent” “$http_x_forwarded_for”‘; 20 access_log logs/access.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/nginx.conf-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E8%AF%A6%E8%A7%A3/">阅读更多关于nginx.conf 配置文件详解的内容。</a>
+            class="text-secondary" href="/zh-hans/nginx03/">阅读更多关于nginx.conf 配置文件详解的内容。</a>
         </div>
   </div>
 </div>
@@ -2969,7 +2969,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+  href="/zh-hans/network/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -2981,7 +2981,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
       <a
         class="hb-blog-post-title-link d-block"
         title="网络基础知识"
-        href="/zh-hans/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">网络基础知识</a>
+        href="/zh-hans/network/">网络基础知识</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -3007,7 +3007,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
 4、简述 TCP 三次握手的过程。 第一次握手：Client 将标志位 SYN 置为 1，随机产生一个值 seq=J，并将该数据包发送给 Server，Client 进入 SYN_SENT 状态，等待 Server 确认。 第二次握手：Server 收到数据包后由标志位 SYN=1 知道 Client 请求建立连接，Server 将标志位 SYN 和 ACK 都置为 1，ack=J+1，随机产生一个值 seq=K，并将该数据包发送给 Client 以确认连接请求，Server 进入 SYN_RCVD 状态。 第三次握手：Client 收到确认后，检查 ack 是否为 J+1，ACK 是否为 1，如果正确则将标志位 ACK 置为 1，ack=K+1，并将该数据包发送给 Server，Server 检查 ack 是否为 K+1，ACK 是否为 1，如果正确则连接建立成功，Client 和 Server 进入 ESTABLISHED 状态，完成三次握手，随后 Client 与 Server 之间可以开始传输数据了。 5、简述 TCP 包头的内容。 源端口和目的端口：各占 2 个字节，分别写入源端口和目的端口。IP 地址 + 端口号就可以确定一个进程地址</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">阅读更多关于网络基础知识的内容。</a>
+            class="text-secondary" href="/zh-hans/network/">阅读更多关于网络基础知识的内容。</a>
         </div>
   </div>
 </div>
@@ -3069,7 +3069,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/docker-%E5%AE%89%E8%A3%85kong-%E7%BD%91%E5%85%B3/">
+  href="/zh-hans/docker-kong/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -3081,7 +3081,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
       <a
         class="hb-blog-post-title-link d-block"
         title="docker 安装kong 网关"
-        href="/zh-hans/docker-%E5%AE%89%E8%A3%85kong-%E7%BD%91%E5%85%B3/">docker 安装kong 网关</a>
+        href="/zh-hans/docker-kong/">docker 安装kong 网关</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -3105,7 +3105,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
       <div class="hb-blog-post-summary card-text text-secondary mb-auto">docker 安装 kong 网关 建立数据库 创建网络 1docker network create kong-net 建立数据库 1docker run -d --name kong-database \ 2 --network=kong-net \ 3 -p 5432:5432 \ 4 -e &#34;POSTGRES_USER=kong&#34; \ 5 -e &#34;POSTGRES_DB=kong&#34; \ 6 -e &#34;POSTGRES_PASSWORD=kong123&#34; \ 7 postgres:9.6 创建 kong 数据 1docker run --rm --network=kong-net \ 2 -e &#34;KONG_DATABASE=postgres&#34; \ 3 -e &#34;KONG_PG_HOST=kong-database&#34; \ 4 -e &#34;KONG_PG_PASSWORD=kong123&#34; \ 5 -e &#34;KONG_PASSWORD=kong123&#34; \ 6 kong:latest kong migrations bootstrap 创建 kong 创建 kong gateway 1 docker run -d --name kong \ 2 --network=kong-net \ 3 -e &#34;KONG_DATABASE=postgres&#34; \ 4 -e &#34;KONG_PG_HOST=kong-database&#34; \ 5 -e &#34;KONG_PG_USER=kong&#34; \ 6 -e &#34;KONG_PG_PASSWORD=kong123&#34; \ 7 -e &#34;KONG_CASSANDRA_CONTACT_POINTS=kong-database&#34; \ 8 -e &#34;KONG_PROXY_ACCESS_LOG=/dev/stdout&#34; \ 9 -e &#34;KONG_ADMIN_ACCESS_LOG=/dev/stdout&#34; \ 10 -e &#34;KONG_PROXY_ERROR_LOG=/dev/stderr&#34; \ 11 -e &#34;KONG_ADMIN_ERROR_LOG=/dev/stderr&#34; \ 12 -e &#34;KONG_ADMIN_LISTEN=0.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/docker-%E5%AE%89%E8%A3%85kong-%E7%BD%91%E5%85%B3/">阅读更多关于docker 安装kong 网关的内容。</a>
+            class="text-secondary" href="/zh-hans/docker-kong/">阅读更多关于docker 安装kong 网关的内容。</a>
         </div>
   </div>
 </div>
@@ -3167,7 +3167,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/%E6%90%AD%E5%BB%BAdocker-registry-%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/">
+  href="/zh-hans/docker-registry/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -3179,7 +3179,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
       <a
         class="hb-blog-post-title-link d-block"
         title="搭建docker registry 镜像仓库"
-        href="/zh-hans/%E6%90%AD%E5%BB%BAdocker-registry-%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/">搭建docker registry 镜像仓库</a>
+        href="/zh-hans/docker-registry/">搭建docker registry 镜像仓库</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -3261,7 +3261,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/rsync-%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/">
+  href="/zh-hans/rsync/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -3273,7 +3273,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
       <a
         class="hb-blog-post-title-link d-block"
         title="rsync 文件同步"
-        href="/zh-hans/rsync-%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/">rsync 文件同步</a>
+        href="/zh-hans/rsync/">rsync 文件同步</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -3365,7 +3365,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/helm-%E5%AE%89%E8%A3%85/">
+  href="/zh-hans/helm/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -3377,7 +3377,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
       <a
         class="hb-blog-post-title-link d-block"
         title="helm 安装"
-        href="/zh-hans/helm-%E5%AE%89%E8%A3%85/">helm 安装</a>
+        href="/zh-hans/helm/">helm 安装</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -3459,7 +3459,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/k8s-%E9%83%A8%E7%BD%B2loki%E6%97%A5%E5%BF%97/">
+  href="/zh-hans/k8sloki/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -3471,7 +3471,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
       <a
         class="hb-blog-post-title-link d-block"
         title="k8s 部署loki日志"
-        href="/zh-hans/k8s-%E9%83%A8%E7%BD%B2loki%E6%97%A5%E5%BF%97/">k8s 部署loki日志</a>
+        href="/zh-hans/k8sloki/">k8s 部署loki日志</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -3636,7 +3636,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
 
 
   
-<script src="/js/search.8df2213e660da421b8ed71e3a1612cb17e0e5245dc07889e1b43cd21223f63cc.js" defer></script>
+<script src="/js/search.376d5530e519e74f2dc1cd47c58809292bfbba13a4df275502c73d31a65dd89e.js" defer></script>
 
 
 

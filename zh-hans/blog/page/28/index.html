@@ -579,7 +579,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+  href="/zh-hans/network/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -591,7 +591,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="网络基础知识"
-        href="/zh-hans/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">网络基础知识</a>
+        href="/zh-hans/network/">网络基础知识</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -617,7 +617,7 @@
 4、简述 TCP 三次握手的过程。 第一次握手：Client 将标志位 SYN 置为 1，随机产生一个值 seq=J，并将该数据包发送给 Server，Client 进入 SYN_SENT 状态，等待 Server 确认。 第二次握手：Server 收到数据包后由标志位 SYN=1 知道 Client 请求建立连接，Server 将标志位 SYN 和 ACK 都置为 1，ack=J+1，随机产生一个值 seq=K，并将该数据包发送给 Client 以确认连接请求，Server 进入 SYN_RCVD 状态。 第三次握手：Client 收到确认后，检查 ack 是否为 J+1，ACK 是否为 1，如果正确则将标志位 ACK 置为 1，ack=K+1，并将该数据包发送给 Server，Server 检查 ack 是否为 K+1，ACK 是否为 1，如果正确则连接建立成功，Client 和 Server 进入 ESTABLISHED 状态，完成三次握手，随后 Client 与 Server 之间可以开始传输数据了。 5、简述 TCP 包头的内容。 源端口和目的端口：各占 2 个字节，分别写入源端口和目的端口。IP 地址 + 端口号就可以确定一个进程地址</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">阅读更多关于网络基础知识的内容。</a>
+            class="text-secondary" href="/zh-hans/network/">阅读更多关于网络基础知识的内容。</a>
         </div>
   </div>
 </div>
@@ -679,7 +679,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/docker-%E5%AE%89%E8%A3%85kong-%E7%BD%91%E5%85%B3/">
+  href="/zh-hans/docker-kong/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -691,7 +691,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="docker 安装kong 网关"
-        href="/zh-hans/docker-%E5%AE%89%E8%A3%85kong-%E7%BD%91%E5%85%B3/">docker 安装kong 网关</a>
+        href="/zh-hans/docker-kong/">docker 安装kong 网关</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -715,7 +715,7 @@
       <div class="hb-blog-post-summary card-text text-secondary mb-auto">docker 安装 kong 网关 建立数据库 创建网络 1docker network create kong-net 建立数据库 1docker run -d --name kong-database \ 2 --network=kong-net \ 3 -p 5432:5432 \ 4 -e &#34;POSTGRES_USER=kong&#34; \ 5 -e &#34;POSTGRES_DB=kong&#34; \ 6 -e &#34;POSTGRES_PASSWORD=kong123&#34; \ 7 postgres:9.6 创建 kong 数据 1docker run --rm --network=kong-net \ 2 -e &#34;KONG_DATABASE=postgres&#34; \ 3 -e &#34;KONG_PG_HOST=kong-database&#34; \ 4 -e &#34;KONG_PG_PASSWORD=kong123&#34; \ 5 -e &#34;KONG_PASSWORD=kong123&#34; \ 6 kong:latest kong migrations bootstrap 创建 kong 创建 kong gateway 1 docker run -d --name kong \ 2 --network=kong-net \ 3 -e &#34;KONG_DATABASE=postgres&#34; \ 4 -e &#34;KONG_PG_HOST=kong-database&#34; \ 5 -e &#34;KONG_PG_USER=kong&#34; \ 6 -e &#34;KONG_PG_PASSWORD=kong123&#34; \ 7 -e &#34;KONG_CASSANDRA_CONTACT_POINTS=kong-database&#34; \ 8 -e &#34;KONG_PROXY_ACCESS_LOG=/dev/stdout&#34; \ 9 -e &#34;KONG_ADMIN_ACCESS_LOG=/dev/stdout&#34; \ 10 -e &#34;KONG_PROXY_ERROR_LOG=/dev/stderr&#34; \ 11 -e &#34;KONG_ADMIN_ERROR_LOG=/dev/stderr&#34; \ 12 -e &#34;KONG_ADMIN_LISTEN=0.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/docker-%E5%AE%89%E8%A3%85kong-%E7%BD%91%E5%85%B3/">阅读更多关于docker 安装kong 网关的内容。</a>
+            class="text-secondary" href="/zh-hans/docker-kong/">阅读更多关于docker 安装kong 网关的内容。</a>
         </div>
   </div>
 </div>
@@ -777,7 +777,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/%E6%90%AD%E5%BB%BAdocker-registry-%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/">
+  href="/zh-hans/docker-registry/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -789,7 +789,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="搭建docker registry 镜像仓库"
-        href="/zh-hans/%E6%90%AD%E5%BB%BAdocker-registry-%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93/">搭建docker registry 镜像仓库</a>
+        href="/zh-hans/docker-registry/">搭建docker registry 镜像仓库</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -871,7 +871,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/rsync-%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/">
+  href="/zh-hans/rsync/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -883,7 +883,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="rsync 文件同步"
-        href="/zh-hans/rsync-%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/">rsync 文件同步</a>
+        href="/zh-hans/rsync/">rsync 文件同步</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -975,7 +975,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/helm-%E5%AE%89%E8%A3%85/">
+  href="/zh-hans/helm/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -987,7 +987,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="helm 安装"
-        href="/zh-hans/helm-%E5%AE%89%E8%A3%85/">helm 安装</a>
+        href="/zh-hans/helm/">helm 安装</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1069,7 +1069,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/k8s-%E9%83%A8%E7%BD%B2loki%E6%97%A5%E5%BF%97/">
+  href="/zh-hans/k8sloki/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1081,7 +1081,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="k8s 部署loki日志"
-        href="/zh-hans/k8s-%E9%83%A8%E7%BD%B2loki%E6%97%A5%E5%BF%97/">k8s 部署loki日志</a>
+        href="/zh-hans/k8sloki/">k8s 部署loki日志</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1163,7 +1163,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E6%B5%8F%E8%A7%88%E5%99%A8%E9%BB%98%E8%AE%A4%E8%AF%AD%E8%A8%80%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%8A%A8%E5%88%A4%E6%96%AD%E8%B7%B3%E8%BD%AC%E4%B8%8D%E5%90%8C%E7%BD%91%E7%AB%99/">
+  href="/zh-hans/auto/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1175,7 +1175,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="获取用户浏览器默认语言设置，自动判断跳转不同网站"
-        href="/zh-hans/%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E6%B5%8F%E8%A7%88%E5%99%A8%E9%BB%98%E8%AE%A4%E8%AF%AD%E8%A8%80%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%8A%A8%E5%88%A4%E6%96%AD%E8%B7%B3%E8%BD%AC%E4%B8%8D%E5%90%8C%E7%BD%91%E7%AB%99/">获取用户浏览器默认语言设置，自动判断跳转不同网站</a>
+        href="/zh-hans/auto/">获取用户浏览器默认语言设置，自动判断跳转不同网站</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1202,7 +1202,7 @@
 1&lt;script type=&#34;text/javascript&#34;&gt; 2 //获取用户语言的顺序是 3 //1.获取本地缓存里的内容 4 //2.用户浏览器的语言设置 5 //如果上面2个都没有获取到，就直接使用&#39;en&#39;作为用户选择的语言 6 var language = 7 localStorage.getItem(&#34;locale&#34;) || 8 window.navigator.language.toLowerCase() || 9 &#34;en&#34;; 10 //把用户的语言写入缓存，供下次获取使用 11 localStorage.setItem(&#34;locale&#34;, language); 12 //判断用户的语言，跳转到不同的地方 13 if (language.indexOf(&#34;zh-&#34;) !== -1) { 14 window.location = &#34;/zh-cn/index.html&#34;; 15 } else if (language.indexOf(&#34;en&#34;) !== -1) { 16 window.location = &#34;/en/index.html&#34;; 17 } else { 18 //其它的都使用英文 19 window.location = &#34;/en/index.html&#34;; 20 } 21&lt;/script&gt; 核心代码</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E6%B5%8F%E8%A7%88%E5%99%A8%E9%BB%98%E8%AE%A4%E8%AF%AD%E8%A8%80%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%8A%A8%E5%88%A4%E6%96%AD%E8%B7%B3%E8%BD%AC%E4%B8%8D%E5%90%8C%E7%BD%91%E7%AB%99/">阅读更多关于获取用户浏览器默认语言设置，自动判断跳转不同网站的内容。</a>
+            class="text-secondary" href="/zh-hans/auto/">阅读更多关于获取用户浏览器默认语言设置，自动判断跳转不同网站的内容。</a>
         </div>
   </div>
 </div>
@@ -1264,7 +1264,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/linux%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+  href="/zh-hans/service/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1276,7 +1276,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="linux服务基础知识"
-        href="/zh-hans/linux%E6%9C%8D%E5%8A%A1%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">linux服务基础知识</a>
+        href="/zh-hans/service/">linux服务基础知识</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1358,7 +1358,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/mysql%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+  href="/zh-hans/mysql/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1370,7 +1370,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="mysql基础知识"
-        href="/zh-hans/mysql%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">mysql基础知识</a>
+        href="/zh-hans/mysql/">mysql基础知识</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1452,7 +1452,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/shell%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+  href="/zh-hans/shell/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1464,7 +1464,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="shell基础知识"
-        href="/zh-hans/shell%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">shell基础知识</a>
+        href="/zh-hans/shell/">shell基础知识</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1554,7 +1554,7 @@ http://www.baidu.com</div>
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/kubernetes-%E5%88%9B%E5%BB%BAnfs%E5%AD%98%E5%82%A8%E7%B1%BB/">
+  href="/zh-hans/k8snfs/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1566,7 +1566,7 @@ http://www.baidu.com</div>
       <a
         class="hb-blog-post-title-link d-block"
         title="Kubernetes 创建nfs存储类"
-        href="/zh-hans/kubernetes-%E5%88%9B%E5%BB%BAnfs%E5%AD%98%E5%82%A8%E7%B1%BB/">Kubernetes 创建nfs存储类</a>
+        href="/zh-hans/k8snfs/">Kubernetes 创建nfs存储类</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1594,7 +1594,7 @@ https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner
 安装 nfs 驱动 1#安装nfs客户端 2apt-get install nfs-common 3git clone https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner.git 4cd nfs-subdir-external-provisioner/deploy 5k3s kubectl create -f rbac.yaml 6vim deployment.yaml 编辑 deployment.yaml 1apiVersion: apps/v1 2kind: Deployment 3metadata: 4 name: nfs-client-provisioner 5 labels: 6 app: nfs-client-provisioner 7 # replace with namespace where provisioner is deployed 8 namespace: default 9spec: 10 replicas: 1 11 strategy: 12 type: Recreate 13 selector: 14 matchLabels: 15 app: nfs-client-provisioner 16 template: 17 metadata: 18 labels: 19 app: nfs-client-provisioner 20 spec: 21 serviceAccountName: nfs-client-provisioner 22 containers: 23 - name: nfs-client-provisioner 24 image: k8s.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/kubernetes-%E5%88%9B%E5%BB%BAnfs%E5%AD%98%E5%82%A8%E7%B1%BB/">阅读更多关于Kubernetes 创建nfs存储类的内容。</a>
+            class="text-secondary" href="/zh-hans/k8snfs/">阅读更多关于Kubernetes 创建nfs存储类的内容。</a>
         </div>
   </div>
 </div>
@@ -1656,7 +1656,7 @@ https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/nginx-%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F%E6%95%B4%E7%90%86/">
+  href="/zh-hans/nginx01/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1668,7 +1668,7 @@ https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner
       <a
         class="hb-blog-post-title-link d-block"
         title="nginx 日志格式整理"
-        href="/zh-hans/nginx-%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F%E6%95%B4%E7%90%86/">nginx 日志格式整理</a>
+        href="/zh-hans/nginx01/">nginx 日志格式整理</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1700,7 +1700,7 @@ log_format combined &#39;$remote_addr - $remote_user [$time_local] &#39; &#39;&#
 语法 log_format name [escape=default|json] string ...; 变量 含义 $bytes_sent 发送给客户端的总字节数 $body_bytes_sent 发送给客户端的字节数，不包括响应头的大小 $connection 连接序列号 $connection_requests 当前通过连接发出的请求数量 $msec 日志写入时间，单位为秒，精度是毫秒 $pipe 如果请求是通过 http 流水线发送，则其值为&quot;p&quot;，否则为“.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/nginx-%E6%97%A5%E5%BF%97%E6%A0%BC%E5%BC%8F%E6%95%B4%E7%90%86/">阅读更多关于nginx 日志格式整理的内容。</a>
+            class="text-secondary" href="/zh-hans/nginx01/">阅读更多关于nginx 日志格式整理的内容。</a>
         </div>
   </div>
 </div>
@@ -1963,7 +1963,7 @@ log_format combined &#39;$remote_addr - $remote_user [$time_local] &#39; &#39;&#
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/2023-12-27-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/github_trending_2023-12-27/">
     
 
 
@@ -2013,7 +2013,7 @@ log_format combined &#39;$remote_addr - $remote_user [$time_local] &#39; &#39;&#
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-27 打工人日报"
-        href="/zh-hans/2023-12-27-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-27 打工人日报</a>
+        href="/zh-hans/github_trending_2023-12-27/">2023-12-27 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2026,7 +2026,7 @@ log_format combined &#39;$remote_addr - $remote_user [$time_local] &#39; &#39;&#
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/2023-12-26-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/github_trending_2023-12-26/">
     
 
 
@@ -2076,7 +2076,7 @@ log_format combined &#39;$remote_addr - $remote_user [$time_local] &#39; &#39;&#
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-26 打工人日报"
-        href="/zh-hans/2023-12-26-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-26 打工人日报</a>
+        href="/zh-hans/github_trending_2023-12-26/">2023-12-26 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2089,7 +2089,7 @@ log_format combined &#39;$remote_addr - $remote_user [$time_local] &#39; &#39;&#
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/2023-12-25-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/github_trending_2023-12-25/">
     
 
 
@@ -2139,7 +2139,7 @@ log_format combined &#39;$remote_addr - $remote_user [$time_local] &#39; &#39;&#
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-25 打工人日报"
-        href="/zh-hans/2023-12-25-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-25 打工人日报</a>
+        href="/zh-hans/github_trending_2023-12-25/">2023-12-25 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2152,7 +2152,7 @@ log_format combined &#39;$remote_addr - $remote_user [$time_local] &#39; &#39;&#
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/2023-12-24-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/github_trending_2023-12-24/">
     
 
 
@@ -2202,7 +2202,7 @@ log_format combined &#39;$remote_addr - $remote_user [$time_local] &#39; &#39;&#
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-24 打工人日报"
-        href="/zh-hans/2023-12-24-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-24 打工人日报</a>
+        href="/zh-hans/github_trending_2023-12-24/">2023-12-24 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2215,7 +2215,7 @@ log_format combined &#39;$remote_addr - $remote_user [$time_local] &#39; &#39;&#
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/2023-12-23-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/github_trending_2023-12-23/">
     
 
 
@@ -2265,7 +2265,7 @@ log_format combined &#39;$remote_addr - $remote_user [$time_local] &#39; &#39;&#
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-23 打工人日报"
-        href="/zh-hans/2023-12-23-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-23 打工人日报</a>
+        href="/zh-hans/github_trending_2023-12-23/">2023-12-23 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2644,7 +2644,7 @@ log_format combined &#39;$remote_addr - $remote_user [$time_local] &#39; &#39;&#
 
 
   
-<script src="/js/search.8df2213e660da421b8ed71e3a1612cb17e0e5245dc07889e1b43cd21223f63cc.js" defer></script>
+<script src="/js/search.376d5530e519e74f2dc1cd47c58809292bfbba13a4df275502c73d31a65dd89e.js" defer></script>
 
 
 

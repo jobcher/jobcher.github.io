@@ -611,7 +611,7 @@ k8s - 2/3 - 标签 - 打工人日志</title>
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/%E7%BC%96%E5%86%99-kubernetes-%E8%B5%84%E6%BA%90%E6%8F%8F%E8%BF%B0%E6%96%87%E4%BB%B6/">
+  href="/zh-hans/k8s8/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -623,7 +623,7 @@ k8s - 2/3 - 标签 - 打工人日志</title>
       <a
         class="hb-blog-post-title-link d-block"
         title="编写 kubernetes 资源描述文件"
-        href="/zh-hans/%E7%BC%96%E5%86%99-kubernetes-%E8%B5%84%E6%BA%90%E6%8F%8F%E8%BF%B0%E6%96%87%E4%BB%B6/">编写 kubernetes 资源描述文件</a>
+        href="/zh-hans/k8s8/">编写 kubernetes 资源描述文件</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -647,7 +647,7 @@ k8s - 2/3 - 标签 - 打工人日志</title>
       <div class="hb-blog-post-summary card-text text-secondary mb-auto">编写 kubernetes 资源描述文件 1. 部署一个应用 1apiVersion: apps/v1 #与k8s集群版本有关，使用 kubectl api-versions 即可查看当前集群支持的版本 2kind: Deployment #该配置的类型，我们使用的是 Deployment 3metadata: #译名为元数据，即 Deployment 的一些基本属性和信息 4 name: nginx-deployment #Deployment 的名称 5 labels: #标签，可以灵活定位一个或多个资源，其中key和value均可自定义，可以定义多组，目前不需要理解 6 app: nginx #为该Deployment设置key为app，value为nginx的标签 7spec: #这是关于该Deployment的描述，可以理解为你期待该Deployment在k8s中如何使用 8 replicas: 1 #使用该Deployment创建一个应用程序实例 9 selector: #标签选择器，与上面的标签共同作用，目前不需要理解 10 matchLabels: #选择包含标签app:nginx的资源 11 app: nginx 12 template: #这是选择或创建的Pod的模板 13 metadata: #Pod的元数据 14 labels: #Pod的标签，上面的selector即选择包含标签app:nginx的Pod 15 app: nginx 16 spec: #期望Pod实现的功能（即在pod中部署） 17 containers: #生成container，与docker中的container是同一种 18 - name: nginx #container的名称 19 image: nginx:1.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/%E7%BC%96%E5%86%99-kubernetes-%E8%B5%84%E6%BA%90%E6%8F%8F%E8%BF%B0%E6%96%87%E4%BB%B6/">阅读更多关于编写 kubernetes 资源描述文件的内容。</a>
+            class="text-secondary" href="/zh-hans/k8s8/">阅读更多关于编写 kubernetes 资源描述文件的内容。</a>
         </div>
   </div>
 </div>
@@ -708,7 +708,7 @@ k8s - 2/3 - 标签 - 打工人日志</title>
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/kubernetes-manual-expansion/">
+  href="/zh-hans/k8s7/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -720,7 +720,7 @@ k8s - 2/3 - 标签 - 打工人日志</title>
       <a
         class="hb-blog-post-title-link d-block"
         title="kubernetes manual expansion"
-        href="/zh-hans/kubernetes-manual-expansion/">kubernetes manual expansion</a>
+        href="/zh-hans/k8s7/">kubernetes manual expansion</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -802,7 +802,7 @@ expand 1kubectl scale --replicas=3 deploy my-test-deploy shrink 1kubectl scale -
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/kubernetes-%E8%B0%83%E5%BA%A6%E8%BF%87%E7%A8%8B/">
+  href="/zh-hans/k8s6/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -814,7 +814,7 @@ expand 1kubectl scale --replicas=3 deploy my-test-deploy shrink 1kubectl scale -
       <a
         class="hb-blog-post-title-link d-block"
         title="kubernetes 调度过程"
-        href="/zh-hans/kubernetes-%E8%B0%83%E5%BA%A6%E8%BF%87%E7%A8%8B/">kubernetes 调度过程</a>
+        href="/zh-hans/k8s6/">kubernetes 调度过程</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -839,7 +839,7 @@ expand 1kubectl scale --replicas=3 deploy my-test-deploy shrink 1kubectl scale -
 1# 部署应用 2apiVersion: apps/v1 3kind: Deployment 4metadata: 5 name: jobcher-blog-deployment 6 labels: 7 app: jobcher-blog 8spec: 9 replicas: 3 10 selector: 11 matchLabels: 12 app: jobcher-blog 13 minReadySeconds: 10 #准备10s 14 strategy: 15 type: RollingUpdate 16 rollingUpdate: 17 maxUnavailable: 1 #更新期间不少于3-1 18 maxSurge: 1 #更新期间不超过3+1 19 template: 20 metadata: 21 labels: 22 app: jobcher-blog 23 spec: 24 containers: 25 - name: jobcher-blog-pod 26 image: hub.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/kubernetes-%E8%B0%83%E5%BA%A6%E8%BF%87%E7%A8%8B/">阅读更多关于kubernetes 调度过程的内容。</a>
+            class="text-secondary" href="/zh-hans/k8s6/">阅读更多关于kubernetes 调度过程的内容。</a>
         </div>
   </div>
 </div>
@@ -900,7 +900,7 @@ expand 1kubectl scale --replicas=3 deploy my-test-deploy shrink 1kubectl scale -
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/k8s%E6%9C%AC%E5%9C%B0%E8%81%94%E8%B0%83%E7%A5%9E%E5%99%A8kt-connect/">
+  href="/zh-hans/kt-connect/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -912,7 +912,7 @@ expand 1kubectl scale --replicas=3 deploy my-test-deploy shrink 1kubectl scale -
       <a
         class="hb-blog-post-title-link d-block"
         title="k8s本地联调神器kt-connect"
-        href="/zh-hans/k8s%E6%9C%AC%E5%9C%B0%E8%81%94%E8%B0%83%E7%A5%9E%E5%99%A8kt-connect/">k8s本地联调神器kt-connect</a>
+        href="/zh-hans/kt-connect/">k8s本地联调神器kt-connect</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -998,7 +998,7 @@ k8s 集群内部的服务网络怎么和我们本地网络打通。kt-connect �
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/openelb%E8%AE%A9k8s%E7%A7%81%E6%9C%89%E7%8E%AF%E5%A2%83%E5%AF%B9%E5%A4%96%E6%9A%B4%E9%9C%B2%E7%AB%AF%E5%8F%A3/">
+  href="/zh-hans/openelb/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1010,7 +1010,7 @@ k8s 集群内部的服务网络怎么和我们本地网络打通。kt-connect �
       <a
         class="hb-blog-post-title-link d-block"
         title="OpenELB：让k8s私有环境对外暴露端口"
-        href="/zh-hans/openelb%E8%AE%A9k8s%E7%A7%81%E6%9C%89%E7%8E%AF%E5%A2%83%E5%AF%B9%E5%A4%96%E6%9A%B4%E9%9C%B2%E7%AB%AF%E5%8F%A3/">OpenELB：让k8s私有环境对外暴露端口</a>
+        href="/zh-hans/openelb/">OpenELB：让k8s私有环境对外暴露端口</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1035,7 +1035,7 @@ k8s 集群内部的服务网络怎么和我们本地网络打通。kt-connect �
 在 Kubernetes 中安装 OpenELB 1kubectl apply -f https://raw.githubusercontent.com/openelb/openelb/master/deploy/openelb.yaml 查看状态 1kubectl get po -n openelb-system 使用 kubectl 删除 OpenELB 1kubectl delete -f https://raw.githubusercontent.com/openelb/openelb/master/deploy/openelb.yaml 1kubectl get ns 配置 OpenELB 1kubectl edit configmap kube-proxy -n kube-system 2 3# 修改 网卡 4ipvs: 5 strictARP: true 重启组件 1kubectl rollout restart daemonset kube-proxy -n kube-system 为 master1 节点添加一个 annotation 来指定网卡： 1kubectl annotate nodes master1 layer2.openelb.kubesphere.io/v1alpha1=&#34;192.168.0.2&#34; 创建地址池 layer2-eip.yaml 1apiVersion: network.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/openelb%E8%AE%A9k8s%E7%A7%81%E6%9C%89%E7%8E%AF%E5%A2%83%E5%AF%B9%E5%A4%96%E6%9A%B4%E9%9C%B2%E7%AB%AF%E5%8F%A3/">阅读更多关于OpenELB：让k8s私有环境对外暴露端口的内容。</a>
+            class="text-secondary" href="/zh-hans/openelb/">阅读更多关于OpenELB：让k8s私有环境对外暴露端口的内容。</a>
         </div>
   </div>
 </div>
@@ -1096,7 +1096,7 @@ k8s 集群内部的服务网络怎么和我们本地网络打通。kt-connect �
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/kubernetes-ansible%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/">
+  href="/zh-hans/k8s5/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1108,7 +1108,7 @@ k8s 集群内部的服务网络怎么和我们本地网络打通。kt-connect �
       <a
         class="hb-blog-post-title-link d-block"
         title="kubernetes ansible自动化部署"
-        href="/zh-hans/kubernetes-ansible%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2/">kubernetes ansible自动化部署</a>
+        href="/zh-hans/k8s5/">kubernetes ansible自动化部署</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1189,7 +1189,7 @@ k8s 集群内部的服务网络怎么和我们本地网络打通。kt-connect �
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/kubernetes-%E8%84%9A%E6%9C%AC%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/">
+  href="/zh-hans/k8s4/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1201,7 +1201,7 @@ k8s 集群内部的服务网络怎么和我们本地网络打通。kt-connect �
       <a
         class="hb-blog-post-title-link d-block"
         title="kubernetes 脚本快速安装"
-        href="/zh-hans/kubernetes-%E8%84%9A%E6%9C%AC%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/">kubernetes 脚本快速安装</a>
+        href="/zh-hans/k8s4/">kubernetes 脚本快速安装</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1226,7 +1226,7 @@ k8s 集群内部的服务网络怎么和我们本地网络打通。kt-connect �
 1#先在所有机器执行 vi k8s.sh 2# 进入编辑模式（输入i），把如下脚本复制 3# 所有机器给脚本权限 chmod +x k8s.sh 4#执行脚本 ./k8s.sh 1#/bin/sh 2 3#######################开始设置环境##################################### \n 4 5 6printf &#34;##################正在配置所有基础环境信息################## \n&#34; 7 8 9printf &#34;##################关闭selinux################## \n&#34; 10sed -i &#39;s/enforcing/disabled/&#39; /etc/selinux/config 11setenforce 0 12printf &#34;##################关闭swap################## \n&#34; 13swapoff -a 14sed -ri &#39;s/.*swap.*/#&amp;/&#39; /etc/fstab 15 16printf &#34;##################配置路由转发################## \n&#34; 17cat &lt;&lt;EOF | sudo tee /etc/modules-load.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/kubernetes-%E8%84%9A%E6%9C%AC%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85/">阅读更多关于kubernetes 脚本快速安装的内容。</a>
+            class="text-secondary" href="/zh-hans/k8s4/">阅读更多关于kubernetes 脚本快速安装的内容。</a>
         </div>
   </div>
 </div>
@@ -1287,7 +1287,7 @@ k8s 集群内部的服务网络怎么和我们本地网络打通。kt-connect �
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/kubernetes%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB/">
+  href="/zh-hans/k8s3/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1299,7 +1299,7 @@ k8s 集群内部的服务网络怎么和我们本地网络打通。kt-connect �
       <a
         class="hb-blog-post-title-link d-block"
         title="kubernetes面试题汇总"
-        href="/zh-hans/kubernetes%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB/">kubernetes面试题汇总</a>
+        href="/zh-hans/k8s3/">kubernetes面试题汇总</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1331,7 +1331,7 @@ livenessProbe探针
 可以根据用户自定义规则来判定 pod 是否健康，如果 livenessProbe 探针探测到容器不健康，则 kubelet 会根据其重启策略来决定是否重启，如果一个容器不包含 livenessProbe 探针，则 kubelet 会认为容器的 livenessProbe 探针的返回值永远成功。 ReadinessProbe探针</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/kubernetes%E9%9D%A2%E8%AF%95%E9%A2%98%E6%B1%87%E6%80%BB/">阅读更多关于kubernetes面试题汇总的内容。</a>
+            class="text-secondary" href="/zh-hans/k8s3/">阅读更多关于kubernetes面试题汇总的内容。</a>
         </div>
   </div>
 </div>
@@ -1392,7 +1392,7 @@ livenessProbe探针
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/kubernetes-%E5%AE%89%E8%A3%85/">
+  href="/zh-hans/k8s2/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1404,7 +1404,7 @@ livenessProbe探针
       <a
         class="hb-blog-post-title-link d-block"
         title="Kubernetes 安装"
-        href="/zh-hans/kubernetes-%E5%AE%89%E8%A3%85/">Kubernetes 安装</a>
+        href="/zh-hans/k8s2/">Kubernetes 安装</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1428,7 +1428,7 @@ livenessProbe探针
       <div class="hb-blog-post-summary card-text text-secondary mb-auto">Kubernetes 安装 环境配置 关闭防火墙： 如果是云服务器，需要设置安全组策略放行端口 1systemctl stop firewalld 2systemctl disable firewalld 修改 hostname 1hostnamectl set-hostname k8s-01 2echo &#34;127.0.0.1 $(hostname)&#34; &gt;&gt; /etc/hosts 3reboot 关闭 selinux： 1sed -i &#39;s/enforcing/disabled/&#39; /etc/selinux/config 2setenforce 0 关闭 swap： 1swapoff -a 2sed -ri &#39;s/.*swap.*/#&amp;/&#39; /etc/fstab 修改 /etc/sysctl.conf 1# 如果有配置，则修改 2sed -i &#34;s#^net.ipv4.ip_forward.*#net.ipv4.ip_forward=1#g&#34; /etc/sysctl.conf 3sed -i &#34;s#^net.bridge.bridge-nf-call-ip6tables.*#net.bridge.bridge-nf-call-ip6tables=1#g&#34; /etc/sysctl.conf 4sed -i &#34;s#^net.bridge.bridge-nf-call-iptables.*#net.bridge.bridge-nf-call-iptables=1#g&#34; /etc/sysctl.conf 5sed -i &#34;s#^net.ipv6.conf.all.disable_ipv6.*#net.ipv6.conf.all.disable_ipv6=1#g&#34; /etc/sysctl.conf 6sed -i &#34;s#^net.ipv6.conf.default.disable_ipv6.*#net.ipv6.conf.default.disable_ipv6=1#g&#34; /etc/sysctl.conf 7sed -i &#34;s#^net.ipv6.conf.lo.disable_ipv6.*#net.ipv6.conf.lo.disable_ipv6=1#g&#34; /etc/sysctl.conf 8sed -i &#34;s#^net.ipv6.conf.all.forwarding.*#net.ipv6.conf.all.forwarding=1#g&#34; /etc/sysctl.conf 9# 可能没有，追加 10echo &#34;net.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/kubernetes-%E5%AE%89%E8%A3%85/">阅读更多关于Kubernetes 安装的内容。</a>
+            class="text-secondary" href="/zh-hans/k8s2/">阅读更多关于Kubernetes 安装的内容。</a>
         </div>
   </div>
 </div>
@@ -1489,7 +1489,7 @@ livenessProbe探针
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/harbor-%E6%90%AD%E5%BB%BA/">
+  href="/zh-hans/harbor/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1501,7 +1501,7 @@ livenessProbe探针
       <a
         class="hb-blog-post-title-link d-block"
         title="Harbor 搭建"
-        href="/zh-hans/harbor-%E6%90%AD%E5%BB%BA/">Harbor 搭建</a>
+        href="/zh-hans/harbor/">Harbor 搭建</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1530,7 +1530,7 @@ livenessProbe探针
 配置 1# Configuration file of Harbor 2 3# The IP address or hostname to access admin UI and registry service. 4# DO NOT use localhost or 127.0.0.1, because Harbor needs to be accessed by external clients.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/harbor-%E6%90%AD%E5%BB%BA/">阅读更多关于Harbor 搭建的内容。</a>
+            class="text-secondary" href="/zh-hans/harbor/">阅读更多关于Harbor 搭建的内容。</a>
         </div>
   </div>
 </div>
@@ -1591,7 +1591,7 @@ livenessProbe探针
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/kubernetes-%E5%AE%9E%E9%AA%8C%E6%89%8B%E5%86%8C1/">
+  href="/zh-hans/k8s1/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1603,7 +1603,7 @@ livenessProbe探针
       <a
         class="hb-blog-post-title-link d-block"
         title="Kubernetes 实验手册（1）"
-        href="/zh-hans/kubernetes-%E5%AE%9E%E9%AA%8C%E6%89%8B%E5%86%8C1/">Kubernetes 实验手册（1）</a>
+        href="/zh-hans/k8s1/">Kubernetes 实验手册（1）</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1629,7 +1629,7 @@ livenessProbe探针
 更新 ansible 连接 1ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.155 2ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.199 3ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.87 4#ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.41 5#ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.219 1vim /etc/hosts 2192.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/kubernetes-%E5%AE%9E%E9%AA%8C%E6%89%8B%E5%86%8C1/">阅读更多关于Kubernetes 实验手册（1）的内容。</a>
+            class="text-secondary" href="/zh-hans/k8s1/">阅读更多关于Kubernetes 实验手册（1）的内容。</a>
         </div>
   </div>
 </div>
@@ -1690,7 +1690,7 @@ livenessProbe探针
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/keepalived%E9%AB%98%E5%8F%AF%E7%94%A8/">
+  href="/zh-hans/keepalived/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1702,7 +1702,7 @@ livenessProbe探针
       <a
         class="hb-blog-post-title-link d-block"
         title="Keepalived高可用"
-        href="/zh-hans/keepalived%E9%AB%98%E5%8F%AF%E7%94%A8/">Keepalived高可用</a>
+        href="/zh-hans/keepalived/">Keepalived高可用</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1973,7 +1973,7 @@ HPC 集群：High Performance Computing，高性能集群
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/2023-12-27-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/github_trending_2023-12-27/">
     
 
 
@@ -2023,7 +2023,7 @@ HPC 集群：High Performance Computing，高性能集群
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-27 打工人日报"
-        href="/zh-hans/2023-12-27-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-27 打工人日报</a>
+        href="/zh-hans/github_trending_2023-12-27/">2023-12-27 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2036,7 +2036,7 @@ HPC 集群：High Performance Computing，高性能集群
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/2023-12-26-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/github_trending_2023-12-26/">
     
 
 
@@ -2086,7 +2086,7 @@ HPC 集群：High Performance Computing，高性能集群
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-26 打工人日报"
-        href="/zh-hans/2023-12-26-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-26 打工人日报</a>
+        href="/zh-hans/github_trending_2023-12-26/">2023-12-26 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2099,7 +2099,7 @@ HPC 集群：High Performance Computing，高性能集群
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/2023-12-25-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/github_trending_2023-12-25/">
     
 
 
@@ -2149,7 +2149,7 @@ HPC 集群：High Performance Computing，高性能集群
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-25 打工人日报"
-        href="/zh-hans/2023-12-25-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-25 打工人日报</a>
+        href="/zh-hans/github_trending_2023-12-25/">2023-12-25 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2162,7 +2162,7 @@ HPC 集群：High Performance Computing，高性能集群
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/2023-12-24-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/github_trending_2023-12-24/">
     
 
 
@@ -2212,7 +2212,7 @@ HPC 集群：High Performance Computing，高性能集群
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-24 打工人日报"
-        href="/zh-hans/2023-12-24-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-24 打工人日报</a>
+        href="/zh-hans/github_trending_2023-12-24/">2023-12-24 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2225,7 +2225,7 @@ HPC 集群：High Performance Computing，高性能集群
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/2023-12-23-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/github_trending_2023-12-23/">
     
 
 
@@ -2275,7 +2275,7 @@ HPC 集群：High Performance Computing，高性能集群
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-23 打工人日报"
-        href="/zh-hans/2023-12-23-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-23 打工人日报</a>
+        href="/zh-hans/github_trending_2023-12-23/">2023-12-23 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2652,7 +2652,7 @@ HPC 集群：High Performance Computing，高性能集群
 
 
   
-<script src="/js/search.8df2213e660da421b8ed71e3a1612cb17e0e5245dc07889e1b43cd21223f63cc.js" defer></script>
+<script src="/js/search.376d5530e519e74f2dc1cd47c58809292bfbba13a4df275502c73d31a65dd89e.js" defer></script>
 
 
 

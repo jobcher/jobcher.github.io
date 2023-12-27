@@ -611,7 +611,7 @@ k8s - 3/3 - 分类 - 打工人日志</title>
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/k3s-%E5%8D%87%E7%BA%A7%E7%89%88%E6%9C%AC/">
+  href="/zh-hans/k3supgrade/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -623,7 +623,7 @@ k8s - 3/3 - 分类 - 打工人日志</title>
       <a
         class="hb-blog-post-title-link d-block"
         title="k3s 升级版本"
-        href="/zh-hans/k3s-%E5%8D%87%E7%BA%A7%E7%89%88%E6%9C%AC/">k3s 升级版本</a>
+        href="/zh-hans/k3supgrade/">k3s 升级版本</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -705,7 +705,7 @@ k8s - 3/3 - 分类 - 打工人日志</title>
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/helm-%E5%AE%89%E8%A3%85/">
+  href="/zh-hans/helm/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -717,7 +717,7 @@ k8s - 3/3 - 分类 - 打工人日志</title>
       <a
         class="hb-blog-post-title-link d-block"
         title="helm 安装"
-        href="/zh-hans/helm-%E5%AE%89%E8%A3%85/">helm 安装</a>
+        href="/zh-hans/helm/">helm 安装</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -798,7 +798,7 @@ k8s - 3/3 - 分类 - 打工人日志</title>
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/k8s-%E9%83%A8%E7%BD%B2loki%E6%97%A5%E5%BF%97/">
+  href="/zh-hans/k8sloki/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -810,7 +810,7 @@ k8s - 3/3 - 分类 - 打工人日志</title>
       <a
         class="hb-blog-post-title-link d-block"
         title="k8s 部署loki日志"
-        href="/zh-hans/k8s-%E9%83%A8%E7%BD%B2loki%E6%97%A5%E5%BF%97/">k8s 部署loki日志</a>
+        href="/zh-hans/k8sloki/">k8s 部署loki日志</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -891,7 +891,7 @@ k8s - 3/3 - 分类 - 打工人日志</title>
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/kubernetes-%E5%88%9B%E5%BB%BAnfs%E5%AD%98%E5%82%A8%E7%B1%BB/">
+  href="/zh-hans/k8snfs/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -903,7 +903,7 @@ k8s - 3/3 - 分类 - 打工人日志</title>
       <a
         class="hb-blog-post-title-link d-block"
         title="Kubernetes 创建nfs存储类"
-        href="/zh-hans/kubernetes-%E5%88%9B%E5%BB%BAnfs%E5%AD%98%E5%82%A8%E7%B1%BB/">Kubernetes 创建nfs存储类</a>
+        href="/zh-hans/k8snfs/">Kubernetes 创建nfs存储类</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -931,7 +931,7 @@ https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner
 安装 nfs 驱动 1#安装nfs客户端 2apt-get install nfs-common 3git clone https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner.git 4cd nfs-subdir-external-provisioner/deploy 5k3s kubectl create -f rbac.yaml 6vim deployment.yaml 编辑 deployment.yaml 1apiVersion: apps/v1 2kind: Deployment 3metadata: 4 name: nfs-client-provisioner 5 labels: 6 app: nfs-client-provisioner 7 # replace with namespace where provisioner is deployed 8 namespace: default 9spec: 10 replicas: 1 11 strategy: 12 type: Recreate 13 selector: 14 matchLabels: 15 app: nfs-client-provisioner 16 template: 17 metadata: 18 labels: 19 app: nfs-client-provisioner 20 spec: 21 serviceAccountName: nfs-client-provisioner 22 containers: 23 - name: nfs-client-provisioner 24 image: k8s.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/kubernetes-%E5%88%9B%E5%BB%BAnfs%E5%AD%98%E5%82%A8%E7%B1%BB/">阅读更多关于Kubernetes 创建nfs存储类的内容。</a>
+            class="text-secondary" href="/zh-hans/k8snfs/">阅读更多关于Kubernetes 创建nfs存储类的内容。</a>
         </div>
   </div>
 </div>
@@ -992,7 +992,7 @@ https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/kubernetes-k8s-%E7%BB%84%E4%BB%B6/">
+  href="/zh-hans/kubernetes/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1004,7 +1004,7 @@ https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner
       <a
         class="hb-blog-post-title-link d-block"
         title="Kubernetes k8s 组件"
-        href="/zh-hans/kubernetes-k8s-%E7%BB%84%E4%BB%B6/">Kubernetes k8s 组件</a>
+        href="/zh-hans/kubernetes/">Kubernetes k8s 组件</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1279,7 +1279,7 @@ Kubernetes 支持多个容器运行环境: Docker、 containerd、CRI-O 以及�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/2023-12-27-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/github_trending_2023-12-27/">
     
 
 
@@ -1329,7 +1329,7 @@ Kubernetes 支持多个容器运行环境: Docker、 containerd、CRI-O 以及�
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-27 打工人日报"
-        href="/zh-hans/2023-12-27-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-27 打工人日报</a>
+        href="/zh-hans/github_trending_2023-12-27/">2023-12-27 打工人日报</a>
     </div>
   </div>
 </div>
@@ -1342,7 +1342,7 @@ Kubernetes 支持多个容器运行环境: Docker、 containerd、CRI-O 以及�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/2023-12-26-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/github_trending_2023-12-26/">
     
 
 
@@ -1392,7 +1392,7 @@ Kubernetes 支持多个容器运行环境: Docker、 containerd、CRI-O 以及�
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-26 打工人日报"
-        href="/zh-hans/2023-12-26-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-26 打工人日报</a>
+        href="/zh-hans/github_trending_2023-12-26/">2023-12-26 打工人日报</a>
     </div>
   </div>
 </div>
@@ -1405,7 +1405,7 @@ Kubernetes 支持多个容器运行环境: Docker、 containerd、CRI-O 以及�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/2023-12-25-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/github_trending_2023-12-25/">
     
 
 
@@ -1455,7 +1455,7 @@ Kubernetes 支持多个容器运行环境: Docker、 containerd、CRI-O 以及�
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-25 打工人日报"
-        href="/zh-hans/2023-12-25-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-25 打工人日报</a>
+        href="/zh-hans/github_trending_2023-12-25/">2023-12-25 打工人日报</a>
     </div>
   </div>
 </div>
@@ -1468,7 +1468,7 @@ Kubernetes 支持多个容器运行环境: Docker、 containerd、CRI-O 以及�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/2023-12-24-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/github_trending_2023-12-24/">
     
 
 
@@ -1518,7 +1518,7 @@ Kubernetes 支持多个容器运行环境: Docker、 containerd、CRI-O 以及�
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-24 打工人日报"
-        href="/zh-hans/2023-12-24-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-24 打工人日报</a>
+        href="/zh-hans/github_trending_2023-12-24/">2023-12-24 打工人日报</a>
     </div>
   </div>
 </div>
@@ -1531,7 +1531,7 @@ Kubernetes 支持多个容器运行环境: Docker、 containerd、CRI-O 以及�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/2023-12-23-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/github_trending_2023-12-23/">
     
 
 
@@ -1581,7 +1581,7 @@ Kubernetes 支持多个容器运行环境: Docker、 containerd、CRI-O 以及�
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-23 打工人日报"
-        href="/zh-hans/2023-12-23-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-23 打工人日报</a>
+        href="/zh-hans/github_trending_2023-12-23/">2023-12-23 打工人日报</a>
     </div>
   </div>
 </div>
@@ -1958,7 +1958,7 @@ Kubernetes 支持多个容器运行环境: Docker、 containerd、CRI-O 以及�
 
 
   
-<script src="/js/search.8df2213e660da421b8ed71e3a1612cb17e0e5245dc07889e1b43cd21223f63cc.js" defer></script>
+<script src="/js/search.376d5530e519e74f2dc1cd47c58809292bfbba13a4df275502c73d31a65dd89e.js" defer></script>
 
 
 

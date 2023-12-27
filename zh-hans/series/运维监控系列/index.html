@@ -611,7 +611,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/skywalking-python-agent-%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/">
+  href="/zh-hans/skywalking-python/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -623,7 +623,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="skywalking python agent 安装和配置"
-        href="/zh-hans/skywalking-python-agent-%E5%AE%89%E8%A3%85%E5%92%8C%E9%85%8D%E7%BD%AE/">skywalking python agent 安装和配置</a>
+        href="/zh-hans/skywalking-python/">skywalking python agent 安装和配置</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -707,7 +707,7 @@ SkyWalking Python 代理实现了一个命令行界面，可用于在部署期�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/logstash-%E8%87%AA%E5%8A%A8%E9%87%8D%E8%BD%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
+  href="/zh-hans/logstash1/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -719,7 +719,7 @@ SkyWalking Python 代理实现了一个命令行界面，可用于在部署期�
       <a
         class="hb-blog-post-title-link d-block"
         title="Logstash 自动重载配置文件"
-        href="/zh-hans/logstash-%E8%87%AA%E5%8A%A8%E9%87%8D%E8%BD%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">Logstash 自动重载配置文件</a>
+        href="/zh-hans/logstash1/">Logstash 自动重载配置文件</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -807,7 +807,7 @@ syslog作为输入源,当重载配置文件时,会崩溃.
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/windows-exporter-%E7%9B%91%E6%8E%A7/">
+  href="/zh-hans/windows-exporter/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -819,7 +819,7 @@ syslog作为输入源,当重载配置文件时,会崩溃.
       <a
         class="hb-blog-post-title-link d-block"
         title="windows-exporter 监控"
-        href="/zh-hans/windows-exporter-%E7%9B%91%E6%8E%A7/">windows-exporter 监控</a>
+        href="/zh-hans/windows-exporter/">windows-exporter 监控</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -847,7 +847,7 @@ syslog作为输入源,当重载配置文件时,会崩溃.
 1# 新增 windows-exporter 2- targets: [&#34;192.168.0.6:9182&#34;] 3 labels: 4 instance: windows-task 添加 alertmanager 告警 1# 告警信息 2groups: 3 - name: sanjiang windows 任务计划程序告警 4 rules: 5 - alert: windows实例任务告警 6 expr: windows_scheduled_task_state{state=&#34;disabled&#34;,task=~&#34;/ETL_kettle_tasks/.*&#34;}==1 7 for: 30s 8 labels: 9 severity: critical 10 target: &#34;{{$labels.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/windows-exporter-%E7%9B%91%E6%8E%A7/">阅读更多关于windows-exporter 监控的内容。</a>
+            class="text-secondary" href="/zh-hans/windows-exporter/">阅读更多关于windows-exporter 监控的内容。</a>
         </div>
   </div>
 </div>
@@ -908,7 +908,7 @@ syslog作为输入源,当重载配置文件时,会崩溃.
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/skywalking-apm-%E7%9B%91%E6%8E%A7/">
+  href="/zh-hans/skywalking/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -920,7 +920,7 @@ syslog作为输入源,当重载配置文件时,会崩溃.
       <a
         class="hb-blog-post-title-link d-block"
         title="skywalking APM 监控"
-        href="/zh-hans/skywalking-apm-%E7%9B%91%E6%8E%A7/">skywalking APM 监控</a>
+        href="/zh-hans/skywalking/">skywalking APM 监控</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -953,7 +953,7 @@ Metric是可以聚合的，例如为电商系统中每个 HTTP 接口添加一�
 观测性分析平台 基于字节码注入技术，代码无侵入 服务、服务实例、端点指标分析 服务拓扑图分析 服务、服务实例和端点（Endpont）SLA 分析 支持 es，h2,mysql,TiDb,sharding-sphere skywalking 整体框架 上部分 Agent ：负责从应用中，收集链路信息，发送给 SkyWalking OAP 服务器。目前支持 SkyWalking、Zikpin、Jaeger 等提供的 Tracing 数据信息。而我们目前采用的是，SkyWalking Agent 收集 SkyWalking Tracing 数据，传递给服务器。 下部分 SkyWalking OAP ：负责接收 Agent 发送的 Tracing 数据信息，然后进行分析(Analysis Core) ，存储到外部存储器( Storage )，最终提供查询( Query )功能。 右部分 Storage ：Tracing 数据存储。目前支持 ES、MySQL、Sharding Sphere、TiDB、H2 多种存储器。而我们目前采用的是 ES ，主要考虑是 SkyWalking 开发团队自己的生产环境采用 ES 为主。 左部分 SkyWalking UI ：负责提供控台，查看链路等等。 skywalking 配置 使用 docker-compose 安装 使用 mysql 作为存储</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/skywalking-apm-%E7%9B%91%E6%8E%A7/">阅读更多关于skywalking APM 监控的内容。</a>
+            class="text-secondary" href="/zh-hans/skywalking/">阅读更多关于skywalking APM 监控的内容。</a>
         </div>
   </div>
 </div>
@@ -1014,7 +1014,7 @@ Metric是可以聚合的，例如为电商系统中每个 HTTP 接口添加一�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/logstash-%E5%A4%9A%E7%AE%A1%E9%81%93%E9%83%A8%E7%BD%B2/">
+  href="/zh-hans/logstash/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1026,7 +1026,7 @@ Metric是可以聚合的，例如为电商系统中每个 HTTP 接口添加一�
       <a
         class="hb-blog-post-title-link d-block"
         title="logstash 多管道部署"
-        href="/zh-hans/logstash-%E5%A4%9A%E7%AE%A1%E9%81%93%E9%83%A8%E7%BD%B2/">logstash 多管道部署</a>
+        href="/zh-hans/logstash/">logstash 多管道部署</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1053,7 +1053,7 @@ input { beats { host =&gt; &#34;0.0.0.0&#34; port =&gt; 23000 # 修改端口IP }
 1- pipeline.id: 名称 2 path.config: &#34;/etc/logstash/conf.d/配置文件.conf&#34; 3 queue.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/logstash-%E5%A4%9A%E7%AE%A1%E9%81%93%E9%83%A8%E7%BD%B2/">阅读更多关于logstash 多管道部署的内容。</a>
+            class="text-secondary" href="/zh-hans/logstash/">阅读更多关于logstash 多管道部署的内容。</a>
         </div>
   </div>
 </div>
@@ -1114,7 +1114,7 @@ input { beats { host =&gt; &#34;0.0.0.0&#34; port =&gt; 23000 # 修改端口IP }
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/nginx-exporter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">
+  href="/zh-hans/nginx-exporter/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1126,7 +1126,7 @@ input { beats { host =&gt; &#34;0.0.0.0&#34; port =&gt; 23000 # 修改端口IP }
       <a
         class="hb-blog-post-title-link d-block"
         title="nginx exporter 安装配置"
-        href="/zh-hans/nginx-exporter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">nginx exporter 安装配置</a>
+        href="/zh-hans/nginx-exporter/">nginx exporter 安装配置</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1152,7 +1152,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
 1nginx -t 2nginx -s reload 启动 nginx exporter 1nginx-prometheus-exporter -nginx.scrape-uri http://&lt;nginx&gt;:8080/nginx_status 配置 prometheus 添加 prometheus.yml 1- job_name: &#34;nginx-exporter&#34; 2 file_sd_configs: 3 - files: 4 - &#34;./file_sd/nginx-exporter.yaml&#34; 在 ./file_sd/新建 nginx-exporter.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/nginx-exporter-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">阅读更多关于nginx exporter 安装配置的内容。</a>
+            class="text-secondary" href="/zh-hans/nginx-exporter/">阅读更多关于nginx exporter 安装配置的内容。</a>
         </div>
   </div>
 </div>
@@ -1213,7 +1213,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/prometheus-grafana-alertmanager-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">
+  href="/zh-hans/prometheus1/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1225,7 +1225,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
       <a
         class="hb-blog-post-title-link d-block"
         title="prometheus grafana alertmanager 安装配置"
-        href="/zh-hans/prometheus-grafana-alertmanager-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">prometheus grafana alertmanager 安装配置</a>
+        href="/zh-hans/prometheus1/">prometheus grafana alertmanager 安装配置</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1251,7 +1251,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
 端口 服务 9100 node_exporter 3000 grafana 9090 prometheus 9115 blackbox_exporter 安装 grafa 安装 docker 安装 1docker run -d -p 3000:3000 \ 2--name=grafana \ 3-v grafana-storage:/var/lib/grafana \ 4grafana/grafana:8.3.3 prometheus 安装 下载 1wget https://github.com/prometheus/prometheus/releases/download/v2.32.1/prometheus-2.32.1.linux-amd64.tar.gz 2tar -zxvf prometheus-2.32.1.linux-amd64.tar.gz 3cd prometheus-2.32.1.linux-amd64 4mkdir -p file_sd 5mkdir -p rules 运行 prometheus 1killall prometheus 2nohup ./prometheus --config.file=prometheus.yml &amp; 3# 查看运行状况 4tail -f nohup.out node_exporter 安装 docker-compose 安装 1version: &#34;3&#34; 2services: 3 node-exporter: 4 image: prom/node-exporter:v1.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/prometheus-grafana-alertmanager-%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/">阅读更多关于prometheus grafana alertmanager 安装配置的内容。</a>
+            class="text-secondary" href="/zh-hans/prometheus1/">阅读更多关于prometheus grafana alertmanager 安装配置的内容。</a>
         </div>
   </div>
 </div>
@@ -1312,7 +1312,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/prometheus-%E9%85%8D%E7%BD%AE/">
+  href="/zh-hans/prometheus/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1324,7 +1324,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
       <a
         class="hb-blog-post-title-link d-block"
         title="prometheus 配置"
-        href="/zh-hans/prometheus-%E9%85%8D%E7%BD%AE/">prometheus 配置</a>
+        href="/zh-hans/prometheus/">prometheus 配置</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1349,7 +1349,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
 组件 Prometheus Server， 主要用于抓取数据和存储时序数据，另外还提供查询和 Alert Rule 配置管理。 client libraries，用于对接 Prometheus Server, 可以查询和上报数据。 push gateway ，用于批量，短期的监控数据的汇总节点，主要用于业务数据汇报等。 各种汇报数据的 exporters ，例如汇报机器数据的 node_exporter, 汇报 MongoDB 信息的 MongoDB exporter 等等。 用于告警通知管理的 alertmanager 。 运行逻辑 Prometheus server 定期从静态配置的 targets 或者服务发现的 targets 拉取数据。 当新拉取的数据大于配置内存缓存区的时候，Prometheus 会将数据持久化到磁盘（如果使用 remote storage 将持久化到云端）。 Prometheus 可以配置 rules，然后定时查询数据，当条件触发的时候，会将 alert 推送到配置的 Alertmanager。 Alertmanager 收到警告的时候，可以根据配置，聚合，去重，降噪，最后发送警告。 可以使用 API， Prometheus Console 或者 Grafana 查询和聚合数据。 安装 prometheus 使用预编译的二进制文件安装 1wget https://github.com/prometheus/prometheus/releases/download/v2.32.1/prometheus-2.32.1.linux-amd64.tar.gz 2tar -zxvf prometheus-2.32.1.linux-amd64.tar.gz 3cd prometheus-2.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/prometheus-%E9%85%8D%E7%BD%AE/">阅读更多关于prometheus 配置的内容。</a>
+            class="text-secondary" href="/zh-hans/prometheus/">阅读更多关于prometheus 配置的内容。</a>
         </div>
   </div>
 </div>
@@ -1559,7 +1559,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/2023-12-27-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/github_trending_2023-12-27/">
     
 
 
@@ -1609,7 +1609,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-27 打工人日报"
-        href="/zh-hans/2023-12-27-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-27 打工人日报</a>
+        href="/zh-hans/github_trending_2023-12-27/">2023-12-27 打工人日报</a>
     </div>
   </div>
 </div>
@@ -1622,7 +1622,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/2023-12-26-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/github_trending_2023-12-26/">
     
 
 
@@ -1672,7 +1672,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-26 打工人日报"
-        href="/zh-hans/2023-12-26-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-26 打工人日报</a>
+        href="/zh-hans/github_trending_2023-12-26/">2023-12-26 打工人日报</a>
     </div>
   </div>
 </div>
@@ -1685,7 +1685,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/2023-12-25-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/github_trending_2023-12-25/">
     
 
 
@@ -1735,7 +1735,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-25 打工人日报"
-        href="/zh-hans/2023-12-25-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-25 打工人日报</a>
+        href="/zh-hans/github_trending_2023-12-25/">2023-12-25 打工人日报</a>
     </div>
   </div>
 </div>
@@ -1748,7 +1748,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/2023-12-24-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/github_trending_2023-12-24/">
     
 
 
@@ -1798,7 +1798,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-24 打工人日报"
-        href="/zh-hans/2023-12-24-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-24 打工人日报</a>
+        href="/zh-hans/github_trending_2023-12-24/">2023-12-24 打工人日报</a>
     </div>
   </div>
 </div>
@@ -1811,7 +1811,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/2023-12-23-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/github_trending_2023-12-23/">
     
 
 
@@ -1861,7 +1861,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-23 打工人日报"
-        href="/zh-hans/2023-12-23-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-23 打工人日报</a>
+        href="/zh-hans/github_trending_2023-12-23/">2023-12-23 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2238,7 +2238,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
 
 
   
-<script src="/js/search.8df2213e660da421b8ed71e3a1612cb17e0e5245dc07889e1b43cd21223f63cc.js" defer></script>
+<script src="/js/search.376d5530e519e74f2dc1cd47c58809292bfbba13a4df275502c73d31a65dd89e.js" defer></script>
 
 
 

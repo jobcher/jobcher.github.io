@@ -611,7 +611,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-terraform/">
+  href="/zh-hans/terraform/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -623,7 +623,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="安装配置 Terraform"
-        href="/zh-hans/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-terraform/">安装配置 Terraform</a>
+        href="/zh-hans/terraform/">安装配置 Terraform</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -647,7 +647,7 @@
       <div class="hb-blog-post-summary card-text text-secondary mb-auto">安装配置 Terraform 安装 macOS 苹果系统安装 1#安装 2brew tap hashicorp/tap 3brew install hashicorp/tap/terraform 4# 更新 5brew update 6brew upgrade hashicorp/tap/terraform 7#验证安装 8terraform -help windows 系统安装 1#安装 2choco install terraform 3#直接到这个url里下载64位系统 4https://www.terraform.io/downloads 5#验证安装 6terraform -help Linux 安装 1curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add - 2sudo apt-add-repository &#34;deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main&#34; 3sudo apt-get update &amp;&amp; sudo apt-get install terraform 4#验证安装 5terraform -help 1wget -O- https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo | sudo tee /etc/yum.repos.d/hashicorp.repo 2sudo yum install terraform -y terrafrom 控制 proxmox 虚拟机 来源：https://github.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE-terraform/">阅读更多关于安装配置 Terraform的内容。</a>
+            class="text-secondary" href="/zh-hans/terraform/">阅读更多关于安装配置 Terraform的内容。</a>
         </div>
   </div>
 </div>
@@ -708,7 +708,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/rsync-%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/">
+  href="/zh-hans/rsync/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -720,7 +720,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="rsync 文件同步"
-        href="/zh-hans/rsync-%E6%96%87%E4%BB%B6%E5%90%8C%E6%AD%A5/">rsync 文件同步</a>
+        href="/zh-hans/rsync/">rsync 文件同步</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -811,7 +811,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E6%B5%8F%E8%A7%88%E5%99%A8%E9%BB%98%E8%AE%A4%E8%AF%AD%E8%A8%80%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%8A%A8%E5%88%A4%E6%96%AD%E8%B7%B3%E8%BD%AC%E4%B8%8D%E5%90%8C%E7%BD%91%E7%AB%99/">
+  href="/zh-hans/auto/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -823,7 +823,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="获取用户浏览器默认语言设置，自动判断跳转不同网站"
-        href="/zh-hans/%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E6%B5%8F%E8%A7%88%E5%99%A8%E9%BB%98%E8%AE%A4%E8%AF%AD%E8%A8%80%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%8A%A8%E5%88%A4%E6%96%AD%E8%B7%B3%E8%BD%AC%E4%B8%8D%E5%90%8C%E7%BD%91%E7%AB%99/">获取用户浏览器默认语言设置，自动判断跳转不同网站</a>
+        href="/zh-hans/auto/">获取用户浏览器默认语言设置，自动判断跳转不同网站</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -850,7 +850,7 @@
 1&lt;script type=&#34;text/javascript&#34;&gt; 2 //获取用户语言的顺序是 3 //1.获取本地缓存里的内容 4 //2.用户浏览器的语言设置 5 //如果上面2个都没有获取到，就直接使用&#39;en&#39;作为用户选择的语言 6 var language = 7 localStorage.getItem(&#34;locale&#34;) || 8 window.navigator.language.toLowerCase() || 9 &#34;en&#34;; 10 //把用户的语言写入缓存，供下次获取使用 11 localStorage.setItem(&#34;locale&#34;, language); 12 //判断用户的语言，跳转到不同的地方 13 if (language.indexOf(&#34;zh-&#34;) !== -1) { 14 window.location = &#34;/zh-cn/index.html&#34;; 15 } else if (language.indexOf(&#34;en&#34;) !== -1) { 16 window.location = &#34;/en/index.html&#34;; 17 } else { 18 //其它的都使用英文 19 window.location = &#34;/en/index.html&#34;; 20 } 21&lt;/script&gt; 核心代码</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E6%B5%8F%E8%A7%88%E5%99%A8%E9%BB%98%E8%AE%A4%E8%AF%AD%E8%A8%80%E8%AE%BE%E7%BD%AE%E8%87%AA%E5%8A%A8%E5%88%A4%E6%96%AD%E8%B7%B3%E8%BD%AC%E4%B8%8D%E5%90%8C%E7%BD%91%E7%AB%99/">阅读更多关于获取用户浏览器默认语言设置，自动判断跳转不同网站的内容。</a>
+            class="text-secondary" href="/zh-hans/auto/">阅读更多关于获取用户浏览器默认语言设置，自动判断跳转不同网站的内容。</a>
         </div>
   </div>
 </div>
@@ -911,7 +911,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/linux%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%90%AFroot%E6%9D%83%E9%99%90/">
+  href="/zh-hans/resetsystem/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -923,7 +923,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="linux系统开启root权限"
-        href="/zh-hans/linux%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%90%AFroot%E6%9D%83%E9%99%90/">linux系统开启root权限</a>
+        href="/zh-hans/resetsystem/">linux系统开启root权限</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1005,7 +1005,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/163%E4%BC%81%E4%B8%9A%E9%82%AE%E7%AE%B1%E8%AE%BE%E7%BD%AE%E6%95%99%E7%A8%8B/">
+  href="/zh-hans/qyyemail163/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1017,7 +1017,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="163企业邮箱设置教程"
-        href="/zh-hans/163%E4%BC%81%E4%B8%9A%E9%82%AE%E7%AE%B1%E8%AE%BE%E7%BD%AE%E6%95%99%E7%A8%8B/">163企业邮箱设置教程</a>
+        href="/zh-hans/qyyemail163/">163企业邮箱设置教程</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1098,7 +1098,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/2021%E5%B9%B4%E7%AC%AC50%E5%91%A8%E8%AE%B0/">
+  href="/zh-hans/20211210/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1110,7 +1110,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="2021年第50周记"
-        href="/zh-hans/2021%E5%B9%B4%E7%AC%AC50%E5%91%A8%E8%AE%B0/">2021年第50周记</a>
+        href="/zh-hans/20211210/">2021年第50周记</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1194,7 +1194,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/%E8%87%AA%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
+  href="/zh-hans/nps/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1206,7 +1206,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="自建服务器内网穿透"
-        href="/zh-hans/%E8%87%AA%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">自建服务器内网穿透</a>
+        href="/zh-hans/nps/">自建服务器内网穿透</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1241,7 +1241,7 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
 安装 frps 1 wget https://code.aliyun.com/MvsCode/frps-onekey/raw/master/install-frps.sh -O ./install-frps.sh 2 chmod 700 .</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/%E8%87%AA%E5%BB%BA%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">阅读更多关于自建服务器内网穿透的内容。</a>
+            class="text-secondary" href="/zh-hans/nps/">阅读更多关于自建服务器内网穿透的内容。</a>
         </div>
   </div>
 </div>
@@ -1302,7 +1302,7 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BAk3s/">
+  href="/zh-hans/rasberry/">
       
     <div
       class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
@@ -1314,7 +1314,7 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
       <a
         class="hb-blog-post-title-link d-block"
         title="树莓派搭建k3s"
-        href="/zh-hans/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BAk3s/">树莓派搭建k3s</a>
+        href="/zh-hans/rasberry/">树莓派搭建k3s</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1344,7 +1344,7 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
 1 k3s kubectl get nodes 2 #显示正确的节点表示完成 卸载 k3s 1 #server 节点 2 /usr/local/bin/k3s-uninstall.sh 3 #agent 节点 4 /usr/local/bin/k3s-agent-uninstall.sh 2.安装 dashboard k3s 面板 部署 Kubernetes 仪表盘 1 GITHUB_URL=https://github.com/kubernetes/dashboard/releases 2 VERSION_KUBE_DASHBOARD=$(curl -w &#39;%{url_effective}&#39; -I -L -s -S ${GITHUB_URL}/latest -o /dev/null | sed -e &#39;s|.*/||&#39;) 3 sudo k3s kubectl create -f https://raw.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/zh-hans/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BAk3s/">阅读更多关于树莓派搭建k3s的内容。</a>
+            class="text-secondary" href="/zh-hans/rasberry/">阅读更多关于树莓派搭建k3s的内容。</a>
         </div>
   </div>
 </div>
@@ -1589,7 +1589,7 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/2023-12-27-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/github_trending_2023-12-27/">
     
 
 
@@ -1639,7 +1639,7 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-27 打工人日报"
-        href="/zh-hans/2023-12-27-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-27 打工人日报</a>
+        href="/zh-hans/github_trending_2023-12-27/">2023-12-27 打工人日报</a>
     </div>
   </div>
 </div>
@@ -1652,7 +1652,7 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/2023-12-26-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/github_trending_2023-12-26/">
     
 
 
@@ -1702,7 +1702,7 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-26 打工人日报"
-        href="/zh-hans/2023-12-26-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-26 打工人日报</a>
+        href="/zh-hans/github_trending_2023-12-26/">2023-12-26 打工人日报</a>
     </div>
   </div>
 </div>
@@ -1715,7 +1715,7 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/2023-12-25-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/github_trending_2023-12-25/">
     
 
 
@@ -1765,7 +1765,7 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-25 打工人日报"
-        href="/zh-hans/2023-12-25-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-25 打工人日报</a>
+        href="/zh-hans/github_trending_2023-12-25/">2023-12-25 打工人日报</a>
     </div>
   </div>
 </div>
@@ -1778,7 +1778,7 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/2023-12-24-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/github_trending_2023-12-24/">
     
 
 
@@ -1828,7 +1828,7 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-24 打工人日报"
-        href="/zh-hans/2023-12-24-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-24 打工人日报</a>
+        href="/zh-hans/github_trending_2023-12-24/">2023-12-24 打工人日报</a>
     </div>
   </div>
 </div>
@@ -1841,7 +1841,7 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/zh-hans/2023-12-23-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">
+  href="/zh-hans/github_trending_2023-12-23/">
     
 
 
@@ -1891,7 +1891,7 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
       <a
         class="hb-blog-post-title-link d-block"
         title="2023-12-23 打工人日报"
-        href="/zh-hans/2023-12-23-%E6%89%93%E5%B7%A5%E4%BA%BA%E6%97%A5%E6%8A%A5/">2023-12-23 打工人日报</a>
+        href="/zh-hans/github_trending_2023-12-23/">2023-12-23 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2268,7 +2268,7 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
 
 
   
-<script src="/js/search.8df2213e660da421b8ed71e3a1612cb17e0e5245dc07889e1b43cd21223f63cc.js" defer></script>
+<script src="/js/search.376d5530e519e74f2dc1cd47c58809292bfbba13a4df275502c73d31a65dd89e.js" defer></script>
 
 
 
