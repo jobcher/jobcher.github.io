@@ -58,13 +58,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/zh-hans/blog/2021/12/nginx-%E9%87%8D%E5%86%99%E8%A7%84%E5%88%99-rewrite%E6%A8%A1%E5%9D%97/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2021-12-24T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-12-27T01:27:42+00:00" />
+<meta property="article:modified_time" content="2023-12-27T09:36:47+08:00" />
 
 
 
 <meta itemprop="name" content="nginx 重写规则 rewrite模块">
 <meta itemprop="description" content="nginx 重写规则 rewrite 模块 语法 语法 默认值 使用字段 作用 break none server, location, if 完成当前设置的重写规则，停止执行其他的重写规则。 set variable value none server, location, if 为给定的变量设置一个特定值。 return code none server, location, if 停止处理并为客户端返回状态码。非标准的 444 状态码将关闭连接，不发送任何响应头。可以使用的状态码有：204，400，402-406，408，410, 411, 413, 416 与 500-504。如果状态码附带文字段落，该文本将被放置在响应主体。相反，如果状态码后面是一个 URL，该 URL 将成为 location 头补值。没有状态码的 URL 将被视为一个 302 状态码。 rewrite_log on rewrite_log off server, location, if 启用时将在 error log 中记录 notice 级别的重写日志。 rewrite regex replacement flag none server, location, if 按照相关的正则表达式与字符串修改 URI，指令按照在配置文件中出现的顺序执行。可以在重写指令后面添加标记。注意：如果替换的字符串以 http://开头，请求将被重定向，并且不再执行多余的 rewrite 指令。尾部的标记(flag)可以是以下的值：last – 停止处理重写模块指令，之后搜索 location 与更改后的 URI 匹配."><meta itemprop="datePublished" content="2021-12-24T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2023-12-27T01:27:42+00:00" />
+<meta itemprop="dateModified" content="2023-12-27T09:36:47+08:00" />
 <meta itemprop="wordCount" content="119">
 <meta itemprop="keywords" content="nginx,linux," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="nginx 重写规则 rewrite模块"/>
 <meta name="twitter:description" content="nginx 重写规则 rewrite 模块 语法 语法 默认值 使用字段 作用 break none server, location, if 完成当前设置的重写规则，停止执行其他的重写规则。 set variable value none server, location, if 为给定的变量设置一个特定值。 return code none server, location, if 停止处理并为客户端返回状态码。非标准的 444 状态码将关闭连接，不发送任何响应头。可以使用的状态码有：204，400，402-406，408，410, 411, 413, 416 与 500-504。如果状态码附带文字段落，该文本将被放置在响应主体。相反，如果状态码后面是一个 URL，该 URL 将成为 location 头补值。没有状态码的 URL 将被视为一个 302 状态码。 rewrite_log on rewrite_log off server, location, if 启用时将在 error log 中记录 notice 级别的重写日志。 rewrite regex replacement flag none server, location, if 按照相关的正则表达式与字符串修改 URI，指令按照在配置文件中出现的顺序执行。可以在重写指令后面添加标记。注意：如果替换的字符串以 http://开头，请求将被重定向，并且不再执行多余的 rewrite 指令。尾部的标记(flag)可以是以下的值：last – 停止处理重写模块指令，之后搜索 location 与更改后的 URI 匹配."/>
@@ -749,11 +749,11 @@ nginx 重写规则 rewrite模块 - 博客 - 打工人日志</title>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/hbstack/theme/commit/08d6ee7599ef576ced096f38d5622730937c0500"
+            href="https://github.com/hbstack/theme/commit/bcd17a1c3decfb669062cf94f19d668708e32d5e"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>update github trend</a>
+</svg>更新</a>
         </li>
     </ul>
   </div>
@@ -1160,7 +1160,7 @@ nginx 重写规则 rewrite模块 - 博客 - 打工人日志</title>
       </div>
   </div>
 <div class="hb-module text-center bg-primary text-white p-3">
-  系统改版 欢迎关注
+欢迎关注
 </div>
 
   <div class="hb-blog-sidebar-posts hb-module">
@@ -1964,7 +1964,7 @@ nginx 重写规则 rewrite模块 - 博客 - 打工人日志</title>
 
 
   
-<script src="/js/search.ed8909aa0c3997c14bc5ebd473d30fe3ddf6dd66e446a7aa253452796e698db7.js" defer></script>
+<script src="/js/search.98e6b88d0d4ad28aa85509d60d7b7b70a782b6c8da436dbb0b9ddc8306f86737.js" defer></script>
 
 
 
