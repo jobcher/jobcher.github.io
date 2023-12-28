@@ -65,7 +65,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/network/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2021-12-23T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-12-28T16:33:33+08:00" />
+<meta property="article:modified_time" content="2023-12-28T16:38:04+08:00" />
 
 
 
@@ -73,7 +73,7 @@
 <meta itemprop="description" content="网络基础知识 1、简述 ISO/OSI 七层模型的分层与作用 分层 作用 应用层 应用系统，提供用户服务 例如：HTTP、HTTPS、FTP、Telnet、SSH、SMTP、POP3 表示层 把数据转换为能与接收者的系统格式兼容并适合传输的格式，数据表示，加密，压缩 会话层 负责在数据传输中设置和维护计算机网络中两台计算机之间的通信连接。确定数据是否需要进行网络传递 分流网络传递还是本地保存 传输层 对数据分组，对报文进行分组(发送时)、组装(接收时)提供传输协议的选择：TCP (传输控制协议) :可靠的，面向连接的传输协议 (可靠，准确) (慢)UDP (用户数据报协议) :不可靠的，面向无连接的传输协议 (快) (不可靠)。端口封装，差错校验，滑动窗口，留空 网络层 网络层（Network Layer）决定数据的路径选择和转寄，将网络表头（NH）加至数据包，以形成分组。网络表头包含了网络资料。例如:互联网协议（IP）等。1.IP 地址编址 2.路由选择 3.静态路由 4.动态路由 数据链路层 数据链路层（Data Link Layer）负责网络寻址、错误侦测和改错。1.MAC 地址编址 2.MAC 地址寻址 3.差错校验 物理层 物理层（Physical Layer）在局域网上发送数据帧（Data Frame）1.数据实际传输 2.电气特性定义 2、TCP/IP 四层模型与作用？ 分层 协议 应用层 HTTP、HTTPS、FTP、Telnet、SSH、SMTP、DNS 传输层 TCP、UDP 网络层 ICMP、IGMP、IP、ARP、RARP 数据链路层、物理层 PPP、PPPOE 3、TCP 协议与 UDP 协议工作在哪一层，作用是什么？ 传输层，对报文进行分组(发送时)、组装(接收时)提供
 当进程需要传输可靠的数据时应使用 TCP，当进程需要高效传输数据，可以忽略可靠性时应使用 UDP 协议。
 4、简述 TCP 三次握手的过程。 第一次握手：Client 将标志位 SYN 置为 1，随机产生一个值 seq=J，并将该数据包发送给 Server，Client 进入 SYN_SENT 状态，等待 Server 确认。 第二次握手：Server 收到数据包后由标志位 SYN=1 知道 Client 请求建立连接，Server 将标志位 SYN 和 ACK 都置为 1，ack=J&#43;1，随机产生一个值 seq=K，并将该数据包发送给 Client 以确认连接请求，Server 进入 SYN_RCVD 状态。 第三次握手：Client 收到确认后，检查 ack 是否为 J&#43;1，ACK 是否为 1，如果正确则将标志位 ACK 置为 1，ack=K&#43;1，并将该数据包发送给 Server，Server 检查 ack 是否为 K&#43;1，ACK 是否为 1，如果正确则连接建立成功，Client 和 Server 进入 ESTABLISHED 状态，完成三次握手，随后 Client 与 Server 之间可以开始传输数据了。 5、简述 TCP 包头的内容。 源端口和目的端口：各占 2 个字节，分别写入源端口和目的端口。IP 地址 &#43; 端口号就可以确定一个进程地址"><meta itemprop="datePublished" content="2021-12-23T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2023-12-28T16:33:33+08:00" />
+<meta itemprop="dateModified" content="2023-12-28T16:38:04+08:00" />
 <meta itemprop="wordCount" content="335">
 <meta itemprop="keywords" content="运维," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="网络基础知识"/>
 <meta name="twitter:description" content="网络基础知识 1、简述 ISO/OSI 七层模型的分层与作用 分层 作用 应用层 应用系统，提供用户服务 例如：HTTP、HTTPS、FTP、Telnet、SSH、SMTP、POP3 表示层 把数据转换为能与接收者的系统格式兼容并适合传输的格式，数据表示，加密，压缩 会话层 负责在数据传输中设置和维护计算机网络中两台计算机之间的通信连接。确定数据是否需要进行网络传递 分流网络传递还是本地保存 传输层 对数据分组，对报文进行分组(发送时)、组装(接收时)提供传输协议的选择：TCP (传输控制协议) :可靠的，面向连接的传输协议 (可靠，准确) (慢)UDP (用户数据报协议) :不可靠的，面向无连接的传输协议 (快) (不可靠)。端口封装，差错校验，滑动窗口，留空 网络层 网络层（Network Layer）决定数据的路径选择和转寄，将网络表头（NH）加至数据包，以形成分组。网络表头包含了网络资料。例如:互联网协议（IP）等。1.IP 地址编址 2.路由选择 3.静态路由 4.动态路由 数据链路层 数据链路层（Data Link Layer）负责网络寻址、错误侦测和改错。1.MAC 地址编址 2.MAC 地址寻址 3.差错校验 物理层 物理层（Physical Layer）在局域网上发送数据帧（Data Frame）1.数据实际传输 2.电气特性定义 2、TCP/IP 四层模型与作用？ 分层 协议 应用层 HTTP、HTTPS、FTP、Telnet、SSH、SMTP、DNS 传输层 TCP、UDP 网络层 ICMP、IGMP、IP、ARP、RARP 数据链路层、物理层 PPP、PPPOE 3、TCP 协议与 UDP 协议工作在哪一层，作用是什么？ 传输层，对报文进行分组(发送时)、组装(接收时)提供
@@ -238,6 +238,14 @@
       href="https://nav.jobcher.com/"
       target="_blank"
       rel="external"><svg aria-hidden="true" class="hi-svg-inline hb-header-menu-icon me-1" fill="currentColor" height="1em" style="color: red;" viewBox="0 0 512 512" width="1em" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. --><path d="M256 48C141.1 48 48 141.1 48 256v40c0 13.3-10.7 24-24 24s-24-10.7-24-24V256C0 114.6 114.6 0 256 0S512 114.6 512 256V400.1c0 48.6-39.4 88-88.1 88L313.6 488c-8.3 14.3-23.8 24-41.6 24H240c-26.5 0-48-21.5-48-48s21.5-48 48-48h32c17.8 0 33.3 9.7 41.6 24l110.4 .1c22.1 0 40-17.9 40-40V256c0-114.9-93.1-208-208-208zM144 208h16c17.7 0 32 14.3 32 32V352c0 17.7-14.3 32-32 32H144c-35.3 0-64-28.7-64-64V272c0-35.3 28.7-64 64-64zm224 0c35.3 0 64 28.7 64 64v48c0 35.3-28.7 64-64 64H352c-17.7 0-32-14.3-32-32V240c0-17.7 14.3-32 32-32h16z"/></svg>导航</a>
+  </li><li
+    class="hb-header-menu nav-item col-6 col-lg-auto">
+    <a
+      class="nav-link"
+      
+      href="https://realip.jobcher.com/"
+      target="_blank"
+      rel="external"><svg aria-hidden="true" class="hi-svg-inline hb-header-menu-icon me-1" fill="currentColor" height="1em" style="color: green;" viewBox="0 0 640 512" width="1em" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. --><path d="M88.2 309.1c9.8-18.3 6.8-40.8-7.5-55.8C59.4 230.9 48 204 48 176c0-63.5 63.8-128 160-128s160 64.5 160 128s-63.8 128-160 128c-13.1 0-25.8-1.3-37.8-3.6c-10.4-2-21.2-.6-30.7 4.2c-4.1 2.1-8.3 4.1-12.6 6c-16 7.2-32.9 13.5-49.9 18c2.8-4.6 5.4-9.1 7.9-13.6c1.1-1.9 2.2-3.9 3.2-5.9zM0 176c0 41.8 17.2 80.1 45.9 110.3c-.9 1.7-1.9 3.5-2.8 5.1c-10.3 18.4-22.3 36.5-36.6 52.1c-6.6 7-8.3 17.2-4.6 25.9C5.8 378.3 14.4 384 24 384c43 0 86.5-13.3 122.7-29.7c4.8-2.2 9.6-4.5 14.2-6.8c15.1 3 30.9 4.5 47.1 4.5c114.9 0 208-78.8 208-176S322.9 0 208 0S0 78.8 0 176zM432 480c16.2 0 31.9-1.6 47.1-4.5c4.6 2.3 9.4 4.6 14.2 6.8C529.5 498.7 573 512 616 512c9.6 0 18.2-5.7 22-14.5c3.8-8.8 2-19-4.6-25.9c-14.2-15.6-26.2-33.7-36.6-52.1c-.9-1.7-1.9-3.4-2.8-5.1C622.8 384.1 640 345.8 640 304c0-94.4-87.9-171.5-198.2-175.8c4.1 15.2 6.2 31.2 6.2 47.8l0 .6c87.2 6.7 144 67.5 144 127.4c0 28-11.4 54.9-32.7 77.2c-14.3 15-17.3 37.6-7.5 55.8c1.1 2 2.2 4 3.2 5.9c2.5 4.5 5.2 9 7.9 13.6c-17-4.5-33.9-10.7-49.9-18c-4.3-1.9-8.5-3.9-12.6-6c-9.5-4.8-20.3-6.2-30.7-4.2c-12.1 2.4-24.7 3.6-37.8 3.6c-61.7 0-110-26.5-136.8-62.3c-16 5.4-32.8 9.4-50 11.8C279 439.8 350 480 432 480z"/></svg>ip检测</a>
   </li>
   <li class="hb-header-menu dropdown nav-item col-12 col-lg-auto active">
     
@@ -1003,11 +1011,11 @@
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/hbstack/theme/commit/355f741df1bd4e7831ec95ea54006e724df95173"
+            href="https://github.com/hbstack/theme/commit/7690db8e8af27370c4af30ac4fa4f7ef89001257"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>增加error图片</a>
+</svg>更改菜单栏</a>
         </li>
     </ul>
   </div>
@@ -2298,7 +2306,7 @@
 
 
   
-<script src="/js/search.eeddcbb1990188d71bd5164a09cd2244ad90dee1077354d72c47598a346ad273.js" defer></script>
+<script src="/js/search.0711124c9046886d0276f2b9d964d9385b8f855dca630815b707d9e6cdbace10.js" defer></script>
 
 
 

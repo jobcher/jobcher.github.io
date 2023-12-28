@@ -65,14 +65,14 @@ expand 1kubectl scale --replicas=3 deploy my-test-deploy shrink 1kubectl scale -
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/k8s7/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-06-13T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-12-28T16:33:33+08:00" />
+<meta property="article:modified_time" content="2023-12-28T16:38:04+08:00" />
 
 
 
 <meta itemprop="name" content="kubernetes manual expansion">
 <meta itemprop="description" content="k8s manual expansion We find k8s-master node.Input the Command：
 expand 1kubectl scale --replicas=3 deploy my-test-deploy shrink 1kubectl scale --replicas=1 deploy my-test-deploy trouble cleaning get resource list 1kubectl get deployment 2kubectl get pods 3kubectl get nodes 4# exists in the namespace 5kubectl api-resources --namespaced=true 6# not exists in the namespace 7kubectl api-resources --namespaced=false show info 1kubectl describe pod my-test-pod 2kubectl describe deployment my-test-pod exec container 1kubectl exec -ti my-test-pod /bin/bash "><meta itemprop="datePublished" content="2022-06-13T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2023-12-28T16:33:33+08:00" />
+<meta itemprop="dateModified" content="2023-12-28T16:38:04+08:00" />
 <meta itemprop="wordCount" content="69">
 <meta itemprop="keywords" content="k8s," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="kubernetes manual expansion"/>
 <meta name="twitter:description" content="k8s manual expansion We find k8s-master node.Input the Command：
@@ -236,6 +236,14 @@ kubernetes manual expansion - 博客 - 打工人日志</title>
       href="https://nav.jobcher.com/"
       target="_blank"
       rel="external"><svg aria-hidden="true" class="hi-svg-inline hb-header-menu-icon me-1" fill="currentColor" height="1em" style="color: red;" viewBox="0 0 512 512" width="1em" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. --><path d="M256 48C141.1 48 48 141.1 48 256v40c0 13.3-10.7 24-24 24s-24-10.7-24-24V256C0 114.6 114.6 0 256 0S512 114.6 512 256V400.1c0 48.6-39.4 88-88.1 88L313.6 488c-8.3 14.3-23.8 24-41.6 24H240c-26.5 0-48-21.5-48-48s21.5-48 48-48h32c17.8 0 33.3 9.7 41.6 24l110.4 .1c22.1 0 40-17.9 40-40V256c0-114.9-93.1-208-208-208zM144 208h16c17.7 0 32 14.3 32 32V352c0 17.7-14.3 32-32 32H144c-35.3 0-64-28.7-64-64V272c0-35.3 28.7-64 64-64zm224 0c35.3 0 64 28.7 64 64v48c0 35.3-28.7 64-64 64H352c-17.7 0-32-14.3-32-32V240c0-17.7 14.3-32 32-32h16z"/></svg>导航</a>
+  </li><li
+    class="hb-header-menu nav-item col-6 col-lg-auto">
+    <a
+      class="nav-link"
+      
+      href="https://realip.jobcher.com/"
+      target="_blank"
+      rel="external"><svg aria-hidden="true" class="hi-svg-inline hb-header-menu-icon me-1" fill="currentColor" height="1em" style="color: green;" viewBox="0 0 640 512" width="1em" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc. --><path d="M88.2 309.1c9.8-18.3 6.8-40.8-7.5-55.8C59.4 230.9 48 204 48 176c0-63.5 63.8-128 160-128s160 64.5 160 128s-63.8 128-160 128c-13.1 0-25.8-1.3-37.8-3.6c-10.4-2-21.2-.6-30.7 4.2c-4.1 2.1-8.3 4.1-12.6 6c-16 7.2-32.9 13.5-49.9 18c2.8-4.6 5.4-9.1 7.9-13.6c1.1-1.9 2.2-3.9 3.2-5.9zM0 176c0 41.8 17.2 80.1 45.9 110.3c-.9 1.7-1.9 3.5-2.8 5.1c-10.3 18.4-22.3 36.5-36.6 52.1c-6.6 7-8.3 17.2-4.6 25.9C5.8 378.3 14.4 384 24 384c43 0 86.5-13.3 122.7-29.7c4.8-2.2 9.6-4.5 14.2-6.8c15.1 3 30.9 4.5 47.1 4.5c114.9 0 208-78.8 208-176S322.9 0 208 0S0 78.8 0 176zM432 480c16.2 0 31.9-1.6 47.1-4.5c4.6 2.3 9.4 4.6 14.2 6.8C529.5 498.7 573 512 616 512c9.6 0 18.2-5.7 22-14.5c3.8-8.8 2-19-4.6-25.9c-14.2-15.6-26.2-33.7-36.6-52.1c-.9-1.7-1.9-3.4-2.8-5.1C622.8 384.1 640 345.8 640 304c0-94.4-87.9-171.5-198.2-175.8c4.1 15.2 6.2 31.2 6.2 47.8l0 .6c87.2 6.7 144 67.5 144 127.4c0 28-11.4 54.9-32.7 77.2c-14.3 15-17.3 37.6-7.5 55.8c1.1 2 2.2 4 3.2 5.9c2.5 4.5 5.2 9 7.9 13.6c-17-4.5-33.9-10.7-49.9-18c-4.3-1.9-8.5-3.9-12.6-6c-9.5-4.8-20.3-6.2-30.7-4.2c-12.1 2.4-24.7 3.6-37.8 3.6c-61.7 0-110-26.5-136.8-62.3c-16 5.4-32.8 9.4-50 11.8C279 439.8 350 480 432 480z"/></svg>ip检测</a>
   </li>
   <li class="hb-header-menu dropdown nav-item col-12 col-lg-auto active">
     
@@ -724,11 +732,11 @@ kubernetes manual expansion - 博客 - 打工人日志</title>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/hbstack/theme/commit/355f741df1bd4e7831ec95ea54006e724df95173"
+            href="https://github.com/hbstack/theme/commit/7690db8e8af27370c4af30ac4fa4f7ef89001257"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>增加error图片</a>
+</svg>更改菜单栏</a>
         </li>
     </ul>
   </div>
@@ -1941,7 +1949,7 @@ kubernetes manual expansion - 博客 - 打工人日志</title>
 
 
   
-<script src="/js/search.eeddcbb1990188d71bd5164a09cd2244ad90dee1077354d72c47598a346ad273.js" defer></script>
+<script src="/js/search.0711124c9046886d0276f2b9d964d9385b8f855dca630815b707d9e6cdbace10.js" defer></script>
 
 
 
