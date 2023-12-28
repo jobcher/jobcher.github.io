@@ -63,13 +63,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/git/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-02-17T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-12-28T09:54:08+08:00" />
+<meta property="article:modified_time" content="2023-12-28T09:58:33+08:00" />
 
 
 
 <meta itemprop="name" content="git使用方法">
 <meta itemprop="description" content="git 使用方法 一、git 安装配置 Debian/Ubuntu 1 apt-get install libcurl4-gnutls-dev libexpat1-dev gettext \ 2 libz-dev libssl-dev 3 4 apt-get install git 5 6 git --version 7 git version 1.8.1.2 Centos/RedHat 1 yum install curl-devel expat-devel gettext-devel \ 2 openssl-devel zlib-devel 3 4 yum -y install git-core 5 6 git --version 7 git version 1.7.1 二、git 拉取异常如何重新拉取 1.同一文件有修改，产生冲突。 先将本地修改存储起来 使用git stash命令，这样本地的所有修改就都被暂时存储起来 。其中stash@{0}就是刚才保存的标记。后续可以通过此标记访问。 再次拉取代码 1git pull 还原暂存的内容 1git stash pop stash@{0} 解决冲突 在存在冲突的文件中，Updated upstream 和=====之间的内容为拉取下来的代码，=====和stashed changes之间的内容就为本地修改的代码。解决完成之后，就可以正常的提交了。 5."><meta itemprop="datePublished" content="2022-02-17T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2023-12-28T09:54:08+08:00" />
+<meta itemprop="dateModified" content="2023-12-28T09:58:33+08:00" />
 <meta itemprop="wordCount" content="755">
 <meta itemprop="keywords" content="gitlab," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="git使用方法"/>
 <meta name="twitter:description" content="git 使用方法 一、git 安装配置 Debian/Ubuntu 1 apt-get install libcurl4-gnutls-dev libexpat1-dev gettext \ 2 libz-dev libssl-dev 3 4 apt-get install git 5 6 git --version 7 git version 1.8.1.2 Centos/RedHat 1 yum install curl-devel expat-devel gettext-devel \ 2 openssl-devel zlib-devel 3 4 yum -y install git-core 5 6 git --version 7 git version 1.7.1 二、git 拉取异常如何重新拉取 1.同一文件有修改，产生冲突。 先将本地修改存储起来 使用git stash命令，这样本地的所有修改就都被暂时存储起来 。其中stash@{0}就是刚才保存的标记。后续可以通过此标记访问。 再次拉取代码 1git pull 还原暂存的内容 1git stash pop stash@{0} 解决冲突 在存在冲突的文件中，Updated upstream 和=====之间的内容为拉取下来的代码，=====和stashed changes之间的内容就为本地修改的代码。解决完成之后，就可以正常的提交了。 5."/>
@@ -1078,11 +1078,11 @@ git使用方法 - 博客 - 打工人日志</title>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/hbstack/theme/commit/f7bef16db2aec3b1f45fbf19432999ddd5f13a6f"
+            href="https://github.com/hbstack/theme/commit/2e96eadf6909ee3a32e622fea0ee57f77380a1a7"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>去掉背景色,改为透明</a>
+</svg>改为透明</a>
         </li>
     </ul>
   </div>
@@ -1608,8 +1608,8 @@ git使用方法 - 博客 - 打工人日志</title>
 <div class="hb-module text-center bg-primary text-white p-3">
 欢迎关注
 </div>
-<div class="hb-module text-center">
-    <a href="https://www.foreverblog.cn/go.html" target="_blank"> <img src="https://img.foreverblog.cn/wormhole_3_tp.gif" alt="" style="width:auto;height:32px;" title="穿梭虫洞-随机访问十年之约友链博客"></a>
+<div class="hb-module text-center bg-primary text-white p-3">
+    <a href="https://www.foreverblog.cn/go.html" target="_blank"> <img src="https://img.foreverblog.cn/wormhole_1_tp.gif" alt="" style="width:auto;height:32px;" title="穿梭虫洞-随机访问十年之约友链博客"></a>
 </div>
   <div class="hb-blog-sidebar-posts hb-module">
     <ul class="nav nav-pills nav-fill" role="tablist">
@@ -2412,7 +2412,7 @@ git使用方法 - 博客 - 打工人日志</title>
 
 
   
-<script src="/js/search.ce4e76c6535c58123d23b75be0b64a287238f009d942ad2ab00a1501bbf2ff5b.js" defer></script>
+<script src="/js/search.084e60608c4998c0a606d7b297c6785939f192060e0ddd398573a10bd4c8f208.js" defer></script>
 
 
 
