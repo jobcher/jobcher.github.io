@@ -2225,7 +2225,7 @@
       <link>https://www.jobcher.com/docker/</link>
       <pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate>
       <guid>https://www.jobcher.com/docker/</guid>
-      <description>安装 docker 通过 docker 脚本安装&#xA;1curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun 1curl -sSL https://get.daocloud.io/docker | sh docker-compose 安装 1#下载安装 2sudo curl -L &amp;#34;https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)&amp;#34; -o /usr/local/bin/docker-compose 3#可执行权限 4sudo chmod +x /usr/local/bin/docker-compose 5#创建软链： 6sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose 7#测试是否安装成功 8docker-compose --version docker 命令 常用 docker 命令&#xA;1 #查看容器 2 docker ps 3 #查看镜像 4 docker images 5 #停止当前所有容器 6 docker stop $(docker ps -aq) 7 #删除当前停止的所有容器 8 docker rm $(docker ps -aq) 9 #删除镜像 10 docker rmi nginx </description>
+      <description>安装 docker 通过 docker 脚本安装&#xA;1curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun 1curl -sSL https://get.daocloud.io/docker | sh docker-compose 安装 1#下载安装 2sudo curl -L &amp;#34;https://github.jobcher.com/gh/https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)&amp;#34; -o /usr/local/bin/docker-compose 3#可执行权限 4sudo chmod +x /usr/local/bin/docker-compose 5#创建软链： 6sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose 7#测试是否安装成功 8docker-compose --version docker 命令 常用 docker 命令&#xA;1 #查看容器 2 docker ps 3 #查看镜像 4 docker images 5 #停止当前所有容器 6 docker stop $(docker ps -aq) 7 #删除当前停止的所有容器 8 docker rm $(docker ps -aq) 9 #删除镜像 10 docker rmi nginx </description>
     </item>
     <item>
       <title>gitlab与github同步项目</title>
