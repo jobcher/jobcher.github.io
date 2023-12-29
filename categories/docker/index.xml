@@ -38,11 +38,11 @@
       <description>清理 Docker 的 container，image 与 volume Docker 的镜像（image）、容器（container）、数据卷（volume）， 都是由 daemon 托管的。 因此，在需要清理时，也需要使用其自带的手段。&#xA;清理技巧 清理所有停止运行的容器：&#xA;1docker container prune 2# or 3docker rm $(docker ps -aq) 清理所有悬挂（&amp;lt;none&amp;gt;）镜像：&#xA;1docker image prune 2# or 3docker rmi $(docker images -qf &amp;#34;dangling=true&amp;#34;) 清理所有无用数据卷：&#xA;1docker volume prune 由于prune操作是批量删除类的危险操作，所以会有一次确认。 如果不想输入y&amp;lt;CR&amp;gt;来确认，可以添加-f操作。慎用！&#xA;清理停止的容器 docker rm -lv CONTAINER -l是清理 link，v是清理 volume。 这里的 CONTAINER 是容器的 name 或 ID，可以是一个或多个。&#xA;参数列表：&#xA;Name shorthand Default Description –force,-f false Force the removal of a running container (uses SIGKILL) –link, -l false Remove the specified link –volumes, -v false Remove the volumes associated with the container 清理所有停止的容器 通过docker ps可以查询当前运行的容器信息。 而通过docker ps -a，可以查询所有的容器信息，包括已停止的。</description>
     </item>
     <item>
-      <title>docker 命令</title>
+      <title>docker 和 docker-compose 安装</title>
       <link>https://www.jobcher.com/docker/</link>
       <pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate>
       <guid>https://www.jobcher.com/docker/</guid>
-      <description>安装 docker 通过 docker 脚本安装&#xA;1 curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun 2 curl -sSL https://get.daocloud.io/docker | sh docker-compose 安装 1#下载安装 2sudo curl -L &amp;#34;https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)&amp;#34; -o /usr/local/bin/docker-compose 3#可执行权限 4sudo chmod +x /usr/local/bin/docker-compose 5#创建软链： 6sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose 7#测试是否安装成功 8docker-compose --version docker 命令 常用 docker 命令&#xA;1 #查看容器 2 docker ps 3 #查看镜像 4 docker images 5 #停止当前所有容器 6 docker stop $(docker ps -aq) 7 #删除当前停止的所有容器 8 docker rm $(docker ps -aq) 9 #删除镜像 10 docker rmi nginx </description>
+      <description>安装 docker 通过 docker 脚本安装&#xA;1curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun 1curl -sSL https://get.daocloud.io/docker | sh docker-compose 安装 1#下载安装 2sudo curl -L &amp;#34;https://github.com/docker/compose/releases/download/v2.2.2/docker-compose-$(uname -s)-$(uname -m)&amp;#34; -o /usr/local/bin/docker-compose 3#可执行权限 4sudo chmod +x /usr/local/bin/docker-compose 5#创建软链： 6sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose 7#测试是否安装成功 8docker-compose --version docker 命令 常用 docker 命令&#xA;1 #查看容器 2 docker ps 3 #查看镜像 4 docker images 5 #停止当前所有容器 6 docker stop $(docker ps -aq) 7 #删除当前停止的所有容器 8 docker rm $(docker ps -aq) 9 #删除镜像 10 docker rmi nginx </description>
     </item>
     <item>
       <title>docker 安装kong 网关</title>

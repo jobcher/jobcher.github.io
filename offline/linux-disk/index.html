@@ -72,7 +72,7 @@ kill进程是通过截断 proc 文件系统中的文件可以强制要求系统�
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/linux-disk/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-07-20T00:00:00+00:00" />
-<meta property="article:modified_time" content="2023-12-29T01:22:40+00:00" />
+<meta property="article:modified_time" content="2023-12-29T10:37:41+08:00" />
 
 
 
@@ -81,7 +81,7 @@ kill进程是通过截断 proc 文件系统中的文件可以强制要求系统�
 获取占用列表状态 1lsof | grep deleted 可以看到哪些文件还被使用，未被释放空间。
 释放磁盘空间 一种方法是 kill 掉相应的进程，或者停掉使用这个文件的应用，让 os 自动回收磁盘空间，当 linux 打开一个文件的时候,Linux 内核会为每一个进程在/proc/, /proc/nnnn/fd/目录（nnnn 为 pid）建立一个以其 pid 为名的目录用来保存进程的相关信息，而其子目录 fd 保存的是该进程打开的所有文件的 fd（fd：file descriptor）；
 kill进程是通过截断 proc 文件系统中的文件可以强制要求系统回收分配给正在使用的的文件，这是一项高级技术，仅当管理员确定不会对运行中的进程造成影响时使用。 1kill -9 12345 # PID 重启服务 lsof 命令 lsof全名list opened files，也就是列举系统中已经被打开的文件。我们都知道，linux 环境中，任何事物都是文件，设备是文件，目录是文件，甚至sockets也是文件。"><meta itemprop="datePublished" content="2022-07-20T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2023-12-29T01:22:40+00:00" />
+<meta itemprop="dateModified" content="2023-12-29T10:37:41+08:00" />
 <meta itemprop="wordCount" content="43">
 <meta itemprop="keywords" content="日常生活," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="linux服务器 删除空间却未释放"/>
 <meta name="twitter:description" content="linux 服务器 删除空间却未释放 在Linux或者Unix系统中，通过rm或者文件管理器删除文件将会从文件系统的目录结构上解除链接(unlink)，然而如果文件是被打开的（有一个进程正在使用），那么进程将仍然可以读取该文件，磁盘空间也一直被占用，这样就会导致我们明明删除了文件，但是磁盘空间却未被释放
@@ -731,11 +731,11 @@ linux服务器 删除空间却未释放 - 博客 - 打工人日志</title>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/hbstack/theme/commit/7e465077fdf630211a2e9a62a2be067e60938d01"
+            href="https://github.com/hbstack/theme/commit/e7ba862dec80956eb0912ad1894787a18ca0e55c"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>update github trend</a>
+</svg>Update docker.md with installation instructions for docker and docker-compose</a>
         </li>
     </ul>
   </div>
@@ -1987,7 +1987,7 @@ linux服务器 删除空间却未释放 - 博客 - 打工人日志</title>
 
 
   
-<script src="/js/search.6b4da319e697c0e68436d412075339cfa0962520fee3bdd66ce05e29a1025e96.js" defer></script>
+<script src="/js/search.38aace151e612c1904726c713c4edf3ec3d41ecc9b2ccba7abdbde231ef88214.js" defer></script>
 
 
 
