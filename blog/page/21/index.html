@@ -577,6 +577,111 @@
 
     </a>
 
+      <span class="hb-blog-post-date">2022年10月7日</span>
+
+        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/k8s11/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)"
+        href="/k8s11/">kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/k8s/">k8s</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">k8s入门系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/k8s/">k8s</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">k8s 部署插件 Kubernetes 是高度可配置且可扩展的。因此，大多数情况下， 你不需要派生自己的 Kubernetes 副本或者向项目代码提交补丁，本文会介绍几种常用的 k8s 插件，如果大家喜欢的话，希望大家点赞支持。
+1. Flannel 网络插件 Flannel是由 go 语言开发，是一种基于 Overlay 网络的跨主机容器网络解决方案，也就是将TCP数据包封装在另一种网络包里面进行路由转发和通信，Flannel 是 CoreOS 开发，专门用于 docker 多主机互联的一个工具，简单来说，它的功能是让集群中的不同节点主机创建的容器都具有全局唯一的虚拟IP地址
+主要功能：
+为每个 node 分配 subnet，容器将自动从该子网中获取 IP 地址 当有 node 加入到网络中时，为每个 node 增加路由配置 下载并安装 1wget https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml 2kubectl apply -f kube-flannel.yml 如果 yml 中的&quot;Network&quot;: 10.244.0.0/16和kubeadm init xxx --pod-network-cidr不一样，就需要修改成一样的。不然可能会使得Node间Cluster IP不通。
+2. Ingress Controller Ingress 是对集群中服务的外部访问进行管理的 API 对象，典型的访问方式是 HTTP。
+Ingress 可以提供负载均衡、SSL 终结和基于名称的虚拟托管
+下面是一个将所有流量都发送到同一 Service 的简单 Ingress 示例：
+Ingress 可为 Service 提供外部可访问的 URL、负载均衡流量、终止 SSL/TLS，以及基于名称的虚拟托管。 Ingress 控制器 通常负责通过负载均衡器来实现 Ingress，尽管它也可以配置边缘路由器或其他前端来帮助处理流量。</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/k8s11/">阅读更多关于kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
       <span class="hb-blog-post-date">2022年9月30日</span>
 
         <span class="hb-blog-post-reading-time">1 分钟阅读</span>
@@ -1690,107 +1795,6 @@ Headscale 部署 我决定使用docker-compose进行部署
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2022年8月29日</span>
-
-        <span class="hb-blog-post-reading-time">16 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/rocketmq3/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="RocketMQ k8s部署 4主4从集群"
-        href="/rocketmq3/">RocketMQ k8s部署 4主4从集群</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/">日常系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/rocketmq/">RocketMQ</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">RocketMQ k8s 部署 4 主 4 从集群 使用 NFS 配置 StatefulSet 的动态持久化存储 安装 NFS 服务端 1sudo apt update 2sudo apt install nfs-kernel-server nfs-common 安装 NFS 客户端 所有的节点都得执行
-sudo apt install nfs-common -y
-创建目录 1mkdir -p /data/storage/k8s/rocketmq 使用 NFS 作为StatefulSet持久化存储的操作记录，分别需要创建nfs-provisioner的rbac、storageclass、nfs-client-provisioner和statefulset的pod
-创建 nfs 的 rbac 1--- 2apiVersion: v1 3kind: ServiceAccount 4metadata: 5 name: nfs-provisioner 6 namespace: sanjiang 7--- 8kind: ClusterRole 9apiVersion: rbac.authorization.k8s.io/v1 10metadata: 11 name: nfs-provisioner-runner 12 namespace: sanjiang 13rules: 14 - apiGroups: [&#34;&#34;] 15 resources: [&#34;persistentvolumes&#34;] 16 verbs: [&#34;get&#34;, &#34;list&#34;, &#34;watch&#34;, &#34;create&#34;, &#34;delete&#34;] 17 - apiGroups: [&#34;&#34;] 18 resources: [&#34;persistentvolumeclaims&#34;] 19 verbs: [&#34;get&#34;, &#34;list&#34;, &#34;watch&#34;, &#34;update&#34;] 20 - apiGroups: [&#34;storage.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/rocketmq3/">阅读更多关于RocketMQ k8s部署 4主4从集群的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
     
@@ -2057,6 +2061,69 @@ sudo apt install nfs-common -y
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2023-12-29/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2023-12-29.jpg.a87bc08e42198c2f9409d047d1b8c7dd.webp"
+    alt="2023-12-29 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2023-12-29 打工人日报"
+        href="/github_trending_2023-12-29/">2023-12-29 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2023-12-28/">
     
 
@@ -2302,69 +2369,6 @@ sudo apt install nfs-common -y
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2023-12-24/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2023-12-24.jpg.c3ccfe6f132ea719e8d2b6abd3d6ca98.webp"
-    alt="2023-12-24 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2023-12-24 打工人日报"
-        href="/github_trending_2023-12-24/">2023-12-24 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2511,8 +2515,8 @@ sudo apt install nfs-common -y
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
-          href="/categories/%E7%9B%91%E6%8E%A7/">
-          <span class="taxonomy-term-title">监控</span>
+          href="/categories/%E6%97%A5%E6%8A%A5/">
+          <span class="taxonomy-term-title">日报</span>
             <small class="taxonomy-term-count border rounded px-1">8</small>
         </a>
     </div>
@@ -2566,6 +2570,12 @@ sudo apt install nfs-common -y
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/series/%E6%97%A5%E6%8A%A5/">
+          <span class="taxonomy-term-title">日报</span>
+            <small class="taxonomy-term-count border rounded px-1">8</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7%E7%B3%BB%E5%88%97/">
           <span class="taxonomy-term-title">运维监控系列</span>
             <small class="taxonomy-term-count border rounded px-1">8</small>
@@ -2574,12 +2584,6 @@ sudo apt install nfs-common -y
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/web%E6%9C%8D%E5%8A%A1%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">
           <span class="taxonomy-term-title">web服务入门系列</span>
-            <small class="taxonomy-term-count border rounded px-1">7</small>
-        </a>
-        <a
-          class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
-          href="/series/%E6%97%A5%E6%8A%A5/">
-          <span class="taxonomy-term-title">日报</span>
             <small class="taxonomy-term-count border rounded px-1">7</small>
         </a>
     </div>
@@ -2738,7 +2742,7 @@ sudo apt install nfs-common -y
 
 
   
-<script src="/js/search.1935e527166dc97542b7485fcede2a2a048f08670017c8ba2898d607380d5c91.js" defer></script>
+<script src="/js/search.6b4da319e697c0e68436d412075339cfa0962520fee3bdd66ce05e29a1025e96.js" defer></script>
 
 
 
