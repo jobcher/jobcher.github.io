@@ -588,6 +588,106 @@
 
       <span class="hb-blog-post-date">2022年10月8日</span>
 
+        <span class="hb-blog-post-reading-time">3 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/k8s13/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="Kubernetes — 探针和生命周期"
+        href="/k8s13/">Kubernetes — 探针和生命周期</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/k8s/">k8s</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">k8s入门系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/k8s/">k8s</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">Kubernetes — 探针和生命周期 用于判断容器内应用程序是否已经启动。
+存活（Liveness）探针 用于探测容器是否运行，如果探测失败，kubelet 会根据配置的重启策略进行相应的处理，若没有配置探针该返回值默认为 success 就绪（Readiness）探针 用于探测容器内的程序是否健康，如果返回值为 success，那么代表这个容器已经完全启动，并且程序已经是可以接受流量的状态 启动（Startup）探针 用于探测容器是否启动，如果配置了 startup 就会先禁止其他探测，直到它成功，成功后将不在运行探测 Pod 检测方式 ExecAction：在容器执行一个命令，返回值为 0，则认为容器健康 TCPSocketAction：通过 TCP 连接检查容器是否联通，通的话，则认为容器正常 HTTPGetAction：通过应用程序暴露的 API 地址来检查程序是否正常的，如果状态码为 200-400 之间，则认为容器健康 gRPCAction：通过 gRPC 的检查机制，判断容器是不是正常 StartupProbe 启动探针 有时候，会有一些现有的应用在启动时需要较长的初始化时间。 要这种情况下，若要不影响对死锁作出快速响应的探测，设置存活探测参数是要技巧的。 技巧就是使用相同的命令来设置启动探测，针对 HTTP 或 TCP 检测，可以通过将 failureThreshold * periodSeconds 参数设置为足够长的时间来应对糟糕情况下的启动时间。
+1ports: 2 - name: liveness-port 3 containerPort: 8080 4 hostPort: 8080 5 6livenessProbe: 7 httpGet: 8 path: /healthz 9 port: liveness-port 10 failureThreshold: 1 11 periodSeconds: 10 12 13startupProbe: 14 httpGet: 15 path: /healthz 16 port: liveness-port 17 failureThreshold: 30 18 periodSeconds: 10 幸亏有启动探测，应用程序将会有最多 5 分钟（30 * 10 = 300s）的时间来完成其启动过程。 一旦启动探测成功一次，存活探测任务就会接管对容器的探测，对容器死锁作出快速响应。 如果启动探测一直没有成功，容器会在 300 秒后被杀死，并且根据restartPolicy来执行进一步处置。</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/k8s13/">阅读更多关于Kubernetes — 探针和生命周期的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年10月8日</span>
+
         <span class="hb-blog-post-reading-time">1 分钟阅读</span>
 
       
@@ -3617,115 +3717,6 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
 </div>
 
       </div>
-      <div class="archive-subheading h5 mb-3">
-          <a class="text-decoration-none" href="/archives/2022/04/">四月</a>
-      </div>
-      <div class="archive-posts border-top pt-3">
-        
-<div class="hb-blog-posts row row-cols-1 row-cols-lg-2 row-cols-xl-3 g-3 mb-3">
-  
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2022年4月26日</span>
-
-        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/go3/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="go Struct 结构体"
-        href="/go3/">go Struct 结构体</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/go/">go</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/go%E7%B3%BB%E5%88%97/">go系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/golang/">golang</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">go Struct 结构体 结构体是将零个或多个任意类型的变量，组合在一起的聚合数据类型，也可以看做是数据的集合。
-声明结构体 1//demo_11.go 2package main 3 4import ( 5	&#34;fmt&#34; 6) 7 8type Person struct { 9	Name string 10	Age int 11} 12 13func main() { 14	var p1 Person 15	p1.Name = &#34;Tom&#34; 16	p1.Age = 30 17	fmt.Println(&#34;p1 =&#34;, p1) 18 19	var p2 = Person{Name:&#34;Burke&#34;, Age:31} 20	fmt.Println(&#34;p2 =&#34;, p2) 21 22	p3 := Person{Name:&#34;Aaron&#34;, Age:32} 23	fmt.Println(&#34;p2 =&#34;, p3) 24 25	//匿名结构体 26	p4 := struct { 27	Name string 28	Age int 29	} {Name:&#34;匿名&#34;, Age:33} 30	fmt.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/go3/">阅读更多关于go Struct 结构体的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
-</div>
-
-      </div>
   </div>
 
   <div class="border-1">
@@ -3801,7 +3792,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
   <div class="h5">打工人日志</div>
   <ul class="list-unstyled small mb-2">
       <li class="mt-2">keep simple, keep stupid</li>
-      <li class="mt-2">Copyright © 2022-2023 All Rights Reserved.</li>
+      <li class="mt-2">Copyright © 2022-2024 All Rights Reserved.</li>
   <li class="mt-2">
     Built with ❤️ from <a class="text-body-emphasis" href="https://gohugo.io/" target="_blank" rel="external" title="Hugo">Hugo</a>, <a class="text-body-emphasis" href="https://hugomods.com/" target="_blank" rel="external" title="HugoMods">HugoMods</a> and <a class="text-body-emphasis" href="https://hbstack.dev/" target="_blank" rel="external" title="HB Framework">HB Framework</a>.
   </li>
@@ -3869,7 +3860,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
 
 
   
-<script src="/js/search.c1f27a79d4449867d88586d64ab7d45decf48628e24231ae97f926010edb35b7.js" defer></script>
+<script src="/js/search.d663513f65890a2aee52bcacdac20faa9079a5227cf00a08d455fab17f4a55cb.js" defer></script>
 
 
 
