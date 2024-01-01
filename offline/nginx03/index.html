@@ -68,13 +68,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/nginx03/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2021-12-24T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-01-01T14:02:48+08:00" />
+<meta property="article:modified_time" content="2024-01-01T14:03:48+08:00" />
 
 
 
 <meta itemprop="name" content="nginx.conf 配置文件详解">
 <meta itemprop="description" content="nginx.conf 配置文件详解 1# vim nginx.conf 2user nobody nobody; # 运行 nginx 的所属组和所有者 3worker_processes 2; # 开启两个 nginx 工作进程,一般几个 CPU 核心就写几 4error_log logs/error.log notice; # 错误日志路径 5pid logs/nginx.pid; # pid 路径 6 7events 8{ 9 worker_connections 1024; # 一个进程能同时处理 1024 个请求 10} 11 12http 13{ 14 include mime.types; 15 default_type application/octet-stream; 16 17 log_format main ‘$remote_addr – $remote_user [$time_local] “$request” ‘ 18 ‘$status $body_bytes_sent “$http_referer” ‘ 19 ‘”$http_user_agent” “$http_x_forwarded_for”‘; 20 access_log logs/access."><meta itemprop="datePublished" content="2021-12-24T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-01-01T14:02:48+08:00" />
+<meta itemprop="dateModified" content="2024-01-01T14:03:48+08:00" />
 <meta itemprop="wordCount" content="216">
 <meta itemprop="keywords" content="nginx,linux," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="nginx.conf 配置文件详解"/>
 <meta name="twitter:description" content="nginx.conf 配置文件详解 1# vim nginx.conf 2user nobody nobody; # 运行 nginx 的所属组和所有者 3worker_processes 2; # 开启两个 nginx 工作进程,一般几个 CPU 核心就写几 4error_log logs/error.log notice; # 错误日志路径 5pid logs/nginx.pid; # pid 路径 6 7events 8{ 9 worker_connections 1024; # 一个进程能同时处理 1024 个请求 10} 11 12http 13{ 14 include mime.types; 15 default_type application/octet-stream; 16 17 log_format main ‘$remote_addr – $remote_user [$time_local] “$request” ‘ 18 ‘$status $body_bytes_sent “$http_referer” ‘ 19 ‘”$http_user_agent” “$http_x_forwarded_for”‘; 20 access_log logs/access."/>
@@ -741,11 +741,11 @@ nginx.conf 配置文件详解 - 博客 - 打工人日志</title>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/433dc7e1b1ae85494e0319a332e4dabdddf65c39"
+            href="https://github.com/jobcher/new-blog/commit/746892928ec40758b8c7c18673b7fffe228d9be2"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>update</a>
+</svg>隐藏评论</a>
         </li>
     </ul>
   </div>
@@ -1929,36 +1929,18 @@ nginx.conf 配置文件详解 - 博客 - 打工人日志</title>
 
 
 <script
-  src="/js/hb.03d8f5993f48bdeb6085993ce674ad8f32b3d13ce487b77ddd2063bf8430d950.js"
-  integrity="sha256-A9j1mT9IvetghZk85nStjzKz0Tzkh7d93SBjv4Qw2VA="
+  src="/js/hb.9d48f35cf2794450d932cb78776635356877f51e064f9794bb6186b4ea14b402.js"
+  integrity="sha256-nUjzXPJ5RFDZMst4d2Y1NWh39R4GT5eUu2GGtOoUtAI="
   defer></script>
 
 
   
 
-  
-  <script
-    src="https://giscus.app/client.js"
-    data-repo="jobcher/jobcher.github.io"
-    data-repo-id="R_kgDOGls6vw"
-    data-category="General"
-    data-category-id="DIC_kwDOGls6v84CcDKf"
-    data-mapping="pathname"
-    data-reactions-enabled="1"
-    data-input-position="top"
-    data-theme="preferred_color_scheme"
-    data-lang="zh-CN"
-    data-loading="lazy"
-    data-strict="1"
-    crossorigin="anonymous"
-    onload="document.body.dispatchEvent(new Event('giscus-load'))"
-    async
-  ></script>
 
 
 
   
-<script src="/js/search.c1da1b4a8eb1e317f55164e14cfc861bd9dd47903946bd60b241fa2bdf5b5e2c.js" defer></script>
+<script src="/js/search.343608ad0b24a5c538b3eb2e374d89312686f690ec421d52c39ab3e2dfbc2695.js" defer></script>
 
 
 

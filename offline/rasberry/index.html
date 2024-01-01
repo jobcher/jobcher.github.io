@@ -69,14 +69,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/rasberry/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2021-12-06T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-01-01T14:02:48+08:00" />
+<meta property="article:modified_time" content="2024-01-01T14:03:48+08:00" />
 
 
 
 <meta itemprop="name" content="树莓派搭建k3s">
 <meta itemprop="description" content="树莓派安装 k3s 1.安装 k3s 控制节点 1 curl -sfL https://get.k3s.io | sh - 2 cat /var/lib/rancher/k3s/server/node-token 工作节点 1 curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetoken sh - 树莓派特别要注意一个坑，就是关于内存的问题这个之后再讲
 1 k3s kubectl get nodes 2 #显示正确的节点表示完成 卸载 k3s 1 #server 节点 2 /usr/local/bin/k3s-uninstall.sh 3 #agent 节点 4 /usr/local/bin/k3s-agent-uninstall.sh 2.安装 dashboard k3s 面板 部署 Kubernetes 仪表盘 1 GITHUB_URL=https://github.com/kubernetes/dashboard/releases 2 VERSION_KUBE_DASHBOARD=$(curl -w &#39;%{url_effective}&#39; -I -L -s -S ${GITHUB_URL}/latest -o /dev/null | sed -e &#39;s|.*/||&#39;) 3 sudo k3s kubectl create -f https://raw."><meta itemprop="datePublished" content="2021-12-06T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-01-01T14:02:48+08:00" />
+<meta itemprop="dateModified" content="2024-01-01T14:03:48+08:00" />
 <meta itemprop="wordCount" content="221">
 <meta itemprop="keywords" content="树莓派,k3s," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="树莓派搭建k3s"/>
 <meta name="twitter:description" content="树莓派安装 k3s 1.安装 k3s 控制节点 1 curl -sfL https://get.k3s.io | sh - 2 cat /var/lib/rancher/k3s/server/node-token 工作节点 1 curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetoken sh - 树莓派特别要注意一个坑，就是关于内存的问题这个之后再讲
@@ -798,11 +798,11 @@
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/433dc7e1b1ae85494e0319a332e4dabdddf65c39"
+            href="https://github.com/jobcher/new-blog/commit/746892928ec40758b8c7c18673b7fffe228d9be2"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>update</a>
+</svg>隐藏评论</a>
         </li>
     </ul>
   </div>
@@ -2025,36 +2025,18 @@
 
 
 <script
-  src="/js/hb.03d8f5993f48bdeb6085993ce674ad8f32b3d13ce487b77ddd2063bf8430d950.js"
-  integrity="sha256-A9j1mT9IvetghZk85nStjzKz0Tzkh7d93SBjv4Qw2VA="
+  src="/js/hb.9d48f35cf2794450d932cb78776635356877f51e064f9794bb6186b4ea14b402.js"
+  integrity="sha256-nUjzXPJ5RFDZMst4d2Y1NWh39R4GT5eUu2GGtOoUtAI="
   defer></script>
 
 
   
 
-  
-  <script
-    src="https://giscus.app/client.js"
-    data-repo="jobcher/jobcher.github.io"
-    data-repo-id="R_kgDOGls6vw"
-    data-category="General"
-    data-category-id="DIC_kwDOGls6v84CcDKf"
-    data-mapping="pathname"
-    data-reactions-enabled="1"
-    data-input-position="top"
-    data-theme="preferred_color_scheme"
-    data-lang="zh-CN"
-    data-loading="lazy"
-    data-strict="1"
-    crossorigin="anonymous"
-    onload="document.body.dispatchEvent(new Event('giscus-load'))"
-    async
-  ></script>
 
 
 
   
-<script src="/js/search.c1da1b4a8eb1e317f55164e14cfc861bd9dd47903946bd60b241fa2bdf5b5e2c.js" defer></script>
+<script src="/js/search.343608ad0b24a5c538b3eb2e374d89312686f690ec421d52c39ab3e2dfbc2695.js" defer></script>
 
 
 
