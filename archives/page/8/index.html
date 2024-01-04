@@ -538,6 +538,160 @@
         <a class="text-decoration-none" href="/archives/2023/">2023</a>
     </div>
       <div class="archive-subheading h5 mb-3">
+          <a class="text-decoration-none" href="/archives/2023/06/">六月</a>
+      </div>
+      <div class="archive-posts border-top pt-3">
+        
+<div class="hb-blog-posts row row-cols-1 row-cols-lg-2 row-cols-xl-3 g-3 mb-3">
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2023年6月1日</span>
+
+        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/nvidia-docker/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+    <source srcset="/images/nvidia-docker_hu7523e3c1b4e5e73cf60cda2ebd60b35f_433798_670x354_resize_q75_h2_box_3.webp" type="image/webp" />
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/nvidia-docker.f4d771fa4a5f0684232e899f46149b8e.png"
+    alt="NVIDIA GPU 的 docker 安装和部署"
+    loading="lazy"
+    height="354"
+    width="670"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="NVIDIA GPU 的 docker 安装和部署"
+        href="/nvidia-docker/">NVIDIA GPU 的 docker 安装和部署</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E7%B3%BB%E5%88%97/">人工智能系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/chatgpt/">ChatGPT</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">背景 在人工智能领域，GPU 是必不可少的。在本文中，我们将介绍如何在服务器上安装和部署 NVIDIA GPU 的 docker
+升级你的CUDA 官网链接
+选择你的系统对应版本进行安装
+安装 确保你的系统已经安装了NVIDIA驱动和Docker引擎。确保驱动版本与Docker引擎兼容。你还需要安装nvidia-docker2软件包，它是NVIDIA Docker的一个插件。可以在https://github.com/NVIDIA/nvidia-docker上找到安装说明
+1.1 卸载旧版本的nvidia-docker(如果已安装) 1sudo apt-get remove nvidia-docker 1.2 添加nvidia-docker2仓库
+1distribution=$(. /etc/os-release;echo $ID$VERSION_ID) 2curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | sudo apt-key add - 3curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | sudo tee /etc/apt/sources.list.d/nvidia-docker.list 1.3 更新软件包列表和安装nvidia-docker2
+1sudo apt-get update 2sudo apt-get install nvidia-docker2 1.4 重启Docker守护进程
+1sudo systemctl restart docker 通过以下命令测试是否安装成功 1docker run --gpus all nvidia/cuda:10.0-base nvidia-smi 如果安装成功，你将看到类似下面的输出 1+-----------------------------------------------------------------------------+ 2| NVIDIA-SMI 440.33.01 Driver Version: 440.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/nvidia-docker/">阅读更多关于NVIDIA GPU 的 docker 安装和部署的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+</div>
+
+      </div>
+      <div class="archive-subheading h5 mb-3">
           <a class="text-decoration-none" href="/archives/2023/05/">五月</a>
       </div>
       <div class="archive-posts border-top pt-3">
@@ -3640,118 +3794,6 @@ Please create pull requests instead of asking for help on Homebrew&rsquo;s GitHu
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2022年10月21日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/ipfs/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="打开web 3.0的大门——IPFS使用"
-        href="/ipfs/">打开web 3.0的大门——IPFS使用</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/web3.0/">web3.0</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/web3.0/">web3.0</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/ipfs/">IPFS</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/web3.0/">web3.0</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">背景 有很多朋友问我什么是 web3.0，web3.0 似乎离我们非常远。有人会说 web3.0 是未来下一代的技术很有前景！但是举出一个具体的例子，似乎又非常困难。使用 web3.0 是一件非常高科技的事情。本文就是通过各 IPFS 给各位初学者和对 web3.0 感兴趣的人使用介绍，看完本篇文章，你就能进入 web3.0 的世界了~
-IPFS 星际文件系统(InterPlanetary File System). IPFS 是一个分布式的 web, 点到点超媒体协议. 可以让我们的互联网速度更快, 更加安全, 并且更加开放. IPFS协议的目标是取代传统的互联网协议HTTP
-下载安装 本文不会对技术做更深入探讨，只在应用层面上介绍
-下载 官网
-下载 windows
-下载 MAC
-安装 运行 .exe 文件开始安装，选择是要为您自己还是为计算机上的所有用户安装应用程序。点击下一步：
-选择应用程序的安装位置。默认位置通常很好。点击下一步：
-等待安装完成，然后单击完成：
-您现在可以在状态栏中找到 IPFS 图标：
-使用 打开软件 可以正常使用了！是不是很简单接下来浏览器直接查看 web3.0 站点 站点 我的 web3.0 blog： ipfs.jobcher.com
-对标 youdTube 的视频网站: d.tube
-Orbit，QQ 在 IPFS 上的替代者: orbit.chat
-Akasha，对标 facebook，微信等社交工具：akasha.world</div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       </div>
@@ -3902,7 +3944,7 @@ Akasha，对标 facebook，微信等社交工具：akasha.world</div>
 
 
   
-<script src="/js/search.85ea0be051fbaf46f93f61e7493622ca58c3a0b934f8d1aaf52dc5e54d4b9033.js" defer></script>
+<script src="/js/search.1f0e15b737b3b3b968810aa1bd14c032a959b8e3e7502301cdabfda5c0fd6fa3.js" defer></script>
 
 
 
