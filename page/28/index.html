@@ -572,7 +572,7 @@
     class="nav-link d-flex flex-column"
     href="/"
     title="文章">
-    <span class="mb-3 text-body fw-bold">364</span>
+    <span class="mb-3 text-body fw-bold">365</span>
     <span class="text-body"><svg aria-hidden="true" class="bi bi-file-richtextbi bi-file-richtext hi-svg-inline text-primary" fill="currentColor" height="2.25em" viewBox="0 0 16 16" width="2.25em" xmlns="http://www.w3.org/2000/svg">
   <path d="M7 4.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m-.861 1.542 1.33.886 1.854-1.855a.25.25 0 0 1 .289-.047l1.888.974V7.5a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V7s1.54-1.274 1.639-1.208M5 9a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1z"/>
   <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1"/>
@@ -625,6 +625,102 @@
 
       
 <div class="hb-blog-posts row row-cols-1 row-cols-md-2 g-3 mb-3">
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2021年12月29日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/logrotate/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="logrotate 日志滚动的使用"
+        href="/logrotate/">logrotate 日志滚动的使用</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/">日常系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/daliy/">daliy</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">logrotate 日志滚动的使用 logrotate 日志滚动切割工具，是 linux 默认安装的工具，配置文件位置：
+1/etc/logrotate.conf 2/etc/logrotate.d/ 参数 以 nginx 配置为例
+1/opt/log/nginx/*.log { 2	daily 3	missingok 4	rotate 14 5 errors &#34;nb@nbtyfood.com&#34; 6	compress 7	delaycompress 8	notifempty 9	create 0640 www-data adm 10	sharedscripts 11	prerotate 12	if [ -d /etc/logrotate.d/httpd-prerotate ]; then \ 13	run-parts /etc/logrotate.d/httpd-prerotate; \ 14	fi \ 15	endscript 16	postrotate 17	invoke-rc.d nginx rotate &gt;/dev/null 2&gt;&amp;1 18	endscript 19} 参数 作用 compress 压缩日志文件的所有非当前版本 daily,weekly,monthly 按指定计划轮换日志文件 delaycompress 压缩所有版本，除了当前和下一个最近的 endscript 标记 prerotate 或 postrotate 脚本的结束 errors &ldquo;emailid&rdquo; 给指定邮箱发送错误通知 missingok 如果日志文件丢失，不要显示错误 notifempty 如果日志文件为空，则不轮换日志文件 olddir &ldquo;dir&rdquo; 指定日志文件的旧版本放在 “dir” 中 postrotate 引入一个在日志被轮换后执行的脚本 prerotate 引入一个在日志被轮换前执行的脚本 rotate &rsquo;n' 在轮换方案中包含日志的 n 个版本 sharedscripts 对于整个日志组只运行一次脚本 size=&lsquo;logsize&rsquo; 在日志大小大于 logsize（例如 100K，4M）时轮换 </div>
+  </div>
+</div>
+
+    </div>
   
     <div class="col">
       
@@ -1709,104 +1805,6 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2021年12月22日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/docker-kong/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="docker 安装kong 网关"
-        href="/docker-kong/">docker 安装kong 网关</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/docker/">docker</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/docker%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">docker入门系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/docker/">docker</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">docker 安装 kong 网关 建立数据库 创建网络 1docker network create kong-net 建立数据库 1docker run -d --name kong-database \ 2 --network=kong-net \ 3 -p 5432:5432 \ 4 -e &#34;POSTGRES_USER=kong&#34; \ 5 -e &#34;POSTGRES_DB=kong&#34; \ 6 -e &#34;POSTGRES_PASSWORD=kong123&#34; \ 7 postgres:9.6 创建 kong 数据 1docker run --rm --network=kong-net \ 2 -e &#34;KONG_DATABASE=postgres&#34; \ 3 -e &#34;KONG_PG_HOST=kong-database&#34; \ 4 -e &#34;KONG_PG_PASSWORD=kong123&#34; \ 5 -e &#34;KONG_PASSWORD=kong123&#34; \ 6 kong:latest kong migrations bootstrap 创建 kong 创建 kong gateway 1 docker run -d --name kong \ 2 --network=kong-net \ 3 -e &#34;KONG_DATABASE=postgres&#34; \ 4 -e &#34;KONG_PG_HOST=kong-database&#34; \ 5 -e &#34;KONG_PG_USER=kong&#34; \ 6 -e &#34;KONG_PG_PASSWORD=kong123&#34; \ 7 -e &#34;KONG_CASSANDRA_CONTACT_POINTS=kong-database&#34; \ 8 -e &#34;KONG_PROXY_ACCESS_LOG=/dev/stdout&#34; \ 9 -e &#34;KONG_ADMIN_ACCESS_LOG=/dev/stdout&#34; \ 10 -e &#34;KONG_PROXY_ERROR_LOG=/dev/stderr&#34; \ 11 -e &#34;KONG_ADMIN_ERROR_LOG=/dev/stderr&#34; \ 12 -e &#34;KONG_ADMIN_LISTEN=0.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/docker-kong/">阅读更多关于docker 安装kong 网关的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       
@@ -2067,6 +2065,69 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-01-07/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-01-07.jpg.e5d1f4aab23dbadd32e84ed83bd8e2af.webp"
+    alt="2024-01-07 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-01-07 打工人日报"
+        href="/github_trending_2024-01-07/">2024-01-07 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-01-06/">
     
 
@@ -2312,69 +2373,6 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-01-02/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-01-02.jpg.bbf69bdd7a5d70750933d90969c14192.webp"
-    alt="2024-01-02 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-01-02 打工人日报"
-        href="/github_trending_2024-01-02/">2024-01-02 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2487,7 +2485,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">16</small>
+            <small class="taxonomy-term-count border rounded px-1">17</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2560,7 +2558,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">16</small>
+            <small class="taxonomy-term-count border rounded px-1">17</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2621,7 +2619,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">16</small>
+            <small class="taxonomy-term-count border rounded px-1">17</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2748,7 +2746,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
 
 
   
-<script src="/js/search.5be9d0d1023bd9e3d9d607ed9511952999be314e87efa94ae919c5e137212e37.js" defer></script>
+<script src="/js/search.8a8c3c9078bf7b680bdb184e69469623d40afb5ab2b117260d86a1f0e7507826.js" defer></script>
 
 
 

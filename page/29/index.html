@@ -572,7 +572,7 @@
     class="nav-link d-flex flex-column"
     href="/"
     title="文章">
-    <span class="mb-3 text-body fw-bold">364</span>
+    <span class="mb-3 text-body fw-bold">365</span>
     <span class="text-body"><svg aria-hidden="true" class="bi bi-file-richtextbi bi-file-richtext hi-svg-inline text-primary" fill="currentColor" height="2.25em" viewBox="0 0 16 16" width="2.25em" xmlns="http://www.w3.org/2000/svg">
   <path d="M7 4.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m-.861 1.542 1.33.886 1.854-1.855a.25.25 0 0 1 .289-.047l1.888.974V7.5a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V7s1.54-1.274 1.639-1.208M5 9a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1z"/>
   <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1"/>
@@ -625,6 +625,104 @@
 
       
 <div class="hb-blog-posts row row-cols-1 row-cols-md-2 g-3 mb-3">
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2021年12月22日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/docker-kong/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="docker 安装kong 网关"
+        href="/docker-kong/">docker 安装kong 网关</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/docker/">docker</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/docker%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">docker入门系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/docker/">docker</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">docker 安装 kong 网关 建立数据库 创建网络 1docker network create kong-net 建立数据库 1docker run -d --name kong-database \ 2 --network=kong-net \ 3 -p 5432:5432 \ 4 -e &#34;POSTGRES_USER=kong&#34; \ 5 -e &#34;POSTGRES_DB=kong&#34; \ 6 -e &#34;POSTGRES_PASSWORD=kong123&#34; \ 7 postgres:9.6 创建 kong 数据 1docker run --rm --network=kong-net \ 2 -e &#34;KONG_DATABASE=postgres&#34; \ 3 -e &#34;KONG_PG_HOST=kong-database&#34; \ 4 -e &#34;KONG_PG_PASSWORD=kong123&#34; \ 5 -e &#34;KONG_PASSWORD=kong123&#34; \ 6 kong:latest kong migrations bootstrap 创建 kong 创建 kong gateway 1 docker run -d --name kong \ 2 --network=kong-net \ 3 -e &#34;KONG_DATABASE=postgres&#34; \ 4 -e &#34;KONG_PG_HOST=kong-database&#34; \ 5 -e &#34;KONG_PG_USER=kong&#34; \ 6 -e &#34;KONG_PG_PASSWORD=kong123&#34; \ 7 -e &#34;KONG_CASSANDRA_CONTACT_POINTS=kong-database&#34; \ 8 -e &#34;KONG_PROXY_ACCESS_LOG=/dev/stdout&#34; \ 9 -e &#34;KONG_ADMIN_ACCESS_LOG=/dev/stdout&#34; \ 10 -e &#34;KONG_PROXY_ERROR_LOG=/dev/stderr&#34; \ 11 -e &#34;KONG_ADMIN_ERROR_LOG=/dev/stderr&#34; \ 12 -e &#34;KONG_ADMIN_LISTEN=0.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/docker-kong/">阅读更多关于docker 安装kong 网关的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
   
     <div class="col">
       
@@ -1706,105 +1804,6 @@ log_format combined &#39;$remote_addr - $remote_user [$time_local] &#39; &#39;&#
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2021年12月12日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/mysql01/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="mysql 笔记（1）"
-        href="/mysql01/">mysql 笔记（1）</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/mysql%E7%B3%BB%E5%88%97/">mysql系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/mysql/">mysql</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">mysql 学习笔记（1） 本文章不涉及到关于 mysql 开放上的问题，主要记录关于 mysql 出现的问题，以及如何去维护 mysql 数据的日常。
-mysql 各类信息的收集 收集变量信息 1show global variables; 收集进程信息 1show PROCESSLIST; 收集错误日志 1show global variables like &#39;log_error&#39;; 收集慢日志信息 1show global variables like &#39;slow_querry_log_file&#39;; 收集锁信息，高峰时期运行三次，每次间隔 10s 1SELECT locked_table, 2 locked_index, 3 locked_type, 4 blocking_pid, 5 T2.USER blocking_user, 6 T2.HOST blocking_host, 7 blocking_lock_mode, 8 blocking_trx_rows_modified, 9 waiting_pid, 10 T3.USER waiting_user, 11 T3.HOST waiting_host, 12 waiting_lock_mode, 13 waiting_trx_row_modified, 14 wait_age_secs, 15 waiting_query 16FROM sys.x$innodb_lock_waits T1 17LEFT JOIN INFROMATION_SCHEMA.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/mysql01/">阅读更多关于mysql 笔记（1）的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       
@@ -2061,6 +2060,69 @@ mysql 各类信息的收集 收集变量信息 1show global variables; 收集进
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-01-07/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-01-07.jpg.e5d1f4aab23dbadd32e84ed83bd8e2af.webp"
+    alt="2024-01-07 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-01-07 打工人日报"
+        href="/github_trending_2024-01-07/">2024-01-07 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-01-06/">
     
 
@@ -2306,69 +2368,6 @@ mysql 各类信息的收集 收集变量信息 1show global variables; 收集进
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-01-02/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-01-02.jpg.bbf69bdd7a5d70750933d90969c14192.webp"
-    alt="2024-01-02 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-01-02 打工人日报"
-        href="/github_trending_2024-01-02/">2024-01-02 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2481,7 +2480,7 @@ mysql 各类信息的收集 收集变量信息 1show global variables; 收集进
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">16</small>
+            <small class="taxonomy-term-count border rounded px-1">17</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2554,7 +2553,7 @@ mysql 各类信息的收集 收集变量信息 1show global variables; 收集进
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">16</small>
+            <small class="taxonomy-term-count border rounded px-1">17</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2615,7 +2614,7 @@ mysql 各类信息的收集 收集变量信息 1show global variables; 收集进
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">16</small>
+            <small class="taxonomy-term-count border rounded px-1">17</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2742,7 +2741,7 @@ mysql 各类信息的收集 收集变量信息 1show global variables; 收集进
 
 
   
-<script src="/js/search.5be9d0d1023bd9e3d9d607ed9511952999be314e87efa94ae919c5e137212e37.js" defer></script>
+<script src="/js/search.8a8c3c9078bf7b680bdb184e69469623d40afb5ab2b117260d86a1f0e7507826.js" defer></script>
 
 
 
