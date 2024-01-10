@@ -68,13 +68,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/k8s2/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-02-13T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-01-09T01:30:25+00:00" />
+<meta property="article:modified_time" content="2024-01-10T01:30:30+00:00" />
 
 
 
 <meta itemprop="name" content="Kubernetes 安装">
 <meta itemprop="description" content="Kubernetes 安装 环境配置 关闭防火墙： 如果是云服务器，需要设置安全组策略放行端口 1systemctl stop firewalld 2systemctl disable firewalld 修改 hostname 1hostnamectl set-hostname k8s-01 2echo &#34;127.0.0.1 $(hostname)&#34; &gt;&gt; /etc/hosts 3reboot 关闭 selinux： 1sed -i &#39;s/enforcing/disabled/&#39; /etc/selinux/config 2setenforce 0 关闭 swap： 1swapoff -a 2sed -ri &#39;s/.*swap.*/#&amp;/&#39; /etc/fstab 修改 /etc/sysctl.conf 1# 如果有配置，则修改 2sed -i &#34;s#^net.ipv4.ip_forward.*#net.ipv4.ip_forward=1#g&#34; /etc/sysctl.conf 3sed -i &#34;s#^net.bridge.bridge-nf-call-ip6tables.*#net.bridge.bridge-nf-call-ip6tables=1#g&#34; /etc/sysctl.conf 4sed -i &#34;s#^net.bridge.bridge-nf-call-iptables.*#net.bridge.bridge-nf-call-iptables=1#g&#34; /etc/sysctl.conf 5sed -i &#34;s#^net.ipv6.conf.all.disable_ipv6.*#net.ipv6.conf.all.disable_ipv6=1#g&#34; /etc/sysctl.conf 6sed -i &#34;s#^net.ipv6.conf.default.disable_ipv6.*#net.ipv6.conf.default.disable_ipv6=1#g&#34; /etc/sysctl.conf 7sed -i &#34;s#^net.ipv6.conf.lo.disable_ipv6.*#net.ipv6.conf.lo.disable_ipv6=1#g&#34; /etc/sysctl.conf 8sed -i &#34;s#^net.ipv6.conf.all.forwarding.*#net.ipv6.conf.all.forwarding=1#g&#34; /etc/sysctl.conf 9# 可能没有，追加 10echo &#34;net."><meta itemprop="datePublished" content="2022-02-13T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-01-09T01:30:25+00:00" />
+<meta itemprop="dateModified" content="2024-01-10T01:30:30+00:00" />
 <meta itemprop="wordCount" content="336">
 <meta itemprop="keywords" content="k8s," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Kubernetes 安装"/>
 <meta name="twitter:description" content="Kubernetes 安装 环境配置 关闭防火墙： 如果是云服务器，需要设置安全组策略放行端口 1systemctl stop firewalld 2systemctl disable firewalld 修改 hostname 1hostnamectl set-hostname k8s-01 2echo &#34;127.0.0.1 $(hostname)&#34; &gt;&gt; /etc/hosts 3reboot 关闭 selinux： 1sed -i &#39;s/enforcing/disabled/&#39; /etc/selinux/config 2setenforce 0 关闭 swap： 1swapoff -a 2sed -ri &#39;s/.*swap.*/#&amp;/&#39; /etc/fstab 修改 /etc/sysctl.conf 1# 如果有配置，则修改 2sed -i &#34;s#^net.ipv4.ip_forward.*#net.ipv4.ip_forward=1#g&#34; /etc/sysctl.conf 3sed -i &#34;s#^net.bridge.bridge-nf-call-ip6tables.*#net.bridge.bridge-nf-call-ip6tables=1#g&#34; /etc/sysctl.conf 4sed -i &#34;s#^net.bridge.bridge-nf-call-iptables.*#net.bridge.bridge-nf-call-iptables=1#g&#34; /etc/sysctl.conf 5sed -i &#34;s#^net.ipv6.conf.all.disable_ipv6.*#net.ipv6.conf.all.disable_ipv6=1#g&#34; /etc/sysctl.conf 6sed -i &#34;s#^net.ipv6.conf.default.disable_ipv6.*#net.ipv6.conf.default.disable_ipv6=1#g&#34; /etc/sysctl.conf 7sed -i &#34;s#^net.ipv6.conf.lo.disable_ipv6.*#net.ipv6.conf.lo.disable_ipv6=1#g&#34; /etc/sysctl.conf 8sed -i &#34;s#^net.ipv6.conf.all.forwarding.*#net.ipv6.conf.all.forwarding=1#g&#34; /etc/sysctl.conf 9# 可能没有，追加 10echo &#34;net."/>
@@ -842,7 +842,7 @@ Kubernetes 安装 - 博客 - 打工人日志</title>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/db9f3e44036c30957f98bc86072fd09bda06950b"
+            href="https://github.com/jobcher/new-blog/commit/0e4beee200a74db4421d4142f8aea1b867db5497"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
@@ -1358,6 +1358,69 @@ Kubernetes 安装 - 博客 - 打工人日志</title>
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-01-10/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-01-10.jpg.b8b47a374f06644f4ad3f9b1070cb9a3.webp"
+    alt="2024-01-10 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-01-10 打工人日报"
+        href="/github_trending_2024-01-10/">2024-01-10 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-01-09/">
     
 
@@ -1603,69 +1666,6 @@ Kubernetes 安装 - 博客 - 打工人日志</title>
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-01-05/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-01-05.jpg.6c6d8ee804559652c182a3ffee8c85a1.webp"
-    alt="2024-01-05 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-01-05 打工人日报"
-        href="/github_trending_2024-01-05/">2024-01-05 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -1778,7 +1778,7 @@ Kubernetes 安装 - 博客 - 打工人日志</title>
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">19</small>
+            <small class="taxonomy-term-count border rounded px-1">20</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -1845,7 +1845,7 @@ Kubernetes 安装 - 博客 - 打工人日志</title>
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">19</small>
+            <small class="taxonomy-term-count border rounded px-1">20</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -1906,7 +1906,7 @@ Kubernetes 安装 - 博客 - 打工人日志</title>
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">19</small>
+            <small class="taxonomy-term-count border rounded px-1">20</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2041,7 +2041,7 @@ Kubernetes 安装 - 博客 - 打工人日志</title>
 
 
   
-<script src="/js/search.a5fec344070c158cf861c3496f2b38d6863c9e2ce30a6afdeced361609ba55a3.js" defer></script>
+<script src="/js/search.b0fb61d9747259b39469ee63507851157915713c4c580eddf94dff772a980f3c.js" defer></script>
 
 
 
