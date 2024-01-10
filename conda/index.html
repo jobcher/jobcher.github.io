@@ -60,37 +60,40 @@
 
 <meta property="og:title" content="优雅的使用Conda管理python环境" />
 <meta property="og:description" content="背景 很多时候,避免不了同时使用 python2 和 python3 的环境,也避免不了不同的工作所需要不同版本的库文件,比如在想用 TensorFlow 较早版本的同时;还想运行 Pytorch 最新版；还想顺便学习 Nao 机器人编程,学习 Django 后台,这个时候,一款非常好用的包管理工具就显得十分重要了,这就是我写这篇博客的原因,这篇博客将会讲解：
-如何安装 conda; 如何更换 conda 的下载源; 如何使用 canda; 安装 conda 在安装时这两个选项需要点上：
-更换 conda 的下载源 Conda官方的下载源太慢了,而且经常会出现 HTTPERROR 之类的错误,如果想要用 Conda 愉快的创建不同工作环境,愉快的下载安装各种库,那么换下载源是必不可少的
-1conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ 2conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge 3conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/ 4 5conda config --set show_channel_urls yes 6# 设置搜索时显示通道地址 具体操作同时按 Win&#43;R 键打开运行窗口,输入 cmd,回车：
-将上面的命令全部复制,到命令行里单击右键就会自动执行复制的命令,添加清华源
-使用 conda 查看环境
-1conda info -e 2conda info --envs 创建环境" />
+如何安装 conda; 如何更换 conda 的下载源; 如何使用 canda; Linux 安装 conda 在 Ubuntu 上安装 Anaconda 的步骤如下：
+首先，你需要下载 Anaconda 的安装包。你可以从 Anaconda 的官方网站上下载最新版本的 Anaconda for Linux。选择适合你的系统的版本（Python 3.x）。
+访问下载链接：https://www.anaconda.com/products/distribution#download-section
+下载完成后，你可以在终端中导航到下载的文件所在的目录。你可以使用 cd 命令来改变目录。例如，如果你的下载文件在 Downloads 文件夹中，你可以输入以下命令：
+1cd ~/Downloads 然后，你需要运行 bash 命令来安装 Anaconda。假设你下载的 Anaconda 文件名为 &ldquo;Anaconda3-2020.02-Linux-x86_64.sh&rdquo;，你可以输入以下命令： 1bash Anaconda3-2020.02-Linux-x86_64.sh 请注意，你需要将上述命令中的 &ldquo;Anaconda3-2020.02-Linux-x86_64.sh&rdquo; 替换为你实际下载的文件名。
+4. 接下来，你会看到 Anaconda 的许可协议。按 Enter 键滚动到底部，然后输入 &lsquo;yes&rsquo; 来接受许可协议。
+5. 然后，你需要确认 Anaconda 的安装位置。你可以选择默认位置或输入新的位置。 6." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/conda/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-12-14T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-01-10T01:30:30+00:00" />
+<meta property="article:modified_time" content="2024-01-10T14:27:11+08:00" />
 
 
 
 <meta itemprop="name" content="优雅的使用Conda管理python环境">
 <meta itemprop="description" content="背景 很多时候,避免不了同时使用 python2 和 python3 的环境,也避免不了不同的工作所需要不同版本的库文件,比如在想用 TensorFlow 较早版本的同时;还想运行 Pytorch 最新版；还想顺便学习 Nao 机器人编程,学习 Django 后台,这个时候,一款非常好用的包管理工具就显得十分重要了,这就是我写这篇博客的原因,这篇博客将会讲解：
-如何安装 conda; 如何更换 conda 的下载源; 如何使用 canda; 安装 conda 在安装时这两个选项需要点上：
-更换 conda 的下载源 Conda官方的下载源太慢了,而且经常会出现 HTTPERROR 之类的错误,如果想要用 Conda 愉快的创建不同工作环境,愉快的下载安装各种库,那么换下载源是必不可少的
-1conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ 2conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge 3conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/ 4 5conda config --set show_channel_urls yes 6# 设置搜索时显示通道地址 具体操作同时按 Win&#43;R 键打开运行窗口,输入 cmd,回车：
-将上面的命令全部复制,到命令行里单击右键就会自动执行复制的命令,添加清华源
-使用 conda 查看环境
-1conda info -e 2conda info --envs 创建环境"><meta itemprop="datePublished" content="2022-12-14T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-01-10T01:30:30+00:00" />
-<meta itemprop="wordCount" content="100">
+如何安装 conda; 如何更换 conda 的下载源; 如何使用 canda; Linux 安装 conda 在 Ubuntu 上安装 Anaconda 的步骤如下：
+首先，你需要下载 Anaconda 的安装包。你可以从 Anaconda 的官方网站上下载最新版本的 Anaconda for Linux。选择适合你的系统的版本（Python 3.x）。
+访问下载链接：https://www.anaconda.com/products/distribution#download-section
+下载完成后，你可以在终端中导航到下载的文件所在的目录。你可以使用 cd 命令来改变目录。例如，如果你的下载文件在 Downloads 文件夹中，你可以输入以下命令：
+1cd ~/Downloads 然后，你需要运行 bash 命令来安装 Anaconda。假设你下载的 Anaconda 文件名为 &ldquo;Anaconda3-2020.02-Linux-x86_64.sh&rdquo;，你可以输入以下命令： 1bash Anaconda3-2020.02-Linux-x86_64.sh 请注意，你需要将上述命令中的 &ldquo;Anaconda3-2020.02-Linux-x86_64.sh&rdquo; 替换为你实际下载的文件名。
+4. 接下来，你会看到 Anaconda 的许可协议。按 Enter 键滚动到底部，然后输入 &lsquo;yes&rsquo; 来接受许可协议。
+5. 然后，你需要确认 Anaconda 的安装位置。你可以选择默认位置或输入新的位置。 6."><meta itemprop="datePublished" content="2022-12-14T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2024-01-10T14:27:11+08:00" />
+<meta itemprop="wordCount" content="164">
 <meta itemprop="keywords" content="daliy," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="优雅的使用Conda管理python环境"/>
 <meta name="twitter:description" content="背景 很多时候,避免不了同时使用 python2 和 python3 的环境,也避免不了不同的工作所需要不同版本的库文件,比如在想用 TensorFlow 较早版本的同时;还想运行 Pytorch 最新版；还想顺便学习 Nao 机器人编程,学习 Django 后台,这个时候,一款非常好用的包管理工具就显得十分重要了,这就是我写这篇博客的原因,这篇博客将会讲解：
-如何安装 conda; 如何更换 conda 的下载源; 如何使用 canda; 安装 conda 在安装时这两个选项需要点上：
-更换 conda 的下载源 Conda官方的下载源太慢了,而且经常会出现 HTTPERROR 之类的错误,如果想要用 Conda 愉快的创建不同工作环境,愉快的下载安装各种库,那么换下载源是必不可少的
-1conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ 2conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge 3conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/ 4 5conda config --set show_channel_urls yes 6# 设置搜索时显示通道地址 具体操作同时按 Win&#43;R 键打开运行窗口,输入 cmd,回车：
-将上面的命令全部复制,到命令行里单击右键就会自动执行复制的命令,添加清华源
-使用 conda 查看环境
-1conda info -e 2conda info --envs 创建环境"/>
+如何安装 conda; 如何更换 conda 的下载源; 如何使用 canda; Linux 安装 conda 在 Ubuntu 上安装 Anaconda 的步骤如下：
+首先，你需要下载 Anaconda 的安装包。你可以从 Anaconda 的官方网站上下载最新版本的 Anaconda for Linux。选择适合你的系统的版本（Python 3.x）。
+访问下载链接：https://www.anaconda.com/products/distribution#download-section
+下载完成后，你可以在终端中导航到下载的文件所在的目录。你可以使用 cd 命令来改变目录。例如，如果你的下载文件在 Downloads 文件夹中，你可以输入以下命令：
+1cd ~/Downloads 然后，你需要运行 bash 命令来安装 Anaconda。假设你下载的 Anaconda 文件名为 &ldquo;Anaconda3-2020.02-Linux-x86_64.sh&rdquo;，你可以输入以下命令： 1bash Anaconda3-2020.02-Linux-x86_64.sh 请注意，你需要将上述命令中的 &ldquo;Anaconda3-2020.02-Linux-x86_64.sh&rdquo; 替换为你实际下载的文件名。
+4. 接下来，你会看到 Anaconda 的许可协议。按 Enter 键滚动到底部，然后输入 &lsquo;yes&rsquo; 来接受许可协议。
+5. 然后，你需要确认 Anaconda 的安装位置。你可以选择默认位置或输入新的位置。 6."/>
 
 
 
@@ -563,41 +566,6 @@
         <h1 class="hb-blog-post-title">优雅的使用Conda管理python环境</h1>
         <div class="hb-blog-post-meta">
           
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
 
           <span class="hb-blog-post-date">2022年12月14日</span>
 
@@ -645,7 +613,8 @@
     <div id="collapse-toc" class="collapse hb-blog-post-toc-collapse"><nav id="TableOfContents">
   <ul>
     <li><a href="#背景">背景</a></li>
-    <li><a href="#安装-conda">安装 conda</a>
+    <li><a href="#linux-安装-conda">Linux 安装 conda</a></li>
+    <li><a href="#windows-安装-conda">windows 安装 conda</a>
       <ul>
         <li><a href="#更换-conda-的下载源">更换 conda 的下载源</a></li>
       </ul>
@@ -672,7 +641,37 @@
 <li><input checked="" disabled="" type="checkbox"> 如何更换 conda 的下载源;</li>
 <li><input checked="" disabled="" type="checkbox"> 如何使用 canda;</li>
 </ul>
-<h2 id="安装-conda">安装 conda</h2>
+<h2 id="linux-安装-conda">Linux 安装 conda</h2>
+<p>在 Ubuntu 上安装 Anaconda 的步骤如下：</p>
+<ol>
+<li>
+<p>首先，你需要下载 Anaconda 的安装包。你可以从 Anaconda 的官方网站上下载最新版本的 Anaconda for Linux。选择适合你的系统的版本（Python 3.x）。</p>
+<p>访问下载链接：<a
+  href="https://www.anaconda.com/products/distribution#download-section"
+  
+  target="_blank" rel="noopener noreferrer">https://www.anaconda.com/products/distribution#download-section</a></p>
+</li>
+<li>
+<p>下载完成后，你可以在终端中导航到下载的文件所在的目录。你可以使用 <code>cd</code> 命令来改变目录。例如，如果你的下载文件在 Downloads 文件夹中，你可以输入以下命令：</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">cd</span> ~/Downloads
+</span></span></code></pre></div><ol start="3">
+<li>然后，你需要运行 bash 命令来安装 Anaconda。假设你下载的 Anaconda 文件名为 &ldquo;Anaconda3-2020.02-Linux-x86_64.sh&rdquo;，你可以输入以下命令：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">bash Anaconda3-2020.02-Linux-x86_64.sh
+</span></span></code></pre></div><p>请注意，你需要将上述命令中的 &ldquo;Anaconda3-2020.02-Linux-x86_64.sh&rdquo; 替换为你实际下载的文件名。<br>
+4. 接下来，你会看到 Anaconda 的许可协议。按 <code>Enter</code> 键滚动到底部，然后输入 &lsquo;yes&rsquo; 来接受许可协议。<br>
+5. 然后，你需要确认 Anaconda 的安装位置。你可以选择默认位置或输入新的位置。
+6. 安装完成后，你会看到一个提示，询问你是否希望 Anaconda3 添加到你的 PATH。你应该输入 &lsquo;yes&rsquo;。
+7. 最后，你需要激活安装。你可以通过关闭并重新打开终端或运行以下命令来完成此操作：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">source</span> ~/.bashrc
+</span></span></code></pre></div><ol start="8">
+<li>验证安装。在终端中输入以下命令：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">conda list
+</span></span></code></pre></div><p>如果安装成功，这个命令会显示一个已安装的包的列表。</p>
+<h2 id="windows-安装-conda">windows 安装 conda</h2>
 <p>在安装时这两个选项需要点上：<br>
 
 
@@ -787,9 +786,9 @@
 </span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"># 退出当前环境</span>
 </span></span></code></pre></div><blockquote>
 <p>欢迎关注我的博客<a
-  href="https://www.jobcher.com/"
+  href="https://test.jobcher.com/"
   
-  >www.jobcher.com</a></p>
+  target="_blank" rel="noopener noreferrer">test.jobcher.com</a></p>
 </blockquote>
 
 
@@ -848,11 +847,11 @@
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/0e4beee200a74db4421d4142f8aea1b867db5497"
+            href="https://github.com/jobcher/new-blog/commit/ae9d1c2d77ea4e610b8e9ef83605cd67cf73d0cf"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>update github trend</a>
+</svg>发布新文章</a>
         </li>
     </ul>
   </div>
@@ -1364,6 +1363,42 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/stable-diffusion-01/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="ubuntu 安装 stable-diffusion-webui"
+        href="/stable-diffusion-01/">ubuntu 安装 stable-diffusion-webui</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-01-10/">
     
 
@@ -1609,69 +1644,6 @@
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-01-06/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-01-06.jpg.0cc04baf05fc50820d681d2d16f9d7d0.webp"
-    alt="2024-01-06 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-01-06 打工人日报"
-        href="/github_trending_2024-01-06/">2024-01-06 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -1753,7 +1725,7 @@
           class="taxonomy-term taxonomy-term-authors btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/authors/jobcher/">
           <span class="taxonomy-term-title">jobcher</span>
-            <small class="taxonomy-term-count border rounded px-1">346</small>
+            <small class="taxonomy-term-count border rounded px-1">345</small>
         </a>
     </div>
     <div
@@ -2047,7 +2019,7 @@
 
 
   
-<script src="/js/search.b0fb61d9747259b39469ee63507851157915713c4c580eddf94dff772a980f3c.js" defer></script>
+<script src="/js/search.4f8d45f054cef96ea9b319f5ef8d55e57c5184230bf55d85103c743e6aa5ae63.js" defer></script>
 
 
 

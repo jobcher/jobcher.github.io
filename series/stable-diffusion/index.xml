@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>stable diffusion on 打工人日志</title>
+    <link>https://www.jobcher.com/series/stable-diffusion/</link>
+    <description>Recent content in stable diffusion on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Wed, 10 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/series/stable-diffusion/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ubuntu 安装 stable-diffusion-webui</title>
+      <link>https://www.jobcher.com/stable-diffusion-01/</link>
+      <pubDate>Wed, 10 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/stable-diffusion-01/</guid>
+      <description>背景 Stable Diffusion (稳定扩散) 是一个扩散模型，2022年8月由德国CompVis协同Stability AI和Runway发表论文，并推出相关程序。&#xA;AUTOMATIC1111开发了图形化界面：「Stable Diffusion WebUI」，这是能用AI技术生成图片的开源软件，只要给定一组描述文本，AI就会开始绘图(准确的说是「算图」或「生图」)；亦能模仿现有的图片，生成另一张图片。甚至给它一部分涂黑的图片，AI也能按照你的意愿将图片填上适当的内容。除此之外还支持自行训练模型加强生图效果。&#xA;本篇文章就是介绍如何安装 stable-diffusion-webui&#xA;安装conda 在 Ubuntu 上安装 Anaconda 的步骤如下：&#xA;首先，你需要下载 Anaconda 的安装包。你可以从 Anaconda 的官方网站上下载最新版本的 Anaconda for Linux。选择适合你的系统的版本（Python 3.x）。&#xA;访问下载链接：https://www.anaconda.com/products/distribution#download-section&#xA;下载完成后，你可以在终端中导航到下载的文件所在的目录。你可以使用 cd 命令来改变目录。例如，如果你的下载文件在 Downloads 文件夹中，你可以输入以下命令：&#xA;1cd ~/Downloads 然后，你需要运行 bash 命令来安装 Anaconda。假设你下载的 Anaconda 文件名为 &amp;ldquo;Anaconda3-2020.02-Linux-x86_64.sh&amp;rdquo;，你可以输入以下命令： 1bash Anaconda3-2020.02-Linux-x86_64.sh 请注意，你需要将上述命令中的 &amp;ldquo;Anaconda3-2020.02-Linux-x86_64.sh&amp;rdquo; 替换为你实际下载的文件名。&#xA;4. 接下来，你会看到 Anaconda 的许可协议。按 Enter 键滚动到底部，然后输入 &amp;lsquo;yes&amp;rsquo; 来接受许可协议。&#xA;5. 然后，你需要确认 Anaconda 的安装位置。你可以选择默认位置或输入新的位置。 6. 安装完成后，你会看到一个提示，询问你是否希望 Anaconda3 添加到你的 PATH。你应该输入 &amp;lsquo;yes&amp;rsquo;。 7. 最后，你需要激活安装。你可以通过关闭并重新打开终端或运行以下命令来完成此操作：&#xA;1source ~/.bashrc 验证安装。在终端中输入以下命令： 1conda list 如果安装成功，这个命令会显示一个已安装的包的列表。</description>
+    </item>
+  </channel>
+</rss>

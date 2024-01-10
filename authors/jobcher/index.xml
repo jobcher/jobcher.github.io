@@ -1514,13 +1514,6 @@
       <description> 转眼间来到了 2022 年的尾声，2022 年不仅仅对于世界来说，还是对于我个人来说都是意义非凡的一年。&#xA;逆境和成长 2022 年初在中国大陆仍然实行着最为严格的清零政策并愈演愈烈，城市居民被限制人身自由，就连农村地区也被大量要求居家隔离，严重损害了中国经济和社会活力。中国失业人口再创新高，大量的毕业生找不到工作。在美国，最为严重的通货膨胀席卷全国，高昂的加息政策，损害了底层人民和工薪阶层。在中东，塔利班武装重新占领阿富汗，重新实行政教合一的暴力统治。在俄罗斯，爆发了乌克兰战争，将俄罗斯真正从苏联的阴影中脱离出来。在世界各地发生了太多的变化，2022 年注定是要被载入史册的一年。&#xA;对于我个人来说，2022 年也是成长非常大的一年，我经历了自工作来最大的变化，我从一家工作了多年的企业毕业，再次进入了社会的试炼场中求职，接触了更多的人，碰到了更多的事，也有了更多的感悟。曾经的我会讲工作看的比一切都重要，通过勤奋和努力可以改变一切，但是，社会的规则并不是这样的。决定你的个人价值并不是这些外在的东西，决定你个人价值的是你自己对自己的看法。你认为自己有价值，你就是你能够做到有价值。你觉得自己不重要，别人自然觉得你不重要。&#xA;在 🆕 的 2023 年，希望世界和平，人人幸福，愿生活在苦难中的人们，能够早日远离苦难，让幸福来敲门……&#xA;欢迎关注我的博客[www.jobcher.com](https://www.jobcher.com/) </description>
     </item>
     <item>
-      <title>优雅的使用Conda管理python环境</title>
-      <link>https://www.jobcher.com/conda/</link>
-      <pubDate>Wed, 14 Dec 2022 00:00:00 +0000</pubDate>
-      <guid>https://www.jobcher.com/conda/</guid>
-      <description>背景 很多时候,避免不了同时使用 python2 和 python3 的环境,也避免不了不同的工作所需要不同版本的库文件,比如在想用 TensorFlow 较早版本的同时;还想运行 Pytorch 最新版；还想顺便学习 Nao 机器人编程,学习 Django 后台,这个时候,一款非常好用的包管理工具就显得十分重要了,这就是我写这篇博客的原因,这篇博客将会讲解：&#xA;如何安装 conda; 如何更换 conda 的下载源; 如何使用 canda; 安装 conda 在安装时这两个选项需要点上：&#xA;更换 conda 的下载源 Conda官方的下载源太慢了,而且经常会出现 HTTPERROR 之类的错误,如果想要用 Conda 愉快的创建不同工作环境,愉快的下载安装各种库,那么换下载源是必不可少的&#xA;1conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ 2conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge 3conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/ 4 5conda config --set show_channel_urls yes 6# 设置搜索时显示通道地址 具体操作同时按 Win+R 键打开运行窗口,输入 cmd,回车：&#xA;将上面的命令全部复制,到命令行里单击右键就会自动执行复制的命令,添加清华源&#xA;使用 conda 查看环境&#xA;1conda info -e 2conda info --envs 创建环境</description>
-    </item>
-    <item>
       <title>Chrome浏览器启动参数大全（命令行参数）</title>
       <link>https://www.jobcher.com/chrome/</link>
       <pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate>
