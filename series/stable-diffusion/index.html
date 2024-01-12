@@ -546,7 +546,7 @@ stable diffusion - 专栏 - 打工人日志</title>
   
     <li
       class="nav-item d-flex flex-column justify-content-center align-items-center my-2 mx-3">
-      <span class="mb-1 fw-bold btn btn-secondary rounded">1</span>
+      <span class="mb-1 fw-bold btn btn-secondary rounded">2</span>
       <span class="text-body-secondary">文章</span>
     </li>
   
@@ -567,6 +567,114 @@ stable diffusion - 专栏 - 打工人日志</title>
 </div>
 
       <div class="hb-terms-posts row row-cols-1 row-cols-md-2">
+          <div class="mb-3 mb-lg-4">
+            
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+
+      <span class="hb-blog-post-date">2024年1月12日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/stable-diffusion-02/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+    <source srcset="/images/ComfyUI-logo_hu4de65cd33edc76da86d45a68c64028ab_128562_1024x538_resize_q75_h2_box_3.webp" type="image/webp" />
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/ComfyUI-logo.9347ebbfb3eb2cd126428ace8a43ef94.png"
+    alt="ubuntu 安装 ComfyUI"
+    loading="lazy"
+    height="538"
+    width="1024"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="ubuntu 安装 ComfyUI"
+        href="/stable-diffusion-02/">ubuntu 安装 ComfyUI</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/stable-diffusion/">stable diffusion</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/stable-diffusion/">stable diffusion</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/stable-diffusion/">stable diffusion</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">背景 ComfyUI 是用于稳定扩散的基于节点的用户界面。ComfyUI 由 Comfyanonymous 于 2023 年 1 月创建，他创建了该工具来学习稳定扩散的工作原理。
+效果 webui和ComfyUI之间的区别,相比较webUI，ComfyUI更工业化，更符合高级使用者的配置
+安装 安装本体 下载软件
+1mkdir ~/sd-web 2cd ~/sd-web 3git clone https://github.jobcher.com/gh/https://github.com/comfyanonymous/ComfyUI.git 环境依赖
+1cd ~/sd-web/ComfyUI 2conda create -n ComfyUI python=3.10 3pip install -r requirements.txt -i https://pypi.douban.com/simple --trusted-host=pypi.douban.com 下载sd_xl_turbo模型
+1aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.jobcher.com/https://huggingface.co/stabilityai/sdxl-turbo/resolve/main/sd_xl_turbo_1.0_fp16.safetensors -d ~/sd-web/ComfyUI/models/checkpoints -o sd_xl_turbo_1.0_fp16.safetensors 启动服务
+1cd ~/sd-web/ComfyUI 2python main.py --listen --port 6006 --cuda-device 1 webUI共享模型 1cd 2mv extra_model_paths.yaml..example extra_model_paths.yaml 编辑参数
+1vim extra_model_paths.yaml 修改 base_path: path/to/stable-diffusion-webui/ 改为你的webui实际地址，例如： base_path: ~/sd-web/stable-diffusion-webui/ 1#config for a1111 ui 2#all you have to do is change the base_path to where yours is installed 3a111: 4 base_path: path/to/stable-diffusion-webui/ ## 这里改为你实际的webui地址 5 6 checkpoints: models/Stable-diffusion 7 configs: models/Stable-diffusion 8 vae: models/VAE 9 loras: | 10 models/Lora 11 models/LyCORIS 12 upscale_models: | 13 models/ESRGAN 14 models/RealESRGAN 15 models/SwinIR 16 embeddings: embeddings 17 hypernetworks: models/hypernetworks 18 controlnet: models/ControlNet 重启服务</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/stable-diffusion-02/">阅读更多关于ubuntu 安装 ComfyUI的内容。</a>
+        </div>
+  </div>
+</div>
+
+          </div>
           <div class="mb-3 mb-lg-4">
             
 <div
@@ -884,6 +992,70 @@ AUTOMATIC1111开发了图形化界面：「Stable Diffusion WebUI」，这是能
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/stable-diffusion-02/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+    <source srcset="/images/ComfyUI-logo_hu4de65cd33edc76da86d45a68c64028ab_128562_1024x538_resize_q75_h2_box_3.webp" type="image/webp" />
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/ComfyUI-logo.9347ebbfb3eb2cd126428ace8a43ef94.png"
+    alt="ubuntu 安装 ComfyUI"
+    loading="lazy"
+    height="538"
+    width="1024"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="ubuntu 安装 ComfyUI"
+        href="/stable-diffusion-02/">ubuntu 安装 ComfyUI</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-01-11/">
     
 
@@ -1125,69 +1297,6 @@ AUTOMATIC1111开发了图形化界面：「Stable Diffusion WebUI」，这是能
         class="hb-blog-post-title-link d-block"
         title="2024-01-09 打工人日报"
         href="/github_trending_2024-01-09/">2024-01-09 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-01-08/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-01-08.jpg.4a6b2a8e78f85f067fa89ae7a4c2b902.webp"
-    alt="2024-01-08 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-01-08 打工人日报"
-        href="/github_trending_2024-01-08/">2024-01-08 打工人日报</a>
     </div>
   </div>
 </div>
@@ -1564,7 +1673,7 @@ AUTOMATIC1111开发了图形化界面：「Stable Diffusion WebUI」，这是能
 
 
   
-<script src="/js/search.078c92d255128058922346ed0ebd5d57d38e4632c93c086735f31c34208e0763.js" defer></script>
+<script src="/js/search.7b4dbec692d7abfaa75b1d35b1dd7596ec54e8e336dcb03086d7d456af6d0eb7.js" defer></script>
 
 
 
