@@ -67,7 +67,7 @@ Master 节点操作 1.升级 kubeadm 1yum install -y kubeadm-1.24.2-0 --disablee
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/k8s9/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-06-29T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-01-20T01:30:03+00:00" />
+<meta property="article:modified_time" content="2024-01-21T01:32:23+00:00" />
 
 
 
@@ -76,7 +76,7 @@ Master 节点操作 1.升级 kubeadm 1yum install -y kubeadm-1.24.2-0 --disablee
 我用的是CentOS7.9的版本，因此以下操作都是在CentOS下操作。
 Master 节点操作 1.升级 kubeadm 1yum install -y kubeadm-1.24.2-0 --disableexcludes=kubernetes 2kubeadm version 3kubeadm upgrade plan 4sudo kubeadm upgrade apply v1.24.2 2.安装 containerd 1yum install containerd.io -y 2containerd config default &gt; /etc/containerd/config.toml 3vim /var/lib/kubelet/kubeadm-flags.env 修改 kubeadm-flags.env 变量：
 1KUBELET_KUBEADM_ARGS=&#34;--pod-infra-container-image=k8s.gcr.io/pause:3.6 --container-runtime=remote --container-runtime-endpoint=unix:///run/containerd/containerd.sock&#34; 3.升级 kubelet 1yum install -y kubelet-1.24.2-0 kubectl-1.24.2-0 --disableexcludes=kubernetes 2systemctl daemon-reload &amp;&amp; systemctl restart containerd &amp;&amp; systemctl restart kubelet 查看状态："><meta itemprop="datePublished" content="2022-06-29T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-01-20T01:30:03+00:00" />
+<meta itemprop="dateModified" content="2024-01-21T01:32:23+00:00" />
 <meta itemprop="wordCount" content="155">
 <meta itemprop="keywords" content="k8s," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="kubernetes 从1.23.x 升级到 1.24.x"/>
 <meta name="twitter:description" content="kubernetes 从1.23.x 升级到 1.24.x k8s 在1.24.x之后的版本放弃了和 docker 的兼容，使用 containerd 作为底层的容器，直接参照官方文档的资料进行更新就会报错。因为你没有安装 containerd，所以要安装 containerd 并配置才能正确的升级 k8s
@@ -771,7 +771,7 @@ systemctl status kubelet</p>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/9828a097b37468394ed56b1ea9b6d46b08e954cf"
+            href="https://github.com/jobcher/new-blog/commit/c1136ab93e182689e90cbaebcf4fcb8b21772b3b"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
@@ -1287,6 +1287,69 @@ systemctl status kubelet</p>
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-01-21/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-01-21.jpg.425f2144bcffce4507139f43d4bca7db.webp"
+    alt="2024-01-21 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-01-21 打工人日报"
+        href="/github_trending_2024-01-21/">2024-01-21 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-01-20/">
     
 
@@ -1532,69 +1595,6 @@ systemctl status kubelet</p>
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-01-16/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-01-16.jpg.7e6e6e8580fbc5192cac67e43052df45.webp"
-    alt="2024-01-16 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-01-16 打工人日报"
-        href="/github_trending_2024-01-16/">2024-01-16 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -1701,7 +1701,7 @@ systemctl status kubelet</p>
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">30</small>
+            <small class="taxonomy-term-count border rounded px-1">31</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -1768,7 +1768,7 @@ systemctl status kubelet</p>
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">30</small>
+            <small class="taxonomy-term-count border rounded px-1">31</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -1829,7 +1829,7 @@ systemctl status kubelet</p>
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">30</small>
+            <small class="taxonomy-term-count border rounded px-1">31</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -1970,7 +1970,7 @@ systemctl status kubelet</p>
 
 
   
-<script src="/js/search.74cd7dffe1aa83e4fb49b07407c0f6316845a46828316403f99fc2855efffec9.js" defer></script>
+<script src="/js/search.bd309731371f5b40aa47046a40cc841b76dc320e3a014f9ca6825495c12449e8.js" defer></script>
 
 
 
