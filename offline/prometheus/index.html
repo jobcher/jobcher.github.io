@@ -70,14 +70,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/prometheus/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-01-13T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-01-25T09:14:43+08:00" />
+<meta property="article:modified_time" content="2024-01-25T09:21:21+08:00" />
 
 
 
 <meta itemprop="name" content="prometheus 配置">
 <meta itemprop="description" content="prometheus 配置 Prometheus 是由 SoundCloud 开源监控告警解决方案
 组件 Prometheus Server， 主要用于抓取数据和存储时序数据，另外还提供查询和 Alert Rule 配置管理。 client libraries，用于对接 Prometheus Server, 可以查询和上报数据。 push gateway ，用于批量，短期的监控数据的汇总节点，主要用于业务数据汇报等。 各种汇报数据的 exporters ，例如汇报机器数据的 node_exporter, 汇报 MongoDB 信息的 MongoDB exporter 等等。 用于告警通知管理的 alertmanager 。 运行逻辑 Prometheus server 定期从静态配置的 targets 或者服务发现的 targets 拉取数据。 当新拉取的数据大于配置内存缓存区的时候，Prometheus 会将数据持久化到磁盘（如果使用 remote storage 将持久化到云端）。 Prometheus 可以配置 rules，然后定时查询数据，当条件触发的时候，会将 alert 推送到配置的 Alertmanager。 Alertmanager 收到警告的时候，可以根据配置，聚合，去重，降噪，最后发送警告。 可以使用 API， Prometheus Console 或者 Grafana 查询和聚合数据。 安装 prometheus 使用预编译的二进制文件安装 1wget https://github.com/prometheus/prometheus/releases/download/v2.32.1/prometheus-2.32.1.linux-amd64.tar.gz 2tar -zxvf prometheus-2.32.1.linux-amd64.tar.gz 3cd prometheus-2."><meta itemprop="datePublished" content="2022-01-13T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-01-25T09:14:43+08:00" />
+<meta itemprop="dateModified" content="2024-01-25T09:21:21+08:00" />
 <meta itemprop="wordCount" content="93">
 <meta itemprop="keywords" content="prometheus," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="prometheus 配置"/>
 <meta name="twitter:description" content="prometheus 配置 Prometheus 是由 SoundCloud 开源监控告警解决方案
@@ -758,11 +758,11 @@ Prometheus 是由 SoundCloud 开源监控告警解决方案</p>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/9007803c2d4fbec4c03d8839cd0b4eef3d076fa0"
+            href="https://github.com/jobcher/new-blog/commit/8b49c4d631c84f4890e1a048dbab80b1bb6ce3b3"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>更新文章</a>
+</svg>错误修改</a>
         </li>
     </ul>
   </div>
@@ -1958,7 +1958,7 @@ Prometheus 是由 SoundCloud 开源监控告警解决方案</p>
 
 
   
-<script src="/js/search.f69c1218a646e91dc40f70ab8d3a33c5bf1851e1cb671e2e3638b66d62a8d73d.js" defer></script>
+<script src="/js/search.ab894f5dcc8ba8f8205ada53ca258d6e4647a33e67a6a53e386d8dfa01b5030a.js" defer></script>
 
 
 
