@@ -72,7 +72,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/gitlab/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2021-12-10T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-01-26T01:27:21+00:00" />
+<meta property="article:modified_time" content="2024-01-27T01:25:28+00:00" />
 
 
 
@@ -81,7 +81,7 @@
 下面的内容就是列举了常用的 Git 命令和一些小技巧，可以通过 &ldquo;页面内查找&rdquo; 的方式进行快速查询：Ctrl/Command&#43;f。
 开卷必读 如果之前未使用过 Git，可以学习 Git 小白教程入门
 一定要先测试命令的效果后，再用于工作环境中，以防造成不能弥补的后果！到时候别拿着砍刀来找我 所有的命令都在git version 2.7.4 (Apple Git-66)下测试通过 统一概念： 工作区：改动（增删文件和内容） 暂存区：输入命令：git add 改动的文件名，此次改动就放到了 ‘暂存区’ 本地仓库(简称：本地)：输入命令：git commit 此次修改的描述，此次改动就放到了 ’本地仓库’，每个 commit，我叫它为一个 ‘版本’。 远程仓库(简称：远程)：输入命令：git push 远程仓库，此次改动就放到了 ‘远程仓库’（GitHub 等) commit-id：输出命令：git log，最上面那行 commit xxxxxx，后面的字符串就是 commit-id 如果喜欢这个项目，欢迎 Star、提交 Pr、反馈问题😊 目录 脑图 展示帮助信息 回到远程仓库的状态 重设第一个 commit 查看冲突文件列表 展示工作区和暂存区的不同 展示暂存区和最近版本的不同 展示暂存区、工作区和最近版本的不同 快速切换到上一个分支 删除已经合并到 master 的分支 展示本地分支关联远程仓库的情况 关联远程分支 列出所有远程分支 列出本地和远程分支 查看远程分支和本地分支的对应关系 远程删除了分支本地也想删除 创建并切换到本地分支 从远程分支中创建并切换到本地分支 删除本地分支 删除远程分支 重命名本地分支 查看标签 查看标签详细信息 本地创建标签 推送标签到远程仓库 删除本地标签 删除远程标签 切回到某个标签 放弃工作区的修改 恢复删除的文件 以新增一个 commit 的方式还原某一个 commit 的修改 回到某个 commit 的状态，并删除后面的 commit 修改上一个 commit 的描述 查看 commit 历史 显示本地更新过 HEAD 的 git 命令记录 修改作者名 修改远程仓库的 url 增加远程仓库 列出所有远程仓库 查看两个星期内的改动 把 A 分支的某一个 commit，放到 B 分支上 给 git 命令起别名 存储当前的修改，但不用提交 commit 保存当前状态，包括 untracked 的文件 展示所有 stashes 回到某个 stash 的状态 回到最后一个 stash 的状态，并删除这个 stash 删除所有的 stash 从 stash 中拿出某个文件的修改 展示所有 tracked 的文件 展示所有 untracked 的文件 展示所有忽略的文件 强制删除 untracked 的文件 强制删除 untracked 的目录 展示简化的 commit 历史 查看某段代码是谁写的 把某一个分支导出成一个文件 从包中导入分支 执行 rebase 之前自动 stash 从远程仓库根据 ID，拉下某一状态，到本地分支 详细展示一行中的修改 清除 ."><meta itemprop="datePublished" content="2021-12-10T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-01-26T01:27:21+00:00" />
+<meta itemprop="dateModified" content="2024-01-27T01:25:28+00:00" />
 <meta itemprop="wordCount" content="1204">
 <meta itemprop="keywords" content="gitlab," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="git技巧"/>
 <meta name="twitter:description" content="git 技巧 Git 是一个 “分布式版本管理工具”，简单的理解版本管理工具：大家在写东西的时候都用过 “回撤” 这个功能，但是回撤只能回撤几步，假如想要找回我三天之前的修改，光用 “回撤” 是找不回来的。而 “版本管理工具” 能记录每次的修改，只要提交到版本仓库，你就可以找到之前任何时刻的状态（文本状态）。
@@ -1475,7 +1475,7 @@ git技巧 - 博客 - 打工人日志</title>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/6de4f522b2c19d09ee05ec4d1c68307713f2d0d3"
+            href="https://github.com/jobcher/new-blog/commit/56f1403c09ac3445f3a080fbff63bbbc1d7afd0a"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
@@ -2108,6 +2108,69 @@ git技巧 - 博客 - 打工人日志</title>
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-01-27/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-01-27.jpg.cf561f51b7977d508629e52264035fed.webp"
+    alt="2024-01-27 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-01-27 打工人日报"
+        href="/github_trending_2024-01-27/">2024-01-27 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-01-26/">
     
 
@@ -2354,69 +2417,6 @@ git技巧 - 博客 - 打工人日志</title>
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-01-22/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-01-22.jpg.64f50c806ee7601f4d9b2df5dc4a2d63.webp"
-    alt="2024-01-22 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-01-22 打工人日报"
-        href="/github_trending_2024-01-22/">2024-01-22 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2517,7 +2517,7 @@ git技巧 - 博客 - 打工人日志</title>
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">35</small>
+            <small class="taxonomy-term-count border rounded px-1">36</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2584,7 +2584,7 @@ git技巧 - 博客 - 打工人日志</title>
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">35</small>
+            <small class="taxonomy-term-count border rounded px-1">36</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2651,7 +2651,7 @@ git技巧 - 博客 - 打工人日志</title>
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">35</small>
+            <small class="taxonomy-term-count border rounded px-1">36</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2781,8 +2781,8 @@ git技巧 - 博客 - 打工人日志</title>
 
 
 <script
-  src="/js/hb.9d48f35cf2794450d932cb78776635356877f51e064f9794bb6186b4ea14b402.js"
-  integrity="sha256-nUjzXPJ5RFDZMst4d2Y1NWh39R4GT5eUu2GGtOoUtAI="
+  src="/js/hb.17f5a15caed93f22f6da30ba7f156646d5de2d394437fa630b047fca0577badc.js"
+  integrity="sha256-F/WhXK7ZPyL22jC6fxVmRtXeLTlEN/pjCwR/ygV3utw="
   defer></script>
 
 
@@ -2792,7 +2792,7 @@ git技巧 - 博客 - 打工人日志</title>
 
 
   
-<script src="/js/search.1c8533821b0dfcbf94fec4ffe4ca4fc7f6384f4340097a8b4f56bb72b5d2b3fb.js" defer></script>
+<script src="/js/search.a41ff6071c81624e54e02f561b69765af66b957f3db273339d0267dc024086f3.js" defer></script>
 
 
 
