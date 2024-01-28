@@ -65,14 +65,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/sonarqube/" /><meta property="og:image" content="https://www.jobcher.com/images/sonarqube.png" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2023-11-02T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-01-27T01:25:28+00:00" />
+<meta property="article:modified_time" content="2024-01-28T01:29:21+00:00" />
 
 
 
 <meta itemprop="name" content="sonarqube docker安装和配置">
 <meta itemprop="description" content="背景 我是在ubuntu服务器安装docker服务，我已经安装好了docker和docker-compose服务，这里我就不写这些服务的安装过程，直接开始安装sonarqube服务
 安装 sonarqube服务器 1.执行脚本文件 config.sh 1#!/bin/bash 2sysctl -w vm.max_map_count=262144 3sysctl -w fs.file-max=65536 4ulimit -n 65536 5ulimit -u 4096 6# # 永久改变 7# echo &#34;vm.max_map_count=262144&#34; &gt;&gt; /etc/sysctl.conf 8# sysctl -p 1sh config.sh 2.执行docker-compose文件 1version: &#39;3&#39; 2services: 3 postgres: 4 image: postgres:15 5 container_name: postgres 6 ports: 7 - 5432:5432 8 volumes: 9 - ./sonar/postgres/postgresql:/var/lib/postgresql 10 - ./sonar/postgres/data:/var/lib/postgresql/data 11 environment: 12 TZ: Asia/Shanghai 13 POSTGRES_USER: user #数据库用户 14 POSTGRES_PASSWORD: password #数据库密码 15 POSTGRES_DB: sonar 16 17 sonarqube: 18 depends_on: 19 - postgres 20 image: sonarqube:9."><meta itemprop="datePublished" content="2023-11-02T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-01-27T01:25:28+00:00" />
+<meta itemprop="dateModified" content="2024-01-28T01:29:21+00:00" />
 <meta itemprop="wordCount" content="182"><meta itemprop="image" content="https://www.jobcher.com/images/sonarqube.png" />
 <meta itemprop="keywords" content="gitlab," /><meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://www.jobcher.com/images/sonarqube.png" /><meta name="twitter:title" content="sonarqube docker安装和配置"/>
@@ -915,7 +915,7 @@ sonarqube docker安装和配置 - 博客 - 打工人日志</title>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/56f1403c09ac3445f3a080fbff63bbbc1d7afd0a"
+            href="https://github.com/jobcher/new-blog/commit/02a5681d22a8c132dc12f29b8664dc35731b2471"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
@@ -1509,6 +1509,69 @@ sonarqube docker安装和配置 - 博客 - 打工人日志</title>
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-01-28/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-01-28.jpg.d4da487c98117d40a2988bc7535e6fd9.webp"
+    alt="2024-01-28 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-01-28 打工人日报"
+        href="/github_trending_2024-01-28/">2024-01-28 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-01-27/">
     
 
@@ -1755,69 +1818,6 @@ sonarqube docker安装和配置 - 博客 - 打工人日志</title>
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-01-24/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-01-24.jpg.b012839018bb73709e40c6b06faa44f0.webp"
-    alt="2024-01-24 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-01-24 打工人日报"
-        href="/github_trending_2024-01-24/">2024-01-24 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -1918,7 +1918,7 @@ sonarqube docker安装和配置 - 博客 - 打工人日志</title>
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">36</small>
+            <small class="taxonomy-term-count border rounded px-1">37</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -1985,7 +1985,7 @@ sonarqube docker安装和配置 - 博客 - 打工人日志</title>
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">36</small>
+            <small class="taxonomy-term-count border rounded px-1">37</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2052,7 +2052,7 @@ sonarqube docker安装和配置 - 博客 - 打工人日志</title>
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">36</small>
+            <small class="taxonomy-term-count border rounded px-1">37</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2193,7 +2193,7 @@ sonarqube docker安装和配置 - 博客 - 打工人日志</title>
 
 
   
-<script src="/js/search.a41ff6071c81624e54e02f561b69765af66b957f3db273339d0267dc024086f3.js" defer></script>
+<script src="/js/search.460b678c4ca389127c0e2bce0ade00d62d76ae56b39093706345f4c45b689bd4.js" defer></script>
 
 
 

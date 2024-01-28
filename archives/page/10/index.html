@@ -586,6 +586,108 @@
 
     </a>
 
+      <span class="hb-blog-post-date">2022年10月8日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/windows-exporter/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="windows-exporter 监控"
+        href="/windows-exporter/">windows-exporter 监控</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E7%9B%91%E6%8E%A7/">监控</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7%E7%B3%BB%E5%88%97/">运维监控系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/skywalking/">skywalking</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">windows-exporter 监控安装 windows_exporter 下载安装 启动 下载 msi 版本，输入一下命令启动
+1msiexec /i C:\Users\Administrator\Downloads\windows_exporter.msi ENABLED_COLLECTORS=&#34;ad,iis,logon,memory,process,tcp,scheduled_task&#34; TEXTFILE_DIR=&#34;C:\custom_metrics\&#34; 卸载
+1msiexec /uninstall C:\Users\Administrator\Downloads\windows_exporter.msi 添加 prometheus 监控 prometheus.yaml
+1# 新增 windows-exporter 2- job_name: &#34;windows-exporter&#34; 3 file_sd_configs: 4 - files: 5 - &#34;./file_sd/windows-exporter.yaml&#34; ./file_sd/windows-exporter.yaml
+1# 新增 windows-exporter 2- targets: [&#34;192.168.0.6:9182&#34;] 3 labels: 4 instance: windows-task 添加 alertmanager 告警 1# 告警信息 2groups: 3 - name: sanjiang windows 任务计划程序告警 4 rules: 5 - alert: windows实例任务告警 6 expr: windows_scheduled_task_state{state=&#34;disabled&#34;,task=~&#34;/ETL_kettle_tasks/.*&#34;}==1 7 for: 30s 8 labels: 9 severity: critical 10 target: &#34;{{$labels.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/windows-exporter/">阅读更多关于windows-exporter 监控的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
       <span class="hb-blog-post-date">2022年10月7日</span>
 
         <span class="hb-blog-post-reading-time">2 分钟阅读</span>
@@ -3621,106 +3723,6 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2022年4月25日</span>
-
-        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/go2/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="go Slice切片语法"
-        href="/go2/">go Slice切片语法</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/go/">go</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/go%E7%B3%BB%E5%88%97/">go系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/golang/">golang</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">go Slice 切片语法 切片是一种动态数组，比数组操作灵活，长度不是固定的，可以进行追加和删除。
-len() 和 cap() 返回结果可相同和不同。
-声明切片 1//demo_7.go 2package main 3 4import ( 5	&#34;fmt&#34; 6) 7 8func main() { 9	var sli_1 [] int //nil 切片 10	fmt.Printf(&#34;len=%d cap=%d slice=%v\n&#34;,len(sli_1),cap(sli_1),sli_1) 11 12	var sli_2 = [] int {} //空切片 13	fmt.Printf(&#34;len=%d cap=%d slice=%v\n&#34;,len(sli_1),cap(sli_2),sli_2) 14 15	var sli_3 = [] int {1, 2, 3, 4, 5} 16	fmt.Printf(&#34;len=%d cap=%d slice=%v\n&#34;,len(sli_3),cap(sli_3),sli_3) 17 18	sli_4 := [] int {1, 2, 3, 4, 5} 19	fmt.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/go2/">阅读更多关于go Slice切片语法的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       </div>
@@ -3867,7 +3869,7 @@ len() 和 cap() 返回结果可相同和不同。
 
 
   
-<script src="/js/search.a41ff6071c81624e54e02f561b69765af66b957f3db273339d0267dc024086f3.js" defer></script>
+<script src="/js/search.460b678c4ca389127c0e2bce0ade00d62d76ae56b39093706345f4c45b689bd4.js" defer></script>
 
 
 
