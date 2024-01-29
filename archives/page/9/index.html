@@ -586,6 +586,106 @@
 
     </a>
 
+      <span class="hb-blog-post-date">2023年5月24日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/20230524/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="如何礼貌回绝不合理的需求"
+        href="/20230524/">如何礼貌回绝不合理的需求</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/">日常系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/">日常生活</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">背景 最近在做一个项目，项目的需求是这样的： spring-cloud有一个服务A，服务A有一个接口，接口的功能是根据传入的参数，返回一个字符串。但是服务响应非常的慢，大概需要4秒左右。这个响应速度是不能忍受的！但是这个服务的开发强行说要上线。我们有几个选项：
+1.不上线，但是这个服务的开发无法按期交付 2.上线，但是这个服务的响应速度太慢了，运维背锅 3.劝说服务的开发，让他们优化接口的响应速度
+相信大家都会选择第3个选择，那我们站在运维的角度如何劝说服务的开发呢？ 劝说 故障级联（Cascading Failures）：连接超时的服务可能会导致其他服务出现故障级联效应。这是因为微服务系统中的服务通常会相互调用和依赖。当一个服务连接超时时，其他依赖该服务的服务可能无法及时获取所需的数据或执行必要的操作，从而导致它们自身出现故障。
+响应时间延迟（Increased Response Time）：如果一个服务连接超时，它的调用方可能需要等待更长的时间来获取响应或超时处理。这会增加整个系统的响应时间，因为其他服务的请求也需要等待超时的服务返回结果。这可能会导致用户体验下降，甚至可能导致其他服务的性能问题。
+资源耗尽（Resource Exhaustion）：连接超时可能会导致调用方服务的资源耗尽。当一个服务长时间等待连接超时的服务时，它可能会保持与该服务的连接打开，消耗额外的内存和网络资源。这可能导致调用方服务的资源不足，无法为其他请求提供充足的资源，进而影响整个系统的性能。
+重试和失败处理（Retry and Failure Handling）：当一个服务连接超时时，调用方服务通常会尝试重新连接或执行其他失败处理机制。这可能导致调用方服务增加额外的负载，因为它需要多次尝试连接超时的服务。同时，如果没有适当的失败处理机制，连接超时的服务可能无法正确处理重试请求，导致进一步的问题。
+结论 综上所述，连接超时的服务对Spring Cloud微服务系统可能会带来级联故障、响应时间延迟、资源耗尽、重试和失败处理的问题，并增加监控和故障排除的成本。因此，及时发现和解决连接超时问题对于确保系统的稳定性和性能至关重要。希望领导能够听取意见，不要让运维背锅。</div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
       <span class="hb-blog-post-date">2023年5月15日</span>
 
         <span class="hb-blog-post-reading-time">1 分钟阅读</span>
@@ -3623,106 +3723,6 @@ Rook 利用扩展点深入融入云原生环境，为调度、生命周期管理
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2022年10月8日</span>
-
-        <span class="hb-blog-post-reading-time">3 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/k8s13/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="Kubernetes — 探针和生命周期"
-        href="/k8s13/">Kubernetes — 探针和生命周期</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/k8s/">k8s</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">k8s入门系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/k8s/">k8s</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">Kubernetes — 探针和生命周期 用于判断容器内应用程序是否已经启动。
-存活（Liveness）探针 用于探测容器是否运行，如果探测失败，kubelet 会根据配置的重启策略进行相应的处理，若没有配置探针该返回值默认为 success 就绪（Readiness）探针 用于探测容器内的程序是否健康，如果返回值为 success，那么代表这个容器已经完全启动，并且程序已经是可以接受流量的状态 启动（Startup）探针 用于探测容器是否启动，如果配置了 startup 就会先禁止其他探测，直到它成功，成功后将不在运行探测 Pod 检测方式 ExecAction：在容器执行一个命令，返回值为 0，则认为容器健康 TCPSocketAction：通过 TCP 连接检查容器是否联通，通的话，则认为容器正常 HTTPGetAction：通过应用程序暴露的 API 地址来检查程序是否正常的，如果状态码为 200-400 之间，则认为容器健康 gRPCAction：通过 gRPC 的检查机制，判断容器是不是正常 StartupProbe 启动探针 有时候，会有一些现有的应用在启动时需要较长的初始化时间。 要这种情况下，若要不影响对死锁作出快速响应的探测，设置存活探测参数是要技巧的。 技巧就是使用相同的命令来设置启动探测，针对 HTTP 或 TCP 检测，可以通过将 failureThreshold * periodSeconds 参数设置为足够长的时间来应对糟糕情况下的启动时间。
-1ports: 2 - name: liveness-port 3 containerPort: 8080 4 hostPort: 8080 5 6livenessProbe: 7 httpGet: 8 path: /healthz 9 port: liveness-port 10 failureThreshold: 1 11 periodSeconds: 10 12 13startupProbe: 14 httpGet: 15 path: /healthz 16 port: liveness-port 17 failureThreshold: 30 18 periodSeconds: 10 幸亏有启动探测，应用程序将会有最多 5 分钟（30 * 10 = 300s）的时间来完成其启动过程。 一旦启动探测成功一次，存活探测任务就会接管对容器的探测，对容器死锁作出快速响应。 如果启动探测一直没有成功，容器会在 300 秒后被杀死，并且根据restartPolicy来执行进一步处置。</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/k8s13/">阅读更多关于Kubernetes — 探针和生命周期的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       </div>
@@ -3873,7 +3873,7 @@ Rook 利用扩展点深入融入云原生环境，为调度、生命周期管理
 
 
   
-<script src="/js/search.460b678c4ca389127c0e2bce0ade00d62d76ae56b39093706345f4c45b689bd4.js" defer></script>
+<script src="/js/search.b9e50119978fd967f436201abe07d1257aa613188f87118b8e19ed8d4aa07786.js" defer></script>
 
 
 
