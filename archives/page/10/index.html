@@ -586,6 +586,106 @@
 
     </a>
 
+      <span class="hb-blog-post-date">2022年10月11日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/k8s15/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="Kubernetes — 基于K8S搭建Ceph分布式存储"
+        href="/k8s15/">Kubernetes — 基于K8S搭建Ceph分布式存储</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/k8s/">k8s</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">k8s入门系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/k8s/">k8s</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">基于 K8S 搭建 Ceph 分布式存储 前提 正常运行的多节点 K8S 集群，可以是两个节点也可以是更多。 每一个节点需要一个没有被分区的硬盘，最好大小一致不然会浪费。 没错其实就是一个要求，必须有集群才能进行容器管理，必须有硬盘才能做存储这些都是基础。 添加硬盘 主机 IP 磁盘 master01 10.12.12.51 SATA 20G master02 10.12.12.52 SATA 20G master03 10.12.12.53 SATA 20G worker01 10.12.12.54 SATA 20G worker02 10.12.12.55 SATA 20G 在 5 个节点都加 20g 存储
+重启 k8s 节点 1kubectl cordon &lt;节点&gt; 2kubectl drain &lt;节点&gt; --ignore-daemonsets --delete-emptydir-data 3# 虚拟机重启后 4kubectl uncordon &lt;节点&gt; 查看新增存储 1fdisk -l 看到新增 20g 存储,不要格式化分区硬盘！！！
+1Disk /dev/sdb: 20 GiB, 21474836480 bytes, 41943040 sectors 2Disk model: QEMU HARDDISK 3Units: sectors of 1 * 512 = 512 bytes 4Sector size (logical/physical): 512 bytes / 512 bytes 5I/O size (minimum/optimal): 512 bytes / 512 bytes ROOK 自动创建 Rook 是一个开源的cloud-native storage编排, 提供平台和框架；为各种存储解决方案提供平台、框架和支持，以便与云原生环境本地集成。 Rook 将存储软件转变为自我管理、自我扩展和自我修复的存储服务，它通过自动化部署、引导、配置、置备、扩展、升级、迁移、灾难恢复、监控和资源管理来实现此目的。 Rook 使用底层云本机容器管理、调度和编排平台提供的工具来实现它自身的功能。 Rook 目前支持Ceph、NFS、Minio Object Store和CockroachDB。 Rook 使用Kubernetes原语使Ceph存储系统能够在Kubernetes上运行。 下载 1git clone https://github.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/k8s15/">阅读更多关于Kubernetes — 基于K8S搭建Ceph分布式存储的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
       <span class="hb-blog-post-date">2022年10月8日</span>
 
         <span class="hb-blog-post-reading-time">3 分钟阅读</span>
@@ -3614,106 +3714,6 @@ expand 1kubectl scale --replicas=3 deploy my-test-deploy shrink 1kubectl scale -
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2022年6月8日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/nginx-exporter/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="nginx exporter 安装配置"
-        href="/nginx-exporter/">nginx exporter 安装配置</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E7%9B%91%E6%8E%A7/">监控</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7%E7%B3%BB%E5%88%97/">运维监控系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/prometheus/">prometheus</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">nginx exporter 安装配置 二进制安装 1wget https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v0.10.0/nginx-prometheus-exporter_0.10.0_linux_amd64.tar.gz 2tar -zxvf nginx-prometheus-exporter_0.10.0_linux_amd64.tar.gz -C ./nginx-exporter 在 nginx 上配置 1./configure \ 2… \ 3--with-http_stub_status_module 4make 5sudo make install 在 nginx.config 上配置
-server { # 新增 location /nginx_status { stub_status on; access_log off; } } 重启 nginx 服务
-1nginx -t 2nginx -s reload 启动 nginx exporter 1nginx-prometheus-exporter -nginx.scrape-uri http://&lt;nginx&gt;:8080/nginx_status 配置 prometheus 添加 prometheus.yml 1- job_name: &#34;nginx-exporter&#34; 2 file_sd_configs: 3 - files: 4 - &#34;./file_sd/nginx-exporter.yaml&#34; 在 ./file_sd/新建 nginx-exporter.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/nginx-exporter/">阅读更多关于nginx exporter 安装配置的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       </div>
@@ -3860,7 +3860,7 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
 
 
   
-<script src="/js/search.b9e50119978fd967f436201abe07d1257aa613188f87118b8e19ed8d4aa07786.js" defer></script>
+<script src="/js/search.fbd28db1903e4913122faad81f38cc7209a0ab2dc6a314de18e6f383606bfee0.js" defer></script>
 
 
 
