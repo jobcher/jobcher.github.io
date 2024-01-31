@@ -65,14 +65,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/ansible-ceph/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2023-07-18T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-01-30T01:26:16+00:00" />
+<meta property="article:modified_time" content="2024-01-31T01:26:49+00:00" />
 
 
 
 <meta itemprop="name" content="Ansible部署ceph集群">
 <meta itemprop="description" content="基础配置 三台环境为centos7.9，以下配置需要在每台机器上执行
 配置hosts解析 1cat &gt;&gt; /etc/hosts &lt;&lt;EOF 2192.168.2.23 node1 3192.168.2.24 node2 4192.168.2.25 node3 5EOF 关闭防火墙和selinux 1systemctl stop firewalld &amp;&amp; systemctl disable firewalld 2setenforce 0 &amp;&amp; sed -i &#39;s/SELINUX=enforcing/SELINUX=disabled/g&#39; /etc/selinux/config 分别在三个节点设置主机名 1hostnamectl set-hostname node1 2hostnamectl set-hostname node2 3hostnamectl set-hostname node3 配置主机时间同步 1systemctl restart chronyd.service &amp;&amp; systemctl enable chronyd.service 配置免密登录 1ssh-keygen 2ssh-copy-id -i .ssh/id_rsa.pub node1 3ssh-copy-id -i .ssh/id_rsa.pub node2 4ssh-copy-id -i .ssh/id_rsa.pub node3 安装pip和ansible、git 1yum install python-pip ansible git -y 部署ceph集群 克隆存储库 这里我选择安装的是ceph nautilus版本"><meta itemprop="datePublished" content="2023-07-18T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-01-30T01:26:16+00:00" />
+<meta itemprop="dateModified" content="2024-01-31T01:26:49+00:00" />
 <meta itemprop="wordCount" content="214">
 <meta itemprop="keywords" content="k8s," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Ansible部署ceph集群"/>
 <meta name="twitter:description" content="基础配置 三台环境为centos7.9，以下配置需要在每台机器上执行
@@ -871,7 +871,7 @@ Ansible部署ceph集群 - 博客 - 打工人日志</title>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/81c632ca40af2baef248e51a16f34d0ea160d06b"
+            href="https://github.com/jobcher/new-blog/commit/7057bfe84d1ef1483e48524311b02cb33868d863"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
@@ -1465,6 +1465,69 @@ Ansible部署ceph集群 - 博客 - 打工人日志</title>
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-01-31/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-01-31.jpg.2280d92dd1bf3242097571a0acaf139f.webp"
+    alt="2024-01-31 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-01-31 打工人日报"
+        href="/github_trending_2024-01-31/">2024-01-31 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-01-30/">
     
 
@@ -1710,69 +1773,6 @@ Ansible部署ceph集群 - 博客 - 打工人日志</title>
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-01-26/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-01-26.jpg.a1152dd2ddc4694802fe4d3c380ee421.webp"
-    alt="2024-01-26 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-01-26 打工人日报"
-        href="/github_trending_2024-01-26/">2024-01-26 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -1873,7 +1873,7 @@ Ansible部署ceph集群 - 博客 - 打工人日志</title>
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">39</small>
+            <small class="taxonomy-term-count border rounded px-1">40</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -1940,7 +1940,7 @@ Ansible部署ceph集群 - 博客 - 打工人日志</title>
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">39</small>
+            <small class="taxonomy-term-count border rounded px-1">40</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2007,7 +2007,7 @@ Ansible部署ceph集群 - 博客 - 打工人日志</title>
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">39</small>
+            <small class="taxonomy-term-count border rounded px-1">40</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2148,7 +2148,7 @@ Ansible部署ceph集群 - 博客 - 打工人日志</title>
 
 
   
-<script src="/js/search.fbd28db1903e4913122faad81f38cc7209a0ab2dc6a314de18e6f383606bfee0.js" defer></script>
+<script src="/js/search.1f57af22d101ddff3748c755b2e6a39996d152243b974d8a1937f2ed09adb5da.js" defer></script>
 
 
 
