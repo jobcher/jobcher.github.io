@@ -588,6 +588,117 @@
 
       <span class="hb-blog-post-date">2021年12月3日</span>
 
+        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/gitlab-cicd/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="gitlab CI/CD 的使用"
+        href="/gitlab-cicd/">gitlab CI/CD 的使用</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/gitlab/">gitlab</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/git%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">git入门系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/gitlab/">gitlab</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">gitlab CI/CD 的使用 我将使用 gitlab 的流水线自动实现 hugo blog 文章的自动发布。
+一、基础知识 二、安装过程 1.安装 gitlab runner 首先需要安装 gitlab runner 进入服务器 A
+安装方法：
+容器部署
+手动二进制文件部署
+通过 rpm/deb 包部署
+docker 方式安装
+安装文档：https://docs.gitlab.com/runne&hellip;
+1 docker run -dit \ 2 --name gitlab-runner \ 3 --restart always \ 4 -v /srv/gitlab-runner/config:/etc/gitlab-runner \ 5 -v /var/run/docker.sock:/var/run/docker.sock \ 6 gitlab/gitlab-runner 1.1 设置信息
+docker exec -it gitlab-runner gitlab-runner register 非 docker 方式安装 2.1 安装 GitLab Runner
+安装环境：Linux
+其他环境参考：https://docs.gitlab.com/runne&hellip;
+下载
+1 curl -L --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/gitlab-cicd/">阅读更多关于gitlab CI/CD 的使用的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2021年12月3日</span>
+
         <span class="hb-blog-post-reading-time">1 分钟阅读</span>
 
       
@@ -1021,7 +1132,7 @@ https://jobcher.github.io
 
 
   
-<script src="/js/search.bc4f196c27e7bd8b84e6cb60800829932041db2ec91d338ceddb5db5beb86ad4.js" defer></script>
+<script src="/js/search.8eb149d6076ee7b06f8f99c6c5d6d93fadb1e767ee46451af3ebb298a6285f14.js" defer></script>
 
 
 
