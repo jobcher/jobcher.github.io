@@ -586,6 +586,103 @@
 
     </a>
 
+      <span class="hb-blog-post-date">2022年7月20日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/linux-disk/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="linux服务器 删除空间却未释放"
+        href="/linux-disk/">linux服务器 删除空间却未释放</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/">日常系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/">日常生活</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">linux 服务器 删除空间却未释放 在Linux或者Unix系统中，通过rm或者文件管理器删除文件将会从文件系统的目录结构上解除链接(unlink)，然而如果文件是被打开的（有一个进程正在使用），那么进程将仍然可以读取该文件，磁盘空间也一直被占用，这样就会导致我们明明删除了文件，但是磁盘空间却未被释放
+获取占用列表状态 1lsof | grep deleted 可以看到哪些文件还被使用，未被释放空间。
+释放磁盘空间 一种方法是 kill 掉相应的进程，或者停掉使用这个文件的应用，让 os 自动回收磁盘空间，当 linux 打开一个文件的时候,Linux 内核会为每一个进程在/proc/, /proc/nnnn/fd/目录（nnnn 为 pid）建立一个以其 pid 为名的目录用来保存进程的相关信息，而其子目录 fd 保存的是该进程打开的所有文件的 fd（fd：file descriptor）；
+kill进程是通过截断 proc 文件系统中的文件可以强制要求系统回收分配给正在使用的的文件，这是一项高级技术，仅当管理员确定不会对运行中的进程造成影响时使用。 1kill -9 12345 # PID 重启服务 lsof 命令 lsof全名list opened files，也就是列举系统中已经被打开的文件。我们都知道，linux 环境中，任何事物都是文件，设备是文件，目录是文件，甚至sockets也是文件。</div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
       <span class="hb-blog-post-date">2022年7月19日</span>
 
         <span class="hb-blog-post-reading-time">1 分钟阅读</span>
@@ -3467,104 +3564,6 @@ docker run和docker create有什么区别 docker create命令能够基于镜像�
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2022年2月17日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/devops/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="CICD 概念"
-        href="/devops/">CICD 概念</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/gitlab/">gitlab</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/git%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">git入门系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/gitlab/">gitlab</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">CICD 概念 DevOps Devlopment 和 Operation 的组合词
-规划-》代码-》构建-》测试-》发布-》部署-》运营-》监控-》再次规划
-devOps 看作开发（软件工程）、技术运营和质量保障（QA）三者的交集 突出重视软件开发人员和运维人员的沟通合作，通过自动化流程来使得软件构建、测试、发布更加快捷、频繁和可靠。 DevOps 希望做到的是软件产品交付过程中IT工具链的打通，使得各个团队减少时间损耗。更加高效的协同工作。良好的闭环可以大大增加整体的产出。 CICD 持续集成 持续部署
-持续集成
-持续集成是指软件个人研发的部分向软件整体部分交付，频繁进行集成以便更快地发现其中的错误。“持续集成”源自于极限编程（XP），是 12 最初的 12 种实践之一 Ci 需要具备这些： 1全面的自动化测试，这是实践持续集成和持续部署的基础，同时，选择合适的自动化测试工具也极其重要； 2灵活的基础设施。容器，虚拟化的存在让开发人员和QA不必再大费周折 3版本控制工具。如git，cvs，svn等 4自动化的构建和软件发布流程工具，如 Jenkins，flow.ci; 5反馈机制，如构建/测试的失败，可以快速地反馈到相关负责人，以尽快解决达到一个更稳定的版本。 </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       </div>
@@ -3711,7 +3710,7 @@ devOps 看作开发（软件工程）、技术运营和质量保障（QA）三�
 
 
   
-<script src="/js/search.8eb149d6076ee7b06f8f99c6c5d6d93fadb1e767ee46451af3ebb298a6285f14.js" defer></script>
+<script src="/js/search.518de89f6e71bf8075874128890c26a351b6cf078eb159ff0d10845178b539db.js" defer></script>
 
 
 
