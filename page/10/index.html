@@ -572,7 +572,7 @@
     class="nav-link d-flex flex-column"
     href="/"
     title="文章">
-    <span class="mb-3 text-body fw-bold">398</span>
+    <span class="mb-3 text-body fw-bold">399</span>
     <span class="text-body"><svg aria-hidden="true" class="bi bi-file-richtextbi bi-file-richtext hi-svg-inline text-primary" fill="currentColor" height="2.25em" viewBox="0 0 16 16" width="2.25em" xmlns="http://www.w3.org/2000/svg">
   <path d="M7 4.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m-.861 1.542 1.33.886 1.854-1.855a.25.25 0 0 1 .289-.047l1.888.974V7.5a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V7s1.54-1.274 1.639-1.208M5 9a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1z"/>
   <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1"/>
@@ -625,6 +625,144 @@
 
       
 <div class="hb-blog-posts row row-cols-1 row-cols-md-2 g-3 mb-3">
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2023年11月2日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/sonarqube/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+    <source srcset="/images/sonarqube_hu66386967d9fd2808e3fd1c0f1c664146_158066_2356x1304_resize_q75_h2_box_3.webp" type="image/webp" />
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/sonarqube.02e24464152d1f85d75355926d020898.png"
+    alt="sonarqube docker安装和配置"
+    loading="lazy"
+    height="1304"
+    width="2356"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="sonarqube docker安装和配置"
+        href="/sonarqube/">sonarqube docker安装和配置</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/gitlab/">gitlab</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/git%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">git入门系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/gitlab/">gitlab</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">背景 我是在ubuntu服务器安装docker服务，我已经安装好了docker和docker-compose服务，这里我就不写这些服务的安装过程，直接开始安装sonarqube服务
+安装 sonarqube服务器 1.执行脚本文件 config.sh 1#!/bin/bash 2sysctl -w vm.max_map_count=262144 3sysctl -w fs.file-max=65536 4ulimit -n 65536 5ulimit -u 4096 6# # 永久改变 7# echo &#34;vm.max_map_count=262144&#34; &gt;&gt; /etc/sysctl.conf 8# sysctl -p 1sh config.sh 2.执行docker-compose文件 1version: &#39;3&#39; 2services: 3 postgres: 4 image: postgres:15 5 container_name: postgres 6 ports: 7 - 5432:5432 8 volumes: 9 - ./sonar/postgres/postgresql:/var/lib/postgresql 10 - ./sonar/postgres/data:/var/lib/postgresql/data 11 environment: 12 TZ: Asia/Shanghai 13 POSTGRES_USER: user #数据库用户 14 POSTGRES_PASSWORD: password #数据库密码 15 POSTGRES_DB: sonar 16 17 sonarqube: 18 depends_on: 19 - postgres 20 image: sonarqube:9.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/sonarqube/">阅读更多关于sonarqube docker安装和配置的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
   
     <div class="col">
       
@@ -2122,142 +2260,6 @@
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2023年10月21日</span>
-
-        <span class="hb-blog-post-reading-time">4 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2023-10-21/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2023-10-21.jpg.fb1a11a53328865ace6b88a3ba3952a2.webp"
-    alt="2023-10-21 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2023-10-21 打工人日报"
-        href="/github_trending_2023-10-21/">2023-10-21 打工人日报</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/github/">github</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/github/">github</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/github/">github</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 排名 1.一带一路的朋友圈为何越来越大 排名 2.为什么阳光玫瑰变便宜也变难吃了 排名 3.小慧君胜诉 排名 4.大道之行筑梦丝路 排名 5.网红罗大美遇害案经过 排名 6.人生大事收视率破1 排名 7.巴勒斯坦民众与以色列军警发生冲突 排名 8.怎么判断是否感染肺炎支原体 排名 9.孙灏羽 排名 10.加沙居民早起排队3小时抢面饼 排名 11.广西平果一车间发生爆炸 排名 12.被狗咬女童家属称每天医药费1万左右 排名 13.广州5岁女童被小区内犬只咬伤 排名 14.张铭恩新剧演家仆 排名 15.杨迪 可以不喜爱但请别伤害 排名 16.猫肉按每斤4块5充当猪羊肉 排名 17.薛之谦演唱会改词为流浪狗发声 排名 18.你好李焕英 人本身的情感要素 排名 19.宋佳笑到扶李现 排名 20.美国把援乌炮弹转送以色列 GitHub 热门榜单 排名 1:/ByteByteGoHq/system-design-101 简介: 使用视觉效果和简单术语解释复杂系统。帮助您准备系统设计面试。 URL: https://github.com/ByteByteGoHq/system-design-101 作者: ByteByteGoHq 排名 2:/localsend/localsend 简介: AirDrop的开源跨平台替代方案 URL: https://github.com/localsend/localsend 作者: localsend 排名 3:/Alex313031/thorium 简介: 铬叉以放射性元素90命名。Windows和MacOS/Raspi/Android/Special版本位于不同的存储库中，链接位于README.md的顶部。 URL: https://github.com/Alex313031/thorium 作者: Alex313031 排名 4:/OpenBMB/XAgent 简介: 一种用于复杂任务求解的自治LLM Agent URL: https://github.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2023-10-21/">阅读更多关于2023-10-21 打工人日报的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       
@@ -2522,6 +2524,69 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-02-08/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-02-08.jpg.cd7e630442a87e3b60d42206c2a87c90.webp"
+    alt="2024-02-08 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-02-08 打工人日报"
+        href="/github_trending_2024-02-08/">2024-02-08 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-02-07/">
     
 
@@ -2767,69 +2832,6 @@
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-02-03/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-02-03.jpg.76815eb8a856506860142b88554a2773.webp"
-    alt="2024-02-03 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-02-03 打工人日报"
-        href="/github_trending_2024-02-03/">2024-02-03 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2930,7 +2932,7 @@
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">47</small>
+            <small class="taxonomy-term-count border rounded px-1">48</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2997,7 +2999,7 @@
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">47</small>
+            <small class="taxonomy-term-count border rounded px-1">48</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -3064,7 +3066,7 @@
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">47</small>
+            <small class="taxonomy-term-count border rounded px-1">48</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -3203,7 +3205,7 @@
 
 
   
-<script src="/js/search.e9705082b8d53946bda73021bd42b7a4e5d6b25fd99210800c3026321bfd2048.js" defer></script>
+<script src="/js/search.b65956de210d54759d053e2873f57302e240b207642498123f68bffb1e122a76.js" defer></script>
 
 
 
