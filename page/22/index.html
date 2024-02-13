@@ -572,7 +572,7 @@
     class="nav-link d-flex flex-column"
     href="/"
     title="文章">
-    <span class="mb-3 text-body fw-bold">402</span>
+    <span class="mb-3 text-body fw-bold">403</span>
     <span class="text-body"><svg aria-hidden="true" class="bi bi-file-richtextbi bi-file-richtext hi-svg-inline text-primary" fill="currentColor" height="2.25em" viewBox="0 0 16 16" width="2.25em" xmlns="http://www.w3.org/2000/svg">
   <path d="M7 4.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m-.861 1.542 1.33.886 1.854-1.855a.25.25 0 0 1 .289-.047l1.888.974V7.5a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V7s1.54-1.274 1.639-1.208M5 9a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1z"/>
   <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1"/>
@@ -625,6 +625,103 @@
 
       
 <div class="hb-blog-posts row row-cols-1 row-cols-md-2 g-3 mb-3">
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2023年5月31日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/skywalking-python/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="skywalking python agent 安装和配置"
+        href="/skywalking-python/">skywalking python agent 安装和配置</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E7%9B%91%E6%8E%A7/">监控</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7%E7%B3%BB%E5%88%97/">运维监控系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/skywalking/">skywalking</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">背景 skywalking 是一个APM监控，在java和微服务领域非常流行。但是在python领域，skywalking的使用率并不高。本文将介绍如何安装和配置skywalking python agent。
+SkyWalking Python 代理实现了一个命令行界面，可用于在部署期间将代理附加到出色的应用程序，而无需更改任何应用程序代码，就像 SkyWalking Java 代理一样。
+安装skywalking python agent 1pip install apache-skywalking 运行 sw-python 以查看它是否可用，您需要按环境变量传递配置。
+配置skywalking python agent 1export SW_AGENT_NAME=服务名称 2# 服务器地址 3export SW_AGENT_COLLECTOR_BACKEND_SERVICES=127.0.0.1:11800 执行python程序 1sw-python run -p python app.py 启用 CLI 调试模式，以便在启动应用程序时查看代理日志： 1sw-python -d run python app.py </div>
+  </div>
+</div>
+
+    </div>
   
     <div class="col">
       
@@ -1807,106 +1904,6 @@ iOS需要外区账号
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2023年2月23日</span>
-
-        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/2023-02-23/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="打工人周报（第五期）"
-        href="/2023-02-23/">打工人周报（第五期）</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E5%91%A8%E6%8A%A5/">周报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E5%91%A8%E6%8A%A5%E7%B3%BB%E5%88%97/">周报系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E5%91%A8%E6%8A%A5/">周报</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">打工人周报：记录每周值得分享的内容,周四发布,`第五期`欢迎关注。 资讯动态 1. 星链拟推出“全球漫游”互联网服务 月收费超 1300 元 SpaceX 旗下星链（Starlink）卫星互联网服务部分用户收到的最新消息显示，该公司正在测试名为“全球漫游”的互联网服务，其可以让人们“在世界上的任何地方接入网络”。然而，使用这项服务的费用并不便宜，除了花费 599 美元购买基本的星链套件之外，用户每月还需支付 200 美元（约合 1373 元人民币）费用。
-2. 爱奇艺黄金 VIP 恢复 720P 和 1080P 投屏 不再限制登录设备种类 2 月 20 日，爱奇艺做出两项会员服务调整：为 2023 年 2 月 20 日仍处于订阅状态的爱奇艺黄金 VIP 会员，恢复 720P 和 1080P 清晰度的投屏服务，以及爱奇艺黄金、白金、星钻 VIP 会员可在 5 台设备上登录，不再限制登录设备种类。当播放设备数量达上限后，爱奇艺会提示用户选择希望使用的播放设备。如遇 IP 地址异常等安全风险导致账号锁定，用户可通过修改密码解除锁定。
-3. 消息称京东拟 3 月初上线百亿补贴频道 2 月 20 日消息，据媒体报道，京东计划在 3 月初上线百亿补贴频道，正式向拼多多开战。报道称，百亿补贴频道将在 3 月 1 日~3 月 3 日前台切量 100%正式上线；3 月 3 日晚 8 点正式开场。今年，京东大商超事业群将重点发力 pop，自年初实施“0 元开店”策略以来，已经邀请了一批商家入驻，并承诺给予入驻商家一定的流量倾斜。至于这次京东的补贴方案，无论是自营还是 pop，都将与拼多多的商品价格进行比较，如果价格高于拼多多，就会进行补贴，同时也会与拼多多拉平抽取费用。报道还称，拼多多方面已采取初步应对措施，比如，拼多多百亿补贴频道已将部分京东员工 IP 屏蔽。（深厂）</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/2023-02-23/">阅读更多关于打工人周报（第五期）的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       
@@ -2171,6 +2168,69 @@ iOS需要外区账号
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-02-13/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-02-13.jpg.e153ea83bf3f056f75e6dcc61296bc64.webp"
+    alt="2024-02-13 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-02-13 打工人日报"
+        href="/github_trending_2024-02-13/">2024-02-13 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-02-11/">
     
 
@@ -2416,69 +2476,6 @@ iOS需要外区账号
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-02-07/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-02-07.jpg.e9cfa4f16b7dcceffdbc5f7692f4358b.webp"
-    alt="2024-02-07 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-02-07 打工人日报"
-        href="/github_trending_2024-02-07/">2024-02-07 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2579,7 +2576,7 @@ iOS需要外区账号
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">51</small>
+            <small class="taxonomy-term-count border rounded px-1">52</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2646,7 +2643,7 @@ iOS需要外区账号
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">51</small>
+            <small class="taxonomy-term-count border rounded px-1">52</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2713,7 +2710,7 @@ iOS需要外区账号
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">51</small>
+            <small class="taxonomy-term-count border rounded px-1">52</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2852,7 +2849,7 @@ iOS需要外区账号
 
 
   
-<script src="/js/search.6169db76e1c94f6f01c4ed796b54b4d959648d8d2c8377b64320c75d893e0c51.js" defer></script>
+<script src="/js/search.d799284982e0aa67d0bde5ca736f06044dc5b04cf06f825487f50894d2d25089.js" defer></script>
 
 
 

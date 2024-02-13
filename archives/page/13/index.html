@@ -588,6 +588,105 @@
 
       <span class="hb-blog-post-date">2021年12月30日</span>
 
+        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/ansible/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="ansible 安装和部署"
+        href="/ansible/">ansible 安装和部署</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/gitlab/">gitlab</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/git%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">git入门系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/ansible/">ansible</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">ansible 安装和部署 Ansible 默认通过 SSH 协议管理机器.
+安装 ansible 下载安装 1# ubuntu 安装 2apt-get install software-properties-common 3apt-add-repository ppa:ansible/ansible 4apt-get update 5apt-get install ansible 6# centos 安装 7yum install ansible 检查文件 1#检查 2ansible --version ansible 配置 添加主机 1vim /etc/ansible/hosts 2#添加你需要添加的被控主机地址和IP 配置 SSH key 授权访问 1# 控制主机生成ssh 密钥对（一路回车） 2ssh-keygen -t rsa 3# 复制公钥IP到被控主机 4ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.0.2 5ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.0.3 6ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.0.4 7# ssh-copy-id命令会自动将id_rsa.pub文件的内容追加到远程主机root用户下.ssh/authorized_keys文件中。 更改 ansible 配置 1vim /etc/ansible/ansible.cfg 2 3#禁用每次执行ansbile命令检查ssh key host 4host_key_checking = False 5# 开启日志记录 6log_path = /var/log/ansible.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/ansible/">阅读更多关于ansible 安装和部署的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2021年12月30日</span>
+
         <span class="hb-blog-post-reading-time">1 分钟阅读</span>
 
       
@@ -3387,121 +3486,6 @@ mysql 各类信息的收集 收集变量信息 1show global variables; 收集进
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2021年12月9日</span>
-
-        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/docker01/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="docker进阶使用"
-        href="/docker01/">docker进阶使用</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/docker/">docker</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/docker%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97/">docker进阶系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/docker/">docker</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/dockerfile/">dockerfile</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/dockercompose/">DockerCompose</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">docker 进阶使用 dockerfile 和 docker compose 的配置
-Dockerfile 使用 Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。
-例子：
-1 FROM nginx 2 RUN echo &#39;这是一个本地构建的nginx镜像&#39; &gt; /usr/share/nginx/html/index.html 保存 Dockerfile 文件并在本地路径执行
-1 docker build -t nginx:v1-test . 2 docker run -name docker run --name nginx-test -d -p 8080:80 nginx:v1-test 浏览 nginx 页面确认更新内容
-curl 127.0.0.1:8080 输出： 这是一个本地构建的nginx镜像 Docker 命令详解 COPY 复制指令，从上下文目录中复制文件或者目录到容器里指定路径。
-1 COPY [--chown=&lt;user&gt;:&lt;group&gt;] &lt;源路径1&gt;... &lt;目标路径&gt; 2 COPY [--chown=&lt;user&gt;:&lt;group&gt;] [&#34;&lt;源路径1&gt;&#34;,... &#34;&lt;目标路径&gt;&#34;] &lt;源路径&gt;：源文件或者源目录，这里可以是通配符表达式，其通配符规则要满足 Go 的 filepath.Match 规则。例如：
-1 COPY hom* /mydir/ 2 COPY hom?</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/docker01/">阅读更多关于docker进阶使用的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       </div>
@@ -3640,7 +3624,7 @@ curl 127.0.0.1:8080 输出： 这是一个本地构建的nginx镜像 Docker 命�
 
 
   
-<script src="/js/search.6169db76e1c94f6f01c4ed796b54b4d959648d8d2c8377b64320c75d893e0c51.js" defer></script>
+<script src="/js/search.d799284982e0aa67d0bde5ca736f06044dc5b04cf06f825487f50894d2d25089.js" defer></script>
 
 
 
