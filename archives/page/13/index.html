@@ -599,6 +599,105 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/rocketmq/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="RocketMQ 安装和启动"
+        href="/rocketmq/">RocketMQ 安装和启动</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/">日常系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/rocketmq/">RocketMQ</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">RocketMQ 安装和部署 部署 RocketMQ
+单机安装构建 安装 JDK 1.8.0 1yum install java-1.8.0-openjdk* 安装 Maven 1wget http://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz 2tar -zxvf apache-maven-3.8.4-bin.tar.gz 3mv -f apache-maven-3.8.4 /usr/local/ 4vim /etc/profile 5# 末尾添加 6export MAVEN_HOME=/usr/local/apache-maven-3.8.4 7export PATH=${PATH}:${MAVEN_HOME}/bin 8# 保存 9source /etc/profile 10# 查看maven是否正常 11mvn -v 快速部署 1#构建 DLedger 2git clone https://github.com/openmessaging/openmessaging-storage-dledger.git 3cd openmessaging-storage-dledger 4mvn clean install -DskipTests 5# 构建 RocketMQ 6git clone https://github.com/apache/rocketmq.git 7cd rocketmq 8git checkout -b store_with_dledger origin/store_with_dledger 9mvn -Prelease-all -DskipTests clean install -U 10# 部署 11cd rocketmq/distribution/target/apache-rocketmq 12sh bin/dledger/fast-try.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/rocketmq/">阅读更多关于RocketMQ 安装和启动的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年1月7日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/minio/">
       
     <div
@@ -3405,100 +3504,6 @@ mysql 各类信息的收集 收集变量信息 1show global variables; 收集进
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2021年12月10日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/qyyemail163/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="163企业邮箱设置教程"
-        href="/qyyemail163/">163企业邮箱设置教程</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/">日常系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/daliy/">daliy</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">163 企业邮箱设置教程 请进入这个网站 https://qiye.163.com/help/l-11.html</div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       </div>
@@ -3637,7 +3642,7 @@ mysql 各类信息的收集 收集变量信息 1show global variables; 收集进
 
 
   
-<script src="/js/search.19ecc2548574b70dc65afccf577b3f380a41a436af69dba199cf394796b29732.js" defer></script>
+<script src="/js/search.8b1ef1f63386477485c56cf1e5dcfda5681305d92a3208a553ec05ca55730a34.js" defer></script>
 
 
 
