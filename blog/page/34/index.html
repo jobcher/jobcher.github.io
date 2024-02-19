@@ -74,7 +74,7 @@
   
 
 
-博客 - 34/34 - 打工人日志</title>
+博客 - 34/35 - 打工人日志</title>
 
   
   
@@ -534,6 +534,121 @@
 
     
 <div class="hb-blog-posts row row-cols-1 row-cols-md-2 g-3 mb-3">
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2021年12月9日</span>
+
+        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/docker01/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="docker进阶使用"
+        href="/docker01/">docker进阶使用</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/docker/">docker</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/docker%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97/">docker进阶系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/docker/">docker</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/dockerfile/">dockerfile</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/dockercompose/">DockerCompose</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">docker 进阶使用 dockerfile 和 docker compose 的配置
+Dockerfile 使用 Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。
+例子：
+1 FROM nginx 2 RUN echo &#39;这是一个本地构建的nginx镜像&#39; &gt; /usr/share/nginx/html/index.html 保存 Dockerfile 文件并在本地路径执行
+1 docker build -t nginx:v1-test . 2 docker run -name docker run --name nginx-test -d -p 8080:80 nginx:v1-test 浏览 nginx 页面确认更新内容
+curl 127.0.0.1:8080 输出： 这是一个本地构建的nginx镜像 Docker 命令详解 COPY 复制指令，从上下文目录中复制文件或者目录到容器里指定路径。
+1 COPY [--chown=&lt;user&gt;:&lt;group&gt;] &lt;源路径1&gt;... &lt;目标路径&gt; 2 COPY [--chown=&lt;user&gt;:&lt;group&gt;] [&#34;&lt;源路径1&gt;&#34;,... &#34;&lt;目标路径&gt;&#34;] &lt;源路径&gt;：源文件或者源目录，这里可以是通配符表达式，其通配符规则要满足 Go 的 filepath.Match 规则。例如：
+1 COPY hom* /mydir/ 2 COPY hom?</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/docker01/">阅读更多关于docker进阶使用的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
   
     <div class="col">
       
@@ -1650,55 +1765,6 @@ docker exec -it gitlab-runner gitlab-runner register 非 docker 方式安装 2.1
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-
-      <span class="hb-blog-post-date">2021年1月1日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/about/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="关于我"
-        href="/about/">关于我</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">感谢您对我们博客文章的关注和支持。您的支持是我们前进的动力，让我们能够不断地创作有价值、有趣的内容。在这篇文章中，我们想要向您表达我们的感激之情，并与您分享一些即将到来的精彩计划。
-我们一直致力于为您带来最有价值的内容。不论是技术探讨、创意灵感、生活经验分享，还是深度思考的文章，我们都希望能够触及到您的内心，为您带来启发和帮助。同时，我们也非常欢迎您的反馈和建议，帮助我们不断提升，为您奉上更加精彩的阅读体验。
-在线博客 👋 https://www.jobcher.com
-https://jobcher.github.io
-书签导航 https://nav.jobcher.com/
-访问次数</div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
     
@@ -1735,10 +1801,14 @@ https://jobcher.github.io
             class="page-item active">
             <a class="page-link" href="/blog/page/34/">34</a>
           </li>
-      <li class="page-item disabled">
+          <li
+            class="page-item">
+            <a class="page-link" href="/blog/page/35/">35</a>
+          </li>
+      <li class="page-item">
         <a
           class="page-link"
-          href=""
+          href="/blog/page/35/"
           aria-label="下一页">
           <span aria-hidden="true">&raquo;</span>
         </a>
@@ -1942,6 +2012,69 @@ https://jobcher.github.io
           
   <div class="slide">
   <div class="slide-inner row row-cols-1">
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-02-19/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-02-19.jpg.7b409f85ec549edf5051862e950f033e.webp"
+    alt="2024-02-19 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-02-19 打工人日报"
+        href="/github_trending_2024-02-19/">2024-02-19 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
       <div class="slide-item px-0">
         
 <div
@@ -2194,69 +2327,6 @@ https://jobcher.github.io
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-02-14/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-02-14.jpg.5d58f1bd3c0a9f83fb6dfe21e7320f80.webp"
-    alt="2024-02-14 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-02-14 打工人日报"
-        href="/github_trending_2024-02-14/">2024-02-14 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2357,7 +2427,7 @@ https://jobcher.github.io
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">57</small>
+            <small class="taxonomy-term-count border rounded px-1">58</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2424,7 +2494,7 @@ https://jobcher.github.io
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">57</small>
+            <small class="taxonomy-term-count border rounded px-1">58</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2491,7 +2561,7 @@ https://jobcher.github.io
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">57</small>
+            <small class="taxonomy-term-count border rounded px-1">58</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2630,7 +2700,7 @@ https://jobcher.github.io
 
 
   
-<script src="/js/search.1e86ed372483be9ed2d3304d0887e186fc6614a2900b821b826678dbfe4e7d93.js" defer></script>
+<script src="/js/search.dfef3911399bcaf64732a54367d13bb1d8d13dd73971c094fc17881b4d8df578.js" defer></script>
 
 
 
