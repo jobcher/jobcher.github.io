@@ -577,6 +577,142 @@
 
     </a>
 
+      <span class="hb-blog-post-date">2023年9月27日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/ssh-git/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+    <source srcset="/images/github_hu0cdfb0dbcda506ff6e8aa3e0da48c745_2699_300x168_resize_q75_h2_box_3.webp" type="image/webp" />
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/github.4f176adc615ef8784b3f24e57589fc57.png"
+    alt="SSH 通过 443 端口连接 GitHub"
+    loading="lazy"
+    height="168"
+    width="300"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="SSH 通过 443 端口连接 GitHub"
+        href="/ssh-git/">SSH 通过 443 端口连接 GitHub</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/gitlab/">gitlab</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/git%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">git入门系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/gitlab/">gitlab</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">背景 GitHub 提供了两种协议供用户使用 Git 连接—— SSH 和 HTTPS。理论上我可以随意选择两者之一连接到我在 GitHub 上的代码仓库，无论是将云端的仓库 clone 到本地，还是将本地的修改 push 到云端。然而，出于一些奇奇怪怪的原因，我所在的办公网络环境禁止了 22 端口，而 22 端口正是 GitHub 提供 SSH 访问的端口号。尽管可以换用 HTTPS 协议，但无论如何将我电脑上的所有代码仓库的上游都从 git@github.com:... 修改称 https://github.com/... 仍然是一个繁重的体力活。
+解决 为了让Git也能通过上述端口用 SSH 访问 GitHub，我们为上述 SSH 连接方式设置一个别名。首先找到SSH的配置文件，它的路径一般是~/.ssh/config，如果这个文件不存在的话也可以创建一个。然后，在其中增加以下内容：
+1Host github.com 2 HostName ssh.github.com 3 User git 4 Port 443 其中，Host 是别名，HostName 是实际的域名地址，Port 是端口号。因为我希望当我在用 SSH 连接 github.com 时，实际访问的是 ssh.github.com，所以 Host 和 HostName 分别设置成这两个域名（注意不要颠倒顺序）。
+测试连接 1ssh -vT git@github.com </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
       <span class="hb-blog-post-date">2023年9月26日</span>
 
         <span class="hb-blog-post-reading-time">2 分钟阅读</span>
@@ -2038,142 +2174,6 @@
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2023年9月19日</span>
-
-        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2023-09-19/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2023-09-19.jpg.ee5c0ea248f1a81b1497bb961e57a467.webp"
-    alt="2023-09-19 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2023-09-19 打工人日报"
-        href="/github_trending_2023-09-19/">2023-09-19 打工人日报</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/github/">github</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/github/">github</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/github/">github</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 排名 1.杭州亚运会吉祥物组合名叫江南忆 排名 2.医生收到患者家属1箱牛奶发现是4万现金 排名 3.大学生蹭酒席随礼100元被指太少 排名 4.导师在太空开了门实验课 排名 5.梦幻魔法屋正式营业啦 排名 6.多邻国崩了 排名 7.七点以后禁食带给我的变化 排名 8.伍佰 25岁为什么听我的歌呢 排名 9.大疆辟谣拟将总部搬迁至西安 排名 10.赢了我带你回家输了下辈子再见 排名 11.居然有人把飘窗做成了洗脚池 排名 12.夏冰退出霓虹花园 排名 13.傅云深被强吻戏份被删 排名 14.武汉地铁4号线 排名 15.野生大熊猫被偶遇下一秒拔腿就跑 排名 16.赵露思出发米兰时装周 排名 17.这2项运动不利于孩子生长发育 排名 18.日本本州近海5.4级地震 排名 19.为什么体制内很少发朋友圈 排名 20.原来慈禧卧室和我的差不多 GitHub 热门榜单 排名 1:/godotengine/godot 简介: Godot引擎-多平台2D和3D游戏引擎 URL: https://github.com/godotengine/godot 作者: godotengine 排名 2:/coqui-ai/TTS 简介: 🐸💬 - 文本到语音的深度学习工具包，在研究和生产中进行了实战测试 URL: https://github.com/coqui-ai/TTS 作者: coqui-ai 排名 3:/isocpp/CppCoreGuidelines 简介: C++核心指南是一套关于用C进行编码的行之有效的指南、规则和最佳实践++ URL: https://github.com/isocpp/CppCoreGuidelines 作者: isocpp 排名 4:/MonoGame/MonoGame 简介: 一个创建强大的跨平台游戏的框架。 URL: https://github.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2023-09-19/">阅读更多关于2023-09-19 打工人日报的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
     
@@ -2440,6 +2440,69 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-02-21/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-02-21.jpg.bd54e72fb9fa7a6201028719f80ff438.webp"
+    alt="2024-02-21 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-02-21 打工人日报"
+        href="/github_trending_2024-02-21/">2024-02-21 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-02-20/">
     
 
@@ -2685,69 +2748,6 @@
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-02-16/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-02-16.jpg.3b48bccebc29c0779b01418c78012671.webp"
-    alt="2024-02-16 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-02-16 打工人日报"
-        href="/github_trending_2024-02-16/">2024-02-16 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2848,7 +2848,7 @@
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">59</small>
+            <small class="taxonomy-term-count border rounded px-1">60</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2915,7 +2915,7 @@
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">59</small>
+            <small class="taxonomy-term-count border rounded px-1">60</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2982,7 +2982,7 @@
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">59</small>
+            <small class="taxonomy-term-count border rounded px-1">60</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -3121,7 +3121,7 @@
 
 
   
-<script src="/js/search.2a5fa675c287ddc3f6ce070025bce08cb2730506a9552fd55bdcf66c54221d4a.js" defer></script>
+<script src="/js/search.fc52af434870909b019910151a25a83addd5a87266060084ac4649220636b251.js" defer></script>
 
 
 
