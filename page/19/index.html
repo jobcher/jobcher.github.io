@@ -572,7 +572,7 @@
     class="nav-link d-flex flex-column"
     href="/"
     title="文章">
-    <span class="mb-3 text-body fw-bold">412</span>
+    <span class="mb-3 text-body fw-bold">413</span>
     <span class="text-body"><svg aria-hidden="true" class="bi bi-file-richtextbi bi-file-richtext hi-svg-inline text-primary" fill="currentColor" height="2.25em" viewBox="0 0 16 16" width="2.25em" xmlns="http://www.w3.org/2000/svg">
   <path d="M7 4.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m-.861 1.542 1.33.886 1.854-1.855a.25.25 0 0 1 .289-.047l1.888.974V7.5a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V7s1.54-1.274 1.639-1.208M5 9a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1z"/>
   <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1"/>
@@ -625,6 +625,145 @@
 
       
 <div class="hb-blog-posts row row-cols-1 row-cols-md-2 g-3 mb-3">
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2023年8月10日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/nginx-error/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+    <source srcset="/images/nginx_hufd7d1c8ca32609121b37473b72994664_8618_349x144_resize_q75_h2_box_3.webp" type="image/webp" />
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/nginx.7010facf493acc8d655991aa75f5dc96.png"
+    alt="Vue3 &#43; vite &#43; nginx项目部署后404问题"
+    loading="lazy"
+    height="144"
+    width="349"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="Vue3 &#43; vite &#43; nginx项目部署后404问题"
+        href="/nginx-error/">Vue3 &#43; vite &#43; nginx项目部署后404问题</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E9%97%AE%E9%A2%98%E5%BA%93/">问题库</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/">问题库系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/error/">error</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">Vue3 + vite + nginx项目部署后404问题 vue3 + vite + nginx
+在服务器上部署后打开首页都没问题，打开其他路径全部 404。
+nginx 报错日志：No such file or directory
+其实查看 build 后的dist文件夹可以发现，只有一个index.html，当你访问别的路径时nignx查找不到所以就报错了
+解决方案 在 nginx.conf 中添加: try_files $uri $uri/ /index.html;
+server { listen 80; server_name localhost; location / { root /dist; index index.html index.htm; # 在配置文件的此处加上这句话 try_files $uri $uri/ /index.html; } } 总结 其实上述改动就是告诉 nignx 找不到文件的时候就访问 index.html 就可以了。
+究其原因其实就是是 vue3 的 router 使用了history模式，该模式与之前hash模式的具体区别可以自行百度一下，不在此赘述。</div>
+  </div>
+</div>
+
+    </div>
   
     <div class="col">
       
@@ -2153,142 +2292,6 @@ Synology Assistant: https://cndl.synology.cn/download/Utility/Assistant/7.0.4-50
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2023年7月31日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2023-07-31/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2023-07-31.jpg.1db818aad628a3a9b6c73467b5e4a11f.webp"
-    alt="2023-07-31 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2023-07-31 打工人日报"
-        href="/github_trending_2023-07-31/">2023-07-31 打工人日报</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/github/">github</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/github/">github</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/github/">github</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 排名 1.会唱歌的石头见证中华千年礼乐文明 排名 2.卡努 排名 3.李玟二姐首次露面回应礼服和遗产争议 排名 4.在大运村和外国运动员一起耍非遗 排名 5.5个症状提示体内有湿气 排名 6.脏 就不能心诚吗 排名 7.花花洗澡全国人民都知道了 排名 8.大咖话育儿 排名 9.长相思14集封神了 排名 10.外地人被内蒙物价整懵了 排名 11.成都串串店深夜坐满外国运动员 排名 12.台风卡努恰逢农历天文大潮 排名 13.韩国人为什么不穿彩色衣服 排名 14.日本学生害怕被AI取代而自杀 排名 15.刘维登不上母亲微信发文求助 排名 16.涂山璟知道不是吻痕了 排名 17.你今天居家办公吗 排名 18.摧毁孩子的主体性的妈妈 排名 19.长相思才是我想看的女主视角剧 排名 20.电梯突然停运乘客原地停留20分钟 GitHub 热门榜单 排名 1:/bregman-arie/devops-exercises 简介: Linux、Jenkins、AWS、SRE、Prometheus、Docker、Python、Ansible、Git、Kubernetes、Terraform、OpenStack、SQL、NoSQL、Azure、GCP、DNS、Elastic、Network、Virtualization。DevOps访谈问题 URL: https://github.com/bregman-arie/devops-exercises 作者: bregman-arie 排名 2:/ShishirPatil/gorilla 简介: Gorilla:LLM的API商店 URL: https://github.com/ShishirPatil/gorilla 作者: ShishirPatil 排名 3:/Stability-AI/generative-models 简介: 基于稳定性AI的生成模型 URL: https://github.com/Stability-AI/generative-models 作者: Stability-AI 排名 4:/huggingface/text-generation-inference 简介: 大型语言模型文本生成推理 URL: https://github.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2023-07-31/">阅读更多关于2023-07-31 打工人日报的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       
@@ -2553,6 +2556,69 @@ Synology Assistant: https://cndl.synology.cn/download/Utility/Assistant/7.0.4-50
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-02-23/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-02-23.jpg.ecc995603b791befd34a3a8d03a0513b.webp"
+    alt="2024-02-23 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-02-23 打工人日报"
+        href="/github_trending_2024-02-23/">2024-02-23 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-02-22/">
     
 
@@ -2798,69 +2864,6 @@ Synology Assistant: https://cndl.synology.cn/download/Utility/Assistant/7.0.4-50
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-02-18/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-02-18.jpg.081836ebb7ed6fa82b8f3a85bbbf81ef.webp"
-    alt="2024-02-18 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-02-18 打工人日报"
-        href="/github_trending_2024-02-18/">2024-02-18 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2961,7 +2964,7 @@ Synology Assistant: https://cndl.synology.cn/download/Utility/Assistant/7.0.4-50
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">61</small>
+            <small class="taxonomy-term-count border rounded px-1">62</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -3028,7 +3031,7 @@ Synology Assistant: https://cndl.synology.cn/download/Utility/Assistant/7.0.4-50
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">61</small>
+            <small class="taxonomy-term-count border rounded px-1">62</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -3095,7 +3098,7 @@ Synology Assistant: https://cndl.synology.cn/download/Utility/Assistant/7.0.4-50
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">61</small>
+            <small class="taxonomy-term-count border rounded px-1">62</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -3234,7 +3237,7 @@ Synology Assistant: https://cndl.synology.cn/download/Utility/Assistant/7.0.4-50
 
 
   
-<script src="/js/search.83d9565698fba9f50bca9248b7bea205cca84968c760a0e33e3b7de5b9319e83.js" defer></script>
+<script src="/js/search.3f8cd564d5bb3d41ca7bff6e50d1c6c2261634afdcc05f23405ad570d6c174bd.js" defer></script>
 
 
 
