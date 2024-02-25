@@ -572,7 +572,7 @@
     class="nav-link d-flex flex-column"
     href="/"
     title="文章">
-    <span class="mb-3 text-body fw-bold">414</span>
+    <span class="mb-3 text-body fw-bold">415</span>
     <span class="text-body"><svg aria-hidden="true" class="bi bi-file-richtextbi bi-file-richtext hi-svg-inline text-primary" fill="currentColor" height="2.25em" viewBox="0 0 16 16" width="2.25em" xmlns="http://www.w3.org/2000/svg">
   <path d="M7 4.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m-.861 1.542 1.33.886 1.854-1.855a.25.25 0 0 1 .289-.047l1.888.974V7.5a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V7s1.54-1.274 1.639-1.208M5 9a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1z"/>
   <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1"/>
@@ -625,6 +625,106 @@
 
       
 <div class="hb-blog-posts row row-cols-1 row-cols-md-2 g-3 mb-3">
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年8月17日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/contained/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="contained 安装及使用"
+        href="/contained/">contained 安装及使用</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/docker/">docker</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/docker%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">docker入门系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/docker/">docker</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">contained 安装及使用 containerd 是一个行业标准的容器运行时，强调简单性、健壮性和可移植性。它可作为 Linux 和 Windows 的守护进程使用，可以管理其主机系统的完整容器生命周期：图像传输和存储、容器执行和监督、低级存储和网络附件等。
+containerd is a member of CNCF with graduated status.
+早在 2016 年 3 月，Docker 1.11的Docker Engine里就包含了containerd，而现在则是把containerd从Docker Engine里彻底剥离出来，作为一个独立的开源项目独立发展，目标是提供一个更加开放、稳定的容器运行基础设施。和原先包含在 Docker Engine 里containerd相比，独立的containerd将具有更多的功能，可以涵盖整个容器运行时管理的所有需求。 containerd并不是直接面向最终用户的，而是主要用于集成到更上层的系统里，比如Swarm, Kubernetes, Mesos等容器编排系统。 containerd以Daemon的形式运行在系统上，通过暴露底层的gRPC API，上层系统可以通过这些API管理机器上的容器。 每个containerd只负责一台机器，Pull 镜像，对容器的操作（启动、停止等），网络，存储都是由 containerd 完成。具体运行容器由runC负责，实际上只要是符合OCI规范的容器都可以支持。 对于容器编排服务来说，运行时只需要使用containerd+runC，更加轻量，容易管理。 5.独立之后containerd的特性演进可以和Docker Engine分开，专注容器运行时管理，可以更稳定。 安装 centos
+1yum install -y containerd.io ubuntu
+1apt install -y containerd.io 设置开机自启
+1systemctl enable containerd 2systemctl start containerd 3systemctl status containerd 验证
+1ctr version ctr 命令 命令 作用 plugins, plugin 提供有关容器插件的信息 version 打印客户端和服务器版本 containers, c, container 管理容器 content 管理内容 events, event 显示容器事件 images, image, i 管理图像 leases 管理租约 namespaces, namespace, ns 管理租命名空间 pprof 为 containerd 提供 golang pprof 输出 run 运行一个容器 snapshots, snapshot 管理快照 tasks, t, task 管理任务 install 安装一个新包 oci OCI 工具 shim 直接与 shim 交互 help, h 显示命令列表或一个命令的帮助 </div>
+  </div>
+</div>
+
+    </div>
   
     <div class="col">
       
@@ -1796,101 +1896,6 @@ create new ssh key 1ssh-keygen -t rsa -C &#39;git@gitlab.com&#39; -f ~/.ssh/gitl
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2022年6月13日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/k8s7/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="kubernetes manual expansion"
-        href="/k8s7/">kubernetes manual expansion</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/k8s/">k8s</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">k8s入门系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/k8s/">k8s</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">k8s manual expansion We find k8s-master node.Input the Command：
-expand 1kubectl scale --replicas=3 deploy my-test-deploy shrink 1kubectl scale --replicas=1 deploy my-test-deploy trouble cleaning get resource list 1kubectl get deployment 2kubectl get pods 3kubectl get nodes 4# exists in the namespace 5kubectl api-resources --namespaced=true 6# not exists in the namespace 7kubectl api-resources --namespaced=false show info 1kubectl describe pod my-test-pod 2kubectl describe deployment my-test-pod exec container 1kubectl exec -ti my-test-pod /bin/bash </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       
@@ -2155,6 +2160,69 @@ expand 1kubectl scale --replicas=3 deploy my-test-deploy shrink 1kubectl scale -
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-02-25/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-02-25.jpg.2c70949b4c29232d3d0c2f5f94205d46.webp"
+    alt="2024-02-25 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-02-25 打工人日报"
+        href="/github_trending_2024-02-25/">2024-02-25 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-02-24/">
     
 
@@ -2400,69 +2468,6 @@ expand 1kubectl scale --replicas=3 deploy my-test-deploy shrink 1kubectl scale -
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-02-20/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-02-20.jpg.e6d82b488360467ccaae03384b4a5355.webp"
-    alt="2024-02-20 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-02-20 打工人日报"
-        href="/github_trending_2024-02-20/">2024-02-20 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2563,7 +2568,7 @@ expand 1kubectl scale --replicas=3 deploy my-test-deploy shrink 1kubectl scale -
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">63</small>
+            <small class="taxonomy-term-count border rounded px-1">64</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2630,7 +2635,7 @@ expand 1kubectl scale --replicas=3 deploy my-test-deploy shrink 1kubectl scale -
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">63</small>
+            <small class="taxonomy-term-count border rounded px-1">64</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2697,7 +2702,7 @@ expand 1kubectl scale --replicas=3 deploy my-test-deploy shrink 1kubectl scale -
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">63</small>
+            <small class="taxonomy-term-count border rounded px-1">64</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2836,7 +2841,7 @@ expand 1kubectl scale --replicas=3 deploy my-test-deploy shrink 1kubectl scale -
 
 
   
-<script src="/js/search.a2b290c5d3ad884e830064f6e796e234b69f49b1fa13e4a3ca7a1f79ddc57b2c.js" defer></script>
+<script src="/js/search.e2c674adec7165fd3bf35c05cf47ab22c0da57f59ba088cd878cfba3e1dddc0f.js" defer></script>
 
 
 
