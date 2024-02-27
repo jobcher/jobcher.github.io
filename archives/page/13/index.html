@@ -538,6 +538,116 @@
         <a class="text-decoration-none" href="/archives/2022/">2022</a>
     </div>
       <div class="archive-subheading h5 mb-3">
+          <a class="text-decoration-none" href="/archives/2022/02/">二月</a>
+      </div>
+      <div class="archive-posts border-top pt-3">
+        
+<div class="hb-blog-posts row row-cols-1 row-cols-lg-2 row-cols-xl-3 g-3 mb-3">
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年2月8日</span>
+
+        <span class="hb-blog-post-reading-time">3 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/navicatforgetpassword/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="Navicat 查看导出连接的密码 | navicat查看密码方案"
+        href="/navicatforgetpassword/">Navicat 查看导出连接的密码 | navicat查看密码方案</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/mysql%E7%B3%BB%E5%88%97/">mysql系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/mysql/">mysql</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">Navicat 查看密码方案 解决问题： 我们经常使用 navicat 连接数据库，有时候时间久了之后，会忘记之前的密码，那么现在我们有办法获得只要正常连接的数据库的密码
+步骤： 导出连接 connections.ncx，拿到保存到本地的 connections.ncx 文件中的 Password，粘贴到下面的代码中 登陆https://tool.lu/coderunner/，使用 PHP 在线运行工具，粘贴下面添加密码后的代码
+备用工具网址（https://zixuephp.net/tool-runcode.html） 1&lt;?php 2class NavicatPassword 3{ 4 protected $version = 0; 5 protected $aesKey = &#39;libcckeylibcckey&#39;; 6 protected $aesIv = &#39;libcciv libcciv &#39;; 7 protected $blowString = &#39;3DC5CA39&#39;; 8 protected $blowKey = null; 9 protected $blowIv = null; 10 11 public function __construct($version = 12) 12 { 13 $this-&gt;version = $version; 14 $this-&gt;blowKey = sha1(&#39;3DC5CA39&#39;, true); 15 $this-&gt;blowIv = hex2bin(&#39;d9c7c3c8870d64bd&#39;); 16 } 17 18 public function encrypt($string) 19 { 20 $result = FALSE; 21 switch ($this-&gt;version) { 22 case 11: 23 $result = $this-&gt;encryptEleven($string); 24 break; 25 case 12: 26 $result = $this-&gt;encryptTwelve($string); 27 break; 28 default: 29 break; 30 } 31 32 return $result; 33 } 34 35 protected function encryptEleven($string) 36 { 37 $round = intval(floor(strlen($string) / 8)); 38 $leftLength = strlen($string) % 8; 39 $result = &#39;&#39;; 40 $currentVector = $this-&gt;blowIv; 41 42 for ($i = 0; $i &lt; $round; $i++) { 43 $temp = $this-&gt;encryptBlock($this-&gt;xorBytes(substr($string, 8 * $i, 8), $currentVector)); 44 $currentVector = $this-&gt;xorBytes($currentVector, $temp); 45 $result .</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/navicatforgetpassword/">阅读更多关于Navicat 查看导出连接的密码 | navicat查看密码方案的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+</div>
+
+      </div>
+      <div class="archive-subheading h5 mb-3">
           <a class="text-decoration-none" href="/archives/2022/01/">一月</a>
       </div>
       <div class="archive-posts border-top pt-3">
@@ -3495,110 +3605,6 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2021年12月20日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/rsync/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="rsync 文件同步"
-        href="/rsync/">rsync 文件同步</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/">日常系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/daliy/">daliy</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/rsync/">rsync</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">rsync 文件同步 rsync 是一个常用的 Linux 应用程序，用于文件同步
-安装 1# Debian or Ubuntu 2$ sudo apt-get install rsync 3 4# Red Hat 5$ sudo yum install rsync 6 7# Arch Linux 8$ sudo pacman -S rsync 基本用法 使用 rsync 命令时，可以作为 cp 和 mv 命令的替代方法，将源目录同步到目标目录。
--r 表示递归，即包含子目录。注意，-r 是必须的，否则 rsync 运行不会成功。source 目录表示源目录，destination 表示目标目录。
--a 参数可以替代-r，除了可以递归同步以外，还可以同步元信息（比如修改时间、权限等）。由于 rsync 默认使用文件大小和修改时间决定文件是否需要更新
-1rsync -r source destination 远程同步
-1rsync -av &lt;源地址&gt;/ &lt;用户名&gt;@&lt;ip地址&gt;:/&lt;目标地址&gt; 友情地址：mysql 迁移 </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       </div>
@@ -3737,7 +3743,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
 
 
   
-<script src="/js/search.f0da7bb8162525a95eee1ccff2b919bbd169f431ea80953e35b99f7c2e4f906b.js" defer></script>
+<script src="/js/search.a0d08fe182d7b260027111280353c5a497d77b178586d490c0fbad43003e40bf.js" defer></script>
 
 
 
