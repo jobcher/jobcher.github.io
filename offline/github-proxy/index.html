@@ -73,7 +73,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/github-proxy/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2023-04-11T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-03-01T16:03:32+08:00" />
+<meta property="article:modified_time" content="2024-03-01T17:01:31+08:00" />
 
 
 
@@ -82,7 +82,7 @@
 下载仓库 git clone https://github.jobcher.com/gh/&lt;你要下载的GitHub地址&gt;
 1#例子 2git clone https://github.jobcher.com/gh/https://github.com/jobcher/blog.git 部署 复制js到cloudflare worker
 1&#39;use strict&#39; 2 3/** 4 * static files (404.html, sw.js, conf.js) 5 */ 6const ASSET_URL = &#39;https://jobcher.github.io/&#39; 7// 前缀，如果自定义路由为example.com/gh/*，将PREFIX改为 &#39;/gh/&#39;，注意，少一个杠都会错！ 8const PREFIX = &#39;/gh/&#39; 9// 分支文件使用jsDelivr镜像的开关，0为关闭，默认关闭 10const Config = { 11 jsdelivr: 0 12} 13 14const whiteList = [] // 白名单，路径里面有包含字符的才会通过，e.g. [&#39;/username/&#39;] 15 16/** @type {RequestInit} */ 17const PREFLIGHT_INIT = { 18 status: 204, 19 headers: new Headers({ 20 &#39;access-control-allow-origin&#39;: &#39;*&#39;, 21 &#39;access-control-allow-methods&#39;: &#39;GET,POST,PUT,PATCH,TRACE,DELETE,HEAD,OPTIONS&#39;, 22 &#39;access-control-max-age&#39;: &#39;1728000&#39;, 23 }), 24} 25 26 27const exp1 = /^(?"><meta itemprop="datePublished" content="2023-04-11T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-03-01T16:03:32+08:00" />
+<meta itemprop="dateModified" content="2024-03-01T17:01:31+08:00" />
 <meta itemprop="wordCount" content="661">
 <meta itemprop="keywords" content="daliy," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="github 国内代理访问下载"/>
 <meta name="twitter:description" content="演示代理 前缀 https://github.jobcher.com/gh/
@@ -925,11 +925,11 @@ github 国内代理访问下载 - 博客 - 打工人日志</title>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/c24817bc16e6187e72360d89b37014b1f8b6a34a"
+            href="https://github.com/jobcher/new-blog/commit/b69c3d36290a1640c46694591bcb6b5eb823963a"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>Add dependencies and implement email subscription feature</a>
+</svg>update 更新</a>
         </li>
     </ul>
   </div>
@@ -2124,7 +2124,7 @@ github 国内代理访问下载 - 博客 - 打工人日志</title>
 
 
   
-<script src="/js/search.667e755e9103a6ca74f3c2b8f81cf9bb27b66f904fa517c0188abef3e4695c13.js" defer></script>
+<script src="/js/search.bea0dc2dc16d89f64cfc2d2c68364bd1fa81d2bc594ddcec55ce29e6212f6eb7.js" defer></script>
 
 
 
