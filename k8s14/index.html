@@ -68,7 +68,7 @@ Rook 利用扩展点深入融入云原生环境，为调度、生命周期管理
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/k8s14/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-10-11T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-03-02T02:58:31+00:00" />
+<meta property="article:modified_time" content="2024-03-03T01:28:10+00:00" />
 
 
 
@@ -78,7 +78,7 @@ Rook 利用扩展点深入融入云原生环境，为调度、生命周期管理
 部署 使用 helm 部署 1helm init -i jimmysong/kubernetes-helm-tiller:v2.8.1 2helm repo add rook-alpha https://charts.rook.io/alpha 3helm install rook-alpha/rook --name rook --namespace rook-system 直接使用 yaml 文件部署 1kubectl apply -f rook-operator.yaml 不论使用那种方式部署的 rook operator，都会在 rook-agent 中看到 rook-agent 用户无法列出集群中某些资源的错误，可以通过为 rook-agent 的分配 cluster-admin 权限临时解决，详见 Issue 1472。
 使用如下 yaml 文件创建一个 ClusterRoleBinding 并应用到集群中。
 1kind: ClusterRoleBinding 2apiVersion: rbac.authorization.k8s.io/v1beta1 3metadata: 4 name: rookagent-clusterrolebinding 5subjects: 6 - kind: ServiceAccount 7 name: rook-agent 8 namespace: rook-system 9roleRef: 10 kind: ClusterRole 11 name: cluster-admin 12 apiGroup: &#34;&#34; 部署 rook cluster 创建完 rook operator 后，我们再部署 rook cluster。"><meta itemprop="datePublished" content="2022-10-11T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-03-02T02:58:31+00:00" />
+<meta itemprop="dateModified" content="2024-03-03T01:28:10+00:00" />
 <meta itemprop="wordCount" content="655">
 <meta itemprop="keywords" content="k8s," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Kubernetes — Rook云存储介绍和部署"/>
 <meta name="twitter:description" content="Rook 云存储介绍和部署 Rook 将分布式存储软件转变为自我管理，自我缩放和自我修复的存储服务。它通过自动化部署，引导、配置、供应、扩展、升级、迁移、灾难恢复、监控和资源管理来实现。 Rook 使用基础的云原生容器管理、调度和编排平台提供的功能来履行其职责。
@@ -909,7 +909,7 @@ Kubernetes — Rook云存储介绍和部署 - 博客 - 打工人日志</title>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/4b296584d87a3ab96009f47270971907e675ab93"
+            href="https://github.com/jobcher/new-blog/commit/20f3b0b5e6c41926c76a47afc992fca05b2e488c"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
@@ -1425,6 +1425,69 @@ Kubernetes — Rook云存储介绍和部署 - 博客 - 打工人日志</title>
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-03-03/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-03-03.jpg.b858ae15f984bd009c23a2cb87cfc5cb.webp"
+    alt="2024-03-03 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-03-03 打工人日报"
+        href="/github_trending_2024-03-03/">2024-03-03 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-03-02/">
     
 
@@ -1670,69 +1733,6 @@ Kubernetes — Rook云存储介绍和部署 - 博客 - 打工人日志</title>
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-02-27/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-02-27.jpg.6aa7d1dd04da0b93e134af99088c143e.webp"
-    alt="2024-02-27 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-02-27 打工人日报"
-        href="/github_trending_2024-02-27/">2024-02-27 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -1833,7 +1833,7 @@ Kubernetes — Rook云存储介绍和部署 - 博客 - 打工人日志</title>
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">70</small>
+            <small class="taxonomy-term-count border rounded px-1">71</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -1900,7 +1900,7 @@ Kubernetes — Rook云存储介绍和部署 - 博客 - 打工人日志</title>
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">70</small>
+            <small class="taxonomy-term-count border rounded px-1">71</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -1967,7 +1967,7 @@ Kubernetes — Rook云存储介绍和部署 - 博客 - 打工人日志</title>
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">70</small>
+            <small class="taxonomy-term-count border rounded px-1">71</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2108,7 +2108,7 @@ Kubernetes — Rook云存储介绍和部署 - 博客 - 打工人日志</title>
 
 
   
-<script src="/js/search.80d4934d0a58ed10b501b5757fb25410ca9b198df2ba4a596db27759deabb0ec.js" defer></script>
+<script src="/js/search.31912bf5fede5bcb8894da522b0ce3f98207498231f16a126bdf4007c9964311.js" defer></script>
 
 
 
