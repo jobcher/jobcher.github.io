@@ -69,7 +69,7 @@ docker 安装 jenkins 1docker run \ 2 -u root \ 3 -d \ 4 -p 8080:8080 \ 5 -p 500
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/jenkins/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-02-09T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-03-05T01:25:47+00:00" />
+<meta property="article:modified_time" content="2024-03-05T09:38:33+08:00" />
 
 
 
@@ -79,7 +79,7 @@ docker 安装 jenkins 1docker run \ 2 -u root \ 3 -d \ 4 -p 8080:8080 \ 5 -p 500
 docker 安装 jenkins 1docker run \ 2 -u root \ 3 -d \ 4 -p 8080:8080 \ 5 -p 50000:50000 \ 6 -v jenkins-data:/var/jenkins_home \ 7 -v /etc/localtime:/etc/localtime:ro \ 8 -v /var/run/docker.sock:/var/run/docker.sock \ 9 --restart=always \ 10 jenkinsci/blueocean 访问 http://localhost:8080
 显示初始密码
 1docker exec -ti &lt;容器名称&gt; sh 2cat /var/jenkins_home/secrets/initialAdminPassword 工作流程 先定义一个流水线项目，指定项目的 git 位置 git 位置自动拉取代码 解析拉取代码里面的 Jenkinsfile 文件 按照 Jenkinsfile 指定的流水线开始加工项目 Jenkinsfile 语法 基础语法,在仓库创建一个 Jenkinsfile 文件"><meta itemprop="datePublished" content="2022-02-09T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-03-05T01:25:47+00:00" />
+<meta itemprop="dateModified" content="2024-03-05T09:38:33+08:00" />
 <meta itemprop="wordCount" content="183">
 <meta itemprop="keywords" content="gitlab," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Jenkins 安装与使用"/>
 <meta name="twitter:description" content="Jenkins 安装与使用 代码在本地修改&mdash;-》提交到远程 gitlab&mdash;-》触发 jenkins 整个自动化构建流程（打包，测试，发布，部署）
@@ -978,11 +978,11 @@ Jenkins 安装与使用 - 博客 - 打工人日志</title>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/595f71807b3af904d6c7c7c5a94c3357a89cf0c1"
+            href="https://github.com/jobcher/new-blog/commit/a9224162739956ceffdb393fce262a0da353b4c9"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>update github trend</a>
+</svg>增加取消订阅</a>
         </li>
     </ul>
   </div>
@@ -2294,7 +2294,7 @@ Jenkins 安装与使用 - 博客 - 打工人日志</title>
 
 
   
-<script src="/js/search.70e1f9e8b3b3da3cd92a0820902c120d4f368a0286e098f619558c4f57166f23.js" defer></script>
+<script src="/js/search.c89a23418e8b59ea4b588e0655e045179b1f495b2e53bd813a7ef207f34ace44.js" defer></script>
 
 
 
