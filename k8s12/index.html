@@ -68,7 +68,7 @@ CRI CRI（Container Runtime Interface）：容器运行时接口，提供计算�
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/k8s12/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-10-07T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-03-05T09:44:03+08:00" />
+<meta property="article:modified_time" content="2024-03-05T09:50:13+08:00" />
 
 
 
@@ -78,7 +78,7 @@ CRI CRI（Container Runtime Interface）：容器运行时接口，提供计算�
 OCI 容器开放接口规范，由多家公司共同组成于 2015 年 6 月成立的项目（Docker, Google, CoreOS 等公司），并由 Linux 基金会运行管理，旨在围绕容器格式和运行时制定一个开放的工业化标准，目前主要有两个标准文档：容器运行时标准 （runtime spec）和 容器镜像标准（image spec）
 OCI 是一个开放的治理结构，其明确目的是围绕容器格式和运行时创建开放的行业标准。 它提供了必须由容器运行时引擎实现的规范。两个重要的规格是： runC：种子容器运行时引擎。大多数现代容器运行时环境都使用 runC 并围绕这个种子引擎开发附加功能。 这种低级运行时用于启动容器的各种工具，包括 Docker 本身。 OCI 规范：关于如何运行、构建和分发容器的映像、运行时和分发规范。 虽然 Docker 经常与容器技术同步使用，但社区一直致力于 OCI 的开放行业标准。 Image-Spec image-spec 定义了如何构建和打包容器镜像。 本规范的目标是创建可互操作的工具，用于构建、传输和准备要运行的容器映像。 Runtime-Spec runtime-spec 指定容器的配置、执行环境和生命周期。 这概述了如何运行在磁盘上解压的“文件系统包(filesystem bundle)”。概括地说，OCI 实现会下载一个 OCI 映像，然后将该映像解压缩到一个 OCI 运行时文件系统包中。 Distribution-Spec Distribution-Spec 提供了一个标准，用于一般内容的分发，特别是容器图像的分发。它是 OCI 项目的最新补充。 实现分发规范的容器注册表为容器映像提供可靠、高度可扩展、安全的存储服务。 客户要么使用云提供商实施、供应商实施，要么使用分发的开源实施。
 CRI CRI（Container Runtime Interface）：容器运行时接口，提供计算资源。​ ​kubernetes1."><meta itemprop="datePublished" content="2022-10-07T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-03-05T09:44:03+08:00" />
+<meta itemprop="dateModified" content="2024-03-05T09:50:13+08:00" />
 <meta itemprop="wordCount" content="322">
 <meta itemprop="keywords" content="k8s," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Kubernetes — 开放标准（OCI、CRI、CNI、CSI、SMI、CPI）概述"/>
 <meta name="twitter:description" content="Kubernetes — 开放标准（OCI、CRI、CNI、CSI、SMI、CPI）概述 什么是 Kubernetes 开放标准？— K8s 开放标准简介
@@ -913,11 +913,11 @@ Kubernetes — 开放标准（OCI、CRI、CNI、CSI、SMI、CPI）概述 - 博�
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/fd5d6f01c5d6549f8368f72fd29a2eeed109ee8d"
+            href="https://github.com/jobcher/new-blog/commit/66c06c2374f35e346caf9ca7f8d529356944fd55"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>Update sidebar link in hb-blog-sidebar.html</a>
+</svg>更新代码</a>
         </li>
     </ul>
   </div>
@@ -1323,9 +1323,12 @@ Kubernetes — 开放标准（OCI、CRI、CNI、CSI、SMI、CPI）概述 - 博�
 
       </div>
   </div>
-<div class="hb-module text-center bg-primary text-white p-3" href="https://sub.jobcher.com/">
-点击订阅
-</div>
+<a href="https://sub.jobcher.com/">
+    <div class="hb-module text-center bg-primary text-white p-3">
+        点击订阅 获取最新文章
+    </div>
+</a>
+
 <div class="hb-module text-center">
     <a href="https://www.foreverblog.cn/go.html" target="_blank"> <img src="https://img.foreverblog.cn/wormhole_3_tp.gif" alt="" style="width:auto;height:32px;" title="穿梭虫洞-随机访问十年之约友链博客"></a>
 </div>
@@ -2112,7 +2115,7 @@ Kubernetes — 开放标准（OCI、CRI、CNI、CSI、SMI、CPI）概述 - 博�
 
 
   
-<script src="/js/search.595ca5a6856d46903889433bba117b6406bf03b5ac4a3120ff24fa363c72c971.js" defer></script>
+<script src="/js/search.46950a634072323a8dd510eb5f5bfda9a3103039ba6ddca703e670dbbf8f4f86.js" defer></script>
 
 
 

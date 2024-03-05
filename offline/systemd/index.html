@@ -77,7 +77,7 @@ systemd 命令 systemd 不是一个具体的命令，而是一组命令，用于
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/systemd/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-08-08T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-03-05T09:44:03+08:00" />
+<meta property="article:modified_time" content="2024-03-05T09:50:13+08:00" />
 
 
 
@@ -88,7 +88,7 @@ systemd 命令 systemd 不是一个具体的命令，而是一组命令，用于
 1.systemctl systemctl是 Systemd 的主命令，用于管理系统。
 1# 重启系统 2$ sudo systemctl reboot 3 4# 关闭系统，切断电源 5$ sudo systemctl poweroff 6 7# CPU停止工作 8$ sudo systemctl halt 9 10# 暂停系统 11$ sudo systemctl suspend 12 13# 让系统进入冬眠状态 14$ sudo systemctl hibernate 15 16# 让系统进入交互式休眠状态 17$ sudo systemctl hybrid-sleep 18 19# 启动进入救援状态（单用户状态） 20$ sudo systemctl rescue 2.systemd-analyze systemd-analyze命令用于查看启动耗时
 1# 查看启动耗时 2systemd-analyze 3 4# 查看每个服务的启动耗时 5$ systemd-analyze blame 6 7# 显示瀑布状的启动过程流 8$ systemd-analyze critical-chain 9 10# 显示指定服务的启动流 11$ systemd-analyze critical-chain atd."><meta itemprop="datePublished" content="2022-08-08T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-03-05T09:44:03+08:00" />
+<meta itemprop="dateModified" content="2024-03-05T09:50:13+08:00" />
 <meta itemprop="wordCount" content="1035">
 <meta itemprop="keywords" content="运维," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="systemd 守护命令"/>
 <meta name="twitter:description" content="介绍 systemd 是 linux 中用来启动守护进程，Linux 最早一直采用 init 进程
@@ -1333,11 +1333,11 @@ systemctl cat 命令可以查看配置文件的内容。</p>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/fd5d6f01c5d6549f8368f72fd29a2eeed109ee8d"
+            href="https://github.com/jobcher/new-blog/commit/66c06c2374f35e346caf9ca7f8d529356944fd55"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>Update sidebar link in hb-blog-sidebar.html</a>
+</svg>更新代码</a>
         </li>
     </ul>
   </div>
@@ -1821,9 +1821,12 @@ systemctl cat 命令可以查看配置文件的内容。</p>
 
       </div>
   </div>
-<div class="hb-module text-center bg-primary text-white p-3" href="https://sub.jobcher.com/">
-点击订阅
-</div>
+<a href="https://sub.jobcher.com/">
+    <div class="hb-module text-center bg-primary text-white p-3">
+        点击订阅 获取最新文章
+    </div>
+</a>
+
 <div class="hb-module text-center">
     <a href="https://www.foreverblog.cn/go.html" target="_blank"> <img src="https://img.foreverblog.cn/wormhole_3_tp.gif" alt="" style="width:auto;height:32px;" title="穿梭虫洞-随机访问十年之约友链博客"></a>
 </div>
@@ -2610,7 +2613,7 @@ systemctl cat 命令可以查看配置文件的内容。</p>
 
 
   
-<script src="/js/search.595ca5a6856d46903889433bba117b6406bf03b5ac4a3120ff24fa363c72c971.js" defer></script>
+<script src="/js/search.46950a634072323a8dd510eb5f5bfda9a3103039ba6ddca703e670dbbf8f4f86.js" defer></script>
 
 
 
