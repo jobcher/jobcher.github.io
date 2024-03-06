@@ -577,6 +577,149 @@
 
     </a>
 
+      <span class="hb-blog-post-date">2023年9月20日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/elasticsearch-error/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+    <source srcset="/images/elasticsearch_hu18415ec3836508404f1613f1254993e1_3637_435x116_resize_q75_h2_box_3.webp" type="image/webp" />
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/elasticsearch.6e78ad53fcbbbcee8a35ff3bb6894613.png"
+    alt="解决Elasticsearch索引只读（read-only）"
+    loading="lazy"
+    height="116"
+    width="435"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="解决Elasticsearch索引只读（read-only）"
+        href="/elasticsearch-error/">解决Elasticsearch索引只读（read-only）</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E9%97%AE%E9%A2%98%E5%BA%93/">问题库</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/">问题库系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/error/">error</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">背景 这两天有开发向我反馈说elasticsearch有报错，嘿，我定睛一看，这不是进入只读状态了，看来是存储达到额度，我马上加个新的数据节点，平衡一下存储压力
+报错信息：
+1Elasticsearch Error {type:cluster_block_exception,reason:”blocked by: [FORBIDDEN/12/index read-only / allow delete (api)];} 新建服务器，安装elasticsearch 为了和之前的服务器一样，我简单写一下我elasticsearch版本和服务器系统版本
+软件 版本 centos 7.9 elasticsearch 6.7.2 JDK 1.8.61 内存 32G 安装和配置elasticsearch 使用rpm 安装
+1wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.7.2.rpm 1rpm --install elasticsearch-6.7.2.rpm 配置参数，进入/etc/elasticsearch目录
+修改配置vim elasticsearch.yml
+1# ======================== Elasticsearch Configuration ========================= 2 3cluster.name: cluster-prod-es # 集群名称 4 5node.name: node-x # 节点名称 6 7path.data: /var/lib/elasticsearch # 数据存储 8 9path.logs: /var/log/elasticsearch # 日志存储 10 11network.host: 192.168.0.170 # 主机IP地址 12 13http.port: 9200 # 端口号 14 15discovery.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/elasticsearch-error/">阅读更多关于解决Elasticsearch索引只读（read-only）的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
       <span class="hb-blog-post-date">2023年9月19日</span>
 
         <span class="hb-blog-post-reading-time">1 分钟阅读</span>
@@ -2059,142 +2202,6 @@ adb还有更多好玩有趣的玩法等你发现
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2023年9月10日</span>
-
-        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2023-09-10/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2023-09-10.jpg.55046e5f315bfc2ff8bafa9eb8926535.webp"
-    alt="2023-09-10 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2023-09-10 打工人日报"
-        href="/github_trending_2023-09-10/">2023-09-10 打工人日报</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/github/">github</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/github/">github</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/github/">github</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 排名 1.总书记为龙江发展指明方向 排名 2.教师节快乐 排名 3.国足43年首次赢不了马来西亚 排名 4.当亚运会遇上中华文化 排名 5.王鹤棣必胜客品牌代言人 排名 6.女子手指肿胀21天开刀发现仙人掌刺 排名 7.教师节 排名 8.摩洛哥地震遇难人数升至2012人 排名 9.德国1比4日本 排名 10.华晨宇接受法师称号 排名 11.计划有变 准备夺冠 排名 12.马斯克和女高管所生双胞胎曝光 排名 13.李鸿其官宣与王紫璇恋情 排名 14.断亲现象为何如此流行 排名 15.学生教师节给老师送祝福越跑越偏 排名 16.任正非2019年称两三年后可再看华为在不在 排名 17.师生间双向奔赴的爱 排名 18.10年米粉换用iPhone是什么体验 排名 19.张亮开车主打一个倔强 排名 20.王俊凯 俊昇文化 GitHub 热门榜单 排名 1:/modularml/mojo 简介: Mojo程序设计语言 URL: https://github.com/modularml/mojo 作者: modularml 排名 2:/krahets/hello-algo 简介: 《你好算法》：动画图解、一键运行的数据结构与算法教程，支持 Java、C++、Python、Go、JS、TS、C#、Swift、Rust、Dart、Zig等语言。 URL: https://github.com/krahets/hello-algo 作者: krahets 排名 3:/KillianLucas/open-interpreter 简介: OpenAI的代码解释器在您的终端中，在本地运行 URL: https://github.com/KillianLucas/open-interpreter 作者: KillianLucas 排名 4:/oven-sh/bun 简介: 速度惊人的JavaScript运行时、bundler、测试运行程序和包管理器集于一身 URL: https://github.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2023-09-10/">阅读更多关于2023-09-10 打工人日报的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
     
@@ -2464,6 +2471,69 @@ adb还有更多好玩有趣的玩法等你发现
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-03-06/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-03-06.jpg.60a7c999510f476ddd12438804cd2f95.webp"
+    alt="2024-03-06 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-03-06 打工人日报"
+        href="/github_trending_2024-03-06/">2024-03-06 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-03-05/">
     
 
@@ -2709,69 +2779,6 @@ adb还有更多好玩有趣的玩法等你发现
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-03-01/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-03-01.jpg.96a9c476433daace11a8549ffd2f71a0.webp"
-    alt="2024-03-01 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-03-01 打工人日报"
-        href="/github_trending_2024-03-01/">2024-03-01 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2872,7 +2879,7 @@ adb还有更多好玩有趣的玩法等你发现
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">73</small>
+            <small class="taxonomy-term-count border rounded px-1">74</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2939,7 +2946,7 @@ adb还有更多好玩有趣的玩法等你发现
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">73</small>
+            <small class="taxonomy-term-count border rounded px-1">74</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -3006,7 +3013,7 @@ adb还有更多好玩有趣的玩法等你发现
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">73</small>
+            <small class="taxonomy-term-count border rounded px-1">74</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -3145,7 +3152,7 @@ adb还有更多好玩有趣的玩法等你发现
 
 
   
-<script src="/js/search.b9c22f58f18ec66107ad9af06622f8fb478469e7a699a3909ffcb08372ee3b57.js" defer></script>
+<script src="/js/search.58eaec10f083a4ce5ec03a5563c0394ae6a1e3ed5cd8b16fa264162e376c83dc.js" defer></script>
 
 
 
