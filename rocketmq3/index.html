@@ -67,7 +67,7 @@ sudo apt install nfs-common -y
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/rocketmq3/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-08-29T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-03-08T14:53:03+08:00" />
+<meta property="article:modified_time" content="2024-03-08T15:00:02+08:00" />
 
 
 
@@ -76,7 +76,7 @@ sudo apt install nfs-common -y
 sudo apt install nfs-common -y
 创建目录 1mkdir -p /data/storage/k8s/rocketmq 使用 NFS 作为StatefulSet持久化存储的操作记录，分别需要创建nfs-provisioner的rbac、storageclass、nfs-client-provisioner和statefulset的pod
 创建 nfs 的 rbac 1--- 2apiVersion: v1 3kind: ServiceAccount 4metadata: 5 name: nfs-provisioner 6 namespace: sanjiang 7--- 8kind: ClusterRole 9apiVersion: rbac.authorization.k8s.io/v1 10metadata: 11 name: nfs-provisioner-runner 12 namespace: sanjiang 13rules: 14 - apiGroups: [&#34;&#34;] 15 resources: [&#34;persistentvolumes&#34;] 16 verbs: [&#34;get&#34;, &#34;list&#34;, &#34;watch&#34;, &#34;create&#34;, &#34;delete&#34;] 17 - apiGroups: [&#34;&#34;] 18 resources: [&#34;persistentvolumeclaims&#34;] 19 verbs: [&#34;get&#34;, &#34;list&#34;, &#34;watch&#34;, &#34;update&#34;] 20 - apiGroups: [&#34;storage."><meta itemprop="datePublished" content="2022-08-29T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-03-08T14:53:03+08:00" />
+<meta itemprop="dateModified" content="2024-03-08T15:00:02+08:00" />
 <meta itemprop="wordCount" content="3262">
 <meta itemprop="keywords" content="RocketMQ," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="RocketMQ k8s部署 4主4从集群"/>
 <meta name="twitter:description" content="RocketMQ k8s 部署 4 主 4 从集群 使用 NFS 配置 StatefulSet 的动态持久化存储 安装 NFS 服务端 1sudo apt update 2sudo apt install nfs-kernel-server nfs-common 安装 NFS 客户端 所有的节点都得执行
@@ -2056,11 +2056,11 @@ kubectl get sc -n sanjiang</p>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/c06bfebe8f121492d1cf08e9a39608b6b260a5bb"
+            href="https://github.com/jobcher/new-blog/commit/79c82f7d2acb7564085b6e749b711bb77689d675"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>替换图片</a>
+</svg>测试</a>
         </li>
     </ul>
   </div>
@@ -3258,7 +3258,7 @@ kubectl get sc -n sanjiang</p>
 
 
   
-<script src="/js/search.0177465599744babf5ceb2f9723c845c26827fad813158512710840e51a13ccd.js" defer></script>
+<script src="/js/search.5c3b6d354c5589299f50eefa9844203d28ade53eadbb563ba3b8fc34bc59dc9f.js" defer></script>
 
 
 
