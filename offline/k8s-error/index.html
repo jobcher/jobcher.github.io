@@ -71,7 +71,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/k8s-error/" /><meta property="og:image" content="https://www.jobcher.com/images/error.jpeg" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-08-30T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-03-08T14:35:23+08:00" />
+<meta property="article:modified_time" content="2024-03-08T14:40:42+08:00" />
 
 
 
@@ -80,7 +80,7 @@
 原因 cgroup 的 kmem account 特性在 Linux 3.x 内核上有内存泄露问题，然后k8s用了这个特性，导致后面创建不出新的pod来了
 解决方法 1# 修改/etc/default/grub 为 2GRUB_CMDLINE_LINUX=&#34;crashkernel=auto rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb quiet cgroup.memory=nokmem&#34; 3#加上了 cgroup.memory=nokmem 4# 生成配置 5/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg 6 7# 重启机器 8reboot 验证 1cat /sys/fs/cgroup/memory/kubepods/burstable/pod*/*/memory.kmem.slabinfo 输出信息
 1cat: /sys/fs/cgroup/memory/kubepods/burstable/pod0fe273ca-42e0-4223-9fe8-16d8dd1774e9/0fdd5d9c16929fd600dbdf313b5c3ebabad912dc0cb076ed6e7799e028b31481/memory."><meta itemprop="datePublished" content="2022-08-30T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-03-08T14:35:23+08:00" />
+<meta itemprop="dateModified" content="2024-03-08T14:40:42+08:00" />
 <meta itemprop="wordCount" content="99"><meta itemprop="image" content="https://www.jobcher.com/images/error.jpeg" />
 <meta itemprop="keywords" content="error," /><meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://www.jobcher.com/images/error.jpeg" /><meta name="twitter:title" content="K8S 问题排查：cgroup 内存泄露问题"/>
@@ -793,11 +793,11 @@ K8S 问题排查：cgroup 内存泄露问题 - 博客 - 打工人日志</title>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/07755f4aa044551de8f66f24861e5ec59e1627a7"
+            href="https://github.com/jobcher/new-blog/commit/c8b50573b3e84c8cab3d17612e07a7fedf9ac7e6"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>更新</a>
+</svg>图片加载问题</a>
         </li>
     </ul>
   </div>
@@ -2385,7 +2385,7 @@ K8S 问题排查：cgroup 内存泄露问题 - 博客 - 打工人日志</title>
 
 
   
-<script src="/js/search.c0b0cf270203ec51ed7462bed9b4678f1e066d236c27f8276f1d0cdfb75b0c2f.js" defer></script>
+<script src="/js/search.93b13d7be4bf02fec8f647e03f98fd33861b197ec9f622cce8bf4ae9f4bae338.js" defer></script>
 
 
 
