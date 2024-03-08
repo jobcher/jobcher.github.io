@@ -586,6 +586,146 @@
 
     </a>
 
+      <span class="hb-blog-post-date">2023年12月13日</span>
+
+        <span class="hb-blog-post-reading-time">5 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/container/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+    <source srcset="/images/containerd-horizontal-color_hu0ba7367fda9b14e2d9b67d283382d45e_1510_759x188_resize_q75_h2_box_3.webp" type="image/webp" />
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/containerd-horizontal-color.3f9c84a182c980085f4e588a659ae6cf.png"
+    alt="Kubernetes — containerd 安装和部署"
+    loading="lazy"
+    height="188"
+    width="759"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="Kubernetes — containerd 安装和部署"
+        href="/container/">Kubernetes — containerd 安装和部署</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/k8s/">k8s</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/k8s%E7%B3%BB%E5%88%97/">k8s系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/k8s/">k8s</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">containerd 现在很多人说起容器都会说到docker，docker凭借镜像（images）快捷的部署，占领了极大的技术市场，docker公司将自己的核心依赖 Contanerd 捐给了 CNCF，这个就是contanerd的由来，containerd 在kubernetes在 v1.24之后的版本作为底层核心进行使用。
+Containerd架构 可以看到 Containerd 仍然采用标准的 C/S 架构，服务端通过 GRPC 协议提供稳定的 API，客户端通过调用服务端的 API 进行高级的操作。 为了解耦，Containerd 将不同的职责划分给不同的组件，每个组件就相当于一个子系统（subsystem）。连接不同子系统的组件被称为模块。 总体上 Containerd 被划分为两个子系统：
+Bundle : 在 Containerd 中，Bundle 包含了配置、元数据和根文件系统数据，你可以理解为容器的文件系统。而 Bundle 子系统允许用户从镜像中提取和打包 Bundles。 Runtime : Runtime 子系统用来执行 Bundles，比如创建容器。 其中，每一个子系统的行为都由一个或多个模块协作完成（架构图中的 Core 部分）。每一种类型的模块都以插件的形式集成到 Containerd 中，而且插件之间是相互依赖的。例如，上图中的每一个长虚线的方框都表示一种类型的插件，包括 Service Plugin、Metadata Plugin、GC Plugin、Runtime Plugin 等，其中 Service Plugin 又会依赖 Metadata Plugin、GC Plugin 和 Runtime Plugin。每一个小方框都表示一个细分的插件，例如 Metadata Plugin 依赖 Containers Plugin、Content Plugin 等。 总之，万物皆插件，插件就是模块，模块就是插件。
+常用插件 Content Plugin : 提供对镜像中可寻址内容的访问，所有不可变的内容都被存储在这里。 Snapshot Plugin : 用来管理容器镜像的文件系统快照。镜像中的每一个 layer 都会被解压成文件系统快照，类似于 Docker 中的 graphdriver。 Metrics : 暴露各个组件的监控指标。 安装 卸载docker 首先要保证环境干净整洁，如果你有安装docker服务，需要先卸载docker，如果没有安装可以跳过</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/container/">阅读更多关于Kubernetes — containerd 安装和部署的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
       <span class="hb-blog-post-date">2023年12月12日</span>
 
         <span class="hb-blog-post-reading-time">3 分钟阅读</span>
@@ -4510,142 +4650,6 @@ Flakiness 片状 片状测试是 CI/CD 方程中不可预测的变量。当测�
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2023年11月14日</span>
-
-        <span class="hb-blog-post-reading-time">3 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2023-11-14/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2023-11-14.jpg.a1f058d9e956f14bc5e8603c07a6b142.webp"
-    alt="2023-11-14 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2023-11-14 打工人日报"
-        href="/github_trending_2023-11-14/">2023-11-14 打工人日报</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/github/">github</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/github/">github</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/github/">github</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 排名 1.9图速览什么是APEC 排名 2.网友吐槽政务大厅全天工作6个小时 排名 3.知情人证实缅北电诈成员劝降视频属实 排名 4.聚焦中国经济圆桌会 排名 5.在何猷君身上看到了生理性喜欢的样子 排名 6.缅北四大家族 排名 7.苹果公司将禁止摇一摇跳转广告 排名 8.刘诗诗刘宇宁 你好星期六 排名 9.亨利集团 排名 10.张遮底色 虐到极致 排名 11.官方通报职校克扣学生巨额实习报酬 排名 12.小S好炸裂的回复 排名 13.权志龙直播回应涉嫌吸毒 排名 14.室友遭追砍女子帮呼救也被砍20多刀 排名 15.谁在资助缅北果敢同盟军 排名 16.脂肪肝不建议碰到食物黑名单 排名 17.玉骨遥的美是如何拍出来的 排名 18.卧虎山庄 排名 19.我国糖尿病患病率超11% 排名 20.重返巴厘岛通往旧金山 GitHub 热门榜单 排名 1:/SawyerHood/draw-a-ui 简介: 绘制一个模型并为其生成html URL: https://github.com/SawyerHood/draw-a-ui 作者: SawyerHood 排名 2:/imartinez/privateGPT 简介: 使用GPT的强大功能与文档交互，100%私人，无数据泄露 URL: https://github.com/imartinez/privateGPT 作者: imartinez 排名 3:/krahets/hello-algo 简介: 《你好算法》：动画图解、一键运行的数据结构与算法教程，支持 Java、C++、Python、Go、JS、TS、C#、Swift、Rust、Dart、Zig等语言。 URL: https://github.com/krahets/hello-algo 作者: krahets 排名 4:/githubnext/monaspace 简介: 一个创新的代码字体超家族 URL: https://github.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2023-11-14/">阅读更多关于2023-11-14 打工人日报的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       </div>
@@ -4792,7 +4796,7 @@ Flakiness 片状 片状测试是 CI/CD 方程中不可预测的变量。当测�
 
 
   
-<script src="/js/search.58eaec10f083a4ce5ec03a5563c0394ae6a1e3ed5cd8b16fa264162e376c83dc.js" defer></script>
+<script src="/js/search.f40ef5426d488cb5fac17e28858780dab54817ed5d0eeb1793d913bb618440e7.js" defer></script>
 
 
 
