@@ -68,13 +68,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/k8s2/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-02-13T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-03-08T14:40:42+08:00" />
+<meta property="article:modified_time" content="2024-03-08T14:53:03+08:00" />
 
 
 
 <meta itemprop="name" content="Kubernetes 安装">
 <meta itemprop="description" content="Kubernetes 安装 环境配置 关闭防火墙： 如果是云服务器，需要设置安全组策略放行端口 1systemctl stop firewalld 2systemctl disable firewalld 修改 hostname 1hostnamectl set-hostname k8s-01 2echo &#34;127.0.0.1 $(hostname)&#34; &gt;&gt; /etc/hosts 3reboot 关闭 selinux： 1sed -i &#39;s/enforcing/disabled/&#39; /etc/selinux/config 2setenforce 0 关闭 swap： 1swapoff -a 2sed -ri &#39;s/.*swap.*/#&amp;/&#39; /etc/fstab 修改 /etc/sysctl.conf 1# 如果有配置，则修改 2sed -i &#34;s#^net.ipv4.ip_forward.*#net.ipv4.ip_forward=1#g&#34; /etc/sysctl.conf 3sed -i &#34;s#^net.bridge.bridge-nf-call-ip6tables.*#net.bridge.bridge-nf-call-ip6tables=1#g&#34; /etc/sysctl.conf 4sed -i &#34;s#^net.bridge.bridge-nf-call-iptables.*#net.bridge.bridge-nf-call-iptables=1#g&#34; /etc/sysctl.conf 5sed -i &#34;s#^net.ipv6.conf.all.disable_ipv6.*#net.ipv6.conf.all.disable_ipv6=1#g&#34; /etc/sysctl.conf 6sed -i &#34;s#^net.ipv6.conf.default.disable_ipv6.*#net.ipv6.conf.default.disable_ipv6=1#g&#34; /etc/sysctl.conf 7sed -i &#34;s#^net.ipv6.conf.lo.disable_ipv6.*#net.ipv6.conf.lo.disable_ipv6=1#g&#34; /etc/sysctl.conf 8sed -i &#34;s#^net.ipv6.conf.all.forwarding.*#net.ipv6.conf.all.forwarding=1#g&#34; /etc/sysctl.conf 9# 可能没有，追加 10echo &#34;net."><meta itemprop="datePublished" content="2022-02-13T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-03-08T14:40:42+08:00" />
+<meta itemprop="dateModified" content="2024-03-08T14:53:03+08:00" />
 <meta itemprop="wordCount" content="336">
 <meta itemprop="keywords" content="k8s," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Kubernetes 安装"/>
 <meta name="twitter:description" content="Kubernetes 安装 环境配置 关闭防火墙： 如果是云服务器，需要设置安全组策略放行端口 1systemctl stop firewalld 2systemctl disable firewalld 修改 hostname 1hostnamectl set-hostname k8s-01 2echo &#34;127.0.0.1 $(hostname)&#34; &gt;&gt; /etc/hosts 3reboot 关闭 selinux： 1sed -i &#39;s/enforcing/disabled/&#39; /etc/selinux/config 2setenforce 0 关闭 swap： 1swapoff -a 2sed -ri &#39;s/.*swap.*/#&amp;/&#39; /etc/fstab 修改 /etc/sysctl.conf 1# 如果有配置，则修改 2sed -i &#34;s#^net.ipv4.ip_forward.*#net.ipv4.ip_forward=1#g&#34; /etc/sysctl.conf 3sed -i &#34;s#^net.bridge.bridge-nf-call-ip6tables.*#net.bridge.bridge-nf-call-ip6tables=1#g&#34; /etc/sysctl.conf 4sed -i &#34;s#^net.bridge.bridge-nf-call-iptables.*#net.bridge.bridge-nf-call-iptables=1#g&#34; /etc/sysctl.conf 5sed -i &#34;s#^net.ipv6.conf.all.disable_ipv6.*#net.ipv6.conf.all.disable_ipv6=1#g&#34; /etc/sysctl.conf 6sed -i &#34;s#^net.ipv6.conf.default.disable_ipv6.*#net.ipv6.conf.default.disable_ipv6=1#g&#34; /etc/sysctl.conf 7sed -i &#34;s#^net.ipv6.conf.lo.disable_ipv6.*#net.ipv6.conf.lo.disable_ipv6=1#g&#34; /etc/sysctl.conf 8sed -i &#34;s#^net.ipv6.conf.all.forwarding.*#net.ipv6.conf.all.forwarding=1#g&#34; /etc/sysctl.conf 9# 可能没有，追加 10echo &#34;net."/>
@@ -842,11 +842,11 @@ Kubernetes 安装 - 博客 - 打工人日志</title>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/c8b50573b3e84c8cab3d17612e07a7fedf9ac7e6"
+            href="https://github.com/jobcher/new-blog/commit/c06bfebe8f121492d1cf08e9a39608b6b260a5bb"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>图片加载问题</a>
+</svg>替换图片</a>
         </li>
     </ul>
   </div>
@@ -2044,7 +2044,7 @@ Kubernetes 安装 - 博客 - 打工人日志</title>
 
 
   
-<script src="/js/search.93b13d7be4bf02fec8f647e03f98fd33861b197ec9f622cce8bf4ae9f4bae338.js" defer></script>
+<script src="/js/search.0177465599744babf5ceb2f9723c845c26827fad813158512710840e51a13ccd.js" defer></script>
 
 
 
