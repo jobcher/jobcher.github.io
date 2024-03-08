@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-hans</language>
     <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
-    <lastBuildDate>Fri, 08 Mar 2024 01:26:21 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 08 Mar 2024 14:27:47 +0800</lastBuildDate>
     <atom:link href="https://www.jobcher.com/categories/%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用 ElasticSearch Curator 7天定期删除日志</title>
@@ -29,6 +29,13 @@
       <pubDate>Mon, 15 May 2023 00:00:00 +0000</pubDate>
       <guid>https://www.jobcher.com/appium/</guid>
       <description>在windows上安装appium Appium 主要用于软件测试自动化领域，以帮助确定给定应用程序的功能是否按预期工作。与其他类型的软件测试相比，UI 自动化允许测试人员编写代码，在应用程序的实际 UI 中演练用户方案，尽可能模拟现实世界中发生的情况，同时实现自动化的各种好处，包括速度、规模和一致性。&#xA;安装nodejs Appium是基于Node.js构建的,所以首先需要安装Node.js&#xA;下载地址：https://nodejs.org/en/download/&#xA;下载并安装，验证是否安装成功&#xA;1node -v 安装appium 安装Appium。在命令提示符下运行:&#xA;1npm install -g appium 安装appium-doctor 安装appium-doctor。在命令提示符下运行:&#xA;1npm install -g appium-doctor 安装appium-desktop 安装appium-desktop。在命令提示符下运行:&#xA;1npm install -g appium-desktop 安装jdk 下载地址：https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html 下载并安装，验证是否安装成功&#xA;1java -version 安装android-sdk 下载地址：https://developer.android.com/studio 下载并安装，验证是否安装成功&#xA;1adb version 配置环境变量 在系统环境变量中添加以下变量&#xA;1ANDROID_HOME = D:\Android\sdk 2JAVA_HOME = C:\Program Files\Java\jdk1.8.0_311 3Path = %ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;%JAVA_HOME%\bin 验证是否配置成功&#xA;1appium-doctor 启动appium 1appium 启动appium-desktop 1appium-desktop 测试脚本 创建测试脚本test.py&#xA;1from appium import webdriver 2import time 3 4desired_caps = {} 5 6desired_caps[&amp;#39;platformName&amp;#39;] = &amp;#39;Android&amp;#39; 7desired_caps[&amp;#39;platformVersion&amp;#39;] = &amp;#39;10&amp;#39; 8desired_caps[&amp;#39;deviceName&amp;#39;] = &amp;#39;Android Emulator&amp;#39; 9desired_caps[&amp;#39;appPackage&amp;#39;] = &amp;#39;com.</description>
+    </item>
+    <item>
+      <title>基础知识-计算机系统</title>
+      <link>https://www.jobcher.com/base-1/</link>
+      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/base-1/</guid>
+      <description>计算机硬件 计算机的基本硬件系统由运算器、控制器、存储器、输入设备和输出设备五大部件组成&#xA;运算器、控制器等部件被集成在一起统称为中央处理单元（Central Processing Unit，CPU）。 存储器是计算机系统中的记忆设备，分为内部存储器和外部存储器。 内部存储器:速度高、容量小，一般用于临时存放程序、数据及中间结果 外部存储器:者容量大、速度慢，可长期保存程序和数据。 输入设备和输出设备合称为外部设备（简称外设），输入设备用于输入原始数据及各种命令，而输出设备则用于输出处理结果 CPU CPU 主要由运算器、控制器、寄存器组和内部总线等部件组成</description>
     </item>
     <item>
       <title>systemd 守护命令</title>

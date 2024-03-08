@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>基础 on 打工人日志</title>
+    <link>https://www.jobcher.com/tags/%E5%9F%BA%E7%A1%80/</link>
+    <description>Recent content in 基础 on 打工人日志</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-hans</language>
+    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
+    <lastBuildDate>Fri, 08 Mar 2024 14:27:47 +0800</lastBuildDate>
+    <atom:link href="https://www.jobcher.com/tags/%E5%9F%BA%E7%A1%80/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>基础知识-计算机系统</title>
+      <link>https://www.jobcher.com/base-1/</link>
+      <pubDate>Sun, 01 Jan 2023 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/base-1/</guid>
+      <description>计算机硬件 计算机的基本硬件系统由运算器、控制器、存储器、输入设备和输出设备五大部件组成&#xA;运算器、控制器等部件被集成在一起统称为中央处理单元（Central Processing Unit，CPU）。 存储器是计算机系统中的记忆设备，分为内部存储器和外部存储器。 内部存储器:速度高、容量小，一般用于临时存放程序、数据及中间结果 外部存储器:者容量大、速度慢，可长期保存程序和数据。 输入设备和输出设备合称为外部设备（简称外设），输入设备用于输入原始数据及各种命令，而输出设备则用于输出处理结果 CPU CPU 主要由运算器、控制器、寄存器组和内部总线等部件组成</description>
+    </item>
+  </channel>
+</rss>

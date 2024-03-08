@@ -606,7 +606,7 @@ jobcher - 21/29 - 作者 - 打工人日志</title>
   
     <li
       class="nav-item d-flex flex-column justify-content-center align-items-center my-2 mx-3">
-      <span class="mb-1 fw-bold btn btn-secondary rounded">345</span>
+      <span class="mb-1 fw-bold btn btn-secondary rounded">346</span>
       <span class="text-body-secondary">文章</span>
     </li>
   
@@ -627,6 +627,105 @@ jobcher - 21/29 - 作者 - 打工人日志</title>
 </div>
 
       <div class="hb-terms-posts row row-cols-1 row-cols-md-2">
+          <div class="mb-3 mb-lg-4">
+            
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年9月19日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/cleandocker/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="清理Docker容器日志"
+        href="/cleandocker/">清理Docker容器日志</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/docker/">docker</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/docker%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">docker入门系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/docker/">docker</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">清理 Docker 容器日志 如果 docker 容器正在运行，那么使用rm -rf方式删除日志后，通过df -h会发现磁盘空间并没有释放。原因是在 Linux 或者 Unix 系统中，通过rm -rf或者文件管理器删除文件，将会从文件系统的目录结构上解除链接（unlink）。如果文件是被打开的（有一个进程正在使用），那么进程将仍然可以读取该文件，磁盘空间也一直被占用。正确姿势是cat /dev/null &gt; *-json.log，当然你也可以通过rm -rf删除后重启 docker。
+日志清理脚本 clean_docker_log.sh 1#!/bin/sh 2 3echo &#34;======== start clean docker containers logs ========&#34; 4 5logs=$(find /var/lib/docker/containers/ -name *-json.log) 6 7for log in $logs 8 do 9 echo &#34;clean logs : $log&#34; 10 cat /dev/null &gt; $log 11 done 12 13echo &#34;======== end clean docker containers logs ========&#34; chmod +x clean_docker_log.sh &amp;&amp; ./clean_docker_log.sh
+设置 Docker 容器日志大小 设置一个容器服务的日志大小上限</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/cleandocker/">阅读更多关于清理Docker容器日志的内容。</a>
+        </div>
+  </div>
+</div>
+
+          </div>
           <div class="mb-3 mb-lg-4">
             
 <div
@@ -1821,106 +1920,6 @@ kill进程是通过截断 proc 文件系统中的文件可以强制要求系统�
 </div>
 
           </div>
-          <div class="mb-3 mb-lg-4">
-            
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2022年7月19日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/logstash/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="logstash 多管道部署"
-        href="/logstash/">logstash 多管道部署</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E7%9B%91%E6%8E%A7/">监控</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7%E7%B3%BB%E5%88%97/">运维监控系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/logstash/">logstash</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">logstash 多管道部署 找到 logstash 目录位置，一般来说在 /etc/logstash 路径下,修改 logstash.yml
-1#增加 日志记录 2path.logs: /var/log/logstash 增加管道 增加 conf.d目录下 test.conf
-input { beats { host =&gt; &#34;0.0.0.0&#34; port =&gt; 23000 # 修改端口IP } } filter { mutate{ add_field =&gt; { &#34;cluster&#34; =&gt; &#34;test&#34; # 修改标签 &#34;job&#34; =&gt; &#34;logstash&#34; } } } output { file { path =&gt; &#34;/data/路径名称&#34; # 路径名称 gzip =&gt; false #匹配以空格开头的行 } } 修改 pipelines.yml
-1- pipeline.id: 名称 2 path.config: &#34;/etc/logstash/conf.d/配置文件.conf&#34; 3 queue.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/logstash/">阅读更多关于logstash 多管道部署的内容。</a>
-        </div>
-  </div>
-</div>
-
-          </div>
       </div>
       
   <nav
@@ -2578,7 +2577,7 @@ input { beats { host =&gt; &#34;0.0.0.0&#34; port =&gt; 23000 # 修改端口IP }
           class="taxonomy-term taxonomy-term-authors btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/authors/jobcher/">
           <span class="taxonomy-term-title">jobcher</span>
-            <small class="taxonomy-term-count border rounded px-1">345</small>
+            <small class="taxonomy-term-count border rounded px-1">346</small>
         </a>
     </div>
     <div
@@ -2613,14 +2612,14 @@ input { beats { host =&gt; &#34;0.0.0.0&#34; port =&gt; 23000 # 修改端口IP }
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
-          href="/categories/gitlab/">
-          <span class="taxonomy-term-title">gitlab</span>
-            <small class="taxonomy-term-count border rounded px-1">15</small>
+          href="/categories/%E5%9F%BA%E7%A1%80/">
+          <span class="taxonomy-term-title">基础</span>
+            <small class="taxonomy-term-count border rounded px-1">16</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
-          href="/categories/%E5%9F%BA%E7%A1%80/">
-          <span class="taxonomy-term-title">基础</span>
+          href="/categories/gitlab/">
+          <span class="taxonomy-term-title">gitlab</span>
             <small class="taxonomy-term-count border rounded px-1">15</small>
         </a>
         <a
@@ -2686,14 +2685,14 @@ input { beats { host =&gt; &#34;0.0.0.0&#34; port =&gt; 23000 # 修改端口IP }
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
-          href="/series/git%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">
-          <span class="taxonomy-term-title">git入门系列</span>
-            <small class="taxonomy-term-count border rounded px-1">15</small>
+          href="/series/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97/">
+          <span class="taxonomy-term-title">基础知识系列</span>
+            <small class="taxonomy-term-count border rounded px-1">16</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
-          href="/series/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97/">
-          <span class="taxonomy-term-title">基础知识系列</span>
+          href="/series/git%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">
+          <span class="taxonomy-term-title">git入门系列</span>
             <small class="taxonomy-term-count border rounded px-1">15</small>
         </a>
         <a
@@ -2868,7 +2867,7 @@ input { beats { host =&gt; &#34;0.0.0.0&#34; port =&gt; 23000 # 修改端口IP }
 
 
   
-<script src="/js/search.f40ef5426d488cb5fac17e28858780dab54817ed5d0eeb1793d913bb618440e7.js" defer></script>
+<script src="/js/search.b03c1b4b0be4c397696616d0144e29c7567c0d779cca5332e6ab6caed031383b.js" defer></script>
 
 
 
