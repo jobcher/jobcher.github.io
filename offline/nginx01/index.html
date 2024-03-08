@@ -72,7 +72,7 @@ log_format combined &#39;$remote_addr - $remote_user [$time_local] &#39; &#39;&#
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/nginx01/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2021-12-13T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-03-08T16:06:37+08:00" />
+<meta property="article:modified_time" content="2024-03-08T16:13:34+08:00" />
 
 
 
@@ -81,7 +81,7 @@ log_format combined &#39;$remote_addr - $remote_user [$time_local] &#39; &#39;&#
 access_log /var/logs/nginx-access.log access_log /var/logs/nginx-access.log buffer=32k gzip flush=1m 使用 log_format 自定义日志格式 Nginx 预定义了名为 combined 日志格式，如果没有明确指定日志格式默认使用该格式：
 log_format combined &#39;$remote_addr - $remote_user [$time_local] &#39; &#39;&#34;$request&#34; $status $body_bytes_sent &#39; &#39;&#34;$http_referer&#34; &#34;$http_user_agent&#34;&#39;; 如果不想使用 Nginx 预定义的格式，可以通过 log_format 指令来自定义。
 语法 log_format name [escape=default|json] string ...; 变量 含义 $bytes_sent 发送给客户端的总字节数 $body_bytes_sent 发送给客户端的字节数，不包括响应头的大小 $connection 连接序列号 $connection_requests 当前通过连接发出的请求数量 $msec 日志写入时间，单位为秒，精度是毫秒 $pipe 如果请求是通过 http 流水线发送，则其值为&quot;p&quot;，否则为“."><meta itemprop="datePublished" content="2021-12-13T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-03-08T16:06:37+08:00" />
+<meta itemprop="dateModified" content="2024-03-08T16:13:34+08:00" />
 <meta itemprop="wordCount" content="125">
 <meta itemprop="keywords" content="nginx,linux," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="nginx 日志格式整理"/>
 <meta name="twitter:description" content="nginx 日志配置 语法 access_log path [format [buffer=size] [gzip[=level]] [flush=time] [if=condition]]; # 设置访问日志 access_log off; # 关闭访问日志 例子：
@@ -828,11 +828,11 @@ log_format  main  &#39;$remote_addr - $remote_user [$time_local] &#34;$request&#
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/b1787fa44319484b0229d632b2fb502a10781066"
+            href="https://github.com/jobcher/new-blog/commit/b3f68491ba39c203ad804cd8c17472642e1d8c77"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>完善字符</a>
+</svg>update</a>
         </li>
     </ul>
   </div>
@@ -2030,7 +2030,7 @@ log_format  main  &#39;$remote_addr - $remote_user [$time_local] &#34;$request&#
 
 
   
-<script src="/js/search.d2401a08b23af3617fbc8494aa3ec97ffc334870640d4669bb25e5b8e537b3b1.js" defer></script>
+<script src="/js/search.37eddf4f5f07c52b8a761559d876adfd40207874cc1cc4dad1a8dc6391d533a5.js" defer></script>
 
 
 
