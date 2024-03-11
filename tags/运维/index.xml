@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-hans</language>
     <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
-    <lastBuildDate>Sun, 10 Mar 2024 21:23:12 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 11 Mar 2024 01:27:14 +0000</lastBuildDate>
     <atom:link href="https://www.jobcher.com/tags/%E8%BF%90%E7%BB%B4/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用 ElasticSearch Curator 7天定期删除日志</title>
