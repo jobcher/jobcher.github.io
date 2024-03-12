@@ -577,6 +577,100 @@
 
     </a>
 
+      <span class="hb-blog-post-date">2022年3月3日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/ruoyi/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="ruoyi-cloud docker部署"
+        href="/ruoyi/">ruoyi-cloud docker部署</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/work/">work</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/">问题库系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/work/">work</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">基础环境安装 1# docker 脚本安装 2curl -sSL https://get.daocloud.io/docker | sh 3 4#docker compose 脚本安装 5curl -L https://get.daocloud.io/docker/compose/releases/download/v2.4.1/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose 6 7 8#可执行权限 9sudo chmod +x /usr/local/bin/docker-compose 10#创建软链： 11sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose 12#测试是否安装成功 13docker-compose --version 下载安装 1git clone https://gitlab.sanjiang.com/it-group/ruoyi-cloud.git 编译 1cd ruoyi-cloud 2mvn clean install -DskipTests 复制 jar 包 1cd ./docker 2./copy.sh 部署 docker 1./deploy.sh base 2./deploy.sh modules 检查 docker 1docker ps -a | grep ruoyi 2docker logs -f ruoyi-auth 3docker logs -f ruoyi-gateway 4docker logs -f ruoyi-modules-system </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
       <span class="hb-blog-post-date">2022年2月28日</span>
 
         <span class="hb-blog-post-reading-time">1 分钟阅读</span>
@@ -1637,111 +1731,6 @@ docker 部署 /mnt/money/wxedge_storage这个路径改为自己的存储路径�
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2022年2月10日</span>
-
-        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/docker-clean/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="清理Docker的container，image与volume"
-        href="/docker-clean/">清理Docker的container，image与volume</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/docker/">docker</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/docker%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97/">docker进阶系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/docker/">docker</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">清理 Docker 的 container，image 与 volume Docker 的镜像（image）、容器（container）、数据卷（volume）， 都是由 daemon 托管的。 因此，在需要清理时，也需要使用其自带的手段。
-清理技巧 清理所有停止运行的容器：
-1docker container prune 2# or 3docker rm $(docker ps -aq) 清理所有悬挂（&lt;none&gt;）镜像：
-1docker image prune 2# or 3docker rmi $(docker images -qf &#34;dangling=true&#34;) 清理所有无用数据卷：
-1docker volume prune 由于prune操作是批量删除类的危险操作，所以会有一次确认。 如果不想输入y&lt;CR&gt;来确认，可以添加-f操作。慎用！
-清理停止的容器 docker rm -lv CONTAINER -l是清理 link，v是清理 volume。 这里的 CONTAINER 是容器的 name 或 ID，可以是一个或多个。
-参数列表：
-Name shorthand Default Description –force,-f false Force the removal of a running container (uses SIGKILL) –link, -l false Remove the specified link –volumes, -v false Remove the volumes associated with the container 清理所有停止的容器 通过docker ps可以查询当前运行的容器信息。 而通过docker ps -a，可以查询所有的容器信息，包括已停止的。</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/docker-clean/">阅读更多关于清理Docker的container，image与volume的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
     
@@ -2011,6 +2000,69 @@ Name shorthand Default Description –force,-f false Force the removal of a runn
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-03-12/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-03-12.jpg.0a52807e3bc52f90ed676e088c21ac4d.webp"
+    alt="2024-03-12 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-03-12 打工人日报"
+        href="/github_trending_2024-03-12/">2024-03-12 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-03-11/">
     
 
@@ -2256,69 +2308,6 @@ Name shorthand Default Description –force,-f false Force the removal of a runn
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-03-06/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-03-06.jpg.60a7c999510f476ddd12438804cd2f95.webp"
-    alt="2024-03-06 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-03-06 打工人日报"
-        href="/github_trending_2024-03-06/">2024-03-06 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2419,7 +2408,7 @@ Name shorthand Default Description –force,-f false Force the removal of a runn
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">78</small>
+            <small class="taxonomy-term-count border rounded px-1">79</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2486,7 +2475,7 @@ Name shorthand Default Description –force,-f false Force the removal of a runn
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">78</small>
+            <small class="taxonomy-term-count border rounded px-1">79</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2553,7 +2542,7 @@ Name shorthand Default Description –force,-f false Force the removal of a runn
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">78</small>
+            <small class="taxonomy-term-count border rounded px-1">79</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2692,7 +2681,7 @@ Name shorthand Default Description –force,-f false Force the removal of a runn
 
 
   
-<script src="/js/search.25aa8f2b0983e886de9c7028a6433db96f449685cc7797f36df070a2202bdb13.js" defer></script>
+<script src="/js/search.43fc5ec2bfda624057cac5cf0460c0ebde0562ae8a5c4cc0e5824cbc4123433e.js" defer></script>
 
 
 

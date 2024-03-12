@@ -586,6 +586,102 @@
 
     </a>
 
+      <span class="hb-blog-post-date">2021年12月29日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/logrotate/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="logrotate 日志滚动的使用"
+        href="/logrotate/">logrotate 日志滚动的使用</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/">日常系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/daliy/">daliy</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">logrotate 日志滚动的使用 logrotate 日志滚动切割工具，是 linux 默认安装的工具，配置文件位置：
+1/etc/logrotate.conf 2/etc/logrotate.d/ 参数 以 nginx 配置为例
+1/opt/log/nginx/*.log { 2	daily 3	missingok 4	rotate 14 5 errors &#34;nb@nbtyfood.com&#34; 6	compress 7	delaycompress 8	notifempty 9	create 0640 www-data adm 10	sharedscripts 11	prerotate 12	if [ -d /etc/logrotate.d/httpd-prerotate ]; then \ 13	run-parts /etc/logrotate.d/httpd-prerotate; \ 14	fi \ 15	endscript 16	postrotate 17	invoke-rc.d nginx rotate &gt;/dev/null 2&gt;&amp;1 18	endscript 19} 参数 作用 compress 压缩日志文件的所有非当前版本 daily,weekly,monthly 按指定计划轮换日志文件 delaycompress 压缩所有版本，除了当前和下一个最近的 endscript 标记 prerotate 或 postrotate 脚本的结束 errors &ldquo;emailid&rdquo; 给指定邮箱发送错误通知 missingok 如果日志文件丢失，不要显示错误 notifempty 如果日志文件为空，则不轮换日志文件 olddir &ldquo;dir&rdquo; 指定日志文件的旧版本放在 “dir” 中 postrotate 引入一个在日志被轮换后执行的脚本 prerotate 引入一个在日志被轮换前执行的脚本 rotate &rsquo;n' 在轮换方案中包含日志的 n 个版本 sharedscripts 对于整个日志组只运行一次脚本 size=&lsquo;logsize&rsquo; 在日志大小大于 logsize（例如 100K，4M）时轮换 </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
       <span class="hb-blog-post-date">2021年12月28日</span>
 
         <span class="hb-blog-post-reading-time">1 分钟阅读</span>
@@ -3413,103 +3509,6 @@ Kubernetes 支持多个容器运行环境: Docker、 containerd、CRI-O 以及�
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2021年12月8日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/20211210/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2021年第50周记"
-        href="/20211210/">2021年第50周记</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/">日常系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/daliy/">daliy</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">2021 年第 50 周周记 这周完成了以下任务
-搭建 hugo 博客 使用 docker 封装了 blog 搭建 k3s 环境 计划：
-学习 k8s 总结：没啥好总结，刚开始写周记，就随便写一点吧
-欢迎关注我的博客www.jobcher.com</div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       </div>
@@ -3648,7 +3647,7 @@ Kubernetes 支持多个容器运行环境: Docker、 containerd、CRI-O 以及�
 
 
   
-<script src="/js/search.25aa8f2b0983e886de9c7028a6433db96f449685cc7797f36df070a2202bdb13.js" defer></script>
+<script src="/js/search.43fc5ec2bfda624057cac5cf0460c0ebde0562ae8a5c4cc0e5824cbc4123433e.js" defer></script>
 
 
 
