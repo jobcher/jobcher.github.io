@@ -76,7 +76,7 @@ SQL 线程负责读取 relay-log 中的内容，解析成具体的操作并执�
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/mysql02/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-01-21T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-03-15T01:27:16+00:00" />
+<meta property="article:modified_time" content="2024-03-15T09:55:54+08:00" />
 
 
 
@@ -90,7 +90,7 @@ MySQL 主从复制的主要用途 读写分离 数据实时备份，当系统中
 从节点 SQL 线程
 SQL 线程负责读取 relay-log 中的内容，解析成具体的操作并执行，最终保证主从数据的一致性。
 对于每一个主从连接，都需要这三个进程来完成。当主节点有多个从节点时，主节点会为每一个当前连接的从节点建一个log dump 进程，而每个从节点都有自己的I/O进程，SQL进程。从节点用两个线程将从主库拉取更新和执行分成独立的任务，这样在执行同步数据任务的时候，不会降低读操作的性能。比如，如果从节点没有运行，此时 I/O 进程可以很快从主节点获取更新，尽管 SQL 进程还没有执行。如果在 SQL 进程执行之前从节点服务停止，至少 I/O 进程已经从主节点拉取到了最新的变更并且保存在本地 relay 日志中，当服务再次起来之后，就可以完成数据的同步。"><meta itemprop="datePublished" content="2022-01-21T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-03-15T01:27:16+00:00" />
+<meta itemprop="dateModified" content="2024-03-15T09:55:54+08:00" />
 <meta itemprop="wordCount" content="75">
 <meta itemprop="keywords" content="mysql," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="mysql 笔记（2）"/>
 <meta name="twitter:description" content="mysql 学习笔记（2） mysql 主从复制 MySQL 主从复制是指数据可以从一个MySQL数据库服务器主节点复制到一个或多个从节点。MySQL 默认采用异步复制方式，这样从节点不用一直访问主服务器来更新自己的数据，数据的更新可以在远程连接上进行，从节点可以复制主数据库中的所有数据库或者特定的数据库，或者特定的表。
@@ -800,11 +800,11 @@ SQL 线程负责读取 relay-log 中的内容，解析成具体的操作并执�
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/a92ee71005eaea963c13bb00f8a1baca0d5c32c0"
+            href="https://github.com/jobcher/new-blog/commit/14d7f020d8aff4be50da005d6886b058a1cb0624"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>update github trend</a>
+</svg>更改签名</a>
         </li>
     </ul>
   </div>
@@ -1167,7 +1167,7 @@ SQL 线程负责读取 relay-log 中的内容，解析成具体的操作并执�
       打工人日志
     </p>
     <p class="hb-blog-sidebar-profile-desc text-center mb-2">
-      keep simple, keep stupid
+      A week is 2% of the year
     </p>
     <p class="hb-blog-sidebar-profile-meta mb-0">
         <span class="mx-1"><svg aria-hidden="true" class="bi bi-geo-altbi bi-geo-alt hi-svg-inline me-1" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
@@ -1931,7 +1931,7 @@ SQL 线程负责读取 relay-log 中的内容，解析成具体的操作并执�
 
   <div class="h5">打工人日志</div>
   <ul class="list-unstyled small mb-2">
-      <li class="mt-2">keep simple, keep stupid</li>
+      <li class="mt-2">A week is 2% of the year</li>
       <li class="mt-2">Copyright © 2022-2024 All Rights Reserved.</li>
   <li class="mt-2">
     Built with ❤️ from <a class="text-body-emphasis" href="https://gohugo.io/" target="_blank" rel="external" title="Hugo">Hugo</a>, <a class="text-body-emphasis" href="https://hugomods.com/" target="_blank" rel="external" title="HugoMods">HugoMods</a> and <a class="text-body-emphasis" href="https://hbstack.dev/" target="_blank" rel="external" title="HB Framework">HB Framework</a>.
@@ -2002,7 +2002,7 @@ SQL 线程负责读取 relay-log 中的内容，解析成具体的操作并执�
 
 
   
-<script src="/js/search.30699b9df971174c2e9c9d1736fe34e262068956b53f5d48ea81d0019076ec8d.js" defer></script>
+<script src="/js/search.d40186c06f3d81c3238bc71b99e6f1b92ff37cee9224a1612b789d4ff034e59c.js" defer></script>
 
 
 

@@ -68,7 +68,7 @@ Rook 利用扩展点深入融入云原生环境，为调度、生命周期管理
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/k8s14/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-10-11T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-03-15T01:27:16+00:00" />
+<meta property="article:modified_time" content="2024-03-15T09:55:54+08:00" />
 
 
 
@@ -78,7 +78,7 @@ Rook 利用扩展点深入融入云原生环境，为调度、生命周期管理
 部署 使用 helm 部署 1helm init -i jimmysong/kubernetes-helm-tiller:v2.8.1 2helm repo add rook-alpha https://charts.rook.io/alpha 3helm install rook-alpha/rook --name rook --namespace rook-system 直接使用 yaml 文件部署 1kubectl apply -f rook-operator.yaml 不论使用那种方式部署的 rook operator，都会在 rook-agent 中看到 rook-agent 用户无法列出集群中某些资源的错误，可以通过为 rook-agent 的分配 cluster-admin 权限临时解决，详见 Issue 1472。
 使用如下 yaml 文件创建一个 ClusterRoleBinding 并应用到集群中。
 1kind: ClusterRoleBinding 2apiVersion: rbac.authorization.k8s.io/v1beta1 3metadata: 4 name: rookagent-clusterrolebinding 5subjects: 6 - kind: ServiceAccount 7 name: rook-agent 8 namespace: rook-system 9roleRef: 10 kind: ClusterRole 11 name: cluster-admin 12 apiGroup: &#34;&#34; 部署 rook cluster 创建完 rook operator 后，我们再部署 rook cluster。"><meta itemprop="datePublished" content="2022-10-11T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-03-15T01:27:16+00:00" />
+<meta itemprop="dateModified" content="2024-03-15T09:55:54+08:00" />
 <meta itemprop="wordCount" content="655">
 <meta itemprop="keywords" content="k8s," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Kubernetes — Rook云存储介绍和部署"/>
 <meta name="twitter:description" content="Rook 云存储介绍和部署 Rook 将分布式存储软件转变为自我管理，自我缩放和自我修复的存储服务。它通过自动化部署，引导、配置、供应、扩展、升级、迁移、灾难恢复、监控和资源管理来实现。 Rook 使用基础的云原生容器管理、调度和编排平台提供的功能来履行其职责。
@@ -909,11 +909,11 @@ Kubernetes — Rook云存储介绍和部署 - 博客 - 打工人日志</title>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/a92ee71005eaea963c13bb00f8a1baca0d5c32c0"
+            href="https://github.com/jobcher/new-blog/commit/14d7f020d8aff4be50da005d6886b058a1cb0624"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>update github trend</a>
+</svg>更改签名</a>
         </li>
     </ul>
   </div>
@@ -1276,7 +1276,7 @@ Kubernetes — Rook云存储介绍和部署 - 博客 - 打工人日志</title>
       打工人日志
     </p>
     <p class="hb-blog-sidebar-profile-desc text-center mb-2">
-      keep simple, keep stupid
+      A week is 2% of the year
     </p>
     <p class="hb-blog-sidebar-profile-meta mb-0">
         <span class="mx-1"><svg aria-hidden="true" class="bi bi-geo-altbi bi-geo-alt hi-svg-inline me-1" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
@@ -2040,7 +2040,7 @@ Kubernetes — Rook云存储介绍和部署 - 博客 - 打工人日志</title>
 
   <div class="h5">打工人日志</div>
   <ul class="list-unstyled small mb-2">
-      <li class="mt-2">keep simple, keep stupid</li>
+      <li class="mt-2">A week is 2% of the year</li>
       <li class="mt-2">Copyright © 2022-2024 All Rights Reserved.</li>
   <li class="mt-2">
     Built with ❤️ from <a class="text-body-emphasis" href="https://gohugo.io/" target="_blank" rel="external" title="Hugo">Hugo</a>, <a class="text-body-emphasis" href="https://hugomods.com/" target="_blank" rel="external" title="HugoMods">HugoMods</a> and <a class="text-body-emphasis" href="https://hbstack.dev/" target="_blank" rel="external" title="HB Framework">HB Framework</a>.
@@ -2111,7 +2111,7 @@ Kubernetes — Rook云存储介绍和部署 - 博客 - 打工人日志</title>
 
 
   
-<script src="/js/search.30699b9df971174c2e9c9d1736fe34e262068956b53f5d48ea81d0019076ec8d.js" defer></script>
+<script src="/js/search.d40186c06f3d81c3238bc71b99e6f1b92ff37cee9224a1612b789d4ff034e59c.js" defer></script>
 
 
 
