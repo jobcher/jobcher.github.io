@@ -66,7 +66,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/oracle-client/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-11-15T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-03-14T01:26:21+00:00" />
+<meta property="article:modified_time" content="2024-03-15T01:27:16+00:00" />
 
 
 
@@ -75,7 +75,7 @@
 下载 oracle 客户端 官方地址下载
 安装 下载并安装你的 oracle client，因为我连接的 11g oracle，所以下载 11.2 版本
 1# 下载 2wget https://download.oracle.com/otn/linux/instantclient/11204/oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm 3# 安装 4rpm -ivh oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm 配置环境变量 1# 直接运行 2export ORACLE_HOME=/usr/lib/oracle/11.2/client64 3export ORABIN=/usr/lib/oracle/11.2/client64/bin 1# 编辑环境变量配置文件 2vim /etc/profile 1# 底部增加内容 2export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL 3export ORACLE_HOME=/usr/lib/oracle/11.2/client64 4export TNS_ADMIN=/usr/lib/oracle/11.2/client64 5export LD_LIBRARY_PATH=/usr/lib/oracle/11.2/client64/lib 6export ORABIN=/usr/lib/oracle/11.2/client64/bin 7PATH=$PATH:$ORABIN 8export PATH 9 10export PATH=$ORACLE_HOME:$PATH 11export PATH=$PATH:$HOME/bin:$ORACLE_HOME/bin 1# 刷新环境变量 2source /etc/profile 下载 cx_Oracle 1pip3 install cx_Oracle 创建 Oracle."><meta itemprop="datePublished" content="2022-11-15T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-03-14T01:26:21+00:00" />
+<meta itemprop="dateModified" content="2024-03-15T01:27:16+00:00" />
 <meta itemprop="wordCount" content="123">
 <meta itemprop="keywords" content="oracle," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Oracle Instant Client 安装配置实现远程连接oracle"/>
 <meta name="twitter:description" content="背景 关于 Oracle 数据库一直是许多初学者比较头疼的地方，一方面受限于线上文档比较少，令一方面在企业中不得不接触和使用 Oracle 数据库，这篇文章是教大家如何通过配置 oracle client 来远程访问 Oracle 数据库。本文会通过 python3 和 cx_Oracle 来实现对 Oracle 的访问和增删改查
@@ -770,7 +770,7 @@ Oracle Instant Client 安装配置实现远程连接oracle - 博客 - 打工人�
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/f18a7347c778353a747cbb4e14b7c6055adc16b0"
+            href="https://github.com/jobcher/new-blog/commit/a92ee71005eaea963c13bb00f8a1baca0d5c32c0"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
@@ -1289,6 +1289,69 @@ Oracle Instant Client 安装配置实现远程连接oracle - 博客 - 打工人�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-03-15/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-03-15.jpg.0acee813099bc52072d21d45f62520a1.webp"
+    alt="2024-03-15 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-03-15 打工人日报"
+        href="/github_trending_2024-03-15/">2024-03-15 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-03-14/">
     
 
@@ -1534,69 +1597,6 @@ Oracle Instant Client 安装配置实现远程连接oracle - 博客 - 打工人�
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-03-10/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-03-10.jpg.364badc606578bde6d7b938f546fa9fa.webp"
-    alt="2024-03-10 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-03-10 打工人日报"
-        href="/github_trending_2024-03-10/">2024-03-10 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -1697,7 +1697,7 @@ Oracle Instant Client 安装配置实现远程连接oracle - 博客 - 打工人�
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">81</small>
+            <small class="taxonomy-term-count border rounded px-1">82</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -1764,7 +1764,7 @@ Oracle Instant Client 安装配置实现远程连接oracle - 博客 - 打工人�
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">81</small>
+            <small class="taxonomy-term-count border rounded px-1">82</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -1831,7 +1831,7 @@ Oracle Instant Client 安装配置实现远程连接oracle - 博客 - 打工人�
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">81</small>
+            <small class="taxonomy-term-count border rounded px-1">82</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -1972,7 +1972,7 @@ Oracle Instant Client 安装配置实现远程连接oracle - 博客 - 打工人�
 
 
   
-<script src="/js/search.267327fd85b2327b63e9ddf438bcc85e3c1823d14d55a510fa14ca7c143041c1.js" defer></script>
+<script src="/js/search.30699b9df971174c2e9c9d1736fe34e262068956b53f5d48ea81d0019076ec8d.js" defer></script>
 
 
 

@@ -586,6 +586,107 @@
 
     </a>
 
+      <span class="hb-blog-post-date">2022年8月29日</span>
+
+        <span class="hb-blog-post-reading-time">16 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/rocketmq3/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="RocketMQ k8s部署 4主4从集群"
+        href="/rocketmq3/">RocketMQ k8s部署 4主4从集群</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/">日常系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/rocketmq/">RocketMQ</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">RocketMQ k8s 部署 4 主 4 从集群 使用 NFS 配置 StatefulSet 的动态持久化存储 安装 NFS 服务端 1sudo apt update 2sudo apt install nfs-kernel-server nfs-common 安装 NFS 客户端 所有的节点都得执行
+sudo apt install nfs-common -y
+创建目录 1mkdir -p /data/storage/k8s/rocketmq 使用 NFS 作为StatefulSet持久化存储的操作记录，分别需要创建nfs-provisioner的rbac、storageclass、nfs-client-provisioner和statefulset的pod
+创建 nfs 的 rbac 1--- 2apiVersion: v1 3kind: ServiceAccount 4metadata: 5 name: nfs-provisioner 6 namespace: sanjiang 7--- 8kind: ClusterRole 9apiVersion: rbac.authorization.k8s.io/v1 10metadata: 11 name: nfs-provisioner-runner 12 namespace: sanjiang 13rules: 14 - apiGroups: [&#34;&#34;] 15 resources: [&#34;persistentvolumes&#34;] 16 verbs: [&#34;get&#34;, &#34;list&#34;, &#34;watch&#34;, &#34;create&#34;, &#34;delete&#34;] 17 - apiGroups: [&#34;&#34;] 18 resources: [&#34;persistentvolumeclaims&#34;] 19 verbs: [&#34;get&#34;, &#34;list&#34;, &#34;watch&#34;, &#34;update&#34;] 20 - apiGroups: [&#34;storage.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/rocketmq3/">阅读更多关于RocketMQ k8s部署 4主4从集群的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
       <span class="hb-blog-post-date">2022年8月17日</span>
 
         <span class="hb-blog-post-reading-time">1 分钟阅读</span>
@@ -3528,105 +3629,6 @@ ${string:position} ：从 string 中的 position 开始 ${string:position:length
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2022年3月10日</span>
-
-        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/k8s4/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="kubernetes 脚本快速安装"
-        href="/k8s4/">kubernetes 脚本快速安装</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/k8s/">k8s</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">k8s入门系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/k8s/">k8s</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">kubernetes 脚本快速安装 1、三台机器设置自己的 hostname（不能是 localhost） 1# 修改 hostname; k8s-01要变为自己的hostname 2hostnamectl set-hostname k8s-01 3# 设置 hostname 解析 4echo &#34;127.0.0.1 $(hostname)&#34; &gt;&gt; /etc/hosts 2、所有机器批量执行如下脚本
-1#先在所有机器执行 vi k8s.sh 2# 进入编辑模式（输入i），把如下脚本复制 3# 所有机器给脚本权限 chmod +x k8s.sh 4#执行脚本 ./k8s.sh 1#/bin/sh 2 3#######################开始设置环境##################################### \n 4 5 6printf &#34;##################正在配置所有基础环境信息################## \n&#34; 7 8 9printf &#34;##################关闭selinux################## \n&#34; 10sed -i &#39;s/enforcing/disabled/&#39; /etc/selinux/config 11setenforce 0 12printf &#34;##################关闭swap################## \n&#34; 13swapoff -a 14sed -ri &#39;s/.*swap.*/#&amp;/&#39; /etc/fstab 15 16printf &#34;##################配置路由转发################## \n&#34; 17cat &lt;&lt;EOF | sudo tee /etc/modules-load.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/k8s4/">阅读更多关于kubernetes 脚本快速安装的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       </div>
@@ -3773,7 +3775,7 @@ ${string:position} ：从 string 中的 position 开始 ${string:position:length
 
 
   
-<script src="/js/search.267327fd85b2327b63e9ddf438bcc85e3c1823d14d55a510fa14ca7c143041c1.js" defer></script>
+<script src="/js/search.30699b9df971174c2e9c9d1736fe34e262068956b53f5d48ea81d0019076ec8d.js" defer></script>
 
 
 
