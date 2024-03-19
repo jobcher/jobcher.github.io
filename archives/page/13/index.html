@@ -586,6 +586,105 @@
 
     </a>
 
+      <span class="hb-blog-post-date">2022年4月13日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/openelb/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="OpenELB：让k8s私有环境对外暴露端口"
+        href="/openelb/">OpenELB：让k8s私有环境对外暴露端口</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/k8s/">k8s</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">k8s入门系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/k8s/">k8s</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">OpenELB：云原生负载均衡器插件 OpenELB 是一个开源的云原生负载均衡器实现，可以在基于裸金属服务器、边缘以及虚拟化的 Kubernetes 环境中使用 LoadBalancer 类型的 Service 对外暴露服务。
+在 Kubernetes 中安装 OpenELB 1kubectl apply -f https://raw.githubusercontent.com/openelb/openelb/master/deploy/openelb.yaml 查看状态 1kubectl get po -n openelb-system 使用 kubectl 删除 OpenELB 1kubectl delete -f https://raw.githubusercontent.com/openelb/openelb/master/deploy/openelb.yaml 1kubectl get ns 配置 OpenELB 1kubectl edit configmap kube-proxy -n kube-system 2 3# 修改 网卡 4ipvs: 5 strictARP: true 重启组件 1kubectl rollout restart daemonset kube-proxy -n kube-system 为 master1 节点添加一个 annotation 来指定网卡： 1kubectl annotate nodes master1 layer2.openelb.kubesphere.io/v1alpha1=&#34;192.168.0.2&#34; 创建地址池 layer2-eip.yaml 1apiVersion: network.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/openelb/">阅读更多关于OpenELB：让k8s私有环境对外暴露端口的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
       <span class="hb-blog-post-date">2022年4月8日</span>
 
         <span class="hb-blog-post-reading-time">1 分钟阅读</span>
@@ -3513,140 +3612,6 @@ SQL 线程负责读取 relay-log 中的内容，解析成具体的操作并执�
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2022年1月11日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/error1/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-    <source srcset="/images/error_hu3d3010a71e3153179e60e85cf02bc677_71618_600x400_resize_q75_h2_box.webp" type="image/webp" />
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/error.1d1016f23a1e038615d72b9d1a2daf62.jpeg"
-    alt="安装 docker 出现 ERROR: Unsupported distribution &#39;ol&#39; 问题"
-    loading="lazy"
-    height="400"
-    width="600"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="安装 docker 出现 ERROR: Unsupported distribution &#39;ol&#39; 问题"
-        href="/error1/">安装 docker 出现 ERROR: Unsupported distribution &#39;ol&#39; 问题</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E9%97%AE%E9%A2%98%E5%BA%93/">问题库</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/">问题库系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/error/">error</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">安装 docker 出现 ERROR: Unsupported distribution &lsquo;ol&rsquo; 问题 部署 docker 安装出现 ERROR: Unsupported distribution &lsquo;ol&rsquo;
-确认是不是 arm 架构 1uname -r 确认使用的是不是 oracle 服务器系统,如果是请继续操作，安装依赖： 1dnf install -y dnf-utils zip unzip 2dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo 安装 docker 1dnf remove -y runc 2dnf install -y docker-ce --nobest 完成 docker 安装并检查 1systemctl enable docker.service 2systemctl start docker.service 1#检查 2systemctl status docker.service 3docker info 4docker version 结尾 该问题主要是 oracle 没有支持依赖导致的~oracle 还是很不错的~</div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       </div>
@@ -3789,7 +3754,7 @@ SQL 线程负责读取 relay-log 中的内容，解析成具体的操作并执�
 
 
   
-<script src="/js/search.d779283ea1c659a0f52c097aaff59abd002cffd093184fd41ca5240d308f8740.js" defer></script>
+<script src="/js/search.ee473894b84b5514a62da593d45dcc52adfc3afa4514f90fbcd70332b629c827.js" defer></script>
 
 
 
