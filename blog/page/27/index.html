@@ -577,6 +577,107 @@
 
     </a>
 
+      <span class="hb-blog-post-date">2022年11月15日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/oracle-client/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="Oracle Instant Client 安装配置实现远程连接oracle"
+        href="/oracle-client/">Oracle Instant Client 安装配置实现远程连接oracle</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/oracle%E7%B3%BB%E5%88%97/">oracle系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/oracle/">oracle</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">背景 关于 Oracle 数据库一直是许多初学者比较头疼的地方，一方面受限于线上文档比较少，令一方面在企业中不得不接触和使用 Oracle 数据库，这篇文章是教大家如何通过配置 oracle client 来远程访问 Oracle 数据库。本文会通过 python3 和 cx_Oracle 来实现对 Oracle 的访问和增删改查
+下载 oracle 客户端 官方地址下载
+安装 下载并安装你的 oracle client，因为我连接的 11g oracle，所以下载 11.2 版本
+1# 下载 2wget https://download.oracle.com/otn/linux/instantclient/11204/oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm 3# 安装 4rpm -ivh oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm 配置环境变量 1# 直接运行 2export ORACLE_HOME=/usr/lib/oracle/11.2/client64 3export ORABIN=/usr/lib/oracle/11.2/client64/bin 1# 编辑环境变量配置文件 2vim /etc/profile 1# 底部增加内容 2export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL 3export ORACLE_HOME=/usr/lib/oracle/11.2/client64 4export TNS_ADMIN=/usr/lib/oracle/11.2/client64 5export LD_LIBRARY_PATH=/usr/lib/oracle/11.2/client64/lib 6export ORABIN=/usr/lib/oracle/11.2/client64/bin 7PATH=$PATH:$ORABIN 8export PATH 9 10export PATH=$ORACLE_HOME:$PATH 11export PATH=$PATH:$HOME/bin:$ORACLE_HOME/bin 1# 刷新环境变量 2source /etc/profile 下载 cx_Oracle 1pip3 install cx_Oracle 创建 Oracle.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/oracle-client/">阅读更多关于Oracle Instant Client 安装配置实现远程连接oracle的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
       <span class="hb-blog-post-date">2022年11月10日</span>
 
         <span class="hb-blog-post-reading-time">1 分钟阅读</span>
@@ -1683,108 +1784,6 @@ Rook 利用扩展点深入融入云原生环境，为调度、生命周期管理
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2022年10月7日</span>
-
-        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/k8s12/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="Kubernetes — 开放标准（OCI、CRI、CNI、CSI、SMI、CPI）概述"
-        href="/k8s12/">Kubernetes — 开放标准（OCI、CRI、CNI、CSI、SMI、CPI）概述</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/k8s/">k8s</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">k8s入门系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/k8s/">k8s</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">Kubernetes — 开放标准（OCI、CRI、CNI、CSI、SMI、CPI）概述 什么是 Kubernetes 开放标准？— K8s 开放标准简介
-开放标准有助于和补充像 Kubernetes 这样的系统，Kubernetes 是用于编排容器的事实上的标准平台。开放标准定义了实施 Kubernetes 的最佳实践，并在支持此实施方面发挥着至关重要的作用。开放标准由开源 Kubernetes 社区而非某个特定供应商制定，以确保更高的效率、避免供应商锁定以及更轻松地将其他软件集成到技术堆栈中。
-OCI 容器开放接口规范，由多家公司共同组成于 2015 年 6 月成立的项目（Docker, Google, CoreOS 等公司），并由 Linux 基金会运行管理，旨在围绕容器格式和运行时制定一个开放的工业化标准，目前主要有两个标准文档：容器运行时标准 （runtime spec）和 容器镜像标准（image spec）
-OCI 是一个开放的治理结构，其明确目的是围绕容器格式和运行时创建开放的行业标准。 它提供了必须由容器运行时引擎实现的规范。两个重要的规格是： runC：种子容器运行时引擎。大多数现代容器运行时环境都使用 runC 并围绕这个种子引擎开发附加功能。 这种低级运行时用于启动容器的各种工具，包括 Docker 本身。 OCI 规范：关于如何运行、构建和分发容器的映像、运行时和分发规范。 虽然 Docker 经常与容器技术同步使用，但社区一直致力于 OCI 的开放行业标准。 Image-Spec image-spec 定义了如何构建和打包容器镜像。 本规范的目标是创建可互操作的工具，用于构建、传输和准备要运行的容器映像。 Runtime-Spec runtime-spec 指定容器的配置、执行环境和生命周期。 这概述了如何运行在磁盘上解压的“文件系统包(filesystem bundle)”。概括地说，OCI 实现会下载一个 OCI 映像，然后将该映像解压缩到一个 OCI 运行时文件系统包中。 Distribution-Spec Distribution-Spec 提供了一个标准，用于一般内容的分发，特别是容器图像的分发。它是 OCI 项目的最新补充。 实现分发规范的容器注册表为容器映像提供可靠、高度可扩展、安全的存储服务。 客户要么使用云提供商实施、供应商实施，要么使用分发的开源实施。
-CRI CRI（Container Runtime Interface）：容器运行时接口，提供计算资源。​ ​kubernetes1.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/k8s12/">阅读更多关于Kubernetes — 开放标准（OCI、CRI、CNI、CSI、SMI、CPI）概述的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
     
@@ -2054,6 +2053,69 @@ CRI CRI（Container Runtime Interface）：容器运行时接口，提供计算�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-03-22/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-03-22.jpg.720ad0feeb4502d294e5fb3fad24940b.webp"
+    alt="2024-03-22 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-03-22 打工人日报"
+        href="/github_trending_2024-03-22/">2024-03-22 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-03-21/">
     
 
@@ -2299,69 +2361,6 @@ CRI CRI（Container Runtime Interface）：容器运行时接口，提供计算�
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-03-17/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-03-17.jpg.233b3f366240baad51f509d651cd9d4d.webp"
-    alt="2024-03-17 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-03-17 打工人日报"
-        href="/github_trending_2024-03-17/">2024-03-17 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2462,7 +2461,7 @@ CRI CRI（Container Runtime Interface）：容器运行时接口，提供计算�
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">88</small>
+            <small class="taxonomy-term-count border rounded px-1">89</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2529,7 +2528,7 @@ CRI CRI（Container Runtime Interface）：容器运行时接口，提供计算�
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">88</small>
+            <small class="taxonomy-term-count border rounded px-1">89</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2596,7 +2595,7 @@ CRI CRI（Container Runtime Interface）：容器运行时接口，提供计算�
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">88</small>
+            <small class="taxonomy-term-count border rounded px-1">89</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2735,7 +2734,7 @@ CRI CRI（Container Runtime Interface）：容器运行时接口，提供计算�
 
 
   
-<script src="/js/search.a11757508f1ec99935506e2dc4d3720b53353440d08d14de88f4a843fa95021f.js" defer></script>
+<script src="/js/search.1444f3628af4addbaa964dbf7a7cb4358585bcbc0766a45bd79470d4700145f3.js" defer></script>
 
 
 
