@@ -586,6 +586,144 @@
 
     </a>
 
+      <span class="hb-blog-post-date">2023年11月2日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/sonarqube/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+    <source srcset="/images/sonarqube_hu66386967d9fd2808e3fd1c0f1c664146_158066_2356x1304_resize_q75_h2_box_3.webp" type="image/webp" />
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/sonarqube.02e24464152d1f85d75355926d020898.png"
+    alt="sonarqube docker安装和配置"
+    loading="lazy"
+    height="1304"
+    width="2356"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="sonarqube docker安装和配置"
+        href="/sonarqube/">sonarqube docker安装和配置</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/gitlab/">gitlab</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/git%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">git入门系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/gitlab/">gitlab</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">背景 我是在ubuntu服务器安装docker服务，我已经安装好了docker和docker-compose服务，这里我就不写这些服务的安装过程，直接开始安装sonarqube服务
+安装 sonarqube服务器 1.执行脚本文件 config.sh 1#!/bin/bash 2sysctl -w vm.max_map_count=262144 3sysctl -w fs.file-max=65536 4ulimit -n 65536 5ulimit -u 4096 6# # 永久改变 7# echo &#34;vm.max_map_count=262144&#34; &gt;&gt; /etc/sysctl.conf 8# sysctl -p 1sh config.sh 2.执行docker-compose文件 1version: &#39;3&#39; 2services: 3 postgres: 4 image: postgres:15 5 container_name: postgres 6 ports: 7 - 5432:5432 8 volumes: 9 - ./sonar/postgres/postgresql:/var/lib/postgresql 10 - ./sonar/postgres/data:/var/lib/postgresql/data 11 environment: 12 TZ: Asia/Shanghai 13 POSTGRES_USER: user #数据库用户 14 POSTGRES_PASSWORD: password #数据库密码 15 POSTGRES_DB: sonar 16 17 sonarqube: 18 depends_on: 19 - postgres 20 image: sonarqube:9.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/sonarqube/">阅读更多关于sonarqube docker安装和配置的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
       <span class="hb-blog-post-date">2023年11月1日</span>
 
         <span class="hb-blog-post-reading-time">3 分钟阅读</span>
@@ -4498,142 +4636,6 @@
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2023年10月2日</span>
-
-        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2023-10-02/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2023-10-02.jpg.6378bf60ed20df9895c1c7f653d13593.webp"
-    alt="2023-10-02 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2023-10-02 打工人日报"
-        href="/github_trending_2023-10-02/">2023-10-02 打工人日报</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/github/">github</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/github/">github</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/github/">github</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 排名 1.有一种骄傲叫我爱你中国 排名 2.吴艳妮回应抢跑 排名 3.菩提祖师才是孙悟空唯一的师父 排名 4.有一种自豪叫中国 排名 5.当我拥有了卫星电话 排名 6.我的i人同事竟然是行走的50万 排名 7.台湾奶茶的价格 排名 8.警方通报网传宝马司机因吐痰引冲突被杀 排名 9.一盒月饼下去办公室无人生还 排名 10.吴艳妮抢跑 排名 11.云南跟团游我们经历了什么 排名 12.互相都以为是对方婚礼传统习俗 排名 13.林雨薇赛后谈吴艳妮抢跑 排名 14.吴艳妮抢跑后为何还能继续比赛 排名 15.林雨薇100米栏金牌 排名 16.叶诗文曾为克服瓶颈去清华读书沉淀 排名 17.中国的山水美进骨子里 排名 18.沈腾给范丞丞擦嘴把妆卸了 排名 19.让韩国人又爱又恨的中国美食 排名 20.中国游客为何不想出境游了 GitHub 热门榜单 排名 1:/microsoft/autogen 简介: 启用下一代大型语言模型应用程序。加入我们的Discord：https://discord.gg/pAbnFJrkgZ URL: https://github.com/microsoft/autogen 作者: microsoft 排名 2:/mistralai/mistral-src 简介: Mistral AI 7B v0.1模型的参考实现。 URL: https://github.com/mistralai/mistral-src 作者: mistralai 排名 3:/makeplane/plane 简介: 🔥 🔥 🔥 开源JIRA，线性和高度可选。Plane可以帮助您以最简单的方式跟踪问题、史诗和产品路线图。 URL: https://github.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2023-10-02/">阅读更多关于2023-10-02 打工人日报的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       </div>
@@ -4784,7 +4786,7 @@
 
 
   
-<script src="/js/search.1444f3628af4addbaa964dbf7a7cb4358585bcbc0766a45bd79470d4700145f3.js" defer></script>
+<script src="/js/search.21c71da09268a356af31364aa56ed82efa6201c3306c874a2d43754c2bf9709d.js" defer></script>
 
 
 
