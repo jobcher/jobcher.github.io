@@ -586,6 +586,112 @@
 
     </a>
 
+      <span class="hb-blog-post-date">2022年1月21日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/mysql02/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="mysql 笔记（2）"
+        href="/mysql02/">mysql 笔记（2）</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/mysql%E7%B3%BB%E5%88%97/">mysql系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/mysql/">mysql</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">mysql 学习笔记（2） mysql 主从复制 MySQL 主从复制是指数据可以从一个MySQL数据库服务器主节点复制到一个或多个从节点。MySQL 默认采用异步复制方式，这样从节点不用一直访问主服务器来更新自己的数据，数据的更新可以在远程连接上进行，从节点可以复制主数据库中的所有数据库或者特定的数据库，或者特定的表。
+MySQL 主从复制的主要用途 读写分离 数据实时备份，当系统中某个节点发生故障时，可以方便的故障切换(主从切换) 高可用（HA） 架构扩展 MySQL 主从复制的原理 MySQL 主从复制涉及到三个线程，一个运行在主节点（log dump thread），其余两个(I/O thread, SQL thread)运行在从节点，如下图所示:
+主节点 log dump 线程
+当从节点连接主节点时，主节点会为其创建一个 log dump 线程，用于发送和读取 bin-log 的内容。在读取 bin-log 中的操作时，log dump 线程会对主节点上的 bin-log 加锁，当读取完成，在发送给从节点之前，锁会被释放。主节点会为自己的每一个从节点创建一个log dump 线程。
+从节点 I/O 线程
+当从节点上执行start slave命令之后，从节点会创建一个 I/O 线程用来连接主节点，请求主库中更新的 bin-log。I/O 线程接收到主节点的 blog dump 进程发来的更新之后，保存在本地relay-log（中继日志）中。
+从节点 SQL 线程
+SQL 线程负责读取 relay-log 中的内容，解析成具体的操作并执行，最终保证主从数据的一致性。
+对于每一个主从连接，都需要这三个进程来完成。当主节点有多个从节点时，主节点会为每一个当前连接的从节点建一个log dump 进程，而每个从节点都有自己的I/O进程，SQL进程。从节点用两个线程将从主库拉取更新和执行分成独立的任务，这样在执行同步数据任务的时候，不会降低读操作的性能。比如，如果从节点没有运行，此时 I/O 进程可以很快从主节点获取更新，尽管 SQL 进程还没有执行。如果在 SQL 进程执行之前从节点服务停止，至少 I/O 进程已经从主节点拉取到了最新的变更并且保存在本地 relay 日志中，当服务再次起来之后，就可以完成数据的同步。</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/mysql02/">阅读更多关于mysql 笔记（2）的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
       <span class="hb-blog-post-date">2022年1月19日</span>
 
         <span class="hb-blog-post-reading-time">1 分钟阅读</span>
@@ -3454,100 +3560,6 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2021年12月16日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/k8sloki/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="k8s 部署loki日志"
-        href="/k8sloki/">k8s 部署loki日志</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/k8s/">k8s</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">k8s入门系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/k8s/">k8s</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">k8s 部署 loki 日志 helm 拉取 loki 1#加源 2helm repo add grafana https://grafana.github.io/helm-charts 3helm repo update 4#拉取 5helm fetch grafana/loki-stack --untar --untardir . 6cd loki-stack 7# 生成 k8s 配置 8helm template loki . &gt; loki.yaml 9# 部署（如果要修改默认配置必须要修改一下yaml） 10k3s kubectl apply -f loki.yaml </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       </div>
@@ -3686,7 +3698,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
 
 
   
-<script src="/js/search.5f015728b8063ce24a544f153a001c4afb5e8452d852ec184ec7fd855a69a76a.js" defer></script>
+<script src="/js/search.e45b7266d47ea0cfd3f9d84f1ac6f5f02b0c62c353410cc6644b8e1702d00fe9.js" defer></script>
 
 
 
