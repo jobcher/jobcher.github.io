@@ -643,6 +643,146 @@
 
     </div>
   
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2024年4月1日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/docker-rollout/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+    <source srcset="/images/docker_hu4f54a21c17e7a324f7e13aec9e5d56ee_2686_300x168_resize_q75_h2_box_3.webp" type="image/webp" />
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/docker.b169abd50ce3f01255ce48a7094d5f1d.png"
+    alt="docker的零停机部署"
+    loading="lazy"
+    height="168"
+    width="300"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="docker的零停机部署"
+        href="/docker-rollout/">docker的零停机部署</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/docker/">docker</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/docker%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97/">docker进阶系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/docker/">docker</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">背景 使用 docker compose up 部署新版本的服务会导致停机，因为应用容器在创建新容器之前已停止。如果你的应用程序需要一段时间才能启动，用户可能会注意到这一点。为了保障服务用户无感，可以使用docker rollout
+适合没必要用 K8S 轻量级小项目
+安装 项目地址
+1# 为 Docker cli 插件创建目录 2mkdir -p ~/.docker/cli-plugins 3 4# 下载 docker-rollout 脚本到 Docker cli 插件目录 5curl https://github.jobcher.com/gh/https://raw.githubusercontent.com/wowu/docker-rollout/master/docker-rollout -o ~/.docker/cli-plugins/docker-rollout 6 7# 使脚本可执行 8chmod +x ~/.docker/cli-plugins/docker-rollout 使用 注意事项！！！ 服务不能在 docker-compose.yml 中定义 container_name 和 ports ，因为不可能运行具有相同名称或端口映射的多个容器。 需要像 Traefik 或 nginx-proxy 这样的代理来路由流量。 每次部署都会增加容器名称中的索引（例如 project-web-1 -&gt; project-web-2 ） 使用示范 1# 下载代码 2git pull 3# 构建新的应用程序映像 4docker compose build web 5# 运行数据库迁移 6docker compose run web rake db:migrate 7# 部署新版本 8docker rollout web 或者使用docker-compose.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/docker-rollout/">阅读更多关于docker的零停机部署的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
 </div>
 
       </div>
@@ -3480,107 +3620,6 @@
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-
-      <span class="hb-blog-post-date">2024年3月2日</span>
-
-        <span class="hb-blog-post-reading-time">3 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-03-02/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-03-02.jpg.78214308a89215febc4968d6610b6f96.webp"
-    alt="2024-03-02 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-03-02 打工人日报"
-        href="/github_trending_2024-03-02/">2024-03-02 打工人日报</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 排名 1.大力推动我国新能源高质量发展 排名 2.接下来两个月是养乳腺的好时机 排名 3.曼谷夜市现烤小臂一样长的大虾 排名 4.聚焦2024年全国两会 排名 5.陈丽君 浪姐 排名 6.点读机女孩为学业放弃进娱乐圈 排名 7.千人或有一例艾滋患者 排名 8.博主称因称呼雷军为军儿遭小米投诉 排名 9.没想到都三月份还在穿羽绒服 排名 10.母亲回应儿子留学打搏击赛成植物人 排名 11.小团团 排名 12.杨幂好柿发生手机壳 排名 13.大溪地灰时尚收割机 排名 14.点读机女孩发视频称手术很成功 排名 15.大卫波德维尔去世 排名 16.加沙10名儿童被官方登记为饿死 排名 17.Giselle罗意威 排名 18.姚安娜回应演技争议 排名 19.你的衣柜里有这些衣服吗 排名 20.王一博巴黎时装周去看两场秀 GitHub 热门榜单 排名 1:/cloudflare/pingora 简介: 一个用于构建快速、可靠和可进化的网络服务的库。 URL: https://github.com/cloudflare/pingora 作者: cloudflare 排名 2:/Lissy93/web-check 简介: 🕵️‍♂️ 用于分析任何网站的一体化OSINT工具 URL: https://github.com/Lissy93/web-check 作者: Lissy93 排名 4:/dockur/windows 简介: Docker容器中的Windows。 URL: https://github.com/dockur/windows 作者: dockur 排名 5:/yuzu-emu/yuzu 简介: 任天堂Switch模拟器 URL: https://github.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2024-03-02/">阅读更多关于2024-03-02 打工人日报的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       </div>
@@ -3715,7 +3754,7 @@
 
 
   
-<script src="/js/search.bb7eca84fec2cb67278228cf5010d63ecf92e59116335e2858bcda05d8c2e48d.js" defer></script>
+<script src="/js/search.0eb15d98688c1258e14ece3dd6db6464015326f6e9ccf372ed47db7dedd7c0f2.js" defer></script>
 
 
 

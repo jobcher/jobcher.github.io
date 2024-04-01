@@ -16,6 +16,13 @@
       <description>微博热搜榜 排名 1.不断提升作品的精神能量文化内涵艺术价值 排名 2.愚人节站姐团建 排名 3.乳腺增生真是豆浆惹的祸吗 排名 4.2024中国网络媒体论坛 排名 5.小米Civi4Pro定制色开售 排名 6.代号鸢 跑路 排名 7.宁静吐槽李菲儿 排名 8.本想免费试用结果被扣一年会员费 排名 9.杨幂卡点微博 排名 10.张国荣 排名 11.女子工作1年半胖40斤判若两人 排名 12.莎头 排名 13.迈巴赫成都来福士连续碾压多人 排名 14.成都致2死司机事发后动作怪异 排名 15.特斯拉中国今日涨价 排名 16.还好只上三天就放假了 排名 17.唐鹤德希望今天是复活节 排名 18.赵露思 澳门鬼迷日眼的照片 排名 19.24岁我还不能和男朋友出去旅游 排名 20.贾玲减肥后刘维痛失代表作 GitHub 热门榜单 排名 1:/jasonppy/VoiceCraft 简介: 零样本语音编辑和文本到语音 URL: https://github.com/jasonppy/VoiceCraft 作者: jasonppy 排名 2:/valkey-io/valkey 简介: 一个新项目将在以前的开源Redis项目上恢复开发。我们称之为Valkey，因为它是键值数据存储的一个转折点。 URL: https://github.com/valkey-io/valkey 作者: valkey-io 排名 3:/agiresearch/AIOS 简介: AIOS:LLM代理操作系统 URL: https://github.com/agiresearch/AIOS 作者: agiresearch 排名 4:/midday-ai/midday 简介: 更明智地经营您的企业。 URL: https://github.</description>
     </item>
     <item>
+      <title>docker的零停机部署</title>
+      <link>https://www.jobcher.com/docker-rollout/</link>
+      <pubDate>Mon, 01 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/docker-rollout/</guid>
+      <description>背景 使用 docker compose up 部署新版本的服务会导致停机，因为应用容器在创建新容器之前已停止。如果你的应用程序需要一段时间才能启动，用户可能会注意到这一点。为了保障服务用户无感，可以使用docker rollout&#xA;适合没必要用 K8S 轻量级小项目&#xA;安装 项目地址&#xA;1# 为 Docker cli 插件创建目录 2mkdir -p ~/.docker/cli-plugins 3 4# 下载 docker-rollout 脚本到 Docker cli 插件目录 5curl https://github.jobcher.com/gh/https://raw.githubusercontent.com/wowu/docker-rollout/master/docker-rollout -o ~/.docker/cli-plugins/docker-rollout 6 7# 使脚本可执行 8chmod +x ~/.docker/cli-plugins/docker-rollout 使用 注意事项！！！ 服务不能在 docker-compose.yml 中定义 container_name 和 ports ，因为不可能运行具有相同名称或端口映射的多个容器。 需要像 Traefik 或 nginx-proxy 这样的代理来路由流量。 每次部署都会增加容器名称中的索引（例如 project-web-1 -&amp;gt; project-web-2 ） 使用示范 1# 下载代码 2git pull 3# 构建新的应用程序映像 4docker compose build web 5# 运行数据库迁移 6docker compose run web rake db:migrate 7# 部署新版本 8docker rollout web 或者使用docker-compose.</description>
+    </item>
+    <item>
       <title>2024-03-31 打工人日报</title>
       <link>https://www.jobcher.com/github_trending_2024-03-31/</link>
       <pubDate>Sun, 31 Mar 2024 00:00:00 +0000</pubDate>

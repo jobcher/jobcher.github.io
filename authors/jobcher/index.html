@@ -606,7 +606,7 @@ jobcher - 作者 - 打工人日志</title>
   
     <li
       class="nav-item d-flex flex-column justify-content-center align-items-center my-2 mx-3">
-      <span class="mb-1 fw-bold btn btn-secondary rounded">346</span>
+      <span class="mb-1 fw-bold btn btn-secondary rounded">347</span>
       <span class="text-body-secondary">文章</span>
     </li>
   
@@ -627,6 +627,145 @@ jobcher - 作者 - 打工人日志</title>
 </div>
 
       <div class="hb-terms-posts row row-cols-1 row-cols-md-2">
+          <div class="mb-3 mb-lg-4">
+            
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2024年4月1日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/docker-rollout/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+    <source srcset="/images/docker_hu4f54a21c17e7a324f7e13aec9e5d56ee_2686_300x168_resize_q75_h2_box_3.webp" type="image/webp" />
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/docker.b169abd50ce3f01255ce48a7094d5f1d.png"
+    alt="docker的零停机部署"
+    loading="lazy"
+    height="168"
+    width="300"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="docker的零停机部署"
+        href="/docker-rollout/">docker的零停机部署</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/docker/">docker</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/docker%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97/">docker进阶系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/docker/">docker</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">背景 使用 docker compose up 部署新版本的服务会导致停机，因为应用容器在创建新容器之前已停止。如果你的应用程序需要一段时间才能启动，用户可能会注意到这一点。为了保障服务用户无感，可以使用docker rollout
+适合没必要用 K8S 轻量级小项目
+安装 项目地址
+1# 为 Docker cli 插件创建目录 2mkdir -p ~/.docker/cli-plugins 3 4# 下载 docker-rollout 脚本到 Docker cli 插件目录 5curl https://github.jobcher.com/gh/https://raw.githubusercontent.com/wowu/docker-rollout/master/docker-rollout -o ~/.docker/cli-plugins/docker-rollout 6 7# 使脚本可执行 8chmod +x ~/.docker/cli-plugins/docker-rollout 使用 注意事项！！！ 服务不能在 docker-compose.yml 中定义 container_name 和 ports ，因为不可能运行具有相同名称或端口映射的多个容器。 需要像 Traefik 或 nginx-proxy 这样的代理来路由流量。 每次部署都会增加容器名称中的索引（例如 project-web-1 -&gt; project-web-2 ） 使用示范 1# 下载代码 2git pull 3# 构建新的应用程序映像 4docker compose build web 5# 运行数据库迁移 6docker compose run web rake db:migrate 7# 部署新版本 8docker rollout web 或者使用docker-compose.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/docker-rollout/">阅读更多关于docker的零停机部署的内容。</a>
+        </div>
+  </div>
+</div>
+
+          </div>
           <div class="mb-3 mb-lg-4">
             
 <div
@@ -2196,141 +2335,6 @@ UI 自动化
 </div>
 
           </div>
-          <div class="mb-3 mb-lg-4">
-            
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2023年12月13日</span>
-
-        <span class="hb-blog-post-reading-time">4 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2023-12-13/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2023-12-13.jpg.0a40802bc2948200b5fd6994152b353f.webp"
-    alt="2023-12-13 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2023-12-13 打工人日报"
-        href="/github_trending_2023-12-13/">2023-12-13 打工人日报</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/github/">github</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/github/">github</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/github/">github</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 排名 1.习近平越南之行 排名 2.国家公祭日 排名 3.北京停课 排名 4.强信心看数据 排名 5.昨天入职今天出卖全办公室 排名 6.众星发博悼念周海媚 排名 7.朱丹公开自己以前的朋友圈 排名 8.iPhone16或调整相机岛设计 排名 9.肚子越来越小的小技巧 排名 10.北京大学回应不为专硕提供住宿 排名 11.低于这个温度一定要穿秋裤了 排名 12.周海媚去世 排名 13.再见周芷若 排名 14.周海媚生前最后一次公开亮相 排名 15.猫咪上秒舔毛下秒无症状发病去世 排名 16.周海媚曾经拒演周芷若 排名 17.创业创了一半老板去考公了 排名 18.多方回应大批空姐转行卖车 排名 19.拒绝休息羞耻 排名 20.王安宇演技 GitHub 热门榜单 排名 1:/linexjlin/GPTs 简介: 泄露的GPT提示 URL: https://github.com/linexjlin/GPTs 作者: linexjlin 排名 2:/practical-tutorials/project-based-learning 简介: 基于项目的教程策划列表 URL: https://github.com/practical-tutorials/project-based-learning 作者: practical-tutorials 排名 3:/illacloud/illa-builder 简介: 🚀Retool开源替代方案，具有低代码UI组件并支持多种数据资源。 URL: https://github.com/illacloud/illa-builder 作者: illacloud 排名 4:/mistralai/mistral-src 简介: Mistral AI 7B v0.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2023-12-13/">阅读更多关于2023-12-13 打工人日报的内容。</a>
-        </div>
-  </div>
-</div>
-
-          </div>
       </div>
       
   <nav
@@ -2583,6 +2587,70 @@ UI 自动化
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/docker-rollout/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+    <source srcset="/images/docker_hu4f54a21c17e7a324f7e13aec9e5d56ee_2686_300x168_resize_q75_h2_box_3.webp" type="image/webp" />
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/docker.b169abd50ce3f01255ce48a7094d5f1d.png"
+    alt="docker的零停机部署"
+    loading="lazy"
+    height="168"
+    width="300"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="docker的零停机部署"
+        href="/docker-rollout/">docker的零停机部署</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-04-01/">
     
 
@@ -2828,69 +2896,6 @@ UI 自动化
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-03-28/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-03-28.jpg.3dd6f69401ae8f3f714c27f94589d7c3.webp"
-    alt="2024-03-28 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-03-28 打工人日报"
-        href="/github_trending_2024-03-28/">2024-03-28 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2972,7 +2977,7 @@ UI 自动化
           class="taxonomy-term taxonomy-term-authors btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/authors/jobcher/">
           <span class="taxonomy-term-title">jobcher</span>
-            <small class="taxonomy-term-count border rounded px-1">346</small>
+            <small class="taxonomy-term-count border rounded px-1">347</small>
         </a>
     </div>
     <div
@@ -3027,7 +3032,7 @@ UI 自动化
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/docker/">
           <span class="taxonomy-term-title">docker</span>
-            <small class="taxonomy-term-count border rounded px-1">9</small>
+            <small class="taxonomy-term-count border rounded px-1">10</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -3161,7 +3166,7 @@ UI 自动化
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/docker/">
           <span class="taxonomy-term-title">docker</span>
-            <small class="taxonomy-term-count border rounded px-1">9</small>
+            <small class="taxonomy-term-count border rounded px-1">10</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -3262,7 +3267,7 @@ UI 自动化
 
 
   
-<script src="/js/search.bb7eca84fec2cb67278228cf5010d63ecf92e59116335e2858bcda05d8c2e48d.js" defer></script>
+<script src="/js/search.0eb15d98688c1258e14ece3dd6db6464015326f6e9ccf372ed47db7dedd7c0f2.js" defer></script>
 
 
 

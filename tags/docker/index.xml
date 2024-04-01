@@ -7,8 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-hans</language>
     <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
-    <lastBuildDate>Mon, 01 Apr 2024 11:31:11 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 01 Apr 2024 13:39:29 +0800</lastBuildDate>
     <atom:link href="https://www.jobcher.com/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>docker的零停机部署</title>
+      <link>https://www.jobcher.com/docker-rollout/</link>
+      <pubDate>Mon, 01 Apr 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/docker-rollout/</guid>
+      <description>背景 使用 docker compose up 部署新版本的服务会导致停机，因为应用容器在创建新容器之前已停止。如果你的应用程序需要一段时间才能启动，用户可能会注意到这一点。为了保障服务用户无感，可以使用docker rollout&#xA;适合没必要用 K8S 轻量级小项目&#xA;安装 项目地址&#xA;1# 为 Docker cli 插件创建目录 2mkdir -p ~/.docker/cli-plugins 3 4# 下载 docker-rollout 脚本到 Docker cli 插件目录 5curl https://github.jobcher.com/gh/https://raw.githubusercontent.com/wowu/docker-rollout/master/docker-rollout -o ~/.docker/cli-plugins/docker-rollout 6 7# 使脚本可执行 8chmod +x ~/.docker/cli-plugins/docker-rollout 使用 注意事项！！！ 服务不能在 docker-compose.yml 中定义 container_name 和 ports ，因为不可能运行具有相同名称或端口映射的多个容器。 需要像 Traefik 或 nginx-proxy 这样的代理来路由流量。 每次部署都会增加容器名称中的索引（例如 project-web-1 -&amp;gt; project-web-2 ） 使用示范 1# 下载代码 2git pull 3# 构建新的应用程序映像 4docker compose build web 5# 运行数据库迁移 6docker compose run web rake db:migrate 7# 部署新版本 8docker rollout web 或者使用docker-compose.</description>
+    </item>
     <item>
       <title>清理Docker容器日志</title>
       <link>https://www.jobcher.com/cleandocker/</link>
