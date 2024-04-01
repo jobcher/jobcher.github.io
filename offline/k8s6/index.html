@@ -70,14 +70,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/k8s6/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-04-21T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-04-01T13:47:26+08:00" />
+<meta property="article:modified_time" content="2024-04-01T14:33:18+08:00" />
 
 
 
 <meta itemprop="name" content="kubernetes 调度过程">
 <meta itemprop="description" content="k8s 调度过程 执行滚动升级 修改 deployment.yml 文件，追加 rollingUpdate
 1# 部署应用 2apiVersion: apps/v1 3kind: Deployment 4metadata: 5 name: jobcher-blog-deployment 6 labels: 7 app: jobcher-blog 8spec: 9 replicas: 3 10 selector: 11 matchLabels: 12 app: jobcher-blog 13 minReadySeconds: 10 #准备10s 14 strategy: 15 type: RollingUpdate 16 rollingUpdate: 17 maxUnavailable: 1 #更新期间不少于3-1 18 maxSurge: 1 #更新期间不超过3&#43;1 19 template: 20 metadata: 21 labels: 22 app: jobcher-blog 23 spec: 24 containers: 25 - name: jobcher-blog-pod 26 image: hub."><meta itemprop="datePublished" content="2022-04-21T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-04-01T13:47:26+08:00" />
+<meta itemprop="dateModified" content="2024-04-01T14:33:18+08:00" />
 <meta itemprop="wordCount" content="78">
 <meta itemprop="keywords" content="k8s," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="kubernetes 调度过程"/>
 <meta name="twitter:description" content="k8s 调度过程 执行滚动升级 修改 deployment.yml 文件，追加 rollingUpdate
@@ -783,11 +783,11 @@ kubernetes 调度过程 - 博客 - 打工人日志</title>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/b0cda28019b949934d2ab1915cd754c31c718954"
+            href="https://github.com/jobcher/new-blog/commit/5f58f8dded835e1301e45f9d9fcae6609ac8ef3c"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>增加图片显示</a>
+</svg>update</a>
         </li>
     </ul>
   </div>
@@ -1986,7 +1986,7 @@ kubernetes 调度过程 - 博客 - 打工人日志</title>
 
 
   
-<script src="/js/search.ada2f57964a6ec221600ba2a37b78aa027ac7a8c182229ad66c2ae0ad5525113.js" defer></script>
+<script src="/js/search.2faa38ad8d98c6979e8d53206cbcbf9cb851f291eb311df4b5d53b2bbaaecdd2.js" defer></script>
 
 
 

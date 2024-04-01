@@ -82,7 +82,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/base-1/" /><meta property="og:image" content="https://www.jobcher.com/images/base/xxl-desktop-pc.jpg" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2023-01-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-04-01T13:47:26+08:00" />
+<meta property="article:modified_time" content="2024-04-01T14:33:18+08:00" />
 
 
 
@@ -101,8 +101,8 @@
 寄存器组 寄存器组分为专用寄存器和通用寄存器。运算器和控制器中的寄存器是专用寄存器，其作用是固定的。通用寄存器的用途广泛，并且由程序员规定其用途，其数目因处理器的不同有所差异。
 机器数 各种数值在计算机中表示的形式称为机器数，特点是采用二进制计数制，数的符号用 0 和 1 表示，小数点则隐含，表示不占位置。机器数对应的实际数值称为数的真值。
 原码： 一个数的正常二进制表示，最高位表示符号。&#43;0(00000000),-0(10000000) 反码：正数的反码即原码，负数的反码是在原码的基础上，除符号位外，其他各位按位取反。&#43;0(00000000),-0(11111111) 补码：正数的补码即原码，负数的补码是在原码的基础上，除符号位外，其他各位按位取反，而后末位&#43;1，若有进位则产生进位。&#43;0 = -0 = 0 0000000 移码：用作浮点运算的阶码，无论正数负数，都是将该原码的补码的首位（符号位）取反得到移码 原码最高位表示正负号，且不参与计数，而其他编码最高位虽然也是代表正负号，但是参与计数"><meta itemprop="datePublished" content="2023-01-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-04-01T13:47:26+08:00" />
-<meta itemprop="wordCount" content="163"><meta itemprop="image" content="https://www.jobcher.com/images/base/xxl-desktop-pc.jpg" />
+<meta itemprop="dateModified" content="2024-04-01T14:33:18+08:00" />
+<meta itemprop="wordCount" content="183"><meta itemprop="image" content="https://www.jobcher.com/images/base/xxl-desktop-pc.jpg" />
 <meta itemprop="keywords" content="基础," /><meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://www.jobcher.com/images/base/xxl-desktop-pc.jpg" /><meta name="twitter:title" content="基础知识-计算机系统"/>
 <meta name="twitter:description" content="计算机硬件 计算机的基本硬件系统由运算器、控制器、存储器、输入设备和输出设备五大部件组成
@@ -1046,11 +1046,12 @@ CPU 主要由<code>运算器</code>、<code>控制器</code>、<code>寄存器</
 码距：就单个编码A：00而言，其码距为1，因为其只需要改变一位就变成另一个编码。在两个编码中，从A码到B码转换所<strong>需要改变的位数</strong>称为码距，如A：00要转换为B：11，码距为2。一般来说，码距越大，越利于纠错和检错。</p>
 <h4 id="奇偶校验码">奇偶校验码</h4>
 <ul>
-<li>
-<p><strong>奇偶校验码</strong>:奇偶校验码（Parity Code）是一种简单有效的校验方法。这种方法通过在编码中增加一位校验位，使编码中 1 的个数为奇数（奇校验）或偶数（偶校验），从而使码距变为 2。<strong>常用的有水平奇偶校验码、垂直奇偶校验码、水平垂直校验码</strong></p>
-</li>
-<li>
-<p><strong>循环冗余校验码</strong>:循环冗余校验码（Cyclic Redundancy Check，CRC）由两部分组成，左边为信息码（数据），右边为校验码。广泛用于数据通信领域和磁介质存储系统中<br>
+<li><strong>奇偶校验码</strong>:奇偶校验码（Parity Code）是一种简单有效的校验方法。这种方法通过在编码中增加一位校验位，使编码中 1 的个数为奇数（奇校验）或偶数（偶校验），从而使码距变为 2。<strong>常用的有水平奇偶校验码、垂直奇偶校验码、水平垂直校验码</strong><br>
+奇校验可以可以检测编码中奇数个数位出错，即当合法编码中的奇数位发生了错误时，即编码中的1变成0,或者0变成了1，则该编码中的1的个数的奇偶性就发生了变化，从而检查出错误。但无法纠错。</li>
+</ul>
+<h4 id="循环冗余校验码-crc">循环冗余校验码 CRC</h4>
+<ul>
+<li><strong>循环冗余校验码</strong>:循环冗余校验码（Cyclic Redundancy Check，CRC）由两部分组成，左边为信息码（数据），右边为校验码。广泛用于数据通信领域和磁介质存储系统中<br>
 
 
 
@@ -1093,10 +1094,47 @@ CPU 主要由<code>运算器</code>、<code>控制器</code>、<code>寄存器</
     
      />
 </picture>
-</p>
-</li>
-<li>
-<p><strong>海明码</strong>:海明码（Hamming Code）是利用奇偶性来查错和纠错的校验方法。<br>
+<br>
+CRC只能检错，不能纠错，其原理是找出一个能整除多项式的编码，因此首先要将原始报文除以多项式，将所得的余数作为检验位加在原始报文之后，作为发送数据发给接收方。<br>
+使用CRC编码，需要先约定一个生成多项式
+  <span class="katex-output katex-output-inline">
+  \(G(x)\)
+</span>
+
+生成多项式的最高位和最低位必须是1。假设原始信息有m位，则对应多项式
+  <span class="katex-output katex-output-inline">
+  \(M(x)\)
+</span>
+
+.生成检验码思想就是在原始信息位后追加若干检验位，使得追加的信息能被
+  <span class="katex-output katex-output-inline">
+  \(G(x)\)
+</span>
+
+整除。接收方接收到带检验位的信息，然后用
+  <span class="katex-output katex-output-inline">
+  \(G(x)\)
+</span>
+
+整除余数为0则没有错误，反之则发生错误。</li>
+</ul>
+<blockquote>
+<p>例子：假设原始信息串为10110，CRC的生成多项式为
+  <span class="katex-output katex-output-inline">
+  \(G(x)=x^4&#43;x&#43;1\)
+</span>
+
+,求CRC检验码。</p>
+</blockquote>
+<p>(1)在原始信息位后面添0，假设生成多项式的阶为r，则在原始信息位后添加r个0，本题中
+  <span class="katex-output katex-output-inline">
+  \(G(x)\)
+</span>
+
+阶为4，则在原始信息串后加4个0，得到新串101100000，作为被除数。<br>
+(2)由多项式得到除数，多项中x的幂指数存在的位置1，不存在的位置0，本题中，x的幂指数为0,1,4的变量都存在，而幂指数为2,3的不存在因此得到串10011</p>
+<ul>
+<li><strong>海明码</strong>:海明码（Hamming Code）是利用奇偶性来查错和纠错的校验方法。<br>
 设数据位是n位，检验位是k位，则n和k必须满足以下关系<br>
 
   <div class="katex-output">
@@ -1137,8 +1175,7 @@ $$
   \(H_1\)
 </span>
 
-,那么：</p>
-</li>
+,那么：</li>
 </ul>
 
 
@@ -1197,11 +1234,11 @@ $$
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/b0cda28019b949934d2ab1915cd754c31c718954"
+            href="https://github.com/jobcher/new-blog/commit/5f58f8dded835e1301e45f9d9fcae6609ac8ef3c"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>增加图片显示</a>
+</svg>update</a>
         </li>
     </ul>
   </div>
@@ -2478,7 +2515,7 @@ $$
 
 
   
-<script src="/js/search.ada2f57964a6ec221600ba2a37b78aa027ac7a8c182229ad66c2ae0ad5525113.js" defer></script>
+<script src="/js/search.2faa38ad8d98c6979e8d53206cbcbf9cb851f291eb311df4b5d53b2bbaaecdd2.js" defer></script>
 
 
   <script src="/js/katex.js" defer onload="renderMathInElement(document.body)"></script>

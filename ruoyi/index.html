@@ -63,13 +63,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/ruoyi/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-03-03T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-04-01T13:47:26+08:00" />
+<meta property="article:modified_time" content="2024-04-01T14:33:18+08:00" />
 
 
 
 <meta itemprop="name" content="ruoyi-cloud docker部署">
 <meta itemprop="description" content="基础环境安装 1# docker 脚本安装 2curl -sSL https://get.daocloud.io/docker | sh 3 4#docker compose 脚本安装 5curl -L https://get.daocloud.io/docker/compose/releases/download/v2.4.1/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose 6 7 8#可执行权限 9sudo chmod &#43;x /usr/local/bin/docker-compose 10#创建软链： 11sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose 12#测试是否安装成功 13docker-compose --version 下载安装 1git clone https://gitlab.sanjiang.com/it-group/ruoyi-cloud.git 编译 1cd ruoyi-cloud 2mvn clean install -DskipTests 复制 jar 包 1cd ./docker 2./copy.sh 部署 docker 1./deploy.sh base 2./deploy.sh modules 检查 docker 1docker ps -a | grep ruoyi 2docker logs -f ruoyi-auth 3docker logs -f ruoyi-gateway 4docker logs -f ruoyi-modules-system "><meta itemprop="datePublished" content="2022-03-03T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-04-01T13:47:26+08:00" />
+<meta itemprop="dateModified" content="2024-04-01T14:33:18+08:00" />
 <meta itemprop="wordCount" content="79">
 <meta itemprop="keywords" content="work," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="ruoyi-cloud docker部署"/>
 <meta name="twitter:description" content="基础环境安装 1# docker 脚本安装 2curl -sSL https://get.daocloud.io/docker | sh 3 4#docker compose 脚本安装 5curl -L https://get.daocloud.io/docker/compose/releases/download/v2.4.1/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose 6 7 8#可执行权限 9sudo chmod &#43;x /usr/local/bin/docker-compose 10#创建软链： 11sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose 12#测试是否安装成功 13docker-compose --version 下载安装 1git clone https://gitlab.sanjiang.com/it-group/ruoyi-cloud.git 编译 1cd ruoyi-cloud 2mvn clean install -DskipTests 复制 jar 包 1cd ./docker 2./copy.sh 部署 docker 1./deploy.sh base 2./deploy.sh modules 检查 docker 1docker ps -a | grep ruoyi 2docker logs -f ruoyi-auth 3docker logs -f ruoyi-gateway 4docker logs -f ruoyi-modules-system "/>
@@ -733,11 +733,11 @@ ruoyi-cloud docker部署 - 博客 - 打工人日志</title>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/b0cda28019b949934d2ab1915cd754c31c718954"
+            href="https://github.com/jobcher/new-blog/commit/5f58f8dded835e1301e45f9d9fcae6609ac8ef3c"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>增加图片显示</a>
+</svg>update</a>
         </li>
     </ul>
   </div>
@@ -2053,7 +2053,7 @@ ruoyi-cloud docker部署 - 博客 - 打工人日志</title>
 
 
   
-<script src="/js/search.ada2f57964a6ec221600ba2a37b78aa027ac7a8c182229ad66c2ae0ad5525113.js" defer></script>
+<script src="/js/search.2faa38ad8d98c6979e8d53206cbcbf9cb851f291eb311df4b5d53b2bbaaecdd2.js" defer></script>
 
 
 
