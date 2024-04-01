@@ -71,7 +71,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/networkinglinux/" /><meta property="og:image" content="https://www.jobcher.com/images/nginx.png" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2023-08-30T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-04-01T01:31:44+00:00" />
+<meta property="article:modified_time" content="2024-04-01T11:31:11+08:00" />
 
 
 
@@ -79,7 +79,7 @@
 <meta itemprop="description" content="简介 高并发的系统架构中，任何细微调整，稍有不注意便会引起连锁反应，只有系统地了解整个网络栈，在处理疑难杂症或者系统优化工作中，才能做到手中有粮心中不慌。在本节，我们概览一个 Linux 系统收包的流程，以便了解高并发系统所面临的性能瓶颈问题以及相关的优化策略。
 收包过程 网卡 eth0 收到数据包。 网卡通过 DMA 将数据包拷贝到内存的环形缓冲区(Ring Buffer，在网卡中有 RX Ring 和 TX Ring 两种缓冲)。 数据从网卡拷贝到内存后, 网卡产生 IRQ（Interupt ReQuest，硬件中断）告知内核有新的数据包达到。 内核收到中断后, 调用相应中断处理函数，开始唤醒 ksoftirqd 内核线程处理软中断。 内核进行软中断处理，调用 NAPI poll 接口来获取内存环形缓冲区(ring buffer)的数据包，送至更上层处理。 内核中网络协议栈：L2 处理。 内核中网络协议栈：L3 处理。 内核中网络协议栈：L4 处理。 网络协议栈处理数据后，并将其发送到对应应用的 socket 接收缓冲区。 高并发瓶颈 用户进程调用系统调用陷入内核态的开销。 CPU 响应包的硬中断 CPU 开销 ksoftirqd 内核线程的软中断上下文开销。 RX/TX Ring 优化 处理一个数据包会有各类的中断、softirq 等处理，因为分配给 Ring Buffer 的空间是有限的，当收到的数据包速率大于单个 CPU 处理速度的时，Ring Buffer 可能被占满并导致新数据包被自动丢弃。一个 CPU 去处理 Ring Buffer 数据会很低效，这个时候就产生 RSS、RPS 等多核并发机制来提升内核网络包的处理能力。
 但是注意，开启多核并发特性，会挤压业务代码的执行时间，如果业务属于 CPU 密集型，会导致业务性能下降。是否开启多核处理，需要根据业务场景考虑，根据笔者的经验来看，例如此类负载均衡服务器、网关、集群核心转发节点等网络I/O 密集型场景可以尝试优化 RSS、RPS 等配置。"><meta itemprop="datePublished" content="2023-08-30T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-04-01T01:31:44+00:00" />
+<meta itemprop="dateModified" content="2024-04-01T11:31:11+08:00" />
 <meta itemprop="wordCount" content="435"><meta itemprop="image" content="https://www.jobcher.com/images/nginx.png" />
 <meta itemprop="keywords" content="error," /><meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://www.jobcher.com/images/nginx.png" /><meta name="twitter:title" content="Linux 系统收包流程以及内核参数优化"/>
@@ -932,11 +932,11 @@ Linux 系统收包流程以及内核参数优化 - 博客 - 打工人日志</tit
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/b5eb410fb2db145156436c51a1010d8fe1200209"
+            href="https://github.com/jobcher/new-blog/commit/6f4ea8d024869112de3fd34cff6975c715aa8646"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>update github trend</a>
+</svg>update</a>
         </li>
     </ul>
   </div>
@@ -2524,7 +2524,7 @@ Linux 系统收包流程以及内核参数优化 - 博客 - 打工人日志</tit
 
 
   
-<script src="/js/search.df6cef0c03258c1bf78bd690468569dfc1de111dd148eb824c64cc8c28101dc7.js" defer></script>
+<script src="/js/search.bb7eca84fec2cb67278228cf5010d63ecf92e59116335e2858bcda05d8c2e48d.js" defer></script>
 
 
 

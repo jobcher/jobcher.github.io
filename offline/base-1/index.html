@@ -82,7 +82,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/base-1/" /><meta property="og:image" content="https://www.jobcher.com/images/base/xxl-desktop-pc.jpg" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2023-01-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-04-01T01:31:44+00:00" />
+<meta property="article:modified_time" content="2024-04-01T11:31:11+08:00" />
 
 
 
@@ -101,8 +101,8 @@
 寄存器组 寄存器组分为专用寄存器和通用寄存器。运算器和控制器中的寄存器是专用寄存器，其作用是固定的。通用寄存器的用途广泛，并且由程序员规定其用途，其数目因处理器的不同有所差异。
 机器数 各种数值在计算机中表示的形式称为机器数，特点是采用二进制计数制，数的符号用 0 和 1 表示，小数点则隐含，表示不占位置。机器数对应的实际数值称为数的真值。
 原码： 一个数的正常二进制表示，最高位表示符号。&#43;0(00000000),-0(10000000) 反码：正数的反码即原码，负数的反码是在原码的基础上，除符号位外，其他各位按位取反。&#43;0(00000000),-0(11111111) 补码：正数的补码即原码，负数的补码是在原码的基础上，除符号位外，其他各位按位取反，而后末位&#43;1，若有进位则产生进位。&#43;0 = -0 = 0 0000000 移码：用作浮点运算的阶码，无论正数负数，都是将该原码的补码的首位（符号位）取反得到移码 原码最高位表示正负号，且不参与计数，而其他编码最高位虽然也是代表正负号，但是参与计数"><meta itemprop="datePublished" content="2023-01-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-04-01T01:31:44+00:00" />
-<meta itemprop="wordCount" content="146"><meta itemprop="image" content="https://www.jobcher.com/images/base/xxl-desktop-pc.jpg" />
+<meta itemprop="dateModified" content="2024-04-01T11:31:11+08:00" />
+<meta itemprop="wordCount" content="163"><meta itemprop="image" content="https://www.jobcher.com/images/base/xxl-desktop-pc.jpg" />
 <meta itemprop="keywords" content="基础," /><meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://www.jobcher.com/images/base/xxl-desktop-pc.jpg" /><meta name="twitter:title" content="基础知识-计算机系统"/>
 <meta name="twitter:description" content="计算机硬件 计算机的基本硬件系统由运算器、控制器、存储器、输入设备和输出设备五大部件组成
@@ -681,6 +681,7 @@
     <li><a href="#机器数">机器数</a>
       <ul>
         <li><a href="#浮点数的计算">浮点数的计算</a></li>
+        <li><a href="#算术逻辑和逻辑运算">算术逻辑和逻辑运算</a></li>
         <li><a href="#校验码">校验码</a></li>
       </ul>
     </li>
@@ -1023,57 +1024,30 @@ CPU 主要由<code>运算器</code>、<code>控制器</code>、<code>寄存器</
     
      />
 </picture>
-</p>
+<br>
+很明显，与科学计数法类似，一个浮点数的表示方法不是唯一的，浮点数所能表示的<strong>数值范围由阶码决定</strong>，所表示的<strong>数值精度由尾数确定。</strong><br>
+尾数的表示采用规格化方法，也即带符号尾数的补码必须为1.0xxxx（负数）或者0.1xxxxx（正数），其中x可为0或1<br>
+浮点数的运算：对阶（使两个数的阶码相投，<strong>小阶向大阶看齐</strong>，较小阶码增加几位，尾数就右移动几位）————尾数计算（相加，若是减运算，则加负数）————结果规格化（即尾数表示规格化，带符号尾数转换为1.0xxxx或0.1xxxx）。</p>
+<h3 id="算术逻辑和逻辑运算">算术逻辑和逻辑运算</h3>
+<ul>
+<li>逻辑与&amp;&amp;：0和1相与，只要有一个0结果为0，两个都为1才为1</li>
+<li>逻辑或||：0和1相或，只要有一个为1结果就为1，两个都为0才为0</li>
+<li>异或：同0非1，即参加运算的二进制同为0或者同为1结果为0，一个为0另一个为1结果为1</li>
+<li>逻辑非！：0的非是1,1的非是0</li>
+<li>逻辑左移：二进制整体左移n位，高位若溢出则舍去，低位补0</li>
+<li>逻辑右移：二进制整体右移n位，低位若溢出则舍去，高位补0</li>
+<li>算术左移算术右移：乘以2或者除以2的算术运算，涉及加减乘除都是算术运算，与逻辑运算区分<br>
+<strong>短路计算方式：</strong> 指通过逻辑运算符（&amp;&amp;、||） 左边表达式就能推算出整个表达式的值，不再继续执行逻辑运算右边的表达式<br>
+若计算机存储数据采用的是<strong>双符号位</strong>（00表示正号、11表示负号），两个符号相同的数相加时，如果运算结果的两个符号位经异或运算得1，则可断定这两个数相加的结果产生了溢出。<br>
+从计算的角度理解，正数和负数相加其结果肯定不会溢出，如果有溢出，必然同为正数或者同为负数，结果才会更大，有可能溢出，因此，正常两个同符号数相加时，不考虑溢出，其符号位必然还是00或者11，如果有溢出，那么数据位必然最高位进位1，符号位就需要加1，符号位就变为01或者10，因此当符号位为01或者10时数据溢出，观察这两种溢出情况的两个符号位都是一个为0，一个为1，其异或运算运算必然为1，没有其他可能，而逻辑或运算有可能两个都位也能得出1</li>
+</ul>
 <h3 id="校验码">校验码</h3>
-<p>在计算机系统运行时，各部位之间要进行数据交换，为了确保数据在传送过程中正确无误，一、<code>是提高硬件电路的可靠性</code>，二是<code>提高代码的校验能力</code>，包括<code>查错</code>和<code>纠错</code>。</p>
+<p>在计算机系统运行时，各部位之间要进行数据交换，为了确保数据在传送过程中正确无误，一、<code>是提高硬件电路的可靠性</code>，二是<code>提高代码的校验能力</code>，包括<code>查错</code>和<code>纠错</code>。<br>
+码距：就单个编码A：00而言，其码距为1，因为其只需要改变一位就变成另一个编码。在两个编码中，从A码到B码转换所<strong>需要改变的位数</strong>称为码距，如A：00要转换为B：11，码距为2。一般来说，码距越大，越利于纠错和检错。</p>
+<h4 id="奇偶校验码">奇偶校验码</h4>
 <ul>
 <li>
-<p><strong>奇偶校验码</strong>:奇偶校验码（Parity Code）是一种简单有效的校验方法。这种方法通过在编码中增加一位校验
-位，使编码中 1 的个数为奇数（奇校验）或偶数（偶校验），从而使码距变为 2。<strong>常用的有水平奇偶校验码、垂直奇偶校验码、水平垂直校验码</strong></p>
-</li>
-<li>
-<p><strong>海明码</strong>:海明码（Hamming Code）是利用奇偶性来查错和纠错的校验方法。<br>
-设数据位是n位，检验位是k位，则n和k必须满足以下关系<br>
-
-  <div class="katex-output">
-  $$
-2^{k}-1 \geq {n+k}
-$$
-</div>
-
-<br>
-海明码的编码规则如下<br>
-设k个检验位为
-  <span class="katex-output katex-output-inline">
-  \(P_k,P_{k-1}\)
-</span>
-
-,……,
-  <span class="katex-output katex-output-inline">
-  \(P_1\)
-</span>
-
-，n个数据位为
-  <span class="katex-output katex-output-inline">
-  \(D_{n-1},D_{n-2}\)
-</span>
-
-,……,
-  <span class="katex-output katex-output-inline">
-  \(D_1,D_0\)
-</span>
-
-,对应的海明码为
-  <span class="katex-output katex-output-inline">
-  \(H_{n&#43;k},H_{n&#43;k-1}\)
-</span>
-
-,……,
-  <span class="katex-output katex-output-inline">
-  \(H_1\)
-</span>
-
-,那么：</p>
+<p><strong>奇偶校验码</strong>:奇偶校验码（Parity Code）是一种简单有效的校验方法。这种方法通过在编码中增加一位校验位，使编码中 1 的个数为奇数（奇校验）或偶数（偶校验），从而使码距变为 2。<strong>常用的有水平奇偶校验码、垂直奇偶校验码、水平垂直校验码</strong></p>
 </li>
 <li>
 <p><strong>循环冗余校验码</strong>:循环冗余校验码（Cyclic Redundancy Check，CRC）由两部分组成，左边为信息码（数据），右边为校验码。广泛用于数据通信领域和磁介质存储系统中<br>
@@ -1120,6 +1094,50 @@ $$
      />
 </picture>
 </p>
+</li>
+<li>
+<p><strong>海明码</strong>:海明码（Hamming Code）是利用奇偶性来查错和纠错的校验方法。<br>
+设数据位是n位，检验位是k位，则n和k必须满足以下关系<br>
+
+  <div class="katex-output">
+  $$
+2^{k}-1 \geq {n+k}
+$$
+</div>
+
+<br>
+海明码的编码规则如下<br>
+设k个检验位为
+  <span class="katex-output katex-output-inline">
+  \(P_k,P_{k-1}\)
+</span>
+
+,……,
+  <span class="katex-output katex-output-inline">
+  \(P_1\)
+</span>
+
+，n个数据位为
+  <span class="katex-output katex-output-inline">
+  \(D_{n-1},D_{n-2}\)
+</span>
+
+,……,
+  <span class="katex-output katex-output-inline">
+  \(D_1,D_0\)
+</span>
+
+,对应的海明码为
+  <span class="katex-output katex-output-inline">
+  \(H_{n&#43;k},H_{n&#43;k-1}\)
+</span>
+
+,……,
+  <span class="katex-output katex-output-inline">
+  \(H_1\)
+</span>
+
+,那么：</p>
 </li>
 </ul>
 
@@ -1179,11 +1197,11 @@ $$
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/b5eb410fb2db145156436c51a1010d8fe1200209"
+            href="https://github.com/jobcher/new-blog/commit/6f4ea8d024869112de3fd34cff6975c715aa8646"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>update github trend</a>
+</svg>update</a>
         </li>
     </ul>
   </div>
@@ -2459,7 +2477,7 @@ $$
 
 
   
-<script src="/js/search.df6cef0c03258c1bf78bd690468569dfc1de111dd148eb824c64cc8c28101dc7.js" defer></script>
+<script src="/js/search.bb7eca84fec2cb67278228cf5010d63ecf92e59116335e2858bcda05d8c2e48d.js" defer></script>
 
 
   <script src="/js/katex.js" defer onload="renderMathInElement(document.body)"></script>
