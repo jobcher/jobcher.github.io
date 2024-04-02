@@ -77,7 +77,7 @@ Metric是可以聚合的，例如为电商系统中每个 HTTP 接口添加一�
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/skywalking/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-08-10T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-04-02T01:30:02+00:00" />
+<meta property="article:modified_time" content="2024-04-02T09:41:36+08:00" />
 
 
 
@@ -92,7 +92,7 @@ Metric是可以聚合的，例如为电商系统中每个 HTTP 接口添加一�
 在微服务架构系统中一请求会经过很多服务处理，调用链路会非常长，要确定中间哪个服务出现异常是非常麻烦的事情，通过分布式链路追踪，运维人员就可以构建一个请求的视图。视图上战术了一个请求从进入系统开始到返回响应的整个流程。 系统交互图
 系统加载图 &gt; 目前流行的APM监控 Zipkin 对 web.xml 进行修改，代码侵入 twitter 开源 Cat 支持 Java、C/C&#43;&#43;、Node.Js、Python、go 代码侵入，埋点 美团开源 Pinpoint 基于字节码注入技术，代码无侵入 韩国公司开发，社区交流滞后 只支持 hbase 颗粒度更细 Skywalking
 观测性分析平台 基于字节码注入技术，代码无侵入 服务、服务实例、端点指标分析 服务拓扑图分析 服务、服务实例和端点（Endpont）SLA 分析 支持 es，h2,mysql,TiDb,sharding-sphere skywalking 整体框架 上部分 Agent ：负责从应用中，收集链路信息，发送给 SkyWalking OAP 服务器。目前支持 SkyWalking、Zikpin、Jaeger 等提供的 Tracing 数据信息。而我们目前采用的是，SkyWalking Agent 收集 SkyWalking Tracing 数据，传递给服务器。 下部分 SkyWalking OAP ：负责接收 Agent 发送的 Tracing 数据信息，然后进行分析(Analysis Core) ，存储到外部存储器( Storage )，最终提供查询( Query )功能。 右部分 Storage ：Tracing 数据存储。目前支持 ES、MySQL、Sharding Sphere、TiDB、H2 多种存储器。而我们目前采用的是 ES ，主要考虑是 SkyWalking 开发团队自己的生产环境采用 ES 为主。 左部分 SkyWalking UI ：负责提供控台，查看链路等等。 skywalking 配置 使用 docker-compose 安装 使用 mysql 作为存储"><meta itemprop="datePublished" content="2022-08-10T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-04-02T01:30:02+00:00" />
+<meta itemprop="dateModified" content="2024-04-02T09:41:36+08:00" />
 <meta itemprop="wordCount" content="277">
 <meta itemprop="keywords" content="skywalking," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="skywalking APM 监控"/>
 <meta name="twitter:description" content="skywalking 基于 OpenTracing 规范，专门为微服务架构以及云原生服务。
@@ -878,11 +878,11 @@ skywalking APM 监控 - 博客 - 打工人日志</title>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/72a7008d18d2642de9411ba94c045114cefeaeb7"
+            href="https://github.com/jobcher/new-blog/commit/55b70556b93221ddebd2b4b91f6da29c3c9a90ad"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>update github trend</a>
+</svg>update</a>
         </li>
     </ul>
   </div>
@@ -2081,7 +2081,7 @@ skywalking APM 监控 - 博客 - 打工人日志</title>
 
 
   
-<script src="/js/search.1a5e59160359619ff9a3bc0491cd847653c373d2c917e74b23f97c9064f8886a.js" defer></script>
+<script src="/js/search.43ce9184143dc1e79f768a92214fa35f28323571e4df3d993b6a0c24043eca0a.js" defer></script>
 
 
 

@@ -63,13 +63,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/docker-kong/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2021-12-22T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-04-02T01:30:02+00:00" />
+<meta property="article:modified_time" content="2024-04-02T09:41:36+08:00" />
 
 
 
 <meta itemprop="name" content="docker 安装kong 网关">
 <meta itemprop="description" content="docker 安装 kong 网关 建立数据库 创建网络 1docker network create kong-net 建立数据库 1docker run -d --name kong-database \ 2 --network=kong-net \ 3 -p 5432:5432 \ 4 -e &#34;POSTGRES_USER=kong&#34; \ 5 -e &#34;POSTGRES_DB=kong&#34; \ 6 -e &#34;POSTGRES_PASSWORD=kong123&#34; \ 7 postgres:9.6 创建 kong 数据 1docker run --rm --network=kong-net \ 2 -e &#34;KONG_DATABASE=postgres&#34; \ 3 -e &#34;KONG_PG_HOST=kong-database&#34; \ 4 -e &#34;KONG_PG_PASSWORD=kong123&#34; \ 5 -e &#34;KONG_PASSWORD=kong123&#34; \ 6 kong:latest kong migrations bootstrap 创建 kong 创建 kong gateway 1 docker run -d --name kong \ 2 --network=kong-net \ 3 -e &#34;KONG_DATABASE=postgres&#34; \ 4 -e &#34;KONG_PG_HOST=kong-database&#34; \ 5 -e &#34;KONG_PG_USER=kong&#34; \ 6 -e &#34;KONG_PG_PASSWORD=kong123&#34; \ 7 -e &#34;KONG_CASSANDRA_CONTACT_POINTS=kong-database&#34; \ 8 -e &#34;KONG_PROXY_ACCESS_LOG=/dev/stdout&#34; \ 9 -e &#34;KONG_ADMIN_ACCESS_LOG=/dev/stdout&#34; \ 10 -e &#34;KONG_PROXY_ERROR_LOG=/dev/stderr&#34; \ 11 -e &#34;KONG_ADMIN_ERROR_LOG=/dev/stderr&#34; \ 12 -e &#34;KONG_ADMIN_LISTEN=0."><meta itemprop="datePublished" content="2021-12-22T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-04-02T01:30:02+00:00" />
+<meta itemprop="dateModified" content="2024-04-02T09:41:36+08:00" />
 <meta itemprop="wordCount" content="191">
 <meta itemprop="keywords" content="docker," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="docker 安装kong 网关"/>
 <meta name="twitter:description" content="docker 安装 kong 网关 建立数据库 创建网络 1docker network create kong-net 建立数据库 1docker run -d --name kong-database \ 2 --network=kong-net \ 3 -p 5432:5432 \ 4 -e &#34;POSTGRES_USER=kong&#34; \ 5 -e &#34;POSTGRES_DB=kong&#34; \ 6 -e &#34;POSTGRES_PASSWORD=kong123&#34; \ 7 postgres:9.6 创建 kong 数据 1docker run --rm --network=kong-net \ 2 -e &#34;KONG_DATABASE=postgres&#34; \ 3 -e &#34;KONG_PG_HOST=kong-database&#34; \ 4 -e &#34;KONG_PG_PASSWORD=kong123&#34; \ 5 -e &#34;KONG_PASSWORD=kong123&#34; \ 6 kong:latest kong migrations bootstrap 创建 kong 创建 kong gateway 1 docker run -d --name kong \ 2 --network=kong-net \ 3 -e &#34;KONG_DATABASE=postgres&#34; \ 4 -e &#34;KONG_PG_HOST=kong-database&#34; \ 5 -e &#34;KONG_PG_USER=kong&#34; \ 6 -e &#34;KONG_PG_PASSWORD=kong123&#34; \ 7 -e &#34;KONG_CASSANDRA_CONTACT_POINTS=kong-database&#34; \ 8 -e &#34;KONG_PROXY_ACCESS_LOG=/dev/stdout&#34; \ 9 -e &#34;KONG_ADMIN_ACCESS_LOG=/dev/stdout&#34; \ 10 -e &#34;KONG_PROXY_ERROR_LOG=/dev/stderr&#34; \ 11 -e &#34;KONG_ADMIN_ERROR_LOG=/dev/stderr&#34; \ 12 -e &#34;KONG_ADMIN_LISTEN=0."/>
@@ -759,11 +759,11 @@ docker 安装kong 网关 - 博客 - 打工人日志</title>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/72a7008d18d2642de9411ba94c045114cefeaeb7"
+            href="https://github.com/jobcher/new-blog/commit/55b70556b93221ddebd2b4b91f6da29c3c9a90ad"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>update github trend</a>
+</svg>update</a>
         </li>
     </ul>
   </div>
@@ -2118,7 +2118,7 @@ docker 安装kong 网关 - 博客 - 打工人日志</title>
 
 
   
-<script src="/js/search.1a5e59160359619ff9a3bc0491cd847653c373d2c917e74b23f97c9064f8886a.js" defer></script>
+<script src="/js/search.43ce9184143dc1e79f768a92214fa35f28323571e4df3d993b6a0c24043eca0a.js" defer></script>
 
 
 
