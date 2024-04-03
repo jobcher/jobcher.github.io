@@ -586,6 +586,102 @@
 
     </a>
 
+      <span class="hb-blog-post-date">2022年10月31日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/nexus/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="Nexus3 使用和部署"
+        href="/nexus/">Nexus3 使用和部署</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/work/">work</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/">问题库系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/work/">work</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">Nexus3 docker-compose 安装 创建外部存储
+1mkdir -p /data/nexus 2chmod +777 -R /data/nexus 运行 docker-compose
+1version: &#39;3&#39; 2services: 3 nexus3: 4 image: sonatype/nexus3:3.42.0 5 container_name: nexus3 6 ports: 7 - 8081:8081 8 - 5000:5000 9 volumes: 10 - /data/nexus:/nexus-data 11 environment: 12 - INSTALL4J_ADD_VM_PARAMS=-Xms1024m -Xmx1024m -XX:MaxDirectMemorySize=1024m -Djava.util.prefs.userRoot=/some-other-dir 13 restart: always 14 # 赋予外部root权限 15 privileged: true docker-compose up -d 运行 docker-compose</div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
       <span class="hb-blog-post-date">2022年10月21日</span>
 
         <span class="hb-blog-post-reading-time">1 分钟阅读</span>
@@ -3734,117 +3830,6 @@ input { beats { host =&gt; &#34;0.0.0.0&#34; port =&gt; 23000 # 修改端口IP }
 </div>
 
       </div>
-      <div class="archive-subheading h5 mb-3">
-          <a class="text-decoration-none" href="/archives/2022/06/">六月</a>
-      </div>
-      <div class="archive-posts border-top pt-3">
-        
-<div class="hb-blog-posts row row-cols-1 row-cols-lg-2 row-cols-xl-3 g-3 mb-3">
-  
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2022年6月29日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/k8s9/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="kubernetes 从1.23.x 升级到 1.24.x"
-        href="/k8s9/">kubernetes 从1.23.x 升级到 1.24.x</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/k8s/">k8s</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">k8s入门系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/k8s/">k8s</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">kubernetes 从1.23.x 升级到 1.24.x k8s 在1.24.x之后的版本放弃了和 docker 的兼容，使用 containerd 作为底层的容器，直接参照官方文档的资料进行更新就会报错。因为你没有安装 containerd，所以要安装 containerd 并配置才能正确的升级 k8s
-我用的是CentOS7.9的版本，因此以下操作都是在CentOS下操作。
-Master 节点操作 1.升级 kubeadm 1yum install -y kubeadm-1.24.2-0 --disableexcludes=kubernetes 2kubeadm version 3kubeadm upgrade plan 4sudo kubeadm upgrade apply v1.24.2 2.安装 containerd 1yum install containerd.io -y 2containerd config default &gt; /etc/containerd/config.toml 3vim /var/lib/kubelet/kubeadm-flags.env 修改 kubeadm-flags.env 变量：
-1KUBELET_KUBEADM_ARGS=&#34;--pod-infra-container-image=k8s.gcr.io/pause:3.6 --container-runtime=remote --container-runtime-endpoint=unix:///run/containerd/containerd.sock&#34; 3.升级 kubelet 1yum install -y kubelet-1.24.2-0 kubectl-1.24.2-0 --disableexcludes=kubernetes 2systemctl daemon-reload &amp;&amp; systemctl restart containerd &amp;&amp; systemctl restart kubelet 查看状态：</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/k8s9/">阅读更多关于kubernetes 从1.23.x 升级到 1.24.x的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
-</div>
-
-      </div>
   </div>
 
   <div class="border-1">
@@ -3992,7 +3977,7 @@ Master 节点操作 1.升级 kubeadm 1yum install -y kubeadm-1.24.2-0 --disablee
 
 
   
-<script src="/js/search.ebf195e7172cdcfe8a4d8f7ae9608ec578dc0c306299437a779ed81a9dd36bd0.js" defer></script>
+<script src="/js/search.1e009de7c87ccdf2a5e79499509caadffb57c45134f93a777db658e21329a30a.js" defer></script>
 
 
 
