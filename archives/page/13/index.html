@@ -586,6 +586,113 @@
 
     </a>
 
+      <span class="hb-blog-post-date">2022年8月10日</span>
+
+        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/skywalking/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="skywalking APM 监控"
+        href="/skywalking/">skywalking APM 监控</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E7%9B%91%E6%8E%A7/">监控</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7%E7%B3%BB%E5%88%97/">运维监控系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/skywalking/">skywalking</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">skywalking 基于 OpenTracing 规范，专门为微服务架构以及云原生服务。
+APM 监控 一个基于微服务架构的电商系统
+APM (Application Performance Management) 即应用性能管理，属于 IT 运维管理（ITOM)范畴.
+分为一下三个方面：
+Logging
+服务在处理某个请求时打印的错误日志，可以将这些日志信息记录到Elasticsearch或是其他存储中。通过 Kibana 或是其他工具来分析这些日志了解服务的行为和状态，大多数情况下。日志记录的数据很分散，并且相互独立。例如错误日志，请求处理过程中关键步骤的日志等等。 Metrics
+Metric是可以聚合的，例如为电商系统中每个 HTTP 接口添加一个计数器，计算每个接口的 QPS，可以通过简单的加和计算得到系统的总负载情况。 Tracing
+在微服务架构系统中一请求会经过很多服务处理，调用链路会非常长，要确定中间哪个服务出现异常是非常麻烦的事情，通过分布式链路追踪，运维人员就可以构建一个请求的视图。视图上战术了一个请求从进入系统开始到返回响应的整个流程。 系统交互图
+系统加载图 &gt; 目前流行的APM监控 Zipkin 对 web.xml 进行修改，代码侵入 twitter 开源 Cat 支持 Java、C/C++、Node.Js、Python、go 代码侵入，埋点 美团开源 Pinpoint 基于字节码注入技术，代码无侵入 韩国公司开发，社区交流滞后 只支持 hbase 颗粒度更细 Skywalking
+观测性分析平台 基于字节码注入技术，代码无侵入 服务、服务实例、端点指标分析 服务拓扑图分析 服务、服务实例和端点（Endpont）SLA 分析 支持 es，h2,mysql,TiDb,sharding-sphere skywalking 整体框架 上部分 Agent ：负责从应用中，收集链路信息，发送给 SkyWalking OAP 服务器。目前支持 SkyWalking、Zikpin、Jaeger 等提供的 Tracing 数据信息。而我们目前采用的是，SkyWalking Agent 收集 SkyWalking Tracing 数据，传递给服务器。 下部分 SkyWalking OAP ：负责接收 Agent 发送的 Tracing 数据信息，然后进行分析(Analysis Core) ，存储到外部存储器( Storage )，最终提供查询( Query )功能。 右部分 Storage ：Tracing 数据存储。目前支持 ES、MySQL、Sharding Sphere、TiDB、H2 多种存储器。而我们目前采用的是 ES ，主要考虑是 SkyWalking 开发团队自己的生产环境采用 ES 为主。 左部分 SkyWalking UI ：负责提供控台，查看链路等等。 skywalking 配置 使用 docker-compose 安装 使用 mysql 作为存储</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/skywalking/">阅读更多关于skywalking APM 监控的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
       <span class="hb-blog-post-date">2022年8月8日</span>
 
         <span class="hb-blog-post-reading-time">5 分钟阅读</span>
@@ -3512,119 +3619,6 @@ pom.xml 文件:
 </div>
 
       </div>
-      <div class="archive-subheading h5 mb-3">
-          <a class="text-decoration-none" href="/archives/2022/02/">二月</a>
-      </div>
-      <div class="archive-posts border-top pt-3">
-        
-<div class="hb-blog-posts row row-cols-1 row-cols-lg-2 row-cols-xl-3 g-3 mb-3">
-  
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2022年2月28日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/git2/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="git版本控制"
-        href="/git2/">git版本控制</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/gitlab/">gitlab</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/git%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">git入门系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/gitlab/">gitlab</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">git 版本控制 版本回退 1.查看 git 提交历史 1#查看git提交历史 2git log 如果嫌输出信息太多，看得眼花缭乱的，可以试试加上--pretty=oneline参数
-1git log --pretty=oneline 2.回退到上一个版本 Git必须知道当前版本是哪个版本，在 Git 中，用HEAD表示当前版本，也就是最新的提交b534d741..（注意我的提交 ID 和你的肯定不一样），上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上 100 个版本写 100 个^比较容易数不过来，所以写成HEAD~100
-1git reset --hard HEAD^ 最新的那个版本已经看不到了，可以顺着往上找，找到那个版本的 ID
-1git reset --hard c8275ca Git 在内部有个指向当前版本的HEAD指针,当你回退版本的时候，Git 仅仅是把HEAD从指向update
-1┌────┐ 2│HEAD│ 3└────┘ 4 │ 5 └──&gt; ○ update 6 │ 7 ○ Create README.md 8 │ 9 ○ init 改为指向 Create README.md：
-1┌────┐ 2│HEAD│ 3└────┘ 4 │ 5 │ ○ update 6 │ │ 7 └──&gt; ○ Create README.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/git2/">阅读更多关于git版本控制的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
-</div>
-
-      </div>
   </div>
 
   <div class="border-1">
@@ -3768,7 +3762,7 @@ pom.xml 文件:
 
 
   
-<script src="/js/search.8a8dfe4bc647f23077cb7c6db765c84c74e582e3fab447c97fa1c5e6f50dcb77.js" defer></script>
+<script src="/js/search.aebaaeec088e125e9118cb57d438e7679dbcae98715a51435f8ca8441cd463ad.js" defer></script>
 
 
 
