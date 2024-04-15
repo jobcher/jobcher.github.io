@@ -590,6 +590,105 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/mysqldump/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="mysql数据库备份迁移"
+        href="/mysqldump/">mysql数据库备份迁移</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/mysql%E7%B3%BB%E5%88%97/">mysql系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/mysql/">mysql</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">mysql 数据库备份迁移 使用 mydumper 做数据备份迁移
+备份数据库 安装 1# 安装 centos 2yum install https://github.com/mydumper/mydumper/releases/download/v0.11.5/mydumper-0.11.5-1.el7.x86_64.rpm 3yum install https://github.com/mydumper/mydumper/releases/download/v0.11.5/mydumper-0.11.5-1.el8.x86_64.rpm 1# 安装 ubuntu 2apt-get install libatomic1 3wget https://github.com/mydumper/mydumper/releases/download/v0.11.5/mydumper_0.11.5-1.$(lsb_release -cs)_amd64.deb 4dpkg -i mydumper_0.11.5-1.$(lsb_release -cs)_amd64.deb 备份 1nohup mydumper -h &#39;备份数据库&#39; \ 2-u &#39;用户名&#39; \ 3-p &#39;密码&#39; \ 4--threads=16 \ 5-B 备份数据库 \ 6-v 3 \ 7--outputdir=./backup --rows=100000 \ 8-L mydumper-logs.log &amp; 迁移数据库 还原数据 1nohup myloader -h &#39;迁移数据库&#39; \ 2-u &#39;用户名&#39; \ 3-p &#39;密码&#39; \ 4--directory=./backup \ 5-s 来源数据库 \ 6-B 还原数据库 \ 7-t 16 \ 8-v 3 \ 9-e 2&gt;myloader-logs.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/mysqldump/">阅读更多关于mysql数据库备份迁移的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2021年12月24日</span>
+
+        <span class="hb-blog-post-reading-time">3 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/nginx02/">
       
     <div
@@ -1619,100 +1718,6 @@
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2021年12月15日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/mysql/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="mysql基础知识"
-        href="/mysql/">mysql基础知识</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E5%9F%BA%E7%A1%80/">基础</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97/">基础知识系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">mysql 基础知识 1、库表 student.report,有 3 个字段，姓名、学科、成绩，记录如下，根据要求完成 SQL 语句： Name Subject Result 李白 Math 95 张三 English 83 王五 Math 79 李六 Math 85 张二 English 74 查询姓李的同学的个数。 查询表中数学成绩大于 80 的前 2 名同学的名字，并按分数从大到小的顺序排列。 2、MYSQL 集群一主多从，主库宕机，如何合理切换到从库，其它从库如何处理？ 3、单台 MySQL 达到性能瓶颈时，如何击碎性能瓶颈？ 4、MySQL 什么时候创建索引？ 5、误操作 drop 语句导致数据库数据破坏，请给出恢复的实际大体步骤。 6、如何保证 Redis 能永久保存数据？ 7、如何利用 Redis 对 MySQL 进行性能优化？ </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
     
@@ -1974,6 +1979,69 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-04-15/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-04-15.jpg.0af7db255736446f5fb7ea2651b156db.webp"
+    alt="2024-04-15 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-04-15 打工人日报"
+        href="/github_trending_2024-04-15/">2024-04-15 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-04-14/">
     
 
@@ -2219,69 +2287,6 @@
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-04-10/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-04-10.jpg.a3a830b465da8fc91c7d8a5a43dd2f9f.webp"
-    alt="2024-04-10 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-04-10 打工人日报"
-        href="/github_trending_2024-04-10/">2024-04-10 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2382,7 +2387,7 @@
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">112</small>
+            <small class="taxonomy-term-count border rounded px-1">113</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2449,7 +2454,7 @@
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">112</small>
+            <small class="taxonomy-term-count border rounded px-1">113</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2516,7 +2521,7 @@
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">112</small>
+            <small class="taxonomy-term-count border rounded px-1">113</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2655,7 +2660,7 @@
 
 
   
-<script src="/js/search.edddd30f5d843b33a871fcf7d2154c916861a39288655088f7238caa56669cb1.js" defer></script>
+<script src="/js/search.6f2f89f53c8e173baad3e5e6bfb2e0ed6074e93633b1ce9e37b72a4137dff1bf.js" defer></script>
 
 
 
