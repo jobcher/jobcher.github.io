@@ -586,6 +586,145 @@
 
     </a>
 
+      <span class="hb-blog-post-date">2022年9月19日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/cleandocker/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+    <source srcset="/images/docker_hu4f54a21c17e7a324f7e13aec9e5d56ee_2686_300x168_resize_q75_h2_box_3.webp" type="image/webp" />
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/docker.b169abd50ce3f01255ce48a7094d5f1d.png"
+    alt="清理Docker容器日志"
+    loading="lazy"
+    height="168"
+    width="300"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="清理Docker容器日志"
+        href="/cleandocker/">清理Docker容器日志</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/docker/">docker</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/docker%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">docker入门系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/docker/">docker</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">清理 Docker 容器日志 如果 docker 容器正在运行，那么使用rm -rf方式删除日志后，通过df -h会发现磁盘空间并没有释放。原因是在 Linux 或者 Unix 系统中，通过rm -rf或者文件管理器删除文件，将会从文件系统的目录结构上解除链接（unlink）。如果文件是被打开的（有一个进程正在使用），那么进程将仍然可以读取该文件，磁盘空间也一直被占用。正确姿势是cat /dev/null &gt; *-json.log，当然你也可以通过rm -rf删除后重启 docker。
+日志清理脚本 clean_docker_log.sh 1#!/bin/sh 2 3echo &#34;======== start clean docker containers logs ========&#34; 4 5logs=$(find /var/lib/docker/containers/ -name *-json.log) 6 7for log in $logs 8 do 9 echo &#34;clean logs : $log&#34; 10 cat /dev/null &gt; $log 11 done 12 13echo &#34;======== end clean docker containers logs ========&#34; chmod +x clean_docker_log.sh &amp;&amp; ./clean_docker_log.sh
+设置 Docker 容器日志大小 设置一个容器服务的日志大小上限</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/cleandocker/">阅读更多关于清理Docker容器日志的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
       <span class="hb-blog-post-date">2022年9月16日</span>
 
         <span class="hb-blog-post-reading-time">1 分钟阅读</span>
@@ -3563,105 +3702,6 @@ k8s 集群内部的服务网络怎么和我们本地网络打通。kt-connect �
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2022年4月13日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/openelb/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="OpenELB：让k8s私有环境对外暴露端口"
-        href="/openelb/">OpenELB：让k8s私有环境对外暴露端口</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/k8s/">k8s</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">k8s入门系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/k8s/">k8s</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">OpenELB：云原生负载均衡器插件 OpenELB 是一个开源的云原生负载均衡器实现，可以在基于裸金属服务器、边缘以及虚拟化的 Kubernetes 环境中使用 LoadBalancer 类型的 Service 对外暴露服务。
-在 Kubernetes 中安装 OpenELB 1kubectl apply -f https://raw.githubusercontent.com/openelb/openelb/master/deploy/openelb.yaml 查看状态 1kubectl get po -n openelb-system 使用 kubectl 删除 OpenELB 1kubectl delete -f https://raw.githubusercontent.com/openelb/openelb/master/deploy/openelb.yaml 1kubectl get ns 配置 OpenELB 1kubectl edit configmap kube-proxy -n kube-system 2 3# 修改 网卡 4ipvs: 5 strictARP: true 重启组件 1kubectl rollout restart daemonset kube-proxy -n kube-system 为 master1 节点添加一个 annotation 来指定网卡： 1kubectl annotate nodes master1 layer2.openelb.kubesphere.io/v1alpha1=&#34;192.168.0.2&#34; 创建地址池 layer2-eip.yaml 1apiVersion: network.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/openelb/">阅读更多关于OpenELB：让k8s私有环境对外暴露端口的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       </div>
@@ -3808,7 +3848,7 @@ k8s 集群内部的服务网络怎么和我们本地网络打通。kt-connect �
 
 
   
-<script src="/js/search.1273090ba9faa17080048223d4ebaffc17aff9eb95b735443e92b2570fdf259a.js" defer></script>
+<script src="/js/search.b9f4c09da6898b96c4c1cab06e4fbbe504aba3fdd600d2d1afdf426848dd954a.js" defer></script>
 
 
 
