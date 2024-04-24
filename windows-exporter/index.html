@@ -68,7 +68,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/windows-exporter/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-10-08T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-04-24T10:42:42+08:00" />
+<meta property="article:modified_time" content="2024-04-24T13:02:12+08:00" />
 
 
 
@@ -78,7 +78,7 @@
 1msiexec /uninstall C:\Users\Administrator\Downloads\windows_exporter.msi 添加 prometheus 监控 prometheus.yaml
 1# 新增 windows-exporter 2- job_name: &#34;windows-exporter&#34; 3 file_sd_configs: 4 - files: 5 - &#34;./file_sd/windows-exporter.yaml&#34; ./file_sd/windows-exporter.yaml
 1# 新增 windows-exporter 2- targets: [&#34;192.168.0.6:9182&#34;] 3 labels: 4 instance: windows-task 添加 alertmanager 告警 1# 告警信息 2groups: 3 - name: sanjiang windows 任务计划程序告警 4 rules: 5 - alert: windows实例任务告警 6 expr: windows_scheduled_task_state{state=&#34;disabled&#34;,task=~&#34;/ETL_kettle_tasks/.*&#34;}==1 7 for: 30s 8 labels: 9 severity: critical 10 target: &#34;{{$labels."><meta itemprop="datePublished" content="2022-10-08T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-04-24T10:42:42+08:00" />
+<meta itemprop="dateModified" content="2024-04-24T13:02:12+08:00" />
 <meta itemprop="wordCount" content="94">
 <meta itemprop="keywords" content="skywalking," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="windows-exporter 监控"/>
 <meta name="twitter:description" content="windows-exporter 监控安装 windows_exporter 下载安装 启动 下载 msi 版本，输入一下命令启动
@@ -759,11 +759,11 @@ windows-exporter 监控 - 博客 - 打工人日志</title>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/f4db3ed5ebf9d236c88766cdf8c386de56965bf1"
+            href="https://github.com/jobcher/new-blog/commit/dc8c9b59e8e54ffdf19285428100a3bf4437f7bf"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>Merge branch &#39;main&#39; of github.com:jobcher/new-blog</a>
+</svg>update ai总结</a>
         </li>
     </ul>
   </div>
@@ -1961,7 +1961,7 @@ windows-exporter 监控 - 博客 - 打工人日志</title>
 
 
   
-<script src="/js/search.2c9096e663929119842678d0bd7fa07e184b7822b236f7ca51474ebbffc7f1db.js" defer></script>
+<script src="/js/search.ebd3898f0be805fa92432b3ae7dd66468ac7d68ee0592eb6d3305ff6f3348401.js" defer></script>
 
 
 
