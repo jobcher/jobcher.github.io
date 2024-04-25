@@ -586,6 +586,105 @@
 
     </a>
 
+      <span class="hb-blog-post-date">2023年3月30日</span>
+
+        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/scrapyredis/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="使用scrapy-redis实现增量爬取"
+        href="/scrapyredis/">使用scrapy-redis实现增量爬取</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/work/">work</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/">问题库系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/work/">work</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">使用scrapy-redis实现增量爬取 Scrapy-Redis是Scrapy框架的一个插件，可以使用Redis实现Scrapy的分布式爬虫。它使用Redis作为分布式队列，可以轻松地将爬虫分布在多个机器上。同时，它还提供了一些功能，如去重、持久化、增量爬取等。
+要使用Scrapy-Redis实现增量爬取，可以采取以下步骤： 在Scrapy项目中安装Scrapy-Redis插件。可以使用pip安装：pip install scrapy-redis 在Scrapy的settings.py中添加如下配置： 1# 使用Redis调度器 2SCHEDULER = &#34;scrapy_redis.scheduler.Scheduler&#34; 3# 使用Redis去重过滤器 4DUPEFILTER_CLASS = &#34;scrapy_redis.dupefilter.RFPDupeFilter&#34; 5# 允许暂停、恢复爬取 6SCHEDULER_PERSIST = True 将Spider的爬取链接放入Redis队列中。可以在Spider中重载start_requests()方法，从Redis队列中获取链接开始爬取。 1import scrapy 2from scrapy_redis.spiders import RedisSpider 3 4class MySpider(RedisSpider): 5 name = &#39;myspider&#39; 6 redis_key = &#39;myspider:start_urls&#39; 7 8 def parse(self, response): 9 # 处理响应 10 pass 在Spider中实现增量爬取。可以通过重载Spider中的start_requests()方法或者使用SpiderMiddleware来实现增量爬取。这里提供一种通过修改Redis队列来实现增量爬取的方法。 1import scrapy 2import redis 3from scrapy_redis.spiders import RedisSpider 4from scrapy.utils.project import get_project_settings 5 6class MySpider(RedisSpider): 7 name = &#39;myspider&#39; 8 redis_key = &#39;myspider:start_urls&#39; 9 redis_conn = None 10 11 def __init__(self, *args, **kwargs): 12 super(MySpider, self).</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/scrapyredis/">阅读更多关于使用scrapy-redis实现增量爬取的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
       <span class="hb-blog-post-date">2023年3月16日</span>
 
         <span class="hb-blog-post-reading-time">1 分钟阅读</span>
@@ -3645,111 +3744,6 @@ CRI CRI（Container Runtime Interface）：容器运行时接口，提供计算�
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2022年10月7日</span>
-
-        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/k8s11/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)"
-        href="/k8s11/">kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/k8s/">k8s</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">k8s入门系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/k8s/">k8s</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">k8s 部署插件 Kubernetes 是高度可配置且可扩展的。因此，大多数情况下， 你不需要派生自己的 Kubernetes 副本或者向项目代码提交补丁，本文会介绍几种常用的 k8s 插件，如果大家喜欢的话，希望大家点赞支持。
-1. Flannel 网络插件 Flannel是由 go 语言开发，是一种基于 Overlay 网络的跨主机容器网络解决方案，也就是将TCP数据包封装在另一种网络包里面进行路由转发和通信，Flannel 是 CoreOS 开发，专门用于 docker 多主机互联的一个工具，简单来说，它的功能是让集群中的不同节点主机创建的容器都具有全局唯一的虚拟IP地址
-主要功能：
-为每个 node 分配 subnet，容器将自动从该子网中获取 IP 地址 当有 node 加入到网络中时，为每个 node 增加路由配置 下载并安装 1wget https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml 2kubectl apply -f kube-flannel.yml 如果 yml 中的&quot;Network&quot;: 10.244.0.0/16和kubeadm init xxx --pod-network-cidr不一样，就需要修改成一样的。不然可能会使得Node间Cluster IP不通。
-2. Ingress Controller Ingress 是对集群中服务的外部访问进行管理的 API 对象，典型的访问方式是 HTTP。
-Ingress 可以提供负载均衡、SSL 终结和基于名称的虚拟托管
-下面是一个将所有流量都发送到同一 Service 的简单 Ingress 示例：
-Ingress 可为 Service 提供外部可访问的 URL、负载均衡流量、终止 SSL/TLS，以及基于名称的虚拟托管。 Ingress 控制器 通常负责通过负载均衡器来实现 Ingress，尽管它也可以配置边缘路由器或其他前端来帮助处理流量。</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/k8s11/">阅读更多关于kubernetes 部署插件 (Flannel、Web UI、CoreDNS、Ingress Controller)的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       </div>
@@ -3900,7 +3894,7 @@ Ingress 可为 Service 提供外部可访问的 URL、负载均衡流量、终�
 
 
   
-<script src="/js/search.c5d1f41816bda2291dfac4cf1314e1d1b0a65bd1658ee9d05aa6518e298fc2e8.js" defer></script>
+<script src="/js/search.d7559c7bfe51f26622545ae3802cf920365ffe1442718fe46a052cc217158c67.js" defer></script>
 
 
 
