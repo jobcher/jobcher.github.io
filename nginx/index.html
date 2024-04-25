@@ -65,14 +65,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/nginx/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2021-12-08T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-04-24T13:02:12+08:00" />
+<meta property="article:modified_time" content="2024-04-25T09:39:22+08:00" />
 
 
 
 <meta itemprop="name" content="nginx 汇总">
 <meta itemprop="description" content="nginx 汇总 各类 nginx 问题汇总
 安装 nginx 1 #centos 2 yum install nginx 3 #ubuntu 4 apt install nginx http 代理 正向代理 1 server { 2 listen 80; 3 server_name www.nbtyfood.com; 4 5 location / { 6 proxy_pass http://127.0.0.1:8080; 7 } 8 } 反向代理 负载均衡 1 upstream mysvr { 2 server 192.168.10.121:3333; 3 server 192.168.10.122:3333; 4 } 5 server { 6 .... 7 location ~*^.&#43;$ { 8 proxy_pass http://mysvr; #请求转向mysvr 定义的服务器列表 9 } 10 } 热备"><meta itemprop="datePublished" content="2021-12-08T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-04-24T13:02:12+08:00" />
+<meta itemprop="dateModified" content="2024-04-25T09:39:22+08:00" />
 <meta itemprop="wordCount" content="174">
 <meta itemprop="keywords" content="nginx,linux," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="nginx 汇总"/>
 <meta name="twitter:description" content="nginx 汇总 各类 nginx 问题汇总
@@ -787,11 +787,11 @@ nginx 会让相同的客户端 ip 请求相同的服务器。</li>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/dc8c9b59e8e54ffdf19285428100a3bf4437f7bf"
+            href="https://github.com/jobcher/new-blog/commit/1c6b51773b5ae04a4273555d94fa4376f97b274a"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>update ai总结</a>
+</svg>update</a>
         </li>
     </ul>
   </div>
@@ -1989,7 +1989,7 @@ nginx 会让相同的客户端 ip 请求相同的服务器。</li>
 
 
   
-<script src="/js/search.ebd3898f0be805fa92432b3ae7dd66468ac7d68ee0592eb6d3305ff6f3348401.js" defer></script>
+<script src="/js/search.e6a1a0d8b507cdd3291950acb19366e04df45dcd50b1cb2900eb403e07d2ab92.js" defer></script>
 
 
 
