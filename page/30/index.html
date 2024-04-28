@@ -572,7 +572,7 @@
     class="nav-link d-flex flex-column"
     href="/"
     title="文章">
-    <span class="mb-3 text-body fw-bold">478</span>
+    <span class="mb-3 text-body fw-bold">479</span>
     <span class="text-body"><svg aria-hidden="true" class="bi bi-file-richtextbi bi-file-richtext hi-svg-inline text-primary" fill="currentColor" height="2.25em" viewBox="0 0 16 16" width="2.25em" xmlns="http://www.w3.org/2000/svg">
   <path d="M7 4.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m-.861 1.542 1.33.886 1.854-1.855a.25.25 0 0 1 .289-.047l1.888.974V7.5a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V7s1.54-1.274 1.639-1.208M5 9a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1z"/>
   <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1"/>
@@ -625,6 +625,105 @@
 
       
 <div class="hb-blog-posts row row-cols-1 row-cols-md-2 g-3 mb-3">
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年11月25日</span>
+
+        <span class="hb-blog-post-reading-time">3 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/gradle-apk/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="Jenkins 编译Android apk 流水线"
+        href="/gradle-apk/">Jenkins 编译Android apk 流水线</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/work/">work</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/">问题库系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/work/">work</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">背景 Jenkins 编译 Android apk，上传 apk 包，生成下载二维码，并推送钉钉
+安装 Android 环境 安装 JDK 1# 这里使用的是openjdk 1.8.0版本，有需要的话需要到java官网上进行下载对应的JDK版本。 2$ yum install java -y 3 4# 其他版本JDK的安装方式 5$ mv jdk1.8.0_161 /usr/local/ 6$ ln -s /usr/local/jdk1.8.0_161 /usr/local/jdk 7$ vim /etc/profile #配置JDK的环境变量 8export JAVA_HOME=/usr/local/jdk 9export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH 10export CLASSPATH=.$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib:$JAVA_HOME/lib/tools.jar 11$ source /etc/profile #重新加载系统环境变量 12$ java -version #查看java版本 Android SDK 安装 1# 下载sdk工具包 2$ wget https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip 3 4# 创建sdk工具文件夹和解压工具包 5$ mkdir -p /opt/android/sdk 6$ unzip sdk-tools-linux-3859397.zip -d /opt/android/sdk 7 8# 使用sdkmanager工具配置构建工具和平台版本 9$ cd /opt/android/sdk/tools/bin/ 10$ .</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/gradle-apk/">阅读更多关于Jenkins 编译Android apk 流水线的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
   
     <div class="col">
       
@@ -1778,106 +1877,6 @@ Rook 利用扩展点深入融入云原生环境，为调度、生命周期管理
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2022年10月8日</span>
-
-        <span class="hb-blog-post-reading-time">3 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/k8s13/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="Kubernetes — 探针和生命周期"
-        href="/k8s13/">Kubernetes — 探针和生命周期</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/k8s/">k8s</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">k8s入门系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/k8s/">k8s</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">Kubernetes — 探针和生命周期 用于判断容器内应用程序是否已经启动。
-存活（Liveness）探针 用于探测容器是否运行，如果探测失败，kubelet 会根据配置的重启策略进行相应的处理，若没有配置探针该返回值默认为 success 就绪（Readiness）探针 用于探测容器内的程序是否健康，如果返回值为 success，那么代表这个容器已经完全启动，并且程序已经是可以接受流量的状态 启动（Startup）探针 用于探测容器是否启动，如果配置了 startup 就会先禁止其他探测，直到它成功，成功后将不在运行探测 Pod 检测方式 ExecAction：在容器执行一个命令，返回值为 0，则认为容器健康 TCPSocketAction：通过 TCP 连接检查容器是否联通，通的话，则认为容器正常 HTTPGetAction：通过应用程序暴露的 API 地址来检查程序是否正常的，如果状态码为 200-400 之间，则认为容器健康 gRPCAction：通过 gRPC 的检查机制，判断容器是不是正常 StartupProbe 启动探针 有时候，会有一些现有的应用在启动时需要较长的初始化时间。 要这种情况下，若要不影响对死锁作出快速响应的探测，设置存活探测参数是要技巧的。 技巧就是使用相同的命令来设置启动探测，针对 HTTP 或 TCP 检测，可以通过将 failureThreshold * periodSeconds 参数设置为足够长的时间来应对糟糕情况下的启动时间。
-1ports: 2 - name: liveness-port 3 containerPort: 8080 4 hostPort: 8080 5 6livenessProbe: 7 httpGet: 8 path: /healthz 9 port: liveness-port 10 failureThreshold: 1 11 periodSeconds: 10 12 13startupProbe: 14 httpGet: 15 path: /healthz 16 port: liveness-port 17 failureThreshold: 30 18 periodSeconds: 10 幸亏有启动探测，应用程序将会有最多 5 分钟（30 * 10 = 300s）的时间来完成其启动过程。 一旦启动探测成功一次，存活探测任务就会接管对容器的探测，对容器死锁作出快速响应。 如果启动探测一直没有成功，容器会在 300 秒后被杀死，并且根据restartPolicy来执行进一步处置。</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/k8s13/">阅读更多关于Kubernetes — 探针和生命周期的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       
@@ -2145,6 +2144,69 @@ Rook 利用扩展点深入融入云原生环境，为调度、生命周期管理
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-04-28/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-04-28.jpg.f06f532cc6035494a0e5269d563ce90e.webp"
+    alt="2024-04-28 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-04-28 打工人日报"
+        href="/github_trending_2024-04-28/">2024-04-28 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-04-27/">
     
 
@@ -2390,69 +2452,6 @@ Rook 利用扩展点深入融入云原生环境，为调度、生命周期管理
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-04-23/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-04-23.jpg.daaf716eb1407e85116f828fb9b47cbf.webp"
-    alt="2024-04-23 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-04-23 打工人日报"
-        href="/github_trending_2024-04-23/">2024-04-23 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2553,7 +2552,7 @@ Rook 利用扩展点深入融入云原生环境，为调度、生命周期管理
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">125</small>
+            <small class="taxonomy-term-count border rounded px-1">126</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2620,7 +2619,7 @@ Rook 利用扩展点深入融入云原生环境，为调度、生命周期管理
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">125</small>
+            <small class="taxonomy-term-count border rounded px-1">126</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2687,7 +2686,7 @@ Rook 利用扩展点深入融入云原生环境，为调度、生命周期管理
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">125</small>
+            <small class="taxonomy-term-count border rounded px-1">126</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2826,7 +2825,7 @@ Rook 利用扩展点深入融入云原生环境，为调度、生命周期管理
 
 
   
-<script src="/js/search.90757182c22f411dadcbadcc96ae3de1b9e3789d1b160f9e4e2a1734e5869854.js" defer></script>
+<script src="/js/search.5f5b6bf573a654ce9edaf168fce927222788f11325f43e6057bc14229a89287e.js" defer></script>
 
 
 
