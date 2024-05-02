@@ -70,14 +70,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/scrapyredis/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2023-03-30T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-05-01T01:33:30+00:00" />
+<meta property="article:modified_time" content="2024-05-02T01:30:06+00:00" />
 
 
 
 <meta itemprop="name" content="使用scrapy-redis实现增量爬取">
 <meta itemprop="description" content="使用scrapy-redis实现增量爬取 Scrapy-Redis是Scrapy框架的一个插件，可以使用Redis实现Scrapy的分布式爬虫。它使用Redis作为分布式队列，可以轻松地将爬虫分布在多个机器上。同时，它还提供了一些功能，如去重、持久化、增量爬取等。
 要使用Scrapy-Redis实现增量爬取，可以采取以下步骤： 在Scrapy项目中安装Scrapy-Redis插件。可以使用pip安装：pip install scrapy-redis 在Scrapy的settings.py中添加如下配置： 1# 使用Redis调度器 2SCHEDULER = &#34;scrapy_redis.scheduler.Scheduler&#34; 3# 使用Redis去重过滤器 4DUPEFILTER_CLASS = &#34;scrapy_redis.dupefilter.RFPDupeFilter&#34; 5# 允许暂停、恢复爬取 6SCHEDULER_PERSIST = True 将Spider的爬取链接放入Redis队列中。可以在Spider中重载start_requests()方法，从Redis队列中获取链接开始爬取。 1import scrapy 2from scrapy_redis.spiders import RedisSpider 3 4class MySpider(RedisSpider): 5 name = &#39;myspider&#39; 6 redis_key = &#39;myspider:start_urls&#39; 7 8 def parse(self, response): 9 # 处理响应 10 pass 在Spider中实现增量爬取。可以通过重载Spider中的start_requests()方法或者使用SpiderMiddleware来实现增量爬取。这里提供一种通过修改Redis队列来实现增量爬取的方法。 1import scrapy 2import redis 3from scrapy_redis.spiders import RedisSpider 4from scrapy.utils.project import get_project_settings 5 6class MySpider(RedisSpider): 7 name = &#39;myspider&#39; 8 redis_key = &#39;myspider:start_urls&#39; 9 redis_conn = None 10 11 def __init__(self, *args, **kwargs): 12 super(MySpider, self)."><meta itemprop="datePublished" content="2023-03-30T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-05-01T01:33:30+00:00" />
+<meta itemprop="dateModified" content="2024-05-02T01:30:06+00:00" />
 <meta itemprop="wordCount" content="422">
 <meta itemprop="keywords" content="work," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="使用scrapy-redis实现增量爬取"/>
 <meta name="twitter:description" content="使用scrapy-redis实现增量爬取 Scrapy-Redis是Scrapy框架的一个插件，可以使用Redis实现Scrapy的分布式爬虫。它使用Redis作为分布式队列，可以轻松地将爬虫分布在多个机器上。同时，它还提供了一些功能，如去重、持久化、增量爬取等。
@@ -875,7 +875,7 @@
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/c2c4005aff0f6715170c26d3ca9919bb74d7bc6a"
+            href="https://github.com/jobcher/new-blog/commit/8dca3e3fb06d7b530f6986d4dcc9b9cb55312a8a"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
@@ -1511,6 +1511,69 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-05-02/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-05-02.jpg.858a306e7f76444528f437d8f3a958a8.webp"
+    alt="2024-05-02 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-05-02 打工人日报"
+        href="/github_trending_2024-05-02/">2024-05-02 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-05-01/">
     
 
@@ -1756,69 +1819,6 @@
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-04-27/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-04-27.jpg.89460848f76ba2ba27d2fc11597d1a16.webp"
-    alt="2024-04-27 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-04-27 打工人日报"
-        href="/github_trending_2024-04-27/">2024-04-27 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -1919,7 +1919,7 @@
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">129</small>
+            <small class="taxonomy-term-count border rounded px-1">130</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -1986,7 +1986,7 @@
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">129</small>
+            <small class="taxonomy-term-count border rounded px-1">130</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2053,7 +2053,7 @@
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">129</small>
+            <small class="taxonomy-term-count border rounded px-1">130</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2194,7 +2194,7 @@
 
 
   
-<script src="/js/search.f126e3cb977000b0c25355c2af3acc683fccaf89e7d46665405d722ab90cfed0.js" defer></script>
+<script src="/js/search.01a5c83b7d41f3aa965a01405f1bf6a0b563dd02f7857d75035341c3aeb4648a.js" defer></script>
 
 
 

@@ -572,7 +572,7 @@
     class="nav-link d-flex flex-column"
     href="/"
     title="文章">
-    <span class="mb-3 text-body fw-bold">482</span>
+    <span class="mb-3 text-body fw-bold">483</span>
     <span class="text-body"><svg aria-hidden="true" class="bi bi-file-richtextbi bi-file-richtext hi-svg-inline text-primary" fill="currentColor" height="2.25em" viewBox="0 0 16 16" width="2.25em" xmlns="http://www.w3.org/2000/svg">
   <path d="M7 4.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m-.861 1.542 1.33.886 1.854-1.855a.25.25 0 0 1 .289-.047l1.888.974V7.5a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V7s1.54-1.274 1.639-1.208M5 9a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1z"/>
   <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1"/>
@@ -625,6 +625,109 @@
 
       
 <div class="hb-blog-posts row row-cols-1 row-cols-md-2 g-3 mb-3">
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年8月8日</span>
+
+        <span class="hb-blog-post-reading-time">5 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/systemd/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="systemd 守护命令"
+        href="/systemd/">systemd 守护命令</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E5%9F%BA%E7%A1%80/">基础</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97/">基础知识系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">介绍 systemd 是 linux 中用来启动守护进程，Linux 最早一直采用 init 进程
+(systemd 架构图)
+systemd 命令 systemd 不是一个具体的命令，而是一组命令，用于系统管理的各个方面
+1.systemctl systemctl是 Systemd 的主命令，用于管理系统。
+1# 重启系统 2$ sudo systemctl reboot 3 4# 关闭系统，切断电源 5$ sudo systemctl poweroff 6 7# CPU停止工作 8$ sudo systemctl halt 9 10# 暂停系统 11$ sudo systemctl suspend 12 13# 让系统进入冬眠状态 14$ sudo systemctl hibernate 15 16# 让系统进入交互式休眠状态 17$ sudo systemctl hybrid-sleep 18 19# 启动进入救援状态（单用户状态） 20$ sudo systemctl rescue 2.systemd-analyze systemd-analyze命令用于查看启动耗时
+1# 查看启动耗时 2systemd-analyze 3 4# 查看每个服务的启动耗时 5$ systemd-analyze blame 6 7# 显示瀑布状的启动过程流 8$ systemd-analyze critical-chain 9 10# 显示指定服务的启动流 11$ systemd-analyze critical-chain atd.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/systemd/">阅读更多关于systemd 守护命令的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
   
     <div class="col">
       
@@ -1771,105 +1874,6 @@ len() 和 cap() 返回结果可相同和不同。
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2022年4月25日</span>
-
-        <span class="hb-blog-post-reading-time">3 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/go1/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="go 基础知识"
-        href="/go1/">go 基础知识</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/go/">go</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/go%E7%B3%BB%E5%88%97/">go系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/golang/">golang</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">go 基础知识 目录结构 1├─ code -- 代码根目录 2│ ├─ bin 3│ ├─ pkg 4│ ├─ src 5│ ├── hello 6│ ├── hello.go bin 存放编译后可执行的文件。 pkg 存放编译后的应用包。 src 存放应用源代码。 Hello World 代码
-1//在 hello 目录下创建 hello.go 2package main 3 4import ( 5	&#34;fmt&#34; 6) 7 8func main() { 9	fmt.Println(&#34;Hello World!&#34;) 10} 基础命令 1go build hello 2#在src目录或hello目录下执行 go build hello，只在对应当前目录下生成文件。 3go install hello 4#在src目录或hello目录下执行 go install hello，会把编译好的结果移动到 $GOPATH/bin。 5go run hello 6#在src目录或hello目录下执行 go run hello，不生成任何文件只运行程序。 7go fmt hello 8#在src目录或hello目录下执行 go run hello，格式化代码，将代码修改成标准格式。 数据类型 类型 表示 备注 字符串 string 只能用一对双引号（&quot;&quot;）或反引号（``）括起来定义，不能用单引号（&rsquo;&rsquo;）定义！ 布尔 bool 只有 true 和 false，默认为 false。 整型 int8 uint8 int16 uint16 int32 uint32 int64 uint64 int uint 具体长度取决于 CPU 位数。 浮点型 float32 float64 常量声明 常量，在程序编译阶段就确定下来的值，而程序在运行时无法改变该值。</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/go1/">阅读更多关于go 基础知识的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       
@@ -2137,6 +2141,69 @@ len() 和 cap() 返回结果可相同和不同。
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-05-02/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-05-02.jpg.858a306e7f76444528f437d8f3a958a8.webp"
+    alt="2024-05-02 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-05-02 打工人日报"
+        href="/github_trending_2024-05-02/">2024-05-02 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-05-01/">
     
 
@@ -2382,69 +2449,6 @@ len() 和 cap() 返回结果可相同和不同。
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-04-27/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-04-27.jpg.89460848f76ba2ba27d2fc11597d1a16.webp"
-    alt="2024-04-27 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-04-27 打工人日报"
-        href="/github_trending_2024-04-27/">2024-04-27 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2545,7 +2549,7 @@ len() 和 cap() 返回结果可相同和不同。
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">129</small>
+            <small class="taxonomy-term-count border rounded px-1">130</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2612,7 +2616,7 @@ len() 和 cap() 返回结果可相同和不同。
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">129</small>
+            <small class="taxonomy-term-count border rounded px-1">130</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2679,7 +2683,7 @@ len() 和 cap() 返回结果可相同和不同。
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">129</small>
+            <small class="taxonomy-term-count border rounded px-1">130</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2818,7 +2822,7 @@ len() 和 cap() 返回结果可相同和不同。
 
 
   
-<script src="/js/search.f126e3cb977000b0c25355c2af3acc683fccaf89e7d46665405d722ab90cfed0.js" defer></script>
+<script src="/js/search.01a5c83b7d41f3aa965a01405f1bf6a0b563dd02f7857d75035341c3aeb4648a.js" defer></script>
 
 
 
