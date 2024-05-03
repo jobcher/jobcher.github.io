@@ -586,6 +586,107 @@
 
     </a>
 
+      <span class="hb-blog-post-date">2022年6月29日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/k8s9/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="kubernetes 从1.23.x 升级到 1.24.x"
+        href="/k8s9/">kubernetes 从1.23.x 升级到 1.24.x</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/k8s/">k8s</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">k8s入门系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/k8s/">k8s</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">kubernetes 从1.23.x 升级到 1.24.x k8s 在1.24.x之后的版本放弃了和 docker 的兼容，使用 containerd 作为底层的容器，直接参照官方文档的资料进行更新就会报错。因为你没有安装 containerd，所以要安装 containerd 并配置才能正确的升级 k8s
+我用的是CentOS7.9的版本，因此以下操作都是在CentOS下操作。
+Master 节点操作 1.升级 kubeadm 1yum install -y kubeadm-1.24.2-0 --disableexcludes=kubernetes 2kubeadm version 3kubeadm upgrade plan 4sudo kubeadm upgrade apply v1.24.2 2.安装 containerd 1yum install containerd.io -y 2containerd config default &gt; /etc/containerd/config.toml 3vim /var/lib/kubelet/kubeadm-flags.env 修改 kubeadm-flags.env 变量：
+1KUBELET_KUBEADM_ARGS=&#34;--pod-infra-container-image=k8s.gcr.io/pause:3.6 --container-runtime=remote --container-runtime-endpoint=unix:///run/containerd/containerd.sock&#34; 3.升级 kubelet 1yum install -y kubelet-1.24.2-0 kubectl-1.24.2-0 --disableexcludes=kubernetes 2systemctl daemon-reload &amp;&amp; systemctl restart containerd &amp;&amp; systemctl restart kubelet 查看状态：</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/k8s9/">阅读更多关于kubernetes 从1.23.x 升级到 1.24.x的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
       <span class="hb-blog-post-date">2022年6月27日</span>
 
         <span class="hb-blog-post-reading-time">1 分钟阅读</span>
@@ -3451,112 +3552,6 @@ devOps 看作开发（软件工程）、技术运营和质量保障（QA）三�
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2022年2月16日</span>
-
-        <span class="hb-blog-post-reading-time">4 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/k8s3/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="kubernetes面试题汇总"
-        href="/k8s3/">kubernetes面试题汇总</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/k8s/">k8s</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">k8s入门系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/k8s/">k8s</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">kubernetes 面试题汇总 1、 k8s 是什么？请说出你的了解？ 答：Kubenetes 是一个针对容器应用，进行自动部署，弹性伸缩和管理的开源系统。主要功能是生产环境中的容器编排。
-K8S 是 Google 公司推出的，它来源于由 Google 公司内部使用了 15 年的 Borg 系统，集结了 Borg 的精华。
-2、 K8s 架构的组成是什么？ 答：和大多数分布式系统一样，K8S 集群至少需要一个主节点（Master）和多个计算节点（Node）。
-主节点主要用于暴露 API，调度部署和节点的管理；
-计算节点运行一个容器运行环境，一般是 docker 环境（类似 docker 环境的还有 rkt），同时运行一个 K8s 的代理（kubelet）用于和 master 通信。计算节点也会运行一些额外的组件，像记录日志，节点监控，服务发现等等。计算节点是 k8s 集群中真正工作的节点。
-1K8S架构细分： 21、Master节点（默认不参加实际工作）： 3 4Kubectl：客户端命令行工具，作为整个K8s集群的操作入口； 5Api Server：在K8s架构中承担的是“桥梁”的角色，作为资源操作的唯一入口，它提供了认证、授权、访问控制、API注册和发现等机制。客户端与k8s群集及K8s内部组件的通信，都要通过Api Server这个组件； 6Controller-manager：负责维护群集的状态，比如故障检测、自动扩展、滚动更新等； 7Scheduler：负责资源的调度，按照预定的调度策略将pod调度到相应的node节点上； 8Etcd：担任数据中心的角色，保存了整个群集的状态； 92、Node节点： 10Kubelet：负责维护容器的生命周期，同时也负责Volume和网络的管理，一般运行在所有的节点，是Node节点的代理，当Scheduler确定某个node上运行pod之后，会将pod的具体信息（image，volume）等发送给该节点的kubelet，kubelet根据这些信息创建和运行容器，并向master返回运行状态。（自动修复功能：如果某个节点中的容器宕机，它会尝试重启该容器，若重启无效，则会将该pod杀死，然后重新创建一个容器）； 11Kube-proxy：Service在逻辑上代表了后端的多个pod。负责为Service提供cluster内部的服务发现和负载均衡（外界通过Service访问pod提供的服务时，Service接收到的请求后就是通过kube-proxy来转发到pod上的）； 12container-runtime：是负责管理运行容器的软件，比如docker 13Pod：是k8s集群里面最小的单位。每个pod里边可以运行一个或多个container（容器），如果一个pod中有两个container，那么container的USR（用户）、MNT（挂载点）、PID（进程号）是相互隔离的，UTS（主机名和域名）、IPC（消息队列）、NET（网络栈）是相互共享的。我比较喜欢把pod来当做豌豆夹，而豌豆就是pod中的container； 3、 容器和主机部署应用的区别是什么？ 答：容器的中心思想就是秒级启动；一次封装、到处运行；这是主机部署应用无法达到的效果，但同时也更应该注重容器的数据持久化问题。 另外，容器部署可以将各个服务进行隔离，互不影响，这也是容器的另一个核心概念。
-4、请你说一下 kubenetes 针对 pod 资源对象的健康监测机制？ 答：K8s 中对于pod资源对象的健康状态检测，提供了三类probe（探针）来执行对 pod 的健康监测：
-livenessProbe探针
-可以根据用户自定义规则来判定 pod 是否健康，如果 livenessProbe 探针探测到容器不健康，则 kubelet 会根据其重启策略来决定是否重启，如果一个容器不包含 livenessProbe 探针，则 kubelet 会认为容器的 livenessProbe 探针的返回值永远成功。 ReadinessProbe探针</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/k8s3/">阅读更多关于kubernetes面试题汇总的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       </div>
@@ -3703,7 +3698,7 @@ livenessProbe探针
 
 
   
-<script src="/js/search.01a5c83b7d41f3aa965a01405f1bf6a0b563dd02f7857d75035341c3aeb4648a.js" defer></script>
+<script src="/js/search.7bba0987b47cc5f437d512862f227502ea2f34ea094e440971d9123fcd78449a.js" defer></script>
 
 
 
