@@ -538,6 +538,110 @@
         <a class="text-decoration-none" href="/archives/2022/">2022</a>
     </div>
       <div class="archive-subheading h5 mb-3">
+          <a class="text-decoration-none" href="/archives/2022/03/">三月</a>
+      </div>
+      <div class="archive-posts border-top pt-3">
+        
+<div class="hb-blog-posts row row-cols-1 row-cols-lg-2 row-cols-xl-3 g-3 mb-3">
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年3月3日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/ruoyi/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="ruoyi-cloud docker部署"
+        href="/ruoyi/">ruoyi-cloud docker部署</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/work/">work</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/">问题库系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/work/">work</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">基础环境安装 1# docker 脚本安装 2curl -sSL https://get.daocloud.io/docker | sh 3 4#docker compose 脚本安装 5curl -L https://get.daocloud.io/docker/compose/releases/download/v2.4.1/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose 6 7 8#可执行权限 9sudo chmod +x /usr/local/bin/docker-compose 10#创建软链： 11sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose 12#测试是否安装成功 13docker-compose --version 下载安装 1git clone https://gitlab.sanjiang.com/it-group/ruoyi-cloud.git 编译 1cd ruoyi-cloud 2mvn clean install -DskipTests 复制 jar 包 1cd ./docker 2./copy.sh 部署 docker 1./deploy.sh base 2./deploy.sh modules 检查 docker 1docker ps -a | grep ruoyi 2docker logs -f ruoyi-auth 3docker logs -f ruoyi-gateway 4docker logs -f ruoyi-modules-system </div>
+  </div>
+</div>
+
+    </div>
+  
+</div>
+
+      </div>
+      <div class="archive-subheading h5 mb-3">
           <a class="text-decoration-none" href="/archives/2022/02/">二月</a>
       </div>
       <div class="archive-posts border-top pt-3">
@@ -3582,102 +3686,6 @@ YAML 还有一个小的怪癖. 所有的 YAML 文件(无论和 Ansible 有没有
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2021年12月29日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/logrotate/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="logrotate 日志滚动的使用"
-        href="/logrotate/">logrotate 日志滚动的使用</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/">日常系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/daliy/">daliy</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">logrotate 日志滚动的使用 logrotate 日志滚动切割工具，是 linux 默认安装的工具，配置文件位置：
-1/etc/logrotate.conf 2/etc/logrotate.d/ 参数 以 nginx 配置为例
-1/opt/log/nginx/*.log { 2	daily 3	missingok 4	rotate 14 5 errors &#34;nb@nbtyfood.com&#34; 6	compress 7	delaycompress 8	notifempty 9	create 0640 www-data adm 10	sharedscripts 11	prerotate 12	if [ -d /etc/logrotate.d/httpd-prerotate ]; then \ 13	run-parts /etc/logrotate.d/httpd-prerotate; \ 14	fi \ 15	endscript 16	postrotate 17	invoke-rc.d nginx rotate &gt;/dev/null 2&gt;&amp;1 18	endscript 19} 参数 作用 compress 压缩日志文件的所有非当前版本 daily,weekly,monthly 按指定计划轮换日志文件 delaycompress 压缩所有版本，除了当前和下一个最近的 endscript 标记 prerotate 或 postrotate 脚本的结束 errors &ldquo;emailid&rdquo; 给指定邮箱发送错误通知 missingok 如果日志文件丢失，不要显示错误 notifempty 如果日志文件为空，则不轮换日志文件 olddir &ldquo;dir&rdquo; 指定日志文件的旧版本放在 “dir” 中 postrotate 引入一个在日志被轮换后执行的脚本 prerotate 引入一个在日志被轮换前执行的脚本 rotate &rsquo;n' 在轮换方案中包含日志的 n 个版本 sharedscripts 对于整个日志组只运行一次脚本 size=&lsquo;logsize&rsquo; 在日志大小大于 logsize（例如 100K，4M）时轮换 </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       </div>
@@ -3820,7 +3828,7 @@ YAML 还有一个小的怪癖. 所有的 YAML 文件(无论和 Ansible 有没有
 
 
   
-<script src="/js/search.e4fc517e2ff0a63021878019b53d609ad08e0264dfff01018bcb6e370d336769.js" defer></script>
+<script src="/js/search.b68a4b03c94907cc45f82b0834c67e0c11f21bed09f3af957ed4b15069432d72.js" defer></script>
 
 
 
