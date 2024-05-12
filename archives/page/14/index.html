@@ -599,6 +599,145 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/contained/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+    <source srcset="/images/docker_hu4f54a21c17e7a324f7e13aec9e5d56ee_2686_300x168_resize_q75_h2_box_3.webp" type="image/webp" />
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/docker.b169abd50ce3f01255ce48a7094d5f1d.png"
+    alt="contained 安装及使用"
+    loading="lazy"
+    height="168"
+    width="300"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="contained 安装及使用"
+        href="/contained/">contained 安装及使用</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/docker/">docker</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/docker%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">docker入门系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/docker/">docker</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">contained 安装及使用 containerd 是一个行业标准的容器运行时，强调简单性、健壮性和可移植性。它可作为 Linux 和 Windows 的守护进程使用，可以管理其主机系统的完整容器生命周期：图像传输和存储、容器执行和监督、低级存储和网络附件等。
+containerd is a member of CNCF with graduated status.
+早在 2016 年 3 月，Docker 1.11的Docker Engine里就包含了containerd，而现在则是把containerd从Docker Engine里彻底剥离出来，作为一个独立的开源项目独立发展，目标是提供一个更加开放、稳定的容器运行基础设施。和原先包含在 Docker Engine 里containerd相比，独立的containerd将具有更多的功能，可以涵盖整个容器运行时管理的所有需求。 containerd并不是直接面向最终用户的，而是主要用于集成到更上层的系统里，比如Swarm, Kubernetes, Mesos等容器编排系统。 containerd以Daemon的形式运行在系统上，通过暴露底层的gRPC API，上层系统可以通过这些API管理机器上的容器。 每个containerd只负责一台机器，Pull 镜像，对容器的操作（启动、停止等），网络，存储都是由 containerd 完成。具体运行容器由runC负责，实际上只要是符合OCI规范的容器都可以支持。 对于容器编排服务来说，运行时只需要使用containerd+runC，更加轻量，容易管理。 5.独立之后containerd的特性演进可以和Docker Engine分开，专注容器运行时管理，可以更稳定。 安装 centos
+1yum install -y containerd.io ubuntu
+1apt install -y containerd.io 设置开机自启
+1systemctl enable containerd 2systemctl start containerd 3systemctl status containerd 验证
+1ctr version ctr 命令 命令 作用 plugins, plugin 提供有关容器插件的信息 version 打印客户端和服务器版本 containers, c, container 管理容器 content 管理内容 events, event 显示容器事件 images, image, i 管理图像 leases 管理租约 namespaces, namespace, ns 管理租命名空间 pprof 为 containerd 提供 golang pprof 输出 run 运行一个容器 snapshots, snapshot 管理快照 tasks, t, task 管理任务 install 安装一个新包 oci OCI 工具 shim 直接与 shim 交互 help, h 显示命令列表或一个命令的帮助 </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年8月17日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/planet/">
       
     <div
@@ -3527,115 +3666,6 @@ ${string:position} ：从 string 中的 position 开始 ${string:position:length
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2022年3月3日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/maven/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="Maven 安装编译"
-        href="/maven/">Maven 安装编译</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/work/">work</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/">问题库系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/work/">work</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">Maven 安装编译 Maven 就是专门为 Java 项目打造的管理和构建工具，它的主要功能有：
-提供了一套标准化的项目结构； 提供了一套标准化的构建流程（编译，测试，打包，发布……）； 提供了一套依赖管理机制。 默认结构：
-1a-maven-project 2├── pom.xml 3├── src 4│ ├── main 5│ │ ├── java 6│ │ └── resources 7│ └── test 8│ ├── java 9│ └── resources 10└── target 项目的根目录a-maven-project是项目名，
-它有一个项目描述文件pom.xml，
-存放Java源码的目录是src/main/java，
-存放资源文件的目录是src/main/resources，
-存放测试源码的目录是src/test/java，
-存放测试资源的目录是src/test/resources，
-最后，所有编译、打包生成的文件都放在target目录里。
-这些就是一个 Maven 项目的标准目录结构。
-pom.xml 文件:
-1&lt;project ...&gt; 2	&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt; 3	&lt;groupId&gt;com.itranswarp.learnjava&lt;/groupId&gt; 4	&lt;artifactId&gt;hello&lt;/artifactId&gt; 5	&lt;version&gt;1.0&lt;/version&gt; 6	&lt;packaging&gt;jar&lt;/packaging&gt; 7	&lt;properties&gt; 8 ... 9	&lt;/properties&gt; 10	&lt;dependencies&gt; 11 &lt;dependency&gt; 12 &lt;groupId&gt;commons-logging&lt;/groupId&gt; 13 &lt;artifactId&gt;commons-logging&lt;/artifactId&gt; 14 &lt;version&gt;1.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/maven/">阅读更多关于Maven 安装编译的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       </div>
@@ -3782,7 +3812,7 @@ pom.xml 文件:
 
 
   
-<script src="/js/search.d13efc2d50dea538c641549d248049a728640a5c93b116237a40cfaf20984c79.js" defer></script>
+<script src="/js/search.d1070538c819354aef96e8b7cde818d6cad76f6b5440350ca048843c73bf921f.js" defer></script>
 
 
 
