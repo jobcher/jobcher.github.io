@@ -65,7 +65,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/network/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2021-12-23T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-05-15T01:32:10+00:00" />
+<meta property="article:modified_time" content="2024-05-16T01:31:38+00:00" />
 
 
 
@@ -73,7 +73,7 @@
 <meta itemprop="description" content="网络基础知识 1、简述 ISO/OSI 七层模型的分层与作用 分层 作用 应用层 应用系统，提供用户服务 例如：HTTP、HTTPS、FTP、Telnet、SSH、SMTP、POP3 表示层 把数据转换为能与接收者的系统格式兼容并适合传输的格式，数据表示，加密，压缩 会话层 负责在数据传输中设置和维护计算机网络中两台计算机之间的通信连接。确定数据是否需要进行网络传递 分流网络传递还是本地保存 传输层 对数据分组，对报文进行分组(发送时)、组装(接收时)提供传输协议的选择：TCP (传输控制协议) :可靠的，面向连接的传输协议 (可靠，准确) (慢)UDP (用户数据报协议) :不可靠的，面向无连接的传输协议 (快) (不可靠)。端口封装，差错校验，滑动窗口，留空 网络层 网络层（Network Layer）决定数据的路径选择和转寄，将网络表头（NH）加至数据包，以形成分组。网络表头包含了网络资料。例如:互联网协议（IP）等。1.IP 地址编址 2.路由选择 3.静态路由 4.动态路由 数据链路层 数据链路层（Data Link Layer）负责网络寻址、错误侦测和改错。1.MAC 地址编址 2.MAC 地址寻址 3.差错校验 物理层 物理层（Physical Layer）在局域网上发送数据帧（Data Frame）1.数据实际传输 2.电气特性定义 2、TCP/IP 四层模型与作用？ 分层 协议 应用层 HTTP、HTTPS、FTP、Telnet、SSH、SMTP、DNS 传输层 TCP、UDP 网络层 ICMP、IGMP、IP、ARP、RARP 数据链路层、物理层 PPP、PPPOE 3、TCP 协议与 UDP 协议工作在哪一层，作用是什么？ 传输层，对报文进行分组(发送时)、组装(接收时)提供
 当进程需要传输可靠的数据时应使用 TCP，当进程需要高效传输数据，可以忽略可靠性时应使用 UDP 协议。
 4、简述 TCP 三次握手的过程。 第一次握手：Client 将标志位 SYN 置为 1，随机产生一个值 seq=J，并将该数据包发送给 Server，Client 进入 SYN_SENT 状态，等待 Server 确认。 第二次握手：Server 收到数据包后由标志位 SYN=1 知道 Client 请求建立连接，Server 将标志位 SYN 和 ACK 都置为 1，ack=J&#43;1，随机产生一个值 seq=K，并将该数据包发送给 Client 以确认连接请求，Server 进入 SYN_RCVD 状态。 第三次握手：Client 收到确认后，检查 ack 是否为 J&#43;1，ACK 是否为 1，如果正确则将标志位 ACK 置为 1，ack=K&#43;1，并将该数据包发送给 Server，Server 检查 ack 是否为 K&#43;1，ACK 是否为 1，如果正确则连接建立成功，Client 和 Server 进入 ESTABLISHED 状态，完成三次握手，随后 Client 与 Server 之间可以开始传输数据了。 5、简述 TCP 包头的内容。 源端口和目的端口：各占 2 个字节，分别写入源端口和目的端口。IP 地址 &#43; 端口号就可以确定一个进程地址"><meta itemprop="datePublished" content="2021-12-23T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-05-15T01:32:10+00:00" />
+<meta itemprop="dateModified" content="2024-05-16T01:31:38+00:00" />
 <meta itemprop="wordCount" content="335">
 <meta itemprop="keywords" content="运维," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="网络基础知识"/>
 <meta name="twitter:description" content="网络基础知识 1、简述 ISO/OSI 七层模型的分层与作用 分层 作用 应用层 应用系统，提供用户服务 例如：HTTP、HTTPS、FTP、Telnet、SSH、SMTP、POP3 表示层 把数据转换为能与接收者的系统格式兼容并适合传输的格式，数据表示，加密，压缩 会话层 负责在数据传输中设置和维护计算机网络中两台计算机之间的通信连接。确定数据是否需要进行网络传递 分流网络传递还是本地保存 传输层 对数据分组，对报文进行分组(发送时)、组装(接收时)提供传输协议的选择：TCP (传输控制协议) :可靠的，面向连接的传输协议 (可靠，准确) (慢)UDP (用户数据报协议) :不可靠的，面向无连接的传输协议 (快) (不可靠)。端口封装，差错校验，滑动窗口，留空 网络层 网络层（Network Layer）决定数据的路径选择和转寄，将网络表头（NH）加至数据包，以形成分组。网络表头包含了网络资料。例如:互联网协议（IP）等。1.IP 地址编址 2.路由选择 3.静态路由 4.动态路由 数据链路层 数据链路层（Data Link Layer）负责网络寻址、错误侦测和改错。1.MAC 地址编址 2.MAC 地址寻址 3.差错校验 物理层 物理层（Physical Layer）在局域网上发送数据帧（Data Frame）1.数据实际传输 2.电气特性定义 2、TCP/IP 四层模型与作用？ 分层 协议 应用层 HTTP、HTTPS、FTP、Telnet、SSH、SMTP、DNS 传输层 TCP、UDP 网络层 ICMP、IGMP、IP、ARP、RARP 数据链路层、物理层 PPP、PPPOE 3、TCP 协议与 UDP 协议工作在哪一层，作用是什么？ 传输层，对报文进行分组(发送时)、组装(接收时)提供
@@ -1011,7 +1011,7 @@
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/1fb01ddcb329e0839ab682d56fc54a0a7f57cdaf"
+            href="https://github.com/jobcher/new-blog/commit/0e991b183bea440c9fbdc8071be3c92d53544a45"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
@@ -1608,6 +1608,69 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-05-16/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-05-16.jpg.89687f672b3b8ddbacb0cb5eeca42c00.webp"
+    alt="2024-05-16 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-05-16 打工人日报"
+        href="/github_trending_2024-05-16/">2024-05-16 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-05-15/">
     
 
@@ -1853,69 +1916,6 @@
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-05-11/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-05-11.jpg.070d958058077425e100158254b20c55.webp"
-    alt="2024-05-11 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-05-11 打工人日报"
-        href="/github_trending_2024-05-11/">2024-05-11 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2016,7 +2016,7 @@
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">143</small>
+            <small class="taxonomy-term-count border rounded px-1">144</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2083,7 +2083,7 @@
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">143</small>
+            <small class="taxonomy-term-count border rounded px-1">144</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2150,7 +2150,7 @@
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">143</small>
+            <small class="taxonomy-term-count border rounded px-1">144</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2291,7 +2291,7 @@
 
 
   
-<script src="/js/search.5dae0c5498a32dd0139fb1617a21b61a3d57ea69711cca3aa488f4e031e6cd8a.js" defer></script>
+<script src="/js/search.52dd134e9154c64b6d530643e7af81f463b631bd4856499deb9a319ce322f828.js" defer></script>
 
 
 
