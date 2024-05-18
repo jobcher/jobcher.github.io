@@ -572,7 +572,7 @@
     class="nav-link d-flex flex-column"
     href="/"
     title="文章">
-    <span class="mb-3 text-body fw-bold">498</span>
+    <span class="mb-3 text-body fw-bold">499</span>
     <span class="text-body"><svg aria-hidden="true" class="bi bi-file-richtextbi bi-file-richtext hi-svg-inline text-primary" fill="currentColor" height="2.25em" viewBox="0 0 16 16" width="2.25em" xmlns="http://www.w3.org/2000/svg">
   <path d="M7 4.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m-.861 1.542 1.33.886 1.854-1.855a.25.25 0 0 1 .289-.047l1.888.974V7.5a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V7s1.54-1.274 1.639-1.208M5 9a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1z"/>
   <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1"/>
@@ -625,6 +625,112 @@
 
       
 <div class="hb-blog-posts row row-cols-1 row-cols-md-2 g-3 mb-3">
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2021年12月13日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/nginx01/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="nginx 日志格式整理"
+        href="/nginx01/">nginx 日志格式整理</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/web-%E6%9C%8D%E5%8A%A1%E5%99%A8/">web 服务器</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/web%E6%9C%8D%E5%8A%A1%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">web服务入门系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/nginx/">nginx</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/linux/">linux</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">nginx 日志配置 语法 access_log path [format [buffer=size] [gzip[=level]] [flush=time] [if=condition]]; # 设置访问日志 access_log off; # 关闭访问日志 例子：
+access_log /var/logs/nginx-access.log access_log /var/logs/nginx-access.log buffer=32k gzip flush=1m 使用 log_format 自定义日志格式 Nginx 预定义了名为 combined 日志格式，如果没有明确指定日志格式默认使用该格式：
+log_format combined &#39;$remote_addr - $remote_user [$time_local] &#39; &#39;&#34;$request&#34; $status $body_bytes_sent &#39; &#39;&#34;$http_referer&#34; &#34;$http_user_agent&#34;&#39;; 如果不想使用 Nginx 预定义的格式，可以通过 log_format 指令来自定义。
+语法 log_format name [escape=default|json] string ...; 变量 含义 $bytes_sent 发送给客户端的总字节数 $body_bytes_sent 发送给客户端的字节数，不包括响应头的大小 $connection 连接序列号 $connection_requests 当前通过连接发出的请求数量 $msec 日志写入时间，单位为秒，精度是毫秒 $pipe 如果请求是通过 http 流水线发送，则其值为&quot;p&quot;，否则为“.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/nginx01/">阅读更多关于nginx 日志格式整理的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
   
     <div class="col">
       
@@ -1742,110 +1848,6 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2021年12月6日</span>
-
-        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/rasberry/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="树莓派搭建k3s"
-        href="/rasberry/">树莓派搭建k3s</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/">日常系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E6%A0%91%E8%8E%93%E6%B4%BE/">树莓派</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/k3s/">k3s</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">树莓派安装 k3s 1.安装 k3s 控制节点 1 curl -sfL https://get.k3s.io | sh - 2 cat /var/lib/rancher/k3s/server/node-token 工作节点 1 curl -sfL https://get.k3s.io | K3S_URL=https://myserver:6443 K3S_TOKEN=mynodetoken sh - 树莓派特别要注意一个坑，就是关于内存的问题这个之后再讲
-1 k3s kubectl get nodes 2 #显示正确的节点表示完成 卸载 k3s 1 #server 节点 2 /usr/local/bin/k3s-uninstall.sh 3 #agent 节点 4 /usr/local/bin/k3s-agent-uninstall.sh 2.安装 dashboard k3s 面板 部署 Kubernetes 仪表盘 1 GITHUB_URL=https://github.com/kubernetes/dashboard/releases 2 VERSION_KUBE_DASHBOARD=$(curl -w &#39;%{url_effective}&#39; -I -L -s -S ${GITHUB_URL}/latest -o /dev/null | sed -e &#39;s|.*/||&#39;) 3 sudo k3s kubectl create -f https://raw.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/rasberry/">阅读更多关于树莓派搭建k3s的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       
@@ -2101,6 +2103,69 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-05-18/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-05-18.jpg.28c0a835a704ada6f9c47d9675ab979c.webp"
+    alt="2024-05-18 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-05-18 打工人日报"
+        href="/github_trending_2024-05-18/">2024-05-18 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-05-17/">
     
 
@@ -2346,69 +2411,6 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-05-13/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-05-13.jpg.0838e3f86befc68472a94d57df3954eb.webp"
-    alt="2024-05-13 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-05-13 打工人日报"
-        href="/github_trending_2024-05-13/">2024-05-13 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2509,7 +2511,7 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">145</small>
+            <small class="taxonomy-term-count border rounded px-1">146</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2576,7 +2578,7 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">145</small>
+            <small class="taxonomy-term-count border rounded px-1">146</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2643,7 +2645,7 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">145</small>
+            <small class="taxonomy-term-count border rounded px-1">146</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2782,7 +2784,7 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
 
 
   
-<script src="/js/search.28935193e04bc69cd0d5244ebcfc9a5964202c63a10b5b41ae6e7ea3253fb06f.js" defer></script>
+<script src="/js/search.20957de7316106aa9160c5d54621cccb85c504af6e06066daf5769db9039240f.js" defer></script>
 
 
 
