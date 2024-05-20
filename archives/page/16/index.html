@@ -588,6 +588,106 @@
 
       <span class="hb-blog-post-date">2022年1月13日</span>
 
+        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/prometheus1/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="prometheus grafana alertmanager 安装配置"
+        href="/prometheus1/">prometheus grafana alertmanager 安装配置</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E7%9B%91%E6%8E%A7/">监控</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7%E7%B3%BB%E5%88%97/">运维监控系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/prometheus/">prometheus</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">prometheus+grafana+alertmanager 安装配置 服务器监控告警系统搭建，通过 exporter 获取节点信息到 prometheus。prometheus 配置规则，使 garfana 和 alertmanager 能够接受到数据，分别展示数据和发送告警
+参数 VM :192.168.99.78
+端口 服务 9100 node_exporter 3000 grafana 9090 prometheus 9115 blackbox_exporter 安装 grafa 安装 docker 安装 1docker run -d -p 3000:3000 \ 2--name=grafana \ 3-v grafana-storage:/var/lib/grafana \ 4grafana/grafana:8.3.3 prometheus 安装 下载 1wget https://github.com/prometheus/prometheus/releases/download/v2.32.1/prometheus-2.32.1.linux-amd64.tar.gz 2tar -zxvf prometheus-2.32.1.linux-amd64.tar.gz 3cd prometheus-2.32.1.linux-amd64 4mkdir -p file_sd 5mkdir -p rules 运行 prometheus 1killall prometheus 2nohup ./prometheus --config.file=prometheus.yml &amp; 3# 查看运行状况 4tail -f nohup.out node_exporter 安装 docker-compose 安装 1version: &#34;3&#34; 2services: 3 node-exporter: 4 image: prom/node-exporter:v1.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/prometheus1/">阅读更多关于prometheus grafana alertmanager 安装配置的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年1月13日</span>
+
         <span class="hb-blog-post-reading-time">1 分钟阅读</span>
 
       
@@ -3428,108 +3528,6 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2021年12月15日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/shell/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="shell基础知识"
-        href="/shell/">shell基础知识</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E5%9F%BA%E7%A1%80/">基础</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97/">基础知识系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">shell 基础知识 1、有一个 b.txt 文本(内容如下)，要求将所有域名截取出来，并统计重复域名出现的次数： http://www.baidu.com/index.html
-https://www.atguigu.com/index.html
-http://www.sina.com.cn/1024.html
-https://www.atguigu.com/2048.html
-http://www.sina.com.cn/4096.html
-https://www.atguigu.com/8192.html
-2、统计当前服务器正在连接的 IP 地址，并按连接次数排序 3、使用循环在/atguigu 目录下创建 10 个 txt 文件，要求文件名称由 6 位随机小写字母加固定字符串（_gg）组成，例如：pzjebg_gg.txt。 4、生成随机数字。 5、批量检查多个网站是否可以正常访问，要求使用 shell 数组实现，检测策略尽量模拟用户真实访问模式。 http://www.atguigu.com
-http://www.gulixueyuan.com
-http://www.baidu.com</div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       </div>
@@ -3668,7 +3666,7 @@ http://www.baidu.com</div>
 
 
   
-<script src="/js/search.5288594e7d765851f00a9d821f3b91cca08c232c6a97f0606230d4e830801559.js" defer></script>
+<script src="/js/search.3651844204ec3da99aae1c41a6c9c5fb21b98fe8f443f56208660910aef3f85e.js" defer></script>
 
 
 
