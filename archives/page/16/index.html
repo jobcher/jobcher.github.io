@@ -586,6 +586,107 @@
 
     </a>
 
+      <span class="hb-blog-post-date">2022年1月19日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/pve1/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="Proxmox VE 在线扩容磁盘分区"
+        href="/pve1/">Proxmox VE 在线扩容磁盘分区</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/">日常系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/%E6%89%A9%E5%AE%B9%E7%A3%81%E7%9B%98/">扩容磁盘</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/pve/">pve</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">Proxmox VE 在线扩容磁盘分区 添加磁盘大小 在 VM 上做扩容操作 安装 growpart 1yum install -y epel-release 2yum install -y cloud-utils 查看系统盘 路径 1fdisk -l 2df -h 扩容设备并重启 1growpart /dev/sda 2 #2代表是第二块系统分区，不是sda2,中间有空格 2reboot 重启执行命令 1xfs_growfs /dev/sda2 #(xfs 文件系统) 2resize2fs /dev/sda2 #(ext4 文件系统) 更新完成 1df -h 逻辑卷没有正常扩容的情况 检查当前逻辑卷属于哪个卷组: 1vgdisplay 检查卷组中是有足够的空间可以扩容,还有99g
+扩展逻辑卷大小到200G: 1lvextend -L +99G /dev/mapper/ubuntu--vg-ubuntu--lv 调整文件系统大小到逻辑卷大小: 1resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv 4. 检查
+1df -h /dev/mapper/ubuntu--vg-ubuntu--lv 成功扩容</div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
       <span class="hb-blog-post-date">2022年1月14日</span>
 
         <span class="hb-blog-post-reading-time">1 分钟阅读</span>
@@ -3447,107 +3548,6 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2021年12月16日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/auto/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="获取用户浏览器默认语言设置，自动判断跳转不同网站"
-        href="/auto/">获取用户浏览器默认语言设置，自动判断跳转不同网站</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/">日常系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/javascript/">javascript</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">自动判断跳转不同网站 根据用户目前的浏览器配置语言进行显示 供语言切换按钮，用户自定义选择不同的语言显示 根据识别用户的浏览器语言，自动判断并跳转到相应的语言网页，让你的网站更加灵动。
-以下需要将代码放在 HTML 的内即可，然后自行制作多语言页面。
-代码如下：
-1&lt;script type=&#34;text/javascript&#34;&gt; 2 //获取用户语言的顺序是 3 //1.获取本地缓存里的内容 4 //2.用户浏览器的语言设置 5 //如果上面2个都没有获取到，就直接使用&#39;en&#39;作为用户选择的语言 6 var language = 7 localStorage.getItem(&#34;locale&#34;) || 8 window.navigator.language.toLowerCase() || 9 &#34;en&#34;; 10 //把用户的语言写入缓存，供下次获取使用 11 localStorage.setItem(&#34;locale&#34;, language); 12 //判断用户的语言，跳转到不同的地方 13 if (language.indexOf(&#34;zh-&#34;) !== -1) { 14 window.location = &#34;/zh-cn/index.html&#34;; 15 } else if (language.indexOf(&#34;en&#34;) !== -1) { 16 window.location = &#34;/en/index.html&#34;; 17 } else { 18 //其它的都使用英文 19 window.location = &#34;/en/index.html&#34;; 20 } 21&lt;/script&gt; 核心代码</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/auto/">阅读更多关于获取用户浏览器默认语言设置，自动判断跳转不同网站的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       </div>
@@ -3686,7 +3686,7 @@ ipatbles 命令仅支持 ipv4，如果使用的 IP 协议是 ipv6 则需要使�
 
 
   
-<script src="/js/search.1010fd3a2c4f246789bbb94f87d43f54c4250aaa8e750c5d393f908e0a598b97.js" defer></script>
+<script src="/js/search.68fd379762b8dea924e19f256a4bcca062ca60935da5ba8921f85c9e8cc0899a.js" defer></script>
 
 
 
