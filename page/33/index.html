@@ -572,7 +572,7 @@
     class="nav-link d-flex flex-column"
     href="/"
     title="文章">
-    <span class="mb-3 text-body fw-bold">507</span>
+    <span class="mb-3 text-body fw-bold">508</span>
     <span class="text-body"><svg aria-hidden="true" class="bi bi-file-richtextbi bi-file-richtext hi-svg-inline text-primary" fill="currentColor" height="2.25em" viewBox="0 0 16 16" width="2.25em" xmlns="http://www.w3.org/2000/svg">
   <path d="M7 4.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m-.861 1.542 1.33.886 1.854-1.855a.25.25 0 0 1 .289-.047l1.888.974V7.5a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V7s1.54-1.274 1.639-1.208M5 9a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1z"/>
   <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1"/>
@@ -625,6 +625,102 @@
 
       
 <div class="hb-blog-posts row row-cols-1 row-cols-md-2 g-3 mb-3">
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年10月31日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/nexus/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="Nexus3 使用和部署"
+        href="/nexus/">Nexus3 使用和部署</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/work/">work</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/">问题库系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/work/">work</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">Nexus3 docker-compose 安装 创建外部存储
+1mkdir -p /data/nexus 2chmod +777 -R /data/nexus 运行 docker-compose
+1version: &#39;3&#39; 2services: 3 nexus3: 4 image: sonatype/nexus3:3.42.0 5 container_name: nexus3 6 ports: 7 - 8081:8081 8 - 5000:5000 9 volumes: 10 - /data/nexus:/nexus-data 11 environment: 12 - INSTALL4J_ADD_VM_PARAMS=-Xms1024m -Xmx1024m -XX:MaxDirectMemorySize=1024m -Djava.util.prefs.userRoot=/some-other-dir 13 restart: always 14 # 赋予外部root权限 15 privileged: true docker-compose up -d 运行 docker-compose</div>
+  </div>
+</div>
+
+    </div>
   
     <div class="col">
       
@@ -1782,143 +1878,6 @@ Docker 部署 在 docker 环境运行 &lt;token&gt; 是你个人令牌
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2022年9月23日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/k8s-error2/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-    <source srcset="/images/error_hu3d3010a71e3153179e60e85cf02bc677_71618_600x400_resize_q75_h2_box.webp" type="image/webp" />
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/error.1d1016f23a1e038615d72b9d1a2daf62.jpeg"
-    alt="k8s CNI 问题 连接认证失效"
-    loading="lazy"
-    height="400"
-    width="600"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="k8s CNI 问题 连接认证失效"
-        href="/k8s-error2/">k8s CNI 问题 连接认证失效</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E9%97%AE%E9%A2%98%E5%BA%93/">问题库</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/">问题库系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/error/">error</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">k8s CNI 问题 连接认证失效 删除 calico 换成 flannel 后，容器没有正常启动
-network: error getting ClusterInformation: connection is unauthorized: Unauthorized]
-解决问题 删除掉 /etc/cni/net.d/ 目录下的 calico 配置文件即可。
-要删除所有节点的配置文件
-1sudo rm -rf /etc/cni/net.d/*calico* 不要重复网络插件 </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       
@@ -2186,6 +2145,69 @@ network: error getting ClusterInformation: connection is unauthorized: Unauthori
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-05-27/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-05-27.jpg.cec669cde656ec583c35e5d9c6cbea2d.webp"
+    alt="2024-05-27 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-05-27 打工人日报"
+        href="/github_trending_2024-05-27/">2024-05-27 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-05-26/">
     
 
@@ -2431,69 +2453,6 @@ network: error getting ClusterInformation: connection is unauthorized: Unauthori
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-05-22/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-05-22.jpg.7c8c8f81dd2acef7d50c2f930705973d.webp"
-    alt="2024-05-22 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-05-22 打工人日报"
-        href="/github_trending_2024-05-22/">2024-05-22 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2594,7 +2553,7 @@ network: error getting ClusterInformation: connection is unauthorized: Unauthori
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">154</small>
+            <small class="taxonomy-term-count border rounded px-1">155</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2661,7 +2620,7 @@ network: error getting ClusterInformation: connection is unauthorized: Unauthori
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">154</small>
+            <small class="taxonomy-term-count border rounded px-1">155</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2728,7 +2687,7 @@ network: error getting ClusterInformation: connection is unauthorized: Unauthori
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">154</small>
+            <small class="taxonomy-term-count border rounded px-1">155</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2867,7 +2826,7 @@ network: error getting ClusterInformation: connection is unauthorized: Unauthori
 
 
   
-<script src="/js/search.da0710d27809f40bb3c56ec24e5102954d35a0d845f560232aa555a4369bf56f.js" defer></script>
+<script src="/js/search.a144caf6e4065307fbd5bffa3f4ae0de40850e890662965acf4a4a9847e6361c.js" defer></script>
 
 
 
