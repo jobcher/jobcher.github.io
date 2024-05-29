@@ -68,13 +68,13 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/k8s8/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-06-27T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-05-28T01:32:46+00:00" />
+<meta property="article:modified_time" content="2024-05-29T01:34:00+00:00" />
 
 
 
 <meta itemprop="name" content="编写 kubernetes 资源描述文件">
 <meta itemprop="description" content="编写 kubernetes 资源描述文件 1. 部署一个应用 1apiVersion: apps/v1 #与k8s集群版本有关，使用 kubectl api-versions 即可查看当前集群支持的版本 2kind: Deployment #该配置的类型，我们使用的是 Deployment 3metadata: #译名为元数据，即 Deployment 的一些基本属性和信息 4 name: nginx-deployment #Deployment 的名称 5 labels: #标签，可以灵活定位一个或多个资源，其中key和value均可自定义，可以定义多组，目前不需要理解 6 app: nginx #为该Deployment设置key为app，value为nginx的标签 7spec: #这是关于该Deployment的描述，可以理解为你期待该Deployment在k8s中如何使用 8 replicas: 1 #使用该Deployment创建一个应用程序实例 9 selector: #标签选择器，与上面的标签共同作用，目前不需要理解 10 matchLabels: #选择包含标签app:nginx的资源 11 app: nginx 12 template: #这是选择或创建的Pod的模板 13 metadata: #Pod的元数据 14 labels: #Pod的标签，上面的selector即选择包含标签app:nginx的Pod 15 app: nginx 16 spec: #期望Pod实现的功能（即在pod中部署） 17 containers: #生成container，与docker中的container是同一种 18 - name: nginx #container的名称 19 image: nginx:1."><meta itemprop="datePublished" content="2022-06-27T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-05-28T01:32:46+00:00" />
+<meta itemprop="dateModified" content="2024-05-29T01:34:00+00:00" />
 <meta itemprop="wordCount" content="181">
 <meta itemprop="keywords" content="k8s," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="编写 kubernetes 资源描述文件"/>
 <meta name="twitter:description" content="编写 kubernetes 资源描述文件 1. 部署一个应用 1apiVersion: apps/v1 #与k8s集群版本有关，使用 kubectl api-versions 即可查看当前集群支持的版本 2kind: Deployment #该配置的类型，我们使用的是 Deployment 3metadata: #译名为元数据，即 Deployment 的一些基本属性和信息 4 name: nginx-deployment #Deployment 的名称 5 labels: #标签，可以灵活定位一个或多个资源，其中key和value均可自定义，可以定义多组，目前不需要理解 6 app: nginx #为该Deployment设置key为app，value为nginx的标签 7spec: #这是关于该Deployment的描述，可以理解为你期待该Deployment在k8s中如何使用 8 replicas: 1 #使用该Deployment创建一个应用程序实例 9 selector: #标签选择器，与上面的标签共同作用，目前不需要理解 10 matchLabels: #选择包含标签app:nginx的资源 11 app: nginx 12 template: #这是选择或创建的Pod的模板 13 metadata: #Pod的元数据 14 labels: #Pod的标签，上面的selector即选择包含标签app:nginx的Pod 15 app: nginx 16 spec: #期望Pod实现的功能（即在pod中部署） 17 containers: #生成container，与docker中的container是同一种 18 - name: nginx #container的名称 19 image: nginx:1."/>
@@ -757,7 +757,7 @@
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/ee014ed579424a05c447c282c6159641b74145ed"
+            href="https://github.com/jobcher/new-blog/commit/afda22a58f9feef3ed93865bb3c8e45b2775da10"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
@@ -1276,6 +1276,69 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-05-29/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-05-29.jpg.679913088a5e23456551ac5d3cf80077.webp"
+    alt="2024-05-29 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-05-29 打工人日报"
+        href="/github_trending_2024-05-29/">2024-05-29 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-05-28/">
     
 
@@ -1521,69 +1584,6 @@
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-05-24/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-05-24.jpg.34f97a62a07f331091683ed0b26e07be.webp"
-    alt="2024-05-24 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-05-24 打工人日报"
-        href="/github_trending_2024-05-24/">2024-05-24 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -1684,7 +1684,7 @@
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">156</small>
+            <small class="taxonomy-term-count border rounded px-1">157</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -1751,7 +1751,7 @@
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">156</small>
+            <small class="taxonomy-term-count border rounded px-1">157</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -1818,7 +1818,7 @@
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">156</small>
+            <small class="taxonomy-term-count border rounded px-1">157</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -1959,7 +1959,7 @@
 
 
   
-<script src="/js/search.7b12ef5f91af00ec42416ca12f3399ffadc4dca6a73b47de8e8587c61394760e.js" defer></script>
+<script src="/js/search.ef721501d1bec071a9c9096ca3fc258f14cce245df40ab9cdbf01e168a24e596.js" defer></script>
 
 
 
