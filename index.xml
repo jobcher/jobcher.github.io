@@ -16,6 +16,13 @@
       <description>微博热搜榜 AI 摘要 中央全面深化改革委员会第五次会议居于榜首，此次会议聚焦深化改革的重要议题。体育方面，新加坡门将对中国球迷表示感谢，而TCL与拳王张志磊合作的消息也受到了关注。文化活动上，谭晶的音乐作品成为热门话题，端午档票房表现不佳。明星动态方面，刘亦菲接戏和福宝的相关内容也被讨论。教育热点是家长举华晨宇海报迎接考生，家庭温馨流露。国际新闻中，日本公寓拆除和苹果市值增长是国际事件。工作场所新闻提及女员工因打伞防走光被开除，引起关注。何超莲的演艺动态和国足晋级也引发热议。此外，BTS合体、亚洲体育赛事以及一法国游客在俄事件也进入关注列表。&#xA;热搜链接 排名 1.中央全面深化改革委员会第五次会议&#xA;排名 2.福宝营业了&#xA;排名 3.新加坡门将感谢中国球迷&#xA;排名 4.航拍视角看三夏时节麦收忙&#xA;排名 5.TCL携拳王张志磊王牌碰王牌&#xA;排名 6.韩国地震&#xA;排名 7.谭晶 九儿&#xA;排名 8.端午档近十年最差&#xA;排名 9.福宝&#xA;排名 10.刘亦菲为了气我真是什么戏都接&#xA;排名 11.家长举华晨宇海报迎接考生&#xA;排名 12.福宝出门前奶爸四川话碎碎念&#xA;排名 13.日本一10层公寓因遮挡富士山紧急拆除&#xA;排名 14.苹果市值一夜大涨超1.5万亿&#xA;排名 15.女员工因担心走光上班打伞遭开除&#xA;排名 16.何超莲要演戏了&#xA;排名 17.国足晋级18强意味着什么&#xA;排名 18.BTS合体&#xA;排名 19.中国日本韩国朝鲜全出线了&#xA;排名 20.一法国游客在俄发射场附近身亡&#xA;GitHub 热门榜单 排名 1:/LazyVim/LazyVim 简介: 懒惰者的Neovim配置 URL: https://github.com/LazyVim/LazyVim 作者: LazyVim 排名 2:/karpathy/nanoGPT 简介: 用于培训/微调中型GPT的最简单、最快的存储库。 URL: https://github.com/karpathy/nanoGPT 作者: karpathy 排名 3:/coollabsio/coolify 简介: 一个开源和可自托管的Heroku/Netlify/Vercel替代方案。 URL: https://github.com/coollabsio/coolify 作者: coollabsio 排名 4:/xenova/transformers.</description>
     </item>
     <item>
+      <title>DockerHub 加速镜像部署 - 使用cloudflare 代理</title>
+      <link>https://www.jobcher.com/docker-proxy/</link>
+      <pubDate>Wed, 12 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/docker-proxy/</guid>
+      <description>背景 6 月 6 日，上海交大的 Docker Hub 镜像加速器宣布因收到通知要求被下架。声明称：“即时起我们将中止对 dockerhub 仓库的镜像。docker 相关工具默认会自动处理失效镜像的回退，如果对官方源有访问困难问题，建议尝试使用其他仍在服务的镜像源。我们对给您带来的不便表示歉意，感谢您的理解与支持。”Docker Hub 是目前最大的容器镜像社区，去年 5 月起国内用户报告 Docker Hub 官网无法访问，其网址解析返回了错误 IP 地址。&#xA;因为不能直接访问国外的镜像仓库，下载国外的docker镜像速度一直很慢, 国内从 Docker Hub 拉取镜像有时会遇到困难，此时可以配置镜像加速器。&#xA;使用 我这边已经部署好了加速镜像节点，同学们如果不想自己部署，可以使用我的加速节点，但是，不能保证节点长期有效。&#xA;1https://dockerhub.jobcher.com 第一步：代理拉取镜像 假如我们下载node镜像，那么我们可以这样写：&#xA;1docker pull dockerhub.jobcher.com/library/node:latest 第二步：重命名镜像 1docker tag dockerhub.jobcher.com/library/node:latest node:latest 第三步：删除代理镜像 1docker rmi dockerhub.jobcher.com/library/node:latest 或者直接配置到镜像仓库 1sudo mkdir -p /etc/docker 2sudo tee /etc/docker/daemon.json &amp;lt;&amp;lt;-&amp;#39;EOF&amp;#39; 3{ 4 &amp;#34;registry-mirrors&amp;#34;: [ 5 &amp;#34;https://dockerhub.jobcher.com&amp;#34;, 6 ] 7} 8EOF 重新加载docker&#xA;1sudo systemctl daemon-reload 2sudo systemctl restart docker 配置 cloudflare 代理 我们通过 cloudflare 的全球 CDN 节点，以 Workers 中转代理的方式来访问国外镜像仓库，从而加速镜像的下载。</description>
+    </item>
+    <item>
       <title>2024-06-11 打工人日报</title>
       <link>https://www.jobcher.com/github_trending_2024-06-11/</link>
       <pubDate>Tue, 11 Jun 2024 00:00:00 +0000</pubDate>

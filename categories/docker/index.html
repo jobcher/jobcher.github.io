@@ -546,7 +546,7 @@ docker - 分类 - 打工人日志</title>
   
     <li
       class="nav-item d-flex flex-column justify-content-center align-items-center my-2 mx-3">
-      <span class="mb-1 fw-bold btn btn-secondary rounded">10</span>
+      <span class="mb-1 fw-bold btn btn-secondary rounded">11</span>
       <span class="text-body-secondary">文章</span>
     </li>
   
@@ -567,6 +567,147 @@ docker - 分类 - 打工人日志</title>
 </div>
 
       <div class="hb-terms-posts row row-cols-1 row-cols-md-2">
+          <div class="mb-3 mb-lg-4">
+            
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2024年6月12日</span>
+
+        <span class="hb-blog-post-reading-time">4 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/docker-proxy/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+    <source srcset="/images/docker_hu4f54a21c17e7a324f7e13aec9e5d56ee_2686_300x168_resize_q75_h2_box_3.webp" type="image/webp" />
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/docker.b169abd50ce3f01255ce48a7094d5f1d.png"
+    alt="DockerHub 加速镜像部署 - 使用cloudflare 代理"
+    loading="lazy"
+    height="168"
+    width="300"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="DockerHub 加速镜像部署 - 使用cloudflare 代理"
+        href="/docker-proxy/">DockerHub 加速镜像部署 - 使用cloudflare 代理</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/docker/">docker</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/docker%E8%BF%9B%E9%98%B6%E7%B3%BB%E5%88%97/">docker进阶系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/docker/">docker</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">背景 6 月 6 日，上海交大的 Docker Hub 镜像加速器宣布因收到通知要求被下架。声明称：“即时起我们将中止对 dockerhub 仓库的镜像。docker 相关工具默认会自动处理失效镜像的回退，如果对官方源有访问困难问题，建议尝试使用其他仍在服务的镜像源。我们对给您带来的不便表示歉意，感谢您的理解与支持。”Docker Hub 是目前最大的容器镜像社区，去年 5 月起国内用户报告 Docker Hub 官网无法访问，其网址解析返回了错误 IP 地址。
+因为不能直接访问国外的镜像仓库，下载国外的docker镜像速度一直很慢, 国内从 Docker Hub 拉取镜像有时会遇到困难，此时可以配置镜像加速器。
+使用 我这边已经部署好了加速镜像节点，同学们如果不想自己部署，可以使用我的加速节点，但是，不能保证节点长期有效。
+1https://dockerhub.jobcher.com 第一步：代理拉取镜像 假如我们下载node镜像，那么我们可以这样写：
+1docker pull dockerhub.jobcher.com/library/node:latest 第二步：重命名镜像 1docker tag dockerhub.jobcher.com/library/node:latest node:latest 第三步：删除代理镜像 1docker rmi dockerhub.jobcher.com/library/node:latest 或者直接配置到镜像仓库 1sudo mkdir -p /etc/docker 2sudo tee /etc/docker/daemon.json &lt;&lt;-&#39;EOF&#39; 3{ 4 &#34;registry-mirrors&#34;: [ 5 &#34;https://dockerhub.jobcher.com&#34;, 6 ] 7} 8EOF 重新加载docker
+1sudo systemctl daemon-reload 2sudo systemctl restart docker 配置 cloudflare 代理 我们通过 cloudflare 的全球 CDN 节点，以 Workers 中转代理的方式来访问国外镜像仓库，从而加速镜像的下载。</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/docker-proxy/">阅读更多关于DockerHub 加速镜像部署 - 使用cloudflare 代理的内容。</a>
+        </div>
+  </div>
+</div>
+
+          </div>
           <div class="mb-3 mb-lg-4">
             
 <div
@@ -1926,6 +2067,70 @@ curl 127.0.0.1:8080 输出： 这是一个本地构建的nginx镜像 Docker 命�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/docker-proxy/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+    <source srcset="/images/docker_hu4f54a21c17e7a324f7e13aec9e5d56ee_2686_300x168_resize_q75_h2_box_3.webp" type="image/webp" />
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/docker.b169abd50ce3f01255ce48a7094d5f1d.png"
+    alt="DockerHub 加速镜像部署 - 使用cloudflare 代理"
+    loading="lazy"
+    height="168"
+    width="300"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="DockerHub 加速镜像部署 - 使用cloudflare 代理"
+        href="/docker-proxy/">DockerHub 加速镜像部署 - 使用cloudflare 代理</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-06-12/">
     
 
@@ -2171,69 +2376,6 @@ curl 127.0.0.1:8080 输出： 这是一个本地构建的nginx镜像 Docker 命�
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-06-08/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-06-08.jpg.d4da67b943a9ddd7b5939806097cce75.webp"
-    alt="2024-06-08 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-06-08 打工人日报"
-        href="/github_trending_2024-06-08/">2024-06-08 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2315,7 +2457,7 @@ curl 127.0.0.1:8080 输出： 这是一个本地构建的nginx镜像 Docker 命�
           class="taxonomy-term taxonomy-term-authors btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/authors/jobcher/">
           <span class="taxonomy-term-title">jobcher</span>
-            <small class="taxonomy-term-count border rounded px-1">347</small>
+            <small class="taxonomy-term-count border rounded px-1">348</small>
         </a>
     </div>
     <div
@@ -2362,15 +2504,15 @@ curl 127.0.0.1:8080 输出： 这是一个本地构建的nginx镜像 Docker 命�
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
-          href="/categories/%E9%97%AE%E9%A2%98%E5%BA%93/">
-          <span class="taxonomy-term-title">问题库</span>
+          href="/categories/docker/">
+          <span class="taxonomy-term-title">docker</span>
             <small class="taxonomy-term-count border rounded px-1">11</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
-          href="/categories/docker/">
-          <span class="taxonomy-term-title">docker</span>
-            <small class="taxonomy-term-count border rounded px-1">10</small>
+          href="/categories/%E9%97%AE%E9%A2%98%E5%BA%93/">
+          <span class="taxonomy-term-title">问题库</span>
+            <small class="taxonomy-term-count border rounded px-1">11</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2490,6 +2632,12 @@ curl 127.0.0.1:8080 输出： 这是一个本地构建的nginx镜像 Docker 命�
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
+          href="/tags/docker/">
+          <span class="taxonomy-term-title">docker</span>
+            <small class="taxonomy-term-count border rounded px-1">11</small>
+        </a>
+        <a
+          class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/error/">
           <span class="taxonomy-term-title">error</span>
             <small class="taxonomy-term-count border rounded px-1">11</small>
@@ -2499,12 +2647,6 @@ curl 127.0.0.1:8080 输出： 这是一个本地构建的nginx镜像 Docker 命�
           href="/tags/gitlab/">
           <span class="taxonomy-term-title">gitlab</span>
             <small class="taxonomy-term-count border rounded px-1">11</small>
-        </a>
-        <a
-          class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
-          href="/tags/docker/">
-          <span class="taxonomy-term-title">docker</span>
-            <small class="taxonomy-term-count border rounded px-1">10</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2605,7 +2747,7 @@ curl 127.0.0.1:8080 输出： 这是一个本地构建的nginx镜像 Docker 命�
 
 
   
-<script src="/js/search.7defd18b249d8088fc75322c7bb44ccefe1afad187e00458cb1e4f438fde663d.js" defer></script>
+<script src="/js/search.711adc92b98777174a24ca74dd1cd09ed2625582b0bd4b9f92a320b20fe1bf79.js" defer></script>
 
 
 
