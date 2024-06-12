@@ -68,7 +68,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/docker-proxy/" /><meta property="og:image" content="https://www.jobcher.com/images/docker.png" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2024-06-12T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-06-12T13:35:04+08:00" />
+<meta property="article:modified_time" content="2024-06-12T13:44:24+08:00" />
 
 
 
@@ -79,7 +79,7 @@
 1https://dockerhub.jobcher.com 第一步：代理拉取镜像 假如我们下载node镜像，那么我们可以这样写：
 1docker pull dockerhub.jobcher.com/library/node:latest 第二步：重命名镜像 1docker tag dockerhub.jobcher.com/library/node:latest node:latest 第三步：删除代理镜像 1docker rmi dockerhub.jobcher.com/library/node:latest 或者直接配置到镜像仓库 1sudo mkdir -p /etc/docker 2sudo tee /etc/docker/daemon.json &lt;&lt;-&#39;EOF&#39; 3{ 4 &#34;registry-mirrors&#34;: [ 5 &#34;https://dockerhub.jobcher.com&#34;, 6 ] 7} 8EOF 重新加载docker
 1sudo systemctl daemon-reload 2sudo systemctl restart docker 配置 cloudflare 代理 我们通过 cloudflare 的全球 CDN 节点，以 Workers 中转代理的方式来访问国外镜像仓库，从而加速镜像的下载。"><meta itemprop="datePublished" content="2024-06-12T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-06-12T13:35:04+08:00" />
+<meta itemprop="dateModified" content="2024-06-12T13:44:24+08:00" />
 <meta itemprop="wordCount" content="730"><meta itemprop="image" content="https://www.jobcher.com/images/docker.png" />
 <meta itemprop="keywords" content="docker," /><meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://www.jobcher.com/images/docker.png" /><meta name="twitter:title" content="DockerHub 加速镜像部署 - 使用cloudflare 代理"/>
@@ -719,6 +719,49 @@ DockerHub 加速镜像部署 - 使用cloudflare 代理 - 博客 - 打工人日�
 
           <h2 id="背景">背景</h2>
 <p>6 月 6 日，上海交大的 Docker Hub 镜像加速器宣布因收到通知要求被下架。声明称：“即时起我们将中止对 dockerhub 仓库的镜像。docker 相关工具默认会自动处理失效镜像的回退，如果对官方源有访问困难问题，建议尝试使用其他仍在服务的镜像源。我们对给您带来的不便表示歉意，感谢您的理解与支持。”Docker Hub 是目前最大的容器镜像社区，去年 5 月起国内用户报告 Docker Hub 官网无法访问，其网址解析返回了错误 IP 地址。<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+    <source srcset="/images/dockerhub-sjtug_hu8562c17b0674bbd481eda405ca3af9bb_31509_518x500_resize_q75_h2_box.webp" type="image/webp" />
+  <img
+    class="img-fluid"
+    src="https://www.jobcher.com/images/dockerhub-sjtug.fa5100780d5b6bf6e24b4a590e183d51.jpeg"
+    alt="sjtug"
+    loading="lazy"
+    height="500"
+    width="518"
+    
+    
+    
+     />
+</picture>
+<br>
 因为不能直接访问国外的镜像仓库，下载国外的docker镜像速度一直很慢, 国内从 Docker Hub 拉取镜像有时会遇到困难，此时可以配置镜像加速器。</p>
 <h2 id="使用">使用</h2>
 <p>我这边已经部署好了加速镜像节点，同学们如果不想自己部署，可以使用我的加速节点，但是，不能保证节点长期有效。</p>
@@ -1025,11 +1068,11 @@ const workers_url = &lsquo;<a
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/0203fbaa2b1ed1215bd363198219a403efb07db4"
+            href="https://github.com/jobcher/new-blog/commit/ef4e71cac7f3a02698cd803a99a13731d3a143cc"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>feat: 更新新文章</a>
+</svg>update</a>
         </li>
     </ul>
   </div>
@@ -2384,7 +2427,7 @@ const workers_url = &lsquo;<a
 
 
   
-<script src="/js/search.711adc92b98777174a24ca74dd1cd09ed2625582b0bd4b9f92a320b20fe1bf79.js" defer></script>
+<script src="/js/search.04d6855e44aa3734d4019c223467b033ff09496e77f5a437c110770b62db19ca.js" defer></script>
 
 
 
