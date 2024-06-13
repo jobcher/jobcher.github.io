@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-hans</language>
     <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
-    <lastBuildDate>Thu, 13 Jun 2024 16:04:14 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 13 Jun 2024 16:14:40 +0800</lastBuildDate>
     <atom:link href="https://www.jobcher.com/categories/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DockerHub 加速镜像部署 - 使用cloudflare 代理</title>
