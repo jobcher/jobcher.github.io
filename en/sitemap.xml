@@ -30,20 +30,6 @@
                 href="https://www.jobcher.com/en/categories/"
                 />
   </url><url>
-    <loc>https://www.jobcher.com/en/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-hans"
-                href="https://www.jobcher.com/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://www.jobcher.com/en/"
-                />
-  </url><url>
     <loc>https://www.jobcher.com/en/series/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -70,6 +56,20 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://www.jobcher.com/en/tags/"
+                />
+  </url><url>
+    <loc>https://www.jobcher.com/en/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-hans"
+                href="https://www.jobcher.com/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://www.jobcher.com/en/"
                 />
   </url>
 </urlset>
