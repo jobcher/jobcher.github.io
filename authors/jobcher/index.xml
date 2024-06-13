@@ -9,6 +9,13 @@
     <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
     <atom:link href="https://www.jobcher.com/authors/jobcher/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Tmux 安装和使用教程</title>
+      <link>https://www.jobcher.com/tmux/</link>
+      <pubDate>Thu, 13 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://www.jobcher.com/tmux/</guid>
+      <description>tmux 是一个终端 multiplexer，它可以让你在一个终端中开启多个会话，并且可以在一个终端中切换多个会话。&#xA;安装 tmux 安装很简单，直接在终端中输入以下命令即可：&#xA;1# Ubuntu 或 Debian 2sudo apt-get install tmux 3 4# CentOS 或 Fedora 5sudo yum install tmux 6 7# Mac 8brew install tmux 使用 安装完成后，键入tmux命令，就进入了 Tmux 窗口。&#xA;1tmux 按下Ctrl+d或者显式输入exit命令，就可以退出 Tmux 窗口。&#xA;1exit 前缀键 Tmux 窗口有大量的快捷键。所有快捷键都要通过前缀键唤起。默认的前缀键是Ctrl+b，即先按下Ctrl+b，快捷键才会生效。&#xA;举例来说，帮助命令的快捷键是Ctrl+b ?。它的用法是，在 Tmux 窗口中，先按下Ctrl+b，再按下?，就会显示帮助信息。&#xA;然后，按下 ESC 键或q键，就可以退出帮助。&#xA;快捷键 面板（pane）指令 前缀 指令 描述 Ctrl+b &amp;quot; 当前面板上下一分为二，下侧新建面板 Ctrl+b % 当前面板左右一分为二，右侧新建面板 Ctrl+b x 关闭当前面板（关闭前需输入y or n确认） Ctrl+b z 最大化当前面板，再重复一次按键后恢复正常（v1.8版本新增） Ctrl+b ! 将当前面板移动到新的窗口打开（原窗口中存在两个及以上面板有效） Ctrl+b ; 切换到最后一次使用的面板 Ctrl+b q 显示面板编号，在编号消失前输入对应的数字可切换到相应的面板 Ctrl+b { 向前置换当前面板 Ctrl+b } 向后置换当前面板 Ctrl+b Ctrl+o 顺时针旋转当前窗口中的所有面板 Ctrl+b 方向键 移动光标切换面板 Ctrl+b o 选择下一面板 Ctrl+b 空格键 在自带的面板布局中循环切换 Ctrl+b Alt+方向键 以5个单元格为单位调整当前面板边缘 Ctrl+b Ctrl+方向键 以1个单元格为单位调整当前面板边缘（Mac下被系统快捷键覆盖） Ctrl+b t 显示时钟 系统指令 前缀 指令 描述 Ctrl+b ?</description>
+    </item>
+    <item>
       <title>DockerHub 加速镜像部署 - 使用cloudflare 代理</title>
       <link>https://www.jobcher.com/docker-proxy/</link>
       <pubDate>Wed, 12 Jun 2024 00:00:00 +0000</pubDate>
