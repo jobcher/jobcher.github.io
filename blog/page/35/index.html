@@ -577,6 +577,106 @@
 
     </a>
 
+      <span class="hb-blog-post-date">2022年10月11日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/k8s15/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="Kubernetes — 基于K8S搭建Ceph分布式存储"
+        href="/k8s15/">Kubernetes — 基于K8S搭建Ceph分布式存储</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/k8s/">k8s</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">k8s入门系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/k8s/">k8s</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">基于 K8S 搭建 Ceph 分布式存储 前提 正常运行的多节点 K8S 集群，可以是两个节点也可以是更多。 每一个节点需要一个没有被分区的硬盘，最好大小一致不然会浪费。 没错其实就是一个要求，必须有集群才能进行容器管理，必须有硬盘才能做存储这些都是基础。 添加硬盘 主机 IP 磁盘 master01 10.12.12.51 SATA 20G master02 10.12.12.52 SATA 20G master03 10.12.12.53 SATA 20G worker01 10.12.12.54 SATA 20G worker02 10.12.12.55 SATA 20G 在 5 个节点都加 20g 存储
+重启 k8s 节点 1kubectl cordon &lt;节点&gt; 2kubectl drain &lt;节点&gt; --ignore-daemonsets --delete-emptydir-data 3# 虚拟机重启后 4kubectl uncordon &lt;节点&gt; 查看新增存储 1fdisk -l 看到新增 20g 存储,不要格式化分区硬盘！！！
+1Disk /dev/sdb: 20 GiB, 21474836480 bytes, 41943040 sectors 2Disk model: QEMU HARDDISK 3Units: sectors of 1 * 512 = 512 bytes 4Sector size (logical/physical): 512 bytes / 512 bytes 5I/O size (minimum/optimal): 512 bytes / 512 bytes ROOK 自动创建 Rook 是一个开源的cloud-native storage编排, 提供平台和框架；为各种存储解决方案提供平台、框架和支持，以便与云原生环境本地集成。 Rook 将存储软件转变为自我管理、自我扩展和自我修复的存储服务，它通过自动化部署、引导、配置、置备、扩展、升级、迁移、灾难恢复、监控和资源管理来实现此目的。 Rook 使用底层云本机容器管理、调度和编排平台提供的工具来实现它自身的功能。 Rook 目前支持Ceph、NFS、Minio Object Store和CockroachDB。 Rook 使用Kubernetes原语使Ceph存储系统能够在Kubernetes上运行。 下载 1git clone https://github.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/k8s15/">阅读更多关于Kubernetes — 基于K8S搭建Ceph分布式存储的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
       <span class="hb-blog-post-date">2022年10月8日</span>
 
         <span class="hb-blog-post-reading-time">3 分钟阅读</span>
@@ -1714,145 +1814,6 @@ Headscale 部署 我决定使用docker-compose进行部署
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2022年9月19日</span>
-
-        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/cleandocker/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-    <source srcset="/images/docker_hu4f54a21c17e7a324f7e13aec9e5d56ee_2686_300x168_resize_q75_h2_box_3.webp" type="image/webp" />
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/docker.b169abd50ce3f01255ce48a7094d5f1d.png"
-    alt="清理Docker容器日志"
-    loading="lazy"
-    height="168"
-    width="300"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="清理Docker容器日志"
-        href="/cleandocker/">清理Docker容器日志</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/docker/">docker</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/docker%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">docker入门系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/docker/">docker</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">清理 Docker 容器日志 如果 docker 容器正在运行，那么使用rm -rf方式删除日志后，通过df -h会发现磁盘空间并没有释放。原因是在 Linux 或者 Unix 系统中，通过rm -rf或者文件管理器删除文件，将会从文件系统的目录结构上解除链接（unlink）。如果文件是被打开的（有一个进程正在使用），那么进程将仍然可以读取该文件，磁盘空间也一直被占用。正确姿势是cat /dev/null &gt; *-json.log，当然你也可以通过rm -rf删除后重启 docker。
-日志清理脚本 clean_docker_log.sh 1#!/bin/sh 2 3echo &#34;======== start clean docker containers logs ========&#34; 4 5logs=$(find /var/lib/docker/containers/ -name *-json.log) 6 7for log in $logs 8 do 9 echo &#34;clean logs : $log&#34; 10 cat /dev/null &gt; $log 11 done 12 13echo &#34;======== end clean docker containers logs ========&#34; chmod +x clean_docker_log.sh &amp;&amp; ./clean_docker_log.sh
-设置 Docker 容器日志大小 设置一个容器服务的日志大小上限</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/cleandocker/">阅读更多关于清理Docker容器日志的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
     
@@ -2122,6 +2083,69 @@ Headscale 部署 我决定使用docker-compose进行部署
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-06-14/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-06-14.jpg.0400a3d535baaaba8b4317afb0faec2c.webp"
+    alt="2024-06-14 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-06-14 打工人日报"
+        href="/github_trending_2024-06-14/">2024-06-14 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/tmux/">
     
 
@@ -2369,69 +2393,6 @@ Headscale 部署 我决定使用docker-compose进行部署
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-06-11/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-06-11.jpg.57e648b2939b3702303ff4b50b97d81e.webp"
-    alt="2024-06-11 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-06-11 打工人日报"
-        href="/github_trending_2024-06-11/">2024-06-11 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2526,7 +2487,7 @@ Headscale 部署 我决定使用docker-compose进行部署
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">172</small>
+            <small class="taxonomy-term-count border rounded px-1">173</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2593,7 +2554,7 @@ Headscale 部署 我决定使用docker-compose进行部署
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">172</small>
+            <small class="taxonomy-term-count border rounded px-1">173</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2660,7 +2621,7 @@ Headscale 部署 我决定使用docker-compose进行部署
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">172</small>
+            <small class="taxonomy-term-count border rounded px-1">173</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2805,7 +2766,7 @@ Headscale 部署 我决定使用docker-compose进行部署
 
 
   
-<script src="/js/search.590b0f00c2eac7434d23d2e16ea4a7d39b094bba2dae605dc3454850fd6a8041.js" defer></script>
+<script src="/js/search.5be5ce64c7a52b5647c865374ec7aa0afd5aa8af7b78c06f1abf7cedd981e0f9.js" defer></script>
 
 
 
