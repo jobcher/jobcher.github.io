@@ -76,7 +76,7 @@
   
 
 
-打工人日志 - 39/44</title>
+打工人日志 - 39/45</title>
 
   
   
@@ -572,7 +572,7 @@
     class="nav-link d-flex flex-column"
     href="/"
     title="文章">
-    <span class="mb-3 text-body fw-bold">528</span>
+    <span class="mb-3 text-body fw-bold">529</span>
     <span class="text-body"><svg aria-hidden="true" class="bi bi-file-richtextbi bi-file-richtext hi-svg-inline text-primary" fill="currentColor" height="2.25em" viewBox="0 0 16 16" width="2.25em" xmlns="http://www.w3.org/2000/svg">
   <path d="M7 4.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m-.861 1.542 1.33.886 1.854-1.855a.25.25 0 0 1 .289-.047l1.888.974V7.5a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V7s1.54-1.274 1.639-1.208M5 9a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1z"/>
   <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1"/>
@@ -625,6 +625,115 @@
 
       
 <div class="hb-blog-posts row row-cols-1 row-cols-md-2 g-3 mb-3">
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年3月3日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/maven/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="Maven 安装编译"
+        href="/maven/">Maven 安装编译</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/work/">work</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/">问题库系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/work/">work</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">Maven 安装编译 Maven 就是专门为 Java 项目打造的管理和构建工具，它的主要功能有：
+提供了一套标准化的项目结构； 提供了一套标准化的构建流程（编译，测试，打包，发布……）； 提供了一套依赖管理机制。 默认结构：
+1a-maven-project 2├── pom.xml 3├── src 4│ ├── main 5│ │ ├── java 6│ │ └── resources 7│ └── test 8│ ├── java 9│ └── resources 10└── target 项目的根目录a-maven-project是项目名，
+它有一个项目描述文件pom.xml，
+存放Java源码的目录是src/main/java，
+存放资源文件的目录是src/main/resources，
+存放测试源码的目录是src/test/java，
+存放测试资源的目录是src/test/resources，
+最后，所有编译、打包生成的文件都放在target目录里。
+这些就是一个 Maven 项目的标准目录结构。
+pom.xml 文件:
+1&lt;project ...&gt; 2	&lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt; 3	&lt;groupId&gt;com.itranswarp.learnjava&lt;/groupId&gt; 4	&lt;artifactId&gt;hello&lt;/artifactId&gt; 5	&lt;version&gt;1.0&lt;/version&gt; 6	&lt;packaging&gt;jar&lt;/packaging&gt; 7	&lt;properties&gt; 8 ... 9	&lt;/properties&gt; 10	&lt;dependencies&gt; 11 &lt;dependency&gt; 12 &lt;groupId&gt;commons-logging&lt;/groupId&gt; 13 &lt;artifactId&gt;commons-logging&lt;/artifactId&gt; 14 &lt;version&gt;1.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/maven/">阅读更多关于Maven 安装编译的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
   
     <div class="col">
       
@@ -1714,107 +1823,6 @@ livenessProbe探针
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2022年2月11日</span>
-
-        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/linux/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="linux基础知识"
-        href="/linux/">linux基础知识</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E5%9F%BA%E7%A1%80/">基础</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97/">基础知识系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">linux 基础知识 1、简述 Linux 权限划分原则。 给文件或目录分配权限时，先考虑所有者和所属组 遵循最小化权限，用啥权限给啥权限 修改目录和子文件归属权限，注意递归 文件权限分配是最常用的安全防护手段 2、当用户 user1，对/testdir 目录有写和执行权限时，该目录下的只读文件 file1 是否可修改和删除？ 对 file1 不能修改也不能删除。（如果对目录有写权限和执行权限，则对 file1 不能修改可以删除）
-3、如果一个系统没有任何的备份策略，请写出一个较为全面合理的备份方案！ 增量备份：将相较于前一天增加的内容备份，适合每天改变量较大的数据。
-差异备份：将相较于第一天改变的内容备份，适合原始数据量比较大，但是之后改变的比较小，即使中间哪一天的丢了也没事，只要最后一天，和第一天的在就行。
-4、网站服务器每天产生的日志数量较大，请问如何备份? 使用 logrotate 滚动日志 split 大文件切分处理 shell 脚本处理日志 5、简述 Raid 0、Raid 1、Raid 5 的特点与原理。 RAID 等级 最少硬盘 最大容错 可用容量 读取性能 写入性能 安全性 目的 应用产业 单一硬盘 (参考) 0 1 1 1 无 JBOD 1 0 n 1 1 无（同 RAID 0） 增加容量 个人（暂时） 存储备份 0 2 0 n n n 一个硬盘异常，全部硬盘都会异常 追求最大容量、速度 视频剪接缓存用途 1 2 n-1 1 n 1 高，一个正常即可 追求最大安全性 个人、企业备份 5 3 1 n-1 n-1 n-1 中下至中 追求最大容量、最小预算 个人、小型企业备份 6 4 2 n-2 n-2 n-2 中至中高,仅安全性较 RAID 5 高 同 RAID 5，但较安全 个人、企业备份 10 4 高 综合 RAID 0/1 优点，理论速度较快 大型数据库、服务器 50 6 高 提升资料安全 60 8 高 提升资料安全 6、简述 Raid6、Raid 10 的特点与原理。 与 RAID 5 相比，RAID 6增加第二个独立的奇偶校验信息块。两个独立的奇偶系统使用不同的算法，数据的可靠性非常高，任意两块磁盘同时失效时不会影响数据完整性。RAID 6 需要分配给奇偶校验信息更大的磁盘空间和额外的校验计算，相对于 RAID 5 有更大的 IO 操作量和计算量，其“写性能”强烈取决于具体的实现方案，因此RAID 6通常不会通过软件方式来实现，而更可能通过硬件方式实现。</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/linux/">阅读更多关于linux基础知识的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
       
@@ -1865,7 +1873,7 @@ livenessProbe探针
 
           <li
             class="page-item">
-            <a class="page-link" href="/page/44/">44</a>
+            <a class="page-link" href="/page/45/">45</a>
           </li>
       <li class="page-item">
         <a
@@ -2075,6 +2083,69 @@ livenessProbe探针
           
   <div class="slide">
   <div class="slide-inner row row-cols-1">
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-06-15/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-06-15.jpg.e6c6be2174bee220ce516f88010823c6.webp"
+    alt="2024-06-15 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-06-15 打工人日报"
+        href="/github_trending_2024-06-15/">2024-06-15 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
       <div class="slide-item px-0">
         
 <div
@@ -2329,69 +2400,6 @@ livenessProbe探针
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-06-12/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-06-12.jpg.41ed111e7f217f00fc7c17f7f39876c6.webp"
-    alt="2024-06-12 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-06-12 打工人日报"
-        href="/github_trending_2024-06-12/">2024-06-12 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2486,7 +2494,7 @@ livenessProbe探针
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">173</small>
+            <small class="taxonomy-term-count border rounded px-1">174</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2553,7 +2561,7 @@ livenessProbe探针
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">173</small>
+            <small class="taxonomy-term-count border rounded px-1">174</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2620,7 +2628,7 @@ livenessProbe探针
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">173</small>
+            <small class="taxonomy-term-count border rounded px-1">174</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2765,7 +2773,7 @@ livenessProbe探针
 
 
   
-<script src="/js/search.5be5ce64c7a52b5647c865374ec7aa0afd5aa8af7b78c06f1abf7cedd981e0f9.js" defer></script>
+<script src="/js/search.17c7d33e55430058ef7493e553c3b2ad1e337122ff9c8871cc13bb73b4270ccc.js" defer></script>
 
 
 
