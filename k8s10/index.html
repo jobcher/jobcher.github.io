@@ -70,7 +70,7 @@ iSCSI 的一个特点是它可以同时被多个用户以只读方式挂载。 �
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/k8s10/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-08-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-06-20T11:01:04+08:00" />
+<meta property="article:modified_time" content="2024-06-20T11:39:55+08:00" />
 
 
 
@@ -82,7 +82,7 @@ CSI 容器存储接口 CSI 是 k8s 存储体系中一部分，是一个开源项
 iSCSI 的一个特点是它可以同时被多个用户以只读方式挂载。 这意味着你可以用数据集预先填充卷，然后根据需要在尽可能多的 Pod 上使用它。 不幸的是，iSCSI 卷只能由单个使用者以读写模式挂载。不允许同时写入。
 创建 iscsi-pv.yaml iscsi-pvc.yaml iscsi-pv.yaml
 1apiVersion: v1 2kind: PersistentVolume 3metadata: 4 name: iscsi-pv 5spec: 6 capacity: 7 storage: 500Gi 8 accessModes: 9 - ReadWriteOnce 10 iscsi: 11 targetPortal: 10."><meta itemprop="datePublished" content="2022-08-01T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-06-20T11:01:04+08:00" />
+<meta itemprop="dateModified" content="2024-06-20T11:39:55+08:00" />
 <meta itemprop="wordCount" content="285">
 <meta itemprop="keywords" content="k8s," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="kubernetes 存储"/>
 <meta name="twitter:description" content="kubernetes 存储 k8s 支持多种途径的多种类型的存储。例如 iSCSI,SMB,NFS，以及对象存储。都是不同类型的部署在云上或者自建数据中心的外部存储系统。k8s 上的所有存储都被称作卷
@@ -105,7 +105,7 @@ kubernetes 存储 - 博客 - 打工人日志</title>
   
 
 
-    <link href="/css/hb.fbd0849e9fa1f4c71a9a7cdc7fe956acffb532552de2368f6405067e8e9c83a0.css" rel="stylesheet" />
+    <link href="/css/hb.abaa4fd4554f17dc4eda4e85af2819bce5a9cc6ef040903d57e7f845b13da75b.css" rel="stylesheet" />
 
 
 
@@ -823,11 +823,11 @@ kubernetes 存储 - 博客 - 打工人日志</title>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/57fd3e412cc22a7b4f32680dfe3b9eb06b9b4fd1"
+            href="https://github.com/jobcher/new-blog/commit/4f98e5d24139ba5349bb06ad685ece1e72c19467"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>update twikoo</a>
+</svg>update</a>
         </li>
     </ul>
   </div>
@@ -2036,7 +2036,7 @@ kubernetes 存储 - 博客 - 打工人日志</title>
 
 
   
-<script src="/js/search.806ae27d4ddccc2967de93e60976c8322410b87dde0aa85b5982d6641c7f68f7.js" defer></script>
+<script src="/js/search.9023801c4d08b419a3fb18ef18ac4c178041f4ad8b923fed60803f05e54f2a0b.js" defer></script>
 
 
 
