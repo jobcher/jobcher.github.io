@@ -65,14 +65,14 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/ansible/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2021-12-30T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-06-20T01:32:46+00:00" />
+<meta property="article:modified_time" content="2024-06-20T09:46:29+08:00" />
 
 
 
 <meta itemprop="name" content="ansible 安装和部署">
 <meta itemprop="description" content="ansible 安装和部署 Ansible 默认通过 SSH 协议管理机器.
 安装 ansible 下载安装 1# ubuntu 安装 2apt-get install software-properties-common 3apt-add-repository ppa:ansible/ansible 4apt-get update 5apt-get install ansible 6# centos 安装 7yum install ansible 检查文件 1#检查 2ansible --version ansible 配置 添加主机 1vim /etc/ansible/hosts 2#添加你需要添加的被控主机地址和IP 配置 SSH key 授权访问 1# 控制主机生成ssh 密钥对（一路回车） 2ssh-keygen -t rsa 3# 复制公钥IP到被控主机 4ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.0.2 5ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.0.3 6ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.0.4 7# ssh-copy-id命令会自动将id_rsa.pub文件的内容追加到远程主机root用户下.ssh/authorized_keys文件中。 更改 ansible 配置 1vim /etc/ansible/ansible.cfg 2 3#禁用每次执行ansbile命令检查ssh key host 4host_key_checking = False 5# 开启日志记录 6log_path = /var/log/ansible."><meta itemprop="datePublished" content="2021-12-30T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-06-20T01:32:46+00:00" />
+<meta itemprop="dateModified" content="2024-06-20T09:46:29+08:00" />
 <meta itemprop="wordCount" content="221">
 <meta itemprop="keywords" content="ansible," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="ansible 安装和部署"/>
 <meta name="twitter:description" content="ansible 安装和部署 Ansible 默认通过 SSH 协议管理机器.
@@ -849,11 +849,11 @@ Roles 目录结构：</p>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/ea6bd165f015e403a2d57172191e862b6b235f43"
+            href="https://github.com/jobcher/new-blog/commit/b5b1054b8033546e88003c29ce78868d1e3e217c"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>update github trend</a>
+</svg>update</a>
         </li>
     </ul>
   </div>
@@ -2169,7 +2169,7 @@ Roles 目录结构：</p>
 
 
   
-<script src="/js/search.5e0a2084fb69178d5cc20c877c3dc194f135e18f19e05f79a66c88c964a69d9c.js" defer></script>
+<script src="/js/search.71bb344db5222d86c10845ee4d3bece951ab4d1e91b3357ee97dfae26926cd06.js" defer></script>
 
 
 

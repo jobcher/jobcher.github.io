@@ -73,7 +73,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/system-limit/" /><meta property="og:image" content="https://www.jobcher.com/images/elasticsearch.png" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2023-11-07T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-06-20T01:32:46+00:00" />
+<meta property="article:modified_time" content="2024-06-20T09:46:29+08:00" />
 
 
 
@@ -83,7 +83,7 @@
 这个问题是 Logstash Pipeline 在处理数据时报错,原因是打开文件过多导致&quot;Too many open files&quot;
 解决方法 1. 检查操作系统的文件打开数量限制,使用ulimit -n查看。如果太低,可以提高这个限制 打开 /etc/profile 增加ulimit 值
 1vim /etc/profile 2## 增加，保存并退出 3ulimit -n 10240 4# 重载配置 5source /etc/profile 2. 适当增大Logstash的heap size,如-Xms和-Xmx设置为2g。 1vim /etc/logstash/jvm.option 2# 修改参数 3-Xms 2g 4-Xmx 2g 5# 重启logstash服务 "><meta itemprop="datePublished" content="2023-11-07T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-06-20T01:32:46+00:00" />
+<meta itemprop="dateModified" content="2024-06-20T09:46:29+08:00" />
 <meta itemprop="wordCount" content="65"><meta itemprop="image" content="https://www.jobcher.com/images/elasticsearch.png" />
 <meta itemprop="keywords" content="error," /><meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://www.jobcher.com/images/elasticsearch.png" /><meta name="twitter:title" content="linux服务器进程打开文件过多导致服务异常"/>
@@ -787,11 +787,11 @@ linux服务器进程打开文件过多导致服务异常 - 博客 - 打工人日
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/ea6bd165f015e403a2d57172191e862b6b235f43"
+            href="https://github.com/jobcher/new-blog/commit/b5b1054b8033546e88003c29ce78868d1e3e217c"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>update github trend</a>
+</svg>update</a>
         </li>
     </ul>
   </div>
@@ -2380,7 +2380,7 @@ linux服务器进程打开文件过多导致服务异常 - 博客 - 打工人日
 
 
   
-<script src="/js/search.5e0a2084fb69178d5cc20c877c3dc194f135e18f19e05f79a66c88c964a69d9c.js" defer></script>
+<script src="/js/search.71bb344db5222d86c10845ee4d3bece951ab4d1e91b3357ee97dfae26926cd06.js" defer></script>
 
 
 
