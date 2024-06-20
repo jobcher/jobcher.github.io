@@ -65,14 +65,14 @@ mysql 各类信息的收集 收集变量信息 1show global variables; 收集进
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/mysql01/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2021-12-12T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-06-20T10:34:30+08:00" />
+<meta property="article:modified_time" content="2024-06-20T10:36:08+08:00" />
 
 
 
 <meta itemprop="name" content="mysql 笔记（1）">
 <meta itemprop="description" content="mysql 学习笔记（1） 本文章不涉及到关于 mysql 开放上的问题，主要记录关于 mysql 出现的问题，以及如何去维护 mysql 数据的日常。
 mysql 各类信息的收集 收集变量信息 1show global variables; 收集进程信息 1show PROCESSLIST; 收集错误日志 1show global variables like &#39;log_error&#39;; 收集慢日志信息 1show global variables like &#39;slow_querry_log_file&#39;; 收集锁信息，高峰时期运行三次，每次间隔 10s 1SELECT locked_table, 2 locked_index, 3 locked_type, 4 blocking_pid, 5 T2.USER blocking_user, 6 T2.HOST blocking_host, 7 blocking_lock_mode, 8 blocking_trx_rows_modified, 9 waiting_pid, 10 T3.USER waiting_user, 11 T3.HOST waiting_host, 12 waiting_lock_mode, 13 waiting_trx_row_modified, 14 wait_age_secs, 15 waiting_query 16FROM sys.x$innodb_lock_waits T1 17LEFT JOIN INFROMATION_SCHEMA."><meta itemprop="datePublished" content="2021-12-12T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-06-20T10:34:30+08:00" />
+<meta itemprop="dateModified" content="2024-06-20T10:36:08+08:00" />
 <meta itemprop="wordCount" content="199">
 <meta itemprop="keywords" content="mysql," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="mysql 笔记（1）"/>
 <meta name="twitter:description" content="mysql 学习笔记（1） 本文章不涉及到关于 mysql 开放上的问题，主要记录关于 mysql 出现的问题，以及如何去维护 mysql 数据的日常。
@@ -90,7 +90,7 @@ mysql 笔记（1） - 博客 - 打工人日志</title>
   
 
 
-    <link href="/css/hb.b893caf5a8ddcc799574b6a03e42a682cdc006ecd1edbb089a396ae7f5579c25.css" rel="stylesheet" />
+    <link href="/css/hb.fbd0849e9fa1f4c71a9a7cdc7fe956acffb532552de2368f6405067e8e9c83a0.css" rel="stylesheet" />
 
 
 
@@ -804,7 +804,7 @@ mysql 笔记（1） - 博客 - 打工人日志</title>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/318cfcdf379fde89c8c48997acf00a7509c007c8"
+            href="https://github.com/jobcher/new-blog/commit/0dbdf70e335a7dcd8666ed6eed524848dd842584"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
@@ -1107,7 +1107,7 @@ mysql 笔记（1） - 博客 - 打工人日志</title>
 
 
   <div id="content-comments" class="hb-blog-post-comments hb-module mb-3">
-<div class="giscus"></div>
+<div id="twikoo-comments"></div>
 
 
   </div>
@@ -1996,18 +1996,28 @@ mysql 笔记（1） - 博客 - 打工人日志</title>
 
 
 <script
-  src="/js/hb.c0066c4f0fd874bbf4c97d17090f8d69d3f4aee421147777de139d311d631afc.js"
-  integrity="sha256-wAZsTw/YdLv0yX0XCQ&#43;NadP0ruQhFHd33hOdMR1jGvw="
+  src="/js/hb.796c92b2e1f411bc8a672df4985b1a5bf2387fe6c31fef929898106b6cbd2067.js"
+  integrity="sha256-eWySsuH0EbyKZy30mFsaW/I4f&#43;bDH&#43;&#43;SmJgQa2y9IGc="
   defer></script>
 
 
   
+<script src="https://cdn.staticfile.org/twikoo/1.6.16/twikoo.all.min.js"></script>
+<script>
+  twikoo.init({
+    envId: '',
+    el: '#twikoo-comments',
+    region: '',
+    path: location.pathname,
+    lang: 'zh-hans'
+  });
+</script>
 
 
 
 
   
-<script src="/js/search.e830635deed98bcbc1f339f591ab718009d08fc88c6a09bc33f7b6f60bf47ac0.js" defer></script>
+<script src="/js/search.75d0236c4641270b4653cebfbb66a8761a1035c18b0d2e22f266071c9c4a974f.js" defer></script>
 
 
 
