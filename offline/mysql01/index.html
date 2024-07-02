@@ -70,14 +70,14 @@ mysql 各类信息的收集 收集变量信息 1show global variables; 收集进
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/mysql01/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2021-12-12T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-07-01T01:35:09+00:00" />
+<meta property="article:modified_time" content="2024-07-02T08:17:41+08:00" />
 
 
 
 <meta itemprop="name" content="mysql 笔记（1）">
 <meta itemprop="description" content="mysql 学习笔记（1） 本文章不涉及到关于 mysql 开放上的问题，主要记录关于 mysql 出现的问题，以及如何去维护 mysql 数据的日常。
 mysql 各类信息的收集 收集变量信息 1show global variables; 收集进程信息 1show PROCESSLIST; 收集错误日志 1show global variables like &#39;log_error&#39;; 收集慢日志信息 1show global variables like &#39;slow_querry_log_file&#39;; 收集锁信息，高峰时期运行三次，每次间隔 10s 1SELECT locked_table, 2 locked_index, 3 locked_type, 4 blocking_pid, 5 T2.USER blocking_user, 6 T2.HOST blocking_host, 7 blocking_lock_mode, 8 blocking_trx_rows_modified, 9 waiting_pid, 10 T3.USER waiting_user, 11 T3.HOST waiting_host, 12 waiting_lock_mode, 13 waiting_trx_row_modified, 14 wait_age_secs, 15 waiting_query 16FROM sys.x$innodb_lock_waits T1 17LEFT JOIN INFROMATION_SCHEMA."><meta itemprop="datePublished" content="2021-12-12T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-07-01T01:35:09+00:00" />
+<meta itemprop="dateModified" content="2024-07-02T08:17:41+08:00" />
 <meta itemprop="wordCount" content="199">
 <meta itemprop="keywords" content="mysql," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="mysql 笔记（1）"/>
 <meta name="twitter:description" content="mysql 学习笔记（1） 本文章不涉及到关于 mysql 开放上的问题，主要记录关于 mysql 出现的问题，以及如何去维护 mysql 数据的日常。
@@ -809,11 +809,11 @@ mysql 笔记（1） - 博客 - 打工人日志</title>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/3f34a7ef499d3928a0a5dda65b3b91600f403369"
+            href="https://github.com/jobcher/new-blog/commit/22568cbf77f52ebbbc7d32c6ade0732912e311e7"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>update github trend</a>
+</svg>更新文章</a>
         </li>
     </ul>
   </div>
@@ -2021,7 +2021,7 @@ mysql 笔记（1） - 博客 - 打工人日志</title>
 
 
   
-<script src="/js/search.4c50fcf0fe7b46603e3eb16b230f23347c629afb47f0b77cd4f85442c42a4d70.js" defer></script>
+<script src="/js/search.c33b93c15b27a9b8be155380dc6faa1671fe40ebe2d287b855b993a4ef99a674.js" defer></script>
 
 
 

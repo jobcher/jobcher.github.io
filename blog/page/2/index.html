@@ -1911,8 +1911,7 @@ GitHub 热门榜单 排名 1:/LazyVim/LazyVim 简介: 懒惰者的Neovim配置 U
 因为不能直接访问国外的镜像仓库，下载国外的docker镜像速度一直很慢, 国内从 Docker Hub 拉取镜像有时会遇到困难，此时可以配置镜像加速器。
 使用 我这边已经部署好了加速镜像节点，同学们如果不想自己部署，可以使用我的加速节点，但是，不能保证节点长期有效。
 1https://dockerhub.jobcher.com 第一步：代理拉取镜像 假如我们下载node镜像，那么我们可以这样写：
-1docker pull dockerhub.jobcher.com/library/node:latest 第二步：重命名镜像 1docker tag dockerhub.jobcher.com/library/node:latest node:latest 第三步：删除代理镜像 1docker rmi dockerhub.jobcher.com/library/node:latest 或者直接配置到镜像仓库 1sudo mkdir -p /etc/docker 2sudo tee /etc/docker/daemon.json &lt;&lt;-&#39;EOF&#39; 3{ 4 &#34;registry-mirrors&#34;: [ 5 &#34;https://dockerhub.jobcher.com&#34;, 6 ] 7} 8EOF 重新加载docker
-1sudo systemctl daemon-reload 2sudo systemctl restart docker 配置 cloudflare 代理 我们通过 cloudflare 的全球 CDN 节点，以 Workers 中转代理的方式来访问国外镜像仓库，从而加速镜像的下载。</div>
+1docker pull dockerhub.jobcher.com/library/node:latest 2# 或者 3docker pull dockerhub.jobcher.com/bitnami/node:latest 第二步：重命名镜像 1docker tag dockerhub.jobcher.com/library/node:latest node:latest 2# 或者 3docker tag dockerhub.jobcher.com/bitnami/node:latest node:latest 第三步：删除代理镜像 1docker rmi dockerhub.jobcher.com/library/node:latest 2# 或者 3docker rmi dockerhub.jobcher.com/bitnami/node:latest 或者直接配置到镜像仓库 1sudo mkdir -p /etc/docker 2sudo tee /etc/docker/daemon.json &lt;&lt;-&#39;EOF&#39; 3{ 4 &#34;registry-mirrors&#34;: [ 5 &#34;https://dockerhub.</div>
         <div class="mt-2">
           <a
             class="text-secondary" href="/docker-proxy/">阅读更多关于DockerHub 加速镜像部署 - 使用cloudflare 代理的内容。</a>
@@ -2983,7 +2982,7 @@ GitHub 热门榜单 排名 1:/coollabsio/coolify 简介: 一个开源和可自�
 
 
   
-<script src="/js/search.4c50fcf0fe7b46603e3eb16b230f23347c629afb47f0b77cd4f85442c42a4d70.js" defer></script>
+<script src="/js/search.c33b93c15b27a9b8be155380dc6faa1671fe40ebe2d287b855b993a4ef99a674.js" defer></script>
 
 
 
