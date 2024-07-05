@@ -66,7 +66,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/linux/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-02-11T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-07-04T01:34:17+00:00" />
+<meta property="article:modified_time" content="2024-07-05T01:33:53+00:00" />
 
 
 
@@ -75,7 +75,7 @@
 3、如果一个系统没有任何的备份策略，请写出一个较为全面合理的备份方案！ 增量备份：将相较于前一天增加的内容备份，适合每天改变量较大的数据。
 差异备份：将相较于第一天改变的内容备份，适合原始数据量比较大，但是之后改变的比较小，即使中间哪一天的丢了也没事，只要最后一天，和第一天的在就行。
 4、网站服务器每天产生的日志数量较大，请问如何备份? 使用 logrotate 滚动日志 split 大文件切分处理 shell 脚本处理日志 5、简述 Raid 0、Raid 1、Raid 5 的特点与原理。 RAID 等级 最少硬盘 最大容错 可用容量 读取性能 写入性能 安全性 目的 应用产业 单一硬盘 (参考) 0 1 1 1 无 JBOD 1 0 n 1 1 无（同 RAID 0） 增加容量 个人（暂时） 存储备份 0 2 0 n n n 一个硬盘异常，全部硬盘都会异常 追求最大容量、速度 视频剪接缓存用途 1 2 n-1 1 n 1 高，一个正常即可 追求最大安全性 个人、企业备份 5 3 1 n-1 n-1 n-1 中下至中 追求最大容量、最小预算 个人、小型企业备份 6 4 2 n-2 n-2 n-2 中至中高,仅安全性较 RAID 5 高 同 RAID 5，但较安全 个人、企业备份 10 4 高 综合 RAID 0/1 优点，理论速度较快 大型数据库、服务器 50 6 高 提升资料安全 60 8 高 提升资料安全 6、简述 Raid6、Raid 10 的特点与原理。 与 RAID 5 相比，RAID 6增加第二个独立的奇偶校验信息块。两个独立的奇偶系统使用不同的算法，数据的可靠性非常高，任意两块磁盘同时失效时不会影响数据完整性。RAID 6 需要分配给奇偶校验信息更大的磁盘空间和额外的校验计算，相对于 RAID 5 有更大的 IO 操作量和计算量，其“写性能”强烈取决于具体的实现方案，因此RAID 6通常不会通过软件方式来实现，而更可能通过硬件方式实现。"><meta itemprop="datePublished" content="2022-02-11T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-07-04T01:34:17+00:00" />
+<meta itemprop="dateModified" content="2024-07-05T01:33:53+00:00" />
 <meta itemprop="wordCount" content="372">
 <meta itemprop="keywords" content="运维," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="linux基础知识"/>
 <meta name="twitter:description" content="linux 基础知识 1、简述 Linux 权限划分原则。 给文件或目录分配权限时，先考虑所有者和所属组 遵循最小化权限，用啥权限给啥权限 修改目录和子文件归属权限，注意递归 文件权限分配是最常用的安全防护手段 2、当用户 user1，对/testdir 目录有写和执行权限时，该目录下的只读文件 file1 是否可修改和删除？ 对 file1 不能修改也不能删除。（如果对目录有写权限和执行权限，则对 file1 不能修改可以删除）
@@ -1027,7 +1027,7 @@ linux基础知识 - 博客 - 打工人日志</title>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/a80bb796b2372630de53029989d7d3e9edb23c6a"
+            href="https://github.com/jobcher/new-blog/commit/d75888f35fdbce4ece2000ab5c390d3039d77291"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
@@ -1663,6 +1663,69 @@ linux基础知识 - 博客 - 打工人日志</title>
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-07-05/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-07-05.jpg.0af136e78f982801062ac91ad2db6def.webp"
+    alt="2024-07-05 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-07-05 打工人日报"
+        href="/github_trending_2024-07-05/">2024-07-05 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-07-04/">
     
 
@@ -1908,69 +1971,6 @@ linux基础知识 - 博客 - 打工人日志</title>
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-06-30/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-06-30.jpg.0f6b067491bf3c00ff32572dd0857d94.webp"
-    alt="2024-06-30 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-06-30 打工人日报"
-        href="/github_trending_2024-06-30/">2024-06-30 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2065,7 +2065,7 @@ linux基础知识 - 博客 - 打工人日志</title>
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">193</small>
+            <small class="taxonomy-term-count border rounded px-1">194</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2132,7 +2132,7 @@ linux基础知识 - 博客 - 打工人日志</title>
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">193</small>
+            <small class="taxonomy-term-count border rounded px-1">194</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2199,7 +2199,7 @@ linux基础知识 - 博客 - 打工人日志</title>
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">193</small>
+            <small class="taxonomy-term-count border rounded px-1">194</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2356,7 +2356,7 @@ linux基础知识 - 博客 - 打工人日志</title>
 
 
   
-<script src="/js/search.d293aa062f7030d35715cd93004d0ec0dab1188b8877ffdc4d39cd51bbcbdb5a.js" defer></script>
+<script src="/js/search.d55e6c74fa2da61256c642de2d2a1cd1313b8da2b2a9c52f95ead91a472bb075.js" defer></script>
 
 
 
