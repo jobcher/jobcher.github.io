@@ -577,6 +577,116 @@
 
     </a>
 
+      <span class="hb-blog-post-date">2023年5月15日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/appium/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="在windows上安装appium"
+        href="/appium/">在windows上安装appium</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E5%9F%BA%E7%A1%80/">基础</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%B3%BB%E5%88%97/">基础知识系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/%E8%BF%90%E7%BB%B4/">运维</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">在windows上安装appium Appium 主要用于软件测试自动化领域，以帮助确定给定应用程序的功能是否按预期工作。与其他类型的软件测试相比，UI 自动化允许测试人员编写代码，在应用程序的实际 UI 中演练用户方案，尽可能模拟现实世界中发生的情况，同时实现自动化的各种好处，包括速度、规模和一致性。
+安装nodejs Appium是基于Node.js构建的,所以首先需要安装Node.js
+下载地址：https://nodejs.org/en/download/
+下载并安装，验证是否安装成功
+1node -v 安装appium 安装Appium。在命令提示符下运行:
+1npm install -g appium 安装appium-doctor 安装appium-doctor。在命令提示符下运行:
+1npm install -g appium-doctor 安装appium-desktop 安装appium-desktop。在命令提示符下运行:
+1npm install -g appium-desktop 安装jdk 下载地址：https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html 下载并安装，验证是否安装成功
+1java -version 安装android-sdk 下载地址：https://developer.android.com/studio 下载并安装，验证是否安装成功
+1adb version 配置环境变量 在系统环境变量中添加以下变量
+1ANDROID_HOME = D:\Android\sdk 2JAVA_HOME = C:\Program Files\Java\jdk1.8.0_311 3Path = %ANDROID_HOME%\platform-tools;%ANDROID_HOME%\tools;%JAVA_HOME%\bin 验证是否配置成功
+1appium-doctor 启动appium 1appium 启动appium-desktop 1appium-desktop 测试脚本 创建测试脚本test.py
+1from appium import webdriver 2import time 3 4desired_caps = {} 5 6desired_caps[&#39;platformName&#39;] = &#39;Android&#39; 7desired_caps[&#39;platformVersion&#39;] = &#39;10&#39; 8desired_caps[&#39;deviceName&#39;] = &#39;Android Emulator&#39; 9desired_caps[&#39;appPackage&#39;] = &#39;com.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/appium/">阅读更多关于在windows上安装appium的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
       <span class="hb-blog-post-date">2023年4月20日</span>
 
         <span class="hb-blog-post-reading-time">1 分钟阅读</span>
@@ -1709,105 +1819,6 @@ SARS-CoV-2 病毒主要通过与 ACE2 受体结合感染人体细胞，而肺细
 
     </div>
   
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2023年1月16日</span>
-
-        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/2023-01-19/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="打工人周报（第二期）"
-        href="/2023-01-19/">打工人周报（第二期）</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E5%91%A8%E6%8A%A5/">周报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E5%91%A8%E6%8A%A5%E7%B3%BB%E5%88%97/">周报系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E5%91%A8%E6%8A%A5/">周报</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">打工人周报：记录每周值得分享的内容,周四发布,`第二期`欢迎关注。 [通知]因春节假期改为周一发布 资讯动态 1. 曝 iPad Pro 未来会砍掉实体按键：梦回 iPhone 7 时代 1 月 12 日消息，据 9to5Mac 报道，苹果今年下半年要发布的 iPhone 15 Pro 将会砍掉实体按键，未来 iPad Pro、Apple Watch 等也将会跟进，它们都将采用类似 iPhone 7、iPhone 8 时代的固态 Home 按键设计。据悉，iPad Pro 将会集成 Taptic Engine 固态按键控制器 IC，它被用来模拟按压物理按键的震动。知名分析师郭明錤表示，苹果之所以想砍掉实体按键，最主要原因是想提高设备耐用性，物理电源和音量按键很容易出故障，砍掉按键一方面提升耐用性，另一方面增强设备防水性。
-2. AMD 承认闹乌龙，官方表示尚未确认锐龙 7000 X3D 上市时间 根据 AMD 官网放出的参数页信息，AMD R9 7950X3D、R9 7900X3D、R7 7800X3D 将于 2 月 14 日上市，但有网友怀疑只是占位符，现在 AMD 官方也已经确认这一数字并非真实日期，不过官方并未给出任何进一步的细节。上周，AMD 在 CES 2023 上正式发布了采用 3D 缓存的锐龙 7000X3D 台式机处理器，最高 16 核 32 线程，L2+L3 缓存达到 144MB，共有三个型号。AMD 在 PPT 中声称，在流行的电子竞技游戏中，R7 7800X3D 的游戏性能提升可达 25%。</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/2023-01-19/">阅读更多关于打工人周报（第二期）的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
 </div>
 
     
@@ -2077,6 +2088,69 @@ SARS-CoV-2 病毒主要通过与 ACE2 受体结合感染人体细胞，而肺细
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github_trending_2024-07-12/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-07-12.jpg.db6ee4a813dc75efd8c34900098796d6.webp"
+    alt="2024-07-12 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-07-12 打工人日报"
+        href="/github_trending_2024-07-12/">2024-07-12 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/github_trending_2024-07-11/">
     
 
@@ -2322,69 +2396,6 @@ SARS-CoV-2 病毒主要通过与 ACE2 受体结合感染人体细胞，而肺细
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-07-07/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-07-07.jpg.496df39623e6b48b055ad7b0e658f6b2.webp"
-    alt="2024-07-07 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-07-07 打工人日报"
-        href="/github_trending_2024-07-07/">2024-07-07 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2479,7 +2490,7 @@ SARS-CoV-2 病毒主要通过与 ACE2 受体结合感染人体细胞，而肺细
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">200</small>
+            <small class="taxonomy-term-count border rounded px-1">201</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2546,7 +2557,7 @@ SARS-CoV-2 病毒主要通过与 ACE2 受体结合感染人体细胞，而肺细
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">200</small>
+            <small class="taxonomy-term-count border rounded px-1">201</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2613,7 +2624,7 @@ SARS-CoV-2 病毒主要通过与 ACE2 受体结合感染人体细胞，而肺细
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">200</small>
+            <small class="taxonomy-term-count border rounded px-1">201</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2758,7 +2769,7 @@ SARS-CoV-2 病毒主要通过与 ACE2 受体结合感染人体细胞，而肺细
 
 
   
-<script src="/js/search.2f0e70937970dc43591f06d9a8b992ae47c90a20d7ef260d5575ba7534ef8ac7.js" defer></script>
+<script src="/js/search.fe332eea6868cfc060306cd5c29a6cbf54129e708f79fd67c275f32c072e7a5c.js" defer></script>
 
 
 
