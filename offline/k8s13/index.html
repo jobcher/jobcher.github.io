@@ -71,7 +71,7 @@
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://www.jobcher.com/k8s13/" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2022-10-08T00:00:00+00:00" />
-<meta property="article:modified_time" content="2024-07-13T22:17:28+08:00" />
+<meta property="article:modified_time" content="2024-07-13T22:39:34+08:00" />
 
 
 
@@ -79,7 +79,7 @@
 <meta itemprop="description" content="Kubernetes — 探针和生命周期 用于判断容器内应用程序是否已经启动。
 存活（Liveness）探针 用于探测容器是否运行，如果探测失败，kubelet 会根据配置的重启策略进行相应的处理，若没有配置探针该返回值默认为 success 就绪（Readiness）探针 用于探测容器内的程序是否健康，如果返回值为 success，那么代表这个容器已经完全启动，并且程序已经是可以接受流量的状态 启动（Startup）探针 用于探测容器是否启动，如果配置了 startup 就会先禁止其他探测，直到它成功，成功后将不在运行探测 Pod 检测方式 ExecAction：在容器执行一个命令，返回值为 0，则认为容器健康 TCPSocketAction：通过 TCP 连接检查容器是否联通，通的话，则认为容器正常 HTTPGetAction：通过应用程序暴露的 API 地址来检查程序是否正常的，如果状态码为 200-400 之间，则认为容器健康 gRPCAction：通过 gRPC 的检查机制，判断容器是不是正常 StartupProbe 启动探针 有时候，会有一些现有的应用在启动时需要较长的初始化时间。 要这种情况下，若要不影响对死锁作出快速响应的探测，设置存活探测参数是要技巧的。 技巧就是使用相同的命令来设置启动探测，针对 HTTP 或 TCP 检测，可以通过将 failureThreshold * periodSeconds 参数设置为足够长的时间来应对糟糕情况下的启动时间。
 1ports: 2 - name: liveness-port 3 containerPort: 8080 4 hostPort: 8080 5 6livenessProbe: 7 httpGet: 8 path: /healthz 9 port: liveness-port 10 failureThreshold: 1 11 periodSeconds: 10 12 13startupProbe: 14 httpGet: 15 path: /healthz 16 port: liveness-port 17 failureThreshold: 30 18 periodSeconds: 10 幸亏有启动探测，应用程序将会有最多 5 分钟（30 * 10 = 300s）的时间来完成其启动过程。 一旦启动探测成功一次，存活探测任务就会接管对容器的探测，对容器死锁作出快速响应。 如果启动探测一直没有成功，容器会在 300 秒后被杀死，并且根据restartPolicy来执行进一步处置。"><meta itemprop="datePublished" content="2022-10-08T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2024-07-13T22:17:28+08:00" />
+<meta itemprop="dateModified" content="2024-07-13T22:39:34+08:00" />
 <meta itemprop="wordCount" content="598">
 <meta itemprop="keywords" content="k8s," /><meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Kubernetes — 探针和生命周期"/>
 <meta name="twitter:description" content="Kubernetes — 探针和生命周期 用于判断容器内应用程序是否已经启动。
@@ -908,11 +908,11 @@ Kubernetes — 探针和生命周期 - 博客 - 打工人日志</title>
         <li>
           <a
             class="dropdown-item"
-            href="https://github.com/jobcher/new-blog/commit/320f9c1b653d5469cf236fb0c3526bd4435e8c84"
+            href="https://github.com/jobcher/new-blog/commit/bb96edc9b296febcd06e42507c2904a639401a0d"
             target="_blank"
             rel="noreferrer noopener"><svg aria-hidden="true" class="bi bi-gitbi bi-git hi-svg-inline me-2" fill="currentColor" height="1em" viewBox="0 0 16 16" width="1em" xmlns="http://www.w3.org/2000/svg">
   <path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"/>
-</svg>日报独立发布</a>
+</svg>新增通知</a>
         </li>
     </ul>
   </div>
@@ -1427,6 +1427,70 @@ Kubernetes — 探针和生命周期 - 博客 - 打工人日志</title>
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/notice-1/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+    <source srcset="/images/notice_hu74ee65f1f15eef359e8ac84008eddfd1_253823_1920x1080_resize_q75_h2_box_3.webp" type="image/webp" />
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/notice.b511c82d71c51a64965ca508cc1b3599.png"
+    alt="通知：《打工人日报》迁移到独立板块"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="通知：《打工人日报》迁移到独立板块"
+        href="/notice-1/">通知：《打工人日报》迁移到独立板块</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/new/daily/github_trending_2024-07-13/">
     
 
@@ -1672,69 +1736,6 @@ Kubernetes — 探针和生命周期 - 博客 - 打工人日志</title>
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/new/daily/github_trending_2024-07-09/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-07-09.jpg.b8f102e449160f7ad2f56fd4238ef2ed.webp"
-    alt="2024-07-09 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-07-09 打工人日报"
-        href="/new/daily/github_trending_2024-07-09/">2024-07-09 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -1816,7 +1817,7 @@ Kubernetes — 探针和生命周期 - 博客 - 打工人日志</title>
           class="taxonomy-term taxonomy-term-authors btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/authors/jobcher/">
           <span class="taxonomy-term-title">jobcher</span>
-            <small class="taxonomy-term-count border rounded px-1">350</small>
+            <small class="taxonomy-term-count border rounded px-1">351</small>
         </a>
     </div>
     <div
@@ -1841,7 +1842,7 @@ Kubernetes — 探针和生命周期 - 博客 - 打工人日志</title>
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E5%B8%B8/">
           <span class="taxonomy-term-title">日常</span>
-            <small class="taxonomy-term-count border rounded px-1">32</small>
+            <small class="taxonomy-term-count border rounded px-1">33</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -1908,7 +1909,7 @@ Kubernetes — 探针和生命周期 - 博客 - 打工人日志</title>
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/">
           <span class="taxonomy-term-title">日常系列</span>
-            <small class="taxonomy-term-count border rounded px-1">32</small>
+            <small class="taxonomy-term-count border rounded px-1">33</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -1981,7 +1982,7 @@ Kubernetes — 探针和生命周期 - 博客 - 打工人日志</title>
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/daliy/">
           <span class="taxonomy-term-title">daliy</span>
-            <small class="taxonomy-term-count border rounded px-1">19</small>
+            <small class="taxonomy-term-count border rounded px-1">20</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2120,7 +2121,7 @@ Kubernetes — 探针和生命周期 - 博客 - 打工人日志</title>
 
 
   
-<script src="/js/search.7c327aa9427b7cc6dae474a70b19c6069596287ab4aee50bf744f67318975470.js" defer></script>
+<script src="/js/search.c5e317b8a1767ca464cec788dd4a438dd0cc8e5db96cdaf1a8464922e61bf3a3.js" defer></script>
 
 
 

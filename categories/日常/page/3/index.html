@@ -557,7 +557,7 @@
   
     <li
       class="nav-item d-flex flex-column justify-content-center align-items-center my-2 mx-3">
-      <span class="mb-1 fw-bold btn btn-secondary rounded">32</span>
+      <span class="mb-1 fw-bold btn btn-secondary rounded">33</span>
       <span class="text-body-secondary">文章</span>
     </li>
   
@@ -578,6 +578,101 @@
 </div>
 
       <div class="hb-terms-posts row row-cols-1 row-cols-md-2">
+          <div class="mb-3 mb-lg-4">
+            
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2021年12月29日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/logrotate/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="logrotate 日志滚动的使用"
+        href="/logrotate/">logrotate 日志滚动的使用</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/">日常系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/daliy/">daliy</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">logrotate 日志滚动的使用 logrotate 日志滚动切割工具，是 linux 默认安装的工具，配置文件位置：
+1/etc/logrotate.conf 2/etc/logrotate.d/ 参数 以 nginx 配置为例
+1/opt/log/nginx/*.log { 2	daily 3	missingok 4	rotate 14 5 errors &#34;nb@nbtyfood.com&#34; 6	compress 7	delaycompress 8	notifempty 9	create 0640 www-data adm 10	sharedscripts 11	prerotate 12	if [ -d /etc/logrotate.d/httpd-prerotate ]; then \ 13	run-parts /etc/logrotate.d/httpd-prerotate; \ 14	fi \ 15	endscript 16	postrotate 17	invoke-rc.d nginx rotate &gt;/dev/null 2&gt;&amp;1 18	endscript 19} 参数 作用 compress 压缩日志文件的所有非当前版本 daily,weekly,monthly 按指定计划轮换日志文件 delaycompress 压缩所有版本，除了当前和下一个最近的 endscript 标记 prerotate 或 postrotate 脚本的结束 errors &ldquo;emailid&rdquo; 给指定邮箱发送错误通知 missingok 如果日志文件丢失，不要显示错误 notifempty 如果日志文件为空，则不轮换日志文件 olddir &ldquo;dir&rdquo; 指定日志文件的旧版本放在 “dir” 中 postrotate 引入一个在日志被轮换后执行的脚本 prerotate 引入一个在日志被轮换前执行的脚本 rotate &rsquo;n' 在轮换方案中包含日志的 n 个版本 sharedscripts 对于整个日志组只运行一次脚本 size=&lsquo;logsize&rsquo; 在日志大小大于 logsize（例如 100K，4M）时轮换 </div>
+  </div>
+</div>
+
+          </div>
           <div class="mb-3 mb-lg-4">
             
 <div
@@ -1616,6 +1711,70 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/notice-1/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+    <source srcset="/images/notice_hu74ee65f1f15eef359e8ac84008eddfd1_253823_1920x1080_resize_q75_h2_box_3.webp" type="image/webp" />
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/notice.b511c82d71c51a64965ca508cc1b3599.png"
+    alt="通知：《打工人日报》迁移到独立板块"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="通知：《打工人日报》迁移到独立板块"
+        href="/notice-1/">通知：《打工人日报》迁移到独立板块</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/new/daily/github_trending_2024-07-13/">
     
 
@@ -1861,69 +2020,6 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/new/daily/github_trending_2024-07-09/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-07-09.jpg.b8f102e449160f7ad2f56fd4238ef2ed.webp"
-    alt="2024-07-09 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-07-09 打工人日报"
-        href="/new/daily/github_trending_2024-07-09/">2024-07-09 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2005,7 +2101,7 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
           class="taxonomy-term taxonomy-term-authors btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/authors/jobcher/">
           <span class="taxonomy-term-title">jobcher</span>
-            <small class="taxonomy-term-count border rounded px-1">350</small>
+            <small class="taxonomy-term-count border rounded px-1">351</small>
         </a>
     </div>
     <div
@@ -2030,7 +2126,7 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E5%B8%B8/">
           <span class="taxonomy-term-title">日常</span>
-            <small class="taxonomy-term-count border rounded px-1">32</small>
+            <small class="taxonomy-term-count border rounded px-1">33</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2097,7 +2193,7 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/">
           <span class="taxonomy-term-title">日常系列</span>
-            <small class="taxonomy-term-count border rounded px-1">32</small>
+            <small class="taxonomy-term-count border rounded px-1">33</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2170,7 +2266,7 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/daliy/">
           <span class="taxonomy-term-title">daliy</span>
-            <small class="taxonomy-term-count border rounded px-1">19</small>
+            <small class="taxonomy-term-count border rounded px-1">20</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2295,7 +2391,7 @@ frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可�
 
 
   
-<script src="/js/search.7c327aa9427b7cc6dae474a70b19c6069596287ab4aee50bf744f67318975470.js" defer></script>
+<script src="/js/search.c5e317b8a1767ca464cec788dd4a438dd0cc8e5db96cdaf1a8464922e61bf3a3.js" defer></script>
 
 
 

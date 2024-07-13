@@ -617,7 +617,7 @@ jobcher - 22/30 - 作者 - 打工人日志</title>
   
     <li
       class="nav-item d-flex flex-column justify-content-center align-items-center my-2 mx-3">
-      <span class="mb-1 fw-bold btn btn-secondary rounded">350</span>
+      <span class="mb-1 fw-bold btn btn-secondary rounded">351</span>
       <span class="text-body-secondary">文章</span>
     </li>
   
@@ -638,6 +638,112 @@ jobcher - 22/30 - 作者 - 打工人日志</title>
 </div>
 
       <div class="hb-terms-posts row row-cols-1 row-cols-md-2">
+          <div class="mb-3 mb-lg-4">
+            
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年8月10日</span>
+
+        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/skywalking/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="skywalking APM 监控"
+        href="/skywalking/">skywalking APM 监控</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E7%9B%91%E6%8E%A7/">监控</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7%E7%B3%BB%E5%88%97/">运维监控系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/skywalking/">skywalking</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">skywalking 基于 OpenTracing 规范，专门为微服务架构以及云原生服务。
+APM 监控 一个基于微服务架构的电商系统
+APM (Application Performance Management) 即应用性能管理，属于 IT 运维管理（ITOM)范畴.
+分为一下三个方面：
+Logging
+服务在处理某个请求时打印的错误日志，可以将这些日志信息记录到Elasticsearch或是其他存储中。通过 Kibana 或是其他工具来分析这些日志了解服务的行为和状态，大多数情况下。日志记录的数据很分散，并且相互独立。例如错误日志，请求处理过程中关键步骤的日志等等。 Metrics
+Metric是可以聚合的，例如为电商系统中每个 HTTP 接口添加一个计数器，计算每个接口的 QPS，可以通过简单的加和计算得到系统的总负载情况。 Tracing
+在微服务架构系统中一请求会经过很多服务处理，调用链路会非常长，要确定中间哪个服务出现异常是非常麻烦的事情，通过分布式链路追踪，运维人员就可以构建一个请求的视图。视图上战术了一个请求从进入系统开始到返回响应的整个流程。 系统交互图
+系统加载图 &gt; 目前流行的APM监控 Zipkin 对 web.xml 进行修改，代码侵入 twitter 开源 Cat 支持 Java、C/C++、Node.Js、Python、go 代码侵入，埋点 美团开源 Pinpoint 基于字节码注入技术，代码无侵入 韩国公司开发，社区交流滞后 只支持 hbase 颗粒度更细 Skywalking
+观测性分析平台 基于字节码注入技术，代码无侵入 服务、服务实例、端点指标分析 服务拓扑图分析 服务、服务实例和端点（Endpont）SLA 分析 支持 es，h2,mysql,TiDb,sharding-sphere skywalking 整体框架 上部分 Agent ：负责从应用中，收集链路信息，发送给 SkyWalking OAP 服务器。目前支持 SkyWalking、Zikpin、Jaeger 等提供的 Tracing 数据信息。而我们目前采用的是，SkyWalking Agent 收集 SkyWalking Tracing 数据，传递给服务器。 下部分 SkyWalking OAP ：负责接收 Agent 发送的 Tracing 数据信息，然后进行分析(Analysis Core) ，存储到外部存储器( Storage )，最终提供查询( Query )功能。 右部分 Storage ：Tracing 数据存储。目前支持 ES、MySQL、Sharding Sphere、TiDB、H2 多种存储器。而我们目前采用的是 ES ，主要考虑是 SkyWalking 开发团队自己的生产环境采用 ES 为主。 左部分 SkyWalking UI ：负责提供控台，查看链路等等。 skywalking 配置 使用 docker-compose 安装 使用 mysql 作为存储</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/skywalking/">阅读更多关于skywalking APM 监控的内容。</a>
+        </div>
+  </div>
+</div>
+
+          </div>
           <div class="mb-3 mb-lg-4">
             
 <div
@@ -1775,105 +1881,6 @@ server { # 新增 location /nginx_status { stub_status on; access_log off; } } �
 </div>
 
           </div>
-          <div class="mb-3 mb-lg-4">
-            
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-    <a
-      class="hb-blog-post-author-link text-decoration-none"
-      href="/authors/jobcher/"
-      title="jobcher">
-      
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <picture>
-  <img
-    class="hb-blog-author-img rounded-circle"
-    src="https://avatars.githubusercontent.com/u/31278050?v=4"
-    alt="jobcher"
-    loading="lazy"
-    
-    
-    
-    
-    
-     />
-</picture>
-
-    </a>
-
-      <span class="hb-blog-post-date">2022年4月25日</span>
-
-        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/go2/">
-      
-    <div
-      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
-    </div>
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="go Slice切片语法"
-        href="/go2/">go Slice切片语法</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/go/">go</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/go%E7%B3%BB%E5%88%97/">go系列</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/golang/">golang</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">go Slice 切片语法 切片是一种动态数组，比数组操作灵活，长度不是固定的，可以进行追加和删除。
-len() 和 cap() 返回结果可相同和不同。
-声明切片 1//demo_7.go 2package main 3 4import ( 5	&#34;fmt&#34; 6) 7 8func main() { 9	var sli_1 [] int //nil 切片 10	fmt.Printf(&#34;len=%d cap=%d slice=%v\n&#34;,len(sli_1),cap(sli_1),sli_1) 11 12	var sli_2 = [] int {} //空切片 13	fmt.Printf(&#34;len=%d cap=%d slice=%v\n&#34;,len(sli_1),cap(sli_2),sli_2) 14 15	var sli_3 = [] int {1, 2, 3, 4, 5} 16	fmt.Printf(&#34;len=%d cap=%d slice=%v\n&#34;,len(sli_3),cap(sli_3),sli_3) 17 18	sli_4 := [] int {1, 2, 3, 4, 5} 19	fmt.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/go2/">阅读更多关于go Slice切片语法的内容。</a>
-        </div>
-  </div>
-</div>
-
-          </div>
       </div>
       
   <nav
@@ -2142,6 +2149,70 @@ len() 和 cap() 返回结果可相同和不同。
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/notice-1/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+    <source srcset="/images/notice_hu74ee65f1f15eef359e8ac84008eddfd1_253823_1920x1080_resize_q75_h2_box_3.webp" type="image/webp" />
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/notice.b511c82d71c51a64965ca508cc1b3599.png"
+    alt="通知：《打工人日报》迁移到独立板块"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="通知：《打工人日报》迁移到独立板块"
+        href="/notice-1/">通知：《打工人日报》迁移到独立板块</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
   href="/new/daily/github_trending_2024-07-13/">
     
 
@@ -2387,69 +2458,6 @@ len() 和 cap() 返回结果可相同和不同。
 </div>
 
       </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/new/daily/github_trending_2024-07-09/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-07-09.jpg.b8f102e449160f7ad2f56fd4238ef2ed.webp"
-    alt="2024-07-09 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-07-09 打工人日报"
-        href="/new/daily/github_trending_2024-07-09/">2024-07-09 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
   </div>
   
 <button class="slide-control-left">
@@ -2531,7 +2539,7 @@ len() 和 cap() 返回结果可相同和不同。
           class="taxonomy-term taxonomy-term-authors btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/authors/jobcher/">
           <span class="taxonomy-term-title">jobcher</span>
-            <small class="taxonomy-term-count border rounded px-1">350</small>
+            <small class="taxonomy-term-count border rounded px-1">351</small>
         </a>
     </div>
     <div
@@ -2556,7 +2564,7 @@ len() 和 cap() 返回结果可相同和不同。
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E5%B8%B8/">
           <span class="taxonomy-term-title">日常</span>
-            <small class="taxonomy-term-count border rounded px-1">32</small>
+            <small class="taxonomy-term-count border rounded px-1">33</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2623,7 +2631,7 @@ len() 和 cap() 返回结果可相同和不同。
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/">
           <span class="taxonomy-term-title">日常系列</span>
-            <small class="taxonomy-term-count border rounded px-1">32</small>
+            <small class="taxonomy-term-count border rounded px-1">33</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2696,7 +2704,7 @@ len() 和 cap() 返回结果可相同和不同。
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/daliy/">
           <span class="taxonomy-term-title">daliy</span>
-            <small class="taxonomy-term-count border rounded px-1">19</small>
+            <small class="taxonomy-term-count border rounded px-1">20</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2821,7 +2829,7 @@ len() 和 cap() 返回结果可相同和不同。
 
 
   
-<script src="/js/search.7c327aa9427b7cc6dae474a70b19c6069596287ab4aee50bf744f67318975470.js" defer></script>
+<script src="/js/search.c5e317b8a1767ca464cec788dd4a438dd0cc8e5db96cdaf1a8464922e61bf3a3.js" defer></script>
 
 
 
