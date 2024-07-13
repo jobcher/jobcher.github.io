@@ -76,7 +76,7 @@
   
 
 
-打工人日志 - 12/47</title>
+打工人日志 - 12/16</title>
 
   
   
@@ -583,7 +583,7 @@
     class="nav-link d-flex flex-column"
     href="/"
     title="文章">
-    <span class="mb-3 text-body fw-bold">559</span>
+    <span class="mb-3 text-body fw-bold">558</span>
     <span class="text-body"><svg aria-hidden="true" class="bi bi-file-richtextbi bi-file-richtext hi-svg-inline text-primary" fill="currentColor" height="2.25em" viewBox="0 0 16 16" width="2.25em" xmlns="http://www.w3.org/2000/svg">
   <path d="M7 4.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0m-.861 1.542 1.33.886 1.854-1.855a.25.25 0 0 1 .289-.047l1.888.974V7.5a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5V7s1.54-1.274 1.639-1.208M5 9a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1z"/>
   <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1"/>
@@ -643,8 +643,1119 @@
   class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
     <div class="hb-blog-post-meta d-flex align-items-center">
       
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
 
-      <span class="hb-blog-post-date">2024年3月6日</span>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年2月8日</span>
+
+        <span class="hb-blog-post-reading-time">3 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/navicatforgetpassword/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="Navicat 查看导出连接的密码 | navicat查看密码方案"
+        href="/navicatforgetpassword/">Navicat 查看导出连接的密码 | navicat查看密码方案</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/mysql%E7%B3%BB%E5%88%97/">mysql系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/mysql/">mysql</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">Navicat 查看密码方案 解决问题： 我们经常使用 navicat 连接数据库，有时候时间久了之后，会忘记之前的密码，那么现在我们有办法获得只要正常连接的数据库的密码
+步骤： 导出连接 connections.ncx，拿到保存到本地的 connections.ncx 文件中的 Password，粘贴到下面的代码中 登陆https://tool.lu/coderunner/，使用 PHP 在线运行工具，粘贴下面添加密码后的代码
+备用工具网址（https://zixuephp.net/tool-runcode.html） 1&lt;?php 2class NavicatPassword 3{ 4 protected $version = 0; 5 protected $aesKey = &#39;libcckeylibcckey&#39;; 6 protected $aesIv = &#39;libcciv libcciv &#39;; 7 protected $blowString = &#39;3DC5CA39&#39;; 8 protected $blowKey = null; 9 protected $blowIv = null; 10 11 public function __construct($version = 12) 12 { 13 $this-&gt;version = $version; 14 $this-&gt;blowKey = sha1(&#39;3DC5CA39&#39;, true); 15 $this-&gt;blowIv = hex2bin(&#39;d9c7c3c8870d64bd&#39;); 16 } 17 18 public function encrypt($string) 19 { 20 $result = FALSE; 21 switch ($this-&gt;version) { 22 case 11: 23 $result = $this-&gt;encryptEleven($string); 24 break; 25 case 12: 26 $result = $this-&gt;encryptTwelve($string); 27 break; 28 default: 29 break; 30 } 31 32 return $result; 33 } 34 35 protected function encryptEleven($string) 36 { 37 $round = intval(floor(strlen($string) / 8)); 38 $leftLength = strlen($string) % 8; 39 $result = &#39;&#39;; 40 $currentVector = $this-&gt;blowIv; 41 42 for ($i = 0; $i &lt; $round; $i++) { 43 $temp = $this-&gt;encryptBlock($this-&gt;xorBytes(substr($string, 8 * $i, 8), $currentVector)); 44 $currentVector = $this-&gt;xorBytes($currentVector, $temp); 45 $result .</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/navicatforgetpassword/">阅读更多关于Navicat 查看导出连接的密码 | navicat查看密码方案的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年1月30日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/pveupdate/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+    <source srcset="/images/error_hu3d3010a71e3153179e60e85cf02bc677_71618_600x400_resize_q75_h2_box.webp" type="image/webp" />
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/error.1d1016f23a1e038615d72b9d1a2daf62.jpeg"
+    alt="ProXmoX VE升级 apt-get update 报错"
+    loading="lazy"
+    height="400"
+    width="600"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="ProXmoX VE升级 apt-get update 报错"
+        href="/pveupdate/">ProXmoX VE升级 apt-get update 报错</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E9%97%AE%E9%A2%98%E5%BA%93/">问题库</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/">问题库系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/error/">error</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">ProXmoX VE 升级 apt-get update 报错 解决方法 1vim /etc/apt/sources.list.d/pve-enterprise.list 2#注释掉 3#deb https://enterprise.proxmox.com/debian/pve stretch pve-enterprise 添加内容 1echo &#34;deb http://download.proxmox.com/debian/pve stretch pve-no-subscription&#34; &gt; /etc/apt/sources.list.d/pve-install-repo.list 2wget http://download.proxmox.com/debian/proxmox-ve-release-5.x.gpg -O /etc/apt/trusted.gpg.d/proxmox-ve-release-5.x.gpg 更新系统 1apt update &amp;&amp; apt dist-upgrade 结尾 升级完成后，可以执行pveversion -v查看下最新的软件版本。然后执行reboot重启物理服务器</div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年1月21日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/mysql02/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="mysql 笔记（2）"
+        href="/mysql02/">mysql 笔记（2）</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/mysql%E7%B3%BB%E5%88%97/">mysql系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/mysql/">mysql</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">mysql 学习笔记（2） mysql 主从复制 MySQL 主从复制是指数据可以从一个MySQL数据库服务器主节点复制到一个或多个从节点。MySQL 默认采用异步复制方式，这样从节点不用一直访问主服务器来更新自己的数据，数据的更新可以在远程连接上进行，从节点可以复制主数据库中的所有数据库或者特定的数据库，或者特定的表。
+MySQL 主从复制的主要用途 读写分离 数据实时备份，当系统中某个节点发生故障时，可以方便的故障切换(主从切换) 高可用（HA） 架构扩展 MySQL 主从复制的原理 MySQL 主从复制涉及到三个线程，一个运行在主节点（log dump thread），其余两个(I/O thread, SQL thread)运行在从节点，如下图所示:
+主节点 log dump 线程
+当从节点连接主节点时，主节点会为其创建一个 log dump 线程，用于发送和读取 bin-log 的内容。在读取 bin-log 中的操作时，log dump 线程会对主节点上的 bin-log 加锁，当读取完成，在发送给从节点之前，锁会被释放。主节点会为自己的每一个从节点创建一个log dump 线程。
+从节点 I/O 线程
+当从节点上执行start slave命令之后，从节点会创建一个 I/O 线程用来连接主节点，请求主库中更新的 bin-log。I/O 线程接收到主节点的 blog dump 进程发来的更新之后，保存在本地relay-log（中继日志）中。
+从节点 SQL 线程
+SQL 线程负责读取 relay-log 中的内容，解析成具体的操作并执行，最终保证主从数据的一致性。
+对于每一个主从连接，都需要这三个进程来完成。当主节点有多个从节点时，主节点会为每一个当前连接的从节点建一个log dump 进程，而每个从节点都有自己的I/O进程，SQL进程。从节点用两个线程将从主库拉取更新和执行分成独立的任务，这样在执行同步数据任务的时候，不会降低读操作的性能。比如，如果从节点没有运行，此时 I/O 进程可以很快从主节点获取更新，尽管 SQL 进程还没有执行。如果在 SQL 进程执行之前从节点服务停止，至少 I/O 进程已经从主节点拉取到了最新的变更并且保存在本地 relay 日志中，当服务再次起来之后，就可以完成数据的同步。</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/mysql02/">阅读更多关于mysql 笔记（2）的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年1月19日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/pve1/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="Proxmox VE 在线扩容磁盘分区"
+        href="/pve1/">Proxmox VE 在线扩容磁盘分区</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/">日常系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/%E6%89%A9%E5%AE%B9%E7%A3%81%E7%9B%98/">扩容磁盘</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/pve/">pve</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">Proxmox VE 在线扩容磁盘分区 添加磁盘大小 在 VM 上做扩容操作 安装 growpart 1yum install -y epel-release 2yum install -y cloud-utils 查看系统盘 路径 1fdisk -l 2df -h 扩容设备并重启 1growpart /dev/sda 2 #2代表是第二块系统分区，不是sda2,中间有空格 2reboot 重启执行命令 1xfs_growfs /dev/sda2 #(xfs 文件系统) 2resize2fs /dev/sda2 #(ext4 文件系统) 更新完成 1df -h 逻辑卷没有正常扩容的情况 检查当前逻辑卷属于哪个卷组: 1vgdisplay 检查卷组中是有足够的空间可以扩容,还有99g
+扩展逻辑卷大小到200G: 1lvextend -L +99G /dev/mapper/ubuntu--vg-ubuntu--lv 调整文件系统大小到逻辑卷大小: 1resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv 4. 检查
+1df -h /dev/mapper/ubuntu--vg-ubuntu--lv 成功扩容</div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年1月14日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/exportuser/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="Gitlab批量导出用户"
+        href="/exportuser/">Gitlab批量导出用户</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/gitlab/">gitlab</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/git%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">git入门系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/%E8%87%AA%E5%8A%A8%E5%8C%96/">自动化</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">Gitlab 批量导出用户 登陆 Gitlab 服务器进行数据库登陆、数据查询及信息导出操作。
+操作步骤 根据配置文件，定位数据库相关信息 1cat /var/opt/gitlab/gitlab-rails/etc/database.yml 查看 Gitlab 对应的系统用户 1cat /etc/passwd | grep gitlab 切换用户 gitlab-psql 1su - gitlab-psql 登陆数据库（-h 指定 host，-d 指定数据库） 使用第 1 步获取的信息 1psql -h /var/opt/gitlab/postgresql -d gitlabhq_production (1) 查看帮助信息
+1gitlabhq_production=# \h (2) 查看数据库
+1gitlabhq_production=# \l (3) 查看库中的表（执行命令后，按回车键显示更多表信息）
+1gitlabhq_production=# \dt (4) 通过筛查，可在库中找到 users 表，相关用户信息都记录在表中！
+1gitlabhq_production=# \d users (5) 查看表信息
+1gitlabhq_production=# SELECT * FROM users; (6) 查看 users 表中的 name 字段
+1gitlabhq_production=# SELECT name FROM users; (7)登出数据库</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/exportuser/">阅读更多关于Gitlab批量导出用户的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年1月14日</span>
+
+        <span class="hb-blog-post-reading-time">6 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/harbor/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="Harbor 搭建"
+        href="/harbor/">Harbor 搭建</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/k8s/">k8s</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">k8s入门系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/k8s/">k8s</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">Harbor 搭建 Harbor 是一个开源可信的云原生注册表项目，用于存储、签名和扫描内容。用于存储 docker image
+要求 Linux 主机 docker 17.06.0-ce 以上 docker-compose 1.18.0 以上 链接跳转：docker 安装
+安装 下载程序 在线安装包
+1wget https://github.com/goharbor/harbor/releases/download/v1.10.10/harbor-online-installer-v1.10.10.tgz 离线安装包
+1wget https://github.com/goharbor/harbor/releases/download/v1.10.10/harbor-offline-installer-v1.10.10.tgz 安装 1mkdir -p /data 2cd /data 3tar -zxvf harbor-offline-installer-v1.10.10.tgz 4cd /harbor 5./install.sh 接下来只要安静的等待安装就可以了
+配置 1# Configuration file of Harbor 2 3# The IP address or hostname to access admin UI and registry service. 4# DO NOT use localhost or 127.0.0.1, because Harbor needs to be accessed by external clients.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/harbor/">阅读更多关于Harbor 搭建的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年1月13日</span>
+
+        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/prometheus1/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="prometheus grafana alertmanager 安装配置"
+        href="/prometheus1/">prometheus grafana alertmanager 安装配置</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E7%9B%91%E6%8E%A7/">监控</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7%E7%B3%BB%E5%88%97/">运维监控系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/prometheus/">prometheus</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">prometheus+grafana+alertmanager 安装配置 服务器监控告警系统搭建，通过 exporter 获取节点信息到 prometheus。prometheus 配置规则，使 garfana 和 alertmanager 能够接受到数据，分别展示数据和发送告警
+参数 VM :192.168.99.78
+端口 服务 9100 node_exporter 3000 grafana 9090 prometheus 9115 blackbox_exporter 安装 grafa 安装 docker 安装 1docker run -d -p 3000:3000 \ 2--name=grafana \ 3-v grafana-storage:/var/lib/grafana \ 4grafana/grafana:8.3.3 prometheus 安装 下载 1wget https://github.com/prometheus/prometheus/releases/download/v2.32.1/prometheus-2.32.1.linux-amd64.tar.gz 2tar -zxvf prometheus-2.32.1.linux-amd64.tar.gz 3cd prometheus-2.32.1.linux-amd64 4mkdir -p file_sd 5mkdir -p rules 运行 prometheus 1killall prometheus 2nohup ./prometheus --config.file=prometheus.yml &amp; 3# 查看运行状况 4tail -f nohup.out node_exporter 安装 docker-compose 安装 1version: &#34;3&#34; 2services: 3 node-exporter: 4 image: prom/node-exporter:v1.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/prometheus1/">阅读更多关于prometheus grafana alertmanager 安装配置的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年1月13日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/prometheus/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="prometheus 配置"
+        href="/prometheus/">prometheus 配置</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E7%9B%91%E6%8E%A7/">监控</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7%E7%B3%BB%E5%88%97/">运维监控系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/prometheus/">prometheus</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">prometheus 配置 Prometheus 是由 SoundCloud 开源监控告警解决方案
+组件 Prometheus Server， 主要用于抓取数据和存储时序数据，另外还提供查询和 Alert Rule 配置管理。 client libraries，用于对接 Prometheus Server, 可以查询和上报数据。 push gateway ，用于批量，短期的监控数据的汇总节点，主要用于业务数据汇报等。 各种汇报数据的 exporters ，例如汇报机器数据的 node_exporter, 汇报 MongoDB 信息的 MongoDB exporter 等等。 用于告警通知管理的 alertmanager 。 运行逻辑 Prometheus server 定期从静态配置的 targets 或者服务发现的 targets 拉取数据。 当新拉取的数据大于配置内存缓存区的时候，Prometheus 会将数据持久化到磁盘（如果使用 remote storage 将持久化到云端）。 Prometheus 可以配置 rules，然后定时查询数据，当条件触发的时候，会将 alert 推送到配置的 Alertmanager。 Alertmanager 收到警告的时候，可以根据配置，聚合，去重，降噪，最后发送警告。 可以使用 API， Prometheus Console 或者 Grafana 查询和聚合数据。 安装 prometheus 使用预编译的二进制文件安装 1wget https://github.com/prometheus/prometheus/releases/download/v2.32.1/prometheus-2.32.1.linux-amd64.tar.gz 2tar -zxvf prometheus-2.32.1.linux-amd64.tar.gz 3cd prometheus-2.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/prometheus/">阅读更多关于prometheus 配置的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年1月11日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/linux-network/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="centos7.9 网络配置"
+        href="/linux-network/">centos7.9 网络配置</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/">日常系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/linux/">linux</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">centos7.9 网络配置 解决 centos 新机器网络不通的问题，CentOS7 默认不启动网卡的。CentOS 安装成功后,进行一下 ping 的操作,验证网络是否联通.
+1ping 1.1.1.1 2ip addr 3# 查看ip网络名称 启用网卡 进入 /etc/sysconfig/network-scipts 文件夹下，找到 IP 网卡名称 1cd /etc/sysconfig/network-scipts 2vim ifcfg-eth0 启用 ONBOOT 1#vim ifcfg-eth0 2#修改 3ONBOOT=YES 4# esc 并:wq退出保存 重启机器 1shutdown -r now 结尾 centos 用的挺别扭，不考虑性能和性价比，我还是喜欢用 ubuntu……，简单的配置，初学者我建议还是先用 ubuntu，会少踩很多坑。当然了，用 x86 不然初学者用树莓派和 arm 设备，会碰到很多兼容性的问题。</div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年1月11日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/error1/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+    <source srcset="/images/error_hu3d3010a71e3153179e60e85cf02bc677_71618_600x400_resize_q75_h2_box.webp" type="image/webp" />
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/error.1d1016f23a1e038615d72b9d1a2daf62.jpeg"
+    alt="安装 docker 出现 ERROR: Unsupported distribution &#39;ol&#39; 问题"
+    loading="lazy"
+    height="400"
+    width="600"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="安装 docker 出现 ERROR: Unsupported distribution &#39;ol&#39; 问题"
+        href="/error1/">安装 docker 出现 ERROR: Unsupported distribution &#39;ol&#39; 问题</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E9%97%AE%E9%A2%98%E5%BA%93/">问题库</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/">问题库系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/error/">error</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">安装 docker 出现 ERROR: Unsupported distribution &lsquo;ol&rsquo; 问题 部署 docker 安装出现 ERROR: Unsupported distribution &lsquo;ol&rsquo;
+确认是不是 arm 架构 1uname -r 确认使用的是不是 oracle 服务器系统,如果是请继续操作，安装依赖： 1dnf install -y dnf-utils zip unzip 2dnf config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo 安装 docker 1dnf remove -y runc 2dnf install -y docker-ce --nobest 完成 docker 安装并检查 1systemctl enable docker.service 2systemctl start docker.service 1#检查 2systemctl status docker.service 3docker info 4docker version 结尾 该问题主要是 oracle 没有支持依赖导致的~oracle 还是很不错的~</div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年1月7日</span>
 
         <span class="hb-blog-post-reading-time">4 分钟阅读</span>
 
@@ -657,57 +1768,19 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-03-06/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-03-06.jpg.60a7c999510f476ddd12438804cd2f95.webp"
-    alt="2024-03-06 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
+  href="/k8s1/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
 </a>
 
   <div class="card-body px-0 py-2 d-flex flex-column">
     <div class="hb-blog-post-title card-title h5 py-1">
       <a
         class="hb-blog-post-title-link d-block"
-        title="2024-03-06 打工人日报"
-        href="/github_trending_2024-03-06/">2024-03-06 打工人日报</a>
+        title="Kubernetes 实验手册（1）"
+        href="/k8s1/">Kubernetes 实验手册（1）</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -715,23 +1788,25 @@
       <span class="hb-blog-post-taxonomy-meta">
         <a
           class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E6%8A%A5/">日报</a>
+          href="/categories/k8s/">k8s</a>
       </span>
       <span class="hb-blog-post-taxonomy-meta">
         <a
           class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E6%8A%A5/">日报</a>
+          href="/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">k8s入门系列</a>
       </span>
       <span class="hb-blog-post-taxonomy-meta">
         <a
           class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E6%97%A5%E6%8A%A5/">日报</a>
+          href="/tags/k8s/">k8s</a>
       </span>
       </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 排名 1.总书记的两会时间 排名 2.中青报评霍启刚建议引热议 排名 3.委员建议调整法定最低结婚年龄至18周岁 排名 4.2024全国两会新词热词 排名 5.职场女性能兼顾工作和生活吗 排名 6.中国第四艘航母很快公布 排名 7.别再让黄金店割智商税了 排名 8.建议推动建立父亲育儿假制度 排名 9.最新研究找到熬夜致癌原因 排名 10.LV大秀 排名 11.恋与深空祁煜 排名 12.建议彩票个人单项奖金最高额度不超过500万 排名 13.140万买的230平房子 排名 14.反诈老陈回应是否后悔辞去公职 排名 15.刘亦菲小黑裙 排名 16.这哪是回南天这是回南天门了吧 排名 17.伊能静说儿子暂不打算出道 排名 18.海景房狂跌 排名 19.黄景瑜撩的狗 阮经天来承受 排名 20.农夫山泉股价连跌三天 GitHub 热门榜单 排名 1:/PKU-YuanGroup/Open-Sora-Plan 简介: 这个项目旨在复制索拉（开放人工智能T2V模型），但我们的资源有限。我们衷心希望所有开源社区都能为这个项目做出贡献。 URL: https://github.com/PKU-YuanGroup/Open-Sora-Plan 作者: PKU-YuanGroup 排名 2:/layerdiffusion/sd-forge-layerdiffuse 简介: [WIP]WebUI的层扩散（通过Forge） URL: https://github.com/layerdiffusion/sd-forge-layerdiffuse 作者: layerdiffusion 排名 4:/microsoft/generative-ai-for-beginners 简介: 18节课，开始构建Generative AI🔗 https://microsoft.github.io/generative-ai-for-beginners/ URL: https://github.com/microsoft/generative-ai-for-beginners 作者: microsoft 排名 5:/atherosai/ui 简介: 来自我的社交媒体的简单UI示例 URL: https://github.</div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">Kubernetes 实验手册（1） 通过在 pve 创建 5 台虚拟机：
+节点 IP 作用 node0 192.168.99.69 k8s-master01 node1 192.168.99.9 k8s-master02 node2 192.168.99.53 k8s-master03 node3 192.168.99.41 k8s-node01 node4 192.168.99.219 k8s-node02 node5 192.168.99.42 k8s-master-lb 配置信息 备注 系统版本 Ubuntu Docker 20.10.12 pod 网段 172.168.0.0/12 service 网段 10.96.0.0/12 VIP 不要和内网 IP 重复，VIP 需要和主机在同一个局域网内
+更新 ansible 连接 1ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.155 2ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.199 3ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.87 4#ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.41 5#ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.99.219 1vim /etc/hosts 2192.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/github_trending_2024-03-06/">阅读更多关于2024-03-06 打工人日报的内容。</a>
+            class="text-secondary" href="/k8s1/">阅读更多关于Kubernetes 实验手册（1）的内容。</a>
         </div>
   </div>
 </div>
@@ -744,10 +1819,45 @@
   class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
     <div class="hb-blog-post-meta d-flex align-items-center">
       
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
 
-      <span class="hb-blog-post-date">2024年3月5日</span>
 
-        <span class="hb-blog-post-reading-time">4 分钟阅读</span>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年1月7日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
 
       
   <span class="hb-blog-post-section">
@@ -758,57 +1868,19 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-03-05/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-03-05.jpg.3635488a2b1507a3d31e0272c49e5030.webp"
-    alt="2024-03-05 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
+  href="/rocketmq/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
 </a>
 
   <div class="card-body px-0 py-2 d-flex flex-column">
     <div class="hb-blog-post-title card-title h5 py-1">
       <a
         class="hb-blog-post-title-link d-block"
-        title="2024-03-05 打工人日报"
-        href="/github_trending_2024-03-05/">2024-03-05 打工人日报</a>
+        title="RocketMQ 安装和启动"
+        href="/rocketmq/">RocketMQ 安装和启动</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -816,1033 +1888,24 @@
       <span class="hb-blog-post-taxonomy-meta">
         <a
           class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E6%8A%A5/">日报</a>
+          href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
       </span>
       <span class="hb-blog-post-taxonomy-meta">
         <a
           class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E6%8A%A5/">日报</a>
+          href="/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/">日常系列</a>
       </span>
       <span class="hb-blog-post-taxonomy-meta">
         <a
           class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E6%97%A5%E6%8A%A5/">日报</a>
+          href="/tags/rocketmq/">RocketMQ</a>
       </span>
       </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 排名 1.习近平的两会妙喻 排名 2.十四届全国人大二次会议开幕会 排名 3.建议暂停上调医保个人缴费标准 排名 4.100秒说两会 排名 5.2024政府工作报告 排名 6.建议取消高中学业水平考试科目 排名 7.他才4岁已经懂得了分别的滋味 排名 8.广东回南天 排名 9.建议增加年轻人年假天数 排名 10.父亲心疼女儿被撞伤将床头柱锯掉 排名 11.广东现在是一个巨大的水帘洞 排名 12.月薪上万也不舍得买鄂尔多斯 排名 13.这竟然是雪姨 排名 14.苹果市值一夜蒸发超5000亿元 排名 15.蕾丝裙帘成年轻人新潮流 排名 16.浪五开场 主播癫狂带货感 排名 17.委员谈小学生厕所社交 排名 18.建议实施10年义务教育 排名 19.惊蛰 排名 20.贝索斯再成世界首富 GitHub 热门榜单 排名 1:/abi/screenshot-to-code 简介: 放入屏幕截图并将其转换为干净的代码（HTML/Tailwind/Rect/Vue） URL: https://github.com/abi/screenshot-to-code 作者: abi 排名 3:/ente-io/ente 简介: 完全开源，端到端加密替代谷歌照片和苹果照片 URL: https://github.com/ente-io/ente 作者: ente-io 排名 4:/cooderl/wewe-rss 简介: 🤗更优雅的微信公众号订阅方式，支持私有化部署、微信公众号RSS生成（基于微信读书）。 URL: https://github.com/cooderl/wewe-rss 作者: cooderl 排名 5:/vercel/ai 简介: 使用React、Svelte、Vue和Solid构建人工智能应用程序 URL: https://github.</div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">RocketMQ 安装和部署 部署 RocketMQ
+单机安装构建 安装 JDK 1.8.0 1yum install java-1.8.0-openjdk* 安装 Maven 1wget http://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz 2tar -zxvf apache-maven-3.8.4-bin.tar.gz 3mv -f apache-maven-3.8.4 /usr/local/ 4vim /etc/profile 5# 末尾添加 6export MAVEN_HOME=/usr/local/apache-maven-3.8.4 7export PATH=${PATH}:${MAVEN_HOME}/bin 8# 保存 9source /etc/profile 10# 查看maven是否正常 11mvn -v 快速部署 1#构建 DLedger 2git clone https://github.com/openmessaging/openmessaging-storage-dledger.git 3cd openmessaging-storage-dledger 4mvn clean install -DskipTests 5# 构建 RocketMQ 6git clone https://github.com/apache/rocketmq.git 7cd rocketmq 8git checkout -b store_with_dledger origin/store_with_dledger 9mvn -Prelease-all -DskipTests clean install -U 10# 部署 11cd rocketmq/distribution/target/apache-rocketmq 12sh bin/dledger/fast-try.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/github_trending_2024-03-05/">阅读更多关于2024-03-05 打工人日报的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-
-      <span class="hb-blog-post-date">2024年3月4日</span>
-
-        <span class="hb-blog-post-reading-time">3 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-03-04/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-03-04.jpg.50a529633ee5b305c97719bafc9f4519.webp"
-    alt="2024-03-04 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-03-04 打工人日报"
-        href="/github_trending_2024-03-04/">2024-03-04 打工人日报</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 排名 1.悠悠万事民生为大 排名 2.00后新警认出嫌疑人后嘴角上扬 排名 3.回南天 排名 4.两会你我他 排名 5.底子好的姑娘到底有多绝 排名 6.建议增加双一流大学招收对口高职生 排名 7.央视评快递新规施行 排名 8.不背单词 还没修好 排名 9.男子用AI编造灾情谣言被抓捕 排名 10.G社拍的杨超越 排名 11.多所院校呼吁毕业生积极就业 排名 12.大三男生黄鹤楼摆摊拍照月赚8000元 排名 13.陈芋汐10米台冠军 排名 14.吴艳妮看到了和世界高手的差距 排名 15.郭敬明点赞回应程潇 排名 16.郎朗晒与赫敏扮演者合照 排名 17.本周狗屎运最旺的星座 排名 18.姜爷爷宋爷爷哭成泪人 排名 19.亚洲首富之子减肥108公斤后又胖回来了 排名 20.人总是会反复爱上阮经天 GitHub 热门榜单 排名 1:/layerdiffusion/sd-forge-layerdiffusion 简介: [WIP]WebUI的层扩散（通过Forge） URL: https://github.com/layerdiffusion/sd-forge-layerdiffusion 作者: layerdiffusion 排名 3:/EbookFoundation/free-programming-books 简介: 📚 免费提供的编程书籍 URL: https://github.com/EbookFoundation/free-programming-books 作者: EbookFoundation 排名 4:/cooderl/wewe-rss 简介: 🤗更优雅的微信公众号订阅方式，支持私有化部署、微信公众号RSS生成（基于微信读书）。 URL: https://github.com/cooderl/wewe-rss 作者: cooderl 排名 5:/ReVanced/revanced-manager 简介: 💊 在Android上使用ReVanced的应用程序 URL: https://github.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2024-03-04/">阅读更多关于2024-03-04 打工人日报的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-
-      <span class="hb-blog-post-date">2024年3月3日</span>
-
-        <span class="hb-blog-post-reading-time">3 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-03-03/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-03-03.jpg.b858ae15f984bd009c23a2cb87cfc5cb.webp"
-    alt="2024-03-03 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-03-03 打工人日报"
-        href="/github_trending_2024-03-03/">2024-03-03 打工人日报</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 排名 1.以更大力度推动我国新能源高质量发展 排名 2.董明珠再建议将个税起征点提高至1万元 排名 3.戚薇疑似救场浪姐 排名 4.神十七乘组默契配合度满分 排名 5.新确认一位慰安妇制度受害幸存者 排名 6.偶遇侯雯元给钟楚曦打视频 排名 7.陈思诚公司泰国团建 排名 8.麦昆新设计师首秀 排名 9.车市迎来降价潮 排名 10.两会 排名 11.梅西梅开二度 排名 12.王一博机场 排名 13.快递员得知新规两天后离职 排名 14.为什么面包店宁可扔掉也不打折 排名 15.耳朵里出现结痂该怎么办 排名 16.詹姆斯40000分倒计时 排名 17.卵巢癌早就有信号可能被你忽略了 排名 18.王锵回怼导师 排名 19.王鹤棣一张机场照被4个cp嗑 排名 20.韩国摄影师镜头下的杨幂 GitHub 热门榜单 排名 1:/cloudflare/pingora 简介: 一个用于构建快速、可靠和可进化的网络服务的库。 URL: https://github.com/cloudflare/pingora 作者: cloudflare 排名 2:/Lissy93/web-check 简介: 🕵️‍♂️ 用于分析任何网站的一体化OSINT工具 URL: https://github.com/Lissy93/web-check 作者: Lissy93 排名 3:/polyfillpolyfill/polyfill-service 简介: 自动填充服务。 URL: https://github.com/polyfillpolyfill/polyfill-service 作者: polyfillpolyfill 排名 5:/cloudcommunity/Free-Certifications 简介: 免费课程和证书的策划列表。 URL: https://github.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2024-03-03/">阅读更多关于2024-03-03 打工人日报的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-
-      <span class="hb-blog-post-date">2024年3月2日</span>
-
-        <span class="hb-blog-post-reading-time">3 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-03-02/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-03-02.jpg.78214308a89215febc4968d6610b6f96.webp"
-    alt="2024-03-02 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-03-02 打工人日报"
-        href="/github_trending_2024-03-02/">2024-03-02 打工人日报</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 排名 1.大力推动我国新能源高质量发展 排名 2.接下来两个月是养乳腺的好时机 排名 3.曼谷夜市现烤小臂一样长的大虾 排名 4.聚焦2024年全国两会 排名 5.陈丽君 浪姐 排名 6.点读机女孩为学业放弃进娱乐圈 排名 7.千人或有一例艾滋患者 排名 8.博主称因称呼雷军为军儿遭小米投诉 排名 9.没想到都三月份还在穿羽绒服 排名 10.母亲回应儿子留学打搏击赛成植物人 排名 11.小团团 排名 12.杨幂好柿发生手机壳 排名 13.大溪地灰时尚收割机 排名 14.点读机女孩发视频称手术很成功 排名 15.大卫波德维尔去世 排名 16.加沙10名儿童被官方登记为饿死 排名 17.Giselle罗意威 排名 18.姚安娜回应演技争议 排名 19.你的衣柜里有这些衣服吗 排名 20.王一博巴黎时装周去看两场秀 GitHub 热门榜单 排名 1:/cloudflare/pingora 简介: 一个用于构建快速、可靠和可进化的网络服务的库。 URL: https://github.com/cloudflare/pingora 作者: cloudflare 排名 2:/Lissy93/web-check 简介: 🕵️‍♂️ 用于分析任何网站的一体化OSINT工具 URL: https://github.com/Lissy93/web-check 作者: Lissy93 排名 4:/dockur/windows 简介: Docker容器中的Windows。 URL: https://github.com/dockur/windows 作者: dockur 排名 5:/yuzu-emu/yuzu 简介: 任天堂Switch模拟器 URL: https://github.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2024-03-02/">阅读更多关于2024-03-02 打工人日报的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-
-      <span class="hb-blog-post-date">2024年3月1日</span>
-
-        <span class="hb-blog-post-reading-time">4 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-03-01/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-03-01.jpg.96a9c476433daace11a8549ffd2f71a0.webp"
-    alt="2024-03-01 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-03-01 打工人日报"
-        href="/github_trending_2024-03-01/">2024-03-01 打工人日报</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 排名 1.中共中央政治局召开会议 排名 2.退税 排名 3.崔胜澈免除兵役 排名 4.微观两会 排名 5.杨紫淘淘氧棉品牌代言人 排名 6.11届快女 最癫的选秀 排名 7.iPhone在中国大幅打折 排名 8.你需退税还是补税 排名 9.资阳某医院大门前交警打人系谣言 排名 10.家长吐槽被学校要求下午到校值班 排名 11.上班恶心穿搭引发年轻人共鸣 排名 12.终于知道魏大勋好人缘是怎么来的 排名 13.加沙领物资民众遭袭112死760伤 排名 14.李莎旻子回应四年前脱单愿望 排名 15.花少团真的去了秦岚家 排名 16.韩娱文盲 排名 17.网红自导自演被砸鸡蛋 排名 18.韩国医生若辞职须立刻入伍 排名 19.腿上出现红血丝或是疾病信号 排名 20.邵明明 我们都无可替代 GitHub 热门榜单 排名 1:/Lissy93/web-check 简介: 🕵️‍♂️ 用于分析任何网站的一体化OSINT工具 URL: https://github.com/Lissy93/web-check 作者: Lissy93 排名 2:/yuzu-emu/yuzu 简介: 任天堂Switch模拟器 URL: https://github.com/yuzu-emu/yuzu 作者: yuzu-emu 排名 3:/Netflix/bpftop 简介: bpftop提供了运行eBPF程序的动态实时视图。它显示每个程序的平均运行时间、每秒事件数和估计的总CPU%。 URL: https://github.com/Netflix/bpftop 作者: Netflix 排名 5:/dockur/windows 简介: Docker容器中的Windows。 URL: https://github.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2024-03-01/">阅读更多关于2024-03-01 打工人日报的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-
-      <span class="hb-blog-post-date">2024年2月29日</span>
-
-        <span class="hb-blog-post-reading-time">5 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-02-29/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-02-29.jpg.b3538a95c5727cfddaf3ce41d6b093fc.webp"
-    alt="2024-02-29 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-02-29 打工人日报"
-        href="/github_trending_2024-02-29/">2024-02-29 打工人日报</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 排名 1.习近平同塞拉利昂总统会谈 排名 2.三只羊法务离职 排名 3.今天是四年一遇的日子 排名 4.我国载人航天工程取得4000多项发明专利 排名 5.小洋睡不着道歉 排名 6.厅长退休后买13套房给子孙 排名 7.体检结果称拜登是健康强健的老人 排名 8.周深 看见她们的好状态 排名 9.教育局回应女老师打骂学生 排名 10.健身教练评热巴踮脚动作 排名 11.挖呀挖黄老师直播 排名 12.祁厅长的情商属实太高 排名 13.我的性教育来自郭敬明的小说 排名 14.小伙撸铁2小时横纹肌溶解了 排名 15.北京将举办2027世界田径锦标赛 排名 16.偷偷藏不住网飞破3000万 排名 17.AppleID或升级为AppleAccount 排名 18.面包店的浪费现象有多严重 排名 19.人民日报评大数据杀熟 排名 20.抖音火花bug GitHub 热门榜单 排名 1:/Lissy93/web-check 简介: 🕵️‍♂️ 用于分析任何网站的一体化OSINT工具 URL: https://github.com/Lissy93/web-check 作者: Lissy93 排名 2:/pmndrs/uikit 简介: 📱 react三光纤的用户界面 URL: https://github.com/pmndrs/uikit 作者: pmndrs 排名 3:/vvbbnn00/WARP-Clash-API 简介: 该项目可以让你通过订阅的方式使用Cloudflare WARP+自动获取流量。该项目使您能够通过订阅使用Cloudflare WARP+，自动获取流量。 URL: https://github.com/vvbbnn00/WARP-Clash-API 作者: vvbbnn00 排名 5:/movie-web/movie-web 简介: 一个用于轻松观看电影和节目的小型网络应用程序 URL: https://github.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2024-02-29/">阅读更多关于2024-02-29 打工人日报的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-
-      <span class="hb-blog-post-date">2024年2月28日</span>
-
-        <span class="hb-blog-post-reading-time">4 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-02-28/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-02-28.jpg.2c291b0fb5a131810413c448d97190e9.webp"
-    alt="2024-02-28 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-02-28 打工人日报"
-        href="/github_trending_2024-02-28/">2024-02-28 打工人日报</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 排名 1.习近平签署第二十号主席令 排名 2.第5例被治愈的艾滋病患者 排名 3.吃霸王餐的消防队长已被开除 排名 4.中国空间站进入常态化运营模式 排名 5.电比油低汉唐荣耀上市 排名 6.台湾省 排名 7.黄嘉千称曾被家暴五六次以上 排名 8.地铁小姐姐连摔两跤滑跪按下急停按钮 排名 9.全员加速中直播 排名 10.苹果取消造车 排名 11.李湘前夫李厚霖给李亚鹏直播打赏 排名 12.母亲将唯一银镯打成首饰送2个女儿 排名 13.蔡徐坤录音室 排名 14.豆豆反转 乐莹最后一击 排名 15.洗澡是最好的医美 排名 16.曹云金临沂拍戏100天吃100只鸡 排名 17.医院筹建7年未开业却已聘515人 排名 18.新疆小女孩跳热巴春晚同款舞 排名 19.韩国医生为什么罢工 排名 20.研究生多到无宿舍可住 GitHub 热门榜单 排名 1:/WongKinYiu/yolov9 简介: 论文YOLOv9的实现：使用可编程梯度信息学习你想学的东西 URL: https://github.com/WongKinYiu/yolov9 作者: WongKinYiu 排名 2:/public-apis/public-apis 简介: 免费API的集体列表 URL: https://github.com/public-apis/public-apis 作者: public-apis 排名 3:/Azure/PyRIT 简介: 用于生成人工智能的Python风险识别工具（PyRIT）是一个开放访问自动化框架，使安全专业人员和机器学习工程师能够主动发现其生成人工智能系统中的风险。 URL: https://github.com/Azure/PyRIT 作者: Azure 排名 4:/vvbbnn00/WARP-Clash-API 简介: 该项目可以让你通过订阅的方式使用Cloudflare WARP+自动获取流量。该项目使您能够通过订阅使用Cloudflare WARP+，自动获取流量。 URL: https://github.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2024-02-28/">阅读更多关于2024-02-28 打工人日报的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-
-      <span class="hb-blog-post-date">2024年2月27日</span>
-
-        <span class="hb-blog-post-reading-time">3 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-02-27/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-02-27.jpg.6aa7d1dd04da0b93e134af99088c143e.webp"
-    alt="2024-02-27 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-02-27 打工人日报"
-        href="/github_trending_2024-02-27/">2024-02-27 打工人日报</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 排名 1.瓣瓣同心心相连 排名 2.张雪峰承认到美国也做不起来 排名 3.人民网评上班比丑 排名 4.世界最长海底高铁隧道 排名 5.全新极氪001猎装进化 排名 6.四六级分数出了 排名 7.王菲谢霆锋一起回国 排名 8.高群书为姚安娜回怼汪海林 排名 9.老人报警称丢了2000元民警找回5万2 排名 10.布洛芬 能给卑职一个明示吗 排名 11.10元3副耳钉被仅退款商家千里讨公道 排名 12.文韬受伤 排名 13.美国等最久死囚将被行刑 排名 14.姚安娜吃鸡式演技 排名 15.坐高铁由于好奇选了静音车厢 排名 16.倪妮核心朋友圈是读书时的闺蜜 排名 17.乌克兰 排名 18.王鹤棣行程 排名 19.花少团真去秦岚家了吗 排名 20.大唐不夜城丢刀侍卫 GitHub 热门榜单 排名 1:/WongKinYiu/yolov9 简介: 论文YOLOv9的实现：使用可编程梯度信息学习你想学的东西 URL: https://github.com/WongKinYiu/yolov9 作者: WongKinYiu 排名 2:/massgravel/Microsoft-Activation-Scripts 简介: 使用HWID/Ohook/KMS38/Online KMS激活方法的Windows和Office激活程序，重点关注开源代码和较少的防病毒检测。 URL: https://github.com/massgravel/Microsoft-Activation-Scripts 作者: massgravel 排名 3:/ollama/ollama 简介: 使用Llama 2、Mistral、Gemma和其他大型语言模型开始运行。 URL: https://github.com/ollama/ollama 作者: ollama 排名 4:/vvbbnn00/WARP-Clash-API 简介: 该项目可以让你通过订阅的方式使用Cloudflare WARP+自动获取流量。该项目使您能够通过订阅使用Cloudflare WARP+，自动获取流量。 URL: https://github.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2024-02-27/">阅读更多关于2024-02-27 打工人日报的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-
-      <span class="hb-blog-post-date">2024年2月26日</span>
-
-        <span class="hb-blog-post-reading-time">3 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-02-26/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-02-26.jpg.7416eec7f6161c588ed5096f5243e124.webp"
-    alt="2024-02-26 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-02-26 打工人日报"
-        href="/github_trending_2024-02-26/">2024-02-26 打工人日报</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 排名 1.一封复信续写中美民间友好交流佳话 排名 2.考研 排名 3.娃哈哈 实验室御用水 排名 4.中国载人月球探测任务正有序推进 排名 5.宗庆后曾公开怼马云后握手言和 排名 6.张小斐曾陪贾玲考研自己考上了 排名 7.韩企员工生娃奖励1亿韩元 排名 8.袁姗姗鼻子 排名 9.老外在中国有钱难花 排名 10.见义勇为律师称比亚迪20万奖励先还房贷 排名 11.今天查考研成绩 排名 12.我直接把家庭群给掀了 排名 13.曼联哀悼宗庆后 排名 14.秦牛正威晒与未婚夫合照 排名 15.赴华韩国游客数量暴增900% 排名 16.牛大力官配许清雅出场 排名 17.山西考研成绩 排名 18.医生提醒过早医美抗衰可能适得其反 排名 19.马云发挽联悼念宗庆后 排名 20.为何年轻人上班不愿意精致打扮 GitHub 热门榜单 排名 1:/google/gemma.cpp 简介: 用于谷歌Gemma模型的轻量级独立C++推理引擎。 URL: https://github.com/google/gemma.cpp 作者: google 排名 2:/WongKinYiu/yolov9 简介: 论文YOLOv9的实现：使用可编程梯度信息学习你想学的东西 URL: https://github.com/WongKinYiu/yolov9 作者: WongKinYiu 排名 3:/ollama/ollama 简介: 使用Llama 2、Mistral、Gemma和其他大型语言模型开始运行。 URL: https://github.com/ollama/ollama 作者: ollama 排名 4:/SoraWebui/SoraWebui 简介: SoraWebui是一个开源的Sora网络客户端，使用户可以使用OpenAI的Sora模型轻松地从文本中创建视频。 URL: https://github.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2024-02-26/">阅读更多关于2024-02-26 打工人日报的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-
-      <span class="hb-blog-post-date">2024年2月25日</span>
-
-        <span class="hb-blog-post-reading-time">3 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-02-25/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-02-25.jpg.2c70949b4c29232d3d0c2f5f94205d46.webp"
-    alt="2024-02-25 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-02-25 打工人日报"
-        href="/github_trending_2024-02-25/">2024-02-25 打工人日报</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 排名 1.文化是一个国家一个民族的灵魂 排名 2.纪凌尘 你喜欢大海我爱过你很浪漫 排名 3.吴镇宇问金莎愿意和男友演母子吗 排名 4.龙年第一轮满月 排名 5.玩王者花掉外婆一万六自称人生无常 排名 6.黄晓明说陈梦你真的很棒 排名 7.杭州宾利 排名 8.水谷隼 孙颖莎太强了 排名 9.张雪峰称不推荐专业也不打压专业 排名 10.韩国医疗 排名 11.俄罗斯可能无缘巴黎奥运会 排名 12.朱梓骁说直播带货才是后路 排名 13.老人偷拍被抓手机有6万张女生照片 排名 14.为什么不上王曼昱 排名 15.中学生发现微信抢最大红包秘诀 排名 16.上海下雪 排名 17.孙颖莎陈梦哭了 排名 18.为什么理发店里见不到女Tony 排名 19.许肖博玺 排名 20.王艺迪 GitHub 热门榜单 排名 1:/WongKinYiu/yolov9 简介: 论文YOLOv9的实现：使用可编程梯度信息学习你想学的东西 URL: https://github.com/WongKinYiu/yolov9 作者: WongKinYiu 排名 2:/mttaggart/I-S00N 简介: 安讯上海（I-SOON）数据转储翻译（PII修订版） URL: https://github.com/mttaggart/I-S00N 作者: mttaggart 排名 3:/google/gemma_pytorch 简介: 谷歌Gemma模型的官方PyTorch实现 URL: https://github.com/google/gemma_pytorch 作者: google 排名 4:/jackfrued/Python-100-Days 简介: Python-100天从新手到大师 URL: https://github.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2024-02-25/">阅读更多关于2024-02-25 打工人日报的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-
-      <span class="hb-blog-post-date">2024年2月24日</span>
-
-        <span class="hb-blog-post-reading-time">3 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-02-24/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-02-24.jpg.61daee09f34c362ffb7bbee6ada18fdd.webp"
-    alt="2024-02-24 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-02-24 打工人日报"
-        href="/github_trending_2024-02-24/">2024-02-24 打工人日报</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 排名 1.瓣瓣同心心相连 排名 2.南京一小区火灾15人遇难44人受伤 排名 3.秦岚染发 排名 4.空间站里都有哪些科学装置 排名 5.父子赌气吃碳酸钡粉儿子身亡 排名 6.元宵节快乐 排名 7.3月1日起快递不得擅自放驿站 排名 8.韩国超万名医学生申请休学 排名 9.官方回应女浴室门口图片被吐槽变态 排名 10.南京火灾小区曾因电动车停放引发投诉 排名 11.肖战文淇身高差 排名 12.香港自由行率先开放西安青岛 排名 13.贾玲说如果重拍你好李焕英会更有电影感 排名 14.炎亚纶捏紧了拳头 排名 15.周一围对朱丹不理解但关心 排名 16.93岁姥爷非要帮铲雪外孙女吓跪了 排名 17.警方已控制柳州贩婴事件嫌疑人 排名 18.肖战领口一年比一年低 排名 19.元宵节文案 排名 20.安妮海瑟薇宁艺卓黄铉辰同框 GitHub 热门榜单 排名 1:/google/gemma_pytorch 简介: 谷歌Gemma模型的官方PyTorch实现 URL: https://github.com/google/gemma_pytorch 作者: google 排名 2:/google/gemma.cpp 简介: 用于谷歌Gemma模型的轻量级独立C++推理引擎。 URL: https://github.com/google/gemma.cpp 作者: google 排名 3:/SoraWebui/SoraWebui 简介: SoraWebui是一个开源的Sora网络客户端，使用户可以使用OpenAI的Sora模型轻松地从文本中创建视频。 URL: https://github.com/SoraWebui/SoraWebui 作者: SoraWebui 排名 4:/zed-industries/zed 简介: 以思维的速度编写代码–Zed是Atom和Tree-sitter的创建者提供的高性能多人代码编辑器。 URL: https://github.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2024-02-24/">阅读更多关于2024-02-24 打工人日报的内容。</a>
+            class="text-secondary" href="/rocketmq/">阅读更多关于RocketMQ 安装和启动的内容。</a>
         </div>
   </div>
 </div>
@@ -1899,7 +1962,7 @@
 
           <li
             class="page-item">
-            <a class="page-link" href="/page/47/">47</a>
+            <a class="page-link" href="/page/16/">16</a>
           </li>
       <li class="page-item">
         <a
@@ -2116,7 +2179,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/new/news/github_trending_2024-07-13/">
+  href="/new/daily/github_trending_2024-07-13/">
     
 
 
@@ -2166,7 +2229,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="2024-07-13 打工人日报"
-        href="/new/news/github_trending_2024-07-13/">2024-07-13 打工人日报</a>
+        href="/new/daily/github_trending_2024-07-13/">2024-07-13 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2179,70 +2242,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-07-13/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-07-13.jpg.37e0e8bf61bbaaf6548253572f6f4248.webp"
-    alt="2024-07-13 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-07-13 打工人日报"
-        href="/github_trending_2024-07-13/">2024-07-13 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-07-12/">
+  href="/new/daily/github_trending_2024-07-12/">
     
 
 
@@ -2292,7 +2292,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="2024-07-12 打工人日报"
-        href="/github_trending_2024-07-12/">2024-07-12 打工人日报</a>
+        href="/new/daily/github_trending_2024-07-12/">2024-07-12 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2305,7 +2305,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-07-11/">
+  href="/new/daily/github_trending_2024-07-11/">
     
 
 
@@ -2355,7 +2355,7 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="2024-07-11 打工人日报"
-        href="/github_trending_2024-07-11/">2024-07-11 打工人日报</a>
+        href="/new/daily/github_trending_2024-07-11/">2024-07-11 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2368,7 +2368,7 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-07-10/">
+  href="/new/daily/github_trending_2024-07-10/">
     
 
 
@@ -2418,7 +2418,70 @@
       <a
         class="hb-blog-post-title-link d-block"
         title="2024-07-10 打工人日报"
-        href="/github_trending_2024-07-10/">2024-07-10 打工人日报</a>
+        href="/new/daily/github_trending_2024-07-10/">2024-07-10 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/new/daily/github_trending_2024-07-09/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-07-09.jpg.b8f102e449160f7ad2f56fd4238ef2ed.webp"
+    alt="2024-07-09 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-07-09 打工人日报"
+        href="/new/daily/github_trending_2024-07-09/">2024-07-09 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2518,7 +2581,7 @@
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">203</small>
+            <small class="taxonomy-term-count border rounded px-1">202</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2585,7 +2648,7 @@
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">203</small>
+            <small class="taxonomy-term-count border rounded px-1">202</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2652,7 +2715,7 @@
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">203</small>
+            <small class="taxonomy-term-count border rounded px-1">202</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2797,7 +2860,7 @@
 
 
   
-<script src="/js/search.aff823e34288af8d1c9f027bab4be03b4e53e198f18bf446ed6db22335e1112a.js" defer></script>
+<script src="/js/search.7c327aa9427b7cc6dae474a70b19c6069596287ab4aee50bf744f67318975470.js" defer></script>
 
 
 

@@ -74,7 +74,7 @@
   
 
 
-博客 - 6/47 - 打工人日志</title>
+博客 - 6/16 - 打工人日志</title>
 
   
   
@@ -552,10 +552,45 @@
   class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
     <div class="hb-blog-post-meta d-flex align-items-center">
       
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
 
-      <span class="hb-blog-post-date">2024年5月17日</span>
 
-        <span class="hb-blog-post-reading-time">3 分钟阅读</span>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年11月15日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
 
       
   <span class="hb-blog-post-section">
@@ -566,7 +601,604 @@
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-05-17/">
+  href="/oracle-client/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="Oracle Instant Client 安装配置实现远程连接oracle"
+        href="/oracle-client/">Oracle Instant Client 安装配置实现远程连接oracle</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/oracle%E7%B3%BB%E5%88%97/">oracle系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/oracle/">oracle</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">背景 关于 Oracle 数据库一直是许多初学者比较头疼的地方，一方面受限于线上文档比较少，令一方面在企业中不得不接触和使用 Oracle 数据库，这篇文章是教大家如何通过配置 oracle client 来远程访问 Oracle 数据库。本文会通过 python3 和 cx_Oracle 来实现对 Oracle 的访问和增删改查
+下载 oracle 客户端 官方地址下载
+安装 下载并安装你的 oracle client，因为我连接的 11g oracle，所以下载 11.2 版本
+1# 下载 2wget https://download.oracle.com/otn/linux/instantclient/11204/oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm 3# 安装 4rpm -ivh oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm 配置环境变量 1# 直接运行 2export ORACLE_HOME=/usr/lib/oracle/11.2/client64 3export ORABIN=/usr/lib/oracle/11.2/client64/bin 1# 编辑环境变量配置文件 2vim /etc/profile 1# 底部增加内容 2export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL 3export ORACLE_HOME=/usr/lib/oracle/11.2/client64 4export TNS_ADMIN=/usr/lib/oracle/11.2/client64 5export LD_LIBRARY_PATH=/usr/lib/oracle/11.2/client64/lib 6export ORABIN=/usr/lib/oracle/11.2/client64/bin 7PATH=$PATH:$ORABIN 8export PATH 9 10export PATH=$ORACLE_HOME:$PATH 11export PATH=$PATH:$HOME/bin:$ORACLE_HOME/bin 1# 刷新环境变量 2source /etc/profile 下载 cx_Oracle 1pip3 install cx_Oracle 创建 Oracle.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/oracle-client/">阅读更多关于Oracle Instant Client 安装配置实现远程连接oracle的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年11月10日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/shell-test/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="shell功能脚本集合"
+        href="/shell-test/">shell功能脚本集合</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E6%97%A5%E5%B8%B8/">日常</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E6%97%A5%E5%B8%B8%E7%B3%BB%E5%88%97/">日常系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/daliy/">daliy</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">28 合 1 多功能脚本 脚本说明: 多合一脚本，DD 系统，BBR，xray,TG 搭建等等·常用的各种脚本基本都有！ 系统支持: CentOS6+ / Debian6+ / Ubuntu14+ 支持安装 BBR，搭建 KCPtun，ssr 多用户版 安装 V2ary，Tg 专用代理（Go 版），安装 Goflyway 小鸡性能测试，回程线路测试，云监控 傻瓜式一键 DD 包 一键开启默认 bbr Netflix 解锁检测 xray 安装 宝塔面板，闲蛋面板，x-ui 面板，WARP 一键配置 脚本特点: 目前网上的各个一键脚本基本都是只有 安装/启动/重启 等基础功能，对于小白来说还是不够简单方便。常用的各种脚本基本都有！
+下载安装: 1bash &lt;(curl -s -L https://git.io/JPj82) gfw_push 一键安装 脚本说明: 监测服务器 IP 是否被墙并推送至 Telegram 一键脚本 系统支持: CentOS6+ / Debian6+ / Ubuntu14+ 下载安装: 1bash &lt;(curl -s -L git.io/JPjzm) 服务器测速 脚本说明: 服务器一键测速脚本 系统支持: CentOS7 / Debian7+ / Ubuntu14+ 下载安装: 1bash &lt;(curl -s -L git.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/shell-test/">阅读更多关于shell功能脚本集合的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年11月7日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/zlibary/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="zlibary 无法下载 解决方案"
+        href="/zlibary/">zlibary 无法下载 解决方案</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/mac/">Mac</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/mac%E7%B3%BB%E5%88%97/">Mac系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/brew/">brew</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">zlibary 无法下载 因为 zlib 最近被封，导致现在通过正常方法下载不了电子书，但是不要慌，我们可以通过暗网进行下载~
+安装 brave 浏览器 官网下载
+下载你需要的版本，这个下载浏览器很简单，我就不多说了
+配置 tor 配置 编辑 tor 配置 使用 tor 浏览 zlibary tor 暗网版</div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年10月31日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/logstash1/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="Logstash 自动重载配置文件"
+        href="/logstash1/">Logstash 自动重载配置文件</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/%E7%9B%91%E6%8E%A7/">监控</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7%E7%B3%BB%E5%88%97/">运维监控系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/logstash/">logstash</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">工作原理 检测到配置文件变化 通过停止所有输入停止当前pipline 用新的配置创建一个新的管道 检查配置文件语法是否正确 检查所有的输入和输出是否可以初始化 检查成功使用新的 pipeline 替换当前的pipeline 检查失败,使用旧的继续工作. 在重载过程中,jvm 没有重启. Logstash 自动重新加载配置 为了可以自动检测配置文件的变动和自动重新加载配置文件,需要在启动的时候使用以下命令:
+1./bin/lagstash -f configfile.conf --config.reload.automatic 启动 Logstash 的时候使用--config.reload.automatic或-r选项来开启自动重载配置。
+修改检测间隔时间 默认检测配置文件的间隔时间是3秒,可以通过以下命令改变
+1--config.reload.interval &lt;second&gt; 如果 Logstash 已经运行并且没有开启自动重载，你可以强制 Logstash 重新载入配置文件并且重启管道通过发送一个 SIGHUP 信号。比如：
+1kill -1 &lt;pid&gt; 其中是正在运行的 Logstash 的进程号。
+注意！！！ stdin输入插件不支持自动重启.
+syslog作为输入源,当重载配置文件时,会崩溃.
+解决方法</div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年10月31日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/macos13/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="macOS 13 升级 软件失效"
+        href="/macos13/">macOS 13 升级 软件失效</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/mac/">Mac</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/mac%E7%B3%BB%E5%88%97/">Mac系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/brew/">brew</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">关于 macOS 13 软件失效 Warning: You are using macOS 13.
+We do not provide support for this pre-release version.
+You will encounter build failures with some formulae.
+Please create pull requests instead of asking for help on Homebrew&rsquo;s GitHub, Twitter or any other official channels. You are responsible for resolving any issues you experience while you are running this pre-release version.
+简单来说就是 macOS13 版本 暂时不提供技术支持
+解决方法 升级完 macos13 之后发现了比较麻烦的问题，很多软件出现了不兼容，这真的很无奈，对于我们这些做 IT 的人来说，这是致命的。我以 git 软件举例，有以下几个方法。</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/macos13/">阅读更多关于macOS 13 升级 软件失效的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年10月31日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/nexus/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="Nexus3 使用和部署"
+        href="/nexus/">Nexus3 使用和部署</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/work/">work</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/">问题库系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/work/">work</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">Nexus3 docker-compose 安装 创建外部存储
+1mkdir -p /data/nexus 2chmod +777 -R /data/nexus 运行 docker-compose
+1version: &#39;3&#39; 2services: 3 nexus3: 4 image: sonatype/nexus3:3.42.0 5 container_name: nexus3 6 ports: 7 - 8081:8081 8 - 5000:5000 9 volumes: 10 - /data/nexus:/nexus-data 11 environment: 12 - INSTALL4J_ADD_VM_PARAMS=-Xms1024m -Xmx1024m -XX:MaxDirectMemorySize=1024m -Djava.util.prefs.userRoot=/some-other-dir 13 restart: always 14 # 赋予外部root权限 15 privileged: true docker-compose up -d 运行 docker-compose</div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年10月21日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/github-error/">
     
 
 
@@ -596,13 +1228,14 @@
     
   
     <picture>
+    <source srcset="/images/error_hu3d3010a71e3153179e60e85cf02bc677_71618_600x400_resize_q75_h2_box.webp" type="image/webp" />
   <img
     class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-05-17.jpg.2eef1549c635e81599fa3688d00a3946.webp"
-    alt="2024-05-17 打工人日报"
+    src="https://www.jobcher.com/images/error.1d1016f23a1e038615d72b9d1a2daf62.jpeg"
+    alt="githubAction set-output弃用错误"
     loading="lazy"
-    height="1080"
-    width="1920"
+    height="400"
+    width="600"
     
     
     
@@ -615,8 +1248,8 @@
     <div class="hb-blog-post-title card-title h5 py-1">
       <a
         class="hb-blog-post-title-link d-block"
-        title="2024-05-17 打工人日报"
-        href="/github_trending_2024-05-17/">2024-05-17 打工人日报</a>
+        title="githubAction set-output弃用错误"
+        href="/github-error/">githubAction set-output弃用错误</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -624,46 +1257,23 @@
       <span class="hb-blog-post-taxonomy-meta">
         <a
           class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E6%8A%A5/">日报</a>
+          href="/categories/%E9%97%AE%E9%A2%98%E5%BA%93/">问题库</a>
       </span>
       <span class="hb-blog-post-taxonomy-meta">
         <a
           class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E6%8A%A5/">日报</a>
+          href="/series/%E9%97%AE%E9%A2%98%E5%BA%93%E7%B3%BB%E5%88%97/">问题库系列</a>
       </span>
       <span class="hb-blog-post-taxonomy-meta">
         <a
           class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E6%97%A5%E6%8A%A5/">日报</a>
+          href="/tags/error/">error</a>
       </span>
       </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 AI 摘要 下面是根据热度列出的一些新闻摘要：
-习近平和普京会晤后，共同会见了记者。 下月，你的工资可能增加，具体原因未详。 剧作家匪我思存针对《庆余年2》广告过多提出看法。 《中国有约》节目持续关注时事热点。 华为手表注重个性化表达自由。 &ldquo;狂飙兄弟&quot;话题引发热议。 连云港海鲜市场事件，市监局给出回应。 特技演员的独特视角引发了关注。 王楚然的演技引发讨论，有人认为尴尬。 台湾首例2例日本脑炎病例报道，1人死亡。 菲律宾某组织宣布成就遭质疑。 女警的笑泪表现引发网民关注。 周杰伦回应情感表达方式。 常温奶与鲜奶的差异讨论持续。 胡海泉新职务：高校院长任命。 爱奇艺会员数据调整策略。 江西高考政策调整，取消一本二本区分。 &ldquo;庆余年&quot;剧中精彩内容受到关注。 高速交警事件：两位涉事人员被停职。 以上是关于这些新闻的初步摘要，具体内容请查阅原文获取详细信息。
-热搜链接 排名 1.习近平同普京共同会见记者
-排名 2.下个月你工资或将多一笔钱
-排名 3.匪我思存吐槽庆余年2广告多
-排名 4.中国有约
-排名 5.华为手表爱怎么表达就怎么表达
-排名 6.狂飙兄弟
-排名 7.连云港海鲜市场
-排名 8.市监局回应连云港海鲜市场事件
-排名 9.特技狂人有自己的替身文学
-排名 10.王楚然演技 尴尬
-排名 11.台湾首现2例日本脑炎病例1人死亡
-排名 12.菲组织单方面宣布成功是坑蒙拐骗
-排名 13.女警一会儿笑嘻嘻一会儿哭唧唧
-排名 14.周杰伦 哥平常是不随便流泪的
-排名 15.常温奶和鲜奶的区别大么
-排名 16.胡海泉出任高校院长
-排名 17.爱奇艺每季度不再公布会员数
-排名 18.江西高考不再区分一本和二本
-排名 19.庆余年 剧王
-排名 20.高速上逼停小车的2民警被停职
-GitHub 热门榜单 排名 1:/nocobase/nocobase 简介: NocoBase是一个可扩展性优先的开源无代码/低代码平台，用于构建业务应用程序和企业解决方案。 URL: https://github.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2024-05-17/">阅读更多关于2024-05-17 打工人日报的内容。</a>
-        </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">githubAction set-output 弃用错误 The set-output command is deprecated and will be disabled soon. Please upgrade to using Environment Files. For more information see: https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/
+原因 如果您有一个使用 设置输出的GitHub Actionsecho ::set-output key=value工作流程，您已经开始看到无用的弃用警告。这是修复它的方法。查看官方链接基本上得不到什么帮助！
+修复方法 更新其它人的 action 方法 1将 @actions/core 提升到 1.10.0 修改自己的 aciton 方法 1run: echo &#34;::set-output name=KEY::VALUE&#34; 2## 改为 3run: echo &#34;KEY=VALUE&#34; &gt;&gt;$GITHUB_OUTPUT 建议：使用自己的方法
+总结 平台经营者非常肆意妄为的修改自己的代码内容弃用功能，无限的权力滋生傲慢……我相信大部分开发这并没有注意到这个告警，知道流水线服务报错之后才会注意到，希望微软可以对能更加包容不同的开发者，尊重开发者社区。</div>
   </div>
 </div>
 
@@ -675,10 +1285,45 @@ GitHub 热门榜单 排名 1:/nocobase/nocobase 简介: NocoBase是一个可扩�
   class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
     <div class="hb-blog-post-meta d-flex align-items-center">
       
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
 
-      <span class="hb-blog-post-date">2024年5月16日</span>
 
-        <span class="hb-blog-post-reading-time">3 分钟阅读</span>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年10月21日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
 
       
   <span class="hb-blog-post-section">
@@ -689,57 +1334,19 @@ GitHub 热门榜单 排名 1:/nocobase/nocobase 简介: NocoBase是一个可扩�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-05-16/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-05-16.jpg.89687f672b3b8ddbacb0cb5eeca42c00.webp"
-    alt="2024-05-16 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
+  href="/ipfs/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
 </a>
 
   <div class="card-body px-0 py-2 d-flex flex-column">
     <div class="hb-blog-post-title card-title h5 py-1">
       <a
         class="hb-blog-post-title-link d-block"
-        title="2024-05-16 打工人日报"
-        href="/github_trending_2024-05-16/">2024-05-16 打工人日报</a>
+        title="打开web 3.0的大门——IPFS使用"
+        href="/ipfs/">打开web 3.0的大门——IPFS使用</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -747,45 +1354,38 @@ GitHub 热门榜单 排名 1:/nocobase/nocobase 简介: NocoBase是一个可扩�
       <span class="hb-blog-post-taxonomy-meta">
         <a
           class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E6%8A%A5/">日报</a>
+          href="/categories/web3.0/">web3.0</a>
       </span>
       <span class="hb-blog-post-taxonomy-meta">
         <a
           class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E6%8A%A5/">日报</a>
+          href="/series/web3.0/">web3.0</a>
       </span>
       <span class="hb-blog-post-taxonomy-meta">
         <a
           class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E6%97%A5%E6%8A%A5/">日报</a>
+          href="/tags/ipfs/">IPFS</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/web3.0/">web3.0</a>
       </span>
       </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 AI 摘要 1.【习近平回信勉励北京市八达岭长城脚下的乡亲们】国家领导人关心基层，寄语鼓励民间发展与文化保护。 2.【关晓彤黑天鹅高定造型】明星时尚，展示独特艺术魅力。 3.【普京抵京】国际政要访问，关注外交动态。 4.【2024全球贸易投资峰会】全球经济活动，着眼未来合作。 5.【王力宏】著名歌手，音乐相关话题。 6.【陕西高中招生改革】教育政策调整，影响区域教育格局。 7.【长沙机场蒸蛋价格】热议餐饮价格，反映消费体验。 8.【魏晨与宝宝】温馨日常，分享亲情时光。 9.【Kep1er续约】偶像团体动态，粉丝关注团综更新。 10.【韩红与郝蕾】娱乐圈内的人际关系新闻。 11.【云南蝴蝶爆发】生态环境保护，自然现象引人关注。 12.【花花的霸姐气质】赞美某位女性艺人风格。 13.【iOS恢复旧照片】科技新功能，用户发现实用功能。 14.【庆余年2】期待续集，影视作品热度延续。 15.【韩红被称为最牛伸手党】话题争议，社会关注慈善与名利。 16.【何炅谈张杰】娱乐圈幕后故事，传播正能量。 17.【猫咪车顶实训】趣味交通安全教育，引发关注。 18.【女星戛纳同框】国际时尚盛事，展示明星风采。 19.【肿瘤医院温情】关爱病患，人间温情。 20.【iPad用户换机趋势】电子产品消费，反映消费市场动态。
-热搜链接 排名 1.习近平回信勉励北京市八达岭长城脚下的乡亲们
-排名 2.关晓彤黑天鹅高定
-排名 3.俄罗斯总统普京抵达北京
-排名 4.2024年全球贸易投资促进峰会
-排名 5.王力宏 歌手
-排名 6.陕西全面取消普通高中跨市招生
-排名 7.网友吐槽长沙机场一份蒸蛋32元
-排名 8.魏晨和宝宝的一天
-排名 9.kep1er续约将七人组活动
-排名 10.韩红想要郝蕾的孩子
-排名 11.云南将迎1亿只以上蝴蝶大爆发
-排名 12.花花的霸姐气质藏不住了
-排名 13.曝iOS17.5恢复已删除多年照片
-排名 14.庆余年2
-排名 15.韩红 最牛伸手党
-排名 16.何炅曾说歌手对张杰是内心的历练
-排名 17.猫 车顶有学员通过
-排名 18.佟丽娅关晓彤唐嫣戛纳同框
-排名 19.肿瘤医院外化疗宝宝排队领汤看哭
-排名 20.iPad用户换机周期逐年增加
-GitHub 热门榜单 排名 1:/Mr-Wiseguy/N64Recomp 简介: 将N64游戏静态重新编译为本地可执行文件的工具 URL: https://github.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2024-05-16/">阅读更多关于2024-05-16 打工人日报的内容。</a>
-        </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">背景 有很多朋友问我什么是 web3.0，web3.0 似乎离我们非常远。有人会说 web3.0 是未来下一代的技术很有前景！但是举出一个具体的例子，似乎又非常困难。使用 web3.0 是一件非常高科技的事情。本文就是通过各 IPFS 给各位初学者和对 web3.0 感兴趣的人使用介绍，看完本篇文章，你就能进入 web3.0 的世界了~
+IPFS 星际文件系统(InterPlanetary File System). IPFS 是一个分布式的 web, 点到点超媒体协议. 可以让我们的互联网速度更快, 更加安全, 并且更加开放. IPFS协议的目标是取代传统的互联网协议HTTP
+下载安装 本文不会对技术做更深入探讨，只在应用层面上介绍
+下载 官网
+下载 windows
+下载 MAC
+安装 运行 .exe 文件开始安装，选择是要为您自己还是为计算机上的所有用户安装应用程序。点击下一步：
+选择应用程序的安装位置。默认位置通常很好。点击下一步：
+等待安装完成，然后单击完成：
+您现在可以在状态栏中找到 IPFS 图标：
+使用 打开软件 可以正常使用了！是不是很简单接下来浏览器直接查看 web3.0 站点 站点 我的 web3.0 blog： ipfs.jobcher.com
+对标 youdTube 的视频网站: d.tube
+Orbit，QQ 在 IPFS 上的替代者: orbit.chat
+Akasha，对标 facebook，微信等社交工具：akasha.world</div>
   </div>
 </div>
 
@@ -797,22 +1397,12 @@ GitHub 热门榜单 排名 1:/Mr-Wiseguy/N64Recomp 简介: 将N64游戏静态重
   class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
     <div class="hb-blog-post-meta d-flex align-items-center">
       
-
-      <span class="hb-blog-post-date">2024年5月15日</span>
-
-        <span class="hb-blog-post-reading-time">3 分钟阅读</span>
-
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
       
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-05-15/">
-    
+  
 
 
 
@@ -826,485 +1416,24 @@ GitHub 热门榜单 排名 1:/Mr-Wiseguy/N64Recomp 简介: 将N64游戏静态重
 
 
   
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
   
     <picture>
   <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-05-15.jpg.e534d3f9fb9706675853353041ea372c.webp"
-    alt="2024-05-15 打工人日报"
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
     loading="lazy"
-    height="1080"
-    width="1920"
+    
+    
     
     
     
      />
 </picture>
 
-</a>
+    </a>
 
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-05-15 打工人日报"
-        href="/github_trending_2024-05-15/">2024-05-15 打工人日报</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 AI 摘要 以下是 Twitter 热门话题的摘要：
-加快陆海新通道空中丝绸之路建设：聚焦于加强国际交通线路建设，促进区域经济合作与发展。
-月薪两万不敢在商场买衣服：揭示了高收入人群的消费观念和可能面临的压力。
-香港一医院就误切女子子宫致歉：涉及医疗事故，关注医患关系和医疗服务质量。
-飞行3500小时经验丰富的驾驶员传承：体现航空业的传承精神及专业技能的积累。
-华为夏季新品发布：科技巨头华为推出新品，聚焦消费电子市场。
-长城炮车主被车顶帐篷事故：警示车辆设计安全问题，关注车主权益。
-东北虎死亡事件：关注野生动物保护与环境问题。
-地磁暴影响人们的睡眠：讨论地磁活动对日常生活的影响。
-超话主持人赞许声：表彰主持人的专业表现。
-艾伦陈乔恩获金扫帚奖：娱乐新闻，围绕影视界的争议奖项。
-戛纳红毯明星活动：国际电影节相关，展示时尚与影视焦点。
-00后高薪住家保姆：探讨职业发展和社会对高技能人才的需求。
-二孩妈妈的教育成就：母亲的坚韧与成就引起关注。
-张杰谢娜互动：明星情感生活的公开分享。
-牛奶饮用指南：健康话题，探讨正确选择和饮用牛奶。
-茶百道 文俊辉：可能是茶饮品牌和艺人合作的新闻。
-歌手比赛预测：音乐娱乐节目的赛果猜测。
-关晓彤戛纳红毯造型：显示影视明星的国际形象。
-河南男童被恶犬咬伤悲剧：关注儿童安全和社区责任。
-恶犬咬伤事件后续：继续关注受害者家庭及社会责任讨论。
-热搜链接 排名 1.加快陆海新通道空中丝绸之路建设
-排名 2.月薪两万不敢在商场买衣服
-排名 3.香港一医院就误切女子子宫致歉
-排名 4.累计飞行3500小时他将头盔交给95后徒弟
-排名 5.华为夏季全场景新品来了
-排名 6.长城炮车主被车顶电动帐篷卡脖身亡
-排名 7.死亡的20只东北虎有10只是幼虎
-排名 8.地磁暴的这几天你睡眠如何
-排名 9.厉害了超话主持人
-排名 10.艾伦陈乔恩获金扫帚影帝后
-排名 11.戛纳红毯
-排名 12.00后试岗月薪15000住家保姆
-排名 13.二孩妈妈用22年从中专读到博士
-排名 14.张杰谢娜吵架也要撒狗粮
-排名 15.你的牛奶喝对了么
-排名 16.茶百道 文俊辉
-排名 17.歌手预测
-排名 18.关晓彤戛纳红毯短发造型
-排名 19.河南3岁男童被恶犬咬伤18天后离世
-排名 20.恶犬咬伤离世男童母亲发声
-GitHub 热门榜单 排名 1:/linyiLYi/bilibot 简介: 一个根据bilibili用户评论进行微调的本地聊天机器人。 URL: https://github.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2024-05-15/">阅读更多关于2024-05-15 打工人日报的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-
-      <span class="hb-blog-post-date">2024年5月14日</span>
-
-        <span class="hb-blog-post-reading-time">3 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-05-14/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-05-14.jpg.29708d1f44b29f74036df7358f751fec.webp"
-    alt="2024-05-14 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-05-14 打工人日报"
-        href="/github_trending_2024-05-14/">2024-05-14 打工人日报</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 AI 摘要 习近平主席的欧洲行传递出和平、团结与合作的信息。 浙江一女子因清理发霉衣柜导致肺部感染引关注。 歌手国籍不影响音乐，强调艺术无国界。 我国核电技术已跻身全球先进水平行列。 中国坚持一个中国原则，台湾地区未获世卫大会参与资格。 苹果确认新款iPadPro存在显示问题。 诛仙系列电影讨论热点人物陆雪琪。 导演揭秘井柏然吃牛排镜头拍摄细节。 碧瑶角色再度引发诛仙话题。 张杰的过往经历提及他的歌手生涯。 幸福婚姻故事：广西女子嫁给浙江农村的幸福生活描述。 情侣拒绝采访引主持人冲突，聚焦隐私权问题。 早年游戏教育反面典型如今回馈父亲大礼。 校内事故致院长身亡，司机被认定全责。 社交媒体动态：探讨为何人们减少在朋友圈分享。 麦当劳中国针对某事件发表官方声明。 巴勒斯坦女子生活压力大，情绪失控。 欧阳娜娜针对某事作出回应。 槽头肉企业因3·15曝光被重罚。 音乐颁奖典礼动态分享——歌手揭榜环节。 热搜链接 排名 1.习近平主席欧洲之行发出和平团结合作强音
-排名 2.杭州姑娘清理发霉衣柜肺部长霉菌
-排名 3.歌手有国籍音乐无国界
-排名 4.我国核电技术已进入世界第一方阵
-排名 5.中方决定不同意台湾地区参加今年世卫大会
-排名 6.苹果承认新款iPadPro存在渲染失常
-排名 7.诛仙女主陆雪琪
-排名 8.导演说井柏然吃牛排镜头只拍了一次
-排名 9.诛仙碧瑶
-排名 10.张杰曾为去歌手赔款
-排名 11.广西媳妇远嫁浙江农村感叹幸福指数太高了
-排名 12.情侣拒绝采访被主持人劝分手
-排名 13.打游戏被当反面教材的男孩4年后送父亲一辆车
-排名 14.院长被校内观光车撞死认定司机全责
-排名 15.你为何不喜欢发朋友圈了
-排名 16.麦当劳中国声明
-排名 17.巴勒斯坦女子崩溃呼喊我太累了
-排名 18.欧阳娜娜回应
-排名 19.315曝光的槽头肉企业被罚1287万
-排名 20.歌手揭榜
-GitHub 热门榜单 排名 1:/Mr-Wiseguy/N64Recomp 简介: 将N64游戏静态重新编译为本地可执行文件的工具 URL: https://github.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2024-05-14/">阅读更多关于2024-05-14 打工人日报的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-
-      <span class="hb-blog-post-date">2024年5月13日</span>
-
-        <span class="hb-blog-post-reading-time">3 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-05-13/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-05-13.jpg.0838e3f86befc68472a94d57df3954eb.webp"
-    alt="2024-05-13 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-05-13 打工人日报"
-        href="/github_trending_2024-05-13/">2024-05-13 打工人日报</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 AI 摘要 关于学校思政课的创新教学方法引起了关注，同时娄艺潇和A妹作为歌手也有相关新闻。手机新品vivo X100系列发布，QQ微信上线地震预警功能，社会事件如警方通报男子摸车索赔事件也在讨论中。刘雨昕成为百加得品牌代言人，同时还有减肥、餐饮体验（张凌赫在伦敦）、母爱故事（罕见病儿子）、女性健康话题（妇科检查）、音乐邀请、天价账单、明星生活（杨丞琳在家罚唱、韩红请战）以及otto账号新闻。在文化、科技、社交和娱乐领域都有相关热点。
-热搜链接 排名 1.如何让学校思政课走新更走心
-排名 2.娄艺潇自荐歌手
-排名 3.斗鱼公告
-排名 4.世上最动听的两个字是妈妈
-排名 5.vivo X100系列新品发布
-排名 6.A妹 歌手
-排名 7.QQ微信上线地震预警功能
-排名 8.警方通报男子摸车被索赔1万
-排名 9.刘雨昕百加得品牌代言人
-排名 10.Alin报名歌手
-排名 11.我在北大学减肥
-排名 12.张凌赫在伦敦吃火锅烧烤
-排名 13.妈妈带罕见病儿子走过100个城市
-排名 14.妇科检查的鸭嘴钳能不能对女性更友好
-排名 15.歌手在邀请了
-排名 16.女子收滴滴7年前7分钟路程天价账单
-排名 17.杨丞琳在家罚唱
-排名 18.嗓子废了是职业病吗
-排名 19.韩红请战歌手
-排名 20.otto被封
-GitHub 热门榜单 排名 1:/hydralauncher/hydra 简介: Hydra是一款游戏启动器，有自己的嵌入式bittorrent客户端和一个自行管理的重新打包刮刀。 URL: https://github.com/hydralauncher/hydra 作者: hydralauncher 排名 2:/CorentinTh/it-tools 简介: 为开发人员收集方便的在线工具，具有出色的用户体验。 URL: https://github.com/CorentinTh/it-tools 作者: CorentinTh 排名 4:/harry0703/MoneyPrinterTurbo 简介: 利用人工智能大模型，一键生成高清短视频 使用AI LLM一键生成短视频。 URL: https://github.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2024-05-13/">阅读更多关于2024-05-13 打工人日报的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-
-      <span class="hb-blog-post-date">2024年5月12日</span>
-
-        <span class="hb-blog-post-reading-time">3 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-05-12/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-05-12.jpg.984e610489e840b36ff580f61ba2936c.webp"
-    alt="2024-05-12 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-05-12 打工人日报"
-        href="/github_trending_2024-05-12/">2024-05-12 打工人日报</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 AI 摘要 习近平主席的欧洲之行成为热门话题。 母亲节期间情感共鸣。 歌手比赛中的“踢馆”现象吸引关注。 匈牙利兴起中文学习热，体现文化交流。 死刑执行细节引起讨论：救护车的必要性。 “断眉”与歌手的关联引起讨论。 周末工作体验的新奇比喻引发共鸣。 对“不被定义的妈妈”角色的认同。 林俊杰与歌手的互动成为焦点。 年长驻守者与平凡生活的感人故事。 教师奖励机制下的温馨时刻。 中国人对“龙”称谓的文化探讨。 关于舅舅地位的社会观察。 南通车祸事故调查进展。 央视为歌手比赛加油助威。 何洛洛的演艺动态。 俄乌局势：俄军进攻升级。 张桂源的训练暂停情况。 高嘉朗寻求歌手关注的表现。 年轻人穿鞋习惯的当代话题。 热搜链接 排名 1.习近平主席欧洲之行
-排名 2.母亲节
-排名 3.歌手踢馆
-排名 4.匈牙利掀起了中文热
-排名 5.为什么在死刑执行现场必须停一辆救护车
-排名 6.断眉 歌手
-排名 7.周六上班上出了结婚的感觉
-排名 8.不被定义的妈妈
-排名 9.林俊杰别扫地了先支援歌手吧
-排名 10.五旬守国门三旬吃拉面
-排名 11.班级成绩第一老师请全班吃烤全羊
-排名 12.中国的龙是loong
-排名 13.为什么舅舅的地位这么高
-排名 14.南通车祸事故原因初步查明
-排名 15.央视喊话袁娅维支援歌手
-排名 16.何洛洛0片约
-排名 17.俄军进攻乌克兰第二大城市
-排名 18.张桂源 停训
-排名 19.高嘉朗 恳请歌手看看我
-排名 20.现在的年轻人为什么不穿皮鞋
-GitHub 热门榜单 排名 1:/hydralauncher/hydra 简介: Hydra是一款游戏启动器，有自己的嵌入式bittorrent客户端和一个自行管理的重新打包刮刀。 URL: https://github.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2024-05-12/">阅读更多关于2024-05-12 打工人日报的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-
-      <span class="hb-blog-post-date">2024年5月11日</span>
+      <span class="hb-blog-post-date">2022年10月11日</span>
 
         <span class="hb-blog-post-reading-time">4 分钟阅读</span>
 
@@ -1317,57 +1446,19 @@ GitHub 热门榜单 排名 1:/hydralauncher/hydra 简介: Hydra是一款游戏�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-05-11/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-05-11.jpg.070d958058077425e100158254b20c55.webp"
-    alt="2024-05-11 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
+  href="/k8s14/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
 </a>
 
   <div class="card-body px-0 py-2 d-flex flex-column">
     <div class="hb-blog-post-title card-title h5 py-1">
       <a
         class="hb-blog-post-title-link d-block"
-        title="2024-05-11 打工人日报"
-        href="/github_trending_2024-05-11/">2024-05-11 打工人日报</a>
+        title="Kubernetes — Rook云存储介绍和部署"
+        href="/k8s14/">Kubernetes — Rook云存储介绍和部署</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1375,44 +1466,27 @@ GitHub 热门榜单 排名 1:/hydralauncher/hydra 简介: Hydra是一款游戏�
       <span class="hb-blog-post-taxonomy-meta">
         <a
           class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E6%8A%A5/">日报</a>
+          href="/categories/k8s/">k8s</a>
       </span>
       <span class="hb-blog-post-taxonomy-meta">
         <a
           class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E6%8A%A5/">日报</a>
+          href="/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">k8s入门系列</a>
       </span>
       <span class="hb-blog-post-taxonomy-meta">
         <a
           class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E6%97%A5%E6%8A%A5/">日报</a>
+          href="/tags/k8s/">k8s</a>
       </span>
       </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 AI 摘要 在最新的话题中，中匈两国关系被提及是互信互助的朋友，专家对于低价机票提出了建议，关于歌手的选择和婉拒也有讨论。塞尔维亚教练与中国梦相关的话题也受到关注。海狮07EV宣布戚薇为代言人，那英和叶赫那拉氏的话题也引起了讨论。此外，养老金冒领、澳门福利发放、王楚钦、中法修复巴黎圣母院、工作调休、磁暴等社会新闻也在话题榜上。学生爬秦岭身亡和英雄家属的故事引发了情感共鸣，歌手选拔、补位等娱乐动态也不容忽视。李晨和纪凌尘的健身互动也受到部分网友关注。
-热搜链接 排名 1.中匈两国始终是互信互助的好朋友
-排名 2.专家建议不要买低价机票
-排名 3.婉拒歌手
-排名 4.一位塞尔维亚教练的中国梦
-排名 5.海狮07EV官宣代言人戚薇
-排名 6.那英 叶赫那拉氏的宿命
-排名 7.姐姐去世妹妹冒领养老金近40万
-排名 8.花少北聊天记录
-排名 9.我心中的年度品牌
-排名 10.澳门向永久性居民发放1万澳门元
-排名 11.王楚钦
-排名 12.巴勒斯坦
-排名 13.中法将联合修复巴黎圣母院
-排名 14.调休
-排名 15.大地磁暴又来了
-排名 16.歌手2024排名
-排名 17.江西20岁学生独自爬秦岭身亡
-排名 18.男子救人牺牲妻子将百万慰问金全给公婆
-排名 19.歌手补位
-排名 20.李晨纪凌尘一起健身
-GitHub 热门榜单 排名 1:/CorentinTh/it-tools 简介: 为开发人员收集方便的在线工具，具有出色的用户体验。 URL: https://github.com/CorentinTh/it-tools 作者: CorentinTh 排名 2:/lllyasviel/IC-Light 简介: 更多的重新点燃！ URL: https://github.com/lllyasviel/IC-Light 作者: lllyasviel 排名 4:/VinciGit00/Scrapegraph-ai 简介: 基于人工智能的Python scraper URL: https://github.</div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">Rook 云存储介绍和部署 Rook 将分布式存储软件转变为自我管理，自我缩放和自我修复的存储服务。它通过自动化部署，引导、配置、供应、扩展、升级、迁移、灾难恢复、监控和资源管理来实现。 Rook 使用基础的云原生容器管理、调度和编排平台提供的功能来履行其职责。
+Rook 利用扩展点深入融入云原生环境，为调度、生命周期管理、资源管理、安全性、监控和用户体验提供无缝体验。
+部署 使用 helm 部署 1helm init -i jimmysong/kubernetes-helm-tiller:v2.8.1 2helm repo add rook-alpha https://charts.rook.io/alpha 3helm install rook-alpha/rook --name rook --namespace rook-system 直接使用 yaml 文件部署 1kubectl apply -f rook-operator.yaml 不论使用那种方式部署的 rook operator，都会在 rook-agent 中看到 rook-agent 用户无法列出集群中某些资源的错误，可以通过为 rook-agent 的分配 cluster-admin 权限临时解决，详见 Issue 1472。
+使用如下 yaml 文件创建一个 ClusterRoleBinding 并应用到集群中。
+1kind: ClusterRoleBinding 2apiVersion: rbac.authorization.k8s.io/v1beta1 3metadata: 4 name: rookagent-clusterrolebinding 5subjects: 6 - kind: ServiceAccount 7 name: rook-agent 8 namespace: rook-system 9roleRef: 10 kind: ClusterRole 11 name: cluster-admin 12 apiGroup: &#34;&#34; 部署 rook cluster 创建完 rook operator 后，我们再部署 rook cluster。</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/github_trending_2024-05-11/">阅读更多关于2024-05-11 打工人日报的内容。</a>
+            class="text-secondary" href="/k8s14/">阅读更多关于Kubernetes — Rook云存储介绍和部署的内容。</a>
         </div>
   </div>
 </div>
@@ -1425,8 +1499,143 @@ GitHub 热门榜单 排名 1:/CorentinTh/it-tools 简介: 为开发人员收集�
   class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
     <div class="hb-blog-post-meta d-flex align-items-center">
       
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
 
-      <span class="hb-blog-post-date">2024年5月10日</span>
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年10月11日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/k8s15/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="Kubernetes — 基于K8S搭建Ceph分布式存储"
+        href="/k8s15/">Kubernetes — 基于K8S搭建Ceph分布式存储</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/k8s/">k8s</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">k8s入门系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/k8s/">k8s</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">基于 K8S 搭建 Ceph 分布式存储 前提 正常运行的多节点 K8S 集群，可以是两个节点也可以是更多。 每一个节点需要一个没有被分区的硬盘，最好大小一致不然会浪费。 没错其实就是一个要求，必须有集群才能进行容器管理，必须有硬盘才能做存储这些都是基础。 添加硬盘 主机 IP 磁盘 master01 10.12.12.51 SATA 20G master02 10.12.12.52 SATA 20G master03 10.12.12.53 SATA 20G worker01 10.12.12.54 SATA 20G worker02 10.12.12.55 SATA 20G 在 5 个节点都加 20g 存储
+重启 k8s 节点 1kubectl cordon &lt;节点&gt; 2kubectl drain &lt;节点&gt; --ignore-daemonsets --delete-emptydir-data 3# 虚拟机重启后 4kubectl uncordon &lt;节点&gt; 查看新增存储 1fdisk -l 看到新增 20g 存储,不要格式化分区硬盘！！！
+1Disk /dev/sdb: 20 GiB, 21474836480 bytes, 41943040 sectors 2Disk model: QEMU HARDDISK 3Units: sectors of 1 * 512 = 512 bytes 4Sector size (logical/physical): 512 bytes / 512 bytes 5I/O size (minimum/optimal): 512 bytes / 512 bytes ROOK 自动创建 Rook 是一个开源的cloud-native storage编排, 提供平台和框架；为各种存储解决方案提供平台、框架和支持，以便与云原生环境本地集成。 Rook 将存储软件转变为自我管理、自我扩展和自我修复的存储服务，它通过自动化部署、引导、配置、置备、扩展、升级、迁移、灾难恢复、监控和资源管理来实现此目的。 Rook 使用底层云本机容器管理、调度和编排平台提供的工具来实现它自身的功能。 Rook 目前支持Ceph、NFS、Minio Object Store和CockroachDB。 Rook 使用Kubernetes原语使Ceph存储系统能够在Kubernetes上运行。 下载 1git clone https://github.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/k8s15/">阅读更多关于Kubernetes — 基于K8S搭建Ceph分布式存储的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年10月8日</span>
 
         <span class="hb-blog-post-reading-time">3 分钟阅读</span>
 
@@ -1439,57 +1648,19 @@ GitHub 热门榜单 排名 1:/CorentinTh/it-tools 简介: 为开发人员收集�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-05-10/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-05-10.jpg.cbc709dadf8608f5599464e6ce4a9c34.webp"
-    alt="2024-05-10 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
+  href="/k8s13/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
 </a>
 
   <div class="card-body px-0 py-2 d-flex flex-column">
     <div class="hb-blog-post-title card-title h5 py-1">
       <a
         class="hb-blog-post-title-link d-block"
-        title="2024-05-10 打工人日报"
-        href="/github_trending_2024-05-10/">2024-05-10 打工人日报</a>
+        title="Kubernetes — 探针和生命周期"
+        href="/k8s13/">Kubernetes — 探针和生命周期</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1497,44 +1668,25 @@ GitHub 热门榜单 排名 1:/CorentinTh/it-tools 简介: 为开发人员收集�
       <span class="hb-blog-post-taxonomy-meta">
         <a
           class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E6%8A%A5/">日报</a>
+          href="/categories/k8s/">k8s</a>
       </span>
       <span class="hb-blog-post-taxonomy-meta">
         <a
           class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E6%8A%A5/">日报</a>
+          href="/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">k8s入门系列</a>
       </span>
       <span class="hb-blog-post-taxonomy-meta">
         <a
           class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E6%97%A5%E6%8A%A5/">日报</a>
+          href="/tags/k8s/">k8s</a>
       </span>
       </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 AI 摘要 关于习近平的外交活动受到关注，他同匈牙利总统会谈，展示外交成果。同时，文化活动也引人瞩目，中匈乐器合奏茉莉花展示出两国文化交流的魅力。另一个话题是关于长期不上班的人，引发社会对职业生活和身份认同的讨论。此外，健康、明星动态、房产市场波动（杭州限购取消后的反应）、减肥运动效果、太空照片的恐怖视角，以及名人八卦（曾舜晞和莫文蔚的传闻）也在人们的热议中。还有人们的生活细节，如饮食（CoCo鲜百香双响炮）、睡眠健康和网络事件（璩静离职事件）也在话题列表中。
-热搜链接 排名 1.习近平同匈牙利总统举行会谈
-排名 2.三亚出现椰子狸尾巴比身长
-排名 3.那些长期不上班的人最后都怎么样了
-排名 4.中匈乐器合奏茉莉花太绝了
-排名 5.CoCo鲜百香双响炮16周年
-排名 6.人死后聊天记录会被怎样处理
-排名 7.杭州取消限购有卖家跳涨三成
-排名 8.靠运动减肥多久才开始起效
-排名 9.曾舜晞下颌线比我人生规划还清晰
-排名 10.迄今为止最恐怖的太空照片之一
-排名 11.匈牙利民众对中华文化情有独钟
-排名 12.以前的跑男和现在的跑男
-排名 13.莫文蔚别让我跪下求你官宣
-排名 14.花少北 煎蛋
-排名 15.林更新要考博士
-排名 16.百度离职副总裁4月成立新公司
-排名 17.睡觉若有这5种不适或是疾病征兆
-排名 18.参哥称璩静一定是被人黑了
-排名 19.百度副总裁璩静已离职
-排名 20.南充16岁高中女生已失联5天
-GitHub 热门榜单 排名 1:/VinciGit00/Scrapegraph-ai 简介: 基于人工智能的Python scraper URL: https://github.com/VinciGit00/Scrapegraph-ai 作者: VinciGit00 排名 2:/toeverything/AFFiNE 简介: 可能不止诺蒂翁和米罗。AFFiNE（发音为[́&rsquo;fain]）是一个将规划、排序和创建结合在一起的下一代知识库。隐私至上，开源，可定制，随时可用。 URL: https://github.com/toeverything/AFFiNE 作者: toeverything 排名 3:/IvanGlinkin/CCTV 简介: Close-Circuit Telegram Vision凭借其开源设计和Telegram API集成，彻底改变了位置跟踪。提供50-100米范围内的精确跟踪，用户可以实时监控他人的物流或安全，重新定义我们如何导航周围环境 URL: https://github.</div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">Kubernetes — 探针和生命周期 用于判断容器内应用程序是否已经启动。
+存活（Liveness）探针 用于探测容器是否运行，如果探测失败，kubelet 会根据配置的重启策略进行相应的处理，若没有配置探针该返回值默认为 success 就绪（Readiness）探针 用于探测容器内的程序是否健康，如果返回值为 success，那么代表这个容器已经完全启动，并且程序已经是可以接受流量的状态 启动（Startup）探针 用于探测容器是否启动，如果配置了 startup 就会先禁止其他探测，直到它成功，成功后将不在运行探测 Pod 检测方式 ExecAction：在容器执行一个命令，返回值为 0，则认为容器健康 TCPSocketAction：通过 TCP 连接检查容器是否联通，通的话，则认为容器正常 HTTPGetAction：通过应用程序暴露的 API 地址来检查程序是否正常的，如果状态码为 200-400 之间，则认为容器健康 gRPCAction：通过 gRPC 的检查机制，判断容器是不是正常 StartupProbe 启动探针 有时候，会有一些现有的应用在启动时需要较长的初始化时间。 要这种情况下，若要不影响对死锁作出快速响应的探测，设置存活探测参数是要技巧的。 技巧就是使用相同的命令来设置启动探测，针对 HTTP 或 TCP 检测，可以通过将 failureThreshold * periodSeconds 参数设置为足够长的时间来应对糟糕情况下的启动时间。
+1ports: 2 - name: liveness-port 3 containerPort: 8080 4 hostPort: 8080 5 6livenessProbe: 7 httpGet: 8 path: /healthz 9 port: liveness-port 10 failureThreshold: 1 11 periodSeconds: 10 12 13startupProbe: 14 httpGet: 15 path: /healthz 16 port: liveness-port 17 failureThreshold: 30 18 periodSeconds: 10 幸亏有启动探测，应用程序将会有最多 5 分钟（30 * 10 = 300s）的时间来完成其启动过程。 一旦启动探测成功一次，存活探测任务就会接管对容器的探测，对容器死锁作出快速响应。 如果启动探测一直没有成功，容器会在 300 秒后被杀死，并且根据restartPolicy来执行进一步处置。</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/github_trending_2024-05-10/">阅读更多关于2024-05-10 打工人日报的内容。</a>
+            class="text-secondary" href="/k8s13/">阅读更多关于Kubernetes — 探针和生命周期的内容。</a>
         </div>
   </div>
 </div>
@@ -1547,10 +1699,45 @@ GitHub 热门榜单 排名 1:/VinciGit00/Scrapegraph-ai 简介: 基于人工智�
   class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
     <div class="hb-blog-post-meta d-flex align-items-center">
       
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
 
-      <span class="hb-blog-post-date">2024年5月9日</span>
 
-        <span class="hb-blog-post-reading-time">3 分钟阅读</span>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2022年10月8日</span>
+
+        <span class="hb-blog-post-reading-time">1 分钟阅读</span>
 
       
   <span class="hb-blog-post-section">
@@ -1561,57 +1748,19 @@ GitHub 热门榜单 排名 1:/VinciGit00/Scrapegraph-ai 简介: 基于人工智�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-05-09/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-05-09.jpg.86edf26a2faeff60ffefde2da0a1378a.webp"
-    alt="2024-05-09 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
+  href="/windows-exporter/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
 </a>
 
   <div class="card-body px-0 py-2 d-flex flex-column">
     <div class="hb-blog-post-title card-title h5 py-1">
       <a
         class="hb-blog-post-title-link d-block"
-        title="2024-05-09 打工人日报"
-        href="/github_trending_2024-05-09/">2024-05-09 打工人日报</a>
+        title="windows-exporter 监控"
+        href="/windows-exporter/">windows-exporter 监控</a>
     </div>
       <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
         
@@ -1619,402 +1768,27 @@ GitHub 热门榜单 排名 1:/VinciGit00/Scrapegraph-ai 简介: 基于人工智�
       <span class="hb-blog-post-taxonomy-meta">
         <a
           class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E6%8A%A5/">日报</a>
+          href="/categories/%E7%9B%91%E6%8E%A7/">监控</a>
       </span>
       <span class="hb-blog-post-taxonomy-meta">
         <a
           class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E6%8A%A5/">日报</a>
+          href="/series/%E8%BF%90%E7%BB%B4%E7%9B%91%E6%8E%A7%E7%B3%BB%E5%88%97/">运维监控系列</a>
       </span>
       <span class="hb-blog-post-taxonomy-meta">
         <a
           class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E6%97%A5%E6%8A%A5/">日报</a>
+          href="/tags/skywalking/">skywalking</a>
       </span>
       </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 AI 摘要 中塞关系持续升温，未来前景美好；杭州住房限购政策取消；海外视角看中国独特社交文化；各界关注中塞友谊进展。医保卡使用、地磁暴预警、房产分割问题也在讨论中。食品安全与价格话题，如鱼油差异和榴莲降价成为热点。中文全球认可度提升，灵隐寺古树开花引人关注。百度高层深夜致歉；健康生活里，瘦肚子运动和医生副业受到热议。商业新闻中，妙可蓝多市值下滑和NINEPERCENT音乐作品发布在榜。消费行为受税改影响，第一批出国购物者已受影响，益禾堂合作引发关注。
-热搜链接 排名 1.中塞关系更加美好的未来正在徐徐展现
-排名 2.杭州全面取消住房限购
-排名 3.老外被中国人的约饭节奏震惊了
-排名 4.150秒了解中塞铁杆友谊
-排名 5.酸酸甜甜就是我
-排名 6.医保卡里的钱可以给亲人买药吗
-排名 7.2到3天后或发生地磁暴
-排名 8.男子离婚要求分割女方父母所赠房产
-排名 9.都是鱼油但真的不一样
-排名 10.榴莲一斤跌破10元
-排名 11.妙可蓝多反式脂肪酸
-排名 12.中文在匈牙利已成为高考外语科目之一
-排名 13.灵隐寺的七叶古树开花了
-排名 14.百度副总裁深夜致歉
-排名 15.瘦肚子最快的运动是跳跃
-排名 16.90后医生下班摆摊日入1500元
-排名 17.妙可蓝多市值三年蒸发365亿
-排名 18.NINEPERCENT专辑
-排名 19.第一批去日本扫货的人已经被税了
-排名 20.益禾堂联名
-GitHub 热门榜单 排名 1:/huggingface/lerobot 简介: 🤗 LeRobot：Pytorch中用于真实世界机器人的最先进的机器学习 URL: https://github.com/huggingface/lerobot 作者: huggingface 排名 2:/HVision-NKU/StoryDiffusion 简介: 创造魔幻故事！ URL: https://github.com/HVision-NKU/StoryDiffusion 作者: HVision-NKU 排名 3:/ejoy/ant 简介: 蚂蚁游戏引擎 URL: https://github.com/ejoy/ant 作者: ejoy 排名 4:/hbb1/2d-gaussian-splatting 简介: 几何精确辐射场的[SIGGRAPH’24]2D高斯散射 URL: https://github.</div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">windows-exporter 监控安装 windows_exporter 下载安装 启动 下载 msi 版本，输入一下命令启动
+1msiexec /i C:\Users\Administrator\Downloads\windows_exporter.msi ENABLED_COLLECTORS=&#34;ad,iis,logon,memory,process,tcp,scheduled_task&#34; TEXTFILE_DIR=&#34;C:\custom_metrics\&#34; 卸载
+1msiexec /uninstall C:\Users\Administrator\Downloads\windows_exporter.msi 添加 prometheus 监控 prometheus.yaml
+1# 新增 windows-exporter 2- job_name: &#34;windows-exporter&#34; 3 file_sd_configs: 4 - files: 5 - &#34;./file_sd/windows-exporter.yaml&#34; ./file_sd/windows-exporter.yaml
+1# 新增 windows-exporter 2- targets: [&#34;192.168.0.6:9182&#34;] 3 labels: 4 instance: windows-task 添加 alertmanager 告警 1# 告警信息 2groups: 3 - name: sanjiang windows 任务计划程序告警 4 rules: 5 - alert: windows实例任务告警 6 expr: windows_scheduled_task_state{state=&#34;disabled&#34;,task=~&#34;/ETL_kettle_tasks/.*&#34;}==1 7 for: 30s 8 labels: 9 severity: critical 10 target: &#34;{{$labels.</div>
         <div class="mt-2">
           <a
-            class="text-secondary" href="/github_trending_2024-05-09/">阅读更多关于2024-05-09 打工人日报的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-
-      <span class="hb-blog-post-date">2024年5月8日</span>
-
-        <span class="hb-blog-post-reading-time">4 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-05-08/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-05-08.jpg.7b7ffe5ffd2b649de1ac33a21ab174f9.webp"
-    alt="2024-05-08 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-05-08 打工人日报"
-        href="/github_trending_2024-05-08/">2024-05-08 打工人日报</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 AI 摘要 关键词：习近平，苹果，眼泪女王，肺癌，百度，iPad，汤唯，金秀贤。微博热点包括习近平抵达塞尔维亚发表讲话、苹果Home键平板相关消息、某活动或奖项未果的讨论、中法建交精神的现代解读、肺癌病情进展，百度内部动态，电子产品价格，名人动态（汤唯金秀贤），以及一些社会新闻如马来西亚女童事件和工作环境话题。
-热搜链接 排名 1.习近平抵达塞尔维亚发表书面讲话
-排名 2.苹果实体Home键平板下架
-排名 3.眼泪女王没获奖的原因
-排名 4.为中法建交精神赋予新的时代内涵
-排名 5.37岁从确诊肺癌到去世仅2周
-排名 6.这种毒碗你家可能天天都在用
-排名 7.小杨哥称在发现高价水之后就要求降价
-排名 8.大巴黎淘汰
-排名 9.华为发布会
-排名 10.Apple pencil
-排名 11.法国人把法棍配方写进了法律
-排名 12.赵梓婷 张露文
-排名 13.百度内部人士曝光公关全员做短视频内幕
-排名 14.百度副总裁被曝安排工作言辞激烈
-排名 15.武契奇夫妇在机场热情迎接
-排名 16.马来西亚女童弄坏橡皮擦遭同学性侵
-排名 17.新款iPad价格
-排名 18.酱园弄角色简介
-排名 19.半夜醒了一定别看时间
-排名 20.汤唯金秀贤合影
-GitHub 热门榜单 排名 1:/massgravel/Microsoft-Activation-Scripts 简介: 使用HWID/Ohook/KMS38/Online KMS激活方法的Windows和Office激活程序，重点关注开源代码和较少的防病毒检测。 URL: https://github.com/massgravel/Microsoft-Activation-Scripts 作者: massgravel 排名 2:/Blealtan/efficient-kan 简介: Kolmogorov Arnold网络（KAN）的高效纯PyTorch实现。 URL: https://github.com/Blealtan/efficient-kan 作者: Blealtan 排名 3:/HVision-NKU/StoryDiffusion 简介: 创造魔幻故事！ URL: https://github.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2024-05-08/">阅读更多关于2024-05-08 打工人日报的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-
-      <span class="hb-blog-post-date">2024年5月7日</span>
-
-        <span class="hb-blog-post-reading-time">3 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-05-07/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-05-07.jpg.08914a9791b2f950510e7366ec11f45a.webp"
-    alt="2024-05-07 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-05-07 打工人日报"
-        href="/github_trending_2024-05-07/">2024-05-07 打工人日报</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 AI 摘要 [倡议运动会期间全球停火止战]占据舆论榜首，随后是[多名男演员拒演背着善宰跑]的新闻。体育方面，[王楚钦孙颖莎获奥运混双资格]引人关注，而马龙的止步大满贯32强也受到一定讨论。五一假期的数据盘点和iPhone折叠屏的技术进展也受到网民关注。娱乐方面，华晨宇演唱会、张翰的人生感慨和Jennie的时尚细节均有提及。社会热点包括哈马斯的停火协议、跨国网红娜娜的去世以及校园霸凌事件。其他话题如张瀚的性格转变、邓超的微博建议和电音节问题也登上热搜。
-热搜链接 排名 1.倡议运动会期间全球停火止战
-排名 2.多名男演员拒演背着善宰跑
-排名 3.王楚钦孙颖莎获奥运混双资格
-排名 4.数据盘点五一假期
-排名 5.iPhone折叠屏或将可向内外折叠
-排名 6.人民文娱评华晨宇日出演唱会
-排名 7.抑郁女儿叫朋友来家里吃饭了
-排名 8.马龙止步大满贯32强
-排名 9.孙丞潇新综艺没有金莎
-排名 10.男子打球被球友看出面相不对救了一命
-排名 11.哈马斯同意停火方案
-排名 12.缅甸
-排名 13.男子确诊胃癌提前一年为自己安排身后事
-排名 14.张翰一次开朗换来终生内向
-排名 15.31岁跨国恋网红娜娜去世
-排名 16.Jennie珍珠腰链
-排名 17.三只羊参与举办电音节被指宰客
-排名 18.哈尔滨多人疑霸凌殴打小孩
-排名 19.WTT沙特 爆冷
-排名 20.邓超你关注下陶白白吧
-GitHub 热门榜单 排名 1:/wandb/openui 简介: OpenUI让我们用你的想象力来描述UI，然后实时观看它的渲染。 URL: https://github.com/wandb/openui 作者: wandb 排名 2:/massgravel/Microsoft-Activation-Scripts 简介: 使用HWID/Ohook/KMS38/Online KMS激活方法的Windows和Office激活程序，重点关注开源代码和较少的防病毒检测。 URL: https://github.com/massgravel/Microsoft-Activation-Scripts 作者: massgravel 排名 3:/HVision-NKU/StoryDiffusion 简介: 创造魔幻故事！ URL: https://github.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2024-05-07/">阅读更多关于2024-05-07 打工人日报的内容。</a>
-        </div>
-  </div>
-</div>
-
-    </div>
-  
-    <div class="col">
-      
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
-    <div class="hb-blog-post-meta d-flex align-items-center">
-      
-
-      <span class="hb-blog-post-date">2024年5月6日</span>
-
-        <span class="hb-blog-post-reading-time">3 分钟阅读</span>
-
-      
-  <span class="hb-blog-post-section">
-    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
-  </span>
-
-    </div>
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-05-06/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-05-06.jpg.34ee6de4ebc6a5661781bc04e887aab8.webp"
-    alt="2024-05-06 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-05-06 打工人日报"
-        href="/github_trending_2024-05-06/">2024-05-06 打工人日报</a>
-    </div>
-      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
-        
-    
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/categories/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/series/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      <span class="hb-blog-post-taxonomy-meta">
-        <a
-          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
-          href="/tags/%E6%97%A5%E6%8A%A5/">日报</a>
-      </span>
-      </div>
-      <div class="hb-blog-post-summary card-text text-secondary mb-auto">微博热搜榜 AI 摘要 以下是微博热门排名的前20条信息摘要：
-习近平主席访问法国: 时事焦点，凸显国际交往。 节后上班首日: 工作回归，民众关注点转换。 工作日长度焦虑: 感慨时日长短，第一天开工特别印象。 文化中国行：节气之美: 传统文化活动的推广。 司马光道歉: 某事件后续，引发公众讨论。 Space天气警告: 预警未来高能耀斑可能爆发。 特斯拉坠崖事故: 车辆安全与事故调查。 官方曝光市场违规行为: 摊贩秤不准事件引关注。 凤凰传奇假唱质疑: 音乐节现场的舆论风向。 生活习惯健康：看腿判断血糖: 生活小贴士，引来关注。 高铁暖人心：大学生良好行为传承: 人间温情故事。 睡前饮水与前列腺健康: 健康提示，关注生活细节。 黄子韬与徐艺洋互动: 明星动态，粉丝广泛关注。 清水与脏水的议题: 引发关于水质的讨论。 情感对比：冷暖人间: 社会心态的反映。 薛之谦退票事件: 娱乐圈新闻，热度依旧。 本周星座运势: 轻松话题，吸引眼球。 封神记票房反思: 行业分析与回顾。 叫花鸡风波: 食品安全问题新进展。 官方通报食品安全: 行业监管与消费者权益。 这些话题涵盖了政治、社会、娱乐、健康、天文、生活等多个领域。
-热搜链接 排名 1.习主席访问法国
-排名 2.节后上班第1天
-排名 3.很快就知道6天有多长了
-排名 4.文化中国行发现节气之美
-排名 5.司马光 对不起让大家失望了
-排名 6.未来三天有可能爆发M级甚至X级以上耀斑
-排名 7.特斯拉坠崖致夫妻身亡记录仪数据却没了
-排名 8.官方通报摊贩6两蓝莓当1斤卖称都这样
-排名 9.凤凰传奇观众被质疑假唱
-排名 10.看腿就知道你血糖高了
-排名 11.高铁上大学生帮了11岁时的自己
-排名 12.</div>
-        <div class="mt-2">
-          <a
-            class="text-secondary" href="/github_trending_2024-05-06/">阅读更多关于2024-05-06 打工人日报的内容。</a>
+            class="text-secondary" href="/windows-exporter/">阅读更多关于windows-exporter 监控的内容。</a>
         </div>
   </div>
 </div>
@@ -2071,7 +1845,7 @@ GitHub 热门榜单 排名 1:/wandb/openui 简介: OpenUI让我们用你的想�
 
           <li
             class="page-item">
-            <a class="page-link" href="/blog/page/47/">47</a>
+            <a class="page-link" href="/blog/page/16/">16</a>
           </li>
       <li class="page-item">
         <a
@@ -2290,7 +2064,7 @@ GitHub 热门榜单 排名 1:/wandb/openui 简介: OpenUI让我们用你的想�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/new/news/github_trending_2024-07-13/">
+  href="/new/daily/github_trending_2024-07-13/">
     
 
 
@@ -2340,7 +2114,7 @@ GitHub 热门榜单 排名 1:/wandb/openui 简介: OpenUI让我们用你的想�
       <a
         class="hb-blog-post-title-link d-block"
         title="2024-07-13 打工人日报"
-        href="/new/news/github_trending_2024-07-13/">2024-07-13 打工人日报</a>
+        href="/new/daily/github_trending_2024-07-13/">2024-07-13 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2353,70 +2127,7 @@ GitHub 热门榜单 排名 1:/wandb/openui 简介: OpenUI让我们用你的想�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-07-13/">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    <picture>
-  <img
-    class="hb-blog-post-card-img"
-    src="https://www.jobcher.com/images/wallpaper/2024-07-13.jpg.37e0e8bf61bbaaf6548253572f6f4248.webp"
-    alt="2024-07-13 打工人日报"
-    loading="lazy"
-    height="1080"
-    width="1920"
-    
-    
-    
-     />
-</picture>
-
-</a>
-
-  <div class="card-body px-0 py-2 d-flex flex-column">
-    <div class="hb-blog-post-title card-title h5 py-1">
-      <a
-        class="hb-blog-post-title-link d-block"
-        title="2024-07-13 打工人日报"
-        href="/github_trending_2024-07-13/">2024-07-13 打工人日报</a>
-    </div>
-  </div>
-</div>
-
-      </div>
-      <div class="slide-item px-0">
-        
-<div
-  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
-    
-<a
-  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-07-12/">
+  href="/new/daily/github_trending_2024-07-12/">
     
 
 
@@ -2466,7 +2177,7 @@ GitHub 热门榜单 排名 1:/wandb/openui 简介: OpenUI让我们用你的想�
       <a
         class="hb-blog-post-title-link d-block"
         title="2024-07-12 打工人日报"
-        href="/github_trending_2024-07-12/">2024-07-12 打工人日报</a>
+        href="/new/daily/github_trending_2024-07-12/">2024-07-12 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2479,7 +2190,7 @@ GitHub 热门榜单 排名 1:/wandb/openui 简介: OpenUI让我们用你的想�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-07-11/">
+  href="/new/daily/github_trending_2024-07-11/">
     
 
 
@@ -2529,7 +2240,7 @@ GitHub 热门榜单 排名 1:/wandb/openui 简介: OpenUI让我们用你的想�
       <a
         class="hb-blog-post-title-link d-block"
         title="2024-07-11 打工人日报"
-        href="/github_trending_2024-07-11/">2024-07-11 打工人日报</a>
+        href="/new/daily/github_trending_2024-07-11/">2024-07-11 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2542,7 +2253,7 @@ GitHub 热门榜单 排名 1:/wandb/openui 简介: OpenUI让我们用你的想�
     
 <a
   class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
-  href="/github_trending_2024-07-10/">
+  href="/new/daily/github_trending_2024-07-10/">
     
 
 
@@ -2592,7 +2303,70 @@ GitHub 热门榜单 排名 1:/wandb/openui 简介: OpenUI让我们用你的想�
       <a
         class="hb-blog-post-title-link d-block"
         title="2024-07-10 打工人日报"
-        href="/github_trending_2024-07-10/">2024-07-10 打工人日报</a>
+        href="/new/daily/github_trending_2024-07-10/">2024-07-10 打工人日报</a>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="slide-item px-0">
+        
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 bg-transparent mb-0">
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/new/daily/github_trending_2024-07-09/">
+    
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    <picture>
+  <img
+    class="hb-blog-post-card-img"
+    src="https://www.jobcher.com/images/wallpaper/2024-07-09.jpg.b8f102e449160f7ad2f56fd4238ef2ed.webp"
+    alt="2024-07-09 打工人日报"
+    loading="lazy"
+    height="1080"
+    width="1920"
+    
+    
+    
+     />
+</picture>
+
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="2024-07-09 打工人日报"
+        href="/new/daily/github_trending_2024-07-09/">2024-07-09 打工人日报</a>
     </div>
   </div>
 </div>
@@ -2692,7 +2466,7 @@ GitHub 热门榜单 排名 1:/wandb/openui 简介: OpenUI让我们用你的想�
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/categories/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">203</small>
+            <small class="taxonomy-term-count border rounded px-1">202</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-categories btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2759,7 +2533,7 @@ GitHub 热门榜单 排名 1:/wandb/openui 简介: OpenUI让我们用你的想�
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/series/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">203</small>
+            <small class="taxonomy-term-count border rounded px-1">202</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-series btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2826,7 +2600,7 @@ GitHub 热门榜单 排名 1:/wandb/openui 简介: OpenUI让我们用你的想�
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
           href="/tags/%E6%97%A5%E6%8A%A5/">
           <span class="taxonomy-term-title">日报</span>
-            <small class="taxonomy-term-count border rounded px-1">203</small>
+            <small class="taxonomy-term-count border rounded px-1">202</small>
         </a>
         <a
           class="taxonomy-term taxonomy-term-tags btn btn-sm btn-outline-secondary p-1 me-1 mb-1"
@@ -2971,7 +2745,7 @@ GitHub 热门榜单 排名 1:/wandb/openui 简介: OpenUI让我们用你的想�
 
 
   
-<script src="/js/search.aff823e34288af8d1c9f027bab4be03b4e53e198f18bf446ed6db22335e1112a.js" defer></script>
+<script src="/js/search.7c327aa9427b7cc6dae474a70b19c6069596287ab4aee50bf744f67318975470.js" defer></script>
 
 
 
