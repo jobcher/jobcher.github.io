@@ -597,6 +597,108 @@
 
       <span class="hb-blog-post-date">2021年12月13日</span>
 
+        <span class="hb-blog-post-reading-time">2 分钟阅读</span>
+
+      
+  <span class="hb-blog-post-section">
+    <a class="badge bg-secondary text-decoration-none fw-normal" href="/blog/">博客</a>
+  </span>
+
+    </div>
+    
+<a
+  class="card-img-top overflow-hidden border border-secondary-subtle text-body text-decoration-none mt-2"
+  href="/k8snfs/">
+      
+    <div
+      class="hb-blog-post-card-img-none d-flex align-items-center justify-content-center">JOBCHER BLOG
+    </div>
+</a>
+
+  <div class="card-body px-0 py-2 d-flex flex-column">
+    <div class="hb-blog-post-title card-title h5 py-1">
+      <a
+        class="hb-blog-post-title-link d-block"
+        title="Kubernetes 创建nfs存储类"
+        href="/k8snfs/">Kubernetes 创建nfs存储类</a>
+    </div>
+      <div class="hb-blog-post-meta d-block text-nowrap text-truncate mb-2">
+        
+    
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-category badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/categories/k8s/">k8s</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-series badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/series/k8s%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/">k8s入门系列</a>
+      </span>
+      <span class="hb-blog-post-taxonomy-meta">
+        <a
+          class="hb-blog-post-taxonomy hb-blog-post-taxonomy-tag badge bg-secondary text-decoration-none fw-normal me-1"
+          href="/tags/k8s/">k8s</a>
+      </span>
+      </div>
+      <div class="hb-blog-post-summary card-text text-secondary mb-auto">Kubernetes 创建 nfs 存储类 首先你需要在别的终端上创建 nfs 服务并能提供 nfs 访问
+Kubernetes 不包含内部 NFS 驱动。你需要使用外部驱动为 NFS 创建 StorageClass。
+https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner
+安装 nfs 驱动
+安装 nfs 驱动 1#安装nfs客户端 2apt-get install nfs-common 3git clone https://github.com/kubernetes-sigs/nfs-subdir-external-provisioner.git 4cd nfs-subdir-external-provisioner/deploy 5k3s kubectl create -f rbac.yaml 6vim deployment.yaml 编辑 deployment.yaml 1apiVersion: apps/v1 2kind: Deployment 3metadata: 4 name: nfs-client-provisioner 5 labels: 6 app: nfs-client-provisioner 7 # replace with namespace where provisioner is deployed 8 namespace: default 9spec: 10 replicas: 1 11 strategy: 12 type: Recreate 13 selector: 14 matchLabels: 15 app: nfs-client-provisioner 16 template: 17 metadata: 18 labels: 19 app: nfs-client-provisioner 20 spec: 21 serviceAccountName: nfs-client-provisioner 22 containers: 23 - name: nfs-client-provisioner 24 image: k8s.</div>
+        <div class="mt-2">
+          <a
+            class="text-secondary" href="/k8snfs/">阅读更多关于Kubernetes 创建nfs存储类的内容。</a>
+        </div>
+  </div>
+</div>
+
+    </div>
+  
+    <div class="col">
+      
+<div
+  class="hb-blog-post-card card border-0 overflow-hidden h-100 hb-module mb-0">
+    <div class="hb-blog-post-meta d-flex align-items-center">
+      
+    <a
+      class="hb-blog-post-author-link text-decoration-none"
+      href="/authors/jobcher/"
+      title="jobcher">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <picture>
+  <img
+    class="hb-blog-author-img rounded-circle"
+    src="https://avatars.githubusercontent.com/u/31278050?v=4"
+    alt="jobcher"
+    loading="lazy"
+    
+    
+    
+    
+    
+     />
+</picture>
+
+    </a>
+
+      <span class="hb-blog-post-date">2021年12月13日</span>
+
         <span class="hb-blog-post-reading-time">1 分钟阅读</span>
 
       
@@ -2565,7 +2667,7 @@ https://jobcher.github.io
 
 
   
-<script src="/js/search.a251ad16845d078ec3f41be36a74c995a8e667747bf030af4daa67db410954c1.js" defer></script>
+<script src="/js/search.b5051c58c1cc1d0718530e8d254e4b4c2b5f81f748125cbe569006bb169577fa.js" defer></script>
 
 
 
