@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>测试 on 打工人日志</title><link>https://www.jobcher.com/tags/%E6%B5%8B%E8%AF%95/</link><description>Recent content in 测试 on 打工人日志</description><generator>Hugo -- gohugo.io</generator><language>zh-hans</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Thu, 18 Jul 2024 17:00:43 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/tags/%E6%B5%8B%E8%AF%95/index.xml" rel="self" type="application/rss+xml"/><item><title>单元测试：测试单元质量提升</title><link>https://www.jobcher.com/unit-test/</link><pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/unit-test/</guid><description>单元测试的价值 单元测试是一种白盒测试技术，通常由开发人员在编码阶段完成，目的是验证软件代码中的每个单元（方法或类等）是否符合预期，即尽早在尽量小的范围内暴露问题。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>测试 on 打工人日志</title><link>/tags/%E6%B5%8B%E8%AF%95/</link><description>Recent content in 测试 on 打工人日志</description><generator>Hugo -- gohugo.io</generator><language>zh-hans</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Thu, 18 Jul 2024 17:19:42 +0800</lastBuildDate><atom:link href="/tags/%E6%B5%8B%E8%AF%95/index.xml" rel="self" type="application/rss+xml"/><item><title>单元测试：测试单元质量提升</title><link>/unit-test/</link><pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate><guid>/unit-test/</guid><description>单元测试的价值 单元测试是一种白盒测试技术，通常由开发人员在编码阶段完成，目的是验证软件代码中的每个单元（方法或类等）是否符合预期，即尽早在尽量小的范围内暴露问题。
 我们都知道，问题发现得越早，修复的代价越小。毫无疑问，在开发阶段进行正确的单元测试可以极大地节省时间和金钱。如果跳过单元测试，会导致在后续更高级别的测试阶段产生更高的缺陷修复成本。
 如图，假如有一个只包含两个单元 A 和 B 的程序，且只执行端到端测试，如果在测试过程中发现了缺陷，则可能有如下多种原因：
 该缺陷由单元 A 中的缺陷引起；
@@ -23,7 +23,7 @@
 另外，上述提到的测试替身是一种在测试中使用对象代替实际对象的技术，常用的技术如下。
 桩代码（Stubs）：当在对象上调用特定方法时，会对其进行硬编码（临时代码）的方式来代替真实代码提供固定响应。比如，某函数 X 的实现中调用了一个函数 Y，而 Y 不能调用，为了对函数 X 进行测试，就需要模拟一个函数 Y，那么函数 Y 的实现就是所谓的桩代码。
 模拟代码（Mocks）：模拟代码跟桩代码类似，它除了代替真实代码的能力之外，更强调是否使用了特定的参数调用了特定方法，因此，这种对象成为我们测试结果的基础。
-根据被测单元是否与其交互者隔离，会产生以上两种单元测试类型，这两种类型的单元测试在微服务测试中都起着重要作用，它们用来解决不同的测试问题。</description></item><item><title>测试策略：微服务架构</title><link>https://www.jobcher.com/test-way/</link><pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/test-way/</guid><description>可以从两个方面来保障微服务的质量：
+根据被测单元是否与其交互者隔离，会产生以上两种单元测试类型，这两种类型的单元测试在微服务测试中都起着重要作用，它们用来解决不同的测试问题。</description></item><item><title>测试策略：微服务架构</title><link>/test-way/</link><pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate><guid>/test-way/</guid><description>可以从两个方面来保障微服务的质量：
 选取合适的测试策略模型，确保测试活动全面且有效；
 建立质量保障体系，使质量保障内化为企业的组织能力。
 如何选择合适的测试策略模型？ 要想使面向微服务的测试活动全面且有效，可以借用“测试金字塔”的思想，针对不同类型和颗粒度的测试投入不同的精力，达到一个最佳平衡：
@@ -60,7 +60,7 @@
 持续集成与持续交付：微服务的优势需要通过持续集成和持续交付的支持才能充分发挥出来，这就要求在执行测试活动时提高反馈效率、尽快发现问题。一方面要明确各种“类生产环境”在交付流程中的位置和用途差异点，保证它们的稳定可用。另一方面需要将各种测试技术和自动化技术集成起来，使代码提交后能够自动进行构建、部署和测试等操作，形成工具链，实现真正意义上的持续集成和持续交付。
 度量与运营：管理学大师德鲁克曾经说过“你如果无法度量它，就无法管理它（It you can’t measure it, you can’t manage it)”。要想能有效管理和改进，就难以绕开度量这个话题。对于研发过程来说，度量无疑是比较难的，它是一个脑力密集型的过程，指标多维度，且很多维度的内容难以清晰地度量。在质量保障体系中，我将基于质量、效率、价值等多维度视角建立起基础的度量体系，并结合定期运营做定向改进，形成 PDCA 正向循环，促使各项指标稳步提升。同时，需要特别警惕的是，度量是一把双刃剑，这里我也会告诉一些我的经验教训和踩过的坑，避免走错方向。
 组织保障：产品的交付离不开组织中每个参与部门成员的努力。正如质量大师戴明所说，质量是设计出来的，不是测试出来的。因此在组织中树立起“质量文化”至关重要。在这部分内容里，我将介绍常见的参与方的角色、职责和协作过程中的常见问题、对策，以及如何营造质量文化等内容。
-总结 谈到了基于微服务架构下的各种质量挑战，可以从两个方面有效且高效地保障微服务的质量：确保面向微服务的测试活动具备全面性和有效性，质量保障需要内化为企业的组织能力。</description></item><item><title>端到端测试：模拟用户体验</title><link>https://www.jobcher.com/user-test/</link><pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/user-test/</guid><description>端到端测试详解 定义 端到端测试（End-to-end Test）是一种用于测试整个应用程序的流程是否符合预期的测试技术。 它模拟用户真实的使用场景，通过用户界面测试应用程序，如图所示：
+总结 谈到了基于微服务架构下的各种质量挑战，可以从两个方面有效且高效地保障微服务的质量：确保面向微服务的测试活动具备全面性和有效性，质量保障需要内化为企业的组织能力。</description></item><item><title>端到端测试：模拟用户体验</title><link>/user-test/</link><pubDate>Fri, 15 Dec 2023 00:00:00 +0000</pubDate><guid>/user-test/</guid><description>端到端测试详解 定义 端到端测试（End-to-end Test）是一种用于测试整个应用程序的流程是否符合预期的测试技术。 它模拟用户真实的使用场景，通过用户界面测试应用程序，如图所示：
 与其他类型的测试相反，端到端测试是面向业务的，其目的是验证应用程序系统整体上是否符合业务目标。为了实现这一目标，该系统通常被视为黑盒子：尽可能完整地部署系统中的微服务，并主要通过 GUI 和 API 等公共接口对其进行操作。
 GUI：Graphical User Interface，又称图形用户界面或图形用户接口。它是采用图形方式显示的计算机操作用户界面，是一种人与计算机通信的界面显示格式，允许用户使用鼠标等输入设备操纵屏幕上的图标或菜单选项，以选择命令、调用文件、启动程序或执行其他一些日常任务。
 API：Application Programming Interface，又称呼应用程序编程接口或应用程序接口。它是一组定义、程序及协议的集合，通过 API接口实现计算机软件之间的相互通信。API 的一个主要功能是提供通用功能集，同时也是一种中间件，为各种不同平台提供数据共享。
