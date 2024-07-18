@@ -1,34 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>stable diffusion on 打工人日志</title>
-    <link>https://www.jobcher.com/series/stable-diffusion/</link>
-    <description>Recent content in stable diffusion on 打工人日志</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>zh-hans</language>
-    <copyright>Copyright © 2022-{year} All Rights Reserved.</copyright>
-    <lastBuildDate>Thu, 18 Jul 2024 01:34:15 +0000</lastBuildDate>
-    <atom:link href="https://www.jobcher.com/series/stable-diffusion/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>SD-webui 批量处理图片</title>
-      <link>https://www.jobcher.com/stable-diffusion-03/</link>
-      <pubDate>Thu, 25 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.jobcher.com/stable-diffusion-03/</guid>
-      <description>背景 Stable Diffusion 在训练数据集之前，需要先对数据进行预处理。&#xA;本篇文章就是介绍如何对图像进行批量预处理。&#xA;图片上传 上传图像到你指定目录，我的目录时/mnt/smb/&#xA;打开SD-web地址，进入192.168.1.232:7861，选择附加功能，进行图像预处理&#xA;批量抠图 选择从目录进行批量处理 填写输入目录和输出目录 举例：&#xA;原本我的共享文件夹 地址是\\192.168.1.249\DB Training\ai-pre-photo\out-photo 将所有的 \\192.168.1.249\DB Training\ 改为 /mnt/smb/ 所有的 \ 改为 / 因此 需填写地址如下图：&#xA;选择抠图模型 滑倒最底部选择背景去除算法,选择你要使用的算法，我这边选择silueta算法,可以根据你自己的需求使用算法&#xA;执行生成 点击生成按钮，开始对图像批量处理&#xA;查看生成的图像 在对应的共享文件夹也可以查看</description>
-    </item>
-    <item>
-      <title>ubuntu 安装 ComfyUI</title>
-      <link>https://www.jobcher.com/stable-diffusion-02/</link>
-      <pubDate>Fri, 12 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.jobcher.com/stable-diffusion-02/</guid>
-      <description>背景 ComfyUI 是用于稳定扩散的基于节点的用户界面。ComfyUI 由 Comfyanonymous 于 2023 年 1 月创建，他创建了该工具来学习稳定扩散的工作原理。&#xA;效果 webui和ComfyUI之间的区别,相比较webUI，ComfyUI更工业化，更符合高级使用者的配置&#xA;安装 安装本体 下载软件&#xA;1mkdir ~/sd-web 2cd ~/sd-web 3git clone https://github.jobcher.com/gh/https://github.com/comfyanonymous/ComfyUI.git 环境依赖&#xA;1cd ~/sd-web/ComfyUI 2conda create -n ComfyUI python=3.10 3pip install -r requirements.txt -i https://pypi.douban.com/simple --trusted-host=pypi.douban.com 下载sd_xl_turbo模型&#xA;1aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.jobcher.com/https://huggingface.co/stabilityai/sdxl-turbo/resolve/main/sd_xl_turbo_1.0_fp16.safetensors -d ~/sd-web/ComfyUI/models/checkpoints -o sd_xl_turbo_1.0_fp16.safetensors 启动服务&#xA;1cd ~/sd-web/ComfyUI 2python main.py --listen --port 6006 --cuda-device 1 webUI共享模型 1cd 2mv extra_model_paths.yaml..example extra_model_paths.yaml 编辑参数&#xA;1vim extra_model_paths.yaml 修改 base_path: path/to/stable-diffusion-webui/ 改为你的webui实际地址，例如： base_path: ~/sd-web/stable-diffusion-webui/ 1#config for a1111 ui 2#all you have to do is change the base_path to where yours is installed 3a111: 4 base_path: path/to/stable-diffusion-webui/ ## 这里改为你实际的webui地址 5 6 checkpoints: models/Stable-diffusion 7 configs: models/Stable-diffusion 8 vae: models/VAE 9 loras: | 10 models/Lora 11 models/LyCORIS 12 upscale_models: | 13 models/ESRGAN 14 models/RealESRGAN 15 models/SwinIR 16 embeddings: embeddings 17 hypernetworks: models/hypernetworks 18 controlnet: models/ControlNet 重启服务</description>
-    </item>
-    <item>
-      <title>ubuntu 安装 stable-diffusion-webui</title>
-      <link>https://www.jobcher.com/stable-diffusion-01/</link>
-      <pubDate>Wed, 10 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>https://www.jobcher.com/stable-diffusion-01/</guid>
-      <description>背景 Stable Diffusion (稳定扩散) 是一个扩散模型，2022年8月由德国CompVis协同Stability AI和Runway发表论文，并推出相关程序。&#xA;AUTOMATIC1111开发了图形化界面：「Stable Diffusion WebUI」，这是能用AI技术生成图片的开源软件，只要给定一组描述文本，AI就会开始绘图(准确的说是「算图」或「生图」)；亦能模仿现有的图片，生成另一张图片。甚至给它一部分涂黑的图片，AI也能按照你的意愿将图片填上适当的内容。除此之外还支持自行训练模型加强生图效果。&#xA;本篇文章就是介绍如何安装 stable-diffusion-webui&#xA;安装conda 在 Ubuntu 上安装 Anaconda 的步骤如下：&#xA;首先，你需要下载 Anaconda 的安装包。你可以从 Anaconda 的官方网站上下载最新版本的 Anaconda for Linux。选择适合你的系统的版本（Python 3.x）。&#xA;访问下载链接：https://www.anaconda.com/products/distribution#download-section&#xA;下载完成后，你可以在终端中导航到下载的文件所在的目录。你可以使用 cd 命令来改变目录。例如，如果你的下载文件在 Downloads 文件夹中，你可以输入以下命令：&#xA;1cd ~/Downloads 然后，你需要运行 bash 命令来安装 Anaconda。假设你下载的 Anaconda 文件名为 &amp;ldquo;Anaconda3-2020.02-Linux-x86_64.sh&amp;rdquo;，你可以输入以下命令： 1bash Anaconda3-2020.02-Linux-x86_64.sh 请注意，你需要将上述命令中的 &amp;ldquo;Anaconda3-2020.02-Linux-x86_64.sh&amp;rdquo; 替换为你实际下载的文件名。&#xA;4. 接下来，你会看到 Anaconda 的许可协议。按 Enter 键滚动到底部，然后输入 &amp;lsquo;yes&amp;rsquo; 来接受许可协议。&#xA;5. 然后，你需要确认 Anaconda 的安装位置。你可以选择默认位置或输入新的位置。 6. 安装完成后，你会看到一个提示，询问你是否希望 Anaconda3 添加到你的 PATH。你应该输入 &amp;lsquo;yes&amp;rsquo;。 7. 最后，你需要激活安装。你可以通过关闭并重新打开终端或运行以下命令来完成此操作：&#xA;1source ~/.bashrc 验证安装。在终端中输入以下命令： 1conda list 如果安装成功，这个命令会显示一个已安装的包的列表。</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>stable diffusion on 打工人日志</title><link>https://www.jobcher.com/series/stable-diffusion/</link><description>Recent content in stable diffusion on 打工人日志</description><generator>Hugo -- gohugo.io</generator><language>zh-hans</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Thu, 18 Jul 2024 16:32:53 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/series/stable-diffusion/index.xml" rel="self" type="application/rss+xml"/><item><title>SD-webui 批量处理图片</title><link>https://www.jobcher.com/stable-diffusion-03/</link><pubDate>Thu, 25 Jan 2024 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/stable-diffusion-03/</guid><description>背景 Stable Diffusion 在训练数据集之前，需要先对数据进行预处理。
+本篇文章就是介绍如何对图像进行批量预处理。
+图片上传 上传图像到你指定目录，我的目录时/mnt/smb/
+打开SD-web地址，进入192.168.1.232:7861，选择附加功能，进行图像预处理
+批量抠图 选择从目录进行批量处理 填写输入目录和输出目录 举例：
+原本我的共享文件夹 地址是\\192.168.1.249\DB Training\ai-pre-photo\out-photo 将所有的 \\192.168.1.249\DB Training\ 改为 /mnt/smb/ 所有的 \ 改为 / 因此 需填写地址如下图：
+选择抠图模型 滑倒最底部选择背景去除算法,选择你要使用的算法，我这边选择silueta算法,可以根据你自己的需求使用算法
+执行生成 点击生成按钮，开始对图像批量处理
+查看生成的图像 在对应的共享文件夹也可以查看</description></item><item><title>ubuntu 安装 ComfyUI</title><link>https://www.jobcher.com/stable-diffusion-02/</link><pubDate>Fri, 12 Jan 2024 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/stable-diffusion-02/</guid><description>背景 ComfyUI 是用于稳定扩散的基于节点的用户界面。ComfyUI 由 Comfyanonymous 于 2023 年 1 月创建，他创建了该工具来学习稳定扩散的工作原理。
+效果 webui和ComfyUI之间的区别,相比较webUI，ComfyUI更工业化，更符合高级使用者的配置
+安装 安装本体 下载软件
+1mkdir ~/sd-web 2cd ~/sd-web 3git clone https://github.jobcher.com/gh/https://github.com/comfyanonymous/ComfyUI.git 环境依赖
+1cd ~/sd-web/ComfyUI 2conda create -n ComfyUI python=3.10 3pip install -r requirements.txt -i https://pypi.douban.com/simple --trusted-host=pypi.douban.com 下载sd_xl_turbo模型
+1aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.jobcher.com/https://huggingface.co/stabilityai/sdxl-turbo/resolve/main/sd_xl_turbo_1.0_fp16.safetensors -d ~/sd-web/ComfyUI/models/checkpoints -o sd_xl_turbo_1.0_fp16.safetensors 启动服务
+1cd ~/sd-web/ComfyUI 2python main.py --listen --port 6006 --cuda-device 1 webUI共享模型 1cd 2mv extra_model_paths.yaml..example extra_model_paths.yaml 编辑参数
+1vim extra_model_paths.yaml 修改 base_path: path/to/stable-diffusion-webui/ 改为你的webui实际地址，例如： base_path: ~/sd-web/stable-diffusion-webui/ 1#config for a1111 ui 2#all you have to do is change the base_path to where yours is installed 3a111: 4 base_path: path/to/stable-diffusion-webui/ ## 这里改为你实际的webui地址 5 6 checkpoints: models/Stable-diffusion 7 configs: models/Stable-diffusion 8 vae: models/VAE 9 loras: | 10 models/Lora 11 models/LyCORIS 12 upscale_models: | 13 models/ESRGAN 14 models/RealESRGAN 15 models/SwinIR 16 embeddings: embeddings 17 hypernetworks: models/hypernetworks 18 controlnet: models/ControlNet 重启服务</description></item><item><title>ubuntu 安装 stable-diffusion-webui</title><link>https://www.jobcher.com/stable-diffusion-01/</link><pubDate>Wed, 10 Jan 2024 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/stable-diffusion-01/</guid><description>背景 Stable Diffusion (稳定扩散) 是一个扩散模型，2022年8月由德国CompVis协同Stability AI和Runway发表论文，并推出相关程序。
+AUTOMATIC1111开发了图形化界面：「Stable Diffusion WebUI」，这是能用AI技术生成图片的开源软件，只要给定一组描述文本，AI就会开始绘图(准确的说是「算图」或「生图」)；亦能模仿现有的图片，生成另一张图片。甚至给它一部分涂黑的图片，AI也能按照你的意愿将图片填上适当的内容。除此之外还支持自行训练模型加强生图效果。
+本篇文章就是介绍如何安装 stable-diffusion-webui
+安装conda 在 Ubuntu 上安装 Anaconda 的步骤如下：
+首先，你需要下载 Anaconda 的安装包。你可以从 Anaconda 的官方网站上下载最新版本的 Anaconda for Linux。选择适合你的系统的版本（Python 3.x）。
+访问下载链接：https://www.anaconda.com/products/distribution#download-section
+下载完成后，你可以在终端中导航到下载的文件所在的目录。你可以使用 cd 命令来改变目录。例如，如果你的下载文件在 Downloads 文件夹中，你可以输入以下命令：
+1cd ~/Downloads 然后，你需要运行 bash 命令来安装 Anaconda。假设你下载的 Anaconda 文件名为 &amp;ldquo;Anaconda3-2020.02-Linux-x86_64.sh&amp;rdquo;，你可以输入以下命令： 1bash Anaconda3-2020.02-Linux-x86_64.sh 请注意，你需要将上述命令中的 &amp;ldquo;Anaconda3-2020.02-Linux-x86_64.sh&amp;rdquo; 替换为你实际下载的文件名。
+4. 接下来，你会看到 Anaconda 的许可协议。按 Enter 键滚动到底部，然后输入 &amp;lsquo;yes&amp;rsquo; 来接受许可协议。
+5. 然后，你需要确认 Anaconda 的安装位置。你可以选择默认位置或输入新的位置。 6. 安装完成后，你会看到一个提示，询问你是否希望 Anaconda3 添加到你的 PATH。你应该输入 &amp;lsquo;yes&amp;rsquo;。 7. 最后，你需要激活安装。你可以通过关闭并重新打开终端或运行以下命令来完成此操作：
+1source ~/.bashrc 验证安装。在终端中输入以下命令： 1conda list 如果安装成功，这个命令会显示一个已安装的包的列表。</description></item></channel></rss>
