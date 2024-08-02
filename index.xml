@@ -25,7 +25,13 @@
 排名 18.仙剑四有效播放量破8亿
 排名 19.樊振东赛后采访
 排名 20.张雨霏回怼外国记者
-GitHub 热门榜单 排名 1:/lipku/metahuman-stream 简介: 实时交互式流媒体数字人 URL: https://github.</description></item><item><title>2024-08-01 打工人日报</title><link>https://www.jobcher.com/new/daily/github_trending_2024-08-01/</link><pubDate>Thu, 01 Aug 2024 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/new/daily/github_trending_2024-08-01/</guid><description>微博热搜榜 AI 摘要 【体育】1. 国家主席习近平回信勉励强军精武红四连全体官兵；2. 潘展乐摘得100米自由泳金牌，展现强劲实力；3. 潘展乐与查尔莫斯互动未得到回应；4. 子弟兵的存在给人满满的安全感；5. 潘展乐超越孙杨成为关注焦点；6. 张怡宁分享比赛感受，比喻使用备用板；7. 孙颖莎上演逆转好戏连追6分；8. 张博恒获得全能项目银牌；9. 黄子韬实绩初现；10. &amp;ldquo;花少团&amp;quot;到现场为陈梦加油。
+GitHub 热门榜单 排名 1:/lipku/metahuman-stream 简介: 实时交互式流媒体数字人 URL: https://github.</description></item><item><title>SELinux 问题：导致端口无法创建，无法访问</title><link>https://www.jobcher.com/selinux-error/</link><pubDate>Fri, 02 Aug 2024 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/selinux-error/</guid><description>背景 今天有同事在使用nginx部署一个服务，部署完成后发现无法访问，nginx创建端口无法创建，无法访问
+1nginx: [emerg] bind() to 0.0.0.0:8081 failed (13: Permission denied) 解决方法 查看日志发现是SELinux导致的，SELinux是Linux系统的安全机制，它会限制进程访问文件和网络端口等资源。
+查看SELinux状态
+1sudo getenforce 当 SELinux 处于 enforcing 模式时，会阻止进程访问不允许的资源。有三种方法可以解决
+1. 临时关闭SELinux 1sudo setenforce 0 2. 永久关闭SELinux 1sudo vim /etc/selinux/config 2# 修改SELINUX=enforcing 为 SELINUX=disabled 重启服务器
+1sudo reboot 3. 设置为宽容模式 1semanage permissive -a http_port_t 这个命令会将 http_port_t 类型的端口设置为宽容模式（permissive mode），使得 semanage 不再对该类型的端口进行访问控制。
+总结 SELinux 是 Linux 系统的安全机制，它会限制进程访问文件和网络端口等资源。在使用 SELinux 时，需要根据实际情况选择合适的解决方案。</description></item><item><title>2024-08-01 打工人日报</title><link>https://www.jobcher.com/new/daily/github_trending_2024-08-01/</link><pubDate>Thu, 01 Aug 2024 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/new/daily/github_trending_2024-08-01/</guid><description>微博热搜榜 AI 摘要 【体育】1. 国家主席习近平回信勉励强军精武红四连全体官兵；2. 潘展乐摘得100米自由泳金牌，展现强劲实力；3. 潘展乐与查尔莫斯互动未得到回应；4. 子弟兵的存在给人满满的安全感；5. 潘展乐超越孙杨成为关注焦点；6. 张怡宁分享比赛感受，比喻使用备用板；7. 孙颖莎上演逆转好戏连追6分；8. 张博恒获得全能项目银牌；9. 黄子韬实绩初现；10. &amp;ldquo;花少团&amp;quot;到现场为陈梦加油。
 【军事/社会】11. 辅警因隐瞒精神病史被判死缓；12. 王楚钦回应爆冷失利；13. 庆祝八一建军节；14. 文旅局回应景区事件，女子被按水引起关注。
 【娱乐圈】15. 潘展乐被誉为游泳新星；16. 韩剧中出现中文引起讨论；17. 王楚钦再次提及爆冷输掉比赛；18. 潘展乐对此赛事预赛表现做出回应；19. 鱿鱼游戏第二季宣布定档；20. 刘诗诗全球首穿新装。
 这些都是近期的热点事件，涵盖了军事、体育、娱乐和社会等多个领域。
