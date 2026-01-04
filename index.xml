@@ -2962,7 +2962,17 @@ GitHub 热门榜单 排名 1:/stanford-oval/storm 简介: 一个以法学硕士�
 排名 18.星光大赏
 排名 19.陈都灵看起来好难受
 排名 20.原神
-GitHub 热门榜单 排名 1:/stanford-oval/storm 简介: 一个以法学硕士为动力的知识管理系统，研究一个主题并生成一份包含引文的完整报告。 URL: https://github.</description></item><item><title>2025-01-03 打工人日报</title><link>https://www.jobcher.com/new/daily/github_trending_2025-01-03/</link><pubDate>Fri, 03 Jan 2025 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/new/daily/github_trending_2025-01-03/</guid><description>微博热搜榜 AI 摘要 以下是微博热门话题的概要：
+GitHub 热门榜单 排名 1:/stanford-oval/storm 简介: 一个以法学硕士为动力的知识管理系统，研究一个主题并生成一份包含引文的完整报告。 URL: https://github.</description></item><item><title>openwrt 硬盘扩容</title><link>https://www.jobcher.com/openwrt-kuorong/</link><pubDate>Sat, 04 Jan 2025 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/openwrt-kuorong/</guid><description>背景 本教程基于 ext4 文件系统的 OpenWrt
+操作 OpenWrt 镜像默认的磁盘大小是比较小的，没安装几个软件就不够用了，所以需要我们手动来扩容一下：
+1opkg update 2opkg install cfdisk 首先 PVE 下给之前的 SATA 硬盘增加 2GB 空间： 硬件更改后，记得重启一下这个 OpenWrt 的 VM
+然后 OpenWrt 安装 cfdisk 工具：
+后面扩容分区需要用到这个工具。
+使用 cfdisk 来扩容分区，可以看到末尾有 2GB 空闲分区： 选中第二个分区，选择下面的「Resize」 调整磁盘分区大小：
+最后选择第二个分区，选择「Write」 保存我们上面的操作：
+此时记住我们当前的第 2 个分区路径为：/dev/sda2 下一步操作需要用到这个路径信息.
+设置循环 OpenWrt 安装 losetup 工具：
+1opkg update 2opke install losetup resize2fs 接着设置循环设备并挂载，操作完重启一下：
+1losetup /dev/loop0 /dev/sda2 2resize2fs -f /dev/loop0 3reboot 总结 经过上述几步操作，最终扩容成功</description></item><item><title>2025-01-03 打工人日报</title><link>https://www.jobcher.com/new/daily/github_trending_2025-01-03/</link><pubDate>Fri, 03 Jan 2025 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/new/daily/github_trending_2025-01-03/</guid><description>微博热搜榜 AI 摘要 以下是微博热门话题的概要：
 亿万中国人团结：中国社会凝聚力话题占据首位。 上4休3工作模式的积极影响：关注度提升。 广西车厘子促销活动引关注：价格优惠引发热议。 中国浪漫风格受到赞赏：展示本土文化魅力。 韩国空难遗体状况：悲剧引起同情与关注。 明星动态：何炅与谢娜的互动成为焦点。 车厘子价格波动：高端品种价格大幅下滑。 &amp;ldquo;大奉打更人&amp;quot;受欢迎程度：娱乐节目热浪。 留几手关注个人家庭问题：葛夕的人生选择引发讨论。 高龄老人离世：长寿故事登台。 泰国政治局势：抓捕尹锡悦的相关冲突。 男子认亲反转：真实身份的意外揭露。 鼓励年轻人：残疾小伙励志故事。 金融市场波动：年轻人投资黄金热度上升。 法律事件：韩国逮捕令执行与权力冲突。 美国媒体对中国技术的分析：六代机的争议。 明星工作辛劳：贺峻霖录节目爆辛苦。 商业管理问题：超市托盘丢失引发赔偿讨论。 教育界反思：中学教师资格背景的讨论。 韩国政治斗争：调查机关与总统警卫部门冲突。 热搜链接 排名 1.亿万个你我汇聚成中国
 排名 2.上4休3的好处已经显现出来了
 排名 3.广西车厘子10元2盒是真的
