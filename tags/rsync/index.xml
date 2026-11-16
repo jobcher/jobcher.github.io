@@ -1,6 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>rsync on 打工人日志</title><link>https://www.jobcher.com/tags/rsync/</link><description>Recent content in rsync on 打工人日志</description><generator>Hugo -- gohugo.io</generator><language>zh-hans</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Mon, 16 Nov 2026 09:07:12 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/tags/rsync/index.xml" rel="self" type="application/rss+xml"/><item><title>rsync 文件同步</title><link>https://www.jobcher.com/rsync/</link><pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/rsync/</guid><description>rsync 文件同步 rsync 是一个常用的 Linux 应用程序，用于文件同步
-安装 1# Debian or Ubuntu 2$ sudo apt-get install rsync 3 4# Red Hat 5$ sudo yum install rsync 6 7# Arch Linux 8$ sudo pacman -S rsync 基本用法 使用 rsync 命令时，可以作为 cp 和 mv 命令的替代方法，将源目录同步到目标目录。
--r 表示递归，即包含子目录。注意，-r 是必须的，否则 rsync 运行不会成功。source 目录表示源目录，destination 表示目标目录。
--a 参数可以替代-r，除了可以递归同步以外，还可以同步元信息（比如修改时间、权限等）。由于 rsync 默认使用文件大小和修改时间决定文件是否需要更新
-1rsync -r source destination 远程同步
-1rsync -av &amp;lt;源地址&amp;gt;/ &amp;lt;用户名&amp;gt;@&amp;lt;ip地址&amp;gt;:/&amp;lt;目标地址&amp;gt; 友情地址：mysql 迁移</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Rsync on 打工人日志</title><link>https://www.jobcher.com/tags/rsync/</link><description>Recent content in Rsync on 打工人日志</description><generator>Hugo</generator><language>zh-hans</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Mon, 16 Nov 2026 10:23:01 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/tags/rsync/index.xml" rel="self" type="application/rss+xml"/><item><title>rsync 文件同步</title><link>https://www.jobcher.com/rsync/</link><pubDate>Mon, 20 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/rsync/</guid><description>&lt;h1 id="rsync-文件同步"&gt;rsync 文件同步&lt;/h1&gt;
+&lt;p&gt;rsync 是一个常用的 Linux 应用程序，用于文件同步&lt;/p&gt;
+&lt;h2 id="安装"&gt;安装&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Debian or Ubuntu&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;$ sudo apt-get install rsync
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Red Hat&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;$ sudo yum install rsync
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# Arch Linux&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;8&lt;/span&gt;&lt;span class="cl"&gt;$ sudo pacman -S rsync
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="基本用法"&gt;基本用法&lt;/h2&gt;
+&lt;p&gt;使用 rsync 命令时，可以作为 cp 和 mv 命令的替代方法，将源目录同步到目标目录。&lt;br&gt;
+-r 表示递归，即包含子目录。注意，-r 是必须的，否则 rsync 运行不会成功。source 目录表示源目录，destination 表示目标目录。&lt;br&gt;
+-a 参数可以替代-r，除了可以递归同步以外，还可以同步元信息（比如修改时间、权限等）。由于 rsync 默认使用文件大小和修改时间决定文件是否需要更新&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;rsync -r &lt;span class="nb"&gt;source&lt;/span&gt; destination
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;远程同步&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;rsync -av &amp;lt;源地址&amp;gt;/ &amp;lt;用户名&amp;gt;@&amp;lt;ip地址&amp;gt;:/&amp;lt;目标地址&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;
+&lt;li&gt;友情地址：&lt;a href="https://www.jobcher.com/mysqldump/"&gt;mysql 迁移&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</description></item></channel></rss>

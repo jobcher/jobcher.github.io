@@ -1,41 +1,371 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>docker on 打工人日志</title><link>https://www.jobcher.com/tags/docker/</link><description>Recent content in docker on 打工人日志</description><generator>Hugo -- gohugo.io</generator><language>zh-hans</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Mon, 16 Nov 2026 09:07:12 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>DockerHub 加速镜像部署 - 使用cloudflare 代理</title><link>https://www.jobcher.com/docker-proxy/</link><pubDate>Wed, 12 Jun 2024 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/docker-proxy/</guid><description>背景 6 月 6 日，上海交大的 Docker Hub 镜像加速器宣布因收到通知要求被下架。声明称：“即时起我们将中止对 dockerhub 仓库的镜像。docker 相关工具默认会自动处理失效镜像的回退，如果对官方源有访问困难问题，建议尝试使用其他仍在服务的镜像源。我们对给您带来的不便表示歉意，感谢您的理解与支持。”Docker Hub 是目前最大的容器镜像社区，去年 5 月起国内用户报告 Docker Hub 官网无法访问，其网址解析返回了错误 IP 地址。
-因为不能直接访问国外的镜像仓库，下载国外的docker镜像速度一直很慢, 国内从 Docker Hub 拉取镜像有时会遇到困难，此时可以配置镜像加速器。
-使用 我这边已经部署好了加速镜像节点，同学们如果不想自己部署，可以使用我的加速节点，但是，不能保证节点长期有效。
-1https://dockerhub.jobcher.com 第一步：代理拉取镜像 假如我们下载node镜像，那么我们可以这样写：
-1docker pull dockerhub.jobcher.com/library/node:latest 2# 或者 3docker pull dockerhub.jobcher.com/bitnami/node:latest 第二步：重命名镜像 1docker tag dockerhub.jobcher.com/library/node:latest node:latest 2# 或者 3docker tag dockerhub.jobcher.com/bitnami/node:latest node:latest 第三步：删除代理镜像 1docker rmi dockerhub.jobcher.com/library/node:latest 2# 或者 3docker rmi dockerhub.jobcher.com/bitnami/node:latest 或者直接配置到镜像仓库 1sudo mkdir -p /etc/docker 2sudo tee /etc/docker/daemon.json &amp;lt;&amp;lt;-&amp;#39;EOF&amp;#39; 3{ 4 &amp;#34;registry-mirrors&amp;#34;: [ 5 &amp;#34;https://dockerhub.</description></item><item><title>docker的零停机部署</title><link>https://www.jobcher.com/docker-rollout/</link><pubDate>Mon, 01 Apr 2024 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/docker-rollout/</guid><description>背景 使用 docker compose up 部署新版本的服务会导致停机，因为应用容器在创建新容器之前已停止。如果你的应用程序需要一段时间才能启动，用户可能会注意到这一点。为了保障服务用户无感，可以使用docker rollout
-适合没必要用 K8S 轻量级小项目
-安装 项目地址
-1# 为 Docker cli 插件创建目录 2mkdir -p ~/.docker/cli-plugins 3 4# 下载 docker-rollout 脚本到 Docker cli 插件目录 5curl https://github.jobcher.com/gh/https://raw.githubusercontent.com/wowu/docker-rollout/master/docker-rollout -o ~/.docker/cli-plugins/docker-rollout 6 7# 使脚本可执行 8chmod +x ~/.docker/cli-plugins/docker-rollout 使用 注意事项！！！ 服务不能在 docker-compose.yml 中定义 container_name 和 ports ，因为不可能运行具有相同名称或端口映射的多个容器。 需要像 Traefik 或 nginx-proxy 这样的代理来路由流量。 每次部署都会增加容器名称中的索引（例如 project-web-1 -&amp;gt; project-web-2 ） 使用示范 1# 下载代码 2git pull 3# 构建新的应用程序映像 4docker compose build web 5# 运行数据库迁移 6docker compose run web rake db:migrate 7# 部署新版本 8docker rollout web 或者使用docker-compose.</description></item><item><title>清理Docker容器日志</title><link>https://www.jobcher.com/cleandocker/</link><pubDate>Mon, 19 Sep 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/cleandocker/</guid><description>清理 Docker 容器日志 如果 docker 容器正在运行，那么使用rm -rf方式删除日志后，通过df -h会发现磁盘空间并没有释放。原因是在 Linux 或者 Unix 系统中，通过rm -rf或者文件管理器删除文件，将会从文件系统的目录结构上解除链接（unlink）。如果文件是被打开的（有一个进程正在使用），那么进程将仍然可以读取该文件，磁盘空间也一直被占用。正确姿势是cat /dev/null &amp;gt; *-json.log，当然你也可以通过rm -rf删除后重启 docker。
-日志清理脚本 clean_docker_log.sh 1#!/bin/sh 2 3echo &amp;#34;======== start clean docker containers logs ========&amp;#34; 4 5logs=$(find /var/lib/docker/containers/ -name *-json.log) 6 7for log in $logs 8 do 9 echo &amp;#34;clean logs : $log&amp;#34; 10 cat /dev/null &amp;gt; $log 11 done 12 13echo &amp;#34;======== end clean docker containers logs ========&amp;#34; chmod +x clean_docker_log.sh &amp;amp;&amp;amp; ./clean_docker_log.sh
-设置 Docker 容器日志大小 设置一个容器服务的日志大小上限</description></item><item><title>contained 安装及使用</title><link>https://www.jobcher.com/contained/</link><pubDate>Wed, 17 Aug 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/contained/</guid><description>contained 安装及使用 containerd 是一个行业标准的容器运行时，强调简单性、健壮性和可移植性。它可作为 Linux 和 Windows 的守护进程使用，可以管理其主机系统的完整容器生命周期：图像传输和存储、容器执行和监督、低级存储和网络附件等。
-containerd is a member of CNCF with graduated status.
-早在 2016 年 3 月，Docker 1.11的Docker Engine里就包含了containerd，而现在则是把containerd从Docker Engine里彻底剥离出来，作为一个独立的开源项目独立发展，目标是提供一个更加开放、稳定的容器运行基础设施。和原先包含在 Docker Engine 里containerd相比，独立的containerd将具有更多的功能，可以涵盖整个容器运行时管理的所有需求。 containerd并不是直接面向最终用户的，而是主要用于集成到更上层的系统里，比如Swarm, Kubernetes, Mesos等容器编排系统。 containerd以Daemon的形式运行在系统上，通过暴露底层的gRPC API，上层系统可以通过这些API管理机器上的容器。 每个containerd只负责一台机器，Pull 镜像，对容器的操作（启动、停止等），网络，存储都是由 containerd 完成。具体运行容器由runC负责，实际上只要是符合OCI规范的容器都可以支持。 对于容器编排服务来说，运行时只需要使用containerd+runC，更加轻量，容易管理。 5.独立之后containerd的特性演进可以和Docker Engine分开，专注容器运行时管理，可以更稳定。 安装 centos
-1yum install -y containerd.io ubuntu
-1apt install -y containerd.io 设置开机自启
-1systemctl enable containerd 2systemctl start containerd 3systemctl status containerd 验证
-1ctr version ctr 命令 命令 作用 plugins, plugin 提供有关容器插件的信息 version 打印客户端和服务器版本 containers, c, container 管理容器 content 管理内容 events, event 显示容器事件 images, image, i 管理图像 leases 管理租约 namespaces, namespace, ns 管理租命名空间 pprof 为 containerd 提供 golang pprof 输出 run 运行一个容器 snapshots, snapshot 管理快照 tasks, t, task 管理任务 install 安装一个新包 oci OCI 工具 shim 直接与 shim 交互 help, h 显示命令列表或一个命令的帮助</description></item><item><title>docker 命令(2)</title><link>https://www.jobcher.com/docker02/</link><pubDate>Fri, 18 Feb 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/docker02/</guid><description>docker 命令(2) docker ps 命令 docker ps 能查看所有运行中的容器
-docker ps -a 能查看所有的容器
-docker rm -f $(docker ps -aq) 强制删除所有容器
-docker run和docker create有什么区别 docker create命令能够基于镜像创建容器。
-该命令执行的效果类似于docker run -d，即创建一个将在系统后台运行的容器。
-但是与docker run -d不同的是，docker create创建的容器并未实际启动，还需要执行docker start命令或docker run命令以启动容器。
-事实上，docker create 命令常用于在启动容器之前进行必要的设置。</description></item><item><title>清理Docker的container，image与volume</title><link>https://www.jobcher.com/docker-clean/</link><pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/docker-clean/</guid><description>清理 Docker 的 container，image 与 volume Docker 的镜像（image）、容器（container）、数据卷（volume）， 都是由 daemon 托管的。 因此，在需要清理时，也需要使用其自带的手段。
-清理技巧 清理所有停止运行的容器：
-1docker container prune 2# or 3docker rm $(docker ps -aq) 清理所有悬挂（&amp;lt;none&amp;gt;）镜像：
-1docker image prune 2# or 3docker rmi $(docker images -qf &amp;#34;dangling=true&amp;#34;) 清理所有无用数据卷：
-1docker volume prune 由于prune操作是批量删除类的危险操作，所以会有一次确认。 如果不想输入y&amp;lt;CR&amp;gt;来确认，可以添加-f操作。慎用！
-清理停止的容器 docker rm -lv CONTAINER -l是清理 link，v是清理 volume。 这里的 CONTAINER 是容器的 name 或 ID，可以是一个或多个。
-参数列表：
-Name shorthand Default Description –force,-f false Force the removal of a running container (uses SIGKILL) –link, -l false Remove the specified link –volumes, -v false Remove the volumes associated with the container 清理所有停止的容器 通过docker ps可以查询当前运行的容器信息。 而通过docker ps -a，可以查询所有的容器信息，包括已停止的。</description></item><item><title>docker 和 docker-compose 安装</title><link>https://www.jobcher.com/docker/</link><pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/docker/</guid><description>安装 docker 通过 docker 脚本安装 1curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun 1curl -sSL https://get.daocloud.io/docker | sh CentOS 手动安装 卸载之前相关的依赖
-1sudo yum remove docker \ 2 docker-client \ 3 docker-client-latest \ 4 docker-common \ 5 docker-latest \ 6 docker-latest-logrotate \ 7 docker-logrotate \ 8 docker-engine 下载依赖包
-1sudo yum install -y yum-utils 选择国内阿里云镜像
-1sudo yum-config-manager \ 2 --add-repo \ 3 https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo 安装 Docker Engine-Community
-1sudo yum install docker-ce docker-ce-cli containerd.</description></item><item><title>docker 安装kong 网关</title><link>https://www.jobcher.com/docker-kong/</link><pubDate>Wed, 22 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/docker-kong/</guid><description>docker 安装 kong 网关 建立数据库 创建网络 1docker network create kong-net 建立数据库 1docker run -d --name kong-database \ 2 --network=kong-net \ 3 -p 5432:5432 \ 4 -e &amp;#34;POSTGRES_USER=kong&amp;#34; \ 5 -e &amp;#34;POSTGRES_DB=kong&amp;#34; \ 6 -e &amp;#34;POSTGRES_PASSWORD=kong123&amp;#34; \ 7 postgres:9.6 创建 kong 数据 1docker run --rm --network=kong-net \ 2 -e &amp;#34;KONG_DATABASE=postgres&amp;#34; \ 3 -e &amp;#34;KONG_PG_HOST=kong-database&amp;#34; \ 4 -e &amp;#34;KONG_PG_PASSWORD=kong123&amp;#34; \ 5 -e &amp;#34;KONG_PASSWORD=kong123&amp;#34; \ 6 kong:latest kong migrations bootstrap 创建 kong 创建 kong gateway 1 docker run -d --name kong \ 2 --network=kong-net \ 3 -e &amp;#34;KONG_DATABASE=postgres&amp;#34; \ 4 -e &amp;#34;KONG_PG_HOST=kong-database&amp;#34; \ 5 -e &amp;#34;KONG_PG_USER=kong&amp;#34; \ 6 -e &amp;#34;KONG_PG_PASSWORD=kong123&amp;#34; \ 7 -e &amp;#34;KONG_CASSANDRA_CONTACT_POINTS=kong-database&amp;#34; \ 8 -e &amp;#34;KONG_PROXY_ACCESS_LOG=/dev/stdout&amp;#34; \ 9 -e &amp;#34;KONG_ADMIN_ACCESS_LOG=/dev/stdout&amp;#34; \ 10 -e &amp;#34;KONG_PROXY_ERROR_LOG=/dev/stderr&amp;#34; \ 11 -e &amp;#34;KONG_ADMIN_ERROR_LOG=/dev/stderr&amp;#34; \ 12 -e &amp;#34;KONG_ADMIN_LISTEN=0.</description></item><item><title>搭建docker registry 镜像仓库</title><link>https://www.jobcher.com/docker-registry/</link><pubDate>Wed, 22 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/docker-registry/</guid><description>搭建 docker registry 镜像仓库 获取镜像 1docker pull registry:2.7.1 1docker pull hyper/docker-registry-web 容器运行 1mkdir -p /opt/data/registry 2docker run -d -p 5000:5000 -v /opt/data/registry:/var/lib/registry --name registry registry:2.7.1 1docker run -d -p 8080:8080 --name registry-web --link registry \ 2 -e REGISTRY_URL=http://192.168.99.146:5000/v2 \ 3 -e REGISTRY_TRUST_ANY_SSL=true \ 4 -e REGISTRY_BASIC_AUTH=&amp;#34;GjhYGDGi2HhkJB&amp;#34; \ 5 -e REGISTRY_NAME=192.168.99.146:5000 \ 6 hyper/docker-registry-web 上传容器 1vim /etc/docker/daemon.json 2{ 3 &amp;#34;insecure-registries&amp;#34;: [&amp;#34;192.168.99.146:5000&amp;#34;] 4} 5 6docker tag sjtfreaks/hogo-nginx:v1.1 192.168.99.146:5000/sjtfreaks/hogo-nginx:v1.1 7docker push 192.168.99.146:5000/sjtfreaks/hogo-nginx:v1.1</description></item><item><title>docker image镜像上传</title><link>https://www.jobcher.com/dockerimage/</link><pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/dockerimage/</guid><description>docker image 镜像上传 登入 docker hub，在https://hub.docker.com上注册你的账号。
-1docker login 2username：#输入你的用户名 3password：#输入你的密码 上传镜像 1docker tag nginx:hugo sjtfreaks/hogo-nginx:v1 2docker push sjtfreaks/hogo-nginx:v1</description></item><item><title>docker进阶使用</title><link>https://www.jobcher.com/docker01/</link><pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/docker01/</guid><description>docker 进阶使用 dockerfile 和 docker compose 的配置
-Dockerfile 使用 Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。
-例子：
-1 FROM nginx 2 RUN echo &amp;#39;这是一个本地构建的nginx镜像&amp;#39; &amp;gt; /usr/share/nginx/html/index.html 保存 Dockerfile 文件并在本地路径执行
-1 docker build -t nginx:v1-test . 2 docker run -name docker run --name nginx-test -d -p 8080:80 nginx:v1-test 浏览 nginx 页面确认更新内容
-curl 127.0.0.1:8080 输出： 这是一个本地构建的nginx镜像 Docker 命令详解 COPY 复制指令，从上下文目录中复制文件或者目录到容器里指定路径。
-1 COPY [--chown=&amp;lt;user&amp;gt;:&amp;lt;group&amp;gt;] &amp;lt;源路径1&amp;gt;... &amp;lt;目标路径&amp;gt; 2 COPY [--chown=&amp;lt;user&amp;gt;:&amp;lt;group&amp;gt;] [&amp;#34;&amp;lt;源路径1&amp;gt;&amp;#34;,... &amp;#34;&amp;lt;目标路径&amp;gt;&amp;#34;] &amp;lt;源路径&amp;gt;：源文件或者源目录，这里可以是通配符表达式，其通配符规则要满足 Go 的 filepath.Match 规则。例如：
-1 COPY hom* /mydir/ 2 COPY hom?</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on 打工人日志</title><link>https://www.jobcher.com/tags/docker/</link><description>Recent content in Docker on 打工人日志</description><generator>Hugo</generator><language>zh-hans</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Mon, 16 Nov 2026 10:23:01 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>DockerHub 加速镜像部署 - 使用cloudflare 代理</title><link>https://www.jobcher.com/docker-proxy/</link><pubDate>Wed, 12 Jun 2024 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/docker-proxy/</guid><description>&lt;h2 id="背景"&gt;背景&lt;/h2&gt;
+&lt;p&gt;6 月 6 日，上海交大的 Docker Hub 镜像加速器宣布因收到通知要求被下架。声明称：“即时起我们将中止对 dockerhub 仓库的镜像。docker 相关工具默认会自动处理失效镜像的回退，如果对官方源有访问困难问题，建议尝试使用其他仍在服务的镜像源。我们对给您带来的不便表示歉意，感谢您的理解与支持。”Docker Hub 是目前最大的容器镜像社区，去年 5 月起国内用户报告 Docker Hub 官网无法访问，其网址解析返回了错误 IP 地址。&lt;br&gt;
+&lt;img src="https://www.jobcher.com/images/dockerhub-sjtug.jpeg" alt="sjtug" loading="lazy" decoding="async"&gt;
+&lt;br&gt;
+因为不能直接访问国外的镜像仓库，下载国外的docker镜像速度一直很慢, 国内从 Docker Hub 拉取镜像有时会遇到困难，此时可以配置镜像加速器。&lt;/p&gt;
+&lt;h2 id="使用"&gt;使用&lt;/h2&gt;
+&lt;p&gt;我这边已经部署好了加速镜像节点，同学们如果不想自己部署，可以使用我的加速节点，但是，不能保证节点长期有效。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;https://dockerhub.jobcher.com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="第一步代理拉取镜像"&gt;第一步：代理拉取镜像&lt;/h3&gt;
+&lt;p&gt;假如我们下载node镜像，那么我们可以这样写：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker pull dockerhub.jobcher.com/library/node:latest
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 或者&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;docker pull dockerhub.jobcher.com/bitnami/node:latest
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="第二步重命名镜像"&gt;第二步：重命名镜像&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker tag dockerhub.jobcher.com/library/node:latest node:latest
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 或者&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;docker tag dockerhub.jobcher.com/bitnami/node:latest node:latest
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="第三步删除代理镜像"&gt;第三步：删除代理镜像&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker rmi dockerhub.jobcher.com/library/node:latest
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 或者&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;docker rmi dockerhub.jobcher.com/bitnami/node:latest
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="或者直接配置到镜像仓库"&gt;或者直接配置到镜像仓库&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;sudo mkdir -p /etc/docker
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;sudo tee /etc/docker/daemon.json &lt;span class="s"&gt;&amp;lt;&amp;lt;-&amp;#39;EOF&amp;#39;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="s"&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="s"&gt; &amp;#34;registry-mirrors&amp;#34;: [
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="s"&gt; &amp;#34;https://dockerhub.jobcher.com&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="s"&gt; ]
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="s"&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;8&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="s"&gt;EOF&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;重新加载docker&lt;/p&gt;</description></item><item><title>docker的零停机部署</title><link>https://www.jobcher.com/docker-rollout/</link><pubDate>Mon, 01 Apr 2024 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/docker-rollout/</guid><description>&lt;h2 id="背景"&gt;背景&lt;/h2&gt;
+&lt;p&gt;使用 &lt;code&gt;docker compose up&lt;/code&gt; 部署新版本的服务会导致停机，因为应用容器在创建新容器之前已停止。如果你的应用程序需要一段时间才能启动，用户可能会注意到这一点。为了保障服务用户无感，可以使用&lt;code&gt;docker rollout&lt;/code&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;适合没必要用 K8S 轻量级小项目&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="安装"&gt;安装&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/Wowu/docker-rollout"&gt;项目地址&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 为 Docker cli 插件创建目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;mkdir -p ~/.docker/cli-plugins
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 下载 docker-rollout 脚本到 Docker cli 插件目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;curl https://github.jobcher.com/gh/https://raw.githubusercontent.com/wowu/docker-rollout/master/docker-rollout -o ~/.docker/cli-plugins/docker-rollout
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 使脚本可执行&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;8&lt;/span&gt;&lt;span class="cl"&gt;chmod +x ~/.docker/cli-plugins/docker-rollout
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="使用"&gt;使用&lt;/h2&gt;
+&lt;h3 id="注意事项"&gt;注意事项！！！&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;服务不能在 &lt;code&gt;docker-compose.yml&lt;/code&gt; 中定义 &lt;code&gt;container_name&lt;/code&gt; 和 &lt;code&gt;ports&lt;/code&gt; ，因为不可能运行具有相同名称或端口映射的多个容器。&lt;/li&gt;
+&lt;li&gt;需要像 &lt;code&gt;Traefik&lt;/code&gt; 或 &lt;code&gt;nginx-proxy&lt;/code&gt; 这样的代理来路由流量。&lt;/li&gt;
+&lt;li&gt;每次部署都会&lt;code&gt;增加&lt;/code&gt;容器名称中的索引（例如 &lt;code&gt;project-web-1&lt;/code&gt; -&amp;gt; &lt;code&gt;project-web-2&lt;/code&gt; ）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="使用示范"&gt;使用示范&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 下载代码&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;git pull
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 构建新的应用程序映像&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;docker compose build web
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 运行数据库迁移&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;docker compose run web rake db:migrate
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 部署新版本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;8&lt;/span&gt;&lt;span class="cl"&gt;docker rollout web
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;或者使用&lt;code&gt;docker-compose.yaml&lt;/code&gt;&lt;/p&gt;</description></item><item><title>清理Docker容器日志</title><link>https://www.jobcher.com/cleandocker/</link><pubDate>Mon, 19 Sep 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/cleandocker/</guid><description>&lt;h1 id="清理-docker-容器日志"&gt;清理 Docker 容器日志&lt;/h1&gt;
+&lt;p&gt;如果 docker 容器正在运行，那么使用&lt;code&gt;rm -rf&lt;/code&gt;方式删除日志后，通过&lt;code&gt;df -h&lt;/code&gt;会发现磁盘空间并没有释放。原因是在 Linux 或者 Unix 系统中，通过&lt;code&gt;rm -rf&lt;/code&gt;或者文件管理器删除文件，将会从文件系统的目录结构上解除链接（unlink）。如果文件是被打开的（有一个进程正在使用），那么进程将仍然可以读取该文件，磁盘空间也一直被占用。正确姿势是&lt;code&gt;cat /dev/null &amp;gt; *-json.log&lt;/code&gt;，当然你也可以通过&lt;code&gt;rm -rf&lt;/code&gt;删除后重启 docker。&lt;/p&gt;
+&lt;h2 id="日志清理脚本-clean_docker_logsh"&gt;日志清理脚本 clean_docker_log.sh&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#!/bin/sh
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;======== start clean docker containers logs ========&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;logs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;find /var/lib/docker/containers/ -name *-json.log&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;for&lt;/span&gt; log in &lt;span class="nv"&gt;$logs&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;clean logs : &lt;/span&gt;&lt;span class="nv"&gt;$log&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt; cat /dev/null &amp;gt; &lt;span class="nv"&gt;$log&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;11&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;12&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;13&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;======== end clean docker containers logs ========&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;chmod +x clean_docker_log.sh &amp;amp;&amp;amp; ./clean_docker_log.sh&lt;/p&gt;</description></item><item><title>contained 安装及使用</title><link>https://www.jobcher.com/contained/</link><pubDate>Wed, 17 Aug 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/contained/</guid><description>&lt;h1 id="contained-安装及使用"&gt;contained 安装及使用&lt;/h1&gt;
+&lt;p&gt;&lt;img src="https://www.jobcher.com/images/containerd-horizontal-color.png" alt="contained" loading="lazy" decoding="async"&gt;
+&lt;br&gt;
+containerd 是一个行业标准的容器运行时，强调简单性、健壮性和可移植性。它可作为 Linux 和 Windows 的守护进程使用，可以管理其主机系统的完整容器生命周期：图像传输和存储、容器执行和监督、低级存储和网络附件等。&lt;br&gt;
+&lt;code&gt;containerd&lt;/code&gt; is a member of &lt;code&gt;CNCF&lt;/code&gt; with &lt;code&gt;graduated&lt;/code&gt; status.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;早在 2016 年 3 月，&lt;code&gt;Docker 1.11&lt;/code&gt;的&lt;code&gt;Docker Engine&lt;/code&gt;里就包含了&lt;code&gt;containerd&lt;/code&gt;，而现在则是把&lt;code&gt;containerd&lt;/code&gt;从&lt;code&gt;Docker Engine&lt;/code&gt;里彻底剥离出来，作为一个独立的开源项目独立发展，目标是提供一个更加开放、稳定的容器运行基础设施。和原先包含在 Docker Engine 里&lt;code&gt;containerd&lt;/code&gt;相比，独立的&lt;code&gt;containerd&lt;/code&gt;将具有更多的功能，可以涵盖整个容器运行时管理的所有需求。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;containerd&lt;/code&gt;并不是直接面向最终用户的，而是主要用于集成到更上层的系统里，比如&lt;code&gt;Swarm&lt;/code&gt;, &lt;code&gt;Kubernetes&lt;/code&gt;, &lt;code&gt;Mesos&lt;/code&gt;等容器编排系统。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;containerd&lt;/code&gt;以&lt;code&gt;Daemon&lt;/code&gt;的形式运行在系统上，通过暴露底层的&lt;code&gt;gRPC API&lt;/code&gt;，上层系统可以通过这些&lt;code&gt;API&lt;/code&gt;管理机器上的容器。&lt;/li&gt;
+&lt;li&gt;每个&lt;code&gt;containerd&lt;/code&gt;只负责&lt;code&gt;一台机器&lt;/code&gt;，Pull 镜像，对容器的操作（启动、停止等），网络，存储都是由 containerd 完成。具体运行容器由&lt;code&gt;runC&lt;/code&gt;负责，实际上只要是符合&lt;code&gt;OCI规范&lt;/code&gt;的容器都可以支持。&lt;/li&gt;
+&lt;li&gt;对于容器编排服务来说，运行时只需要使用&lt;code&gt;containerd+runC&lt;/code&gt;，更加轻量，容易管理。 5.独立之后&lt;code&gt;containerd&lt;/code&gt;的特性演进可以和&lt;code&gt;Docker Engine&lt;/code&gt;分开，专注容器运行时管理，可以更稳定。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="安装"&gt;安装&lt;/h2&gt;
+&lt;p&gt;centos&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;yum install -y containerd.io
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ubuntu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;apt install -y containerd.io
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;设置开机自启&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;systemctl &lt;span class="nb"&gt;enable&lt;/span&gt; containerd
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;systemctl start containerd
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;systemctl status containerd
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;验证&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;ctr version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="ctr-命令"&gt;ctr 命令&lt;/h2&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th style="text-align: left"&gt;命令&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;作用&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;plugins, plugin&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;提供有关容器插件的信息&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;version&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;打印客户端和服务器版本&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;containers, c, container&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;管理容器&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;content&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;管理内容&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;events, event&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;显示容器事件&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;images, image, i&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;管理图像&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;leases&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;管理租约&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;namespaces, namespace, ns&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;管理租命名空间&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;pprof&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;为 containerd 提供 golang pprof 输出&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;run&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;运行一个容器&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;snapshots, snapshot&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;管理快照&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;tasks, t, task&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;管理任务&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;install&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;安装一个新包&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;oci&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;OCI 工具&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;shim&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;直接与 shim 交互&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;help, h&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;显示命令列表或一个命令的帮助&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;</description></item><item><title>docker 命令(2)</title><link>https://www.jobcher.com/docker02/</link><pubDate>Fri, 18 Feb 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/docker02/</guid><description>&lt;h1 id="docker-命令2"&gt;docker 命令(2)&lt;/h1&gt;
+&lt;h2 id="docker-ps-命令"&gt;&lt;code&gt;docker ps&lt;/code&gt; 命令&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;docker ps&lt;/code&gt; 能查看所有运行中的容器&lt;br&gt;
+&lt;code&gt;docker ps -a&lt;/code&gt; 能查看所有的容器&lt;br&gt;
+&lt;code&gt;docker rm -f $(docker ps -aq)&lt;/code&gt; 强制删除所有容器&lt;/p&gt;
+&lt;h2 id="docker-run和docker-create有什么区别"&gt;&lt;code&gt;docker run&lt;/code&gt;和&lt;code&gt;docker create&lt;/code&gt;有什么区别&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;docker create&lt;/code&gt;命令能够基于镜像创建容器。&lt;br&gt;
+该命令执行的效果类似于&lt;code&gt;docker run -d&lt;/code&gt;，即创建一个将在系统后台运行的容器。&lt;br&gt;
+但是与&lt;code&gt;docker run -d&lt;/code&gt;不同的是，&lt;code&gt;docker create&lt;/code&gt;创建的容器&lt;code&gt;并未实际启动&lt;/code&gt;，还需要执行&lt;code&gt;docker start&lt;/code&gt;命令或&lt;code&gt;docker run&lt;/code&gt;命令以启动容器。&lt;br&gt;
+事实上，&lt;code&gt;docker creat&lt;/code&gt;e 命令常用于&lt;code&gt;在启动容器之前进行必要的设置&lt;/code&gt;。&lt;/p&gt;</description></item><item><title>清理Docker的container，image与volume</title><link>https://www.jobcher.com/docker-clean/</link><pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/docker-clean/</guid><description>&lt;h1 id="清理-docker-的-containerimage-与-volume"&gt;清理 Docker 的 container，image 与 volume&lt;/h1&gt;
+&lt;p&gt;Docker 的镜像（image）、容器（container）、数据卷（volume）， 都是由 daemon 托管的。 因此，在需要清理时，也需要使用其自带的手段。&lt;/p&gt;
+&lt;h2 id="清理技巧"&gt;清理技巧&lt;/h2&gt;
+&lt;p&gt;清理所有停止运行的容器：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker container prune
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# or&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;docker rm &lt;span class="k"&gt;$(&lt;/span&gt;docker ps -aq&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;清理所有悬挂&lt;code&gt;（&amp;lt;none&amp;gt;）&lt;/code&gt;镜像：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker image prune
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# or&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;docker rmi &lt;span class="k"&gt;$(&lt;/span&gt;docker images -qf &lt;span class="s2"&gt;&amp;#34;dangling=true&amp;#34;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;清理所有无用数据卷：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker volume prune
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;由于&lt;code&gt;prune&lt;/code&gt;操作是批量删除类的危险操作，所以会有一次确认。 如果不想输入&lt;code&gt;y&amp;lt;CR&amp;gt;&lt;/code&gt;来确认，可以添加&lt;code&gt;-f&lt;/code&gt;操作。慎用！&lt;/p&gt;
+&lt;h2 id="清理停止的容器"&gt;清理停止的容器&lt;/h2&gt;
+&lt;p&gt;docker rm -lv CONTAINER
+&lt;code&gt;-l&lt;/code&gt;是清理 link，&lt;code&gt;v&lt;/code&gt;是清理 volume。 这里的 CONTAINER 是容器的 name 或 ID，可以是一个或多个。&lt;/p&gt;
+&lt;p&gt;参数列表：&lt;/p&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th style="text-align: left"&gt;Name shorthand&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;Default&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;Description&lt;/th&gt;
+ &lt;th&gt;&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;–force,-f&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;false&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;Force the removal of a running container (uses SIGKILL)&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;–link, -l&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;false&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;Remove the specified link&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;–volumes, -v&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;false&lt;/td&gt;
+ &lt;td&gt;Remove the volumes associated with the container&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="清理所有停止的容器"&gt;清理所有停止的容器&lt;/h2&gt;
+&lt;p&gt;通过&lt;code&gt;docker ps&lt;/code&gt;可以查询当前运行的容器信息。 而通过&lt;code&gt;docker ps -a&lt;/code&gt;，可以查询所有的容器信息，包括已停止的。&lt;/p&gt;</description></item><item><title>docker 和 docker-compose 安装</title><link>https://www.jobcher.com/docker/</link><pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/docker/</guid><description>&lt;h1 id="安装-docker"&gt;安装 docker&lt;/h1&gt;
+&lt;h2 id="通过-docker-脚本安装"&gt;通过 docker 脚本安装&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;curl -fsSL https://get.docker.com &lt;span class="p"&gt;|&lt;/span&gt; bash -s docker --mirror Aliyun
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;curl -sSL https://get.daocloud.io/docker &lt;span class="p"&gt;|&lt;/span&gt; sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="centos-手动安装"&gt;CentOS 手动安装&lt;/h3&gt;
+&lt;p&gt;卸载之前相关的依赖&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;sudo yum remove docker &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; docker-client &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; docker-client-latest &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; docker-common &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; docker-latest &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; docker-latest-logrotate &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; docker-logrotate &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;8&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; docker-engine
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;下载依赖包&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;sudo yum install -y yum-utils
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;选择国内&lt;code&gt;阿里云&lt;/code&gt;镜像&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;sudo yum-config-manager &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; --add-repo &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装 Docker Engine-Community&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;sudo yum install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="ubuntu-手动安装"&gt;Ubuntu 手动安装&lt;/h3&gt;
+&lt;p&gt;卸载之前相关的依赖&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;sudo apt-get remove docker docker-engine docker.io containerd runc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;更新 apt 包索引&lt;/p&gt;</description></item><item><title>docker 安装kong 网关</title><link>https://www.jobcher.com/docker-kong/</link><pubDate>Wed, 22 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/docker-kong/</guid><description>&lt;h1 id="docker-安装-kong-网关"&gt;docker 安装 kong 网关&lt;/h1&gt;
+&lt;h2 id="建立数据库"&gt;建立数据库&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;创建网络&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker network create kong-net
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="2"&gt;
+&lt;li&gt;建立数据库&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker run -d --name kong-database &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; --network&lt;span class="o"&gt;=&lt;/span&gt;kong-net &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -p 5432:5432 &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;POSTGRES_USER=kong&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;POSTGRES_DB=kong&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;POSTGRES_PASSWORD=kong123&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; postgres:9.6
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="3"&gt;
+&lt;li&gt;创建 kong 数据&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker run --rm --network&lt;span class="o"&gt;=&lt;/span&gt;kong-net &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_DATABASE=postgres&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_PG_HOST=kong-database&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_PG_PASSWORD=kong123&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_PASSWORD=kong123&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; kong:latest kong migrations bootstrap
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="创建-kong"&gt;创建 kong&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;创建 kong gateway&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt; docker run -d --name kong &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; --network&lt;span class="o"&gt;=&lt;/span&gt;kong-net &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_DATABASE=postgres&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_PG_HOST=kong-database&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_PG_USER=kong&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_PG_PASSWORD=kong123&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_CASSANDRA_CONTACT_POINTS=kong-database&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_PROXY_ACCESS_LOG=/dev/stdout&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_ADMIN_ACCESS_LOG=/dev/stdout&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_PROXY_ERROR_LOG=/dev/stderr&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;11&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_ADMIN_ERROR_LOG=/dev/stderr&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;12&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_ADMIN_LISTEN=0.0.0.0:8001, 0.0.0.0:8444 ssl&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;13&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -p 8000:8000 &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;14&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -p 8443:8443 &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;15&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -p 127.0.0.1:8001:8001 &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;16&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -p 127.0.0.1:8444:8444 &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;17&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; kong:latest
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="安装-konga"&gt;安装 konga&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker pull pantsel/konga:latest
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker run --rm pantsel/konga:latest &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -c prepare &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -a postgres &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -u postgresql://kong:kong123@172.18.0.1:5432/konga
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker run -d -p 1337:1337 &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; --network kong-net &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; --name konga &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;NODE_ENV=production&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;DB_ADAPTER=postgres&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;DB_URI=postgresql://kong:kong123@172.18.0.1:5432/konga&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; pantsel/konga
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>搭建docker registry 镜像仓库</title><link>https://www.jobcher.com/docker-registry/</link><pubDate>Wed, 22 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/docker-registry/</guid><description>&lt;h1 id="搭建-docker-registry-镜像仓库"&gt;搭建 docker registry 镜像仓库&lt;/h1&gt;
+&lt;h2 id="获取镜像"&gt;获取镜像&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker pull registry:2.7.1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker pull hyper/docker-registry-web
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="容器运行"&gt;容器运行&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;mkdir -p /opt/data/registry
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;docker run -d -p 5000:5000 -v /opt/data/registry:/var/lib/registry --name registry registry:2.7.1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker run -d -p 8080:8080 --name registry-web --link registry &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="nv"&gt;REGISTRY_URL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;http://192.168.99.146:5000/v2 &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="nv"&gt;REGISTRY_TRUST_ANY_SSL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="nv"&gt;REGISTRY_BASIC_AUTH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;GjhYGDGi2HhkJB&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="nv"&gt;REGISTRY_NAME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;192.168.99.146:5000 &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; hyper/docker-registry-web
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="上传容器"&gt;上传容器&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;vim /etc/docker/daemon.json
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="s2"&gt;&amp;#34;insecure-registries&amp;#34;&lt;/span&gt;: &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;192.168.99.146:5000&amp;#34;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;docker tag sjtfreaks/hogo-nginx:v1.1 192.168.99.146:5000/sjtfreaks/hogo-nginx:v1.1
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;7&lt;/span&gt;&lt;span class="cl"&gt;docker push 192.168.99.146:5000/sjtfreaks/hogo-nginx:v1.1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>docker image镜像上传</title><link>https://www.jobcher.com/dockerimage/</link><pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/dockerimage/</guid><description>&lt;h1 id="docker-image-镜像上传"&gt;docker image 镜像上传&lt;/h1&gt;
+&lt;p&gt;登入 docker hub，在https://hub.docker.com上注册你的账号。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker login
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;username：#输入你的用户名
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;password：#输入你的密码
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="上传镜像"&gt;上传镜像&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker tag nginx:hugo sjtfreaks/hogo-nginx:v1
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;docker push sjtfreaks/hogo-nginx:v1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>docker进阶使用</title><link>https://www.jobcher.com/docker01/</link><pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/docker01/</guid><description>&lt;h1 id="docker-进阶使用"&gt;docker 进阶使用&lt;/h1&gt;
+&lt;p&gt;dockerfile 和 docker compose 的配置&lt;/p&gt;
+&lt;h1 id="dockerfile-使用"&gt;Dockerfile 使用&lt;/h1&gt;
+&lt;p&gt;Dockerfile 是一个用来构建镜像的文本文件，文本内容包含了一条条构建镜像所需的指令和说明。&lt;/p&gt;
+&lt;p&gt;例子：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-dockerfile" data-lang="dockerfile"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt; FROM nginx&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt; RUN &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;这是一个本地构建的nginx镜像&amp;#39;&lt;/span&gt; &amp;gt; /usr/share/nginx/html/index.html&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;保存 Dockerfile 文件并在本地路径执行&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt; docker build -t nginx:v1-test .
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt; docker run -name docker run --name nginx-test -d -p 8080:80 nginx:v1-test
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;浏览 nginx 页面确认更新内容&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;curl 127.0.0.1:8080
+输出：
+这是一个本地构建的nginx镜像
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="docker-命令详解"&gt;Docker 命令详解&lt;/h2&gt;
+&lt;h3 id="copy"&gt;COPY&lt;/h3&gt;
+&lt;p&gt;复制指令，从上下文目录中复制文件或者目录到容器里指定路径。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-dockerfile" data-lang="dockerfile"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt; COPY &lt;span class="o"&gt;[&lt;/span&gt;--chown&lt;span class="o"&gt;=&lt;/span&gt;&amp;lt;user&amp;gt;:&amp;lt;group&amp;gt;&lt;span class="o"&gt;]&lt;/span&gt; &amp;lt;源路径1&amp;gt;... &amp;lt;目标路径&amp;gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt; COPY &lt;span class="o"&gt;[&lt;/span&gt;--chown&lt;span class="o"&gt;=&lt;/span&gt;&amp;lt;user&amp;gt;:&amp;lt;group&amp;gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;&amp;lt;源路径1&amp;gt;&amp;#34;&lt;/span&gt;,... &lt;span class="s2"&gt;&amp;#34;&amp;lt;目标路径&amp;gt;&amp;#34;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&amp;lt;源路径&amp;gt;：源文件或者源目录，这里可以是通配符表达式，其通配符规则要满足 Go 的 filepath.Match 规则。例如：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-dockerfile" data-lang="dockerfile"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt; COPY hom* /mydir/&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;&lt;/span&gt; COPY hom?.txt /mydir/&lt;span class="err"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="from"&gt;FROM&lt;/h3&gt;
+&lt;p&gt;FROM：定制的镜像都是基于 FROM 的镜像&lt;/p&gt;</description></item></channel></rss>

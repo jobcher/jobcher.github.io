@@ -1,23 +1,636 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>work on 打工人日志</title><link>https://www.jobcher.com/categories/work/</link><description>Recent content in work on 打工人日志</description><generator>Hugo -- gohugo.io</generator><language>zh-hans</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Mon, 16 Nov 2026 09:07:12 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/categories/work/index.xml" rel="self" type="application/rss+xml"/><item><title>使用scrapy-redis实现增量爬取</title><link>https://www.jobcher.com/scrapyredis/</link><pubDate>Thu, 30 Mar 2023 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/scrapyredis/</guid><description>使用scrapy-redis实现增量爬取 Scrapy-Redis是Scrapy框架的一个插件，可以使用Redis实现Scrapy的分布式爬虫。它使用Redis作为分布式队列，可以轻松地将爬虫分布在多个机器上。同时，它还提供了一些功能，如去重、持久化、增量爬取等。
-要使用Scrapy-Redis实现增量爬取，可以采取以下步骤： 在Scrapy项目中安装Scrapy-Redis插件。可以使用pip安装：pip install scrapy-redis 在Scrapy的settings.py中添加如下配置： 1# 使用Redis调度器 2SCHEDULER = &amp;#34;scrapy_redis.scheduler.Scheduler&amp;#34; 3# 使用Redis去重过滤器 4DUPEFILTER_CLASS = &amp;#34;scrapy_redis.dupefilter.RFPDupeFilter&amp;#34; 5# 允许暂停、恢复爬取 6SCHEDULER_PERSIST = True 将Spider的爬取链接放入Redis队列中。可以在Spider中重载start_requests()方法，从Redis队列中获取链接开始爬取。 1import scrapy 2from scrapy_redis.spiders import RedisSpider 3 4class MySpider(RedisSpider): 5 name = &amp;#39;myspider&amp;#39; 6 redis_key = &amp;#39;myspider:start_urls&amp;#39; 7 8 def parse(self, response): 9 # 处理响应 10 pass 在Spider中实现增量爬取。可以通过重载Spider中的start_requests()方法或者使用SpiderMiddleware来实现增量爬取。这里提供一种通过修改Redis队列来实现增量爬取的方法。 1import scrapy 2import redis 3from scrapy_redis.spiders import RedisSpider 4from scrapy.utils.project import get_project_settings 5 6class MySpider(RedisSpider): 7 name = &amp;#39;myspider&amp;#39; 8 redis_key = &amp;#39;myspider:start_urls&amp;#39; 9 redis_conn = None 10 11 def __init__(self, *args, **kwargs): 12 super(MySpider, self).</description></item><item><title>Chrome浏览器启动参数大全（命令行参数）</title><link>https://www.jobcher.com/chrome/</link><pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/chrome/</guid><description>背景 在开发 Web 项目当中，浏览器必不可少，而浏览器的启动参数可以帮我们实现很多功能。
-常用参数 序号 参数 说明 1 &amp;ndash;allow- ted-plugins 不停用过期的插件。 2 &amp;ndash;allow-running-insecure-content 默认情况下，https 页面不允许从 http 链接引用 javascript/css/plug-ins。添加这一参数会放行这些内容。 3 &amp;ndash;allow-scripting-gallery 允许拓展脚本在官方应用中心生效。默认情况下，出于安全因素考虑这些脚本都会被阻止。 4 &amp;ndash;disable-desktop-notifications 禁用桌面通知，在 Windows 中桌面通知默认是启用的。 5 &amp;ndash;disable-file-system 停用 FileSystem API。 6 &amp;ndash;disable-preconnect 停用 TCP/IP 预连接。 7 &amp;ndash;disable-remote-fonts 关闭远程字体支持。SVG 中字体不受此参数影响。 8 &amp;ndash;disable-web-security 不遵守同源策略。 9 &amp;ndash;disk-cache-dir 将缓存设置在给定的路径。 10 &amp;ndash;disk-cache-size 设置缓存大小上限，以字节为单位。 11 &amp;ndash;dns-prefetch-disable 停用 DNS 预读。 12 &amp;ndash;enable-print-preview 启用打印预览。 13 &amp;ndash;extensions-update-frequency 设定拓展自动更新频率，以秒为单位。 14 &amp;ndash;incognito 让浏览器直接以隐身模式启动。 15 &amp;ndash;keep-alive-for-test 最后一个标签关闭后仍保持浏览器进程。（某种意义上可以提高热启动速度，不过你最好得有充足的内存） 16 &amp;ndash;kiosk 启用 kiosk 模式。（一种类似于全屏的浏览模式） 17 &amp;ndash;lang 使用指定的语言。 18 &amp;ndash;no-displaying-insecure-content 默认情况下，https 页面允许从 http 链接引用图片/字体/框架。添加这一参数会阻止这些内容。 19 &amp;ndash;no-referrers 不发送 Http-Referer 头。 20 &amp;ndash;no-startup-window 启动时不建立窗口。 21 &amp;ndash;proxy-server 使用给定的代理服务器，这个参数只对 http 和 https 有效。 22 &amp;ndash;start-maximized 启动时最大化。 23 &amp;ndash;single-process 以单进程模式运行 Chromium。（启动时浏览器会给出不安全警告）。 24 &amp;ndash;user-agent 使用给定的 User-Agent 字符串。 25 &amp;ndash;process-per-tab 每个分页使用单独进程。 26 &amp;ndash;process-per-site 每个站点使用单独进程。 27 &amp;ndash;in-process-plugins 插件不启用单独进程。 28 &amp;ndash;disable-popup-blocking 禁用弹出拦截。 29 &amp;ndash;disable-javascript 禁用 JavaScript。 30 &amp;ndash;disable-java 禁用 Java。 31 &amp;ndash;disable-plugins 禁用插件。 32 –disable-images 禁用图像。 更多参数 由于水平有限，下表为网络翻译，了解跟多可根基参数，查找相关资料。</description></item><item><title>Jenkins 编译Android apk 流水线</title><link>https://www.jobcher.com/gradle-apk/</link><pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/gradle-apk/</guid><description>背景 Jenkins 编译 Android apk，上传 apk 包，生成下载二维码，并推送钉钉
-安装 Android 环境 安装 JDK 1# 这里使用的是openjdk 1.8.0版本，有需要的话需要到java官网上进行下载对应的JDK版本。 2$ yum install java -y 3 4# 其他版本JDK的安装方式 5$ mv jdk1.8.0_161 /usr/local/ 6$ ln -s /usr/local/jdk1.8.0_161 /usr/local/jdk 7$ vim /etc/profile #配置JDK的环境变量 8export JAVA_HOME=/usr/local/jdk 9export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH 10export CLASSPATH=.$CLASSPATH:$JAVA_HOME/lib:$JAVA_HOME/jre/lib:$JAVA_HOME/lib/tools.jar 11$ source /etc/profile #重新加载系统环境变量 12$ java -version #查看java版本 Android SDK 安装 1# 下载sdk工具包 2$ wget https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip 3 4# 创建sdk工具文件夹和解压工具包 5$ mkdir -p /opt/android/sdk 6$ unzip sdk-tools-linux-3859397.zip -d /opt/android/sdk 7 8# 使用sdkmanager工具配置构建工具和平台版本 9$ cd /opt/android/sdk/tools/bin/ 10$ .</description></item><item><title>Nexus3 使用和部署</title><link>https://www.jobcher.com/nexus/</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/nexus/</guid><description>Nexus3 docker-compose 安装 创建外部存储
-1mkdir -p /data/nexus 2chmod +777 -R /data/nexus 运行 docker-compose
-1version: &amp;#39;3&amp;#39; 2services: 3 nexus3: 4 image: sonatype/nexus3:3.42.0 5 container_name: nexus3 6 ports: 7 - 8081:8081 8 - 5000:5000 9 volumes: 10 - /data/nexus:/nexus-data 11 environment: 12 - INSTALL4J_ADD_VM_PARAMS=-Xms1024m -Xmx1024m -XX:MaxDirectMemorySize=1024m -Djava.util.prefs.userRoot=/some-other-dir 13 restart: always 14 # 赋予外部root权限 15 privileged: true docker-compose up -d 运行 docker-compose</description></item><item><title>shell 脚本（1）</title><link>https://www.jobcher.com/shell1/</link><pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/shell1/</guid><description>shell 脚本之变量 变量替换 语法 说明 ${变量名#匹配规则} 从变量开头进行规则匹配，将符合最短的数据删除 ${变量名##匹配规则} 从变量开头进行规则匹配，将符合最长的数据删除 ${变量名%匹配规则} 从变量尾部进行规则匹配，将符合最短的数据删除 ${变量名%%匹配规则} 从变量尾部进行规则匹配，将符合最长的数据删除 ${变量名/旧字符串/新字符串} 变量内容符合旧字符串则，则第一个旧字符串会被新字符串取代 ${变量名//旧字符串/新字符串} 变量内容符合旧字符串则，则全部的旧字符串会被新字符串取代 字符串处理 计算字符串长度 - 语法 说明 方法一 ${#string} 无 方法二 expr length &amp;ldquo;$string&amp;rdquo; string 有空格，则必须加双引号 获取子串在字符串中的索引位置
-语法： expr index $string $substring
-计算子串长度
-语法： expr match $string substr
-抽取子串
-${string:position} ：从 string 中的 position 开始 ${string:position:length}：从 position 开始，匹配长度为 length ${string:-position}：从右边开始匹配 ${string:(position)}：从左边开始匹配 expr substr $string $position $length：从 position 开始，匹配长度为 length</description></item><item><title>Maven 安装编译</title><link>https://www.jobcher.com/maven/</link><pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/maven/</guid><description>Maven 安装编译 Maven 就是专门为 Java 项目打造的管理和构建工具，它的主要功能有：
-提供了一套标准化的项目结构； 提供了一套标准化的构建流程（编译，测试，打包，发布……）； 提供了一套依赖管理机制。 默认结构：
-1a-maven-project 2├── pom.xml 3├── src 4│ ├── main 5│ │ ├── java 6│ │ └── resources 7│ └── test 8│ ├── java 9│ └── resources 10└── target 项目的根目录a-maven-project是项目名，
-它有一个项目描述文件pom.xml，
-存放Java源码的目录是src/main/java，
-存放资源文件的目录是src/main/resources，
-存放测试源码的目录是src/test/java，
-存放测试资源的目录是src/test/resources，
-最后，所有编译、打包生成的文件都放在target目录里。
-这些就是一个 Maven 项目的标准目录结构。
-pom.xml 文件:
-1&amp;lt;project ...&amp;gt; 2	&amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; 3	&amp;lt;groupId&amp;gt;com.itranswarp.learnjava&amp;lt;/groupId&amp;gt; 4	&amp;lt;artifactId&amp;gt;hello&amp;lt;/artifactId&amp;gt; 5	&amp;lt;version&amp;gt;1.0&amp;lt;/version&amp;gt; 6	&amp;lt;packaging&amp;gt;jar&amp;lt;/packaging&amp;gt; 7	&amp;lt;properties&amp;gt; 8 ... 9	&amp;lt;/properties&amp;gt; 10	&amp;lt;dependencies&amp;gt; 11 &amp;lt;dependency&amp;gt; 12 &amp;lt;groupId&amp;gt;commons-logging&amp;lt;/groupId&amp;gt; 13 &amp;lt;artifactId&amp;gt;commons-logging&amp;lt;/artifactId&amp;gt; 14 &amp;lt;version&amp;gt;1.</description></item><item><title>Nodejs 安装编译</title><link>https://www.jobcher.com/nodejs/</link><pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/nodejs/</guid><description>Nodejs 安装编译 Node.js 平台是在后端运行 JavaScript 代码，必须首先在本机安装 Node 环境。
-安装 Node.js 安装 npm npm 其实是 Node.js 的包管理工具（package manager）。</description></item><item><title>ruoyi-cloud docker部署</title><link>https://www.jobcher.com/ruoyi/</link><pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/ruoyi/</guid><description>基础环境安装 1# docker 脚本安装 2curl -sSL https://get.daocloud.io/docker | sh 3 4#docker compose 脚本安装 5curl -L https://get.daocloud.io/docker/compose/releases/download/v2.4.1/docker-compose-`uname -s`-`uname -m` &amp;gt; /usr/local/bin/docker-compose 6 7 8#可执行权限 9sudo chmod +x /usr/local/bin/docker-compose 10#创建软链： 11sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose 12#测试是否安装成功 13docker-compose --version 下载安装 1git clone https://gitlab.sanjiang.com/it-group/ruoyi-cloud.git 编译 1cd ruoyi-cloud 2mvn clean install -DskipTests 复制 jar 包 1cd ./docker 2./copy.sh 部署 docker 1./deploy.sh base 2./deploy.sh modules 检查 docker 1docker ps -a | grep ruoyi 2docker logs -f ruoyi-auth 3docker logs -f ruoyi-gateway 4docker logs -f ruoyi-modules-system</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Work on 打工人日志</title><link>https://www.jobcher.com/categories/work/</link><description>Recent content in Work on 打工人日志</description><generator>Hugo</generator><language>zh-hans</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Mon, 16 Nov 2026 10:23:01 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/categories/work/index.xml" rel="self" type="application/rss+xml"/><item><title>使用scrapy-redis实现增量爬取</title><link>https://www.jobcher.com/scrapyredis/</link><pubDate>Thu, 30 Mar 2023 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/scrapyredis/</guid><description>&lt;h1 id="使用scrapy-redis实现增量爬取"&gt;使用scrapy-redis实现增量爬取&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;Scrapy-Redis&lt;/code&gt;是&lt;code&gt;Scrapy框架&lt;/code&gt;的一个插件，可以使用Redis实现Scrapy的分布式爬虫。它使用Redis作为分布式队列，可以轻松地将爬虫分布在多个机器上。同时，它还提供了一些功能，如去重、持久化、增量爬取等。&lt;/p&gt;
+&lt;h4 id="要使用scrapy-redis实现增量爬取可以采取以下步骤"&gt;要使用Scrapy-Redis实现增量爬取，可以采取以下步骤：&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;在Scrapy项目中安装Scrapy-Redis插件。可以使用pip安装：pip install scrapy-redis&lt;/li&gt;
+&lt;li&gt;在Scrapy的settings.py中添加如下配置：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 使用Redis调度器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;SCHEDULER&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;scrapy_redis.scheduler.Scheduler&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 使用Redis去重过滤器&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;DUPEFILTER_CLASS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;scrapy_redis.dupefilter.RFPDupeFilter&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 允许暂停、恢复爬取&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;SCHEDULER_PERSIST&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;True&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="3"&gt;
+&lt;li&gt;将Spider的爬取链接放入Redis队列中。可以在Spider中重载start_requests()方法，从Redis队列中获取链接开始爬取。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;scrapy&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;scrapy_redis.spiders&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;RedisSpider&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;MySpider&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;RedisSpider&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;myspider&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;redis_key&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;myspider:start_urls&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 处理响应&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;pass&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="4"&gt;
+&lt;li&gt;在Spider中实现增量爬取。可以通过重载Spider中的&lt;code&gt;start_requests()&lt;/code&gt;方法或者使用&lt;code&gt;SpiderMiddleware&lt;/code&gt;来实现增量爬取。这里提供一种通过修改Redis队列来实现增量爬取的方法。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;scrapy&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;redis&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;scrapy_redis.spiders&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;RedisSpider&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;scrapy.utils.project&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;get_project_settings&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;MySpider&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;RedisSpider&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;myspider&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;redis_key&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;myspider:start_urls&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;redis_conn&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;None&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;11&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;12&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;MySpider&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;**&lt;/span&gt;&lt;span class="n"&gt;kwargs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;13&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;settings&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;get_project_settings&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;14&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;redis_conn&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;redis&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;StrictRedis&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;15&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;host&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;settings&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;REDIS_HOST&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;16&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;port&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;settings&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;REDIS_PORT&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;17&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;db&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;settings&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;REDIS_DB&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;18&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;19&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;20&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;start_requests&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;21&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 获取最新的链接列表&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;22&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;latest_links&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_latest_links&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;23&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 将最新的链接放入Redis队列&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;24&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;link&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;latest_links&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;25&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;redis_conn&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lpush&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;redis_key&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;link&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;26&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;27&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 开始爬取&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;28&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;MySpider&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;start_requests&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;29&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;30&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;get_latest_links&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;31&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 获取最新的链接列表&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;32&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;latest_links&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;33&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 这里只是简单的示例，实际可以从数据库、文件、API等获取最新的链接&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;34&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;35&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;latest_links&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;f&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;http://example.com/page&lt;/span&gt;&lt;span class="si"&gt;{&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;36&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;latest_links&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;37&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;38&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;parse&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;response&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;39&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 处理响应&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;40&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;pass&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以上代码实现了在Spider启动时获取最新的链接列表，并将最新的链接放入Redis队列中，从而实现增量爬取。需要注意的是，这种方法仅适用于Spider启动时获取最新链接的情况。如果需要实时获取最新链接，可以使用&lt;code&gt;SpiderMiddleware&lt;/code&gt;来实现。这里提供一种使用&lt;code&gt;SpiderMiddleware&lt;/code&gt;实现增量爬取的方法。&lt;/p&gt;</description></item><item><title>Chrome浏览器启动参数大全（命令行参数）</title><link>https://www.jobcher.com/chrome/</link><pubDate>Tue, 29 Nov 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/chrome/</guid><description>&lt;h2 id="背景"&gt;背景&lt;/h2&gt;
+&lt;p&gt;在开发 Web 项目当中，浏览器必不可少，而浏览器的启动参数可以帮我们实现很多功能。&lt;/p&gt;
+&lt;h2 id="常用参数"&gt;常用参数&lt;/h2&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th style="text-align: left"&gt;序号&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;参数&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;说明&lt;/th&gt;
+ &lt;th&gt;&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;1&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;allow-&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;ted-plugins&lt;/td&gt;
+ &lt;td&gt;不停用过期的插件。&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;2&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;allow-running-insecure-content&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;默认情况下，https 页面不允许从 http 链接引用 javascript/css/plug-ins。添加这一参数会放行这些内容。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;3&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;allow-scripting-gallery&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;允许拓展脚本在官方应用中心生效。默认情况下，出于安全因素考虑这些脚本都会被阻止。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;4&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;disable-desktop-notifications&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;禁用桌面通知，在 Windows 中桌面通知默认是启用的。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;5&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;disable-file-system&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;停用 FileSystem API。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;6&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;disable-preconnect&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;停用 TCP/IP 预连接。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;7&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;disable-remote-fonts&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;关闭远程字体支持。SVG 中字体不受此参数影响。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;8&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;disable-web-security&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;不遵守同源策略。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;9&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;disk-cache-dir&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;将缓存设置在给定的路径。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;10&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;disk-cache-size&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;设置缓存大小上限，以字节为单位。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;11&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;dns-prefetch-disable&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;停用 DNS 预读。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;12&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;enable-print-preview&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;启用打印预览。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;13&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;extensions-update-frequency&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;设定拓展自动更新频率，以秒为单位。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;14&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;incognito&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;让浏览器直接以隐身模式启动。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;15&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;keep-alive-for-test&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;最后一个标签关闭后仍保持浏览器进程。（某种意义上可以提高热启动速度，不过你最好得有充足的内存）&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;16&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;kiosk&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;启用 kiosk 模式。（一种类似于全屏的浏览模式）&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;17&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;lang&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;使用指定的语言。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;18&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;no-displaying-insecure-content&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;默认情况下，https 页面允许从 http 链接引用图片/字体/框架。添加这一参数会阻止这些内容。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;19&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;no-referrers&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;不发送 Http-Referer 头。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;20&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;no-startup-window&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;启动时不建立窗口。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;21&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;proxy-server&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;使用给定的代理服务器，这个参数只对 http 和 https 有效。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;22&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;start-maximized&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;启动时最大化。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;23&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;single-process&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;以单进程模式运行 Chromium。（启动时浏览器会给出不安全警告）。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;24&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;user-agent&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;使用给定的 User-Agent 字符串。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;25&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;process-per-tab&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;每个分页使用单独进程。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;26&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;process-per-site&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;每个站点使用单独进程。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;27&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;in-process-plugins&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;插件不启用单独进程。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;28&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;disable-popup-blocking&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;禁用弹出拦截。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;29&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;disable-javascript&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;禁用 JavaScript。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;30&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;disable-java&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;禁用 Java。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;31&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;&amp;ndash;disable-plugins&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;禁用插件。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;32&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;–disable-images&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;禁用图像。&lt;/td&gt;
+ &lt;td&gt;&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="更多参数"&gt;更多参数&lt;/h2&gt;
+&lt;p&gt;由于水平有限，下表为网络翻译，了解跟多可根基参数，查找相关资料。&lt;/p&gt;</description></item><item><title>Jenkins 编译Android apk 流水线</title><link>https://www.jobcher.com/gradle-apk/</link><pubDate>Fri, 25 Nov 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/gradle-apk/</guid><description>&lt;h2 id="背景"&gt;背景&lt;/h2&gt;
+&lt;p&gt;Jenkins 编译 Android apk，上传 apk 包，生成下载二维码，并推送钉钉&lt;/p&gt;
+&lt;h2 id="安装-android-环境"&gt;安装 Android 环境&lt;/h2&gt;
+&lt;h3 id="安装-jdk"&gt;安装 JDK&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 这里使用的是openjdk 1.8.0版本，有需要的话需要到java官网上进行下载对应的JDK版本。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;$ yum install java -y
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 其他版本JDK的安装方式&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;$ mv jdk1.8.0_161 /usr/local/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;$ ln -s /usr/local/jdk1.8.0_161 /usr/local/jdk
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;$ vim /etc/profile &lt;span class="c1"&gt;#配置JDK的环境变量&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;JAVA_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/usr/local/jdk
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$JAVA_HOME&lt;/span&gt;/bin:&lt;span class="nv"&gt;$JAVA_HOME&lt;/span&gt;/jre/bin:&lt;span class="nv"&gt;$PATH&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;CLASSPATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;.&lt;span class="nv"&gt;$CLASSPATH&lt;/span&gt;:&lt;span class="nv"&gt;$JAVA_HOME&lt;/span&gt;/lib:&lt;span class="nv"&gt;$JAVA_HOME&lt;/span&gt;/jre/lib:&lt;span class="nv"&gt;$JAVA_HOME&lt;/span&gt;/lib/tools.jar
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;11&lt;/span&gt;&lt;span class="cl"&gt;$ &lt;span class="nb"&gt;source&lt;/span&gt; /etc/profile &lt;span class="c1"&gt;#重新加载系统环境变量&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;12&lt;/span&gt;&lt;span class="cl"&gt;$ java -version &lt;span class="c1"&gt;#查看java版本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="android-sdk-安装"&gt;Android SDK 安装&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 下载sdk工具包&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;$ wget https://dl.google.com/android/repository/sdk-tools-linux-3859397.zip
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 创建sdk工具文件夹和解压工具包&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;$ mkdir -p /opt/android/sdk
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;$ unzip sdk-tools-linux-3859397.zip -d /opt/android/sdk
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 使用sdkmanager工具配置构建工具和平台版本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; /opt/android/sdk/tools/bin/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;$ ./sdkmanager &lt;span class="s2"&gt;&amp;#34;build-tools;29.0.6&amp;#34;&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;platforms;android-29&amp;#34;&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;platform-tools&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;11&lt;/span&gt;&lt;span class="cl"&gt;$ ./sdkmanager --list &lt;span class="c1"&gt;#可以查看有哪些版本，自行选择对应的版本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;12&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;13&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 增加系统环境变量&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;14&lt;/span&gt;&lt;span class="cl"&gt;$ vim /etc/profile
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;15&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;ANDROID_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/opt/android/sdk
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;16&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$PATH&lt;/span&gt;:&lt;span class="nv"&gt;$ANDROID_HOME&lt;/span&gt;:&lt;span class="nv"&gt;$ANDROID_HOME&lt;/span&gt;/tools:&lt;span class="nv"&gt;$ANDROID_HOME&lt;/span&gt;/platform-tools:&lt;span class="nv"&gt;$ANDROID_HOME&lt;/span&gt;/emulator:&lt;span class="nv"&gt;$ANDROID_HOME&lt;/span&gt;/tools/bin
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;17&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;18&lt;/span&gt;&lt;span class="cl"&gt;$ adb version
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;19&lt;/span&gt;&lt;span class="cl"&gt;Android Debug Bridge version 1.0.41
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;20&lt;/span&gt;&lt;span class="cl"&gt;Version 29.0.6-6198805
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;21&lt;/span&gt;&lt;span class="cl"&gt;Installed as /opt/android/sdk/platform-tools/adb
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="安装-gradle"&gt;安装 gradle&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;$ wget https://downloads.gradle-dn.com/distributions/gradle-6.3-all.zip
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;$ mkdir /opt/gradle
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;$ unzip gradle-6.3-all.zip -d /opt/gradle/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;$ vim /etc/profile
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$PATH&lt;/span&gt;:/opt/gradle/gradle-6.3/bin
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;$ &lt;span class="nb"&gt;source&lt;/span&gt; /etc/profile
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;$ gradle -v
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt;------------------------------------------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;Gradle 6.3
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;------------------------------------------------------------
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;11&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;12&lt;/span&gt;&lt;span class="cl"&gt;Build time: 2020-03-24 19:52:07 UTC
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;13&lt;/span&gt;&lt;span class="cl"&gt;Revision: bacd40b727b0130eeac8855ae3f9fd9a0b207c60
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;14&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;15&lt;/span&gt;&lt;span class="cl"&gt;Kotlin: 1.3.70
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;16&lt;/span&gt;&lt;span class="cl"&gt;Groovy: 2.5.10
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;17&lt;/span&gt;&lt;span class="cl"&gt;Ant: Apache Ant&lt;span class="o"&gt;(&lt;/span&gt;TM&lt;span class="o"&gt;)&lt;/span&gt; version 1.10.7 compiled on September &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="m"&gt;2019&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;18&lt;/span&gt;&lt;span class="cl"&gt;JVM: 1.8.0_201 &lt;span class="o"&gt;(&lt;/span&gt;Oracle Corporation 25.201-b09&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;19&lt;/span&gt;&lt;span class="cl"&gt;OS: Linux 3.10.0-693.el7.x86_64 amd64
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="jenkins-流水线配置"&gt;jenkins 流水线配置&lt;/h2&gt;
+&lt;h3 id="gradle-jdksh-打包脚本"&gt;gradle-jdk.sh 打包脚本&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#!/bin/sh
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;&lt;/span&gt;&lt;span class="nb"&gt;source&lt;/span&gt; /etc/profile
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# /home/编译目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /home/编译目录 &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; gradle clean
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; /home/编译目录 &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; gradle assembleRelease
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 打包编译完成，在项目的app/build/outputs/apk中可以找到debug版本或者是release版本。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="jenkinsfile-脚本"&gt;JenkinsFile 脚本&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-json" data-lang="json"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;pipeline&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;//使用标签 &amp;#39;master&amp;#39; 的节点
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt; &lt;span class="err"&gt;agent&lt;/span&gt; &lt;span class="err"&gt;{label&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;master&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;//环境变量
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt; &lt;span class="err"&gt;environment&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;//成功运行特征
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt; &lt;span class="err"&gt;JEN_FEATURE&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;//日志路径
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt; &lt;span class="err"&gt;JEN_LOG&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 10&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 11&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 12&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;stages&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 13&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;stage&lt;/span&gt; &lt;span class="err"&gt;(&amp;#39;编译打包&amp;#39;){&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 14&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;steps&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 15&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;sh&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;cd&lt;/span&gt; &lt;span class="err"&gt;/home/编译目录&lt;/span&gt; &lt;span class="err"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="err"&gt;sudo&lt;/span&gt; &lt;span class="err"&gt;git&lt;/span&gt; &lt;span class="err"&gt;pull&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 16&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;sh&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;sh&lt;/span&gt; &lt;span class="err"&gt;gradle-apk.sh&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 17&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 18&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 19&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 20&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 21&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;stage&lt;/span&gt; &lt;span class="err"&gt;(&amp;#39;上传&amp;#39;)&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 22&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;steps&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 23&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;sh&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;sshpass&lt;/span&gt; &lt;span class="err"&gt;-p&lt;/span&gt; &lt;span class="nt"&gt;&amp;#34;password&amp;#34;&lt;/span&gt; &lt;span class="err"&gt;scp&lt;/span&gt; &lt;span class="err"&gt;/home/编译目录/app/build/outputs/apk/release/app-release.apk&lt;/span&gt; &lt;span class="err"&gt;user@www.nginx.com&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="err"&gt;/home/上传目录/app-release.apk&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 24&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 25&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 26&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 27&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;stage&lt;/span&gt; &lt;span class="err"&gt;(&amp;#39;生成qr&amp;#39;)&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 28&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;steps&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 29&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;echo&lt;/span&gt; &lt;span class="nt"&gt;&amp;#34;生成test qr&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 30&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;sh&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;pwd &amp;amp;&amp;amp; myqr &amp;#39;https://www.nginx.com/app-release.apk&amp;#39; -n qrcode-`date +&amp;#39;%Y-%m-%d-%H%M%S&amp;#39;`.png -d /home/code/image&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 31&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;sh&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;cd /home/code/image &amp;amp;&amp;amp; git add .&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 32&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;sh&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;cd /home/code/image &amp;amp;&amp;amp; git commit -m &amp;#39;new images&amp;#39;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 33&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;sh&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;cd /home/code/image &amp;amp;&amp;amp; git push origin main&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 34&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;结束 end&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 35&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 36&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 37&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 38&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 39&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 40&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;post&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 41&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;success&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 42&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;script&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 43&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;env.DATETIME&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="err"&gt;sh(script:&lt;/span&gt;&lt;span class="nt"&gt;&amp;#34;date&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;returnStdout:&lt;/span&gt; &lt;span class="err"&gt;true).trim()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 44&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;env.QRCODE&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="err"&gt;sh(script:&lt;/span&gt;&lt;span class="nt"&gt;&amp;#34;ls -lhst /home/code/image | awk &amp;#39;NR==2&amp;#39; | awk &amp;#39;{print \$10}&amp;#39;&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="err"&gt;returnStdout:&lt;/span&gt; &lt;span class="err"&gt;true).trim()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 45&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;def&lt;/span&gt; &lt;span class="err"&gt;job_name&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;&amp;#34;# ${JOB_NAME} 流水线 执行成功&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 46&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;def&lt;/span&gt; &lt;span class="err"&gt;jenkinsid&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;&amp;#34;&amp;#34;构建: 第 ${BUILD_ID} 次执行&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 47&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;def&lt;/span&gt; &lt;span class="err"&gt;JEN_production&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;&amp;gt; 部署节点： jenkins&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 48&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;def&lt;/span&gt; &lt;span class="err"&gt;build_url&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;&amp;gt; 部署详情： [详情](${BUILD_URL})&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 49&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;def&lt;/span&gt; &lt;span class="err"&gt;jen_date&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;&amp;gt; 执行时间： ${env.DATETIME}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 50&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;def&lt;/span&gt; &lt;span class="err"&gt;jen_qrcode&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;![qr](https://gitlab.com/jobcher/image/-/raw/main/${env.QRCODE})&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 51&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 52&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;dingtalk&lt;/span&gt; &lt;span class="err"&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 53&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;robot&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;e&lt;/span&gt;&lt;span class="mi"&gt;3999649&lt;/span&gt;&lt;span class="err"&gt;-d&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="err"&gt;f-钉钉key&lt;/span&gt;&lt;span class="mi"&gt;-4&lt;/span&gt;&lt;span class="err"&gt;c&lt;/span&gt;&lt;span class="mi"&gt;57333&lt;/span&gt;&lt;span class="err"&gt;a&lt;/span&gt;&lt;span class="mi"&gt;327&lt;/span&gt;&lt;span class="err"&gt;b&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 54&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;type:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;MARKDOWN&amp;#39;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 55&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;title:&lt;/span&gt; &lt;span class="err"&gt;job_name,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 56&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;text:&lt;/span&gt; &lt;span class="err"&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 57&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;job_name,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 58&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;jenkinsid,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 59&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;&amp;#39;&amp;#39;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 60&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;&amp;#39;---&amp;#39;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 61&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;jen_qrcode,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 62&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;JEN_production,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 63&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;&amp;#39;&amp;#39;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 64&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;build_url,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 65&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;&amp;#39;&amp;#39;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 66&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;jen_date&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 67&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;],&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 68&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;at:&lt;/span&gt; &lt;span class="err"&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 69&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;&amp;#39;手机号&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 70&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 71&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 72&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 73&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 74&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 75&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;failure&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 76&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;script&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 77&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;env.DATETIME&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="err"&gt;sh(script:&lt;/span&gt;&lt;span class="nt"&gt;&amp;#34;date&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="err"&gt;returnStdout:&lt;/span&gt; &lt;span class="err"&gt;true).trim()&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 78&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;def&lt;/span&gt; &lt;span class="err"&gt;job_name&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;&amp;#34;# ${JOB_NAME} 流水线 执行失败&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 79&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;def&lt;/span&gt; &lt;span class="err"&gt;jenkinsid&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;&amp;#34;&amp;#34;构建: 第 ${BUILD_ID} 次执行&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 80&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;def&lt;/span&gt; &lt;span class="err"&gt;JEN_production&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;&amp;gt; 部署节点： jenkins&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 81&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;def&lt;/span&gt; &lt;span class="err"&gt;build_url&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;&amp;gt; 部署详情： [详情](${BUILD_URL})&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 82&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;def&lt;/span&gt; &lt;span class="err"&gt;jen_date&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;&amp;gt; 执行时间： ${env.DATETIME}&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 83&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 84&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;dingtalk&lt;/span&gt; &lt;span class="err"&gt;(&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 85&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;robot&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;e&lt;/span&gt;&lt;span class="mi"&gt;3999649&lt;/span&gt;&lt;span class="err"&gt;-d&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="err"&gt;f-钉钉key&lt;/span&gt;&lt;span class="mi"&gt;-4&lt;/span&gt;&lt;span class="err"&gt;c&lt;/span&gt;&lt;span class="mi"&gt;57333&lt;/span&gt;&lt;span class="err"&gt;a&lt;/span&gt;&lt;span class="mi"&gt;327&lt;/span&gt;&lt;span class="err"&gt;b&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 86&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;type:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;MARKDOWN&amp;#39;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 87&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;title:&lt;/span&gt; &lt;span class="err"&gt;job_name,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 88&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;text:&lt;/span&gt; &lt;span class="err"&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 89&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;job_name,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 90&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;jenkinsid,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 91&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;&amp;#39;&amp;#39;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 92&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;&amp;#39;---&amp;#39;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 93&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;JEN_production,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 94&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;&amp;#39;&amp;#39;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 95&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;build_url,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 96&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;&amp;#39;&amp;#39;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 97&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;jen_date&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 98&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;],&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 99&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;at:&lt;/span&gt; &lt;span class="err"&gt;[&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;100&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;&amp;#39;手机号&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;101&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;102&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;103&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;104&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;105&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;106&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Nexus3 使用和部署</title><link>https://www.jobcher.com/nexus/</link><pubDate>Mon, 31 Oct 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/nexus/</guid><description>&lt;h2 id="nexus3-docker-compose-安装"&gt;Nexus3 docker-compose 安装&lt;/h2&gt;
+&lt;p&gt;创建外部存储&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;mkdir -p /data/nexus
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;chmod +777 -R /data/nexus
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;运行 docker-compose&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;version: &lt;span class="s1"&gt;&amp;#39;3&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;services:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt; nexus3:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt; image: sonatype/nexus3:3.42.0
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt; container_name: nexus3
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt; ports:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt; - 8081:8081
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt; - 5000:5000
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt; volumes:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt; - /data/nexus:/nexus-data
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;11&lt;/span&gt;&lt;span class="cl"&gt; environment:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;12&lt;/span&gt;&lt;span class="cl"&gt; - &lt;span class="nv"&gt;INSTALL4J_ADD_VM_PARAMS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;-Xms1024m -Xmx1024m -XX:MaxDirectMemorySize&lt;span class="o"&gt;=&lt;/span&gt;1024m -Djava.util.prefs.userRoot&lt;span class="o"&gt;=&lt;/span&gt;/some-other-dir
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;13&lt;/span&gt;&lt;span class="cl"&gt; restart: always
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;14&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;# 赋予外部root权限&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;15&lt;/span&gt;&lt;span class="cl"&gt; privileged: &lt;span class="nb"&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;docker-compose up -d
+运行 docker-compose&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2&gt;&lt;/h2&gt;</description></item><item><title>shell 脚本（1）</title><link>https://www.jobcher.com/shell1/</link><pubDate>Sun, 20 Mar 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/shell1/</guid><description>&lt;h1 id="shell-脚本之变量"&gt;shell 脚本之&lt;code&gt;变量&lt;/code&gt;&lt;/h1&gt;
+&lt;h2 id="变量替换"&gt;变量替换&lt;/h2&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th style="text-align: left"&gt;语法&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;说明&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;${变量名#匹配规则}&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;从变量&lt;code&gt;开头&lt;/code&gt;进行规则匹配，将符合最&lt;code&gt;短&lt;/code&gt;的数据删除&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;${变量名##匹配规则}&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;从变量&lt;code&gt;开头&lt;/code&gt;进行规则匹配，将符合最&lt;code&gt;长&lt;/code&gt;的数据删除&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;${变量名%匹配规则}&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;从变量&lt;code&gt;尾部&lt;/code&gt;进行规则匹配，将符合最&lt;code&gt;短&lt;/code&gt;的数据删除&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;${变量名%%匹配规则}&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;从变量&lt;code&gt;尾部&lt;/code&gt;进行规则匹配，将符合最&lt;code&gt;长&lt;/code&gt;的数据删除&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;${变量名/旧字符串/新字符串}&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;变量内容符合旧字符串则，则&lt;code&gt;第一个&lt;/code&gt;旧字符串会被新字符串取代&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;${变量名//旧字符串/新字符串}&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;变量内容符合旧字符串则，则&lt;code&gt;全部的&lt;/code&gt;旧字符串会被新字符串取代&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="字符串处理"&gt;字符串处理&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;计算字符串长度&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th style="text-align: left"&gt;-&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;语法&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;说明&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;方法一&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;${#string}&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;无&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;方法二&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;expr length &amp;ldquo;$string&amp;rdquo;&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;string 有空格，则必须加双引号&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ol start="2"&gt;
+&lt;li&gt;
+&lt;p&gt;获取子串在字符串中的索引位置&lt;br&gt;
+语法： expr index $string $substring&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;计算子串长度&lt;br&gt;
+语法： expr match $string substr&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;抽取子串&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;${string:position} ：从 string 中的 position 开始&lt;/li&gt;
+&lt;li&gt;${string:position:length}：从 position 开始，匹配长度为 length&lt;/li&gt;
+&lt;li&gt;${string:-position}：从右边开始匹配&lt;/li&gt;
+&lt;li&gt;${string:(position)}：从左边开始匹配&lt;/li&gt;
+&lt;li&gt;expr substr $string $position $length：从 position 开始，匹配长度为 length&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Maven 安装编译</title><link>https://www.jobcher.com/maven/</link><pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/maven/</guid><description>&lt;h1 id="maven-安装编译"&gt;Maven 安装编译&lt;/h1&gt;
+&lt;p&gt;Maven 就是专门为 Java 项目打造的管理和构建工具，它的主要功能有：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;提供了一套标准化的项目结构；&lt;/li&gt;
+&lt;li&gt;提供了一套标准化的构建流程（编译，测试，打包，发布……）；&lt;/li&gt;
+&lt;li&gt;提供了一套依赖管理机制。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;默认结构：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;a-maven-project
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;├── pom.xml
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;├── src
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;│ ├── main
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;│ │ ├── java
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;│ │ └── resources
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;│ └── &lt;span class="nb"&gt;test&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt;│ ├── java
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;│ └── resources
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;└── target
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;项目的根目录&lt;code&gt;a-maven-project&lt;/code&gt;是项目名，&lt;br&gt;
+它有一个&lt;code&gt;项目描述&lt;/code&gt;文件&lt;code&gt;pom.xml&lt;/code&gt;，&lt;br&gt;
+存放&lt;code&gt;Java源码&lt;/code&gt;的目录是&lt;code&gt;src/main/java&lt;/code&gt;，&lt;br&gt;
+存放&lt;code&gt;资源文件&lt;/code&gt;的目录是&lt;code&gt;src/main/resources&lt;/code&gt;，&lt;br&gt;
+存放&lt;code&gt;测试源码&lt;/code&gt;的目录是&lt;code&gt;src/test/java&lt;/code&gt;，&lt;br&gt;
+存放&lt;code&gt;测试资源&lt;/code&gt;的目录是&lt;code&gt;src/test/resources&lt;/code&gt;，&lt;br&gt;
+最后，所有编译、&lt;code&gt;打包生成的文件&lt;/code&gt;都放在&lt;code&gt;target&lt;/code&gt;目录里。&lt;br&gt;
+这些就是一个 Maven 项目的标准目录结构。&lt;/p&gt;
+&lt;p&gt;pom.xml 文件:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-xml" data-lang="xml"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;&amp;lt;project&lt;/span&gt; &lt;span class="err"&gt;...&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;	&lt;span class="nt"&gt;&amp;lt;modelVersion&amp;gt;&lt;/span&gt;4.0.0&lt;span class="nt"&gt;&amp;lt;/modelVersion&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;	&lt;span class="nt"&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;com.itranswarp.learnjava&lt;span class="nt"&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;	&lt;span class="nt"&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;hello&lt;span class="nt"&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;	&lt;span class="nt"&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.0&lt;span class="nt"&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;	&lt;span class="nt"&gt;&amp;lt;packaging&amp;gt;&lt;/span&gt;jar&lt;span class="nt"&gt;&amp;lt;/packaging&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;	&lt;span class="nt"&gt;&amp;lt;properties&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt; ...
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;	&lt;span class="nt"&gt;&amp;lt;/properties&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;	&lt;span class="nt"&gt;&amp;lt;dependencies&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;11&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;lt;dependency&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;12&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;lt;groupId&amp;gt;&lt;/span&gt;commons-logging&lt;span class="nt"&gt;&amp;lt;/groupId&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;13&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;lt;artifactId&amp;gt;&lt;/span&gt;commons-logging&lt;span class="nt"&gt;&amp;lt;/artifactId&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;14&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;lt;version&amp;gt;&lt;/span&gt;1.2&lt;span class="nt"&gt;&amp;lt;/version&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;15&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="nt"&gt;&amp;lt;/dependency&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;16&lt;/span&gt;&lt;span class="cl"&gt;	&lt;span class="nt"&gt;&amp;lt;/dependencies&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;17&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;&amp;lt;/project&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;groupId&lt;/code&gt;类似于 Java 的包名，通常是公司或组织名称，&lt;br&gt;
+&lt;code&gt;artifactId&lt;/code&gt;类似于 Java 的类名，通常是项目名称，&lt;br&gt;
+&lt;code&gt;version&lt;/code&gt;，一个 Maven 工程就是由&lt;code&gt;groupId，artifactId和version&lt;/code&gt;作为唯一标识。&lt;br&gt;
+我们在引用其他第三方库的时候，也是通过这 3 个变量确定。&lt;/p&gt;</description></item><item><title>Nodejs 安装编译</title><link>https://www.jobcher.com/nodejs/</link><pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/nodejs/</guid><description>&lt;h1 id="nodejs-安装编译"&gt;Nodejs 安装编译&lt;/h1&gt;
+&lt;p&gt;Node.js 平台是在后端运行 JavaScript 代码，必须首先在本机安装 Node 环境。&lt;/p&gt;
+&lt;h2 id="安装-nodejs"&gt;安装 Node.js&lt;/h2&gt;
+&lt;h2 id="安装-npm"&gt;安装 npm&lt;/h2&gt;
+&lt;p&gt;npm 其实是 Node.js 的包管理工具（package manager）。&lt;/p&gt;</description></item><item><title>ruoyi-cloud docker部署</title><link>https://www.jobcher.com/ruoyi/</link><pubDate>Thu, 03 Mar 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/ruoyi/</guid><description>&lt;h2 id="基础环境安装"&gt;基础环境安装&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# docker 脚本安装&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;curl -sSL https://get.daocloud.io/docker &lt;span class="p"&gt;|&lt;/span&gt; sh
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#docker compose 脚本安装&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;curl -L https://get.daocloud.io/docker/compose/releases/download/v2.4.1/docker-compose-&lt;span class="sb"&gt;`&lt;/span&gt;uname -s&lt;span class="sb"&gt;`&lt;/span&gt;-&lt;span class="sb"&gt;`&lt;/span&gt;uname -m&lt;span class="sb"&gt;`&lt;/span&gt; &amp;gt; /usr/local/bin/docker-compose
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#可执行权限&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;sudo chmod +x /usr/local/bin/docker-compose
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#创建软链：&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;11&lt;/span&gt;&lt;span class="cl"&gt;sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;12&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#测试是否安装成功&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;13&lt;/span&gt;&lt;span class="cl"&gt;docker-compose --version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="下载安装"&gt;下载安装&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;git clone https://gitlab.sanjiang.com/it-group/ruoyi-cloud.git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="编译"&gt;编译&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ruoyi-cloud
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;mvn clean install -DskipTests
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="复制-jar-包"&gt;复制 jar 包&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ./docker
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;./copy.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="部署-docker"&gt;部署 docker&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;./deploy.sh base
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;./deploy.sh modules
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="检查-docker"&gt;检查 docker&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker ps -a &lt;span class="p"&gt;|&lt;/span&gt; grep ruoyi
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;docker logs -f ruoyi-auth
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;docker logs -f ruoyi-gateway
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;docker logs -f ruoyi-modules-system
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item></channel></rss>

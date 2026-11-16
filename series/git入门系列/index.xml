@@ -1,50 +1,820 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>git入门系列 on 打工人日志</title><link>https://www.jobcher.com/series/git%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/</link><description>Recent content in git入门系列 on 打工人日志</description><generator>Hugo -- gohugo.io</generator><language>zh-hans</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Mon, 16 Nov 2026 09:07:12 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/series/git%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/index.xml" rel="self" type="application/rss+xml"/><item><title>CI/CD 可观察性-基于grafana</title><link>https://www.jobcher.com/cicd-obser/</link><pubDate>Tue, 12 Dec 2023 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/cicd-obser/</guid><description>背景 什么是 CI/CD 可观察性，我们如何为更多可观察的管道铺平道路？可观察性不仅仅是观察错误或监控基本健康信号。相反，它会更深入，以便您可以了解系统内行为背后的“原因”。
-CI/CD 可观察性在其中发挥着关键作用。这是关于深入了解持续集成和部署系统的整个管道——查看每个代码签入、每个测试、每个构建和每个部署。当您组合所有这些数据时，您可以全面了解整个软件交付过程，揭示效率领域、瓶颈和潜在故障点。
-CI/CD 可观察性是可观察性的一个子集，专注于软件开发生命周期。它有助于以多种方式确保流程可靠、相关且易于理解：
-积极主动解决问题。没有可观察性，我们只能对问题做出反应。有了它，我们可以在问题升级之前预见并解决问题，从而节省时间和资源。 更好的决策。通过了解 CI/CD 流程的细节，团队可以在资源分配、流程变更和工具采用方面做出更明智的决策。 建立信心。通过对 CI/CD 管道的清晰洞察，开发人员、测试人员和运营团队可以对他们发布的软件更有信心。它减少了“对部署的恐惧”并培育了持续改进的文化。 问责制和透明度。可观察性确保 CI/CD 流程的每一步都是可追溯的。这意味着，如果出现问题，可以追溯到其源头，促进问责并帮助解决根本原因，而不仅仅是解决症状。 问题 CI/CD 系统并非没有自身的挑战。破坏 CI/CD 管道平稳运行的常见问题是不稳定、性能下降和配置错误。
-Flakiness 片状 片状测试是 CI/CD 方程中不可预测的变量。当测试在代码没有任何更改的情况下产生不同的结果（通过或失败）时，该测试被认为是“不稳定的”。出现片状现象通常有以下几个原因：
-外部依赖和环境问题。如果这些依赖项不能始终可用，则依赖于外部服务、数据库或特定环境设置的测试可能会产生不可预测的结果。如果环境设置不正确或意外拆除，也可能会发生这种情况。从本质上讲，先前测试的残留或外部服务的不可用可能会扭曲结果，使其不可靠。 比赛条件。当系统的行为依赖于不可控事件的顺序或时间时，就会出现这种情况。特别是在异步操作中，如果管理不当，事件序列的不可预测性可能会导致偶发故障。 Performance regression 性能回归 随着 CI/CD 流程的发展并变得更加复杂，系统性能可能会开始下降。这种回归可能不会立即显现出来，但长期的累积效应可能会阻碍 CI/CD 管道的效率。以下是常见的原因：
-测试执行效率低下。某些测试可能会运行比必要的时间更长的时间，这可能是因为冗余操作、设置的等待时间太长或查询效率低下。这在集成和端到端测试中尤其明显。 代码和测试膨胀。当我们添加更多功能和测试而不解决技术债务或进行优化时，我们的构建时间可能会增加。有些测试从添加之日起可能会很慢。如果不解决这些问题，整个构建和测试过程可能会比需要的时间更长。 Misconfigurations 配置错误 即使是最深思熟虑的管道也可能因配置错误而失败。这可能导致：
-次优测试计划。 CI/CD 管道遵循一条关键路径，其中每个步骤都依赖于前一个步骤。如果步骤未设置为按正确的顺序执行或正在等待非依赖项，则可能会导致效率低下。 次优容量规划。未配置足够的资源或对所需工作负载规划不当可能会导致管道出现瓶颈。如果 CI/CD 流程在关键阶段没有必要的能力，则可能会减慢整个工作流程或导致中断和故障。 DORA 指标 Deployment frequency 部署频率 (DF)：组织成功发布到生产环境的频率 Mean Lead time for changes 变更平均前置时间 (MLT)：从代码提交到代码在生产中运行所需的时间 Mean time to recover 平均恢复时间 (MTTR)：发生服务事件或缺陷后恢复服务需要多长时间 Change failure rate 变更失败率 (CFR)：导致失败的变更百分比 优化 CI/CD 可观察性 目前GraCIe 是 Grafana 正在使用的应用程序插件，旨在为用户提供一种简单的方法来了解他们的 CI/CD 系统。它非常适合评估构建性能、识别测试结果中的不一致以及分析构建输出。该应用程序简化了这些流程，旨在轻松提供有关管道的见解。</description></item><item><title>sonarqube docker安装和配置</title><link>https://www.jobcher.com/sonarqube/</link><pubDate>Thu, 02 Nov 2023 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/sonarqube/</guid><description>背景 我是在ubuntu服务器安装docker服务，我已经安装好了docker和docker-compose服务，这里我就不写这些服务的安装过程，直接开始安装sonarqube服务
-安装 sonarqube服务器 1.执行脚本文件 config.sh 1#!/bin/bash 2sysctl -w vm.max_map_count=262144 3sysctl -w fs.file-max=65536 4ulimit -n 65536 5ulimit -u 4096 6# # 永久改变 7# echo &amp;#34;vm.max_map_count=262144&amp;#34; &amp;gt;&amp;gt; /etc/sysctl.conf 8# sysctl -p 1sh config.sh 2.执行docker-compose文件 1version: &amp;#39;3&amp;#39; 2services: 3 postgres: 4 image: postgres:15 5 container_name: postgres 6 ports: 7 - 5432:5432 8 volumes: 9 - ./sonar/postgres/postgresql:/var/lib/postgresql 10 - ./sonar/postgres/data:/var/lib/postgresql/data 11 environment: 12 TZ: Asia/Shanghai 13 POSTGRES_USER: user #数据库用户 14 POSTGRES_PASSWORD: password #数据库密码 15 POSTGRES_DB: sonar 16 17 sonarqube: 18 depends_on: 19 - postgres 20 image: sonarqube:9.</description></item><item><title>SSH 通过 443 端口连接 GitHub</title><link>https://www.jobcher.com/ssh-git/</link><pubDate>Wed, 27 Sep 2023 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/ssh-git/</guid><description>背景 GitHub 提供了两种协议供用户使用 Git 连接—— SSH 和 HTTPS。理论上我可以随意选择两者之一连接到我在 GitHub 上的代码仓库，无论是将云端的仓库 clone 到本地，还是将本地的修改 push 到云端。然而，出于一些奇奇怪怪的原因，我所在的办公网络环境禁止了 22 端口，而 22 端口正是 GitHub 提供 SSH 访问的端口号。尽管可以换用 HTTPS 协议，但无论如何将我电脑上的所有代码仓库的上游都从 git@github.com:... 修改称 https://github.com/... 仍然是一个繁重的体力活。
-解决 为了让Git也能通过上述端口用 SSH 访问 GitHub，我们为上述 SSH 连接方式设置一个别名。首先找到SSH的配置文件，它的路径一般是~/.ssh/config，如果这个文件不存在的话也可以创建一个。然后，在其中增加以下内容：
-1Host github.com 2 HostName ssh.github.com 3 User git 4 Port 443 其中，Host 是别名，HostName 是实际的域名地址，Port 是端口号。因为我希望当我在用 SSH 连接 github.com 时，实际访问的是 ssh.github.com，所以 Host 和 HostName 分别设置成这两个域名（注意不要颠倒顺序）。
-测试连接 1ssh -vT git@github.com</description></item><item><title>ansible 命令</title><link>https://www.jobcher.com/ansible1/</link><pubDate>Thu, 14 Apr 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/ansible1/</guid><description>ansible 命令 Inventory：Ansible 管理的主机信息，包括 IP 地址、SSH 端口、账号、密码等 Modules：任务均有模块完成，也可以自定义模块，例如经常用的脚本。 Plugins：使用插件增加 Ansible 核心功能，自身提供了很多插件，也可以自定义插件。例如 connection 插件，用于连接目标主机。 Playbooks：“剧本”，模块化定义一系列任务，供外部统一调用。Ansible 核心功能。 编辑主机清单 1[webservers] 2192.168.0.20 ansible_ssh_user=root ansible_ssh_pass=’200271200’ 3192.168.0.21 ansible_ssh_user=root ansible_ssh_pass=’200271200’ 4192.168.0.22 ansible_ssh_user=root ansible_ssh_pass=’200271200’ 5 6[dbservers] 710.12.0.100 810.12.0.101 1sed -i &amp;#34;s/#host_key_checking = .*/host_key_checking = False/g&amp;#34; /etc/ansible/ansible.cfg 命令行 1ansible all -m ping 2ansible all -m shell -a &amp;#34;ls /root&amp;#34; -u root -k 常用模块 在目标主机执行 shell 命令。
-shell 1- name: 将命令结果输出到指定文件 2 shell: somescript.sh &amp;gt;&amp;gt; somelog.txt 3- name: 切换目录执行命令 4 shell: 5 cmd: ls -l | grep log 6 chdir: somedir/ 7- name: 编写脚本 8 shell: | 9 if [ 0 -eq 0 ]; then 10 echo yes &amp;gt; /tmp/result 11 else 12 echo no &amp;gt; /tmp/result 13 fi 14 args: 15 executable: /bin/bash copy 将文件复制到远程主机。 1- name: 拷贝文件 2 copy: 3 src: /srv/myfiles/foo.</description></item><item><title>Git 规则</title><link>https://www.jobcher.com/git3/</link><pubDate>Thu, 24 Mar 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/git3/</guid><description>Git 飞行规则(Flight Rules) 编辑提交(editting commits) 我刚才提交了什么? 我的提交信息(commit message)写错了 我提交(commit)里的用户名和邮箱不对 我想从一个提交(commit)里移除一个文件 我想删除我的的最后一次提交(commit) 删除任意提交(commit) 我尝试推一个修正后的提交(amended commit)到远程，但是报错： 我意外的做了一次硬重置(hard reset)，我想找回我的内容 暂存(Staging) 我需要把暂存的内容添加到上一次的提交(commit) 我想要暂存一个新文件的一部分，而不是这个文件的全部 我想把在一个文件里的变化(changes)加到两个提交(commit)里 我想把暂存的内容变成未暂存，把未暂存的内容暂存起来 未暂存(Unstaged)的内容 我想把未暂存的内容移动到一个新分支 我想把未暂存的内容移动到另一个已存在的分支 我想丢弃本地未提交的变化(uncommitted changes) 我想丢弃某些未暂存的内容 分支(Branches) 我从错误的分支拉取了内容，或把内容拉取到了错误的分支 我想扔掉本地的提交(commit)，以便我的分支与远程的保持一致 我需要提交到一个新分支，但错误的提交到了 main 我想保留来自另外一个 ref-ish 的整个文件 我把几个提交(commit)提交到了同一个分支，而这些提交应该分布在不同的分支里 我想删除上游(upstream)分支被删除了的本地分支 我不小心删除了我的分支 我想删除一个分支 我想从别人正在工作的远程分支签出(checkout)一个分支 Rebasing 和合并(Merging) 我想撤销 rebase/merge 我已经 rebase 过, 但是我不想强推(force push) 我需要组合(combine)几个提交(commit) 安全合并(merging)策略 我需要将一个分支合并成一个提交(commit) 我只想组合(combine)未推的提交(unpushed commit) 检查是否分支上的所有提交(commit)都合并(merge)过了 交互式 rebase(interactive rebase)可能出现的问题 这个 rebase 编辑屏幕出现&amp;rsquo;noop&amp;rsquo; 有冲突的情况 Stash 暂存所有改动 暂存指定文件 暂存时记录消息 使用某个指定暂存 暂存时保留未暂存的内容 杂项(Miscellaneous Objects) 克隆所有子模块 删除标签(tag) 恢复已删除标签(tag) 已删除补丁(patch) 跟踪文件(Tracking Files) 我只想改变一个文件名字的大小写，而不修改内容 我想从 Git 删除一个文件，但保留该文件 配置(Configuration) 我想给一些 Git 命令添加别名(alias) 我想缓存一个仓库(repository)的用户名和密码 我不知道我做错了些什么 其它资源(Other Resources) 书(Books) 教程(Tutorials) 脚本和工具(Scripts and Tools) GUI 客户端(GUI Clients) 编辑提交(editting commits) 我刚才提交了什么?</description></item><item><title>git版本控制</title><link>https://www.jobcher.com/git2/</link><pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/git2/</guid><description>git 版本控制 版本回退 1.查看 git 提交历史 1#查看git提交历史 2git log 如果嫌输出信息太多，看得眼花缭乱的，可以试试加上--pretty=oneline参数
-1git log --pretty=oneline 2.回退到上一个版本 Git必须知道当前版本是哪个版本，在 Git 中，用HEAD表示当前版本，也就是最新的提交b534d741..（注意我的提交 ID 和你的肯定不一样），上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上 100 个版本写 100 个^比较容易数不过来，所以写成HEAD~100
-1git reset --hard HEAD^ 最新的那个版本已经看不到了，可以顺着往上找，找到那个版本的 ID
-1git reset --hard c8275ca Git 在内部有个指向当前版本的HEAD指针,当你回退版本的时候，Git 仅仅是把HEAD从指向update
-1┌────┐ 2│HEAD│ 3└────┘ 4 │ 5 └──&amp;gt; ○ update 6 │ 7 ○ Create README.md 8 │ 9 ○ init 改为指向 Create README.md：
-1┌────┐ 2│HEAD│ 3└────┘ 4 │ 5 │ ○ update 6 │ │ 7 └──&amp;gt; ○ Create README.</description></item><item><title>CICD 概念</title><link>https://www.jobcher.com/devops/</link><pubDate>Thu, 17 Feb 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/devops/</guid><description>CICD 概念 DevOps Devlopment 和 Operation 的组合词
-规划-》代码-》构建-》测试-》发布-》部署-》运营-》监控-》再次规划
-devOps 看作开发（软件工程）、技术运营和质量保障（QA）三者的交集 突出重视软件开发人员和运维人员的沟通合作，通过自动化流程来使得软件构建、测试、发布更加快捷、频繁和可靠。 DevOps 希望做到的是软件产品交付过程中IT工具链的打通，使得各个团队减少时间损耗。更加高效的协同工作。良好的闭环可以大大增加整体的产出。 CICD 持续集成 持续部署
-持续集成
-持续集成是指软件个人研发的部分向软件整体部分交付，频繁进行集成以便更快地发现其中的错误。“持续集成”源自于极限编程（XP），是 12 最初的 12 种实践之一 Ci 需要具备这些： 1全面的自动化测试，这是实践持续集成和持续部署的基础，同时，选择合适的自动化测试工具也极其重要； 2灵活的基础设施。容器，虚拟化的存在让开发人员和QA不必再大费周折 3版本控制工具。如git，cvs，svn等 4自动化的构建和软件发布流程工具，如 Jenkins，flow.ci; 5反馈机制，如构建/测试的失败，可以快速地反馈到相关负责人，以尽快解决达到一个更稳定的版本。</description></item><item><title>git使用方法</title><link>https://www.jobcher.com/git/</link><pubDate>Thu, 17 Feb 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/git/</guid><description>git 使用方法 一、git 安装配置 Debian/Ubuntu 1 apt-get install libcurl4-gnutls-dev libexpat1-dev gettext \ 2 libz-dev libssl-dev 3 4 apt-get install git 5 6 git --version 7 git version 1.8.1.2 Centos/RedHat 1 yum install curl-devel expat-devel gettext-devel \ 2 openssl-devel zlib-devel 3 4 yum -y install git-core 5 6 git --version 7 git version 1.7.1 二、git 拉取异常如何重新拉取 1.同一文件有修改，产生冲突。 先将本地修改存储起来 使用git stash命令，这样本地的所有修改就都被暂时存储起来 。其中stash@{0}就是刚才保存的标记。后续可以通过此标记访问。 再次拉取代码 1git pull 还原暂存的内容 1git stash pop stash@{0} 解决冲突 在存在冲突的文件中，Updated upstream 和=====之间的内容为拉取下来的代码，=====和stashed changes之间的内容就为本地修改的代码。解决完成之后，就可以正常的提交了。 5.</description></item><item><title>Jenkins 安装与使用</title><link>https://www.jobcher.com/jenkins/</link><pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/jenkins/</guid><description>Jenkins 安装与使用 代码在本地修改&amp;mdash;-》提交到远程 gitlab&amp;mdash;-》触发 jenkins 整个自动化构建流程（打包，测试，发布，部署）
-安装 docker 安装 docker
-docker 安装 jenkins 1docker run \ 2 -u root \ 3 -d \ 4 -p 8080:8080 \ 5 -p 50000:50000 \ 6 -v jenkins-data:/var/jenkins_home \ 7 -v /etc/localtime:/etc/localtime:ro \ 8 -v /var/run/docker.sock:/var/run/docker.sock \ 9 --restart=always \ 10 jenkinsci/blueocean 访问 http://localhost:8080
-显示初始密码
-1docker exec -ti &amp;lt;容器名称&amp;gt; sh 2cat /var/jenkins_home/secrets/initialAdminPassword 工作流程 先定义一个流水线项目，指定项目的 git 位置 git 位置自动拉取代码 解析拉取代码里面的 Jenkinsfile 文件 按照 Jenkinsfile 指定的流水线开始加工项目 Jenkinsfile 语法 基础语法,在仓库创建一个 Jenkinsfile 文件</description></item><item><title>Gitlab批量导出用户</title><link>https://www.jobcher.com/exportuser/</link><pubDate>Fri, 14 Jan 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/exportuser/</guid><description>Gitlab 批量导出用户 登陆 Gitlab 服务器进行数据库登陆、数据查询及信息导出操作。
-操作步骤 根据配置文件，定位数据库相关信息 1cat /var/opt/gitlab/gitlab-rails/etc/database.yml 查看 Gitlab 对应的系统用户 1cat /etc/passwd | grep gitlab 切换用户 gitlab-psql 1su - gitlab-psql 登陆数据库（-h 指定 host，-d 指定数据库） 使用第 1 步获取的信息 1psql -h /var/opt/gitlab/postgresql -d gitlabhq_production (1) 查看帮助信息
-1gitlabhq_production=# \h (2) 查看数据库
-1gitlabhq_production=# \l (3) 查看库中的表（执行命令后，按回车键显示更多表信息）
-1gitlabhq_production=# \dt (4) 通过筛查，可在库中找到 users 表，相关用户信息都记录在表中！
-1gitlabhq_production=# \d users (5) 查看表信息
-1gitlabhq_production=# SELECT * FROM users; (6) 查看 users 表中的 name 字段
-1gitlabhq_production=# SELECT name FROM users; (7)登出数据库</description></item><item><title>ansible 安装和部署</title><link>https://www.jobcher.com/ansible/</link><pubDate>Thu, 30 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/ansible/</guid><description>ansible 安装和部署 Ansible 默认通过 SSH 协议管理机器.
-安装 ansible 下载安装 1# ubuntu 安装 2apt-get install software-properties-common 3apt-add-repository ppa:ansible/ansible 4apt-get update 5apt-get install ansible 6# centos 安装 7yum install ansible 检查文件 1#检查 2ansible --version ansible 配置 添加主机 1vim /etc/ansible/hosts 2#添加你需要添加的被控主机地址和IP 配置 SSH key 授权访问 1# 控制主机生成ssh 密钥对（一路回车） 2ssh-keygen -t rsa 3# 复制公钥IP到被控主机 4ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.0.2 5ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.0.3 6ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.0.4 7# ssh-copy-id命令会自动将id_rsa.pub文件的内容追加到远程主机root用户下.ssh/authorized_keys文件中。 更改 ansible 配置 1vim /etc/ansible/ansible.cfg 2 3#禁用每次执行ansbile命令检查ssh key host 4host_key_checking = False 5# 开启日志记录 6log_path = /var/log/ansible.</description></item><item><title>gitlab与github同步项目</title><link>https://www.jobcher.com/gitrsync/</link><pubDate>Mon, 27 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/gitrsync/</guid><description>gitlab 与 github 同步项目 本地同步项目 1git clone 创建一个同名的项目,命令行终端中添加 remote 地址 1git remote add githubOrigin git@github.com:sjtfreaks/blog.git 项目同步到 Github 上 1git push -u githubOrigin main 分别同步 github 与 gitlab 即可 1git push -u githubOrigin main 2git push -u origin main</description></item><item><title>git技巧</title><link>https://www.jobcher.com/gitlab/</link><pubDate>Fri, 10 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/gitlab/</guid><description>git 技巧 Git 是一个 “分布式版本管理工具”，简单的理解版本管理工具：大家在写东西的时候都用过 “回撤” 这个功能，但是回撤只能回撤几步，假如想要找回我三天之前的修改，光用 “回撤” 是找不回来的。而 “版本管理工具” 能记录每次的修改，只要提交到版本仓库，你就可以找到之前任何时刻的状态（文本状态）。
-下面的内容就是列举了常用的 Git 命令和一些小技巧，可以通过 &amp;ldquo;页面内查找&amp;rdquo; 的方式进行快速查询：Ctrl/Command+f。
-开卷必读 如果之前未使用过 Git，可以学习 Git 小白教程入门
-一定要先测试命令的效果后，再用于工作环境中，以防造成不能弥补的后果！到时候别拿着砍刀来找我 所有的命令都在git version 2.7.4 (Apple Git-66)下测试通过 统一概念： 工作区：改动（增删文件和内容） 暂存区：输入命令：git add 改动的文件名，此次改动就放到了 ‘暂存区’ 本地仓库(简称：本地)：输入命令：git commit 此次修改的描述，此次改动就放到了 ’本地仓库’，每个 commit，我叫它为一个 ‘版本’。 远程仓库(简称：远程)：输入命令：git push 远程仓库，此次改动就放到了 ‘远程仓库’（GitHub 等) commit-id：输出命令：git log，最上面那行 commit xxxxxx，后面的字符串就是 commit-id 如果喜欢这个项目，欢迎 Star、提交 Pr、反馈问题😊 目录 脑图 展示帮助信息 回到远程仓库的状态 重设第一个 commit 查看冲突文件列表 展示工作区和暂存区的不同 展示暂存区和最近版本的不同 展示暂存区、工作区和最近版本的不同 快速切换到上一个分支 删除已经合并到 master 的分支 展示本地分支关联远程仓库的情况 关联远程分支 列出所有远程分支 列出本地和远程分支 查看远程分支和本地分支的对应关系 远程删除了分支本地也想删除 创建并切换到本地分支 从远程分支中创建并切换到本地分支 删除本地分支 删除远程分支 重命名本地分支 查看标签 查看标签详细信息 本地创建标签 推送标签到远程仓库 删除本地标签 删除远程标签 切回到某个标签 放弃工作区的修改 恢复删除的文件 以新增一个 commit 的方式还原某一个 commit 的修改 回到某个 commit 的状态，并删除后面的 commit 修改上一个 commit 的描述 查看 commit 历史 显示本地更新过 HEAD 的 git 命令记录 修改作者名 修改远程仓库的 url 增加远程仓库 列出所有远程仓库 查看两个星期内的改动 把 A 分支的某一个 commit，放到 B 分支上 给 git 命令起别名 存储当前的修改，但不用提交 commit 保存当前状态，包括 untracked 的文件 展示所有 stashes 回到某个 stash 的状态 回到最后一个 stash 的状态，并删除这个 stash 删除所有的 stash 从 stash 中拿出某个文件的修改 展示所有 tracked 的文件 展示所有 untracked 的文件 展示所有忽略的文件 强制删除 untracked 的文件 强制删除 untracked 的目录 展示简化的 commit 历史 查看某段代码是谁写的 把某一个分支导出成一个文件 从包中导入分支 执行 rebase 之前自动 stash 从远程仓库根据 ID，拉下某一状态，到本地分支 详细展示一行中的修改 清除 .</description></item><item><title>gitlab CI/CD 的使用</title><link>https://www.jobcher.com/gitlab-cicd/</link><pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/gitlab-cicd/</guid><description>gitlab CI/CD 的使用 我将使用 gitlab 的流水线自动实现 hugo blog 文章的自动发布。
-一、基础知识 二、安装过程 1.安装 gitlab runner 首先需要安装 gitlab runner 进入服务器 A
-安装方法：
-容器部署
-手动二进制文件部署
-通过 rpm/deb 包部署
-docker 方式安装
-安装文档：https://docs.gitlab.com/runne&amp;hellip;
-1 docker run -dit \ 2 --name gitlab-runner \ 3 --restart always \ 4 -v /srv/gitlab-runner/config:/etc/gitlab-runner \ 5 -v /var/run/docker.sock:/var/run/docker.sock \ 6 gitlab/gitlab-runner 1.1 设置信息
-docker exec -it gitlab-runner gitlab-runner register 非 docker 方式安装 2.1 安装 GitLab Runner
-安装环境：Linux
-其他环境参考：https://docs.gitlab.com/runne&amp;hellip;
-下载
-1 curl -L --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.</description></item><item><title>Markdown教程</title><link>https://www.jobcher.com/markdown/</link><pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/markdown/</guid><description>Markdown 教程 参考：https://www.runoob.com/markdown</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git入门系列 on 打工人日志</title><link>https://www.jobcher.com/series/git%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/</link><description>Recent content in Git入门系列 on 打工人日志</description><generator>Hugo</generator><language>zh-hans</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Mon, 16 Nov 2026 10:23:01 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/series/git%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/index.xml" rel="self" type="application/rss+xml"/><item><title>CI/CD 可观察性-基于grafana</title><link>https://www.jobcher.com/cicd-obser/</link><pubDate>Tue, 12 Dec 2023 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/cicd-obser/</guid><description>&lt;h2 id="背景"&gt;背景&lt;/h2&gt;
+&lt;p&gt;什么是 CI/CD 可观察性，我们如何为更多可观察的管道铺平道路？可观察性不仅仅是观察错误或监控基本健康信号。相反，它会更深入，以便您可以了解系统内行为背后的“原因”。&lt;br&gt;
+CI/CD 可观察性在其中发挥着关键作用。这是关于深入了解持续集成和部署系统的整个管道——查看每个代码签入、每个测试、每个构建和每个部署。当您组合所有这些数据时，您可以全面了解整个软件交付过程，揭示效率领域、瓶颈和潜在故障点。&lt;br&gt;
+CI/CD 可观察性是可观察性的一个子集，专注于软件开发生命周期。它有助于以多种方式确保流程可靠、相关且易于理解：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;积极主动解决问题&lt;/code&gt;。没有可观察性，我们只能对问题做出反应。有了它，我们可以在问题升级之前预见并解决问题，从而节省时间和资源。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;更好的决策&lt;/code&gt;。通过了解 CI/CD 流程的细节，团队可以在资源分配、流程变更和工具采用方面做出更明智的决策。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;建立信心&lt;/code&gt;。通过对 CI/CD 管道的清晰洞察，开发人员、测试人员和运营团队可以对他们发布的软件更有信心。它减少了“对部署的恐惧”并培育了持续改进的文化。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;问责制和透明度&lt;/code&gt;。可观察性确保 CI/CD 流程的每一步都是可追溯的。这意味着，如果出现问题，可以追溯到其源头，促进问责并帮助解决根本原因，而不仅仅是解决症状。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="问题"&gt;问题&lt;/h2&gt;
+&lt;p&gt;CI/CD 系统并非没有自身的挑战。破坏 CI/CD 管道平稳运行的常见问题是&lt;code&gt;不稳定&lt;/code&gt;、&lt;code&gt;性能下降&lt;/code&gt;和&lt;code&gt;配置错误&lt;/code&gt;。&lt;/p&gt;
+&lt;h3 id="flakiness-片状"&gt;Flakiness 片状&lt;/h3&gt;
+&lt;p&gt;片状测试是 CI/CD 方程中不可预测的变量。当测试在代码没有任何更改的情况下产生不同的结果（通过或失败）时，该测试被认为是“不稳定的”。出现片状现象通常有以下几个原因：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;外部依赖和环境问题。如果这些依赖项不能始终可用，则依赖于外部服务、数据库或特定环境设置的测试可能会产生不可预测的结果。如果环境设置不正确或意外拆除，也可能会发生这种情况。从本质上讲，先前测试的残留或外部服务的不可用可能会扭曲结果，使其不可靠。&lt;/li&gt;
+&lt;li&gt;比赛条件。当系统的行为依赖于不可控事件的顺序或时间时，就会出现这种情况。特别是在异步操作中，如果管理不当，事件序列的不可预测性可能会导致偶发故障。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="performance-regression-性能回归"&gt;Performance regression 性能回归&lt;/h3&gt;
+&lt;p&gt;随着 CI/CD 流程的发展并变得更加复杂，系统性能可能会开始下降。这种回归可能不会立即显现出来，但长期的累积效应可能会阻碍 CI/CD 管道的效率。以下是常见的原因：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;测试执行效率低下。某些测试可能会运行比必要的时间更长的时间，这可能是因为冗余操作、设置的等待时间太长或查询效率低下。这在集成和端到端测试中尤其明显。&lt;/li&gt;
+&lt;li&gt;代码和测试膨胀。当我们添加更多功能和测试而不解决技术债务或进行优化时，我们的构建时间可能会增加。有些测试从添加之日起可能会很慢。如果不解决这些问题，整个构建和测试过程可能会比需要的时间更长。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="misconfigurations-配置错误"&gt;Misconfigurations 配置错误&lt;/h3&gt;
+&lt;p&gt;即使是最深思熟虑的管道也可能因配置错误而失败。这可能导致：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;次优测试计划&lt;/code&gt;。 CI/CD 管道遵循一条关键路径，其中每个步骤都依赖于前一个步骤。如果步骤未设置为按正确的顺序执行或正在等待非依赖项，则可能会导致效率低下。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;次优容量规划&lt;/code&gt;。未配置足够的资源或对所需工作负载规划不当可能会导致管道出现瓶颈。如果 CI/CD 流程在关键阶段没有必要的能力，则可能会减慢整个工作流程或导致中断和故障。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="dora-指标"&gt;DORA 指标&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Deployment frequency&lt;/code&gt; 部署频率 (DF)：组织成功发布到生产环境的频率&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Mean Lead time for changes&lt;/code&gt; 变更平均前置时间 (MLT)：从代码提交到代码在生产中运行所需的时间&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Mean time to recover&lt;/code&gt; 平均恢复时间 (MTTR)：发生服务事件或缺陷后恢复服务需要多长时间&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Change failure rate&lt;/code&gt; 变更失败率 (CFR)：导致失败的变更百分比&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="优化-cicd-可观察性"&gt;优化 CI/CD 可观察性&lt;/h2&gt;
+&lt;p&gt;目前GraCIe 是 Grafana 正在使用的应用程序插件，旨在为用户提供一种简单的方法来了解他们的 CI/CD 系统。它非常适合评估构建性能、识别测试结果中的不一致以及分析构建输出。该应用程序简化了这些流程，旨在轻松提供有关管道的见解。&lt;br&gt;
+通过利用 &lt;a href="https://grafana.com/oss/tempo/?pg=blog&amp;amp;plcmt=body-txt&amp;amp;src=tw&amp;amp;mdm=social&amp;amp;cnt=youre_probably_familiar_w&amp;amp;camp=blog"&gt;Grafana Tempo&lt;/a&gt;、&lt;a href="https://grafana.com/oss/loki/?pg=blog&amp;amp;plcmt=body-txt&amp;amp;src=tw&amp;amp;mdm=social&amp;amp;cnt=youre_probably_familiar_w&amp;amp;camp=blog"&gt;Grafana Loki&lt;/a&gt; 和 Prometheus 的强大功能，我们为一个全新的领域（即 CI/CD 可观测性）构建了一种固执己见的体验，因为它最终依赖于更成熟的可观测性用例中使用的相同遥测信号。此外，通过依赖 OpenTelemetry，GraCIe 几乎可以与任何 CI/CD 平台无缝协作，为用户提供相同的无与伦比的见解，而无需自定义设置或配置。&lt;br&gt;
+&lt;img src="https://www.jobcher.com/images/cicd-observability-2.png" alt="cicd-observability-2.png" loading="lazy" decoding="async"&gt;
+&lt;br&gt;
+&lt;img src="https://www.jobcher.com/images/cicd-observability-3.png" alt="cicd-observability-3.png" loading="lazy" decoding="async"&gt;
+&lt;/p&gt;</description></item><item><title>sonarqube docker安装和配置</title><link>https://www.jobcher.com/sonarqube/</link><pubDate>Thu, 02 Nov 2023 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/sonarqube/</guid><description>&lt;h2 id="背景"&gt;背景&lt;/h2&gt;
+&lt;p&gt;我是在ubuntu服务器安装docker服务，我已经安装好了docker和docker-compose服务，这里我就不写这些服务的安装过程，直接开始安装sonarqube服务&lt;/p&gt;
+&lt;h2 id="安装-sonarqube服务器"&gt;安装 sonarqube服务器&lt;/h2&gt;
+&lt;h3 id="1执行脚本文件-configsh"&gt;1.执行脚本文件 &lt;code&gt;config.sh&lt;/code&gt;&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#!/bin/bash
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;&lt;/span&gt;sysctl -w vm.max_map_count&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;262144&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;sysctl -w fs.file-max&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;65536&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;ulimit&lt;/span&gt; -n &lt;span class="m"&gt;65536&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;ulimit&lt;/span&gt; -u &lt;span class="m"&gt;4096&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# # 永久改变&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# echo &amp;#34;vm.max_map_count=262144&amp;#34; &amp;gt;&amp;gt; /etc/sysctl.conf&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;8&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# sysctl -p&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;sh config.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="2执行docker-compose文件"&gt;2.执行docker-compose文件&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;3&amp;#39;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="nt"&gt;services&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;postgres&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;postgres:15&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;container_name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;postgres&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;ports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="m"&gt;5432&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="m"&gt;5432&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;./sonar/postgres/postgresql:/var/lib/postgresql&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;./sonar/postgres/data:/var/lib/postgresql/data&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;11&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;environment&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;12&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;TZ&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;Asia/Shanghai&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;13&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;POSTGRES_USER&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;user&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;#数据库用户&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;14&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;POSTGRES_PASSWORD&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;password&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;#数据库密码&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;15&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;POSTGRES_DB&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;sonar&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;16&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;17&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;sonarqube&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;18&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;depends_on&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;19&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;postgres&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;20&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;sonarqube:9.9.0-community&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;21&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;container_name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;sonarqube&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;22&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;ports&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;23&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="m"&gt;9000&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="m"&gt;9000&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;24&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;25&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;./sonar/sonarqube/extensions:/opt/sonarqube/extensions&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;26&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;./sonar/sonarqube/logs:/opt/sonarqube/logs&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;27&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;./sonar/sonarqube/data:/opt/sonarqube/data&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;28&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;./sonar/sonarqube/conf:/opt/sonarqube/conf&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;29&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;environment&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;30&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;SONARQUBE_JDBC_USERNAME&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;user&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;#数据库用户&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;31&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;SONARQUBE_JDBC_PASSWORD&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;password&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;#数据库密码&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;32&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;SONARQUBE_JDBC_URL&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;jdbc:postgresql://postgres:5432/sonar&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker-compose up -d
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="3-生成用户令牌"&gt;3. 生成用户令牌&lt;/h3&gt;
+&lt;p&gt;&lt;img src="https://www.jobcher.com/images/1698896646032.jpg" alt="1698896646032.jpg" loading="lazy" decoding="async"&gt;
+&lt;/p&gt;</description></item><item><title>SSH 通过 443 端口连接 GitHub</title><link>https://www.jobcher.com/ssh-git/</link><pubDate>Wed, 27 Sep 2023 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/ssh-git/</guid><description>&lt;h1 id="背景"&gt;背景&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;GitHub&lt;/code&gt; 提供了两种协议供用户使用 Git 连接—— SSH 和 HTTPS。理论上我可以随意选择两者之一连接到我在 GitHub 上的代码仓库，无论是将云端的仓库 clone 到本地，还是将本地的修改 push 到云端。然而，出于一些奇奇怪怪的原因，我所在的办公网络环境禁止了 &lt;code&gt;22 端口&lt;/code&gt;，而 &lt;code&gt;22 端口&lt;/code&gt;正是 GitHub 提供 SSH 访问的端口号。尽管可以换用 HTTPS 协议，但无论如何将我电脑上的所有代码仓库的上游都从 &lt;code&gt;git@github.com:...&lt;/code&gt; 修改称 &lt;code&gt;https://github.com/...&lt;/code&gt; 仍然是一个繁重的体力活。&lt;/p&gt;
+&lt;h2 id="解决"&gt;解决&lt;/h2&gt;
+&lt;p&gt;为了让Git也能通过上述端口用 SSH 访问 GitHub，我们为上述 SSH 连接方式设置一个别名。首先找到SSH的配置文件，它的路径一般是&lt;code&gt;~/.ssh/config&lt;/code&gt;，如果这个文件不存在的话也可以创建一个。然后，在其中增加以下内容：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;Host github.com
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt; HostName ssh.github.com
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt; User git
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt; Port &lt;span class="m"&gt;443&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;其中，Host 是别名，HostName 是实际的域名地址，Port 是端口号。因为我希望当我在用 SSH 连接 github.com 时，实际访问的是 ssh.github.com，所以 Host 和 HostName 分别设置成这两个域名（注意不要颠倒顺序）。&lt;/p&gt;
+&lt;h2 id="测试连接"&gt;测试连接&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;ssh -vT git@github.com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>ansible 命令</title><link>https://www.jobcher.com/ansible1/</link><pubDate>Thu, 14 Apr 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/ansible1/</guid><description>&lt;h1 id="ansible-命令"&gt;ansible 命令&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Inventory&lt;/code&gt;：Ansible 管理的主机信息，包括 IP 地址、SSH 端口、账号、密码等&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Modules&lt;/code&gt;：任务均有模块完成，也可以自定义模块，例如经常用的脚本。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Plugins&lt;/code&gt;：使用插件增加 Ansible 核心功能，自身提供了很多插件，也可以自定义插件。例如 connection 插件，用于连接目标主机。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Playbooks&lt;/code&gt;：“剧本”，模块化定义一系列任务，供外部统一调用。Ansible 核心功能。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="编辑主机清单"&gt;编辑主机清单&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;webservers&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;192.168.0.20 &lt;span class="nv"&gt;ansible_ssh_user&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;root &lt;span class="nv"&gt;ansible_ssh_pass&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;’200271200’
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;192.168.0.21 &lt;span class="nv"&gt;ansible_ssh_user&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;root &lt;span class="nv"&gt;ansible_ssh_pass&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;’200271200’
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;192.168.0.22 &lt;span class="nv"&gt;ansible_ssh_user&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;root &lt;span class="nv"&gt;ansible_ssh_pass&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;’200271200’
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;[&lt;/span&gt;dbservers&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;7&lt;/span&gt;&lt;span class="cl"&gt;10.12.0.100
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;8&lt;/span&gt;&lt;span class="cl"&gt;10.12.0.101
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;sed -i &lt;span class="s2"&gt;&amp;#34;s/#host_key_checking = .*/host_key_checking = False/g&amp;#34;&lt;/span&gt; /etc/ansible/ansible.cfg
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="命令行"&gt;命令行&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;ansible all -m ping
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;ansible all -m shell -a &lt;span class="s2"&gt;&amp;#34;ls /root&amp;#34;&lt;/span&gt; -u root -k
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="常用模块"&gt;常用模块&lt;/h2&gt;
+&lt;p&gt;在目标主机执行 shell 命令。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;shell&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yml" data-lang="yml"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;- &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;将命令结果输出到指定文件&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;shell&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;somescript.sh &amp;gt;&amp;gt; somelog.txt&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;- &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;切换目录执行命令&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;shell&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;cmd&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;ls -l | grep log&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;chdir&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;somedir/&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;- &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;编写脚本&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;shell&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="sd"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="sd"&gt; if [ 0 -eq 0 ]; then
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="sd"&gt; echo yes &amp;gt; /tmp/result
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;11&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="sd"&gt; else
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;12&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="sd"&gt; echo no &amp;gt; /tmp/result
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;13&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="sd"&gt; fi&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;14&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;args&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;15&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;executable&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;/bin/bash&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="2"&gt;
+&lt;li&gt;copy
+将文件复制到远程主机。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yml" data-lang="yml"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;- &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;拷贝文件&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;copy&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;src&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;/srv/myfiles/foo.conf&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;dest&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;/etc/foo.conf&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;owner&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;foo&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;group&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;foo&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;mode&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;u=rw,g=r,o=r&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;# mode: u+rw,g-wx,o-rwx&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;# mode: &amp;#39;0644&amp;#39;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;backup&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;yes&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="3"&gt;
+&lt;li&gt;file
+管理文件和文件属性。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yml" data-lang="yml"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;- &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;创建目录&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;file&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;path&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;/etc/some_directory&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;state&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;directory&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;mode&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;0755&amp;#34;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;- &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;删除文件&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;file&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;path&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;/etc/foo.txt&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;state&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;absent&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;- &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;递归删除目录&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;11&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;file&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;12&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;path&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;/etc/foo&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;13&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;state&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;absent&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;present，latest：表示安装&lt;/li&gt;
+&lt;li&gt;absent：表示卸载&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol start="4"&gt;
+&lt;li&gt;yum
+软件包管理。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yml" data-lang="yml"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;- &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;安装最新版apache&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;yum&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;httpd&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;state&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;latest&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;- &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;安装列表中所有包&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;yum&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;nginx&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;postgresql&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="l"&gt;postgresql-server&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;11&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;state&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;present&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;12&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;- &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;卸载apache包&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;13&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;yum&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;14&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;httpd&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;15&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;state&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;absent&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;16&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;- &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;更新所有包&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;17&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;yum&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;18&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;*&amp;#34;&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;19&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;state&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;latest&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;20&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;- &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;安装nginx来自远程repo&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;21&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;yum&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;22&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;23&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;# name: /usr/local/src/nginx-release-centos-6-0.el6.ngx.noarch.rpm&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;24&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;state&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;present&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="5"&gt;
+&lt;li&gt;service/systemd
+管理服务&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yml" data-lang="yml"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;- &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;服务管理&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;service&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;httpd&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;state&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;started&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;#state: stopped&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;#state: restarted&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;#state: reloaded&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;- &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;设置开机启动&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;service&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;httpd&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;11&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;enabled&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kc"&gt;yes&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="6"&gt;
+&lt;li&gt;unarchive
+解压&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yml" data-lang="yml"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;- &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;解压&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;unarchive&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;src=test.tar.gz&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;dest=/tmp&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="7"&gt;
+&lt;li&gt;debug
+执行过程中打印语句。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yml" data-lang="yml"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;- &lt;span class="nt"&gt;debug&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;System {{ inventory_hostname }} has uuid {{ ansible_product_uuid }}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;- &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;显示主机已知的所有变量&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;debug&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;var&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;hostvars[inventory_hostname]&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;verbosity&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Git 规则</title><link>https://www.jobcher.com/git3/</link><pubDate>Thu, 24 Mar 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/git3/</guid><description>&lt;h1 id="git-飞行规则flight-rules"&gt;Git 飞行规则(Flight Rules)&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e7%bc%96%e8%be%91%e6%8f%90%e4%ba%a4editting-commits"&gt;编辑提交(editting commits)&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e5%88%9a%e6%89%8d%e6%8f%90%e4%ba%a4%e4%ba%86%e4%bb%80%e4%b9%88"&gt;我刚才提交了什么?&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e7%9a%84%e6%8f%90%e4%ba%a4%e4%bf%a1%e6%81%afcommit-message%e5%86%99%e9%94%99%e4%ba%86"&gt;我的提交信息(commit message)写错了&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e6%8f%90%e4%ba%a4commit%e9%87%8c%e7%9a%84%e7%94%a8%e6%88%b7%e5%90%8d%e5%92%8c%e9%82%ae%e7%ae%b1%e4%b8%8d%e5%af%b9"&gt;我提交(commit)里的用户名和邮箱不对&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e6%83%b3%e4%bb%8e%e4%b8%80%e4%b8%aa%e6%8f%90%e4%ba%a4commit%e9%87%8c%e7%a7%bb%e9%99%a4%e4%b8%80%e4%b8%aa%e6%96%87%e4%bb%b6"&gt;我想从一个提交(commit)里移除一个文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e6%83%b3%e5%88%a0%e9%99%a4%e6%88%91%e7%9a%84%e7%9a%84%e6%9c%80%e5%90%8e%e4%b8%80%e6%ac%a1%e6%8f%90%e4%ba%a4commit"&gt;我想删除我的的最后一次提交(commit)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e5%88%a0%e9%99%a4%e4%bb%bb%e6%84%8f%e6%8f%90%e4%ba%a4commit"&gt;删除任意提交(commit)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e5%b0%9d%e8%af%95%e6%8e%a8%e4%b8%80%e4%b8%aa%e4%bf%ae%e6%ad%a3%e5%90%8e%e7%9a%84%e6%8f%90%e4%ba%a4amended-commit%e5%88%b0%e8%bf%9c%e7%a8%8b%e4%bd%86%e6%98%af%e6%8a%a5%e9%94%99"&gt;我尝试推一个修正后的提交(amended commit)到远程，但是报错：&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e6%84%8f%e5%a4%96%e7%9a%84%e5%81%9a%e4%ba%86%e4%b8%80%e6%ac%a1%e7%a1%ac%e9%87%8d%e7%bd%aehard-reset%e6%88%91%e6%83%b3%e6%89%be%e5%9b%9e%e6%88%91%e7%9a%84%e5%86%85%e5%ae%b9"&gt;我意外的做了一次硬重置(hard reset)，我想找回我的内容&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%9a%82%e5%ad%98staging"&gt;暂存(Staging)&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e9%9c%80%e8%a6%81%e6%8a%8a%e6%9a%82%e5%ad%98%e7%9a%84%e5%86%85%e5%ae%b9%e6%b7%bb%e5%8a%a0%e5%88%b0%e4%b8%8a%e4%b8%80%e6%ac%a1%e7%9a%84%e6%8f%90%e4%ba%a4commit"&gt;我需要把暂存的内容添加到上一次的提交(commit)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e6%83%b3%e8%a6%81%e6%9a%82%e5%ad%98%e4%b8%80%e4%b8%aa%e6%96%b0%e6%96%87%e4%bb%b6%e7%9a%84%e4%b8%80%e9%83%a8%e5%88%86%e8%80%8c%e4%b8%8d%e6%98%af%e8%bf%99%e4%b8%aa%e6%96%87%e4%bb%b6%e7%9a%84%e5%85%a8%e9%83%a8"&gt;我想要暂存一个新文件的一部分，而不是这个文件的全部&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e6%83%b3%e6%8a%8a%e5%9c%a8%e4%b8%80%e4%b8%aa%e6%96%87%e4%bb%b6%e9%87%8c%e7%9a%84%e5%8f%98%e5%8c%96changes%e5%8a%a0%e5%88%b0%e4%b8%a4%e4%b8%aa%e6%8f%90%e4%ba%a4commit%e9%87%8c"&gt;我想把在一个文件里的变化(changes)加到两个提交(commit)里&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e6%83%b3%e6%8a%8a%e6%9a%82%e5%ad%98%e7%9a%84%e5%86%85%e5%ae%b9%e5%8f%98%e6%88%90%e6%9c%aa%e6%9a%82%e5%ad%98%e6%8a%8a%e6%9c%aa%e6%9a%82%e5%ad%98%e7%9a%84%e5%86%85%e5%ae%b9%e6%9a%82%e5%ad%98%e8%b5%b7%e6%9d%a5"&gt;我想把暂存的内容变成未暂存，把未暂存的内容暂存起来&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%9c%aa%e6%9a%82%e5%ad%98unstaged%e7%9a%84%e5%86%85%e5%ae%b9"&gt;未暂存(Unstaged)的内容&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e6%83%b3%e6%8a%8a%e6%9c%aa%e6%9a%82%e5%ad%98%e7%9a%84%e5%86%85%e5%ae%b9%e7%a7%bb%e5%8a%a8%e5%88%b0%e4%b8%80%e4%b8%aa%e6%96%b0%e5%88%86%e6%94%af"&gt;我想把未暂存的内容移动到一个新分支&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e6%83%b3%e6%8a%8a%e6%9c%aa%e6%9a%82%e5%ad%98%e7%9a%84%e5%86%85%e5%ae%b9%e7%a7%bb%e5%8a%a8%e5%88%b0%e5%8f%a6%e4%b8%80%e4%b8%aa%e5%b7%b2%e5%ad%98%e5%9c%a8%e7%9a%84%e5%88%86%e6%94%af"&gt;我想把未暂存的内容移动到另一个已存在的分支&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e6%83%b3%e4%b8%a2%e5%bc%83%e6%9c%ac%e5%9c%b0%e6%9c%aa%e6%8f%90%e4%ba%a4%e7%9a%84%e5%8f%98%e5%8c%96uncommitted-changes"&gt;我想丢弃本地未提交的变化(uncommitted changes)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e6%83%b3%e4%b8%a2%e5%bc%83%e6%9f%90%e4%ba%9b%e6%9c%aa%e6%9a%82%e5%ad%98%e7%9a%84%e5%86%85%e5%ae%b9"&gt;我想丢弃某些未暂存的内容&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e5%88%86%e6%94%afbranches"&gt;分支(Branches)&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e4%bb%8e%e9%94%99%e8%af%af%e7%9a%84%e5%88%86%e6%94%af%e6%8b%89%e5%8f%96%e4%ba%86%e5%86%85%e5%ae%b9%e6%88%96%e6%8a%8a%e5%86%85%e5%ae%b9%e6%8b%89%e5%8f%96%e5%88%b0%e4%ba%86%e9%94%99%e8%af%af%e7%9a%84%e5%88%86%e6%94%af"&gt;我从错误的分支拉取了内容，或把内容拉取到了错误的分支&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e6%83%b3%e6%89%94%e6%8e%89%e6%9c%ac%e5%9c%b0%e7%9a%84%e6%8f%90%e4%ba%a4commit%e4%bb%a5%e4%be%bf%e6%88%91%e7%9a%84%e5%88%86%e6%94%af%e4%b8%8e%e8%bf%9c%e7%a8%8b%e7%9a%84%e4%bf%9d%e6%8c%81%e4%b8%80%e8%87%b4"&gt;我想扔掉本地的提交(commit)，以便我的分支与远程的保持一致&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e9%9c%80%e8%a6%81%e6%8f%90%e4%ba%a4%e5%88%b0%e4%b8%80%e4%b8%aa%e6%96%b0%e5%88%86%e6%94%af%e4%bd%86%e9%94%99%e8%af%af%e7%9a%84%e6%8f%90%e4%ba%a4%e5%88%b0%e4%ba%86main"&gt;我需要提交到一个新分支，但错误的提交到了 main&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e6%83%b3%e4%bf%9d%e7%95%99%e6%9d%a5%e8%87%aa%e5%8f%a6%e5%a4%96%e4%b8%80%e4%b8%aaref-ish%e7%9a%84%e6%95%b4%e4%b8%aa%e6%96%87%e4%bb%b6"&gt;我想保留来自另外一个 ref-ish 的整个文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e6%8a%8a%e5%87%a0%e4%b8%aa%e6%8f%90%e4%ba%a4commit%e6%8f%90%e4%ba%a4%e5%88%b0%e4%ba%86%e5%90%8c%e4%b8%80%e4%b8%aa%e5%88%86%e6%94%af%e8%80%8c%e8%bf%99%e4%ba%9b%e6%8f%90%e4%ba%a4%e5%ba%94%e8%af%a5%e5%88%86%e5%b8%83%e5%9c%a8%e4%b8%8d%e5%90%8c%e7%9a%84%e5%88%86%e6%94%af%e9%87%8c"&gt;我把几个提交(commit)提交到了同一个分支，而这些提交应该分布在不同的分支里&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e6%83%b3%e5%88%a0%e9%99%a4%e4%b8%8a%e6%b8%b8upstream%e5%88%86%e6%94%af%e8%a2%ab%e5%88%a0%e9%99%a4%e4%ba%86%e7%9a%84%e6%9c%ac%e5%9c%b0%e5%88%86%e6%94%af"&gt;我想删除上游(upstream)分支被删除了的本地分支&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e4%b8%8d%e5%b0%8f%e5%bf%83%e5%88%a0%e9%99%a4%e4%ba%86%e6%88%91%e7%9a%84%e5%88%86%e6%94%af"&gt;我不小心删除了我的分支&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e6%83%b3%e5%88%a0%e9%99%a4%e4%b8%80%e4%b8%aa%e5%88%86%e6%94%af"&gt;我想删除一个分支&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e6%83%b3%e4%bb%8e%e5%88%ab%e4%ba%ba%e6%ad%a3%e5%9c%a8%e5%b7%a5%e4%bd%9c%e7%9a%84%e8%bf%9c%e7%a8%8b%e5%88%86%e6%94%af%e7%ad%be%e5%87%bacheckout%e4%b8%80%e4%b8%aa%e5%88%86%e6%94%af"&gt;我想从别人正在工作的远程分支签出(checkout)一个分支&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#rebasing-%e5%92%8c%e5%90%88%e5%b9%b6merging"&gt;Rebasing 和合并(Merging)&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e6%83%b3%e6%92%a4%e9%94%80rebasemerge"&gt;我想撤销 rebase/merge&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e5%b7%b2%e7%bb%8frebase%e8%bf%87-%e4%bd%86%e6%98%af%e6%88%91%e4%b8%8d%e6%83%b3%e5%bc%ba%e6%8e%a8force-push"&gt;我已经 rebase 过, 但是我不想强推(force push)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e9%9c%80%e8%a6%81%e7%bb%84%e5%90%88combine%e5%87%a0%e4%b8%aa%e6%8f%90%e4%ba%a4commit"&gt;我需要组合(combine)几个提交(commit)&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e5%ae%89%e5%85%a8%e5%90%88%e5%b9%b6merging%e7%ad%96%e7%95%a5"&gt;安全合并(merging)策略&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e9%9c%80%e8%a6%81%e5%b0%86%e4%b8%80%e4%b8%aa%e5%88%86%e6%94%af%e5%90%88%e5%b9%b6%e6%88%90%e4%b8%80%e4%b8%aa%e6%8f%90%e4%ba%a4commit"&gt;我需要将一个分支合并成一个提交(commit)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e5%8f%aa%e6%83%b3%e7%bb%84%e5%90%88combine%e6%9c%aa%e6%8e%a8%e7%9a%84%e6%8f%90%e4%ba%a4unpushed-commit"&gt;我只想组合(combine)未推的提交(unpushed commit)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%a3%80%e6%9f%a5%e6%98%af%e5%90%a6%e5%88%86%e6%94%af%e4%b8%8a%e7%9a%84%e6%89%80%e6%9c%89%e6%8f%90%e4%ba%a4commit%e9%83%bd%e5%90%88%e5%b9%b6merge%e8%bf%87%e4%ba%86"&gt;检查是否分支上的所有提交(commit)都合并(merge)过了&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e4%ba%a4%e4%ba%92%e5%bc%8frebaseinteractive-rebase%e5%8f%af%e8%83%bd%e5%87%ba%e7%8e%b0%e7%9a%84%e9%97%ae%e9%a2%98"&gt;交互式 rebase(interactive rebase)可能出现的问题&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e8%bf%99%e4%b8%aarebase-%e7%bc%96%e8%be%91%e5%b1%8f%e5%b9%95%e5%87%ba%e7%8e%b0noop"&gt;这个 rebase 编辑屏幕出现&amp;rsquo;noop&amp;rsquo;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%9c%89%e5%86%b2%e7%aa%81%e7%9a%84%e6%83%85%e5%86%b5"&gt;有冲突的情况&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#stash"&gt;Stash&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%9a%82%e5%ad%98%e6%89%80%e6%9c%89%e6%94%b9%e5%8a%a8"&gt;暂存所有改动&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%9a%82%e5%ad%98%e6%8c%87%e5%ae%9a%e6%96%87%e4%bb%b6"&gt;暂存指定文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%9a%82%e5%ad%98%e6%97%b6%e8%ae%b0%e5%bd%95%e6%b6%88%e6%81%af"&gt;暂存时记录消息&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e4%bd%bf%e7%94%a8%e6%9f%90%e4%b8%aa%e6%8c%87%e5%ae%9a%e6%9a%82%e5%ad%98"&gt;使用某个指定暂存&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%9a%82%e5%ad%98%e6%97%b6%e4%bf%9d%e7%95%99%e6%9c%aa%e6%9a%82%e5%ad%98%e7%9a%84%e5%86%85%e5%ae%b9"&gt;暂存时保留未暂存的内容&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%9d%82%e9%a1%b9miscellaneous-objects"&gt;杂项(Miscellaneous Objects)&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e5%85%8b%e9%9a%86%e6%89%80%e6%9c%89%e5%ad%90%e6%a8%a1%e5%9d%97"&gt;克隆所有子模块&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e5%88%a0%e9%99%a4%e6%a0%87%e7%ad%betag"&gt;删除标签(tag)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%81%a2%e5%a4%8d%e5%b7%b2%e5%88%a0%e9%99%a4%e6%a0%87%e7%ad%betag"&gt;恢复已删除标签(tag)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e5%b7%b2%e5%88%a0%e9%99%a4%e8%a1%a5%e4%b8%81patch"&gt;已删除补丁(patch)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e8%b7%9f%e8%b8%aa%e6%96%87%e4%bb%b6tracking-files"&gt;跟踪文件(Tracking Files)&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e5%8f%aa%e6%83%b3%e6%94%b9%e5%8f%98%e4%b8%80%e4%b8%aa%e6%96%87%e4%bb%b6%e5%90%8d%e5%ad%97%e7%9a%84%e5%a4%a7%e5%b0%8f%e5%86%99%e8%80%8c%e4%b8%8d%e4%bf%ae%e6%94%b9%e5%86%85%e5%ae%b9"&gt;我只想改变一个文件名字的大小写，而不修改内容&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e6%83%b3%e4%bb%8egit%e5%88%a0%e9%99%a4%e4%b8%80%e4%b8%aa%e6%96%87%e4%bb%b6%e4%bd%86%e4%bf%9d%e7%95%99%e8%af%a5%e6%96%87%e4%bb%b6"&gt;我想从 Git 删除一个文件，但保留该文件&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e9%85%8d%e7%bd%aeconfiguration"&gt;配置(Configuration)&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e6%83%b3%e7%bb%99%e4%b8%80%e4%ba%9bgit%e5%91%bd%e4%bb%a4%e6%b7%bb%e5%8a%a0%e5%88%ab%e5%90%8dalias"&gt;我想给一些 Git 命令添加别名(alias)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e6%83%b3%e7%bc%93%e5%ad%98%e4%b8%80%e4%b8%aa%e4%bb%93%e5%ba%93repository%e7%9a%84%e7%94%a8%e6%88%b7%e5%90%8d%e5%92%8c%e5%af%86%e7%a0%81"&gt;我想缓存一个仓库(repository)的用户名和密码&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%88%91%e4%b8%8d%e7%9f%a5%e9%81%93%e6%88%91%e5%81%9a%e9%94%99%e4%ba%86%e4%ba%9b%e4%bb%80%e4%b9%88"&gt;我不知道我做错了些什么&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e5%85%b6%e5%ae%83%e8%b5%84%e6%ba%90other-resources"&gt;其它资源(Other Resources)&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e4%b9%a6books"&gt;书(Books)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e6%95%99%e7%a8%8btutorials"&gt;教程(Tutorials)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#%e8%84%9a%e6%9c%ac%e5%92%8c%e5%b7%a5%e5%85%b7scripts-and-tools"&gt;脚本和工具(Scripts and Tools)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/git3/#gui%e5%ae%a2%e6%88%b7%e7%ab%afgui-clients"&gt;GUI 客户端(GUI Clients)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- END doctoc generated TOC please keep comment here to allow auto update --&gt;
+&lt;h2 id="编辑提交editting-commits"&gt;编辑提交(editting commits)&lt;/h2&gt;
+&lt;p&gt;&lt;a name="diff-last"&gt;&lt;/a&gt;&lt;/p&gt;</description></item><item><title>git版本控制</title><link>https://www.jobcher.com/git2/</link><pubDate>Mon, 28 Feb 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/git2/</guid><description>&lt;h1 id="git-版本控制"&gt;git 版本控制&lt;/h1&gt;
+&lt;h2 id="版本回退"&gt;版本回退&lt;/h2&gt;
+&lt;h3 id="1查看-git-提交历史"&gt;1.查看 git 提交历史&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#查看git提交历史&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;git log
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src="https://www.jobcher.com/images/git2-1.png" alt="git2-1" loading="lazy" decoding="async"&gt;
+&lt;br&gt;
+如果嫌输出信息太多，看得眼花缭乱的，可以试试加上&lt;code&gt;--pretty=oneline&lt;/code&gt;参数&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;git log --pretty&lt;span class="o"&gt;=&lt;/span&gt;oneline
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="2回退到上一个版本"&gt;2.回退到上一个版本&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;Git&lt;/code&gt;必须知道当前版本是哪个版本，在 Git 中，用&lt;code&gt;HEAD&lt;/code&gt;表示当前版本，也就是最新的提交&lt;code&gt;b534d741..&lt;/code&gt;（注意我的提交 ID 和你的肯定不一样），上一个版本就是&lt;code&gt;HEAD^&lt;/code&gt;，上上一个版本就是&lt;code&gt;HEAD^^&lt;/code&gt;，当然往上 100 个版本写 100 个^比较容易数不过来，所以写成&lt;code&gt;HEAD~100&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;git reset --hard HEAD^
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;最新的那个版本已经看不到了，可以顺着往上找，找到那个版本的 ID&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;git reset --hard c8275ca
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Git 在内部有个指向当前版本的&lt;code&gt;HEAD&lt;/code&gt;指针,当你回退版本的时候，Git 仅仅是把&lt;code&gt;HEAD&lt;/code&gt;从指向&lt;code&gt;update&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;┌────┐
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;│HEAD│
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;└────┘
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt; │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt; └──&amp;gt; ○ update
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt; │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;7&lt;/span&gt;&lt;span class="cl"&gt; ○ Create README.md
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;8&lt;/span&gt;&lt;span class="cl"&gt; │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;9&lt;/span&gt;&lt;span class="cl"&gt; ○ init
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;改为指向 Create README.md：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;┌────┐
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;│HEAD│
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;└────┘
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt; │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt; │ ○ update
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt; │ │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;7&lt;/span&gt;&lt;span class="cl"&gt; └──&amp;gt; ○ Create README.md
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;8&lt;/span&gt;&lt;span class="cl"&gt; │
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;9&lt;/span&gt;&lt;span class="cl"&gt; ○ init
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;现在，你回退到了某个版本，关掉了电脑，第二天早上就后悔了，想恢复到新版本怎么办？找不到新版本的&lt;code&gt;commit id&lt;/code&gt;怎么办？&lt;br&gt;
+在 Git 中，总是有后悔药可以吃的。当你用$ &lt;code&gt;git reset --hard HEAD^&lt;/code&gt;回退到&lt;code&gt;Create README.md&lt;/code&gt;版本时，再想恢复到&lt;code&gt;update&lt;/code&gt;，就必须找到&lt;code&gt;update&lt;/code&gt;的 commit id。Git 提供了一个命令&lt;code&gt;git reflog&lt;/code&gt;用来记录你的每一次命令：&lt;/p&gt;</description></item><item><title>CICD 概念</title><link>https://www.jobcher.com/devops/</link><pubDate>Thu, 17 Feb 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/devops/</guid><description>&lt;h1 id="cicd-概念"&gt;CICD 概念&lt;/h1&gt;
+&lt;h1 id="devops"&gt;DevOps&lt;/h1&gt;
+&lt;p&gt;Devlopment 和 Operation 的组合词&lt;/p&gt;
+&lt;p&gt;规划-》代码-》构建-》测试-》发布-》部署-》运营-》监控-》再次规划&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;devOps 看作开发（软件工程）、技术运营和质量保障（QA）三者的交集&lt;/li&gt;
+&lt;li&gt;突出重视软件开发人员和运维人员的沟通合作，通过自动化流程来使得软件构建、测试、发布更加快捷、频繁和可靠。&lt;/li&gt;
+&lt;li&gt;DevOps 希望做到的是软件产品交付过程中&lt;code&gt;IT工具链的打通&lt;/code&gt;，使得各个团队减少时间损耗。更加高效的协同工作。良好的闭环可以大大增加整体的产出。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id="cicd"&gt;CICD&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;持续&lt;/code&gt;集成 &lt;code&gt;持续&lt;/code&gt;部署&lt;br&gt;
+&lt;img src="https://www.jobcher.com/images/devops.png" alt="devops" loading="lazy" decoding="async"&gt;
+&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;持续集成&lt;br&gt;
+持续集成是指软件个人研发的部分向软件整体部分交付，频繁进行集成以便更快地发现其中的错误。“持续集成”源自于极限编程（XP），是 12 最初的 12 种实践之一
+Ci 需要具备这些：&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;全面的自动化测试，这是实践持续集成和持续部署的基础，同时，选择合适的自动化测试工具也极其重要；
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;灵活的基础设施。容器，虚拟化的存在让开发人员和QA不必再大费周折
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;版本控制工具。如git，cvs，svn等
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;自动化的构建和软件发布流程工具，如 Jenkins，flow.ci&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;反馈机制，如构建/测试的失败，可以快速地反馈到相关负责人，以尽快解决达到一个更稳定的版本。
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>git使用方法</title><link>https://www.jobcher.com/git/</link><pubDate>Thu, 17 Feb 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/git/</guid><description>&lt;h1 id="git-使用方法"&gt;git 使用方法&lt;/h1&gt;
+&lt;h2 id="一git-安装配置"&gt;一、git 安装配置&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Debian/Ubuntu&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt; apt-get install libcurl4-gnutls-dev libexpat1-dev gettext &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; libz-dev libssl-dev
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt; apt-get install git
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt; git --version
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;7&lt;/span&gt;&lt;span class="cl"&gt; git version 1.8.1.2
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="2"&gt;
+&lt;li&gt;Centos/RedHat&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt; yum install curl-devel expat-devel gettext-devel &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; openssl-devel zlib-devel
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt; yum -y install git-core
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt; git --version
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;7&lt;/span&gt;&lt;span class="cl"&gt; git version 1.7.1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="二git-拉取异常如何重新拉取"&gt;二、git 拉取异常如何重新拉取&lt;/h2&gt;
+&lt;h3 id="1同一文件有修改产生冲突"&gt;1.同一文件有修改，产生冲突。&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;先将本地修改存储起来
+使用&lt;code&gt;git stash&lt;/code&gt;命令，这样本地的所有修改就都被暂时存储起来 。其中&lt;code&gt;stash@{0}&lt;/code&gt;就是刚才保存的标记。后续可以通过此标记访问。&lt;/li&gt;
+&lt;li&gt;再次拉取代码&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;git pull
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="3"&gt;
+&lt;li&gt;还原暂存的内容&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;git stash pop stash@&lt;span class="o"&gt;{&lt;/span&gt;0&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="4"&gt;
+&lt;li&gt;解决冲突
+在存在冲突的文件中，&lt;code&gt;Updated upstream&lt;/code&gt; 和&lt;code&gt;=====&lt;/code&gt;之间的内容为拉取下来的代码，&lt;code&gt;=====&lt;/code&gt;和&lt;code&gt;stashed changes&lt;/code&gt;之间的内容就为本地修改的代码。解决完成之后，就可以正常的提交了。 5.删除&lt;code&gt;stash&lt;/code&gt;
+使用&lt;code&gt;git stash drop stash@{0}&lt;/code&gt;命令，如果不加&lt;code&gt;stash&lt;/code&gt;编号，默认的就是删除最新的，即编号为 0 的。或者&lt;code&gt;git stash clear&lt;/code&gt;命令，清除所有&lt;code&gt;stash&lt;/code&gt;。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="2想要让某一个文件放弃修改同步服务器"&gt;2.想要让某一个文件放弃修改，同步服务器。&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;git checkout &lt;span class="o"&gt;[&lt;/span&gt;本地变动文件的路径&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="3服务器代码完全替换和覆盖本地的代码改动"&gt;3.服务器代码完全替换和覆盖本地的代码改动。&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;git fetch --all
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;git reset --hard origin/master
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;git pull
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="三git-命令表格"&gt;三、git 命令表格&lt;/h2&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th style="text-align: left"&gt;专用名词&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;含义&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;Workspace&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;工作区&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;Index/Stage&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;暂存区&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;Repository&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;仓库区（或本地仓库）&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;Remote&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;远程仓库&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;img src="https://www.jobcher.com/images/git2.png" alt="git" loading="lazy" decoding="async"&gt;
+&lt;/p&gt;</description></item><item><title>Jenkins 安装与使用</title><link>https://www.jobcher.com/jenkins/</link><pubDate>Wed, 09 Feb 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/jenkins/</guid><description>&lt;h1 id="jenkins-安装与使用"&gt;Jenkins 安装与使用&lt;/h1&gt;
+&lt;p&gt;代码在本地修改&amp;mdash;-》提交到远程 gitlab&amp;mdash;-》触发 jenkins 整个自动化构建流程（打包，测试，发布，部署）&lt;/p&gt;
+&lt;h2 id="安装-docker"&gt;安装 docker&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://www.jobcher.com/docker/"&gt;安装 docker&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="docker-安装-jenkins"&gt;docker 安装 jenkins&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;docker run &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -u root &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -d &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -p 8080:8080 &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -p 50000:50000 &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -v jenkins-data:/var/jenkins_home &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -v /etc/localtime:/etc/localtime:ro &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -v /var/run/docker.sock:/var/run/docker.sock &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; --restart&lt;span class="o"&gt;=&lt;/span&gt;always &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; jenkinsci/blueocean
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="访问"&gt;访问&lt;/h2&gt;
+&lt;p&gt;http://localhost:8080&lt;/p&gt;
+&lt;p&gt;显示初始密码&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker &lt;span class="nb"&gt;exec&lt;/span&gt; -ti &amp;lt;容器名称&amp;gt; sh
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;cat /var/jenkins_home/secrets/initialAdminPassword
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="工作流程"&gt;工作流程&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;先定义一个流水线项目，指定项目的 git 位置&lt;/li&gt;
+&lt;li&gt;git 位置自动拉取代码&lt;/li&gt;
+&lt;li&gt;解析拉取代码里面的 Jenkinsfile 文件&lt;/li&gt;
+&lt;li&gt;按照 Jenkinsfile 指定的流水线开始加工项目&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="jenkinsfile-语法"&gt;Jenkinsfile 语法&lt;/h2&gt;
+&lt;p&gt;基础语法,在仓库创建一个 &lt;code&gt;Jenkinsfile&lt;/code&gt; 文件&lt;/p&gt;</description></item><item><title>Gitlab批量导出用户</title><link>https://www.jobcher.com/exportuser/</link><pubDate>Fri, 14 Jan 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/exportuser/</guid><description>&lt;h1 id="gitlab-批量导出用户"&gt;Gitlab 批量导出用户&lt;/h1&gt;
+&lt;p&gt;登陆 Gitlab 服务器进行数据库登陆、数据查询及信息导出操作。&lt;/p&gt;
+&lt;h2 id="操作步骤"&gt;操作步骤&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;根据配置文件，定位数据库相关信息&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;cat /var/opt/gitlab/gitlab-rails/etc/database.yml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src="https://www.jobcher.com/images/exportuser1.png" alt="exportuser1" loading="lazy" decoding="async"&gt;
+&lt;/p&gt;
+&lt;ol start="2"&gt;
+&lt;li&gt;查看 Gitlab 对应的系统用户&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;cat /etc/passwd &lt;span class="p"&gt;|&lt;/span&gt; grep gitlab
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src="https://www.jobcher.com/images/exportuser2.png" alt="exportuser2" loading="lazy" decoding="async"&gt;
+&lt;/p&gt;
+&lt;ol start="3"&gt;
+&lt;li&gt;切换用户 gitlab-psql&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;su - gitlab-psql
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="4"&gt;
+&lt;li&gt;登陆数据库（-h 指定 host，-d 指定数据库） 使用第 1 步获取的信息&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;psql -h /var/opt/gitlab/postgresql -d gitlabhq_production
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;(1) 查看帮助信息&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;gitlabhq_production&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="c1"&gt;# \h&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;(2) 查看数据库&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;gitlabhq_production&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="c1"&gt;# \l&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;(3) 查看库中的表（执行命令后，按回车键显示更多表信息）&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;gitlabhq_production&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="c1"&gt;# \dt&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;(4) 通过筛查，可在库中找到 users 表，相关用户信息都记录在表中！&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;gitlabhq_production&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="c1"&gt;# \d users&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;(5) 查看表信息&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;gitlabhq_production&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="c1"&gt;# SELECT * FROM users;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;(6) 查看 users 表中的 name 字段&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;gitlabhq_production&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="c1"&gt;# SELECT name FROM users;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;(7)登出数据库&lt;/p&gt;</description></item><item><title>ansible 安装和部署</title><link>https://www.jobcher.com/ansible/</link><pubDate>Thu, 30 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/ansible/</guid><description>&lt;h1 id="ansible-安装和部署"&gt;ansible 安装和部署&lt;/h1&gt;
+&lt;p&gt;Ansible 默认通过 SSH 协议管理机器.&lt;/p&gt;
+&lt;h2 id="安装-ansible"&gt;安装 ansible&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;下载安装&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# ubuntu 安装&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;apt-get install software-properties-common
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;apt-add-repository ppa:ansible/ansible
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;apt-get update
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;apt-get install ansible
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# centos 安装&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;7&lt;/span&gt;&lt;span class="cl"&gt;yum install ansible
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="2"&gt;
+&lt;li&gt;检查文件&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#检查&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;ansible --version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="ansible-配置"&gt;ansible 配置&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;添加主机&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;vim /etc/ansible/hosts
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#添加你需要添加的被控主机地址和IP&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="2"&gt;
+&lt;li&gt;配置 SSH key 授权访问&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 控制主机生成ssh 密钥对（一路回车）&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;ssh-keygen -t rsa
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 复制公钥IP到被控主机&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.0.2
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.0.3
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.0.4
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# ssh-copy-id命令会自动将id_rsa.pub文件的内容追加到远程主机root用户下.ssh/authorized_keys文件中。&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="3"&gt;
+&lt;li&gt;更改 ansible 配置&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;vim /etc/ansible/ansible.cfg
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#禁用每次执行ansbile命令检查ssh key host&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;host_key_checking&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; False
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 开启日志记录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;log_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; /var/log/ansible.log
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="4"&gt;
+&lt;li&gt;测试&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 控制主机&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;ansible all -m ping
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="inventory"&gt;Inventory&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;配置组别&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-ini" data-lang="ini"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;vim /etc/ansible/hosts&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 添加组别&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;[pve]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;192.168.0.2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;192.168.0.3&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;192.168.0.4&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#测试&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="na"&gt;ansible pve -m ping&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="2"&gt;
+&lt;li&gt;Inventory 参数
+把你的 inventory 文件 和 变量 放入 git repo 中,以便跟踪他们的更新,这是一种非常推荐的方式.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th style="text-align: left"&gt;参数&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;作用&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;ansible_ssh_host&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;将要连接的远程主机名.与你想要设定的主机的别名不同的话,可通过此变量设置.&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;ansible_ssh_port&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;ssh 端口号.如果不是默认的端口号,通过此变量设置.&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;ansible_ssh_user&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;默认的 ssh 用户名&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;ansible_ssh_pass&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;ssh 密码(这种方式并不安全,我们强烈建议使用 &amp;ndash;ask-pass 或 SSH 密钥)&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;ansible_sudo_pass&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;sudo 密码(这种方式并不安全,我们强烈建议使用 &amp;ndash;ask-sudo-pass)&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;ansible_sudo_exe (new in version 1.8)&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;sudo 命令路径(适用于 1.8 及以上版本)&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;ansible_connection&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;与主机的连接类型.比如:local, ssh 或者 paramiko. Ansible 1.2 以前默认使用 paramiko.1.2 以后默认使用 &amp;lsquo;smart&amp;rsquo;,&amp;lsquo;smart&amp;rsquo; 方式会根据是否支持 ControlPersist, 来判断&amp;rsquo;ssh&amp;rsquo; 方式是否可行.&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;ansible_ssh_private_key_file&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;ssh 使用的私钥文件.适用于有多个密钥,而你不想使用 SSH 代理的情况.&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;ansible_shell_type&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;目标系统的 shell 类型.默认情况下,命令的执行使用 &amp;lsquo;sh&amp;rsquo; 语法,可设置为 &amp;lsquo;csh&amp;rsquo; 或 &amp;lsquo;fish&amp;rsquo;.&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;ansible_python_interpreter&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;目标主机的 python 路径.适用于的情况: 系统中有多个 Python, 或者命令路径不是&amp;quot;/usr/bin/python&amp;quot;,比如 *BSD, 或者 /usr/bin/python&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="roles"&gt;Roles&lt;/h2&gt;
+&lt;p&gt;Roles 是基于已知文件结构自动加载某些变量文件，任务和处理程序的方法。按角色对内容进行分组，适合构建复杂的部署环境
+Roles 目录结构：&lt;/p&gt;</description></item><item><title>gitlab与github同步项目</title><link>https://www.jobcher.com/gitrsync/</link><pubDate>Mon, 27 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/gitrsync/</guid><description>&lt;h1 id="gitlab-与-github-同步项目"&gt;gitlab 与 github 同步项目&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;本地同步项目&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;git clone
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="2"&gt;
+&lt;li&gt;创建一个同名的项目,命令行终端中添加 remote 地址&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;git remote add githubOrigin git@github.com:sjtfreaks/blog.git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="3"&gt;
+&lt;li&gt;项目同步到 Github 上&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;git push -u githubOrigin main
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="4"&gt;
+&lt;li&gt;分别同步 github 与 gitlab 即可&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;git push -u githubOrigin main
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;git push -u origin main
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>git技巧</title><link>https://www.jobcher.com/gitlab/</link><pubDate>Fri, 10 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/gitlab/</guid><description>&lt;h1 id="git-技巧"&gt;git 技巧&lt;/h1&gt;
+&lt;p&gt;Git 是一个 “分布式版本管理工具”，简单的理解版本管理工具：大家在写东西的时候都用过 “回撤” 这个功能，但是回撤只能回撤几步，假如想要找回我三天之前的修改，光用 “回撤” 是找不回来的。而 “版本管理工具” 能记录每次的修改，只要提交到版本仓库，你就可以找到之前任何时刻的状态（文本状态）。&lt;/p&gt;
+&lt;p&gt;下面的内容就是列举了常用的 Git 命令和一些小技巧，可以通过 &amp;ldquo;页面内查找&amp;rdquo; 的方式进行快速查询：&lt;code&gt;Ctrl/Command+f&lt;/code&gt;。&lt;/p&gt;
+&lt;h2 id="开卷必读"&gt;开卷必读&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;如果之前未使用过 Git，可以学习 &lt;a href="https://rogerdudler.github.io/git-guide/index.zh.html"&gt;Git 小白教程&lt;/a&gt;入门&lt;/em&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;一定要先测试命令的效果后&lt;/strong&gt;，再用于工作环境中，以防造成不能弥补的后果！&lt;strong&gt;到时候别拿着砍刀来找我&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;所有的命令都在&lt;code&gt;git version 2.7.4 (Apple Git-66)&lt;/code&gt;下测试通过&lt;/li&gt;
+&lt;li&gt;统一概念：
+&lt;ul&gt;
+&lt;li&gt;工作区：改动（增删文件和内容）&lt;/li&gt;
+&lt;li&gt;暂存区：输入命令：&lt;code&gt;git add 改动的文件名&lt;/code&gt;，此次改动就放到了 ‘暂存区’&lt;/li&gt;
+&lt;li&gt;本地仓库(简称：本地)：输入命令：&lt;code&gt;git commit 此次修改的描述&lt;/code&gt;，此次改动就放到了 ’本地仓库’，每个 commit，我叫它为一个 ‘版本’。&lt;/li&gt;
+&lt;li&gt;远程仓库(简称：远程)：输入命令：&lt;code&gt;git push 远程仓库&lt;/code&gt;，此次改动就放到了 ‘远程仓库’（GitHub 等)&lt;/li&gt;
+&lt;li&gt;commit-id：输出命令：&lt;code&gt;git log&lt;/code&gt;，最上面那行 &lt;code&gt;commit xxxxxx&lt;/code&gt;，后面的字符串就是 commit-id&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;如果喜欢这个项目，欢迎 Star、提交 Pr、&lt;a href="https://github.com/521xueweihan/git-tips/issues"&gt;反馈问题&lt;/a&gt;😊&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="目录"&gt;目录&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e8%84%91%e5%9b%be"&gt;脑图&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%b1%95%e7%a4%ba%e5%b8%ae%e5%8a%a9%e4%bf%a1%e6%81%af"&gt;展示帮助信息&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%9b%9e%e5%88%b0%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93%e7%9a%84%e7%8a%b6%e6%80%81"&gt;回到远程仓库的状态&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e9%87%8d%e8%ae%be%e7%ac%ac%e4%b8%80%e4%b8%aa-commit"&gt;重设第一个 commit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e6%9f%a5%e7%9c%8b%e5%86%b2%e7%aa%81%e6%96%87%e4%bb%b6%e5%88%97%e8%a1%a8"&gt;查看冲突文件列表&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%b1%95%e7%a4%ba%e5%b7%a5%e4%bd%9c%e5%8c%ba%e5%92%8c%e6%9a%82%e5%ad%98%e5%8c%ba%e7%9a%84%e4%b8%8d%e5%90%8c"&gt;展示工作区和暂存区的不同&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%b1%95%e7%a4%ba%e6%9a%82%e5%ad%98%e5%8c%ba%e5%92%8c%e6%9c%80%e8%bf%91%e7%89%88%e6%9c%ac%e7%9a%84%e4%b8%8d%e5%90%8c"&gt;展示暂存区和最近版本的不同&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%b1%95%e7%a4%ba%e6%9a%82%e5%ad%98%e5%8c%ba%e5%b7%a5%e4%bd%9c%e5%8c%ba%e5%92%8c%e6%9c%80%e8%bf%91%e7%89%88%e6%9c%ac%e7%9a%84%e4%b8%8d%e5%90%8c"&gt;展示暂存区、工作区和最近版本的不同&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%bf%ab%e9%80%9f%e5%88%87%e6%8d%a2%e5%88%b0%e4%b8%8a%e4%b8%80%e4%b8%aa%e5%88%86%e6%94%af"&gt;快速切换到上一个分支&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%88%a0%e9%99%a4%e5%b7%b2%e7%bb%8f%e5%90%88%e5%b9%b6%e5%88%b0-master-%e7%9a%84%e5%88%86%e6%94%af"&gt;删除已经合并到 master 的分支&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%b1%95%e7%a4%ba%e6%9c%ac%e5%9c%b0%e5%88%86%e6%94%af%e5%85%b3%e8%81%94%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93%e7%9a%84%e6%83%85%e5%86%b5"&gt;展示本地分支关联远程仓库的情况&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%85%b3%e8%81%94%e8%bf%9c%e7%a8%8b%e5%88%86%e6%94%af"&gt;关联远程分支&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%88%97%e5%87%ba%e6%89%80%e6%9c%89%e8%bf%9c%e7%a8%8b%e5%88%86%e6%94%af"&gt;列出所有远程分支&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%88%97%e5%87%ba%e6%9c%ac%e5%9c%b0%e5%92%8c%e8%bf%9c%e7%a8%8b%e5%88%86%e6%94%af"&gt;列出本地和远程分支&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e6%9f%a5%e7%9c%8b%e8%bf%9c%e7%a8%8b%e5%88%86%e6%94%af%e5%92%8c%e6%9c%ac%e5%9c%b0%e5%88%86%e6%94%af%e7%9a%84%e5%af%b9%e5%ba%94%e5%85%b3%e7%b3%bb"&gt;查看远程分支和本地分支的对应关系&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e8%bf%9c%e7%a8%8b%e5%88%a0%e9%99%a4%e4%ba%86%e5%88%86%e6%94%af%e6%9c%ac%e5%9c%b0%e4%b9%9f%e6%83%b3%e5%88%a0%e9%99%a4"&gt;远程删除了分支本地也想删除&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%88%9b%e5%bb%ba%e5%b9%b6%e5%88%87%e6%8d%a2%e5%88%b0%e6%9c%ac%e5%9c%b0%e5%88%86%e6%94%af"&gt;创建并切换到本地分支&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e4%bb%8e%e8%bf%9c%e7%a8%8b%e5%88%86%e6%94%af%e4%b8%ad%e5%88%9b%e5%bb%ba%e5%b9%b6%e5%88%87%e6%8d%a2%e5%88%b0%e6%9c%ac%e5%9c%b0%e5%88%86%e6%94%af"&gt;从远程分支中创建并切换到本地分支&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%88%a0%e9%99%a4%e6%9c%ac%e5%9c%b0%e5%88%86%e6%94%af"&gt;删除本地分支&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%88%a0%e9%99%a4%e8%bf%9c%e7%a8%8b%e5%88%86%e6%94%af"&gt;删除远程分支&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e9%87%8d%e5%91%bd%e5%90%8d%e6%9c%ac%e5%9c%b0%e5%88%86%e6%94%af"&gt;重命名本地分支&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e6%9f%a5%e7%9c%8b%e6%a0%87%e7%ad%be"&gt;查看标签&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e6%9f%a5%e7%9c%8b%e6%a0%87%e7%ad%be%e8%af%a6%e7%bb%86%e4%bf%a1%e6%81%af"&gt;查看标签详细信息&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e6%9c%ac%e5%9c%b0%e5%88%9b%e5%bb%ba%e6%a0%87%e7%ad%be"&gt;本地创建标签&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e6%8e%a8%e9%80%81%e6%a0%87%e7%ad%be%e5%88%b0%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93"&gt;推送标签到远程仓库&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%88%a0%e9%99%a4%e6%9c%ac%e5%9c%b0%e6%a0%87%e7%ad%be"&gt;删除本地标签&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%88%a0%e9%99%a4%e8%bf%9c%e7%a8%8b%e6%a0%87%e7%ad%be"&gt;删除远程标签&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%88%87%e5%9b%9e%e5%88%b0%e6%9f%90%e4%b8%aa%e6%a0%87%e7%ad%be"&gt;切回到某个标签&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e6%94%be%e5%bc%83%e5%b7%a5%e4%bd%9c%e5%8c%ba%e7%9a%84%e4%bf%ae%e6%94%b9"&gt;放弃工作区的修改&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e6%81%a2%e5%a4%8d%e5%88%a0%e9%99%a4%e7%9a%84%e6%96%87%e4%bb%b6"&gt;恢复删除的文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e4%bb%a5%e6%96%b0%e5%a2%9e%e4%b8%80%e4%b8%aa-commit-%e7%9a%84%e6%96%b9%e5%bc%8f%e8%bf%98%e5%8e%9f%e6%9f%90%e4%b8%80%e4%b8%aa-commit-%e7%9a%84%e4%bf%ae%e6%94%b9"&gt;以新增一个 commit 的方式还原某一个 commit 的修改&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%9b%9e%e5%88%b0%e6%9f%90%e4%b8%aa-commit-%e7%9a%84%e7%8a%b6%e6%80%81%e5%b9%b6%e5%88%a0%e9%99%a4%e5%90%8e%e9%9d%a2%e7%9a%84-commit"&gt;回到某个 commit 的状态，并删除后面的 commit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e4%bf%ae%e6%94%b9%e4%b8%8a%e4%b8%80%e4%b8%aa-commit-%e7%9a%84%e6%8f%8f%e8%bf%b0"&gt;修改上一个 commit 的描述&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e6%9f%a5%e7%9c%8b-commit-%e5%8e%86%e5%8f%b2"&gt;查看 commit 历史&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e6%98%be%e7%a4%ba%e6%9c%ac%e5%9c%b0%e6%9b%b4%e6%96%b0%e8%bf%87-head-%e7%9a%84-git-%e5%91%bd%e4%bb%a4%e8%ae%b0%e5%bd%95"&gt;显示本地更新过 HEAD 的 git 命令记录&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e4%bf%ae%e6%94%b9%e4%bd%9c%e8%80%85%e5%90%8d"&gt;修改作者名&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e4%bf%ae%e6%94%b9%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93%e7%9a%84-url"&gt;修改远程仓库的 url&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%a2%9e%e5%8a%a0%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93"&gt;增加远程仓库&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%88%97%e5%87%ba%e6%89%80%e6%9c%89%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93"&gt;列出所有远程仓库&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e6%9f%a5%e7%9c%8b%e4%b8%a4%e4%b8%aa%e6%98%9f%e6%9c%9f%e5%86%85%e7%9a%84%e6%94%b9%e5%8a%a8"&gt;查看两个星期内的改动&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e6%8a%8a-A-%e5%88%86%e6%94%af%e7%9a%84%e6%9f%90%e4%b8%80%e4%b8%aa-commit%e6%94%be%e5%88%b0-B-%e5%88%86%e6%94%af%e4%b8%8a"&gt;把 A 分支的某一个 commit，放到 B 分支上&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e7%bb%99-git-%e5%91%bd%e4%bb%a4%e8%b5%b7%e5%88%ab%e5%90%8d"&gt;给 git 命令起别名&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%ad%98%e5%82%a8%e5%bd%93%e5%89%8d%e7%9a%84%e4%bf%ae%e6%94%b9%e4%bd%86%e4%b8%8d%e7%94%a8%e6%8f%90%e4%ba%a4-commit"&gt;存储当前的修改，但不用提交 commit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e4%bf%9d%e5%ad%98%e5%bd%93%e5%89%8d%e7%8a%b6%e6%80%81%e5%8c%85%e6%8b%ac-untracked-%e7%9a%84%e6%96%87%e4%bb%b6"&gt;保存当前状态，包括 untracked 的文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%b1%95%e7%a4%ba%e6%89%80%e6%9c%89-stashes"&gt;展示所有 stashes&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%9b%9e%e5%88%b0%e6%9f%90%e4%b8%aa-stash-%e7%9a%84%e7%8a%b6%e6%80%81"&gt;回到某个 stash 的状态&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%9b%9e%e5%88%b0%e6%9c%80%e5%90%8e%e4%b8%80%e4%b8%aa-stash-%e7%9a%84%e7%8a%b6%e6%80%81%e5%b9%b6%e5%88%a0%e9%99%a4%e8%bf%99%e4%b8%aa-stash"&gt;回到最后一个 stash 的状态，并删除这个 stash&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%88%a0%e9%99%a4%e6%89%80%e6%9c%89%e7%9a%84-stash"&gt;删除所有的 stash&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e4%bb%8e-stash-%e4%b8%ad%e6%8b%bf%e5%87%ba%e6%9f%90%e4%b8%aa%e6%96%87%e4%bb%b6%e7%9a%84%e4%bf%ae%e6%94%b9"&gt;从 stash 中拿出某个文件的修改&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%b1%95%e7%a4%ba%e6%89%80%e6%9c%89-tracked-%e7%9a%84%e6%96%87%e4%bb%b6"&gt;展示所有 tracked 的文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%b1%95%e7%a4%ba%e6%89%80%e6%9c%89-untracked-%e7%9a%84%e6%96%87%e4%bb%b6"&gt;展示所有 untracked 的文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%b1%95%e7%a4%ba%e6%89%80%e6%9c%89%e5%bf%bd%e7%95%a5%e7%9a%84%e6%96%87%e4%bb%b6"&gt;展示所有忽略的文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%bc%ba%e5%88%b6%e5%88%a0%e9%99%a4-untracked-%e7%9a%84%e6%96%87%e4%bb%b6"&gt;强制删除 untracked 的文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%bc%ba%e5%88%b6%e5%88%a0%e9%99%a4-untracked-%e7%9a%84%e7%9b%ae%e5%bd%95"&gt;强制删除 untracked 的目录&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%b1%95%e7%a4%ba%e7%ae%80%e5%8c%96%e7%9a%84-commit-%e5%8e%86%e5%8f%b2"&gt;展示简化的 commit 历史&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e6%9f%a5%e7%9c%8b%e6%9f%90%e6%ae%b5%e4%bb%a3%e7%a0%81%e6%98%af%e8%b0%81%e5%86%99%e7%9a%84"&gt;查看某段代码是谁写的&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e6%8a%8a%e6%9f%90%e4%b8%80%e4%b8%aa%e5%88%86%e6%94%af%e5%af%bc%e5%87%ba%e6%88%90%e4%b8%80%e4%b8%aa%e6%96%87%e4%bb%b6"&gt;把某一个分支导出成一个文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e4%bb%8e%e5%8c%85%e4%b8%ad%e5%af%bc%e5%85%a5%e5%88%86%e6%94%af"&gt;从包中导入分支&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e6%89%a7%e8%a1%8c-rebase-%e4%b9%8b%e5%89%8d%e8%87%aa%e5%8a%a8-stash"&gt;执行 rebase 之前自动 stash&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e4%bb%8e%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93%e6%a0%b9%e6%8d%ae-ID-%e6%8b%89%e4%b8%8b%e6%9f%90%e4%b8%80%e7%8a%b6%e6%80%81-%e5%88%b0%e6%9c%ac%e5%9c%b0%e5%88%86%e6%94%af"&gt;从远程仓库根据 ID，拉下某一状态，到本地分支&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e8%af%a6%e7%bb%86%e5%b1%95%e7%a4%ba%e4%b8%80%e8%a1%8c%e4%b8%ad%e7%9a%84%e4%bf%ae%e6%94%b9"&gt;详细展示一行中的修改&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e6%b8%85%e9%99%a4-gitignore-%e6%96%87%e4%bb%b6%e4%b8%ad%e8%ae%b0%e5%bd%95%e7%9a%84%e6%96%87%e4%bb%b6"&gt;清除 &lt;code&gt;.gitignore&lt;/code&gt; 文件中记录的文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%b1%95%e7%a4%ba%e6%89%80%e6%9c%89-alias-%e5%92%8c-configs"&gt;展示所有 alias 和 configs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%b1%95%e7%a4%ba%e5%bf%bd%e7%95%a5%e7%9a%84%e6%96%87%e4%bb%b6"&gt;展示忽略的文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#commit-%e5%8e%86%e5%8f%b2%e4%b8%ad%e6%98%be%e7%a4%ba-Branch1-%e6%9c%89%e7%9a%84%e4%bd%86%e6%98%af-Branch2-%e6%b2%a1%e6%9c%89-commit"&gt;commit 历史中显示 Branch1 有的，但是 Branch2 没有 commit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%9c%a8-commit-log-%e4%b8%ad%e6%98%be%e7%a4%ba-GPG-%e7%ad%be%e5%90%8d"&gt;在 commit log 中显示 GPG 签名&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%88%a0%e9%99%a4%e5%85%a8%e5%b1%80%e8%ae%be%e7%bd%ae"&gt;删除全局设置&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e6%96%b0%e5%bb%ba%e5%b9%b6%e5%88%87%e6%8d%a2%e5%88%b0%e6%96%b0%e5%88%86%e6%94%af%e4%b8%8a%e5%90%8c%e6%97%b6%e8%bf%99%e4%b8%aa%e5%88%86%e6%94%af%e6%b2%a1%e6%9c%89%e4%bb%bb%e4%bd%95-commit"&gt;新建并切换到新分支上，同时这个分支没有任何 commit&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%b1%95%e7%a4%ba%e4%bb%bb%e6%84%8f%e5%88%86%e6%94%af%e6%9f%90%e4%b8%80%e6%96%87%e4%bb%b6%e7%9a%84%e5%86%85%e5%ae%b9"&gt;展示任意分支某一文件的内容&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#clone-%e4%b8%8b%e6%9d%a5%e6%8c%87%e5%ae%9a%e7%9a%84%e5%8d%95%e4%b8%80%e5%88%86%e6%94%af"&gt;clone 下来指定的单一分支&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#clone-%e6%9c%80%e6%96%b0%e4%b8%80%e6%ac%a1%e6%8f%90%e4%ba%a4"&gt;clone 最新一次提交&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%bf%bd%e7%95%a5%e6%9f%90%e4%b8%aa%e6%96%87%e4%bb%b6%e7%9a%84%e6%94%b9%e5%8a%a8"&gt;忽略某个文件的改动&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%bf%bd%e7%95%a5%e6%96%87%e4%bb%b6%e7%9a%84%e6%9d%83%e9%99%90%e5%8f%98%e5%8c%96"&gt;忽略文件的权限变化&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e4%bb%a5%e6%9c%80%e5%90%8e%e6%8f%90%e4%ba%a4%e7%9a%84%e9%a1%ba%e5%ba%8f%e5%88%97%e5%87%ba%e6%89%80%e6%9c%89-Git-%e5%88%86%e6%94%af"&gt;以最后提交的顺序列出所有 Git 分支&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%9c%a8-commit-log-%e4%b8%ad%e6%9f%a5%e6%89%be%e7%9b%b8%e5%85%b3%e5%86%85%e5%ae%b9"&gt;在 commit log 中查找相关内容&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e6%8a%8a%e6%9a%82%e5%ad%98%e5%8c%ba%e7%9a%84%e6%8c%87%e5%ae%9a-file-%e6%94%be%e5%88%b0%e5%b7%a5%e4%bd%9c%e5%8c%ba%e4%b8%ad"&gt;把暂存区的指定 file 放到工作区中&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%bc%ba%e5%88%b6%e6%8e%a8%e9%80%81"&gt;强制推送&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#git-%e9%85%8d%e7%bd%ae-http-%e5%92%8c-socks-%e4%bb%a3%e7%90%86"&gt;git 配置 http 和 socks 代理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#git-%e9%85%8d%e7%bd%ae-ssh-%e4%bb%a3%e7%90%86"&gt;git 配置 ssh 代理&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e4%bc%98%e9%9b%85%e7%9a%84Commit%e4%bf%a1%e6%81%af"&gt;优雅的 Commit 信息&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#commit%e5%b7%a5%e5%85%b7"&gt;commit 工具&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://www.jobcher.com/gitlab/#%e5%a3%b0%e6%98%8e"&gt;声明&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="展示帮助信息"&gt;展示帮助信息&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;git &lt;span class="nb"&gt;help&lt;/span&gt; -g
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The command output as below:&lt;/p&gt;</description></item><item><title>gitlab CI/CD 的使用</title><link>https://www.jobcher.com/gitlab-cicd/</link><pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/gitlab-cicd/</guid><description>&lt;h1 id="gitlab-cicd-的使用"&gt;gitlab CI/CD 的使用&lt;/h1&gt;
+&lt;p&gt;我将使用 gitlab 的流水线自动实现 hugo blog 文章的自动发布。&lt;/p&gt;
+&lt;h2 id="一基础知识"&gt;一、基础知识&lt;/h2&gt;
+&lt;h2 id="二安装过程"&gt;二、安装过程&lt;/h2&gt;
+&lt;h3 id="1安装-gitlab-runner"&gt;1.安装 gitlab runner&lt;/h3&gt;
+&lt;p&gt;首先需要安装 gitlab runner 进入服务器 A&lt;br&gt;
+安装方法：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;容器部署&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;手动二进制文件部署&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;通过 rpm/deb 包部署&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;docker 方式安装&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;安装文档：https://docs.gitlab.com/runne&amp;hellip;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt; docker run -dit &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; --name gitlab-runner &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; --restart always &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -v /srv/gitlab-runner/config:/etc/gitlab-runner &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -v /var/run/docker.sock:/var/run/docker.sock &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; gitlab/gitlab-runner
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;1.1 设置信息&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;docker exec -it gitlab-runner gitlab-runner register
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start="2"&gt;
+&lt;li&gt;非 docker 方式安装&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;2.1 安装 GitLab Runner&lt;/p&gt;
+&lt;p&gt;安装环境：Linux&lt;/p&gt;
+&lt;p&gt;其他环境参考：https://docs.gitlab.com/runne&amp;hellip;&lt;/p&gt;
+&lt;p&gt;下载&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt; curl -L --output /usr/local/bin/gitlab-runner https://gitlab-runner-downloads.s3.amazonaws.com/latest/binaries/gitlab-runner-linux-amd64
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;添加权限&lt;/p&gt;</description></item><item><title>Markdown教程</title><link>https://www.jobcher.com/markdown/</link><pubDate>Fri, 03 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/markdown/</guid><description>&lt;h1 id="markdown-教程"&gt;Markdown 教程&lt;/h1&gt;
+&lt;p&gt;参考：https://www.runoob.com/markdown&lt;/p&gt;</description></item></channel></rss>

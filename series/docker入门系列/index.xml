@@ -1,14 +1,228 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>docker入门系列 on 打工人日志</title><link>https://www.jobcher.com/series/docker%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/</link><description>Recent content in docker入门系列 on 打工人日志</description><generator>Hugo -- gohugo.io</generator><language>zh-hans</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Mon, 16 Nov 2026 09:07:12 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/series/docker%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/index.xml" rel="self" type="application/rss+xml"/><item><title>清理Docker容器日志</title><link>https://www.jobcher.com/cleandocker/</link><pubDate>Mon, 19 Sep 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/cleandocker/</guid><description>清理 Docker 容器日志 如果 docker 容器正在运行，那么使用rm -rf方式删除日志后，通过df -h会发现磁盘空间并没有释放。原因是在 Linux 或者 Unix 系统中，通过rm -rf或者文件管理器删除文件，将会从文件系统的目录结构上解除链接（unlink）。如果文件是被打开的（有一个进程正在使用），那么进程将仍然可以读取该文件，磁盘空间也一直被占用。正确姿势是cat /dev/null &amp;gt; *-json.log，当然你也可以通过rm -rf删除后重启 docker。
-日志清理脚本 clean_docker_log.sh 1#!/bin/sh 2 3echo &amp;#34;======== start clean docker containers logs ========&amp;#34; 4 5logs=$(find /var/lib/docker/containers/ -name *-json.log) 6 7for log in $logs 8 do 9 echo &amp;#34;clean logs : $log&amp;#34; 10 cat /dev/null &amp;gt; $log 11 done 12 13echo &amp;#34;======== end clean docker containers logs ========&amp;#34; chmod +x clean_docker_log.sh &amp;amp;&amp;amp; ./clean_docker_log.sh
-设置 Docker 容器日志大小 设置一个容器服务的日志大小上限</description></item><item><title>contained 安装及使用</title><link>https://www.jobcher.com/contained/</link><pubDate>Wed, 17 Aug 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/contained/</guid><description>contained 安装及使用 containerd 是一个行业标准的容器运行时，强调简单性、健壮性和可移植性。它可作为 Linux 和 Windows 的守护进程使用，可以管理其主机系统的完整容器生命周期：图像传输和存储、容器执行和监督、低级存储和网络附件等。
-containerd is a member of CNCF with graduated status.
-早在 2016 年 3 月，Docker 1.11的Docker Engine里就包含了containerd，而现在则是把containerd从Docker Engine里彻底剥离出来，作为一个独立的开源项目独立发展，目标是提供一个更加开放、稳定的容器运行基础设施。和原先包含在 Docker Engine 里containerd相比，独立的containerd将具有更多的功能，可以涵盖整个容器运行时管理的所有需求。 containerd并不是直接面向最终用户的，而是主要用于集成到更上层的系统里，比如Swarm, Kubernetes, Mesos等容器编排系统。 containerd以Daemon的形式运行在系统上，通过暴露底层的gRPC API，上层系统可以通过这些API管理机器上的容器。 每个containerd只负责一台机器，Pull 镜像，对容器的操作（启动、停止等），网络，存储都是由 containerd 完成。具体运行容器由runC负责，实际上只要是符合OCI规范的容器都可以支持。 对于容器编排服务来说，运行时只需要使用containerd+runC，更加轻量，容易管理。 5.独立之后containerd的特性演进可以和Docker Engine分开，专注容器运行时管理，可以更稳定。 安装 centos
-1yum install -y containerd.io ubuntu
-1apt install -y containerd.io 设置开机自启
-1systemctl enable containerd 2systemctl start containerd 3systemctl status containerd 验证
-1ctr version ctr 命令 命令 作用 plugins, plugin 提供有关容器插件的信息 version 打印客户端和服务器版本 containers, c, container 管理容器 content 管理内容 events, event 显示容器事件 images, image, i 管理图像 leases 管理租约 namespaces, namespace, ns 管理租命名空间 pprof 为 containerd 提供 golang pprof 输出 run 运行一个容器 snapshots, snapshot 管理快照 tasks, t, task 管理任务 install 安装一个新包 oci OCI 工具 shim 直接与 shim 交互 help, h 显示命令列表或一个命令的帮助</description></item><item><title>docker 和 docker-compose 安装</title><link>https://www.jobcher.com/docker/</link><pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/docker/</guid><description>安装 docker 通过 docker 脚本安装 1curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun 1curl -sSL https://get.daocloud.io/docker | sh CentOS 手动安装 卸载之前相关的依赖
-1sudo yum remove docker \ 2 docker-client \ 3 docker-client-latest \ 4 docker-common \ 5 docker-latest \ 6 docker-latest-logrotate \ 7 docker-logrotate \ 8 docker-engine 下载依赖包
-1sudo yum install -y yum-utils 选择国内阿里云镜像
-1sudo yum-config-manager \ 2 --add-repo \ 3 https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo 安装 Docker Engine-Community
-1sudo yum install docker-ce docker-ce-cli containerd.</description></item><item><title>docker 安装kong 网关</title><link>https://www.jobcher.com/docker-kong/</link><pubDate>Wed, 22 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/docker-kong/</guid><description>docker 安装 kong 网关 建立数据库 创建网络 1docker network create kong-net 建立数据库 1docker run -d --name kong-database \ 2 --network=kong-net \ 3 -p 5432:5432 \ 4 -e &amp;#34;POSTGRES_USER=kong&amp;#34; \ 5 -e &amp;#34;POSTGRES_DB=kong&amp;#34; \ 6 -e &amp;#34;POSTGRES_PASSWORD=kong123&amp;#34; \ 7 postgres:9.6 创建 kong 数据 1docker run --rm --network=kong-net \ 2 -e &amp;#34;KONG_DATABASE=postgres&amp;#34; \ 3 -e &amp;#34;KONG_PG_HOST=kong-database&amp;#34; \ 4 -e &amp;#34;KONG_PG_PASSWORD=kong123&amp;#34; \ 5 -e &amp;#34;KONG_PASSWORD=kong123&amp;#34; \ 6 kong:latest kong migrations bootstrap 创建 kong 创建 kong gateway 1 docker run -d --name kong \ 2 --network=kong-net \ 3 -e &amp;#34;KONG_DATABASE=postgres&amp;#34; \ 4 -e &amp;#34;KONG_PG_HOST=kong-database&amp;#34; \ 5 -e &amp;#34;KONG_PG_USER=kong&amp;#34; \ 6 -e &amp;#34;KONG_PG_PASSWORD=kong123&amp;#34; \ 7 -e &amp;#34;KONG_CASSANDRA_CONTACT_POINTS=kong-database&amp;#34; \ 8 -e &amp;#34;KONG_PROXY_ACCESS_LOG=/dev/stdout&amp;#34; \ 9 -e &amp;#34;KONG_ADMIN_ACCESS_LOG=/dev/stdout&amp;#34; \ 10 -e &amp;#34;KONG_PROXY_ERROR_LOG=/dev/stderr&amp;#34; \ 11 -e &amp;#34;KONG_ADMIN_ERROR_LOG=/dev/stderr&amp;#34; \ 12 -e &amp;#34;KONG_ADMIN_LISTEN=0.</description></item><item><title>搭建docker registry 镜像仓库</title><link>https://www.jobcher.com/docker-registry/</link><pubDate>Wed, 22 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/docker-registry/</guid><description>搭建 docker registry 镜像仓库 获取镜像 1docker pull registry:2.7.1 1docker pull hyper/docker-registry-web 容器运行 1mkdir -p /opt/data/registry 2docker run -d -p 5000:5000 -v /opt/data/registry:/var/lib/registry --name registry registry:2.7.1 1docker run -d -p 8080:8080 --name registry-web --link registry \ 2 -e REGISTRY_URL=http://192.168.99.146:5000/v2 \ 3 -e REGISTRY_TRUST_ANY_SSL=true \ 4 -e REGISTRY_BASIC_AUTH=&amp;#34;GjhYGDGi2HhkJB&amp;#34; \ 5 -e REGISTRY_NAME=192.168.99.146:5000 \ 6 hyper/docker-registry-web 上传容器 1vim /etc/docker/daemon.json 2{ 3 &amp;#34;insecure-registries&amp;#34;: [&amp;#34;192.168.99.146:5000&amp;#34;] 4} 5 6docker tag sjtfreaks/hogo-nginx:v1.1 192.168.99.146:5000/sjtfreaks/hogo-nginx:v1.1 7docker push 192.168.99.146:5000/sjtfreaks/hogo-nginx:v1.1</description></item><item><title>docker image镜像上传</title><link>https://www.jobcher.com/dockerimage/</link><pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/dockerimage/</guid><description>docker image 镜像上传 登入 docker hub，在https://hub.docker.com上注册你的账号。
-1docker login 2username：#输入你的用户名 3password：#输入你的密码 上传镜像 1docker tag nginx:hugo sjtfreaks/hogo-nginx:v1 2docker push sjtfreaks/hogo-nginx:v1</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker入门系列 on 打工人日志</title><link>https://www.jobcher.com/series/docker%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/</link><description>Recent content in Docker入门系列 on 打工人日志</description><generator>Hugo</generator><language>zh-hans</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Mon, 16 Nov 2026 10:23:01 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/series/docker%E5%85%A5%E9%97%A8%E7%B3%BB%E5%88%97/index.xml" rel="self" type="application/rss+xml"/><item><title>清理Docker容器日志</title><link>https://www.jobcher.com/cleandocker/</link><pubDate>Mon, 19 Sep 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/cleandocker/</guid><description>&lt;h1 id="清理-docker-容器日志"&gt;清理 Docker 容器日志&lt;/h1&gt;
+&lt;p&gt;如果 docker 容器正在运行，那么使用&lt;code&gt;rm -rf&lt;/code&gt;方式删除日志后，通过&lt;code&gt;df -h&lt;/code&gt;会发现磁盘空间并没有释放。原因是在 Linux 或者 Unix 系统中，通过&lt;code&gt;rm -rf&lt;/code&gt;或者文件管理器删除文件，将会从文件系统的目录结构上解除链接（unlink）。如果文件是被打开的（有一个进程正在使用），那么进程将仍然可以读取该文件，磁盘空间也一直被占用。正确姿势是&lt;code&gt;cat /dev/null &amp;gt; *-json.log&lt;/code&gt;，当然你也可以通过&lt;code&gt;rm -rf&lt;/code&gt;删除后重启 docker。&lt;/p&gt;
+&lt;h2 id="日志清理脚本-clean_docker_logsh"&gt;日志清理脚本 clean_docker_log.sh&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#!/bin/sh
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;======== start clean docker containers logs ========&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;logs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;find /var/lib/docker/containers/ -name *-json.log&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;for&lt;/span&gt; log in &lt;span class="nv"&gt;$logs&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;clean logs : &lt;/span&gt;&lt;span class="nv"&gt;$log&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt; cat /dev/null &amp;gt; &lt;span class="nv"&gt;$log&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;11&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;12&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;13&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;======== end clean docker containers logs ========&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
+&lt;p&gt;chmod +x clean_docker_log.sh &amp;amp;&amp;amp; ./clean_docker_log.sh&lt;/p&gt;</description></item><item><title>contained 安装及使用</title><link>https://www.jobcher.com/contained/</link><pubDate>Wed, 17 Aug 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/contained/</guid><description>&lt;h1 id="contained-安装及使用"&gt;contained 安装及使用&lt;/h1&gt;
+&lt;p&gt;&lt;img src="https://www.jobcher.com/images/containerd-horizontal-color.png" alt="contained" loading="lazy" decoding="async"&gt;
+&lt;br&gt;
+containerd 是一个行业标准的容器运行时，强调简单性、健壮性和可移植性。它可作为 Linux 和 Windows 的守护进程使用，可以管理其主机系统的完整容器生命周期：图像传输和存储、容器执行和监督、低级存储和网络附件等。&lt;br&gt;
+&lt;code&gt;containerd&lt;/code&gt; is a member of &lt;code&gt;CNCF&lt;/code&gt; with &lt;code&gt;graduated&lt;/code&gt; status.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;早在 2016 年 3 月，&lt;code&gt;Docker 1.11&lt;/code&gt;的&lt;code&gt;Docker Engine&lt;/code&gt;里就包含了&lt;code&gt;containerd&lt;/code&gt;，而现在则是把&lt;code&gt;containerd&lt;/code&gt;从&lt;code&gt;Docker Engine&lt;/code&gt;里彻底剥离出来，作为一个独立的开源项目独立发展，目标是提供一个更加开放、稳定的容器运行基础设施。和原先包含在 Docker Engine 里&lt;code&gt;containerd&lt;/code&gt;相比，独立的&lt;code&gt;containerd&lt;/code&gt;将具有更多的功能，可以涵盖整个容器运行时管理的所有需求。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;containerd&lt;/code&gt;并不是直接面向最终用户的，而是主要用于集成到更上层的系统里，比如&lt;code&gt;Swarm&lt;/code&gt;, &lt;code&gt;Kubernetes&lt;/code&gt;, &lt;code&gt;Mesos&lt;/code&gt;等容器编排系统。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;containerd&lt;/code&gt;以&lt;code&gt;Daemon&lt;/code&gt;的形式运行在系统上，通过暴露底层的&lt;code&gt;gRPC API&lt;/code&gt;，上层系统可以通过这些&lt;code&gt;API&lt;/code&gt;管理机器上的容器。&lt;/li&gt;
+&lt;li&gt;每个&lt;code&gt;containerd&lt;/code&gt;只负责&lt;code&gt;一台机器&lt;/code&gt;，Pull 镜像，对容器的操作（启动、停止等），网络，存储都是由 containerd 完成。具体运行容器由&lt;code&gt;runC&lt;/code&gt;负责，实际上只要是符合&lt;code&gt;OCI规范&lt;/code&gt;的容器都可以支持。&lt;/li&gt;
+&lt;li&gt;对于容器编排服务来说，运行时只需要使用&lt;code&gt;containerd+runC&lt;/code&gt;，更加轻量，容易管理。 5.独立之后&lt;code&gt;containerd&lt;/code&gt;的特性演进可以和&lt;code&gt;Docker Engine&lt;/code&gt;分开，专注容器运行时管理，可以更稳定。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="安装"&gt;安装&lt;/h2&gt;
+&lt;p&gt;centos&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;yum install -y containerd.io
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ubuntu&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;apt install -y containerd.io
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;设置开机自启&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;systemctl &lt;span class="nb"&gt;enable&lt;/span&gt; containerd
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;systemctl start containerd
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;systemctl status containerd
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;验证&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;ctr version
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="ctr-命令"&gt;ctr 命令&lt;/h2&gt;
+&lt;table&gt;
+ &lt;thead&gt;
+ &lt;tr&gt;
+ &lt;th style="text-align: left"&gt;命令&lt;/th&gt;
+ &lt;th style="text-align: left"&gt;作用&lt;/th&gt;
+ &lt;/tr&gt;
+ &lt;/thead&gt;
+ &lt;tbody&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;plugins, plugin&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;提供有关容器插件的信息&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;version&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;打印客户端和服务器版本&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;containers, c, container&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;管理容器&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;content&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;管理内容&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;events, event&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;显示容器事件&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;images, image, i&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;管理图像&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;leases&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;管理租约&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;namespaces, namespace, ns&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;管理租命名空间&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;pprof&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;为 containerd 提供 golang pprof 输出&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;run&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;运行一个容器&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;snapshots, snapshot&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;管理快照&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;tasks, t, task&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;管理任务&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;install&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;安装一个新包&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;oci&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;OCI 工具&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;shim&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;直接与 shim 交互&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;tr&gt;
+ &lt;td style="text-align: left"&gt;help, h&lt;/td&gt;
+ &lt;td style="text-align: left"&gt;显示命令列表或一个命令的帮助&lt;/td&gt;
+ &lt;/tr&gt;
+ &lt;/tbody&gt;
+&lt;/table&gt;</description></item><item><title>docker 和 docker-compose 安装</title><link>https://www.jobcher.com/docker/</link><pubDate>Tue, 28 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/docker/</guid><description>&lt;h1 id="安装-docker"&gt;安装 docker&lt;/h1&gt;
+&lt;h2 id="通过-docker-脚本安装"&gt;通过 docker 脚本安装&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;curl -fsSL https://get.docker.com &lt;span class="p"&gt;|&lt;/span&gt; bash -s docker --mirror Aliyun
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;curl -sSL https://get.daocloud.io/docker &lt;span class="p"&gt;|&lt;/span&gt; sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="centos-手动安装"&gt;CentOS 手动安装&lt;/h3&gt;
+&lt;p&gt;卸载之前相关的依赖&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;sudo yum remove docker &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; docker-client &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; docker-client-latest &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; docker-common &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; docker-latest &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; docker-latest-logrotate &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; docker-logrotate &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;8&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; docker-engine
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;下载依赖包&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;sudo yum install -y yum-utils
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;选择国内&lt;code&gt;阿里云&lt;/code&gt;镜像&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;sudo yum-config-manager &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; --add-repo &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;安装 Docker Engine-Community&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;sudo yum install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="ubuntu-手动安装"&gt;Ubuntu 手动安装&lt;/h3&gt;
+&lt;p&gt;卸载之前相关的依赖&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;sudo apt-get remove docker docker-engine docker.io containerd runc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;更新 apt 包索引&lt;/p&gt;</description></item><item><title>docker 安装kong 网关</title><link>https://www.jobcher.com/docker-kong/</link><pubDate>Wed, 22 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/docker-kong/</guid><description>&lt;h1 id="docker-安装-kong-网关"&gt;docker 安装 kong 网关&lt;/h1&gt;
+&lt;h2 id="建立数据库"&gt;建立数据库&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;创建网络&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker network create kong-net
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="2"&gt;
+&lt;li&gt;建立数据库&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker run -d --name kong-database &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; --network&lt;span class="o"&gt;=&lt;/span&gt;kong-net &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -p 5432:5432 &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;POSTGRES_USER=kong&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;POSTGRES_DB=kong&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;POSTGRES_PASSWORD=kong123&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; postgres:9.6
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="3"&gt;
+&lt;li&gt;创建 kong 数据&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker run --rm --network&lt;span class="o"&gt;=&lt;/span&gt;kong-net &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_DATABASE=postgres&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_PG_HOST=kong-database&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_PG_PASSWORD=kong123&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_PASSWORD=kong123&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; kong:latest kong migrations bootstrap
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="创建-kong"&gt;创建 kong&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;创建 kong gateway&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt; docker run -d --name kong &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; --network&lt;span class="o"&gt;=&lt;/span&gt;kong-net &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_DATABASE=postgres&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_PG_HOST=kong-database&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_PG_USER=kong&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_PG_PASSWORD=kong123&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_CASSANDRA_CONTACT_POINTS=kong-database&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_PROXY_ACCESS_LOG=/dev/stdout&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_ADMIN_ACCESS_LOG=/dev/stdout&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_PROXY_ERROR_LOG=/dev/stderr&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;11&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_ADMIN_ERROR_LOG=/dev/stderr&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;12&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;KONG_ADMIN_LISTEN=0.0.0.0:8001, 0.0.0.0:8444 ssl&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;13&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -p 8000:8000 &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;14&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -p 8443:8443 &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;15&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -p 127.0.0.1:8001:8001 &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;16&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -p 127.0.0.1:8444:8444 &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;17&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; kong:latest
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="安装-konga"&gt;安装 konga&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker pull pantsel/konga:latest
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker run --rm pantsel/konga:latest &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -c prepare &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -a postgres &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -u postgresql://kong:kong123@172.18.0.1:5432/konga
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker run -d -p 1337:1337 &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; --network kong-net &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; --name konga &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;NODE_ENV=production&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;DB_ADAPTER=postgres&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;#34;DB_URI=postgresql://kong:kong123@172.18.0.1:5432/konga&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; pantsel/konga
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>搭建docker registry 镜像仓库</title><link>https://www.jobcher.com/docker-registry/</link><pubDate>Wed, 22 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/docker-registry/</guid><description>&lt;h1 id="搭建-docker-registry-镜像仓库"&gt;搭建 docker registry 镜像仓库&lt;/h1&gt;
+&lt;h2 id="获取镜像"&gt;获取镜像&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker pull registry:2.7.1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker pull hyper/docker-registry-web
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="容器运行"&gt;容器运行&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;mkdir -p /opt/data/registry
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;docker run -d -p 5000:5000 -v /opt/data/registry:/var/lib/registry --name registry registry:2.7.1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker run -d -p 8080:8080 --name registry-web --link registry &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="nv"&gt;REGISTRY_URL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;http://192.168.99.146:5000/v2 &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="nv"&gt;REGISTRY_TRUST_ANY_SSL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;true&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="nv"&gt;REGISTRY_BASIC_AUTH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;GjhYGDGi2HhkJB&amp;#34;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; -e &lt;span class="nv"&gt;REGISTRY_NAME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;192.168.99.146:5000 &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; hyper/docker-registry-web
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="上传容器"&gt;上传容器&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;vim /etc/docker/daemon.json
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="s2"&gt;&amp;#34;insecure-registries&amp;#34;&lt;/span&gt;: &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;192.168.99.146:5000&amp;#34;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;docker tag sjtfreaks/hogo-nginx:v1.1 192.168.99.146:5000/sjtfreaks/hogo-nginx:v1.1
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;7&lt;/span&gt;&lt;span class="cl"&gt;docker push 192.168.99.146:5000/sjtfreaks/hogo-nginx:v1.1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>docker image镜像上传</title><link>https://www.jobcher.com/dockerimage/</link><pubDate>Thu, 09 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/dockerimage/</guid><description>&lt;h1 id="docker-image-镜像上传"&gt;docker image 镜像上传&lt;/h1&gt;
+&lt;p&gt;登入 docker hub，在https://hub.docker.com上注册你的账号。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker login
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;username：#输入你的用户名
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;password：#输入你的密码
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="上传镜像"&gt;上传镜像&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker tag nginx:hugo sjtfreaks/hogo-nginx:v1
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;docker push sjtfreaks/hogo-nginx:v1
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item></channel></rss>

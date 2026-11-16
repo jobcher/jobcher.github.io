@@ -1,4 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>网心云 on 打工人日志</title><link>https://www.jobcher.com/tags/%E7%BD%91%E5%BF%83%E4%BA%91/</link><description>Recent content in 网心云 on 打工人日志</description><generator>Hugo -- gohugo.io</generator><language>zh-hans</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Mon, 16 Nov 2026 09:07:12 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/tags/%E7%BD%91%E5%BF%83%E4%BA%91/index.xml" rel="self" type="application/rss+xml"/><item><title>网心云挂机教程 | 轻松实现睡后收入~</title><link>https://www.jobcher.com/wxyun/</link><pubDate>Fri, 11 Feb 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/wxyun/</guid><description>网心云挂机教程 | 轻松实现睡后收入~ 首先，本文章只是分享，造成一切的后果，博主概不负责！都是成年人了……
-我采用 docker 容器魔方来挂载网心云
-docker 部署 /mnt/money/wxedge_storage这个路径改为自己的存储路径建议&amp;gt;200G
-1docker run \ 2--name=wxedge \ 3--restart=always \ 4--privileged \ 5--net=host \ 6--tmpfs /run \ 7--tmpfs /tmp \ 8-v /mnt/money/wxedge_storage:/storage:rw \ 9-d \ 10registry.cn-hangzhou.aliyuncs.com/onething/wxedge 设备绑定 进入 dockerip 地址 （http://127.0.0.1:18888) 下载 app 扫码绑定 成功 然后坐等第二天收益到账就可以了，记得19:00-23:00是收益高峰期尽量保持在线~</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>网心云 on 打工人日志</title><link>https://www.jobcher.com/tags/%E7%BD%91%E5%BF%83%E4%BA%91/</link><description>Recent content in 网心云 on 打工人日志</description><generator>Hugo</generator><language>zh-hans</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Mon, 16 Nov 2026 10:23:01 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/tags/%E7%BD%91%E5%BF%83%E4%BA%91/index.xml" rel="self" type="application/rss+xml"/><item><title>网心云挂机教程 | 轻松实现睡后收入~</title><link>https://www.jobcher.com/wxyun/</link><pubDate>Fri, 11 Feb 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/wxyun/</guid><description>&lt;h1 id="网心云挂机教程--轻松实现睡后收入"&gt;网心云挂机教程 | 轻松实现睡后收入~&lt;/h1&gt;
+&lt;p&gt;首先，本文章只是分享，造成一切的后果，博主概不负责！都是成年人了……&lt;/p&gt;
+&lt;p&gt;我采用 docker 容器魔方来挂载网心云&lt;/p&gt;
+&lt;h2 id="docker-部署"&gt;docker 部署&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;/mnt/money/wxedge_storage&lt;/code&gt;这个路径改为自己的存储路径建议&lt;code&gt;&amp;gt;200G&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;docker run &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt;--name&lt;span class="o"&gt;=&lt;/span&gt;wxedge &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt;--restart&lt;span class="o"&gt;=&lt;/span&gt;always &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt;--privileged &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt;--net&lt;span class="o"&gt;=&lt;/span&gt;host &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt;--tmpfs /run &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt;--tmpfs /tmp &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt;-v /mnt/money/wxedge_storage:/storage:rw &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt;-d &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt;registry.cn-hangzhou.aliyuncs.com/onething/wxedge
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="设备绑定"&gt;设备绑定&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;进入 dockerip 地址 （http://127.0.0.1:18888)
+&lt;img src="https://www.jobcher.com/images/wxyun1.png" alt="" loading="lazy" decoding="async"&gt;
+&lt;/li&gt;
+&lt;li&gt;下载 app 扫码绑定
+&lt;img src="https://www.jobcher.com/images/wxyun2.png" alt="" loading="lazy" decoding="async"&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="成功"&gt;成功&lt;/h2&gt;
+&lt;p&gt;然后坐等第二天收益到账就可以了，记得&lt;code&gt;19:00-23:00&lt;/code&gt;是收益高峰期尽量保持在线~&lt;/p&gt;</description></item></channel></rss>
