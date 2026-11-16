@@ -1,13 +1,43 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>General on Jobcher's Blog</title><link>https://www.jobcher.com/en/categories/general/</link><description>Recent content in General on Jobcher's Blog</description><generator>Hugo</generator><language>en</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Mon, 16 Nov 2026 13:03:26 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/en/categories/general/index.xml" rel="self" type="application/rss+xml"/><item><title>Welcome to Jobcher's Blog</title><link>https://www.jobcher.com/en/welcome-to-jobcher-blog/</link><pubDate>Thu, 16 Jan 2025 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/en/welcome-to-jobcher-blog/</guid><description>&lt;h1 id="welcome-to-jobchers-blog"&gt;Welcome to Jobcher&amp;rsquo;s Blog&lt;/h1&gt;
-&lt;p&gt;Welcome to my personal blog! This is a space where I share my thoughts, experiences, and knowledge about technology, software development, Kubernetes, and more.&lt;/p&gt;
-&lt;h2 id="about-this-blog"&gt;About This Blog&lt;/h2&gt;
-&lt;p&gt;This blog covers various topics including:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Kubernetes and Container Orchestration&lt;/strong&gt;: Tutorials, best practices, and deployment guides&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DevOps and CI/CD&lt;/strong&gt;: Automation, infrastructure as code, and deployment strategies&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Software Development&lt;/strong&gt;: Programming languages, frameworks, and development tools&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;System Administration&lt;/strong&gt;: Linux, networking, and system optimization&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Technology Insights&lt;/strong&gt;: Reviews, comparisons, and industry trends&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="what-to-expect"&gt;What to Expect&lt;/h2&gt;
-&lt;p&gt;You&amp;rsquo;ll find practical guides, tutorials, and insights based on real-world experiences. Most articles are currently available in Chinese, but I&amp;rsquo;m working on providing more English content.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>General - Jobcher's Blog</title><link>https://www.jobcher.com/en/categories/general/</link><description>Jobcher's Blog — hands-on notes for developers and SRE on Kubernetes, Docker, Linux, monitoring, AI, and developer tooling.</description><generator>Hugo</generator><language>en</language><copyright>Copyright © 2022-2026 All Rights Reserved.</copyright><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor><webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 16 Jan 2025 00:00:00 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/en/categories/general/index.xml" rel="self" type="application/rss+xml"/><item><title>Welcome to Jobcher's Blog</title><link>https://www.jobcher.com/en/welcome-to-jobcher-blog/</link><pubDate>Thu, 16 Jan 2025 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/en/welcome-to-jobcher-blog/</guid><description><![CDATA[<h1 id="welcome-to-jobchers-blog">Welcome to Jobcher&rsquo;s Blog</h1>
+<p>Welcome to my personal blog! This is a space where I share my thoughts, experiences, and knowledge about technology, software development, Kubernetes, and more.</p>
+<h2 id="about-this-blog">About This Blog</h2>
+<p>This blog covers various topics including:</p>
+<ul>
+<li><strong>Kubernetes and Container Orchestration</strong>: Tutorials, best practices, and deployment guides</li>
+<li><strong>DevOps and CI/CD</strong>: Automation, infrastructure as code, and deployment strategies</li>
+<li><strong>Software Development</strong>: Programming languages, frameworks, and development tools</li>
+<li><strong>System Administration</strong>: Linux, networking, and system optimization</li>
+<li><strong>Technology Insights</strong>: Reviews, comparisons, and industry trends</li>
+</ul>
+<h2 id="what-to-expect">What to Expect</h2>
+<p>You&rsquo;ll find practical guides, tutorials, and insights based on real-world experiences. Most articles are currently available in Chinese, but I&rsquo;m working on providing more English content.</p>
+<p>If you&rsquo;re looking for more content, please check out the <a href="https://www.jobcher.com/zh-hans/">Chinese version</a> of this blog.</p>
+<h2 id="get-in-touch">Get in Touch</h2>
+<p>Feel free to reach out through:</p>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/jobcher">@jobcher</a></li>
+<li><strong>Twitter</strong>: <a href="https://twitter.com/jobcher1">@jobcher1</a></li>
+</ul>
+<p>Thank you for visiting, and I hope you find the content useful!</p>
+]]></description><content:encoded><![CDATA[<h1 id="welcome-to-jobchers-blog">Welcome to Jobcher&rsquo;s Blog</h1>
+<p>Welcome to my personal blog! This is a space where I share my thoughts, experiences, and knowledge about technology, software development, Kubernetes, and more.</p>
+<h2 id="about-this-blog">About This Blog</h2>
+<p>This blog covers various topics including:</p>
+<ul>
+<li><strong>Kubernetes and Container Orchestration</strong>: Tutorials, best practices, and deployment guides</li>
+<li><strong>DevOps and CI/CD</strong>: Automation, infrastructure as code, and deployment strategies</li>
+<li><strong>Software Development</strong>: Programming languages, frameworks, and development tools</li>
+<li><strong>System Administration</strong>: Linux, networking, and system optimization</li>
+<li><strong>Technology Insights</strong>: Reviews, comparisons, and industry trends</li>
+</ul>
+<h2 id="what-to-expect">What to Expect</h2>
+<p>You&rsquo;ll find practical guides, tutorials, and insights based on real-world experiences. Most articles are currently available in Chinese, but I&rsquo;m working on providing more English content.</p>
+<p>If you&rsquo;re looking for more content, please check out the <a href="https://www.jobcher.com/zh-hans/">Chinese version</a> of this blog.</p>
+<h2 id="get-in-touch">Get in Touch</h2>
+<p>Feel free to reach out through:</p>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/jobcher">@jobcher</a></li>
+<li><strong>Twitter</strong>: <a href="https://twitter.com/jobcher1">@jobcher1</a></li>
+</ul>
+<p>Thank you for visiting, and I hope you find the content useful!</p>
+]]></content:encoded></item></channel></rss>

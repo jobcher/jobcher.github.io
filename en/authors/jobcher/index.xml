@@ -1,14 +1,591 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jobcher on Jobcher's Blog</title><link>https://www.jobcher.com/en/authors/jobcher/</link><description>Recent content in Jobcher on Jobcher's Blog</description><generator>Hugo</generator><language>en</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Mon, 16 Nov 2026 13:03:26 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/en/authors/jobcher/index.xml" rel="self" type="application/rss+xml"/><item><title>How to learn MLOps, in practice</title><link>https://www.jobcher.com/en/mlops-learning-path/</link><pubDate>Mon, 16 Nov 2026 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/en/mlops-learning-path/</guid><description>&lt;p&gt;MLOps is the work of making a model trainable by someone else, blocked by evaluation, deployed, observed, and reversible to the previous version when it goes wrong.&lt;/p&gt;
-&lt;p&gt;If you already know Linux, Docker, Kubernetes, and CI/CD, what is missing is wiring data, experiments, and models into that delivery path. The stages below start from there. If your background is algorithms or data analysis, replace stage 0 with the engineering gap (Git, tests, Docker, one scheduler). The later stages stay the same.&lt;/p&gt;</description></item><item><title>Welcome to Jobcher's Blog</title><link>https://www.jobcher.com/en/welcome-to-jobcher-blog/</link><pubDate>Thu, 16 Jan 2025 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/en/welcome-to-jobcher-blog/</guid><description>&lt;h1 id="welcome-to-jobchers-blog"&gt;Welcome to Jobcher&amp;rsquo;s Blog&lt;/h1&gt;
-&lt;p&gt;Welcome to my personal blog! This is a space where I share my thoughts, experiences, and knowledge about technology, software development, Kubernetes, and more.&lt;/p&gt;
-&lt;h2 id="about-this-blog"&gt;About This Blog&lt;/h2&gt;
-&lt;p&gt;This blog covers various topics including:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Kubernetes and Container Orchestration&lt;/strong&gt;: Tutorials, best practices, and deployment guides&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;DevOps and CI/CD&lt;/strong&gt;: Automation, infrastructure as code, and deployment strategies&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Software Development&lt;/strong&gt;: Programming languages, frameworks, and development tools&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;System Administration&lt;/strong&gt;: Linux, networking, and system optimization&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Technology Insights&lt;/strong&gt;: Reviews, comparisons, and industry trends&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="what-to-expect"&gt;What to Expect&lt;/h2&gt;
-&lt;p&gt;You&amp;rsquo;ll find practical guides, tutorials, and insights based on real-world experiences. Most articles are currently available in Chinese, but I&amp;rsquo;m working on providing more English content.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Jobcher - Jobcher's Blog</title><link>https://www.jobcher.com/en/authors/jobcher/</link><description>Jobcher's Blog — hands-on notes for developers and SRE on Kubernetes, Docker, Linux, monitoring, AI, and developer tooling.</description><generator>Hugo</generator><language>en</language><copyright>Copyright © 2022-2026 All Rights Reserved.</copyright><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor><webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 16 Nov 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/en/authors/jobcher/index.xml" rel="self" type="application/rss+xml"/><item><title>How to learn MLOps, in practice</title><link>https://www.jobcher.com/en/mlops-learning-path/</link><pubDate>Mon, 16 Nov 2026 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/en/mlops-learning-path/</guid><description><![CDATA[<p>MLOps is the work of making a model trainable by someone else, blocked by evaluation, deployed, observed, and reversible to the previous version when it goes wrong.</p>
+<p>If you already know Linux, Docker, Kubernetes, and CI/CD, what is missing is wiring data, experiments, and models into that delivery path. The stages below start from there. If your background is algorithms or data analysis, replace stage 0 with the engineering gap (Git, tests, Docker, one scheduler). The later stages stay the same.</p>
+<h2 id="how-mlops-maps-onto-the-ops-you-already-do">How MLOps maps onto the ops you already do</h2>
+<p>A model path usually looks like this:</p>
+<p>data in → validation and features → training → offline evaluation → model registry → deploy → online inference → watch drift and outcomes → decide whether to retrain</p>
+<table>
+  <thead>
+      <tr>
+          <th>What you already do</th>
+          <th>What you also have to manage for a model</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Code versions</td>
+          <td>Code, data, and model versions that line up</td>
+      </tr>
+      <tr>
+          <td>Building an image</td>
+          <td>The image also pins the model artifact and the feature transformer</td>
+      </tr>
+      <tr>
+          <td>Unit tests</td>
+          <td>Add data checks and offline evaluation, and fail the pipeline when they miss the bar</td>
+      </tr>
+      <tr>
+          <td>Release and rollback</td>
+          <td>Move the model alias from <code>staging</code> to <code>production</code>; rollback points the alias at the previous version</td>
+      </tr>
+      <tr>
+          <td>CPU, error rate, latency</td>
+          <td>Also watch input distribution, prediction distribution, and business metrics that arrive late</td>
+      </tr>
+  </tbody>
+</table>
+<p>A complete platform is still a broken path if you cannot answer which data, which code, and which image produced the model that is serving traffic.</p>
+<h2 id="stage-0-the-smallest-machine-learning-set-24-weeks">Stage 0: the smallest machine-learning set (2–4 weeks)</h2>
+<p>The goal is to read training code, read metrics, and decide whether two experiments can be compared. You do not need to start with papers.</p>
+<p>What to learn:</p>
+<ul>
+<li>How to split training, validation, and test. Information from the validation set must not leak into features or preprocessing.</li>
+<li>Common metrics for classification and regression: precision, recall, F1, AUC, MAE, RMSE. When classes are extremely imbalanced, accuracy is almost useless.</li>
+<li>When overfitting, underfitting, regularization, and early stopping show up.</li>
+<li>Missing values, categorical encoding, and numeric scaling. A transformer fitted at training time must be used unchanged at inference time.</li>
+<li>One tabular model with scikit-learn or XGBoost: read data, train, print metrics, save the model to a file.</li>
+<li>A command-line script as the training entry point. Fix the random seed. Put parameters in a config file.</li>
+</ul>
+<p>Done when: you pick a public tabular dataset (UCI Adult is fine) and write <code>train.py</code>. The command line takes a data path and a config. When it finishes, you have metrics and a model file.</p>
+<p>Stay with tabular models in this stage. Backprop derivations, paper reading, and large-model fine-tuning come after the path actually runs.</p>
+<h2 id="stage-1-one-experiment-that-someone-else-can-reproduce-34-weeks">Stage 1: one experiment that someone else can reproduce (3–4 weeks)</h2>
+<p>After someone clones the repo, they can rerun the same experiment. That is the first brick of MLOps.</p>
+<p>Use Python, Git, MLflow, and DVC.</p>
+<ul>
+<li>Use <code>venv</code> or <code>uv</code>, and lock dependency versions.</li>
+<li>Do not commit data or model files. DVC commits only the pointer file. Large files live in remote storage.</li>
+<li>Each training run records parameters, metrics, and the model with MLflow Tracking.</li>
+<li>One experiment is one YAML config.</li>
+<li>Cover feature transforms with pytest. Leave a small-sample smoke test on the training script so the command can finish.</li>
+</ul>
+<p>These commands should be stable when you check the stage off:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc pull
+</span></span><span class="line"><span class="ln">2</span><span class="cl">python train.py --config conf/baseline.yaml
+</span></span><span class="line"><span class="ln">3</span><span class="cl">mlflow ui
+</span></span></code></pre></div><p>Run again with a different parameter set. The two MLflow runs can be compared side by side. On another machine, <code>git clone</code> followed by <code>dvc pull</code> reproduces the metrics.</p>
+<h2 id="stage-2-turn-the-script-into-a-pipeline-34-weeks">Stage 2: turn the script into a pipeline (3–4 weeks)</h2>
+<p>A pipeline is something that can be scheduled, retried, and rerun from an intermediate step. Split it in this order:</p>
+<ol>
+<li>Validate raw data: field types, null ratios, value ranges.</li>
+<li>Split the dataset, and version the split on its own.</li>
+<li>Fit the feature transform, and save the transformer with the model.</li>
+<li>Train.</li>
+<li>Evaluate on the held-out set. If the score is below a threshold written down in advance, the process exits non-zero.</li>
+<li>Only after evaluation passes, register the model and assign the <code>staging</code> alias.</li>
+</ol>
+<p>Pick one orchestrator. To move fast, chain the steps with a Makefile or a short Python script. To match an existing scheduler, use Airflow or Prefect. Kubeflow Pipelines fits a team that already runs Kubernetes and is ready to standardize a training platform. It is a poor first orchestration course.</p>
+<p>Hook CI to the GitLab CI or GitHub Actions you already have. Every push runs lint, pytest, and the small-sample smoke test. A full training run happens on a tag or a manual trigger.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="nt">stages</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">test, train]</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w"></span><span class="nt">test</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l">test</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">    </span>- <span class="l">pip install -r requirements.txt</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">    </span>- <span class="l">pytest</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w"></span><span class="nt">train</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l">train</span><span class="w">
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w">  </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l">manual</span><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="w">    </span>- <span class="l">dvc pull</span><span class="w">
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="w">    </span>- <span class="l">python src/train.py --config conf/baseline.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="w">    </span>- <span class="l">python src/evaluate_gate.py  </span><span class="w"> </span><span class="c"># exit non-zero below the threshold</span><span class="w">
+</span></span></span></code></pre></div><p>Register models with MLflow Model Registry aliases, and load them as <code>models:/churn@production</code>. Promotion points the <code>production</code> alias at the new version. Rollback points it back at the old one. An alias is harder to get wrong than a version number written into the deploy config.</p>
+<p>Done when: changing one line of feature code still lets CI finish; when evaluation is below the threshold, the pipeline fails and the <code>production</code> alias does not move.</p>
+<h2 id="stage-3-a-service-something-else-can-call-34-weeks">Stage 3: a service something else can call (3–4 weeks)</h2>
+<p>Start with online inference. The feedback is fastest. Offline batch scoring is another entry point to the same model. Add it after the interface is stable.</p>
+<p>The service does three things: load the model and the transformer at startup, transform features per request, and return a prediction. Load at process start, not on every request.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">asynccontextmanager</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="kn">import</span> <span class="nn">joblib</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kn">import</span> <span class="nn">mlflow.pyfunc</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="n">MODEL_URI</span> <span class="o">=</span> <span class="s2">&#34;models:/churn@production&#34;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl">
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="k">class</span> <span class="nc">PredictRequest</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="n">tenure</span><span class="p">:</span> <span class="nb">int</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="n">monthly_charges</span><span class="p">:</span> <span class="nb">float</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="n">contract</span><span class="p">:</span> <span class="nb">str</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="k">def</span> <span class="nf">to_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">model_dump</span><span class="p">()])</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">
+</span></span><span class="line"><span class="ln">20</span><span class="cl">
+</span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="k">class</span> <span class="nc">State</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="n">model</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="n">transformer</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">
+</span></span><span class="line"><span class="ln">25</span><span class="cl">
+</span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="n">state</span> <span class="o">=</span> <span class="n">State</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">
+</span></span><span class="line"><span class="ln">28</span><span class="cl">
+</span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="nd">@asynccontextmanager</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">lifespan</span><span class="p">(</span><span class="n">app</span><span class="p">:</span> <span class="n">FastAPI</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">    <span class="n">state</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">pyfunc</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="n">MODEL_URI</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">    <span class="n">state</span><span class="o">.</span><span class="n">transformer</span> <span class="o">=</span> <span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&#34;artifacts/transformer.joblib&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">    <span class="k">yield</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl">
+</span></span><span class="line"><span class="ln">35</span><span class="cl">
+</span></span><span class="line"><span class="ln">36</span><span class="cl"><span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">(</span><span class="n">lifespan</span><span class="o">=</span><span class="n">lifespan</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">37</span><span class="cl">
+</span></span><span class="line"><span class="ln">38</span><span class="cl">
+</span></span><span class="line"><span class="ln">39</span><span class="cl"><span class="nd">@app.post</span><span class="p">(</span><span class="s2">&#34;/predict&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">40</span><span class="cl"><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">req</span><span class="p">:</span> <span class="n">PredictRequest</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln">41</span><span class="cl">    <span class="n">features</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">to_frame</span><span class="p">())</span>
+</span></span><span class="line"><span class="ln">42</span><span class="cl">    <span class="n">proba</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">43</span><span class="cl">    <span class="k">return</span> <span class="p">{</span><span class="s2">&#34;proba&#34;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">proba</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="s2">&#34;model&#34;</span><span class="p">:</span> <span class="n">MODEL_URI</span><span class="p">}</span>
+</span></span></code></pre></div><p>Then add the things production always runs into:</p>
+<ul>
+<li>Fix request and response fields with Pydantic. Reject extra fields and missing fields immediately.</li>
+<li>Put <code>model_version</code> and a request id on the logs. Otherwise you cannot tell which version answered.</li>
+<li><code>/health</code> means the model has finished loading. Hand <code>/metrics</code> to Prometheus.</li>
+<li>Pack it as an image. <code>docker run</code> locally should be enough to get a prediction.</li>
+<li>FastAPI is enough for a tabular model. For large-model inference on GPUs, look at NVIDIA Triton.</li>
+</ul>
+<p>Deploy the way you already deploy on Kubernetes: one Deployment and one Service. Leave KServe until the number of models justifies a shared inference plane.</p>
+<p>Done when: the same sample gets the same prediction from the offline script and from the API. The image tag, the model alias, and the transformer file all refer to the same release.</p>
+<h2 id="stage-4-monitoring-and-rollback-34-weeks">Stage 4: monitoring and rollback (3–4 weeks)</h2>
+<p>After launch, a model often gets worse while the process stays healthy. The predictions just drift. Watch four layers:</p>
+<ul>
+<li>Service: QPS, latency, error rate. Prometheus and Grafana, the same stack as the other services.</li>
+<li>Input: missing-feature rate, mean, quantiles. Compare with the training set or with last week.</li>
+<li>Output: the distribution of prediction scores, and the share of the positive class. If the shape jumps, check upstream data first.</li>
+<li>Outcome: when labels arrive late, wait until they are in before computing the real metric. If there are no labels, use a business proxy such as rejection rate or manual-review rate.</li>
+</ul>
+<p>Drift can start as a daily job. Compare today&rsquo;s request sample with the training sample using PSI or Evidently, and send the result to a daily report or a metric. The first bar is one comparison every day.</p>
+<p>Release in increasing order of risk:</p>
+<ol>
+<li>Replace all traffic, and keep the previous Deployment. If it goes wrong, roll the <code>production</code> alias and the image back together.</li>
+<li>Shadow traffic: the new model only records predictions. It does not answer the user.</li>
+<li>Split traffic by percentage: 1% → 10% → 100%. At each step, watch latency and the output distribution.</li>
+</ol>
+<p>Automatic retraining comes after the gate, the data window, and rollback are all stable. If the trigger is vague, bad data walks straight into the next model.</p>
+<p>Done when: you deliberately change the distribution of one feature, and a report or dashboard points at it within a day. After you roll back, the model version in the live logs is the previous one.</p>
+<h2 id="stage-5-a-platform-after-there-are-many-models">Stage 5: a platform, after there are many models</h2>
+<p>One person or a small group only needs one path through stages 1 to 4. The items below show up when the number of models and the number of people grow:</p>
+<ul>
+<li>Training and online serving share the same feature computation, so one sample does not produce two different results. The first step is shipping the transformer with the model. A feature store such as Feast comes in when that convention no longer holds.</li>
+<li>GPU queues and quotas on the cluster. If you already have Kubernetes, attach Kueue or Volcano to the cluster you have.</li>
+<li>Lineage: a production model traces back to a data version, a Git commit, and an image digest.</li>
+<li>Permission: who can move an alias to <code>production</code>, and an audit record of that action.</li>
+<li>If the direction is large language models, add LLMOps: versioned prompts and eval sets, RAG index updates, and cost and latency per request. Underneath, it is still versions, gates, deployment, and monitoring.</li>
+</ul>
+<h2 id="stick-to-one-stack">Stick to one stack</h2>
+<p>Keep one tool per step, and learn it well enough to debug it.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Step</th>
+          <th>Learn this</th>
+          <th>Add something else when</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Experiments and registry</td>
+          <td>MLflow</td>
+          <td>The team has already standardized on another platform</td>
+      </tr>
+      <tr>
+          <td>Data versions</td>
+          <td>DVC</td>
+          <td>Data is in a lake and you need branches and permissions; then look at lakeFS</td>
+      </tr>
+      <tr>
+          <td>Pipelines</td>
+          <td>Airflow or Prefect</td>
+          <td>Training jobs already all run on Kubernetes; then evaluate Kubeflow</td>
+      </tr>
+      <tr>
+          <td>Serving</td>
+          <td>FastAPI + Docker</td>
+          <td>Large-model inference on GPUs; then Triton</td>
+      </tr>
+      <tr>
+          <td>Runtime</td>
+          <td>Kubernetes + the CI you have</td>
+          <td>Many models; then KServe</td>
+      </tr>
+      <tr>
+          <td>Monitoring</td>
+          <td>Prometheus + Grafana; drift with PSI or Evidently</td>
+          <td>A daily report is no longer enough; then look at a dedicated model-monitoring product</td>
+      </tr>
+      <tr>
+          <td>Cloud</td>
+          <td>Pick one of SageMaker, Vertex AI, or Azure Machine Learning</td>
+          <td>After the open-source path runs, see which piece the managed service removes</td>
+      </tr>
+  </tbody>
+</table>
+<p>Pick the cloud platform that matches the job. Run the path on your own machine first, then look at the managed service. A model clicked together in a console is hard to debug, because you no longer know what you deployed.</p>
+<h2 id="tie-it-together-with-one-project">Tie it together with one project</h2>
+<p>The topic can be small. Churn, ticket classification, or credit default all work. The repo ends up with:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl">conf/baseline.yaml          # one config per experiment
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">src/train.py
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">src/features.py
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">src/serve.py
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">src/evaluate_gate.py        # fail below the threshold
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">tests/
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">Dockerfile
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">.gitlab-ci.yml
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">monitoring/drift.py         # daily input comparison
+</span></span><span class="line"><span class="ln">10</span><span class="cl">artifacts/*.dvc             # pointers to data and models, not the files
+</span></span><span class="line"><span class="ln">11</span><span class="cl">README.md
+</span></span></code></pre></div><p>The README covers three things: how to reproduce a given experiment, how to promote a model to <code>production</code>, and how to roll it back.</p>
+<p>On a resume this can read: built the train, register, serve, and rollback path for a tabular model; managed the live version with MLflow aliases; blocked release in CI when evaluation missed the bar; ran a daily check for input drift.</p>
+<h2 id="how-to-schedule-the-time">How to schedule the time</h2>
+<p>At 8–10 hours a week:</p>
+<ul>
+<li>Month 1: stages 0 and 1. You have a training repo someone else can reproduce.</li>
+<li>Month 2: stages 2 and 3. A pipeline, a registry, and a service that can be called.</li>
+<li>Month 3: stage 4. Monitoring, drift, rollback, and a finished README.</li>
+<li>After that: keep the path alive at work and in this repo, then add one cloud platform or GPU inference for the role you want.</li>
+</ul>
+<p>If Kubernetes and CI are already familiar, stage 3 goes much faster. Most of the time goes to stages 0 and 1. Skip those and the later platform has nothing to host.</p>
+<h2 id="four-things-you-should-be-able-to-explain-in-an-interview">Four things you should be able to explain in an interview</h2>
+<p>A tool list does not help much. Prepare examples around &ldquo;the model broke; how did you notice, and what did you do&rdquo;:</p>
+<ul>
+<li>A training run no longer matches a historical metric. How you found that the data split or a dependency version had changed.</li>
+<li>Live quality drops. How you tell apart a service failure, input drift, and a change in the labels themselves.</li>
+<li>Evaluation fails. Why that model never reaches <code>production</code>.</li>
+<li>On rollback, whether the image, the model alias, the feature transformer, and the config all go back together.</li>
+</ul>
+<h2 id="what-to-read-in-order">What to read, in order</h2>
+<ol>
+<li>Chip Huyen, <em>Designing Machine Learning Systems</em>. Read the data, training, deployment, and monitoring chapters first, and use the book as a map.</li>
+<li><a href="https://github.com/DataTalksClub/mlops-zoomcamp">MLOps Zoomcamp</a>. Free. The assignments are a path you can actually run.</li>
+<li>DeepLearning.AI on Coursera, <a href="https://www.coursera.org/specializations/machine-learning-engineering-for-production-mlops">Machine Learning Engineering for Production</a>. Use it to line up the vocabulary.</li>
+<li>Tracking and Model Registry in the <a href="https://mlflow.org/docs/latest/">MLflow docs</a>, plus <a href="https://dvc.org/doc/start">Get Started with DVC</a>. Do the steps against your own repo.</li>
+<li>Google&rsquo;s <a href="https://cloud.google.com/architecture/practitioners-guide-to-mlops">Practitioners Guide to MLOps</a>. See how a mature team stages the process.</li>
+</ol>
+<p>Papers and framework release notes can wait until this path already runs.</p>
+<h2 id="ways-the-path-gets-longer-than-it-needs-to-be">Ways the path gets longer than it needs to be</h2>
+<ul>
+<li>Spending the time on a Kubernetes certification while the repo still has no reproducible training entry point. The cluster is where the model runs.</li>
+<li>Learning three tools each for experiment tracking, registry, and deployment, and ending with none that can finish a release alone.</li>
+<li>Notebooks only. Training that CI cannot invoke cannot enter a pipeline.</li>
+<li>Building automatic retraining and a feature platform before versions, an evaluation gate, and rollback exist. Automation amplifies the mistake.</li>
+<li>Reporting training-set metrics only, and never checking that the same sample gets the same prediction from the live API.</li>
+</ul>
+<p>First make one model retrainable, rejectable, observable, and rollback-able. Once those four exist, a platform and a team standard have something to land on.</p>
+]]></description><content:encoded><![CDATA[<p>MLOps is the work of making a model trainable by someone else, blocked by evaluation, deployed, observed, and reversible to the previous version when it goes wrong.</p>
+<p>If you already know Linux, Docker, Kubernetes, and CI/CD, what is missing is wiring data, experiments, and models into that delivery path. The stages below start from there. If your background is algorithms or data analysis, replace stage 0 with the engineering gap (Git, tests, Docker, one scheduler). The later stages stay the same.</p>
+<h2 id="how-mlops-maps-onto-the-ops-you-already-do">How MLOps maps onto the ops you already do</h2>
+<p>A model path usually looks like this:</p>
+<p>data in → validation and features → training → offline evaluation → model registry → deploy → online inference → watch drift and outcomes → decide whether to retrain</p>
+<table>
+  <thead>
+      <tr>
+          <th>What you already do</th>
+          <th>What you also have to manage for a model</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Code versions</td>
+          <td>Code, data, and model versions that line up</td>
+      </tr>
+      <tr>
+          <td>Building an image</td>
+          <td>The image also pins the model artifact and the feature transformer</td>
+      </tr>
+      <tr>
+          <td>Unit tests</td>
+          <td>Add data checks and offline evaluation, and fail the pipeline when they miss the bar</td>
+      </tr>
+      <tr>
+          <td>Release and rollback</td>
+          <td>Move the model alias from <code>staging</code> to <code>production</code>; rollback points the alias at the previous version</td>
+      </tr>
+      <tr>
+          <td>CPU, error rate, latency</td>
+          <td>Also watch input distribution, prediction distribution, and business metrics that arrive late</td>
+      </tr>
+  </tbody>
+</table>
+<p>A complete platform is still a broken path if you cannot answer which data, which code, and which image produced the model that is serving traffic.</p>
+<h2 id="stage-0-the-smallest-machine-learning-set-24-weeks">Stage 0: the smallest machine-learning set (2–4 weeks)</h2>
+<p>The goal is to read training code, read metrics, and decide whether two experiments can be compared. You do not need to start with papers.</p>
+<p>What to learn:</p>
+<ul>
+<li>How to split training, validation, and test. Information from the validation set must not leak into features or preprocessing.</li>
+<li>Common metrics for classification and regression: precision, recall, F1, AUC, MAE, RMSE. When classes are extremely imbalanced, accuracy is almost useless.</li>
+<li>When overfitting, underfitting, regularization, and early stopping show up.</li>
+<li>Missing values, categorical encoding, and numeric scaling. A transformer fitted at training time must be used unchanged at inference time.</li>
+<li>One tabular model with scikit-learn or XGBoost: read data, train, print metrics, save the model to a file.</li>
+<li>A command-line script as the training entry point. Fix the random seed. Put parameters in a config file.</li>
+</ul>
+<p>Done when: you pick a public tabular dataset (UCI Adult is fine) and write <code>train.py</code>. The command line takes a data path and a config. When it finishes, you have metrics and a model file.</p>
+<p>Stay with tabular models in this stage. Backprop derivations, paper reading, and large-model fine-tuning come after the path actually runs.</p>
+<h2 id="stage-1-one-experiment-that-someone-else-can-reproduce-34-weeks">Stage 1: one experiment that someone else can reproduce (3–4 weeks)</h2>
+<p>After someone clones the repo, they can rerun the same experiment. That is the first brick of MLOps.</p>
+<p>Use Python, Git, MLflow, and DVC.</p>
+<ul>
+<li>Use <code>venv</code> or <code>uv</code>, and lock dependency versions.</li>
+<li>Do not commit data or model files. DVC commits only the pointer file. Large files live in remote storage.</li>
+<li>Each training run records parameters, metrics, and the model with MLflow Tracking.</li>
+<li>One experiment is one YAML config.</li>
+<li>Cover feature transforms with pytest. Leave a small-sample smoke test on the training script so the command can finish.</li>
+</ul>
+<p>These commands should be stable when you check the stage off:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc pull
+</span></span><span class="line"><span class="ln">2</span><span class="cl">python train.py --config conf/baseline.yaml
+</span></span><span class="line"><span class="ln">3</span><span class="cl">mlflow ui
+</span></span></code></pre></div><p>Run again with a different parameter set. The two MLflow runs can be compared side by side. On another machine, <code>git clone</code> followed by <code>dvc pull</code> reproduces the metrics.</p>
+<h2 id="stage-2-turn-the-script-into-a-pipeline-34-weeks">Stage 2: turn the script into a pipeline (3–4 weeks)</h2>
+<p>A pipeline is something that can be scheduled, retried, and rerun from an intermediate step. Split it in this order:</p>
+<ol>
+<li>Validate raw data: field types, null ratios, value ranges.</li>
+<li>Split the dataset, and version the split on its own.</li>
+<li>Fit the feature transform, and save the transformer with the model.</li>
+<li>Train.</li>
+<li>Evaluate on the held-out set. If the score is below a threshold written down in advance, the process exits non-zero.</li>
+<li>Only after evaluation passes, register the model and assign the <code>staging</code> alias.</li>
+</ol>
+<p>Pick one orchestrator. To move fast, chain the steps with a Makefile or a short Python script. To match an existing scheduler, use Airflow or Prefect. Kubeflow Pipelines fits a team that already runs Kubernetes and is ready to standardize a training platform. It is a poor first orchestration course.</p>
+<p>Hook CI to the GitLab CI or GitHub Actions you already have. Every push runs lint, pytest, and the small-sample smoke test. A full training run happens on a tag or a manual trigger.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="nt">stages</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="l">test, train]</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w"></span><span class="nt">test</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l">test</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">    </span>- <span class="l">pip install -r requirements.txt</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">    </span>- <span class="l">pytest</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w"></span><span class="nt">train</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">  </span><span class="nt">stage</span><span class="p">:</span><span class="w"> </span><span class="l">train</span><span class="w">
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w">  </span><span class="nt">when</span><span class="p">:</span><span class="w"> </span><span class="l">manual</span><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w">  </span><span class="nt">script</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="w">    </span>- <span class="l">dvc pull</span><span class="w">
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="w">    </span>- <span class="l">python src/train.py --config conf/baseline.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="w">    </span>- <span class="l">python src/evaluate_gate.py  </span><span class="w"> </span><span class="c"># exit non-zero below the threshold</span><span class="w">
+</span></span></span></code></pre></div><p>Register models with MLflow Model Registry aliases, and load them as <code>models:/churn@production</code>. Promotion points the <code>production</code> alias at the new version. Rollback points it back at the old one. An alias is harder to get wrong than a version number written into the deploy config.</p>
+<p>Done when: changing one line of feature code still lets CI finish; when evaluation is below the threshold, the pipeline fails and the <code>production</code> alias does not move.</p>
+<h2 id="stage-3-a-service-something-else-can-call-34-weeks">Stage 3: a service something else can call (3–4 weeks)</h2>
+<p>Start with online inference. The feedback is fastest. Offline batch scoring is another entry point to the same model. Add it after the interface is stable.</p>
+<p>The service does three things: load the model and the transformer at startup, transform features per request, and return a prediction. Load at process start, not on every request.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">asynccontextmanager</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="kn">import</span> <span class="nn">joblib</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kn">import</span> <span class="nn">mlflow.pyfunc</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="kn">from</span> <span class="nn">fastapi</span> <span class="kn">import</span> <span class="n">FastAPI</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="n">MODEL_URI</span> <span class="o">=</span> <span class="s2">&#34;models:/churn@production&#34;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl">
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="k">class</span> <span class="nc">PredictRequest</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">    <span class="n">tenure</span><span class="p">:</span> <span class="nb">int</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="n">monthly_charges</span><span class="p">:</span> <span class="nb">float</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="n">contract</span><span class="p">:</span> <span class="nb">str</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="k">def</span> <span class="nf">to_frame</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">        <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">model_dump</span><span class="p">()])</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">
+</span></span><span class="line"><span class="ln">20</span><span class="cl">
+</span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="k">class</span> <span class="nc">State</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="n">model</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="n">transformer</span> <span class="o">=</span> <span class="kc">None</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">
+</span></span><span class="line"><span class="ln">25</span><span class="cl">
+</span></span><span class="line"><span class="ln">26</span><span class="cl"><span class="n">state</span> <span class="o">=</span> <span class="n">State</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">
+</span></span><span class="line"><span class="ln">28</span><span class="cl">
+</span></span><span class="line"><span class="ln">29</span><span class="cl"><span class="nd">@asynccontextmanager</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl"><span class="k">async</span> <span class="k">def</span> <span class="nf">lifespan</span><span class="p">(</span><span class="n">app</span><span class="p">:</span> <span class="n">FastAPI</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">    <span class="n">state</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">mlflow</span><span class="o">.</span><span class="n">pyfunc</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="n">MODEL_URI</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">32</span><span class="cl">    <span class="n">state</span><span class="o">.</span><span class="n">transformer</span> <span class="o">=</span> <span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&#34;artifacts/transformer.joblib&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">33</span><span class="cl">    <span class="k">yield</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl">
+</span></span><span class="line"><span class="ln">35</span><span class="cl">
+</span></span><span class="line"><span class="ln">36</span><span class="cl"><span class="n">app</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">(</span><span class="n">lifespan</span><span class="o">=</span><span class="n">lifespan</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">37</span><span class="cl">
+</span></span><span class="line"><span class="ln">38</span><span class="cl">
+</span></span><span class="line"><span class="ln">39</span><span class="cl"><span class="nd">@app.post</span><span class="p">(</span><span class="s2">&#34;/predict&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">40</span><span class="cl"><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">req</span><span class="p">:</span> <span class="n">PredictRequest</span><span class="p">):</span>
+</span></span><span class="line"><span class="ln">41</span><span class="cl">    <span class="n">features</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">req</span><span class="o">.</span><span class="n">to_frame</span><span class="p">())</span>
+</span></span><span class="line"><span class="ln">42</span><span class="cl">    <span class="n">proba</span> <span class="o">=</span> <span class="n">state</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">43</span><span class="cl">    <span class="k">return</span> <span class="p">{</span><span class="s2">&#34;proba&#34;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">proba</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="s2">&#34;model&#34;</span><span class="p">:</span> <span class="n">MODEL_URI</span><span class="p">}</span>
+</span></span></code></pre></div><p>Then add the things production always runs into:</p>
+<ul>
+<li>Fix request and response fields with Pydantic. Reject extra fields and missing fields immediately.</li>
+<li>Put <code>model_version</code> and a request id on the logs. Otherwise you cannot tell which version answered.</li>
+<li><code>/health</code> means the model has finished loading. Hand <code>/metrics</code> to Prometheus.</li>
+<li>Pack it as an image. <code>docker run</code> locally should be enough to get a prediction.</li>
+<li>FastAPI is enough for a tabular model. For large-model inference on GPUs, look at NVIDIA Triton.</li>
+</ul>
+<p>Deploy the way you already deploy on Kubernetes: one Deployment and one Service. Leave KServe until the number of models justifies a shared inference plane.</p>
+<p>Done when: the same sample gets the same prediction from the offline script and from the API. The image tag, the model alias, and the transformer file all refer to the same release.</p>
+<h2 id="stage-4-monitoring-and-rollback-34-weeks">Stage 4: monitoring and rollback (3–4 weeks)</h2>
+<p>After launch, a model often gets worse while the process stays healthy. The predictions just drift. Watch four layers:</p>
+<ul>
+<li>Service: QPS, latency, error rate. Prometheus and Grafana, the same stack as the other services.</li>
+<li>Input: missing-feature rate, mean, quantiles. Compare with the training set or with last week.</li>
+<li>Output: the distribution of prediction scores, and the share of the positive class. If the shape jumps, check upstream data first.</li>
+<li>Outcome: when labels arrive late, wait until they are in before computing the real metric. If there are no labels, use a business proxy such as rejection rate or manual-review rate.</li>
+</ul>
+<p>Drift can start as a daily job. Compare today&rsquo;s request sample with the training sample using PSI or Evidently, and send the result to a daily report or a metric. The first bar is one comparison every day.</p>
+<p>Release in increasing order of risk:</p>
+<ol>
+<li>Replace all traffic, and keep the previous Deployment. If it goes wrong, roll the <code>production</code> alias and the image back together.</li>
+<li>Shadow traffic: the new model only records predictions. It does not answer the user.</li>
+<li>Split traffic by percentage: 1% → 10% → 100%. At each step, watch latency and the output distribution.</li>
+</ol>
+<p>Automatic retraining comes after the gate, the data window, and rollback are all stable. If the trigger is vague, bad data walks straight into the next model.</p>
+<p>Done when: you deliberately change the distribution of one feature, and a report or dashboard points at it within a day. After you roll back, the model version in the live logs is the previous one.</p>
+<h2 id="stage-5-a-platform-after-there-are-many-models">Stage 5: a platform, after there are many models</h2>
+<p>One person or a small group only needs one path through stages 1 to 4. The items below show up when the number of models and the number of people grow:</p>
+<ul>
+<li>Training and online serving share the same feature computation, so one sample does not produce two different results. The first step is shipping the transformer with the model. A feature store such as Feast comes in when that convention no longer holds.</li>
+<li>GPU queues and quotas on the cluster. If you already have Kubernetes, attach Kueue or Volcano to the cluster you have.</li>
+<li>Lineage: a production model traces back to a data version, a Git commit, and an image digest.</li>
+<li>Permission: who can move an alias to <code>production</code>, and an audit record of that action.</li>
+<li>If the direction is large language models, add LLMOps: versioned prompts and eval sets, RAG index updates, and cost and latency per request. Underneath, it is still versions, gates, deployment, and monitoring.</li>
+</ul>
+<h2 id="stick-to-one-stack">Stick to one stack</h2>
+<p>Keep one tool per step, and learn it well enough to debug it.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Step</th>
+          <th>Learn this</th>
+          <th>Add something else when</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Experiments and registry</td>
+          <td>MLflow</td>
+          <td>The team has already standardized on another platform</td>
+      </tr>
+      <tr>
+          <td>Data versions</td>
+          <td>DVC</td>
+          <td>Data is in a lake and you need branches and permissions; then look at lakeFS</td>
+      </tr>
+      <tr>
+          <td>Pipelines</td>
+          <td>Airflow or Prefect</td>
+          <td>Training jobs already all run on Kubernetes; then evaluate Kubeflow</td>
+      </tr>
+      <tr>
+          <td>Serving</td>
+          <td>FastAPI + Docker</td>
+          <td>Large-model inference on GPUs; then Triton</td>
+      </tr>
+      <tr>
+          <td>Runtime</td>
+          <td>Kubernetes + the CI you have</td>
+          <td>Many models; then KServe</td>
+      </tr>
+      <tr>
+          <td>Monitoring</td>
+          <td>Prometheus + Grafana; drift with PSI or Evidently</td>
+          <td>A daily report is no longer enough; then look at a dedicated model-monitoring product</td>
+      </tr>
+      <tr>
+          <td>Cloud</td>
+          <td>Pick one of SageMaker, Vertex AI, or Azure Machine Learning</td>
+          <td>After the open-source path runs, see which piece the managed service removes</td>
+      </tr>
+  </tbody>
+</table>
+<p>Pick the cloud platform that matches the job. Run the path on your own machine first, then look at the managed service. A model clicked together in a console is hard to debug, because you no longer know what you deployed.</p>
+<h2 id="tie-it-together-with-one-project">Tie it together with one project</h2>
+<p>The topic can be small. Churn, ticket classification, or credit default all work. The repo ends up with:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln"> 1</span><span class="cl">conf/baseline.yaml          # one config per experiment
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">src/train.py
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">src/features.py
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">src/serve.py
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">src/evaluate_gate.py        # fail below the threshold
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">tests/
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">Dockerfile
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">.gitlab-ci.yml
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">monitoring/drift.py         # daily input comparison
+</span></span><span class="line"><span class="ln">10</span><span class="cl">artifacts/*.dvc             # pointers to data and models, not the files
+</span></span><span class="line"><span class="ln">11</span><span class="cl">README.md
+</span></span></code></pre></div><p>The README covers three things: how to reproduce a given experiment, how to promote a model to <code>production</code>, and how to roll it back.</p>
+<p>On a resume this can read: built the train, register, serve, and rollback path for a tabular model; managed the live version with MLflow aliases; blocked release in CI when evaluation missed the bar; ran a daily check for input drift.</p>
+<h2 id="how-to-schedule-the-time">How to schedule the time</h2>
+<p>At 8–10 hours a week:</p>
+<ul>
+<li>Month 1: stages 0 and 1. You have a training repo someone else can reproduce.</li>
+<li>Month 2: stages 2 and 3. A pipeline, a registry, and a service that can be called.</li>
+<li>Month 3: stage 4. Monitoring, drift, rollback, and a finished README.</li>
+<li>After that: keep the path alive at work and in this repo, then add one cloud platform or GPU inference for the role you want.</li>
+</ul>
+<p>If Kubernetes and CI are already familiar, stage 3 goes much faster. Most of the time goes to stages 0 and 1. Skip those and the later platform has nothing to host.</p>
+<h2 id="four-things-you-should-be-able-to-explain-in-an-interview">Four things you should be able to explain in an interview</h2>
+<p>A tool list does not help much. Prepare examples around &ldquo;the model broke; how did you notice, and what did you do&rdquo;:</p>
+<ul>
+<li>A training run no longer matches a historical metric. How you found that the data split or a dependency version had changed.</li>
+<li>Live quality drops. How you tell apart a service failure, input drift, and a change in the labels themselves.</li>
+<li>Evaluation fails. Why that model never reaches <code>production</code>.</li>
+<li>On rollback, whether the image, the model alias, the feature transformer, and the config all go back together.</li>
+</ul>
+<h2 id="what-to-read-in-order">What to read, in order</h2>
+<ol>
+<li>Chip Huyen, <em>Designing Machine Learning Systems</em>. Read the data, training, deployment, and monitoring chapters first, and use the book as a map.</li>
+<li><a href="https://github.com/DataTalksClub/mlops-zoomcamp">MLOps Zoomcamp</a>. Free. The assignments are a path you can actually run.</li>
+<li>DeepLearning.AI on Coursera, <a href="https://www.coursera.org/specializations/machine-learning-engineering-for-production-mlops">Machine Learning Engineering for Production</a>. Use it to line up the vocabulary.</li>
+<li>Tracking and Model Registry in the <a href="https://mlflow.org/docs/latest/">MLflow docs</a>, plus <a href="https://dvc.org/doc/start">Get Started with DVC</a>. Do the steps against your own repo.</li>
+<li>Google&rsquo;s <a href="https://cloud.google.com/architecture/practitioners-guide-to-mlops">Practitioners Guide to MLOps</a>. See how a mature team stages the process.</li>
+</ol>
+<p>Papers and framework release notes can wait until this path already runs.</p>
+<h2 id="ways-the-path-gets-longer-than-it-needs-to-be">Ways the path gets longer than it needs to be</h2>
+<ul>
+<li>Spending the time on a Kubernetes certification while the repo still has no reproducible training entry point. The cluster is where the model runs.</li>
+<li>Learning three tools each for experiment tracking, registry, and deployment, and ending with none that can finish a release alone.</li>
+<li>Notebooks only. Training that CI cannot invoke cannot enter a pipeline.</li>
+<li>Building automatic retraining and a feature platform before versions, an evaluation gate, and rollback exist. Automation amplifies the mistake.</li>
+<li>Reporting training-set metrics only, and never checking that the same sample gets the same prediction from the live API.</li>
+</ul>
+<p>First make one model retrainable, rejectable, observable, and rollback-able. Once those four exist, a platform and a team standard have something to land on.</p>
+]]></content:encoded></item><item><title>Welcome to Jobcher's Blog</title><link>https://www.jobcher.com/en/welcome-to-jobcher-blog/</link><pubDate>Thu, 16 Jan 2025 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/en/welcome-to-jobcher-blog/</guid><description><![CDATA[<h1 id="welcome-to-jobchers-blog">Welcome to Jobcher&rsquo;s Blog</h1>
+<p>Welcome to my personal blog! This is a space where I share my thoughts, experiences, and knowledge about technology, software development, Kubernetes, and more.</p>
+<h2 id="about-this-blog">About This Blog</h2>
+<p>This blog covers various topics including:</p>
+<ul>
+<li><strong>Kubernetes and Container Orchestration</strong>: Tutorials, best practices, and deployment guides</li>
+<li><strong>DevOps and CI/CD</strong>: Automation, infrastructure as code, and deployment strategies</li>
+<li><strong>Software Development</strong>: Programming languages, frameworks, and development tools</li>
+<li><strong>System Administration</strong>: Linux, networking, and system optimization</li>
+<li><strong>Technology Insights</strong>: Reviews, comparisons, and industry trends</li>
+</ul>
+<h2 id="what-to-expect">What to Expect</h2>
+<p>You&rsquo;ll find practical guides, tutorials, and insights based on real-world experiences. Most articles are currently available in Chinese, but I&rsquo;m working on providing more English content.</p>
+<p>If you&rsquo;re looking for more content, please check out the <a href="https://www.jobcher.com/zh-hans/">Chinese version</a> of this blog.</p>
+<h2 id="get-in-touch">Get in Touch</h2>
+<p>Feel free to reach out through:</p>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/jobcher">@jobcher</a></li>
+<li><strong>Twitter</strong>: <a href="https://twitter.com/jobcher1">@jobcher1</a></li>
+</ul>
+<p>Thank you for visiting, and I hope you find the content useful!</p>
+]]></description><content:encoded><![CDATA[<h1 id="welcome-to-jobchers-blog">Welcome to Jobcher&rsquo;s Blog</h1>
+<p>Welcome to my personal blog! This is a space where I share my thoughts, experiences, and knowledge about technology, software development, Kubernetes, and more.</p>
+<h2 id="about-this-blog">About This Blog</h2>
+<p>This blog covers various topics including:</p>
+<ul>
+<li><strong>Kubernetes and Container Orchestration</strong>: Tutorials, best practices, and deployment guides</li>
+<li><strong>DevOps and CI/CD</strong>: Automation, infrastructure as code, and deployment strategies</li>
+<li><strong>Software Development</strong>: Programming languages, frameworks, and development tools</li>
+<li><strong>System Administration</strong>: Linux, networking, and system optimization</li>
+<li><strong>Technology Insights</strong>: Reviews, comparisons, and industry trends</li>
+</ul>
+<h2 id="what-to-expect">What to Expect</h2>
+<p>You&rsquo;ll find practical guides, tutorials, and insights based on real-world experiences. Most articles are currently available in Chinese, but I&rsquo;m working on providing more English content.</p>
+<p>If you&rsquo;re looking for more content, please check out the <a href="https://www.jobcher.com/zh-hans/">Chinese version</a> of this blog.</p>
+<h2 id="get-in-touch">Get in Touch</h2>
+<p>Feel free to reach out through:</p>
+<ul>
+<li><strong>GitHub</strong>: <a href="https://github.com/jobcher">@jobcher</a></li>
+<li><strong>Twitter</strong>: <a href="https://twitter.com/jobcher1">@jobcher1</a></li>
+</ul>
+<p>Thank you for visiting, and I hope you find the content useful!</p>
+]]></content:encoded></item></channel></rss>

@@ -1,33 +1,147 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IOS 开发 on 打工人日志</title><link>https://www.jobcher.com/tags/ios-%E5%BC%80%E5%8F%91/</link><description>Recent content in IOS 开发 on 打工人日志</description><generator>Hugo</generator><language>zh-hans</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Mon, 16 Nov 2026 13:03:26 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/tags/ios-%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml"/><item><title>CocoaPods 安装及碰到问题</title><link>https://www.jobcher.com/cocoapods/</link><pubDate>Mon, 31 Jul 2023 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/cocoapods/</guid><description>&lt;h2 id="背景"&gt;背景&lt;/h2&gt;
-&lt;p&gt;CocoaPods 是OS X和IOS 下的第三类库管理工具，通过CocoaPods工具我们可以为项目添加被称为&lt;code&gt;Pods&lt;/code&gt;的依赖库&lt;/p&gt;
-&lt;h2 id="检查环境"&gt;检查环境&lt;/h2&gt;
-&lt;pre tabindex="0"&gt;&lt;code&gt;ruby -v
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>IOS 开发 - 打工人日志</title><link>https://www.jobcher.com/tags/ios-%E5%BC%80%E5%8F%91/</link><description>打工人日志（Jobcher）——面向开发者与运维的技术博客，覆盖 Kubernetes、Docker、Linux、监控、AI 与开发者工具的实战教程与干货。</description><generator>Hugo</generator><language>zh-cn</language><copyright>Copyright © 2022-2026 All Rights Reserved.</copyright><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor><webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 31 Jul 2023 00:00:00 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/tags/ios-%E5%BC%80%E5%8F%91/index.xml" rel="self" type="application/rss+xml"/><item><title>CocoaPods 安装及碰到问题</title><link>https://www.jobcher.com/cocoapods/</link><pubDate>Mon, 31 Jul 2023 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/cocoapods/</guid><description><![CDATA[<h2 id="背景">背景</h2>
+<p>CocoaPods 是OS X和IOS 下的第三类库管理工具，通过CocoaPods工具我们可以为项目添加被称为<code>Pods</code>的依赖库</p>
+<h2 id="检查环境">检查环境</h2>
+<pre tabindex="0"><code>ruby -v
 gem -v
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id="出现异常问题"&gt;出现异常问题&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/universal-darwin22/rbconfig.rb:21: warning: Insecure world writable dir /opt/homebrew/bin in PATH, mode 040777&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;该警告信息表明在你的PATH环境变量中包含了一个“不安全可写”（Insecure world writable）的目录&lt;code&gt;/opt/homebrew/bin&lt;/code&gt;。这可能会导致潜在的安全问题。&lt;br&gt;
-为了解决这个警告，你需要修复&lt;code&gt;/opt/homebrew/bin&lt;/code&gt;目录的权限，以使其不再被标记为“不安全可写”。&lt;/p&gt;
-&lt;h4 id="解决问题"&gt;解决问题&lt;/h4&gt;
-&lt;pre tabindex="0"&gt;&lt;code&gt;chmod 755 /opt/homebrew/bin
+</code></pre><h3 id="出现异常问题">出现异常问题</h3>
+<blockquote>
+<p>/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/universal-darwin22/rbconfig.rb:21: warning: Insecure world writable dir /opt/homebrew/bin in PATH, mode 040777</p>
+</blockquote>
+<p>该警告信息表明在你的PATH环境变量中包含了一个“不安全可写”（Insecure world writable）的目录<code>/opt/homebrew/bin</code>。这可能会导致潜在的安全问题。<br>
+为了解决这个警告，你需要修复<code>/opt/homebrew/bin</code>目录的权限，以使其不再被标记为“不安全可写”。</p>
+<h4 id="解决问题">解决问题</h4>
+<pre tabindex="0"><code>chmod 755 /opt/homebrew/bin
 chmod 755 /opt/homebrew
 chmod 755 /opt/homebrew/sbin
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="安装cocoapods"&gt;安装cocoapods&lt;/h2&gt;
-&lt;p&gt;输入安装命令&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;sudo gem install cocoapods
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="出现异常问题-1"&gt;出现异常问题&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;ERROR: While executing gem &amp;hellip; (Gem::FilePermissionError)
-You don&amp;rsquo;t have write permissions for the /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/gems/2.6.0 directory.
-/Library/Ruby/Site/2.6.0/rubygems/installer.rb:714:in &lt;code&gt;verify_gem_home' /Library/Ruby/Site/2.6.0/rubygems/installer.rb:904:in &lt;/code&gt;pre_install_checks'
-……&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;在 &lt;code&gt;macOS&lt;/code&gt; 系统中，系统的Ruby目录通常是受保护的，并且普通用户没有对这些目录进行写操作的权限。为了解决这个问题，你应该避免在系统级别的Ruby目录中进行Gem的安装。相反，你应该使用用户级别的Gem安装目录。&lt;/p&gt;
-&lt;h4 id="解决方案"&gt;解决方案&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;mkdir -p ~/.gem/ruby/2.6.0
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;&lt;span class="nv"&gt;$HOME&lt;/span&gt;&lt;span class="s2"&gt;/.gem/ruby/2.6.0/bin:&lt;/span&gt;&lt;span class="nv"&gt;$PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;source&lt;/span&gt; ~/.bash_profile
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;gem cocoapods install --user-install
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="第三方库"&gt;第三方库&lt;/h3&gt;
-&lt;p&gt;在iOS开发中，有许多常用的框架和库，用于加速应用程序的开发和提供各种功能。以下是一些常用的iOS开发框架和库：&lt;/p&gt;</description></item></channel></rss>
+</code></pre><h2 id="安装cocoapods">安装cocoapods</h2>
+<p>输入安装命令</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">sudo gem install cocoapods
+</span></span></code></pre></div><h3 id="出现异常问题-1">出现异常问题</h3>
+<blockquote>
+<p>ERROR:  While executing gem &hellip; (Gem::FilePermissionError)
+You don&rsquo;t have write permissions for the /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/gems/2.6.0 directory.
+/Library/Ruby/Site/2.6.0/rubygems/installer.rb:714:in <code>verify_gem_home' /Library/Ruby/Site/2.6.0/rubygems/installer.rb:904:in </code>pre_install_checks'
+……</p>
+</blockquote>
+<p>在 <code>macOS</code> 系统中，系统的Ruby目录通常是受保护的，并且普通用户没有对这些目录进行写操作的权限。为了解决这个问题，你应该避免在系统级别的Ruby目录中进行Gem的安装。相反，你应该使用用户级别的Gem安装目录。</p>
+<h4 id="解决方案">解决方案</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">mkdir -p ~/.gem/ruby/2.6.0
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.gem/ruby/2.6.0/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nb">source</span> ~/.bash_profile
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">gem cocoapods install --user-install
+</span></span></code></pre></div><h3 id="第三方库">第三方库</h3>
+<p>在iOS开发中，有许多常用的框架和库，用于加速应用程序的开发和提供各种功能。以下是一些常用的iOS开发框架和库：</p>
+<ol>
+<li><code>UIKit</code>：UIKit是iOS开发的核心框架，它提供了构建用户界面和处理用户交互的基本组件，如视图（UIView）、控制器（UIViewController）、按钮（UIButton）、标签栏（UITabBarController）等。</li>
+<li><code>SwiftUI</code>：SwiftUI是一种较新的声明性用户界面框架，它使您可以使用Swift代码轻松构建用户界面，并自动处理界面状态的变化。它为多平台开发（iOS、iPadOS、macOS、watchOS）提供了便捷的方式。</li>
+<li><code>Core Data</code>：Core Data是Apple提供的数据持久化框架，用于在iOS应用程序中管理数据模型、数据存储和数据查询。</li>
+<li><code>Core Animation</code>：Core Animation是处理iOS界面动画的底层框架，可以实现各种动画效果，包括平移、旋转、缩放和淡入淡出等。</li>
+<li><code>Alamofire</code>：Alamofire是一个优秀的网络请求库，它简化了在iOS应用程序中进行HTTP请求的过程，支持多种请求方式和参数编码。</li>
+<li><code>Kingfisher</code>：Kingfisher是一个流行的图像加载和缓存库，它能够异步加载网络上的图片，并且可以自动进行内存和磁盘缓存。</li>
+<li><code>Firebase</code>：Firebase是谷歌提供的一组云服务，包括实时数据库、身份验证、云存储、推送通知等功能，用于简化iOS应用程序的后端开发。</li>
+<li><code>SwiftyJSON</code>：SwiftyJSON是一个简单易用的JSON解析库，用于在iOS应用程序中解析和处理JSON数据。</li>
+<li><code>MapKit</code>：MapKit是iOS提供的地图显示框架，可以在应用程序中集成地图、标记、路线等地理位置功能。</li>
+<li><code>CoreDataKit</code>：CoreDataKit是一个便捷的Core Data封装库，简化了Core Data的使用和管理。</li>
+</ol>
+<p>这只是iOS开发中的一小部分常用框架和库，还有很多其他优秀的开源库可供选择，根据您的应用程序需求，选择适合的框架和库可以加快开发速度并提供更好的用户体验。</p>
+<h2 id="初始化项目">初始化项目</h2>
+<p>在xcode中创建项目，进入xcode根目录</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">pod init
+</span></span></code></pre></div><p>编写Podfile</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c"># Uncomment the next line to define a global platform for your project</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w"></span><span class="c"># platform :ios, &#39;9.0&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w"></span><span class="l">target &#39;demo&#39; do</span><span class="w"> </span><span class="c">### app名称</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w">  </span><span class="c"># Comment the next line if you don&#39;t want to use dynamic frameworks</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">  </span><span class="l">use_frameworks!</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">  </span><span class="c"># Pods for demo</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">  </span><span class="l">pod &#39;SWXMLHash&#39;</span><span class="w"> </span><span class="c">### 添加的依赖</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">  </span><span class="l">pod &#34;ViewAnimator&#34;</span><span class="w"> </span><span class="c">### 添加的依赖</span><span class="w">
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w">  </span><span class="l">target &#39;demoTests&#39; do</span><span class="w">
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="w">    </span><span class="l">inherit! :search_paths</span><span class="w">
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="w">    </span><span class="c"># Pods for testing</span><span class="w">
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="w">  </span><span class="l">end</span><span class="w">
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="w">  </span><span class="l">target &#39;demoUITests&#39; do</span><span class="w">
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="w">    </span><span class="c"># Pods for testing</span><span class="w">
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="w">  </span><span class="l">end</span><span class="w">
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="w"></span><span class="l">end</span><span class="w">
+</span></span></span></code></pre></div><p>安装依赖</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">pod install
+</span></span></code></pre></div>]]></description><content:encoded><![CDATA[<h2 id="背景">背景</h2>
+<p>CocoaPods 是OS X和IOS 下的第三类库管理工具，通过CocoaPods工具我们可以为项目添加被称为<code>Pods</code>的依赖库</p>
+<h2 id="检查环境">检查环境</h2>
+<pre tabindex="0"><code>ruby -v
+gem -v
+</code></pre><h3 id="出现异常问题">出现异常问题</h3>
+<blockquote>
+<p>/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/universal-darwin22/rbconfig.rb:21: warning: Insecure world writable dir /opt/homebrew/bin in PATH, mode 040777</p>
+</blockquote>
+<p>该警告信息表明在你的PATH环境变量中包含了一个“不安全可写”（Insecure world writable）的目录<code>/opt/homebrew/bin</code>。这可能会导致潜在的安全问题。<br>
+为了解决这个警告，你需要修复<code>/opt/homebrew/bin</code>目录的权限，以使其不再被标记为“不安全可写”。</p>
+<h4 id="解决问题">解决问题</h4>
+<pre tabindex="0"><code>chmod 755 /opt/homebrew/bin
+chmod 755 /opt/homebrew
+chmod 755 /opt/homebrew/sbin
+</code></pre><h2 id="安装cocoapods">安装cocoapods</h2>
+<p>输入安装命令</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">sudo gem install cocoapods
+</span></span></code></pre></div><h3 id="出现异常问题-1">出现异常问题</h3>
+<blockquote>
+<p>ERROR:  While executing gem &hellip; (Gem::FilePermissionError)
+You don&rsquo;t have write permissions for the /System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/gems/2.6.0 directory.
+/Library/Ruby/Site/2.6.0/rubygems/installer.rb:714:in <code>verify_gem_home' /Library/Ruby/Site/2.6.0/rubygems/installer.rb:904:in </code>pre_install_checks'
+……</p>
+</blockquote>
+<p>在 <code>macOS</code> 系统中，系统的Ruby目录通常是受保护的，并且普通用户没有对这些目录进行写操作的权限。为了解决这个问题，你应该避免在系统级别的Ruby目录中进行Gem的安装。相反，你应该使用用户级别的Gem安装目录。</p>
+<h4 id="解决方案">解决方案</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">mkdir -p ~/.gem/ruby/2.6.0
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$HOME</span><span class="s2">/.gem/ruby/2.6.0/bin:</span><span class="nv">$PATH</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nb">source</span> ~/.bash_profile
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">gem cocoapods install --user-install
+</span></span></code></pre></div><h3 id="第三方库">第三方库</h3>
+<p>在iOS开发中，有许多常用的框架和库，用于加速应用程序的开发和提供各种功能。以下是一些常用的iOS开发框架和库：</p>
+<ol>
+<li><code>UIKit</code>：UIKit是iOS开发的核心框架，它提供了构建用户界面和处理用户交互的基本组件，如视图（UIView）、控制器（UIViewController）、按钮（UIButton）、标签栏（UITabBarController）等。</li>
+<li><code>SwiftUI</code>：SwiftUI是一种较新的声明性用户界面框架，它使您可以使用Swift代码轻松构建用户界面，并自动处理界面状态的变化。它为多平台开发（iOS、iPadOS、macOS、watchOS）提供了便捷的方式。</li>
+<li><code>Core Data</code>：Core Data是Apple提供的数据持久化框架，用于在iOS应用程序中管理数据模型、数据存储和数据查询。</li>
+<li><code>Core Animation</code>：Core Animation是处理iOS界面动画的底层框架，可以实现各种动画效果，包括平移、旋转、缩放和淡入淡出等。</li>
+<li><code>Alamofire</code>：Alamofire是一个优秀的网络请求库，它简化了在iOS应用程序中进行HTTP请求的过程，支持多种请求方式和参数编码。</li>
+<li><code>Kingfisher</code>：Kingfisher是一个流行的图像加载和缓存库，它能够异步加载网络上的图片，并且可以自动进行内存和磁盘缓存。</li>
+<li><code>Firebase</code>：Firebase是谷歌提供的一组云服务，包括实时数据库、身份验证、云存储、推送通知等功能，用于简化iOS应用程序的后端开发。</li>
+<li><code>SwiftyJSON</code>：SwiftyJSON是一个简单易用的JSON解析库，用于在iOS应用程序中解析和处理JSON数据。</li>
+<li><code>MapKit</code>：MapKit是iOS提供的地图显示框架，可以在应用程序中集成地图、标记、路线等地理位置功能。</li>
+<li><code>CoreDataKit</code>：CoreDataKit是一个便捷的Core Data封装库，简化了Core Data的使用和管理。</li>
+</ol>
+<p>这只是iOS开发中的一小部分常用框架和库，还有很多其他优秀的开源库可供选择，根据您的应用程序需求，选择适合的框架和库可以加快开发速度并提供更好的用户体验。</p>
+<h2 id="初始化项目">初始化项目</h2>
+<p>在xcode中创建项目，进入xcode根目录</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">pod init
+</span></span></code></pre></div><p>编写Podfile</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c"># Uncomment the next line to define a global platform for your project</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w"></span><span class="c"># platform :ios, &#39;9.0&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w"></span><span class="l">target &#39;demo&#39; do</span><span class="w"> </span><span class="c">### app名称</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w">  </span><span class="c"># Comment the next line if you don&#39;t want to use dynamic frameworks</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">  </span><span class="l">use_frameworks!</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">  </span><span class="c"># Pods for demo</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">  </span><span class="l">pod &#39;SWXMLHash&#39;</span><span class="w"> </span><span class="c">### 添加的依赖</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">  </span><span class="l">pod &#34;ViewAnimator&#34;</span><span class="w"> </span><span class="c">### 添加的依赖</span><span class="w">
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w">  </span><span class="l">target &#39;demoTests&#39; do</span><span class="w">
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="w">    </span><span class="l">inherit! :search_paths</span><span class="w">
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="w">    </span><span class="c"># Pods for testing</span><span class="w">
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="w">  </span><span class="l">end</span><span class="w">
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="w">  </span><span class="l">target &#39;demoUITests&#39; do</span><span class="w">
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="w">    </span><span class="c"># Pods for testing</span><span class="w">
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="w">  </span><span class="l">end</span><span class="w">
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="w"></span><span class="l">end</span><span class="w">
+</span></span></span></code></pre></div><p>安装依赖</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">pod install
+</span></span></code></pre></div>]]></content:encoded></item></channel></rss>

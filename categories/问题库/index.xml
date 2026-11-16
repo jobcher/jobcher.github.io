@@ -1,292 +1,985 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>问题库 on 打工人日志</title><link>https://www.jobcher.com/categories/%E9%97%AE%E9%A2%98%E5%BA%93/</link><description>Recent content in 问题库 on 打工人日志</description><generator>Hugo</generator><language>zh-hans</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Mon, 16 Nov 2026 13:03:26 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/categories/%E9%97%AE%E9%A2%98%E5%BA%93/index.xml" rel="self" type="application/rss+xml"/><item><title>k8s master 节点 Unauthorized</title><link>https://www.jobcher.com/k8s-error4/</link><pubDate>Wed, 03 Dec 2025 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/k8s-error4/</guid><description>&lt;h2 id="故障"&gt;故障&lt;/h2&gt;
-&lt;p&gt;多master集群的k8s其中一台master 出现 &lt;code&gt;You must be logged in to the server (Unauthorized)&lt;/code&gt;，说明当前节点上的 kubectl 无法认证到 apiserver。&lt;br&gt;
-共有三台master：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;master1 正常&lt;/li&gt;
-&lt;li&gt;master2 异常&lt;/li&gt;
-&lt;li&gt;master3 异常&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="排查问题"&gt;排查问题&lt;/h2&gt;
-&lt;h3 id="用-admin-证书直接用-curl-测试认证"&gt;用 admin 证书直接用 curl 测试认证&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;curl --cert /etc/kubernetes/pki/admin.crt --key /etc/kubernetes/pki/admin.key -k https://10.10.10.68:6443/healthz
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;结果 HTTP/1.1 200 OK → TLS + 认证成功（client cert 被接受）。&lt;/li&gt;
-&lt;li&gt;若返回 401/403 → TLS 成功但授权失败（RBAC 或 client cert 虽被接受但没有权限）。把完整返回贴来。&lt;/li&gt;
-&lt;li&gt;若 curl 报 TLS 错误 → client cert/CA 有问题（贴错误信息）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id="把-kubeconfig-中的-client-certkey-解码到临时文件并检查它们确认-kubectl-用的是这个证书并检查证书-subjectcn到期日"&gt;把 kubeconfig 中的 client cert/key 解码到临时文件并检查它们（确认 kubectl 用的是这个证书、并检查证书 Subject/CN/到期日）&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 解码证书与私钥&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;awk &lt;span class="s1"&gt;&amp;#39;/client-certificate-data/ {print $2}&amp;#39;&lt;/span&gt; ~/.kube/config &lt;span class="p"&gt;|&lt;/span&gt; base64 -d &amp;gt; /tmp/kube_client.crt
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;awk &lt;span class="s1"&gt;&amp;#39;/client-key-data/ {print $2}&amp;#39;&lt;/span&gt; ~/.kube/config &lt;span class="p"&gt;|&lt;/span&gt; base64 -d &amp;gt; /tmp/kube_client.key
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;chmod &lt;span class="m"&gt;600&lt;/span&gt; /tmp/kube_client.key
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 检查证书主体与到期日&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;7&lt;/span&gt;&lt;span class="cl"&gt;openssl x509 -in /tmp/kube_client.crt -noout -text &lt;span class="p"&gt;|&lt;/span&gt; egrep &lt;span class="s2"&gt;&amp;#34;Subject:|Not Before|Not After&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果看到 Not After 在过去 → 证书过期（那就说明证书过期了）。
-Subject 的 CN 通常是 kubernetes-admin 或 admin / system:admin，我们要确认 CN 是否合理。&lt;/p&gt;</description></item><item><title>kindle 邮件发送失败，错误代码E999</title><link>https://www.jobcher.com/kindle-send-e999/</link><pubDate>Thu, 10 Jul 2025 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/kindle-send-e999/</guid><description>&lt;h2 id="背景"&gt;背景&lt;/h2&gt;
-&lt;p&gt;最近看到了一本电子书《just for fun》 Linux之父：林纳斯的自传。就想上传到kindle上去看这本书，但是之前epub的上传都没有问题，唯独这本一直上传失败。E999 故障。我直接说我对于这个问题的解决办法。&lt;br&gt;
-&lt;img src="https://www.jobcher.com/images/e999.png" alt="e999" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;
-&lt;h2 id="解决方法"&gt;解决方法&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;将epub转换为mobi格式&lt;/li&gt;
-&lt;li&gt;将装换好的mobi文件再转换为新的epub文件&lt;/li&gt;
-&lt;li&gt;上传新的epub文件到kindle&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id="总结"&gt;总结&lt;/h2&gt;
-&lt;p&gt;感觉是原本的epub文件格式有损坏导致，amzon无法正确识别epub格式，所有按照这个方式转换一遍，基本上上传就没有问题了。&lt;/p&gt;</description></item><item><title>SELinux 问题：导致端口无法创建，无法访问</title><link>https://www.jobcher.com/selinux-error/</link><pubDate>Fri, 02 Aug 2024 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/selinux-error/</guid><description>&lt;h2 id="背景"&gt;背景&lt;/h2&gt;
-&lt;p&gt;今天有同事在使用nginx部署一个服务，部署完成后发现无法访问，nginx创建端口无法创建，无法访问&lt;br&gt;
-&lt;img src="https://www.jobcher.com/images/selinux-error-1.png" alt="nginx-error" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;nginx: [emerg] bind() to 0.0.0.0:8081 failed (13: Permission denied)&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="解决方法"&gt;解决方法&lt;/h2&gt;
-&lt;p&gt;查看日志发现是SELinux导致的，SELinux是Linux系统的安全机制，它会限制进程访问文件和网络端口等资源。&lt;br&gt;
-查看SELinux状态&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;sudo getenforce
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;当 SELinux 处于 enforcing 模式时，会阻止进程访问不允许的资源。有三种方法可以解决&lt;/p&gt;
-&lt;h3 id="1-临时关闭selinux"&gt;1. 临时关闭SELinux&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;sudo setenforce &lt;span class="m"&gt;0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="2-永久关闭selinux"&gt;2. 永久关闭SELinux&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;sudo vim /etc/selinux/config
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 修改SELINUX=enforcing 为 SELINUX=disabled&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;重启服务器&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;sudo reboot
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="3-设置为宽容模式"&gt;3. 设置为宽容模式&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;semanage permissive -a http_port_t
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这个命令会将 http_port_t 类型的端口设置为宽容模式（permissive mode），使得 semanage 不再对该类型的端口进行访问控制。&lt;/p&gt;
-&lt;h2 id="总结"&gt;总结&lt;/h2&gt;
-&lt;p&gt;SELinux 是 Linux 系统的安全机制，它会限制进程访问文件和网络端口等资源。在使用 SELinux 时，需要根据实际情况选择合适的解决方案。&lt;/p&gt;</description></item><item><title>linux服务器进程打开文件过多导致服务异常</title><link>https://www.jobcher.com/system-limit/</link><pubDate>Tue, 07 Nov 2023 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/system-limit/</guid><description>&lt;h2 id="背景"&gt;背景&lt;/h2&gt;
-&lt;p&gt;我的logstash是多管道部署结果发现有大量日志丢失的情况查看logstash日志出现了以下报错&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[2023-11-07T09:43:38,492][ERROR][logstash.javapipeline ][log] Pipeline worker error, the pipeline will be stopped {:pipeline_id=&amp;gt;&amp;ldquo;log&amp;rdquo;, :error=&amp;gt;&amp;quot;/var/lib/logstash/queue/log/checkpoint.head.tmp (Too many open files)&amp;quot;, :exception=&amp;gt;Java::JavaIo::FileNotFoundException, :backtrace=&amp;gt;[&amp;ldquo;java.base/java.io.FileOutputStream.open0(Native Method)&amp;rdquo;, &amp;ldquo;java.base/java.io.FileOutputStream.open(FileOutputStream.java:298)&amp;rdquo;, &amp;ldquo;java.base/java.io.FileOutputStream.&lt;init&gt;(FileOutputStream.java:237)&amp;rdquo;, &amp;ldquo;java.base/java.io.FileOutputStream.&lt;init&gt;(FileOutputStream.java:187)&amp;rdquo;, &amp;ldquo;org.logstash.ackedqueue.io.FileCheckpointIO.write(FileCheckpointIO.java:105)&amp;rdquo;, &amp;ldquo;org.logstash.ackedqueue.Page.headPageCheckpoint(Page.java:202)&amp;rdquo;,&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;strong&gt;这个问题是 Logstash Pipeline 在处理数据时报错,原因是打开文件过多导致&amp;quot;Too many open files&amp;quot;&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 id="解决方法"&gt;解决方法&lt;/h2&gt;
-&lt;h4 id="1-检查操作系统的文件打开数量限制使用ulimit--n查看如果太低可以提高这个限制"&gt;1. 检查操作系统的文件打开数量限制,使用&lt;code&gt;ulimit -n&lt;/code&gt;查看。如果太低,可以提高这个限制&lt;/h4&gt;
-&lt;p&gt;打开 /etc/profile 增加ulimit 值&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;vim /etc/profile
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;## 增加，保存并退出&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;ulimit&lt;/span&gt; -n &lt;span class="m"&gt;10240&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 重载配置&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;source&lt;/span&gt; /etc/profile
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="2-适当增大logstash的heap-size如-xms和-xmx设置为2g"&gt;2. 适当增大Logstash的heap size,如-Xms和-Xmx设置为2g。&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;vim /etc/logstash/jvm.option
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 修改参数&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;-Xms 2g
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;-Xmx 2g
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 重启logstash服务&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>解决Elasticsearch索引只读（read-only）</title><link>https://www.jobcher.com/elasticsearch-error/</link><pubDate>Wed, 20 Sep 2023 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/elasticsearch-error/</guid><description>&lt;h1 id="背景"&gt;背景&lt;/h1&gt;
-&lt;p&gt;这两天有开发向我反馈说elasticsearch有报错，嘿，我定睛一看，这不是进入只读状态了，看来是存储达到额度，我马上加个新的数据节点，平衡一下存储压力&lt;br&gt;
-报错信息：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;Elasticsearch Error &lt;span class="o"&gt;{&lt;/span&gt;type:cluster_block_exception,reason:”blocked by: &lt;span class="o"&gt;[&lt;/span&gt;FORBIDDEN/12/index read-only / allow delete &lt;span class="o"&gt;(&lt;/span&gt;api&lt;span class="o"&gt;)]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="o"&gt;}&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="新建服务器安装elasticsearch"&gt;新建服务器，安装elasticsearch&lt;/h2&gt;
-&lt;p&gt;为了和之前的服务器一样，我简单写一下我elasticsearch版本和服务器系统版本&lt;/p&gt;
-&lt;table&gt;
- &lt;thead&gt;
- &lt;tr&gt;
- &lt;th style="text-align: left"&gt;软件&lt;/th&gt;
- &lt;th style="text-align: left"&gt;版本&lt;/th&gt;
- &lt;/tr&gt;
- &lt;/thead&gt;
- &lt;tbody&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;centos&lt;/td&gt;
- &lt;td style="text-align: left"&gt;7.9&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;elasticsearch&lt;/td&gt;
- &lt;td style="text-align: left"&gt;6.7.2&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;JDK&lt;/td&gt;
- &lt;td style="text-align: left"&gt;1.8.61&lt;/td&gt;
- &lt;/tr&gt;
- &lt;tr&gt;
- &lt;td style="text-align: left"&gt;内存&lt;/td&gt;
- &lt;td style="text-align: left"&gt;32G&lt;/td&gt;
- &lt;/tr&gt;
- &lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id="安装和配置elasticsearch"&gt;安装和配置elasticsearch&lt;/h3&gt;
-&lt;p&gt;使用rpm 安装&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.7.2.rpm
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;rpm --install elasticsearch-6.7.2.rpm
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;配置参数，进入&lt;code&gt;/etc/elasticsearch&lt;/code&gt;目录&lt;br&gt;
-修改配置&lt;code&gt;vim elasticsearch.yml&lt;/code&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c"&gt;# ======================== Elasticsearch Configuration ========================= &lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="nt"&gt;cluster.name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;cluster-prod-es&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;# 集群名称&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="nt"&gt;node.name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;node-x&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;# 节点名称&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="nt"&gt;path.data&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;/var/lib/elasticsearch&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;# 数据存储&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="nt"&gt;path.logs&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;/var/log/elasticsearch &lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;# 日志存储&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;11&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="nt"&gt;network.host&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;192.168.0.170&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;# 主机IP地址 &lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;12&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;13&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="nt"&gt;http.port&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;9200&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;# 端口号&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;14&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;15&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="nt"&gt;discovery.zen.ping.unicast.hosts&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;192.168.0.171&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;192.168.0.172&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;192.168.0.173&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;# 集群节点&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;16&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;17&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="nt"&gt;discovery.zen.minimum_master_nodes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c"&gt;#防止脑裂&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;修改配置&lt;code&gt;vim jvm.options&lt;/code&gt;&lt;/p&gt;</description></item><item><title>Linux 系统收包流程以及内核参数优化</title><link>https://www.jobcher.com/networkinglinux/</link><pubDate>Wed, 30 Aug 2023 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/networkinglinux/</guid><description>&lt;h2 id="简介"&gt;简介&lt;/h2&gt;
-&lt;p&gt;高并发的系统架构中，任何细微调整，稍有不注意便会引起连锁反应，只有系统地了解整个网络栈，在处理疑难杂症或者系统优化工作中，才能做到手中有粮心中不慌。在本节，我们概览一个 Linux 系统收包的流程，以便了解高并发系统所面临的性能瓶颈问题以及相关的优化策略。&lt;/p&gt;
-&lt;h3 id="收包过程"&gt;收包过程&lt;/h3&gt;
-&lt;p&gt;&lt;img src="https://www.jobcher.com/images/networking-dc52a683.svg" alt="收包过程" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;网卡 eth0 收到数据包。&lt;/li&gt;
-&lt;li&gt;网卡通过 DMA 将数据包拷贝到内存的环形缓冲区(Ring Buffer，在网卡中有 RX Ring 和 TX Ring 两种缓冲)。&lt;/li&gt;
-&lt;li&gt;数据从网卡拷贝到内存后, 网卡产生 IRQ（Interupt ReQuest，硬件中断）告知内核有新的数据包达到。&lt;/li&gt;
-&lt;li&gt;内核收到中断后, 调用相应中断处理函数，开始唤醒 ksoftirqd 内核线程处理软中断。&lt;/li&gt;
-&lt;li&gt;内核进行软中断处理，调用 NAPI poll 接口来获取内存环形缓冲区(ring buffer)的数据包，送至更上层处理。&lt;/li&gt;
-&lt;li&gt;内核中网络协议栈：L2 处理。&lt;/li&gt;
-&lt;li&gt;内核中网络协议栈：L3 处理。&lt;/li&gt;
-&lt;li&gt;内核中网络协议栈：L4 处理。&lt;/li&gt;
-&lt;li&gt;网络协议栈处理数据后，并将其发送到对应应用的 socket 接收缓冲区。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id="高并发瓶颈"&gt;高并发瓶颈&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;用户进程调用系统调用陷入内核态的开销。&lt;/li&gt;
-&lt;li&gt;CPU 响应包的硬中断 CPU 开销&lt;/li&gt;
-&lt;li&gt;ksoftirqd 内核线程的软中断上下文开销。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="rxtx-ring-优化"&gt;RX/TX Ring 优化&lt;/h2&gt;
-&lt;p&gt;处理一个数据包会有各类的中断、softirq 等处理，因为分配给 Ring Buffer 的空间是有限的，当收到的数据包速率大于单个 CPU 处理速度的时，Ring Buffer 可能被占满并导致新数据包被自动丢弃。一个 CPU 去处理 Ring Buffer 数据会很低效，这个时候就产生 RSS、RPS 等多核并发机制来提升内核网络包的处理能力。&lt;/p&gt;
-&lt;p&gt;但是注意，&lt;code&gt;开启多核并发特性&lt;/code&gt;，会挤压业务代码的执行时间，&lt;code&gt;如果业务属于 CPU 密集型&lt;/code&gt;，会导致业务&lt;code&gt;性能下降&lt;/code&gt;。是否开启多核处理，需要根据业务场景考虑，根据笔者的经验来看，例如此类&lt;code&gt;负载均衡服务器&lt;/code&gt;、&lt;code&gt;网关&lt;/code&gt;、&lt;code&gt;集群核心转发节点&lt;/code&gt;等&lt;code&gt;网络I/O 密集型场景&lt;/code&gt;可以尝试&lt;code&gt;优化 RSS、RPS 等配置&lt;/code&gt;。&lt;/p&gt;</description></item><item><title>Vue3 + vite + nginx项目部署后404问题</title><link>https://www.jobcher.com/nginx-error/</link><pubDate>Thu, 10 Aug 2023 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/nginx-error/</guid><description>&lt;h2 id="vue3--vite--nginx项目部署后404问题"&gt;Vue3 + vite + nginx项目部署后404问题&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;vue3 + vite + nginx&lt;/code&gt;&lt;br&gt;
-在服务器上部署后打开首页都没问题，打开其他路径全部 404。&lt;br&gt;
-&lt;code&gt;nginx&lt;/code&gt; 报错日志：&lt;code&gt;No such file or directory&lt;/code&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;其实查看 &lt;code&gt;build&lt;/code&gt; 后的&lt;code&gt;dist文件夹&lt;/code&gt;可以发现，只有一个&lt;code&gt;index.html&lt;/code&gt;，当你访问别的路径时&lt;code&gt;nignx&lt;/code&gt;查找不到所以就报错了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="解决方案"&gt;解决方案&lt;/h2&gt;
-&lt;p&gt;在 nginx.conf 中添加: &lt;code&gt;try_files $uri $uri/ /index.html;&lt;/code&gt;&lt;/p&gt;
-&lt;pre tabindex="0"&gt;&lt;code class="language-conf" data-lang="conf"&gt;server {
- listen 80;
- server_name localhost;
- location / {
- root /dist;
- index index.html index.htm;
- # 在配置文件的此处加上这句话
- try_files $uri $uri/ /index.html;
- }
- }
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="总结"&gt;总结&lt;/h2&gt;
-&lt;p&gt;其实上述改动就是告诉 nignx 找不到文件的时候就访问 &lt;code&gt;index.html&lt;/code&gt; 就可以了。&lt;/p&gt;
-&lt;p&gt;究其原因其实就是是 vue3 的 router 使用了&lt;code&gt;history&lt;/code&gt;模式，该模式与之前&lt;code&gt;hash&lt;/code&gt;模式的具体区别可以自行百度一下，不在此赘述。&lt;/p&gt;</description></item><item><title>githubAction set-output弃用错误</title><link>https://www.jobcher.com/github-error/</link><pubDate>Fri, 21 Oct 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/github-error/</guid><description>&lt;h1 id="githubaction-set-output-弃用错误"&gt;githubAction set-output 弃用错误&lt;/h1&gt;
-&lt;p&gt;The &lt;code&gt;set-output&lt;/code&gt; command is deprecated and will be disabled soon. Please upgrade to using Environment Files. For more information see: &lt;a href="https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/"&gt;https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id="原因"&gt;原因&lt;/h2&gt;
-&lt;p&gt;如果您有一个使用 设置输出的&lt;code&gt;GitHub Actionsecho ::set-output key=value&lt;/code&gt;工作流程，您已经开始看到无用的弃用警告。这是修复它的方法。查看官方链接基本上得不到什么帮助！&lt;/p&gt;
-&lt;h2 id="修复方法"&gt;修复方法&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;更新其它人的 action 方法&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;将 @actions/core 提升到 1.10.0
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="2"&gt;
-&lt;li&gt;修改自己的 aciton 方法&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;run: &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;::set-output name=KEY::VALUE&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;## 改为&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;run: &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;KEY=VALUE&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt;&lt;span class="nv"&gt;$GITHUB_OUTPUT&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;建议：使用自己的方法&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="总结"&gt;总结&lt;/h2&gt;
-&lt;p&gt;平台经营者非常肆意妄为的修改自己的代码内容弃用功能，无限的权力滋生傲慢……我相信大部分开发这并没有注意到这个告警，知道流水线服务报错之后才会注意到，希望微软可以对能更加包容不同的开发者，尊重开发者社区。&lt;/p&gt;</description></item><item><title>k8s CNI 问题 连接认证失效</title><link>https://www.jobcher.com/k8s-error2/</link><pubDate>Fri, 23 Sep 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/k8s-error2/</guid><description>&lt;h1 id="k8s-cni-问题-连接认证失效"&gt;k8s CNI 问题 连接认证失效&lt;/h1&gt;
-&lt;p&gt;删除 &lt;code&gt;calico&lt;/code&gt; 换成 &lt;code&gt;flannel&lt;/code&gt; 后，容器没有正常启动&lt;br&gt;
-network: error getting ClusterInformation: connection is unauthorized: Unauthorized]&lt;/p&gt;
-&lt;h2 id="解决问题"&gt;解决问题&lt;/h2&gt;
-&lt;p&gt;删除掉 &lt;code&gt;/etc/cni/net.d/&lt;/code&gt; 目录下的 calico 配置文件即可。&lt;br&gt;
-要删除&lt;code&gt;所有节点&lt;/code&gt;的配置文件&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;sudo rm -rf /etc/cni/net.d/*calico*
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="不要重复网络插件"&gt;不要重复网络插件&lt;/h2&gt;
-&lt;p&gt;&lt;img src="https://pic.jitudisk.com/public/2022/09/22/a4d8cc49f1c84.jpg" alt="img" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;</description></item><item><title>k8s.gcr.io国内无法连接解决方法</title><link>https://www.jobcher.com/k8s-error3/</link><pubDate>Thu, 22 Sep 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/k8s-error3/</guid><description>&lt;h1 id="k8sgcrio-国内无法连接解决方法"&gt;k8s.gcr.io 国内无法连接解决方法&lt;/h1&gt;
-&lt;p&gt;Get &lt;a href="https://k8s.gcr.io/v2/"&gt;https://k8s.gcr.io/v2/&lt;/a&gt;: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)&lt;br&gt;
-这个一看知道什么原因了，应该 GFW！那好吧，只能给 docker 加个代理了。&lt;/p&gt;
-&lt;h2 id="解决问题"&gt;解决问题&lt;/h2&gt;
-&lt;p&gt;添加 mirror 站点&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;registry.cn-hangzhou.aliyuncs.com/google_containers
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>K8S 问题排查：cgroup 内存泄露问题</title><link>https://www.jobcher.com/k8s-error/</link><pubDate>Tue, 30 Aug 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/k8s-error/</guid><description>&lt;h1 id="k8s-问题排查cgroup-内存泄露问题"&gt;K8S 问题排查：cgroup 内存泄露问题&lt;/h1&gt;
-&lt;pre tabindex="0"&gt;&lt;code class="language-log" data-lang="log"&gt;unable to ensure pod container exists: failed to create container for [kubepods besteffort pod5f26dae8-0421-4eab-a3f7-aa51c6848e2b] : mkdir /sys/fs/cgroup/memory/kubepods/besteffort/pod5f26dae8-0421-4eab-a3f7-aa51c6848e2b: cannot allocate memory
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="查看-linux-内核"&gt;查看 linux 内核&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;cat /proc/version
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;uname -a
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以发现 linux 版本是 3.0 版本&lt;/p&gt;
-&lt;h2 id="原因"&gt;原因&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;cgroup&lt;/code&gt; 的 &lt;code&gt;kmem account&lt;/code&gt; 特性在 &lt;code&gt;Linux 3.x&lt;/code&gt; 内核上有内存泄露问题，然后&lt;code&gt;k8s&lt;/code&gt;用了这个特性，导致后面创建不出新的&lt;code&gt;pod&lt;/code&gt;来了&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="解决方法"&gt;解决方法&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 修改/etc/default/grub 为&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;GRUB_CMDLINE_LINUX&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;crashkernel=auto rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb quiet cgroup.memory=nokmem&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#加上了 cgroup.memory=nokmem&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 生成配置&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 重启机器&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;8&lt;/span&gt;&lt;span class="cl"&gt;reboot
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="验证"&gt;验证&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;cat /sys/fs/cgroup/memory/kubepods/burstable/pod*/*/memory.kmem.slabinfo
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;输出信息&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;cat: /sys/fs/cgroup/memory/kubepods/burstable/pod0fe273ca-42e0-4223-9fe8-16d8dd1774e9/0fdd5d9c16929fd600dbdf313b5c3ebabad912dc0cb076ed6e7799e028b31481/memory.kmem.slabinfo: 输入/输出错误
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;cat: /sys/fs/cgroup/memory/kubepods/burstable/pod0fe273ca-42e0-4223-9fe8-16d8dd1774e9/aa30198d0c5413b70bf488c9daa350a85c7fc6b677235c5adaf2dde6caf95ec4/memory.kmem.slabinfo: 输入/输出错误
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;cat: /sys/fs/cgroup/memory/kubepods/burstable/pod5be86c5d-d012-4cc2-b693-4882a15eda90/059b26b00f4f286b0f52e759b83dad79c7676e1705ee0f3f175a277fd1e5ea5a/memory.kmem.slabinfo: 输入/输出错误
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;cat: /sys/fs/cgroup/memory/kubepods/burstable/pod5be86c5d-d012-4cc2-b693-4882a15eda90/bfa9db0c23fd056a0c05ee5b2b377dd551451cc0f18ddd5db82f9693674a4677/memory.kmem.slabinfo: 输入/输出错误
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;cat: /sys/fs/cgroup/memory/kubepods/burstable/pod8f588e3d-fe89-4716-ab36-3ef606c70367/6fab9f4f7a83bf4c79a68277b214807bd566a8f13212a0fdb5742e4eee4d75d5/memory.kmem.slabinfo: 输入/输出错误
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;cat: /sys/fs/cgroup/memory/kubepods/burstable/pod8f588e3d-fe89-4716-ab36-3ef606c70367/b04594732f7e38a47500ffe1150705110cfa683b585aa7eaf0965cc48ba2a46d/memory.kmem.slabinfo: 输入/输出错误
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;cat: /sys/fs/cgroup/memory/kubepods/burstable/pod9c449bdf-492b-4adc-a623-4ced323ac6d4/c9e73e56ddae0c6c301e43852a51165419eb293b05fa65407f8cb3fe449daf5d/memory.kmem.slabinfo: 输入/输出错误
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt;cat: /sys/fs/cgroup/memory/kubepods/burstable/pod9c449bdf-492b-4adc-a623-4ced323ac6d4/d7392b1e4be1728fd739dc7117e6efc723a4727f143b91a1b386ad35dc1d3a2e/memory.kmem.slabinfo: 输入/输出错误
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;cat: /sys/fs/cgroup/memory/kubepods/burstable/podd316acd7-69fe-4ad5-963a-6e19174b7cb0/0ec18ac0509e6ab454ebe637bde002330afc9eb70eff6f23fe8caa12880e82f6/memory.kmem.slabinfo: 输入/输出错误
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;cat: /sys/fs/cgroup/memory/kubepods/burstable/podd316acd7-69fe-4ad5-963a-6e19174b7cb0/dc5be82c01802c349c9505375c37dc054898b9b84e57cb4e671044e8a6459aac/memory.kmem.slabinfo: 输入/输出错误
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>docker 问题处理</title><link>https://www.jobcher.com/docker-error/</link><pubDate>Thu, 04 Aug 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/docker-error/</guid><description>&lt;h3 id="docker-无法启动"&gt;docker 无法启动&lt;/h3&gt;
-&lt;p&gt;打开服务器输入&lt;code&gt;docker ps&lt;/code&gt;,输出错误&lt;br&gt;
-Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?&lt;/p&gt;
-&lt;p&gt;怀疑是不是&lt;code&gt;docker.services&lt;/code&gt; 部署没成功，&lt;code&gt;systemctl start docker&lt;/code&gt; 启动 docker，结果服务器还是报错&lt;/p&gt;
-&lt;p&gt;Job for docker.service failed because the control process exited with error code.&lt;br&gt;
-See &amp;ldquo;systemctl status docker.service&amp;rdquo; and &amp;ldquo;journalctl -xe&amp;rdquo; for details.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;systemctl status docker.service&lt;/code&gt; 输出日志：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;● docker.service - Docker Application Container Engine
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt; Loaded: loaded &lt;span class="o"&gt;(&lt;/span&gt;/lib/systemd/system/docker.service&lt;span class="p"&gt;;&lt;/span&gt; enabled&lt;span class="p"&gt;;&lt;/span&gt; vendor preset: enabled&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt; Active: failed &lt;span class="o"&gt;(&lt;/span&gt;Result: exit-code&lt;span class="o"&gt;)&lt;/span&gt; since Thu 2022-08-04 11:43:05 CST&lt;span class="p"&gt;;&lt;/span&gt; 2min 57s ago
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;TriggeredBy: ● docker.socket
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt; Docs: https://docs.docker.com
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt; Process: &lt;span class="m"&gt;30432&lt;/span&gt; &lt;span class="nv"&gt;ExecStart&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/usr/bin/dockerd -H fd:// --containerd&lt;span class="o"&gt;=&lt;/span&gt;/run/containerd/containerd.sock &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;code&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;exited, &lt;span class="nv"&gt;status&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;1/FAILURE&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt; Main PID: &lt;span class="m"&gt;30432&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;code&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;exited, &lt;span class="nv"&gt;status&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;1/FAILURE&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;Aug &lt;span class="m"&gt;04&lt;/span&gt; 11:43:05 master01 systemd&lt;span class="o"&gt;[&lt;/span&gt;1&lt;span class="o"&gt;]&lt;/span&gt;: docker.service: Scheduled restart job, restart counter is at 3.
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;Aug &lt;span class="m"&gt;04&lt;/span&gt; 11:43:05 master01 systemd&lt;span class="o"&gt;[&lt;/span&gt;1&lt;span class="o"&gt;]&lt;/span&gt;: Stopped Docker Application Container Engine.
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;11&lt;/span&gt;&lt;span class="cl"&gt;Aug &lt;span class="m"&gt;04&lt;/span&gt; 11:43:05 master01 systemd&lt;span class="o"&gt;[&lt;/span&gt;1&lt;span class="o"&gt;]&lt;/span&gt;: docker.service: Start request repeated too quickly.
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;12&lt;/span&gt;&lt;span class="cl"&gt;Aug &lt;span class="m"&gt;04&lt;/span&gt; 11:43:05 master01 systemd&lt;span class="o"&gt;[&lt;/span&gt;1&lt;span class="o"&gt;]&lt;/span&gt;: docker.service: Failed with result &lt;span class="s1"&gt;&amp;#39;exit-code&amp;#39;&lt;/span&gt;.
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;13&lt;/span&gt;&lt;span class="cl"&gt;Aug &lt;span class="m"&gt;04&lt;/span&gt; 11:43:05 master01 systemd&lt;span class="o"&gt;[&lt;/span&gt;1&lt;span class="o"&gt;]&lt;/span&gt;: Failed to start Docker Application Container Engine.
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;journalctl -xe&lt;/code&gt; 输出日志：&lt;/p&gt;</description></item><item><title>安装 docker 出现 ERROR: Unsupported distribution 'ol' 问题</title><link>https://www.jobcher.com/error1/</link><pubDate>Tue, 11 Jan 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/error1/</guid><description>&lt;h1 id="安装-docker-出现-error-unsupported-distribution-ol-问题"&gt;安装 docker 出现 ERROR: Unsupported distribution &amp;lsquo;ol&amp;rsquo; 问题&lt;/h1&gt;
-&lt;p&gt;部署 docker 安装出现 ERROR: Unsupported distribution &amp;lsquo;ol&amp;rsquo;&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;确认是不是 arm 架构&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;uname -r
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="2"&gt;
-&lt;li&gt;确认使用的是不是 oracle 服务器系统,如果是请继续操作，安装依赖：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;dnf install -y dnf-utils zip unzip
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;dnf config-manager --add-repo&lt;span class="o"&gt;=&lt;/span&gt;https://download.docker.com/linux/centos/docker-ce.repo
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="3"&gt;
-&lt;li&gt;安装 docker&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;dnf remove -y runc
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;dnf install -y docker-ce --nobest
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="4"&gt;
-&lt;li&gt;完成 docker 安装并检查&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;systemctl &lt;span class="nb"&gt;enable&lt;/span&gt; docker.service
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;systemctl start docker.service
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#检查&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;systemctl status docker.service
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;docker info
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;docker version
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="结尾"&gt;结尾&lt;/h2&gt;
-&lt;p&gt;该问题主要是 oracle 没有支持依赖导致的&lt;del&gt;oracle 还是很不错的&lt;/del&gt;&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>问题库 - 打工人日志</title><link>https://www.jobcher.com/categories/%E9%97%AE%E9%A2%98%E5%BA%93/</link><description>打工人日志（Jobcher）——面向开发者与运维的技术博客，覆盖 Kubernetes、Docker、Linux、监控、AI 与开发者工具的实战教程与干货。</description><generator>Hugo</generator><language>zh-cn</language><copyright>Copyright © 2022-2026 All Rights Reserved.</copyright><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor><webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 03 Dec 2025 00:00:00 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/categories/%E9%97%AE%E9%A2%98%E5%BA%93/index.xml" rel="self" type="application/rss+xml"/><item><title>k8s master 节点 Unauthorized</title><link>https://www.jobcher.com/k8s-error4/</link><pubDate>Wed, 03 Dec 2025 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/k8s-error4/</guid><description><![CDATA[<h2 id="故障">故障</h2>
+<p>多master集群的k8s其中一台master 出现 <code>You must be logged in to the server (Unauthorized)</code>，说明当前节点上的 kubectl 无法认证到 apiserver。<br>
+共有三台master：</p>
+<ul>
+<li>master1 正常</li>
+<li>master2 异常</li>
+<li>master3 异常</li>
+</ul>
+<h2 id="排查问题">排查问题</h2>
+<h3 id="用-admin-证书直接用-curl-测试认证">用 admin 证书直接用 curl 测试认证</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">curl --cert /etc/kubernetes/pki/admin.crt --key /etc/kubernetes/pki/admin.key -k https://10.10.10.68:6443/healthz
+</span></span></code></pre></div><ul>
+<li>结果 HTTP/1.1 200 OK → TLS + 认证成功（client cert 被接受）。</li>
+<li>若返回 401/403 → TLS 成功但授权失败（RBAC 或 client cert 虽被接受但没有权限）。把完整返回贴来。</li>
+<li>若 curl 报 TLS 错误 → client cert/CA 有问题（贴错误信息）。</li>
+</ul>
+<h3 id="把-kubeconfig-中的-client-certkey-解码到临时文件并检查它们确认-kubectl-用的是这个证书并检查证书-subjectcn到期日">把 kubeconfig 中的 client cert/key 解码到临时文件并检查它们（确认 kubectl 用的是这个证书、并检查证书 Subject/CN/到期日）</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># 解码证书与私钥</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">awk <span class="s1">&#39;/client-certificate-data/ {print $2}&#39;</span> ~/.kube/config <span class="p">|</span> base64 -d &gt; /tmp/kube_client.crt
+</span></span><span class="line"><span class="ln">3</span><span class="cl">awk <span class="s1">&#39;/client-key-data/ {print $2}&#39;</span> ~/.kube/config <span class="p">|</span> base64 -d &gt; /tmp/kube_client.key
+</span></span><span class="line"><span class="ln">4</span><span class="cl">chmod <span class="m">600</span> /tmp/kube_client.key
+</span></span><span class="line"><span class="ln">5</span><span class="cl">
+</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="c1"># 检查证书主体与到期日</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl">openssl x509 -in /tmp/kube_client.crt -noout -text <span class="p">|</span> egrep <span class="s2">&#34;Subject:|Not Before|Not After&#34;</span>
+</span></span></code></pre></div><p>如果看到 Not After 在过去 → 证书过期（那就说明证书过期了）。
+Subject 的 CN 通常是 kubernetes-admin 或 admin / system:admin，我们要确认 CN 是否合理。</p>
+<blockquote>
+<p>我这边发现证书过期了，所以导致认证失败了。</p>
+</blockquote>
+<h2 id="解决">解决</h2>
+<h3 id="使用-kubeadm-重新生成-admin-kubeconfig">使用 kubeadm 重新生成 admin kubeconfig.</h3>
+<p>在任意 master 上执行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1"># 备份旧配置</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">mv ~/.kube/config ~/.kube/config.bak
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"># 重新生成 admin kubeconfig</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">kubeadm init phase kubeconfig admin
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"># 拷贝到用户目录</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">mkdir -p ~/.kube
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">cp /etc/kubernetes/admin.conf ~/.kube/config
+</span></span><span class="line"><span class="ln">10</span><span class="cl">chmod <span class="m">600</span> ~/.kube/config
+</span></span></code></pre></div><p>测试</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">kubectl get nodes
+</span></span></code></pre></div>]]></description><content:encoded><![CDATA[<h2 id="故障">故障</h2>
+<p>多master集群的k8s其中一台master 出现 <code>You must be logged in to the server (Unauthorized)</code>，说明当前节点上的 kubectl 无法认证到 apiserver。<br>
+共有三台master：</p>
+<ul>
+<li>master1 正常</li>
+<li>master2 异常</li>
+<li>master3 异常</li>
+</ul>
+<h2 id="排查问题">排查问题</h2>
+<h3 id="用-admin-证书直接用-curl-测试认证">用 admin 证书直接用 curl 测试认证</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">curl --cert /etc/kubernetes/pki/admin.crt --key /etc/kubernetes/pki/admin.key -k https://10.10.10.68:6443/healthz
+</span></span></code></pre></div><ul>
+<li>结果 HTTP/1.1 200 OK → TLS + 认证成功（client cert 被接受）。</li>
+<li>若返回 401/403 → TLS 成功但授权失败（RBAC 或 client cert 虽被接受但没有权限）。把完整返回贴来。</li>
+<li>若 curl 报 TLS 错误 → client cert/CA 有问题（贴错误信息）。</li>
+</ul>
+<h3 id="把-kubeconfig-中的-client-certkey-解码到临时文件并检查它们确认-kubectl-用的是这个证书并检查证书-subjectcn到期日">把 kubeconfig 中的 client cert/key 解码到临时文件并检查它们（确认 kubectl 用的是这个证书、并检查证书 Subject/CN/到期日）</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># 解码证书与私钥</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">awk <span class="s1">&#39;/client-certificate-data/ {print $2}&#39;</span> ~/.kube/config <span class="p">|</span> base64 -d &gt; /tmp/kube_client.crt
+</span></span><span class="line"><span class="ln">3</span><span class="cl">awk <span class="s1">&#39;/client-key-data/ {print $2}&#39;</span> ~/.kube/config <span class="p">|</span> base64 -d &gt; /tmp/kube_client.key
+</span></span><span class="line"><span class="ln">4</span><span class="cl">chmod <span class="m">600</span> /tmp/kube_client.key
+</span></span><span class="line"><span class="ln">5</span><span class="cl">
+</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="c1"># 检查证书主体与到期日</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl">openssl x509 -in /tmp/kube_client.crt -noout -text <span class="p">|</span> egrep <span class="s2">&#34;Subject:|Not Before|Not After&#34;</span>
+</span></span></code></pre></div><p>如果看到 Not After 在过去 → 证书过期（那就说明证书过期了）。
+Subject 的 CN 通常是 kubernetes-admin 或 admin / system:admin，我们要确认 CN 是否合理。</p>
+<blockquote>
+<p>我这边发现证书过期了，所以导致认证失败了。</p>
+</blockquote>
+<h2 id="解决">解决</h2>
+<h3 id="使用-kubeadm-重新生成-admin-kubeconfig">使用 kubeadm 重新生成 admin kubeconfig.</h3>
+<p>在任意 master 上执行：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1"># 备份旧配置</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">mv ~/.kube/config ~/.kube/config.bak
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="c1"># 重新生成 admin kubeconfig</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">kubeadm init phase kubeconfig admin
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"># 拷贝到用户目录</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">mkdir -p ~/.kube
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">cp /etc/kubernetes/admin.conf ~/.kube/config
+</span></span><span class="line"><span class="ln">10</span><span class="cl">chmod <span class="m">600</span> ~/.kube/config
+</span></span></code></pre></div><p>测试</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">kubectl get nodes
+</span></span></code></pre></div>]]></content:encoded></item><item><title>kindle 邮件发送失败，错误代码E999</title><link>https://www.jobcher.com/kindle-send-e999/</link><pubDate>Thu, 10 Jul 2025 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/kindle-send-e999/</guid><description><![CDATA[<h2 id="背景">背景</h2>
+<p>最近看到了一本电子书《just for fun》 Linux之父：林纳斯的自传。就想上传到kindle上去看这本书，但是之前epub的上传都没有问题，唯独这本一直上传失败。E999 故障。我直接说我对于这个问题的解决办法。<br>
+<img src="https://www.jobcher.com/images/e999.png" alt="e999" loading="lazy" decoding="async">
+</p>
+<h2 id="解决方法">解决方法</h2>
+<ol>
+<li>将epub转换为mobi格式</li>
+<li>将装换好的mobi文件再转换为新的epub文件</li>
+<li>上传新的epub文件到kindle</li>
+</ol>
+<h2 id="总结">总结</h2>
+<p>感觉是原本的epub文件格式有损坏导致，amzon无法正确识别epub格式，所有按照这个方式转换一遍，基本上上传就没有问题了。</p>
+]]></description><content:encoded><![CDATA[<h2 id="背景">背景</h2>
+<p>最近看到了一本电子书《just for fun》 Linux之父：林纳斯的自传。就想上传到kindle上去看这本书，但是之前epub的上传都没有问题，唯独这本一直上传失败。E999 故障。我直接说我对于这个问题的解决办法。<br>
+<img src="https://www.jobcher.com/images/e999.png" alt="e999" loading="lazy" decoding="async">
+</p>
+<h2 id="解决方法">解决方法</h2>
+<ol>
+<li>将epub转换为mobi格式</li>
+<li>将装换好的mobi文件再转换为新的epub文件</li>
+<li>上传新的epub文件到kindle</li>
+</ol>
+<h2 id="总结">总结</h2>
+<p>感觉是原本的epub文件格式有损坏导致，amzon无法正确识别epub格式，所有按照这个方式转换一遍，基本上上传就没有问题了。</p>
+]]></content:encoded></item><item><title>SELinux 问题：导致端口无法创建，无法访问</title><link>https://www.jobcher.com/selinux-error/</link><pubDate>Fri, 02 Aug 2024 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/selinux-error/</guid><description><![CDATA[<h2 id="背景">背景</h2>
+<p>今天有同事在使用nginx部署一个服务，部署完成后发现无法访问，nginx创建端口无法创建，无法访问<br>
+<img src="https://www.jobcher.com/images/selinux-error-1.png" alt="nginx-error" loading="lazy" decoding="async">
+</p>
+<blockquote>
+<p>nginx: [emerg] bind() to 0.0.0.0:8081 failed (13: Permission denied)</p>
+</blockquote>
+<h2 id="解决方法">解决方法</h2>
+<p>查看日志发现是SELinux导致的，SELinux是Linux系统的安全机制，它会限制进程访问文件和网络端口等资源。<br>
+查看SELinux状态</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo getenforce
+</span></span></code></pre></div><p>当 SELinux 处于 enforcing 模式时，会阻止进程访问不允许的资源。有三种方法可以解决</p>
+<h3 id="1-临时关闭selinux">1. 临时关闭SELinux</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo setenforce <span class="m">0</span>
+</span></span></code></pre></div><h3 id="2-永久关闭selinux">2. 永久关闭SELinux</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo vim /etc/selinux/config
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"># 修改SELINUX=enforcing 为 SELINUX=disabled</span>
+</span></span></code></pre></div><p>重启服务器</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo reboot
+</span></span></code></pre></div><h3 id="3-设置为宽容模式">3. 设置为宽容模式</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">semanage permissive -a http_port_t
+</span></span></code></pre></div><p>这个命令会将 http_port_t 类型的端口设置为宽容模式（permissive mode），使得 semanage 不再对该类型的端口进行访问控制。</p>
+<h2 id="总结">总结</h2>
+<p>SELinux 是 Linux 系统的安全机制，它会限制进程访问文件和网络端口等资源。在使用 SELinux 时，需要根据实际情况选择合适的解决方案。</p>
+]]></description><content:encoded><![CDATA[<h2 id="背景">背景</h2>
+<p>今天有同事在使用nginx部署一个服务，部署完成后发现无法访问，nginx创建端口无法创建，无法访问<br>
+<img src="https://www.jobcher.com/images/selinux-error-1.png" alt="nginx-error" loading="lazy" decoding="async">
+</p>
+<blockquote>
+<p>nginx: [emerg] bind() to 0.0.0.0:8081 failed (13: Permission denied)</p>
+</blockquote>
+<h2 id="解决方法">解决方法</h2>
+<p>查看日志发现是SELinux导致的，SELinux是Linux系统的安全机制，它会限制进程访问文件和网络端口等资源。<br>
+查看SELinux状态</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo getenforce
+</span></span></code></pre></div><p>当 SELinux 处于 enforcing 模式时，会阻止进程访问不允许的资源。有三种方法可以解决</p>
+<h3 id="1-临时关闭selinux">1. 临时关闭SELinux</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo setenforce <span class="m">0</span>
+</span></span></code></pre></div><h3 id="2-永久关闭selinux">2. 永久关闭SELinux</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo vim /etc/selinux/config
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"># 修改SELINUX=enforcing 为 SELINUX=disabled</span>
+</span></span></code></pre></div><p>重启服务器</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">sudo reboot
+</span></span></code></pre></div><h3 id="3-设置为宽容模式">3. 设置为宽容模式</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">semanage permissive -a http_port_t
+</span></span></code></pre></div><p>这个命令会将 http_port_t 类型的端口设置为宽容模式（permissive mode），使得 semanage 不再对该类型的端口进行访问控制。</p>
+<h2 id="总结">总结</h2>
+<p>SELinux 是 Linux 系统的安全机制，它会限制进程访问文件和网络端口等资源。在使用 SELinux 时，需要根据实际情况选择合适的解决方案。</p>
+]]></content:encoded></item><item><title>linux服务器进程打开文件过多导致服务异常</title><link>https://www.jobcher.com/system-limit/</link><pubDate>Tue, 07 Nov 2023 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/system-limit/</guid><description><![CDATA[<h2 id="背景">背景</h2>
+<p>我的logstash是多管道部署结果发现有大量日志丢失的情况查看logstash日志出现了以下报错</p>
+<blockquote>
+<p>[2023-11-07T09:43:38,492][ERROR][logstash.javapipeline    ][log] Pipeline worker error, the pipeline will be stopped {:pipeline_id=&gt;&ldquo;log&rdquo;, :error=&gt;&quot;/var/lib/logstash/queue/log/checkpoint.head.tmp (Too many open files)&quot;, :exception=&gt;Java::JavaIo::FileNotFoundException, :backtrace=&gt;[&ldquo;java.base/java.io.FileOutputStream.open0(Native Method)&rdquo;, &ldquo;java.base/java.io.FileOutputStream.open(FileOutputStream.java:298)&rdquo;, &ldquo;java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:237)&rdquo;, &ldquo;java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:187)&rdquo;, &ldquo;org.logstash.ackedqueue.io.FileCheckpointIO.write(FileCheckpointIO.java:105)&rdquo;, &ldquo;org.logstash.ackedqueue.Page.headPageCheckpoint(Page.java:202)&rdquo;,</p>
+</blockquote>
+<p><strong>这个问题是 Logstash Pipeline 在处理数据时报错,原因是打开文件过多导致&quot;Too many open files&quot;</strong></p>
+<h2 id="解决方法">解决方法</h2>
+<h4 id="1-检查操作系统的文件打开数量限制使用ulimit--n查看如果太低可以提高这个限制">1. 检查操作系统的文件打开数量限制,使用<code>ulimit -n</code>查看。如果太低,可以提高这个限制</h4>
+<p>打开 /etc/profile 增加ulimit 值</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">vim /etc/profile
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1">## 增加，保存并退出</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nb">ulimit</span> -n <span class="m">10240</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"># 重载配置</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nb">source</span> /etc/profile
+</span></span></code></pre></div><h4 id="2-适当增大logstash的heap-size如-xms和-xmx设置为2g">2. 适当增大Logstash的heap size,如-Xms和-Xmx设置为2g。</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">vim /etc/logstash/jvm.option
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"># 修改参数</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">-Xms 2g
+</span></span><span class="line"><span class="ln">4</span><span class="cl">-Xmx 2g
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1"># 重启logstash服务</span>
+</span></span></code></pre></div>]]></description><content:encoded><![CDATA[<h2 id="背景">背景</h2>
+<p>我的logstash是多管道部署结果发现有大量日志丢失的情况查看logstash日志出现了以下报错</p>
+<blockquote>
+<p>[2023-11-07T09:43:38,492][ERROR][logstash.javapipeline    ][log] Pipeline worker error, the pipeline will be stopped {:pipeline_id=&gt;&ldquo;log&rdquo;, :error=&gt;&quot;/var/lib/logstash/queue/log/checkpoint.head.tmp (Too many open files)&quot;, :exception=&gt;Java::JavaIo::FileNotFoundException, :backtrace=&gt;[&ldquo;java.base/java.io.FileOutputStream.open0(Native Method)&rdquo;, &ldquo;java.base/java.io.FileOutputStream.open(FileOutputStream.java:298)&rdquo;, &ldquo;java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:237)&rdquo;, &ldquo;java.base/java.io.FileOutputStream.<init>(FileOutputStream.java:187)&rdquo;, &ldquo;org.logstash.ackedqueue.io.FileCheckpointIO.write(FileCheckpointIO.java:105)&rdquo;, &ldquo;org.logstash.ackedqueue.Page.headPageCheckpoint(Page.java:202)&rdquo;,</p>
+</blockquote>
+<p><strong>这个问题是 Logstash Pipeline 在处理数据时报错,原因是打开文件过多导致&quot;Too many open files&quot;</strong></p>
+<h2 id="解决方法">解决方法</h2>
+<h4 id="1-检查操作系统的文件打开数量限制使用ulimit--n查看如果太低可以提高这个限制">1. 检查操作系统的文件打开数量限制,使用<code>ulimit -n</code>查看。如果太低,可以提高这个限制</h4>
+<p>打开 /etc/profile 增加ulimit 值</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">vim /etc/profile
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1">## 增加，保存并退出</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nb">ulimit</span> -n <span class="m">10240</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"># 重载配置</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nb">source</span> /etc/profile
+</span></span></code></pre></div><h4 id="2-适当增大logstash的heap-size如-xms和-xmx设置为2g">2. 适当增大Logstash的heap size,如-Xms和-Xmx设置为2g。</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">vim /etc/logstash/jvm.option
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"># 修改参数</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">-Xms 2g
+</span></span><span class="line"><span class="ln">4</span><span class="cl">-Xmx 2g
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="c1"># 重启logstash服务</span>
+</span></span></code></pre></div>]]></content:encoded></item><item><title>解决Elasticsearch索引只读（read-only）</title><link>https://www.jobcher.com/elasticsearch-error/</link><pubDate>Wed, 20 Sep 2023 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/elasticsearch-error/</guid><description><![CDATA[<h1 id="背景">背景</h1>
+<p>这两天有开发向我反馈说elasticsearch有报错，嘿，我定睛一看，这不是进入只读状态了，看来是存储达到额度，我马上加个新的数据节点，平衡一下存储压力<br>
+报错信息：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">Elasticsearch Error <span class="o">{</span>type:cluster_block_exception,reason:”blocked by: <span class="o">[</span>FORBIDDEN/12/index read-only / allow delete <span class="o">(</span>api<span class="o">)]</span><span class="p">;</span><span class="o">}</span>
+</span></span></code></pre></div><h2 id="新建服务器安装elasticsearch">新建服务器，安装elasticsearch</h2>
+<p>为了和之前的服务器一样，我简单写一下我elasticsearch版本和服务器系统版本</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">软件</th>
+          <th style="text-align: left">版本</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">centos</td>
+          <td style="text-align: left">7.9</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">elasticsearch</td>
+          <td style="text-align: left">6.7.2</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">JDK</td>
+          <td style="text-align: left">1.8.61</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">内存</td>
+          <td style="text-align: left">32G</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="安装和配置elasticsearch">安装和配置elasticsearch</h3>
+<p>使用rpm 安装</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.7.2.rpm
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">rpm --install elasticsearch-6.7.2.rpm
+</span></span></code></pre></div><p>配置参数，进入<code>/etc/elasticsearch</code>目录<br>
+修改配置<code>vim elasticsearch.yml</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c"># ======================== Elasticsearch Configuration ========================= </span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w"></span><span class="nt">cluster.name</span><span class="p">:</span><span class="w"> </span><span class="l">cluster-prod-es</span><span class="w"> </span><span class="c"># 集群名称</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w"></span><span class="nt">node.name</span><span class="p">:</span><span class="w"> </span><span class="l">node-x</span><span class="w"> </span><span class="c"># 节点名称</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w"></span><span class="nt">path.data</span><span class="p">:</span><span class="w"> </span><span class="l">/var/lib/elasticsearch</span><span class="w"> </span><span class="c"># 数据存储</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w"></span><span class="nt">path.logs</span><span class="p">:</span><span class="w"> </span><span class="l">/var/log/elasticsearch </span><span class="w"> </span><span class="c"># 日志存储</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w"></span><span class="nt">network.host</span><span class="p">:</span><span class="w"> </span><span class="m">192.168.0.170</span><span class="w"> </span><span class="c"># 主机IP地址 </span><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="w"></span><span class="nt">http.port</span><span class="p">:</span><span class="w"> </span><span class="m">9200</span><span class="w"> </span><span class="c"># 端口号</span><span class="w">
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="w"></span><span class="nt">discovery.zen.ping.unicast.hosts</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;192.168.0.171&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;192.168.0.172&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;192.168.0.173&#34;</span><span class="p">]</span><span class="w"> </span><span class="c"># 集群节点</span><span class="w">
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="w"></span><span class="nt">discovery.zen.minimum_master_nodes</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="c">#防止脑裂</span><span class="w">
+</span></span></span></code></pre></div><p>修改配置<code>vim jvm.options</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl">-<span class="l">Xms16g</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span>-<span class="l">Xmx16g</span><span class="w">
+</span></span></span></code></pre></div><p>启动elasticsearch 服务</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">systemctl start elasticsearch.service
+</span></span></code></pre></div><h3 id="等待数据节点自动调节">等待数据节点自动调节</h3>
+<p>这里要等待一会儿数据节点自动调节，这个调节时间取决于你数据的大小，一般来说几个小时也好了，如果数据重要性不太高的话，和领导沟通一下，就别傻坐着等他迁移完，正常下班就行了。</p>
+<h3 id="关闭索引只读">关闭索引只读</h3>
+<p>对了，千万不要忘记关闭只读状态，虽然你新增了节点，但是当前的只读状态并没有关闭，所以要执行一下命令关闭只读状态</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">curl -XPUT -H <span class="s2">&#34;Content-Type: application/json&#34;</span> http://192.168.0.170:9200/_all/_settings -d <span class="s1">&#39;{&#34;index.blocks.read_only_allow_delete&#34;: null}&#39;</span>
+</span></span></code></pre></div><p>或者你在head-elasticsearch上操作<br>
+<img src="https://www.jobcher.com/images/head-es.jpg" alt="head-es" loading="lazy" decoding="async">
+</p>
+<h2 id="感谢你的阅读">感谢你的阅读</h2>
+]]></description><content:encoded><![CDATA[<h1 id="背景">背景</h1>
+<p>这两天有开发向我反馈说elasticsearch有报错，嘿，我定睛一看，这不是进入只读状态了，看来是存储达到额度，我马上加个新的数据节点，平衡一下存储压力<br>
+报错信息：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">Elasticsearch Error <span class="o">{</span>type:cluster_block_exception,reason:”blocked by: <span class="o">[</span>FORBIDDEN/12/index read-only / allow delete <span class="o">(</span>api<span class="o">)]</span><span class="p">;</span><span class="o">}</span>
+</span></span></code></pre></div><h2 id="新建服务器安装elasticsearch">新建服务器，安装elasticsearch</h2>
+<p>为了和之前的服务器一样，我简单写一下我elasticsearch版本和服务器系统版本</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">软件</th>
+          <th style="text-align: left">版本</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">centos</td>
+          <td style="text-align: left">7.9</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">elasticsearch</td>
+          <td style="text-align: left">6.7.2</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">JDK</td>
+          <td style="text-align: left">1.8.61</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">内存</td>
+          <td style="text-align: left">32G</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="安装和配置elasticsearch">安装和配置elasticsearch</h3>
+<p>使用rpm 安装</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.7.2.rpm
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">rpm --install elasticsearch-6.7.2.rpm
+</span></span></code></pre></div><p>配置参数，进入<code>/etc/elasticsearch</code>目录<br>
+修改配置<code>vim elasticsearch.yml</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c"># ======================== Elasticsearch Configuration ========================= </span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w"></span><span class="nt">cluster.name</span><span class="p">:</span><span class="w"> </span><span class="l">cluster-prod-es</span><span class="w"> </span><span class="c"># 集群名称</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w"></span><span class="nt">node.name</span><span class="p">:</span><span class="w"> </span><span class="l">node-x</span><span class="w"> </span><span class="c"># 节点名称</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w"></span><span class="nt">path.data</span><span class="p">:</span><span class="w"> </span><span class="l">/var/lib/elasticsearch</span><span class="w"> </span><span class="c"># 数据存储</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w"></span><span class="nt">path.logs</span><span class="p">:</span><span class="w"> </span><span class="l">/var/log/elasticsearch </span><span class="w"> </span><span class="c"># 日志存储</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w"></span><span class="nt">network.host</span><span class="p">:</span><span class="w"> </span><span class="m">192.168.0.170</span><span class="w"> </span><span class="c"># 主机IP地址 </span><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="w"></span><span class="nt">http.port</span><span class="p">:</span><span class="w"> </span><span class="m">9200</span><span class="w"> </span><span class="c"># 端口号</span><span class="w">
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="w"></span><span class="nt">discovery.zen.ping.unicast.hosts</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;192.168.0.171&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;192.168.0.172&#34;</span><span class="p">,</span><span class="w"> </span><span class="s2">&#34;192.168.0.173&#34;</span><span class="p">]</span><span class="w"> </span><span class="c"># 集群节点</span><span class="w">
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="w"></span><span class="nt">discovery.zen.minimum_master_nodes</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="c">#防止脑裂</span><span class="w">
+</span></span></span></code></pre></div><p>修改配置<code>vim jvm.options</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl">-<span class="l">Xms16g</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span>-<span class="l">Xmx16g</span><span class="w">
+</span></span></span></code></pre></div><p>启动elasticsearch 服务</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">systemctl start elasticsearch.service
+</span></span></code></pre></div><h3 id="等待数据节点自动调节">等待数据节点自动调节</h3>
+<p>这里要等待一会儿数据节点自动调节，这个调节时间取决于你数据的大小，一般来说几个小时也好了，如果数据重要性不太高的话，和领导沟通一下，就别傻坐着等他迁移完，正常下班就行了。</p>
+<h3 id="关闭索引只读">关闭索引只读</h3>
+<p>对了，千万不要忘记关闭只读状态，虽然你新增了节点，但是当前的只读状态并没有关闭，所以要执行一下命令关闭只读状态</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">curl -XPUT -H <span class="s2">&#34;Content-Type: application/json&#34;</span> http://192.168.0.170:9200/_all/_settings -d <span class="s1">&#39;{&#34;index.blocks.read_only_allow_delete&#34;: null}&#39;</span>
+</span></span></code></pre></div><p>或者你在head-elasticsearch上操作<br>
+<img src="https://www.jobcher.com/images/head-es.jpg" alt="head-es" loading="lazy" decoding="async">
+</p>
+<h2 id="感谢你的阅读">感谢你的阅读</h2>
+]]></content:encoded></item><item><title>Linux 系统收包流程以及内核参数优化</title><link>https://www.jobcher.com/networkinglinux/</link><pubDate>Wed, 30 Aug 2023 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/networkinglinux/</guid><description><![CDATA[<h2 id="简介">简介</h2>
+<p>高并发的系统架构中，任何细微调整，稍有不注意便会引起连锁反应，只有系统地了解整个网络栈，在处理疑难杂症或者系统优化工作中，才能做到手中有粮心中不慌。在本节，我们概览一个 Linux 系统收包的流程，以便了解高并发系统所面临的性能瓶颈问题以及相关的优化策略。</p>
+<h3 id="收包过程">收包过程</h3>
+<p><img src="https://www.jobcher.com/images/networking-dc52a683.svg" alt="收包过程" loading="lazy" decoding="async">
+</p>
+<ol>
+<li>网卡 eth0 收到数据包。</li>
+<li>网卡通过 DMA 将数据包拷贝到内存的环形缓冲区(Ring Buffer，在网卡中有 RX Ring 和 TX Ring 两种缓冲)。</li>
+<li>数据从网卡拷贝到内存后, 网卡产生 IRQ（Interupt ReQuest，硬件中断）告知内核有新的数据包达到。</li>
+<li>内核收到中断后, 调用相应中断处理函数，开始唤醒 ksoftirqd 内核线程处理软中断。</li>
+<li>内核进行软中断处理，调用 NAPI poll 接口来获取内存环形缓冲区(ring buffer)的数据包，送至更上层处理。</li>
+<li>内核中网络协议栈：L2 处理。</li>
+<li>内核中网络协议栈：L3 处理。</li>
+<li>内核中网络协议栈：L4 处理。</li>
+<li>网络协议栈处理数据后，并将其发送到对应应用的 socket 接收缓冲区。</li>
+</ol>
+<h3 id="高并发瓶颈">高并发瓶颈</h3>
+<ul>
+<li>用户进程调用系统调用陷入内核态的开销。</li>
+<li>CPU 响应包的硬中断 CPU 开销</li>
+<li>ksoftirqd 内核线程的软中断上下文开销。</li>
+</ul>
+<h2 id="rxtx-ring-优化">RX/TX Ring 优化</h2>
+<p>处理一个数据包会有各类的中断、softirq 等处理，因为分配给 Ring Buffer 的空间是有限的，当收到的数据包速率大于单个 CPU 处理速度的时，Ring Buffer 可能被占满并导致新数据包被自动丢弃。一个 CPU 去处理 Ring Buffer 数据会很低效，这个时候就产生 RSS、RPS 等多核并发机制来提升内核网络包的处理能力。</p>
+<p>但是注意，<code>开启多核并发特性</code>，会挤压业务代码的执行时间，<code>如果业务属于 CPU 密集型</code>，会导致业务<code>性能下降</code>。是否开启多核处理，需要根据业务场景考虑，根据笔者的经验来看，例如此类<code>负载均衡服务器</code>、<code>网关</code>、<code>集群核心转发节点</code>等<code>网络I/O 密集型场景</code>可以尝试<code>优化 RSS、RPS 等配置</code>。</p>
+<h3 id="1-判断是否需进行优化">1. 判断是否需进行优化</h3>
+<p>当类似 LVS、集群核心交换节点、负载均衡服务器的场景 PPS（Packet Per Second，包每秒）指标存在一定的优化空间且这些核心节点影响了集群业务，那我们可以查看系统状态以决定是否进行内核优化。<br>
+首先我们确定<code>是否存在丢包状况</code>，如果存在则进行相应的调整。<code>查询网卡收包情况</code> (RX 为收到的数据、TX 为发送的数据)。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">ifconfig eth0 <span class="p">|</span> grep -E <span class="s1">&#39;RX|TX&#39;</span>
+</span></span></code></pre></div><blockquote>
+<p><code>eth0</code> 是你具体服务器的网卡地址</p>
+</blockquote>
+<p>出现以下结果说明RX dropped 表示数据包已经进入了 Ring Buffer，但是由于内存不够等系统原因，导致在拷贝到内存的过程中被丢弃，<code>RX overruns</code> 为 Ring Buffer 传输的 IO 大于 kernel 能够处理的 IO 导致，<code>overruns</code> 的错误意味着 CPU 无法即使的处理中断是造成 <code>Ring Buffer 溢出</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">RX packets <span class="m">490423734</span>  bytes <span class="m">193802774970</span> <span class="o">(</span>180.4 GiB<span class="o">)</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">RX errors <span class="m">12732344</span>  dropped <span class="m">9008921</span>  overruns <span class="m">3723423</span>  frame <span class="m">0</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">TX packets <span class="m">515280693</span>  bytes <span class="m">140609362555</span> <span class="o">(</span>130.9 GiB<span class="o">)</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">TX errors <span class="m">0</span>  dropped <span class="m">0</span> overruns <span class="m">0</span>  carrier <span class="m">0</span>  collisions <span class="m">0</span>
+</span></span></code></pre></div><h3 id="2-rss-下的多队列调整">2. RSS 下的多队列调整</h3>
+<p>RSS（receive side steering）利用网卡多队列特性，将每个核分别跟网卡的一个首发队列绑定，以达到网卡硬中断和软中断均衡的负载在各个 CPU 中，RSS 要求网卡必须要支持多队列特性。（注意：对于大部分驱动，<code>修改以下配置会使网卡先 down 再 up，因此会造成丢包</code>！）<br>
+查询 RX/TX 队列配置和使用情况。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">ethtool -l eth0
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln"> 1</span><span class="cl">Channel parameters <span class="k">for</span> eth0:
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">Pre-set maximums:
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">RX:		<span class="m">0</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">TX:		<span class="m">0</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">Other:		<span class="m">0</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">Combined:	<span class="m">8</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">Current hardware settings:
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">RX:		<span class="m">0</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">TX:		<span class="m">0</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">Other:		<span class="m">0</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">Combined:	<span class="m">4</span>
+</span></span></code></pre></div><p>可以看到硬件最多支持 6 个，当前使用了 4 个。将 RX 和 TX queue 数量都设为 8。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">ethtool -L eth0 combined <span class="m">8</span>
+</span></span></code></pre></div><h3 id="3-队列大小调整">3. 队列大小调整</h3>
+<p>增大 ring buffer 可以在 PPS（packets per second）很大时<code>缓解丢包</code>问题<br>
+查看队列大小。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">ethtool -g eth0
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln"> 1</span><span class="cl">Ring parameters <span class="k">for</span> eth0:
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">Pre-set maximums:
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">RX:		<span class="m">1024</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">RX Mini:	<span class="m">0</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">RX Jumbo:	<span class="m">0</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">TX:		<span class="m">1024</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">Current hardware settings:
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">RX:		<span class="m">512</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">RX Mini:	<span class="m">0</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">RX Jumbo:	<span class="m">0</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">TX:		<span class="m">512</span>
+</span></span></code></pre></div><p>以上输出显示网卡最多支持 1024 个 RX/TX 数据包大小，但是现在只用到了 512 个。 ethtool -G 修改 queue 大小。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">ethtool -G eth0 rx <span class="m">1024</span>
+</span></span></code></pre></div><h2 id="内核协议栈优化">内核协议栈优化</h2>
+<p>一个传输少量数据的 TCP 短连接的生命周期中，握手、挥手阶段将近占用了 <code>70%</code> 的资源消耗，在一个高并发的服务场景，如负载均衡、数据库等，针对性的去优化较为保守内核参数提提升服务性能的必要手段。在本文中，内核协议栈参数优化方向为 TCP 握手流程中队列大小、挥手 TIME_WAITE、keepalive 保活机制以及拥塞控制。<br>
+<img src="https://www.jobcher.com/images/TCP-ad017126.svg" alt="TCP 握手" loading="lazy" decoding="async">
+</p>
+<h3 id="tcp-握手流程参数优化">TCP 握手流程参数优化</h3>
+<p>握手流程中有两个队列较为关键，当队列满时，多余的连接将会被丢弃。</p>
+<ul>
+<li><code>SYN Queue</code> 也被称为<code>半连接队列</code>，是内核保持的未被 ACK 的 SYN 包最大队列长度，通过内核参数 <code>net.ipv4.tcp_max_syn_backlog</code> 配置，高并发的环境下建议设置为 <code>1024 或更高</code>。</li>
+<li><code>Accept Queue</code> 也被称为<code>全连接队列</code>， 是一个 socket 上等待应用程序 accept 的最大队列长度。取值为 min(backlog，net.core.somaxconn)。</li>
+</ul>
+<h3 id="tcp-连接保活参数优化">TCP 连接保活参数优化</h3>
+<p>当 TCP 建立连接后，会有个发送一个空的 ACK 的探测行为来保持连接（keepalive）。keepalive 受以下参数影响：</p>
+<ul>
+<li><code>net.ipv4.tcp_keepalive_time</code> 最大闲置时间</li>
+<li><code>net.ipv4.tcp_keepalive_intvl</code> 发送探测包的时间间隔</li>
+<li><code>net.ipv4.tcp_keepalive_probes</code> 最大失败次数，超过此值后将通知应用层连接失效
+在大规模的集群内部，如果 <code>keepalive_time</code> 设置<code>较短且发送较为频繁</code>，会产生大量的<code>空 ACK 报文</code>，存在塞满 RingBuffer 造成 TCP 丢包甚至连接断开问题。</li>
+</ul>
+<h3 id="tcp-连接断开参数优化">TCP 连接断开参数优化</h3>
+<p>由于 <code>TCP 双全工</code>的特性，安全关闭一个连接需要四次挥手。但在一个复杂的网络环境下，会存在很多异常情况，异常断开连接会导致产生孤儿连(半连接)。 这种连接既不能发送数据，也无法接收数据，累计过多，会消耗大量系统资源。在高并发的场景下，孤儿连过多会引起资源不足，产生 <code>Address already in use: connect </code>类似的错误。<br>
+<img src="https://www.jobcher.com/images/tcp_disconnect-4051b998.svg" alt="TCP 挥手" loading="lazy" decoding="async">
+<br>
+挥手流程中的主要优化为 <code>TIME_WAIT</code> 的参数调整。<code>TIME_WAIT</code> 是 TCP 挥手的最后一个状态。当收到被动方发来的 FIN 报文后，主动方回复 ACK，表示确认对方的发送通道已经关闭，继而进入TIME_WAIT 状态 ，等待 2MSL 时间后关闭连接。<br>
+如果发起连接一方的 <code>TIME_WAIT</code> 状态过多，会占满了所有端口资源，则会导致无法创建新连接。<code>TIME_WAIT</code> 的问题在<code>反向代理中比较明显</code>，例如 nginx 默认行为下会对于 client 传来的每一个 request 都向 upstream server 打开一个新连接，<code>高 QPS 的反向代理</code>将会快速积累 TIME_WAIT 状态的 socket，直到没有可用的本地端口，无法继续向 upstream 打开连接，此时服务将不可用。</p>
+<ul>
+<li><code>net.ipv4.tcp_max_tw_buckets</code>，此数值定义系统在同一时间最多能有多少 TIME_WAIT 状态，当超过这个值时，系统会<code>直接删掉这个 socket 而不会留下 TIME_WAIT 的状态</code></li>
+<li><code>net.ipv4.ip_local_port_range</code>，TCP 建立连接时 client 会随机从该参数中定义的端口范围中选择一个作为源端口。可以<code>调整该参数范围增大可选择的端口范围</code>。</li>
+</ul>
+<h3 id="相关配置参考">相关配置参考</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln"> 1</span><span class="cl">net.ipv4.tcp_tw_recycle <span class="o">=</span> <span class="m">0</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">net.ipv4.tcp_tw_reuse <span class="o">=</span> <span class="m">1</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">net.ipv4.ip_local_port_range <span class="o">=</span> <span class="m">1024</span> <span class="m">65535</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">net.ipv4.tcp_rmem <span class="o">=</span> <span class="m">16384</span> <span class="m">262144</span> <span class="m">8388608</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">net.ipv4.tcp_wmem <span class="o">=</span> <span class="m">32768</span> <span class="m">524288</span> <span class="m">16777216</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">net.core.somaxconn <span class="o">=</span> <span class="m">8192</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">net.core.rmem_max <span class="o">=</span> <span class="m">16777216</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">net.core.wmem_max <span class="o">=</span> <span class="m">16777216</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">net.core.wmem_default <span class="o">=</span> <span class="m">2097152</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">net.ipv4.tcp_max_tw_buckets <span class="o">=</span> <span class="m">5000</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">net.ipv4.tcp_max_syn_backlog <span class="o">=</span> <span class="m">10240</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">net.core.netdev_max_backlog <span class="o">=</span> <span class="m">10240</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">net.netfilter.nf_conntrack_max <span class="o">=</span> <span class="m">1000000</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">net.ipv4.netfilter.ip_conntrack_tcp_timeout_established <span class="o">=</span> <span class="m">7200</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">net.core.default_qdisc <span class="o">=</span> fq_codel
+</span></span><span class="line"><span class="ln">16</span><span class="cl">net.ipv4.tcp_congestion_control <span class="o">=</span> bbr
+</span></span><span class="line"><span class="ln">17</span><span class="cl">net.ipv4.tcp_slow_start_after_idle <span class="o">=</span> <span class="m">0</span>
+</span></span></code></pre></div>]]></description><content:encoded><![CDATA[<h2 id="简介">简介</h2>
+<p>高并发的系统架构中，任何细微调整，稍有不注意便会引起连锁反应，只有系统地了解整个网络栈，在处理疑难杂症或者系统优化工作中，才能做到手中有粮心中不慌。在本节，我们概览一个 Linux 系统收包的流程，以便了解高并发系统所面临的性能瓶颈问题以及相关的优化策略。</p>
+<h3 id="收包过程">收包过程</h3>
+<p><img src="https://www.jobcher.com/images/networking-dc52a683.svg" alt="收包过程" loading="lazy" decoding="async">
+</p>
+<ol>
+<li>网卡 eth0 收到数据包。</li>
+<li>网卡通过 DMA 将数据包拷贝到内存的环形缓冲区(Ring Buffer，在网卡中有 RX Ring 和 TX Ring 两种缓冲)。</li>
+<li>数据从网卡拷贝到内存后, 网卡产生 IRQ（Interupt ReQuest，硬件中断）告知内核有新的数据包达到。</li>
+<li>内核收到中断后, 调用相应中断处理函数，开始唤醒 ksoftirqd 内核线程处理软中断。</li>
+<li>内核进行软中断处理，调用 NAPI poll 接口来获取内存环形缓冲区(ring buffer)的数据包，送至更上层处理。</li>
+<li>内核中网络协议栈：L2 处理。</li>
+<li>内核中网络协议栈：L3 处理。</li>
+<li>内核中网络协议栈：L4 处理。</li>
+<li>网络协议栈处理数据后，并将其发送到对应应用的 socket 接收缓冲区。</li>
+</ol>
+<h3 id="高并发瓶颈">高并发瓶颈</h3>
+<ul>
+<li>用户进程调用系统调用陷入内核态的开销。</li>
+<li>CPU 响应包的硬中断 CPU 开销</li>
+<li>ksoftirqd 内核线程的软中断上下文开销。</li>
+</ul>
+<h2 id="rxtx-ring-优化">RX/TX Ring 优化</h2>
+<p>处理一个数据包会有各类的中断、softirq 等处理，因为分配给 Ring Buffer 的空间是有限的，当收到的数据包速率大于单个 CPU 处理速度的时，Ring Buffer 可能被占满并导致新数据包被自动丢弃。一个 CPU 去处理 Ring Buffer 数据会很低效，这个时候就产生 RSS、RPS 等多核并发机制来提升内核网络包的处理能力。</p>
+<p>但是注意，<code>开启多核并发特性</code>，会挤压业务代码的执行时间，<code>如果业务属于 CPU 密集型</code>，会导致业务<code>性能下降</code>。是否开启多核处理，需要根据业务场景考虑，根据笔者的经验来看，例如此类<code>负载均衡服务器</code>、<code>网关</code>、<code>集群核心转发节点</code>等<code>网络I/O 密集型场景</code>可以尝试<code>优化 RSS、RPS 等配置</code>。</p>
+<h3 id="1-判断是否需进行优化">1. 判断是否需进行优化</h3>
+<p>当类似 LVS、集群核心交换节点、负载均衡服务器的场景 PPS（Packet Per Second，包每秒）指标存在一定的优化空间且这些核心节点影响了集群业务，那我们可以查看系统状态以决定是否进行内核优化。<br>
+首先我们确定<code>是否存在丢包状况</code>，如果存在则进行相应的调整。<code>查询网卡收包情况</code> (RX 为收到的数据、TX 为发送的数据)。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">ifconfig eth0 <span class="p">|</span> grep -E <span class="s1">&#39;RX|TX&#39;</span>
+</span></span></code></pre></div><blockquote>
+<p><code>eth0</code> 是你具体服务器的网卡地址</p>
+</blockquote>
+<p>出现以下结果说明RX dropped 表示数据包已经进入了 Ring Buffer，但是由于内存不够等系统原因，导致在拷贝到内存的过程中被丢弃，<code>RX overruns</code> 为 Ring Buffer 传输的 IO 大于 kernel 能够处理的 IO 导致，<code>overruns</code> 的错误意味着 CPU 无法即使的处理中断是造成 <code>Ring Buffer 溢出</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">RX packets <span class="m">490423734</span>  bytes <span class="m">193802774970</span> <span class="o">(</span>180.4 GiB<span class="o">)</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">RX errors <span class="m">12732344</span>  dropped <span class="m">9008921</span>  overruns <span class="m">3723423</span>  frame <span class="m">0</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">TX packets <span class="m">515280693</span>  bytes <span class="m">140609362555</span> <span class="o">(</span>130.9 GiB<span class="o">)</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">TX errors <span class="m">0</span>  dropped <span class="m">0</span> overruns <span class="m">0</span>  carrier <span class="m">0</span>  collisions <span class="m">0</span>
+</span></span></code></pre></div><h3 id="2-rss-下的多队列调整">2. RSS 下的多队列调整</h3>
+<p>RSS（receive side steering）利用网卡多队列特性，将每个核分别跟网卡的一个首发队列绑定，以达到网卡硬中断和软中断均衡的负载在各个 CPU 中，RSS 要求网卡必须要支持多队列特性。（注意：对于大部分驱动，<code>修改以下配置会使网卡先 down 再 up，因此会造成丢包</code>！）<br>
+查询 RX/TX 队列配置和使用情况。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">ethtool -l eth0
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln"> 1</span><span class="cl">Channel parameters <span class="k">for</span> eth0:
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">Pre-set maximums:
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">RX:		<span class="m">0</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">TX:		<span class="m">0</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">Other:		<span class="m">0</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">Combined:	<span class="m">8</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">Current hardware settings:
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">RX:		<span class="m">0</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">TX:		<span class="m">0</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">Other:		<span class="m">0</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">Combined:	<span class="m">4</span>
+</span></span></code></pre></div><p>可以看到硬件最多支持 6 个，当前使用了 4 个。将 RX 和 TX queue 数量都设为 8。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">ethtool -L eth0 combined <span class="m">8</span>
+</span></span></code></pre></div><h3 id="3-队列大小调整">3. 队列大小调整</h3>
+<p>增大 ring buffer 可以在 PPS（packets per second）很大时<code>缓解丢包</code>问题<br>
+查看队列大小。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">ethtool -g eth0
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln"> 1</span><span class="cl">Ring parameters <span class="k">for</span> eth0:
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">Pre-set maximums:
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">RX:		<span class="m">1024</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">RX Mini:	<span class="m">0</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">RX Jumbo:	<span class="m">0</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">TX:		<span class="m">1024</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">Current hardware settings:
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">RX:		<span class="m">512</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">RX Mini:	<span class="m">0</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">RX Jumbo:	<span class="m">0</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">TX:		<span class="m">512</span>
+</span></span></code></pre></div><p>以上输出显示网卡最多支持 1024 个 RX/TX 数据包大小，但是现在只用到了 512 个。 ethtool -G 修改 queue 大小。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">ethtool -G eth0 rx <span class="m">1024</span>
+</span></span></code></pre></div><h2 id="内核协议栈优化">内核协议栈优化</h2>
+<p>一个传输少量数据的 TCP 短连接的生命周期中，握手、挥手阶段将近占用了 <code>70%</code> 的资源消耗，在一个高并发的服务场景，如负载均衡、数据库等，针对性的去优化较为保守内核参数提提升服务性能的必要手段。在本文中，内核协议栈参数优化方向为 TCP 握手流程中队列大小、挥手 TIME_WAITE、keepalive 保活机制以及拥塞控制。<br>
+<img src="https://www.jobcher.com/images/TCP-ad017126.svg" alt="TCP 握手" loading="lazy" decoding="async">
+</p>
+<h3 id="tcp-握手流程参数优化">TCP 握手流程参数优化</h3>
+<p>握手流程中有两个队列较为关键，当队列满时，多余的连接将会被丢弃。</p>
+<ul>
+<li><code>SYN Queue</code> 也被称为<code>半连接队列</code>，是内核保持的未被 ACK 的 SYN 包最大队列长度，通过内核参数 <code>net.ipv4.tcp_max_syn_backlog</code> 配置，高并发的环境下建议设置为 <code>1024 或更高</code>。</li>
+<li><code>Accept Queue</code> 也被称为<code>全连接队列</code>， 是一个 socket 上等待应用程序 accept 的最大队列长度。取值为 min(backlog，net.core.somaxconn)。</li>
+</ul>
+<h3 id="tcp-连接保活参数优化">TCP 连接保活参数优化</h3>
+<p>当 TCP 建立连接后，会有个发送一个空的 ACK 的探测行为来保持连接（keepalive）。keepalive 受以下参数影响：</p>
+<ul>
+<li><code>net.ipv4.tcp_keepalive_time</code> 最大闲置时间</li>
+<li><code>net.ipv4.tcp_keepalive_intvl</code> 发送探测包的时间间隔</li>
+<li><code>net.ipv4.tcp_keepalive_probes</code> 最大失败次数，超过此值后将通知应用层连接失效
+在大规模的集群内部，如果 <code>keepalive_time</code> 设置<code>较短且发送较为频繁</code>，会产生大量的<code>空 ACK 报文</code>，存在塞满 RingBuffer 造成 TCP 丢包甚至连接断开问题。</li>
+</ul>
+<h3 id="tcp-连接断开参数优化">TCP 连接断开参数优化</h3>
+<p>由于 <code>TCP 双全工</code>的特性，安全关闭一个连接需要四次挥手。但在一个复杂的网络环境下，会存在很多异常情况，异常断开连接会导致产生孤儿连(半连接)。 这种连接既不能发送数据，也无法接收数据，累计过多，会消耗大量系统资源。在高并发的场景下，孤儿连过多会引起资源不足，产生 <code>Address already in use: connect </code>类似的错误。<br>
+<img src="https://www.jobcher.com/images/tcp_disconnect-4051b998.svg" alt="TCP 挥手" loading="lazy" decoding="async">
+<br>
+挥手流程中的主要优化为 <code>TIME_WAIT</code> 的参数调整。<code>TIME_WAIT</code> 是 TCP 挥手的最后一个状态。当收到被动方发来的 FIN 报文后，主动方回复 ACK，表示确认对方的发送通道已经关闭，继而进入TIME_WAIT 状态 ，等待 2MSL 时间后关闭连接。<br>
+如果发起连接一方的 <code>TIME_WAIT</code> 状态过多，会占满了所有端口资源，则会导致无法创建新连接。<code>TIME_WAIT</code> 的问题在<code>反向代理中比较明显</code>，例如 nginx 默认行为下会对于 client 传来的每一个 request 都向 upstream server 打开一个新连接，<code>高 QPS 的反向代理</code>将会快速积累 TIME_WAIT 状态的 socket，直到没有可用的本地端口，无法继续向 upstream 打开连接，此时服务将不可用。</p>
+<ul>
+<li><code>net.ipv4.tcp_max_tw_buckets</code>，此数值定义系统在同一时间最多能有多少 TIME_WAIT 状态，当超过这个值时，系统会<code>直接删掉这个 socket 而不会留下 TIME_WAIT 的状态</code></li>
+<li><code>net.ipv4.ip_local_port_range</code>，TCP 建立连接时 client 会随机从该参数中定义的端口范围中选择一个作为源端口。可以<code>调整该参数范围增大可选择的端口范围</code>。</li>
+</ul>
+<h3 id="相关配置参考">相关配置参考</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln"> 1</span><span class="cl">net.ipv4.tcp_tw_recycle <span class="o">=</span> <span class="m">0</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">net.ipv4.tcp_tw_reuse <span class="o">=</span> <span class="m">1</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">net.ipv4.ip_local_port_range <span class="o">=</span> <span class="m">1024</span> <span class="m">65535</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">net.ipv4.tcp_rmem <span class="o">=</span> <span class="m">16384</span> <span class="m">262144</span> <span class="m">8388608</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">net.ipv4.tcp_wmem <span class="o">=</span> <span class="m">32768</span> <span class="m">524288</span> <span class="m">16777216</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">net.core.somaxconn <span class="o">=</span> <span class="m">8192</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">net.core.rmem_max <span class="o">=</span> <span class="m">16777216</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">net.core.wmem_max <span class="o">=</span> <span class="m">16777216</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">net.core.wmem_default <span class="o">=</span> <span class="m">2097152</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">net.ipv4.tcp_max_tw_buckets <span class="o">=</span> <span class="m">5000</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">net.ipv4.tcp_max_syn_backlog <span class="o">=</span> <span class="m">10240</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">net.core.netdev_max_backlog <span class="o">=</span> <span class="m">10240</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">net.netfilter.nf_conntrack_max <span class="o">=</span> <span class="m">1000000</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">net.ipv4.netfilter.ip_conntrack_tcp_timeout_established <span class="o">=</span> <span class="m">7200</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">net.core.default_qdisc <span class="o">=</span> fq_codel
+</span></span><span class="line"><span class="ln">16</span><span class="cl">net.ipv4.tcp_congestion_control <span class="o">=</span> bbr
+</span></span><span class="line"><span class="ln">17</span><span class="cl">net.ipv4.tcp_slow_start_after_idle <span class="o">=</span> <span class="m">0</span>
+</span></span></code></pre></div>]]></content:encoded></item><item><title>Vue3 + vite + nginx项目部署后404问题</title><link>https://www.jobcher.com/nginx-error/</link><pubDate>Thu, 10 Aug 2023 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/nginx-error/</guid><description><![CDATA[<h2 id="vue3--vite--nginx项目部署后404问题">Vue3 + vite + nginx项目部署后404问题</h2>
+<p><code>vue3 + vite + nginx</code><br>
+在服务器上部署后打开首页都没问题，打开其他路径全部 404。<br>
+<code>nginx</code> 报错日志：<code>No such file or directory</code></p>
+<blockquote>
+<p>其实查看 <code>build</code> 后的<code>dist文件夹</code>可以发现，只有一个<code>index.html</code>，当你访问别的路径时<code>nignx</code>查找不到所以就报错了</p>
+</blockquote>
+<h2 id="解决方案">解决方案</h2>
+<p>在 nginx.conf 中添加: <code>try_files $uri $uri/ /index.html;</code></p>
+<pre tabindex="0"><code class="language-conf" data-lang="conf">server {
+          listen       80;
+          server_name  localhost;
+          location / {
+          root   /dist;
+          index  index.html index.htm;
+          # 在配置文件的此处加上这句话
+          try_files $uri $uri/ /index.html;
+        }
+    }
+</code></pre><h2 id="总结">总结</h2>
+<p>其实上述改动就是告诉 nignx 找不到文件的时候就访问 <code>index.html</code> 就可以了。</p>
+<p>究其原因其实就是是 vue3 的 router 使用了<code>history</code>模式，该模式与之前<code>hash</code>模式的具体区别可以自行百度一下，不在此赘述。</p>
+]]></description><content:encoded><![CDATA[<h2 id="vue3--vite--nginx项目部署后404问题">Vue3 + vite + nginx项目部署后404问题</h2>
+<p><code>vue3 + vite + nginx</code><br>
+在服务器上部署后打开首页都没问题，打开其他路径全部 404。<br>
+<code>nginx</code> 报错日志：<code>No such file or directory</code></p>
+<blockquote>
+<p>其实查看 <code>build</code> 后的<code>dist文件夹</code>可以发现，只有一个<code>index.html</code>，当你访问别的路径时<code>nignx</code>查找不到所以就报错了</p>
+</blockquote>
+<h2 id="解决方案">解决方案</h2>
+<p>在 nginx.conf 中添加: <code>try_files $uri $uri/ /index.html;</code></p>
+<pre tabindex="0"><code class="language-conf" data-lang="conf">server {
+          listen       80;
+          server_name  localhost;
+          location / {
+          root   /dist;
+          index  index.html index.htm;
+          # 在配置文件的此处加上这句话
+          try_files $uri $uri/ /index.html;
+        }
+    }
+</code></pre><h2 id="总结">总结</h2>
+<p>其实上述改动就是告诉 nignx 找不到文件的时候就访问 <code>index.html</code> 就可以了。</p>
+<p>究其原因其实就是是 vue3 的 router 使用了<code>history</code>模式，该模式与之前<code>hash</code>模式的具体区别可以自行百度一下，不在此赘述。</p>
+]]></content:encoded></item><item><title>githubAction set-output弃用错误</title><link>https://www.jobcher.com/github-error/</link><pubDate>Fri, 21 Oct 2022 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/github-error/</guid><description><![CDATA[<h1 id="githubaction-set-output-弃用错误">githubAction set-output 弃用错误</h1>
+<p>The <code>set-output</code> command is deprecated and will be disabled soon. Please upgrade to using Environment Files. For more information see: <a href="https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/">https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/</a></p>
+<h2 id="原因">原因</h2>
+<p>如果您有一个使用 设置输出的<code>GitHub Actionsecho ::set-output key=value</code>工作流程，您已经开始看到无用的弃用警告。这是修复它的方法。查看官方链接基本上得不到什么帮助！</p>
+<h2 id="修复方法">修复方法</h2>
+<ol>
+<li>更新其它人的 action 方法</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">将 @actions/core 提升到 1.10.0
+</span></span></code></pre></div><ol start="2">
+<li>修改自己的 aciton 方法</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">run: <span class="nb">echo</span> <span class="s2">&#34;::set-output name=KEY::VALUE&#34;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1">## 改为</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">run: <span class="nb">echo</span> <span class="s2">&#34;KEY=VALUE&#34;</span> &gt;&gt;<span class="nv">$GITHUB_OUTPUT</span>
+</span></span></code></pre></div><blockquote>
+<p>建议：使用自己的方法</p>
+</blockquote>
+<h2 id="总结">总结</h2>
+<p>平台经营者非常肆意妄为的修改自己的代码内容弃用功能，无限的权力滋生傲慢……我相信大部分开发这并没有注意到这个告警，知道流水线服务报错之后才会注意到，希望微软可以对能更加包容不同的开发者，尊重开发者社区。</p>
+]]></description><content:encoded><![CDATA[<h1 id="githubaction-set-output-弃用错误">githubAction set-output 弃用错误</h1>
+<p>The <code>set-output</code> command is deprecated and will be disabled soon. Please upgrade to using Environment Files. For more information see: <a href="https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/">https://github.blog/changelog/2022-10-11-github-actions-deprecating-save-state-and-set-output-commands/</a></p>
+<h2 id="原因">原因</h2>
+<p>如果您有一个使用 设置输出的<code>GitHub Actionsecho ::set-output key=value</code>工作流程，您已经开始看到无用的弃用警告。这是修复它的方法。查看官方链接基本上得不到什么帮助！</p>
+<h2 id="修复方法">修复方法</h2>
+<ol>
+<li>更新其它人的 action 方法</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">将 @actions/core 提升到 1.10.0
+</span></span></code></pre></div><ol start="2">
+<li>修改自己的 aciton 方法</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">run: <span class="nb">echo</span> <span class="s2">&#34;::set-output name=KEY::VALUE&#34;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1">## 改为</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">run: <span class="nb">echo</span> <span class="s2">&#34;KEY=VALUE&#34;</span> &gt;&gt;<span class="nv">$GITHUB_OUTPUT</span>
+</span></span></code></pre></div><blockquote>
+<p>建议：使用自己的方法</p>
+</blockquote>
+<h2 id="总结">总结</h2>
+<p>平台经营者非常肆意妄为的修改自己的代码内容弃用功能，无限的权力滋生傲慢……我相信大部分开发这并没有注意到这个告警，知道流水线服务报错之后才会注意到，希望微软可以对能更加包容不同的开发者，尊重开发者社区。</p>
+]]></content:encoded></item><item><title>k8s CNI 问题 连接认证失效</title><link>https://www.jobcher.com/k8s-error2/</link><pubDate>Fri, 23 Sep 2022 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/k8s-error2/</guid><description><![CDATA[<h1 id="k8s-cni-问题-连接认证失效">k8s CNI 问题 连接认证失效</h1>
+<p>删除 <code>calico</code> 换成 <code>flannel</code> 后，容器没有正常启动<br>
+network: error getting ClusterInformation: connection is unauthorized: Unauthorized]</p>
+<h2 id="解决问题">解决问题</h2>
+<p>删除掉 <code>/etc/cni/net.d/</code> 目录下的 calico 配置文件即可。<br>
+要删除<code>所有节点</code>的配置文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">sudo rm -rf /etc/cni/net.d/*calico*
+</span></span></code></pre></div><h2 id="不要重复网络插件">不要重复网络插件</h2>
+<p><img src="https://pic.jitudisk.com/public/2022/09/22/a4d8cc49f1c84.jpg" alt="img" loading="lazy" decoding="async">
+</p>
+]]></description><content:encoded><![CDATA[<h1 id="k8s-cni-问题-连接认证失效">k8s CNI 问题 连接认证失效</h1>
+<p>删除 <code>calico</code> 换成 <code>flannel</code> 后，容器没有正常启动<br>
+network: error getting ClusterInformation: connection is unauthorized: Unauthorized]</p>
+<h2 id="解决问题">解决问题</h2>
+<p>删除掉 <code>/etc/cni/net.d/</code> 目录下的 calico 配置文件即可。<br>
+要删除<code>所有节点</code>的配置文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">sudo rm -rf /etc/cni/net.d/*calico*
+</span></span></code></pre></div><h2 id="不要重复网络插件">不要重复网络插件</h2>
+<p><img src="https://pic.jitudisk.com/public/2022/09/22/a4d8cc49f1c84.jpg" alt="img" loading="lazy" decoding="async">
+</p>
+]]></content:encoded></item><item><title>k8s.gcr.io国内无法连接解决方法</title><link>https://www.jobcher.com/k8s-error3/</link><pubDate>Thu, 22 Sep 2022 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/k8s-error3/</guid><description><![CDATA[<h1 id="k8sgcrio-国内无法连接解决方法">k8s.gcr.io 国内无法连接解决方法</h1>
+<p>Get <a href="https://k8s.gcr.io/v2/">https://k8s.gcr.io/v2/</a>: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)<br>
+这个一看知道什么原因了，应该 GFW！那好吧，只能给 docker 加个代理了。</p>
+<h2 id="解决问题">解决问题</h2>
+<p>添加 mirror 站点</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">registry.cn-hangzhou.aliyuncs.com/google_containers
+</span></span></code></pre></div>]]></description><content:encoded><![CDATA[<h1 id="k8sgcrio-国内无法连接解决方法">k8s.gcr.io 国内无法连接解决方法</h1>
+<p>Get <a href="https://k8s.gcr.io/v2/">https://k8s.gcr.io/v2/</a>: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)<br>
+这个一看知道什么原因了，应该 GFW！那好吧，只能给 docker 加个代理了。</p>
+<h2 id="解决问题">解决问题</h2>
+<p>添加 mirror 站点</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">registry.cn-hangzhou.aliyuncs.com/google_containers
+</span></span></code></pre></div>]]></content:encoded></item><item><title>K8S 问题排查：cgroup 内存泄露问题</title><link>https://www.jobcher.com/k8s-error/</link><pubDate>Tue, 30 Aug 2022 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/k8s-error/</guid><description><![CDATA[<h1 id="k8s-问题排查cgroup-内存泄露问题">K8S 问题排查：cgroup 内存泄露问题</h1>
+<pre tabindex="0"><code class="language-log" data-lang="log">unable to ensure pod container exists: failed to create container for [kubepods besteffort pod5f26dae8-0421-4eab-a3f7-aa51c6848e2b] : mkdir /sys/fs/cgroup/memory/kubepods/besteffort/pod5f26dae8-0421-4eab-a3f7-aa51c6848e2b: cannot allocate memory
+</code></pre><h2 id="查看-linux-内核">查看 linux 内核</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">cat /proc/version
+</span></span><span class="line"><span class="ln">2</span><span class="cl">uname -a
+</span></span></code></pre></div><p>可以发现 linux 版本是 3.0 版本</p>
+<h2 id="原因">原因</h2>
+<blockquote>
+<p><code>cgroup</code> 的 <code>kmem account</code> 特性在 <code>Linux 3.x</code> 内核上有内存泄露问题，然后<code>k8s</code>用了这个特性，导致后面创建不出新的<code>pod</code>来了</p>
+</blockquote>
+<h2 id="解决方法">解决方法</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># 修改/etc/default/grub 为</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nv">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s2">&#34;crashkernel=auto rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb quiet cgroup.memory=nokmem&#34;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1">#加上了 cgroup.memory=nokmem</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"># 生成配置</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg
+</span></span><span class="line"><span class="ln">6</span><span class="cl">
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="c1"># 重启机器</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl">reboot
+</span></span></code></pre></div><h2 id="验证">验证</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">cat /sys/fs/cgroup/memory/kubepods/burstable/pod*/*/memory.kmem.slabinfo
+</span></span></code></pre></div><p>输出信息</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln"> 1</span><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod0fe273ca-42e0-4223-9fe8-16d8dd1774e9/0fdd5d9c16929fd600dbdf313b5c3ebabad912dc0cb076ed6e7799e028b31481/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod0fe273ca-42e0-4223-9fe8-16d8dd1774e9/aa30198d0c5413b70bf488c9daa350a85c7fc6b677235c5adaf2dde6caf95ec4/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod5be86c5d-d012-4cc2-b693-4882a15eda90/059b26b00f4f286b0f52e759b83dad79c7676e1705ee0f3f175a277fd1e5ea5a/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod5be86c5d-d012-4cc2-b693-4882a15eda90/bfa9db0c23fd056a0c05ee5b2b377dd551451cc0f18ddd5db82f9693674a4677/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod8f588e3d-fe89-4716-ab36-3ef606c70367/6fab9f4f7a83bf4c79a68277b214807bd566a8f13212a0fdb5742e4eee4d75d5/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod8f588e3d-fe89-4716-ab36-3ef606c70367/b04594732f7e38a47500ffe1150705110cfa683b585aa7eaf0965cc48ba2a46d/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod9c449bdf-492b-4adc-a623-4ced323ac6d4/c9e73e56ddae0c6c301e43852a51165419eb293b05fa65407f8cb3fe449daf5d/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod9c449bdf-492b-4adc-a623-4ced323ac6d4/d7392b1e4be1728fd739dc7117e6efc723a4727f143b91a1b386ad35dc1d3a2e/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/podd316acd7-69fe-4ad5-963a-6e19174b7cb0/0ec18ac0509e6ab454ebe637bde002330afc9eb70eff6f23fe8caa12880e82f6/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="ln">10</span><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/podd316acd7-69fe-4ad5-963a-6e19174b7cb0/dc5be82c01802c349c9505375c37dc054898b9b84e57cb4e671044e8a6459aac/memory.kmem.slabinfo: 输入/输出错误
+</span></span></code></pre></div>]]></description><content:encoded><![CDATA[<h1 id="k8s-问题排查cgroup-内存泄露问题">K8S 问题排查：cgroup 内存泄露问题</h1>
+<pre tabindex="0"><code class="language-log" data-lang="log">unable to ensure pod container exists: failed to create container for [kubepods besteffort pod5f26dae8-0421-4eab-a3f7-aa51c6848e2b] : mkdir /sys/fs/cgroup/memory/kubepods/besteffort/pod5f26dae8-0421-4eab-a3f7-aa51c6848e2b: cannot allocate memory
+</code></pre><h2 id="查看-linux-内核">查看 linux 内核</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">cat /proc/version
+</span></span><span class="line"><span class="ln">2</span><span class="cl">uname -a
+</span></span></code></pre></div><p>可以发现 linux 版本是 3.0 版本</p>
+<h2 id="原因">原因</h2>
+<blockquote>
+<p><code>cgroup</code> 的 <code>kmem account</code> 特性在 <code>Linux 3.x</code> 内核上有内存泄露问题，然后<code>k8s</code>用了这个特性，导致后面创建不出新的<code>pod</code>来了</p>
+</blockquote>
+<h2 id="解决方法">解决方法</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># 修改/etc/default/grub 为</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nv">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s2">&#34;crashkernel=auto rd.lvm.lv=centos/root rd.lvm.lv=centos/swap rhgb quiet cgroup.memory=nokmem&#34;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1">#加上了 cgroup.memory=nokmem</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1"># 生成配置</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">/usr/sbin/grub2-mkconfig -o /boot/grub2/grub.cfg
+</span></span><span class="line"><span class="ln">6</span><span class="cl">
+</span></span><span class="line"><span class="ln">7</span><span class="cl"><span class="c1"># 重启机器</span>
+</span></span><span class="line"><span class="ln">8</span><span class="cl">reboot
+</span></span></code></pre></div><h2 id="验证">验证</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">cat /sys/fs/cgroup/memory/kubepods/burstable/pod*/*/memory.kmem.slabinfo
+</span></span></code></pre></div><p>输出信息</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln"> 1</span><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod0fe273ca-42e0-4223-9fe8-16d8dd1774e9/0fdd5d9c16929fd600dbdf313b5c3ebabad912dc0cb076ed6e7799e028b31481/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod0fe273ca-42e0-4223-9fe8-16d8dd1774e9/aa30198d0c5413b70bf488c9daa350a85c7fc6b677235c5adaf2dde6caf95ec4/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod5be86c5d-d012-4cc2-b693-4882a15eda90/059b26b00f4f286b0f52e759b83dad79c7676e1705ee0f3f175a277fd1e5ea5a/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod5be86c5d-d012-4cc2-b693-4882a15eda90/bfa9db0c23fd056a0c05ee5b2b377dd551451cc0f18ddd5db82f9693674a4677/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod8f588e3d-fe89-4716-ab36-3ef606c70367/6fab9f4f7a83bf4c79a68277b214807bd566a8f13212a0fdb5742e4eee4d75d5/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod8f588e3d-fe89-4716-ab36-3ef606c70367/b04594732f7e38a47500ffe1150705110cfa683b585aa7eaf0965cc48ba2a46d/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod9c449bdf-492b-4adc-a623-4ced323ac6d4/c9e73e56ddae0c6c301e43852a51165419eb293b05fa65407f8cb3fe449daf5d/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/pod9c449bdf-492b-4adc-a623-4ced323ac6d4/d7392b1e4be1728fd739dc7117e6efc723a4727f143b91a1b386ad35dc1d3a2e/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/podd316acd7-69fe-4ad5-963a-6e19174b7cb0/0ec18ac0509e6ab454ebe637bde002330afc9eb70eff6f23fe8caa12880e82f6/memory.kmem.slabinfo: 输入/输出错误
+</span></span><span class="line"><span class="ln">10</span><span class="cl">cat: /sys/fs/cgroup/memory/kubepods/burstable/podd316acd7-69fe-4ad5-963a-6e19174b7cb0/dc5be82c01802c349c9505375c37dc054898b9b84e57cb4e671044e8a6459aac/memory.kmem.slabinfo: 输入/输出错误
+</span></span></code></pre></div>]]></content:encoded></item><item><title>docker 问题处理</title><link>https://www.jobcher.com/docker-error/</link><pubDate>Thu, 04 Aug 2022 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/docker-error/</guid><description><![CDATA[<h3 id="docker-无法启动">docker 无法启动</h3>
+<p>打开服务器输入<code>docker ps</code>,输出错误<br>
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?</p>
+<p>怀疑是不是<code>docker.services</code> 部署没成功，<code>systemctl start docker</code> 启动 docker，结果服务器还是报错</p>
+<p>Job for docker.service failed because the control process exited with error code.<br>
+See &ldquo;systemctl status docker.service&rdquo; and &ldquo;journalctl -xe&rdquo; for details.</p>
+<p><code>systemctl status docker.service</code> 输出日志：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln"> 1</span><span class="cl">● docker.service - Docker Application Container Engine
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">     Loaded: loaded <span class="o">(</span>/lib/systemd/system/docker.service<span class="p">;</span> enabled<span class="p">;</span> vendor preset: enabled<span class="o">)</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">     Active: failed <span class="o">(</span>Result: exit-code<span class="o">)</span> since Thu 2022-08-04 11:43:05 CST<span class="p">;</span> 2min 57s ago
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">TriggeredBy: ● docker.socket
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">       Docs: https://docs.docker.com
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    Process: <span class="m">30432</span> <span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/dockerd -H fd:// --containerd<span class="o">=</span>/run/containerd/containerd.sock <span class="o">(</span><span class="nv">code</span><span class="o">=</span>exited, <span class="nv">status</span><span class="o">=</span>1/FAILURE<span class="o">)</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">   Main PID: <span class="m">30432</span> <span class="o">(</span><span class="nv">code</span><span class="o">=</span>exited, <span class="nv">status</span><span class="o">=</span>1/FAILURE<span class="o">)</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">Aug <span class="m">04</span> 11:43:05 master01 systemd<span class="o">[</span>1<span class="o">]</span>: docker.service: Scheduled restart job, restart counter is at 3.
+</span></span><span class="line"><span class="ln">10</span><span class="cl">Aug <span class="m">04</span> 11:43:05 master01 systemd<span class="o">[</span>1<span class="o">]</span>: Stopped Docker Application Container Engine.
+</span></span><span class="line"><span class="ln">11</span><span class="cl">Aug <span class="m">04</span> 11:43:05 master01 systemd<span class="o">[</span>1<span class="o">]</span>: docker.service: Start request repeated too quickly.
+</span></span><span class="line"><span class="ln">12</span><span class="cl">Aug <span class="m">04</span> 11:43:05 master01 systemd<span class="o">[</span>1<span class="o">]</span>: docker.service: Failed with result <span class="s1">&#39;exit-code&#39;</span>.
+</span></span><span class="line"><span class="ln">13</span><span class="cl">Aug <span class="m">04</span> 11:43:05 master01 systemd<span class="o">[</span>1<span class="o">]</span>: Failed to start Docker Application Container Engine.
+</span></span></code></pre></div><p><code>journalctl -xe</code> 输出日志：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln"> 1</span><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 systemd<span class="o">[</span>1<span class="o">]</span>: Starting Docker Socket <span class="k">for</span> the API.
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">-- Subject: A start job <span class="k">for</span> unit docker.socket has begun execution
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">-- Defined-By: systemd
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">-- Support: http://www.ubuntu.com/support
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">--
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">-- A start job <span class="k">for</span> unit docker.socket has begun execution.
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">--
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">-- The job identifier is 58900.
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 systemd<span class="o">[</span>1<span class="o">]</span>: Listening on Docker Socket <span class="k">for</span> the API.
+</span></span><span class="line"><span class="ln">10</span><span class="cl">-- Subject: A start job <span class="k">for</span> unit docker.socket has finished successfully
+</span></span><span class="line"><span class="ln">11</span><span class="cl">-- Defined-By: systemd
+</span></span><span class="line"><span class="ln">12</span><span class="cl">-- Support: http://www.ubuntu.com/support
+</span></span><span class="line"><span class="ln">13</span><span class="cl">--
+</span></span><span class="line"><span class="ln">14</span><span class="cl">-- A start job <span class="k">for</span> unit docker.socket has finished successfully.
+</span></span><span class="line"><span class="ln">15</span><span class="cl">--
+</span></span><span class="line"><span class="ln">16</span><span class="cl">-- The job identifier is 58900.
+</span></span><span class="line"><span class="ln">17</span><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 systemd<span class="o">[</span>1<span class="o">]</span>: Starting Docker Application Container Engine...
+</span></span><span class="line"><span class="ln">18</span><span class="cl">-- Subject: A start job <span class="k">for</span> unit docker.service has begun execution
+</span></span><span class="line"><span class="ln">19</span><span class="cl">-- Defined-By: systemd
+</span></span><span class="line"><span class="ln">20</span><span class="cl">-- Support: http://www.ubuntu.com/support
+</span></span><span class="line"><span class="ln">21</span><span class="cl">--
+</span></span><span class="line"><span class="ln">22</span><span class="cl">-- A start job <span class="k">for</span> unit docker.service has begun execution.
+</span></span><span class="line"><span class="ln">23</span><span class="cl">--
+</span></span><span class="line"><span class="ln">24</span><span class="cl">-- The job identifier is 58830.
+</span></span><span class="line"><span class="ln">25</span><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 dockerd<span class="o">[</span>30544<span class="o">]</span>: unable to configure the Docker daemon with file /etc/docker/daemon.json: EOF
+</span></span><span class="line"><span class="ln">26</span><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 systemd<span class="o">[</span>1<span class="o">]</span>: docker.service: Main process exited, <span class="nv">code</span><span class="o">=</span>exited, <span class="nv">status</span><span class="o">=</span>1/FAILURE
+</span></span><span class="line"><span class="ln">27</span><span class="cl">-- Subject: Unit process exited
+</span></span><span class="line"><span class="ln">28</span><span class="cl">-- Defined-By: systemd
+</span></span><span class="line"><span class="ln">29</span><span class="cl">-- Support: http://www.ubuntu.com/support
+</span></span><span class="line"><span class="ln">30</span><span class="cl">--
+</span></span><span class="line"><span class="ln">31</span><span class="cl">-- An <span class="nv">ExecStart</span><span class="o">=</span> process belonging to unit docker.service has exited.
+</span></span><span class="line"><span class="ln">32</span><span class="cl">--
+</span></span><span class="line"><span class="ln">33</span><span class="cl">-- The process<span class="s1">&#39; exit code is &#39;</span>exited<span class="s1">&#39; and its exit status is 1.
+</span></span></span><span class="line"><span class="ln">34</span><span class="cl"><span class="s1">Aug 04 11:46:49 master01 systemd[1]: docker.service: Failed with result &#39;</span>exit-code<span class="s1">&#39;.
+</span></span></span><span class="line"><span class="ln">35</span><span class="cl"><span class="s1">-- Subject: Unit failed
+</span></span></span><span class="line"><span class="ln">36</span><span class="cl"><span class="s1">-- Defined-By: systemd
+</span></span></span><span class="line"><span class="ln">37</span><span class="cl"><span class="s1">-- Support: http://www.ubuntu.com/support
+</span></span></span><span class="line"><span class="ln">38</span><span class="cl"><span class="s1">--
+</span></span></span><span class="line"><span class="ln">39</span><span class="cl"><span class="s1">-- The unit docker.service has entered the &#39;</span>failed<span class="s1">&#39; state with result &#39;</span>exit-code<span class="err">&#39;</span>.
+</span></span><span class="line"><span class="ln">40</span><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 systemd<span class="o">[</span>1<span class="o">]</span>: Failed to start Docker Application Container Engine.
+</span></span><span class="line"><span class="ln">41</span><span class="cl">-- Subject: A start job <span class="k">for</span> unit docker.service has failed
+</span></span><span class="line"><span class="ln">42</span><span class="cl">-- Defined-By: systemd
+</span></span><span class="line"><span class="ln">43</span><span class="cl">-- Support: http://www.ubuntu.com/support
+</span></span><span class="line"><span class="ln">44</span><span class="cl">--
+</span></span><span class="line"><span class="ln">45</span><span class="cl">-- A start job <span class="k">for</span> unit docker.service has finished with a failure.
+</span></span><span class="line"><span class="ln">46</span><span class="cl">--
+</span></span><span class="line"><span class="ln">47</span><span class="cl">-- The job identifier is <span class="m">58830</span> and the job result is failed.
+</span></span><span class="line"><span class="ln">48</span><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 sudo<span class="o">[</span>30535<span class="o">]</span>: pam_unix<span class="o">(</span>sudo:session<span class="o">)</span>: session closed <span class="k">for</span> user root
+</span></span></code></pre></div><p>我运行了:</p>
+<blockquote>
+<p>sudo dockerd &ndash;debug</p>
+</blockquote>
+<p>输出日志：<br>
+unable to configure the Docker daemon with file /etc/docker/daemon.json: EOF</p>
+<ul>
+<li>解决方法：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">#如果 /etc/docker/daemon.json 为空</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">vim /etc/docker/daemon.json
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># 添加</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="c1">#保存退出</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl">:wq
+</span></span></code></pre></div><p>重启 docker</p>
+<blockquote>
+<p>systemctl restart docker</p>
+</blockquote>
+]]></description><content:encoded><![CDATA[<h3 id="docker-无法启动">docker 无法启动</h3>
+<p>打开服务器输入<code>docker ps</code>,输出错误<br>
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?</p>
+<p>怀疑是不是<code>docker.services</code> 部署没成功，<code>systemctl start docker</code> 启动 docker，结果服务器还是报错</p>
+<p>Job for docker.service failed because the control process exited with error code.<br>
+See &ldquo;systemctl status docker.service&rdquo; and &ldquo;journalctl -xe&rdquo; for details.</p>
+<p><code>systemctl status docker.service</code> 输出日志：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln"> 1</span><span class="cl">● docker.service - Docker Application Container Engine
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">     Loaded: loaded <span class="o">(</span>/lib/systemd/system/docker.service<span class="p">;</span> enabled<span class="p">;</span> vendor preset: enabled<span class="o">)</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">     Active: failed <span class="o">(</span>Result: exit-code<span class="o">)</span> since Thu 2022-08-04 11:43:05 CST<span class="p">;</span> 2min 57s ago
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">TriggeredBy: ● docker.socket
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">       Docs: https://docs.docker.com
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">    Process: <span class="m">30432</span> <span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/dockerd -H fd:// --containerd<span class="o">=</span>/run/containerd/containerd.sock <span class="o">(</span><span class="nv">code</span><span class="o">=</span>exited, <span class="nv">status</span><span class="o">=</span>1/FAILURE<span class="o">)</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">   Main PID: <span class="m">30432</span> <span class="o">(</span><span class="nv">code</span><span class="o">=</span>exited, <span class="nv">status</span><span class="o">=</span>1/FAILURE<span class="o">)</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">Aug <span class="m">04</span> 11:43:05 master01 systemd<span class="o">[</span>1<span class="o">]</span>: docker.service: Scheduled restart job, restart counter is at 3.
+</span></span><span class="line"><span class="ln">10</span><span class="cl">Aug <span class="m">04</span> 11:43:05 master01 systemd<span class="o">[</span>1<span class="o">]</span>: Stopped Docker Application Container Engine.
+</span></span><span class="line"><span class="ln">11</span><span class="cl">Aug <span class="m">04</span> 11:43:05 master01 systemd<span class="o">[</span>1<span class="o">]</span>: docker.service: Start request repeated too quickly.
+</span></span><span class="line"><span class="ln">12</span><span class="cl">Aug <span class="m">04</span> 11:43:05 master01 systemd<span class="o">[</span>1<span class="o">]</span>: docker.service: Failed with result <span class="s1">&#39;exit-code&#39;</span>.
+</span></span><span class="line"><span class="ln">13</span><span class="cl">Aug <span class="m">04</span> 11:43:05 master01 systemd<span class="o">[</span>1<span class="o">]</span>: Failed to start Docker Application Container Engine.
+</span></span></code></pre></div><p><code>journalctl -xe</code> 输出日志：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln"> 1</span><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 systemd<span class="o">[</span>1<span class="o">]</span>: Starting Docker Socket <span class="k">for</span> the API.
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">-- Subject: A start job <span class="k">for</span> unit docker.socket has begun execution
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">-- Defined-By: systemd
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">-- Support: http://www.ubuntu.com/support
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">--
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">-- A start job <span class="k">for</span> unit docker.socket has begun execution.
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">--
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">-- The job identifier is 58900.
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 systemd<span class="o">[</span>1<span class="o">]</span>: Listening on Docker Socket <span class="k">for</span> the API.
+</span></span><span class="line"><span class="ln">10</span><span class="cl">-- Subject: A start job <span class="k">for</span> unit docker.socket has finished successfully
+</span></span><span class="line"><span class="ln">11</span><span class="cl">-- Defined-By: systemd
+</span></span><span class="line"><span class="ln">12</span><span class="cl">-- Support: http://www.ubuntu.com/support
+</span></span><span class="line"><span class="ln">13</span><span class="cl">--
+</span></span><span class="line"><span class="ln">14</span><span class="cl">-- A start job <span class="k">for</span> unit docker.socket has finished successfully.
+</span></span><span class="line"><span class="ln">15</span><span class="cl">--
+</span></span><span class="line"><span class="ln">16</span><span class="cl">-- The job identifier is 58900.
+</span></span><span class="line"><span class="ln">17</span><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 systemd<span class="o">[</span>1<span class="o">]</span>: Starting Docker Application Container Engine...
+</span></span><span class="line"><span class="ln">18</span><span class="cl">-- Subject: A start job <span class="k">for</span> unit docker.service has begun execution
+</span></span><span class="line"><span class="ln">19</span><span class="cl">-- Defined-By: systemd
+</span></span><span class="line"><span class="ln">20</span><span class="cl">-- Support: http://www.ubuntu.com/support
+</span></span><span class="line"><span class="ln">21</span><span class="cl">--
+</span></span><span class="line"><span class="ln">22</span><span class="cl">-- A start job <span class="k">for</span> unit docker.service has begun execution.
+</span></span><span class="line"><span class="ln">23</span><span class="cl">--
+</span></span><span class="line"><span class="ln">24</span><span class="cl">-- The job identifier is 58830.
+</span></span><span class="line"><span class="ln">25</span><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 dockerd<span class="o">[</span>30544<span class="o">]</span>: unable to configure the Docker daemon with file /etc/docker/daemon.json: EOF
+</span></span><span class="line"><span class="ln">26</span><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 systemd<span class="o">[</span>1<span class="o">]</span>: docker.service: Main process exited, <span class="nv">code</span><span class="o">=</span>exited, <span class="nv">status</span><span class="o">=</span>1/FAILURE
+</span></span><span class="line"><span class="ln">27</span><span class="cl">-- Subject: Unit process exited
+</span></span><span class="line"><span class="ln">28</span><span class="cl">-- Defined-By: systemd
+</span></span><span class="line"><span class="ln">29</span><span class="cl">-- Support: http://www.ubuntu.com/support
+</span></span><span class="line"><span class="ln">30</span><span class="cl">--
+</span></span><span class="line"><span class="ln">31</span><span class="cl">-- An <span class="nv">ExecStart</span><span class="o">=</span> process belonging to unit docker.service has exited.
+</span></span><span class="line"><span class="ln">32</span><span class="cl">--
+</span></span><span class="line"><span class="ln">33</span><span class="cl">-- The process<span class="s1">&#39; exit code is &#39;</span>exited<span class="s1">&#39; and its exit status is 1.
+</span></span></span><span class="line"><span class="ln">34</span><span class="cl"><span class="s1">Aug 04 11:46:49 master01 systemd[1]: docker.service: Failed with result &#39;</span>exit-code<span class="s1">&#39;.
+</span></span></span><span class="line"><span class="ln">35</span><span class="cl"><span class="s1">-- Subject: Unit failed
+</span></span></span><span class="line"><span class="ln">36</span><span class="cl"><span class="s1">-- Defined-By: systemd
+</span></span></span><span class="line"><span class="ln">37</span><span class="cl"><span class="s1">-- Support: http://www.ubuntu.com/support
+</span></span></span><span class="line"><span class="ln">38</span><span class="cl"><span class="s1">--
+</span></span></span><span class="line"><span class="ln">39</span><span class="cl"><span class="s1">-- The unit docker.service has entered the &#39;</span>failed<span class="s1">&#39; state with result &#39;</span>exit-code<span class="err">&#39;</span>.
+</span></span><span class="line"><span class="ln">40</span><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 systemd<span class="o">[</span>1<span class="o">]</span>: Failed to start Docker Application Container Engine.
+</span></span><span class="line"><span class="ln">41</span><span class="cl">-- Subject: A start job <span class="k">for</span> unit docker.service has failed
+</span></span><span class="line"><span class="ln">42</span><span class="cl">-- Defined-By: systemd
+</span></span><span class="line"><span class="ln">43</span><span class="cl">-- Support: http://www.ubuntu.com/support
+</span></span><span class="line"><span class="ln">44</span><span class="cl">--
+</span></span><span class="line"><span class="ln">45</span><span class="cl">-- A start job <span class="k">for</span> unit docker.service has finished with a failure.
+</span></span><span class="line"><span class="ln">46</span><span class="cl">--
+</span></span><span class="line"><span class="ln">47</span><span class="cl">-- The job identifier is <span class="m">58830</span> and the job result is failed.
+</span></span><span class="line"><span class="ln">48</span><span class="cl">Aug <span class="m">04</span> 11:46:49 master01 sudo<span class="o">[</span>30535<span class="o">]</span>: pam_unix<span class="o">(</span>sudo:session<span class="o">)</span>: session closed <span class="k">for</span> user root
+</span></span></code></pre></div><p>我运行了:</p>
+<blockquote>
+<p>sudo dockerd &ndash;debug</p>
+</blockquote>
+<p>输出日志：<br>
+unable to configure the Docker daemon with file /etc/docker/daemon.json: EOF</p>
+<ul>
+<li>解决方法：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">#如果 /etc/docker/daemon.json 为空</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">vim /etc/docker/daemon.json
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># 添加</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="o">{</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="o">}</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="c1">#保存退出</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl">:wq
+</span></span></code></pre></div><p>重启 docker</p>
+<blockquote>
+<p>systemctl restart docker</p>
+</blockquote>
+]]></content:encoded></item><item><title>安装 docker 出现 ERROR: Unsupported distribution 'ol' 问题</title><link>https://www.jobcher.com/error1/</link><pubDate>Tue, 11 Jan 2022 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/error1/</guid><description><![CDATA[<h1 id="安装-docker-出现-error-unsupported-distribution-ol-问题">安装 docker 出现 ERROR: Unsupported distribution &lsquo;ol&rsquo; 问题</h1>
+<p>部署 docker 安装出现 ERROR: Unsupported distribution &lsquo;ol&rsquo;</p>
+<ol>
+<li>确认是不是 arm 架构</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">uname -r
+</span></span></code></pre></div><ol start="2">
+<li>确认使用的是不是 oracle 服务器系统,如果是请继续操作，安装依赖：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">dnf install -y dnf-utils zip unzip
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dnf config-manager --add-repo<span class="o">=</span>https://download.docker.com/linux/centos/docker-ce.repo
+</span></span></code></pre></div><ol start="3">
+<li>安装 docker</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">dnf remove -y runc
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dnf install -y docker-ce --nobest
+</span></span></code></pre></div><ol start="4">
+<li>完成 docker 安装并检查</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">systemctl <span class="nb">enable</span> docker.service
+</span></span><span class="line"><span class="ln">2</span><span class="cl">systemctl start docker.service
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">#检查</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">systemctl status docker.service
+</span></span><span class="line"><span class="ln">3</span><span class="cl">docker info
+</span></span><span class="line"><span class="ln">4</span><span class="cl">docker version
+</span></span></code></pre></div><h2 id="结尾">结尾</h2>
+<p>该问题主要是 oracle 没有支持依赖导致的<del>oracle 还是很不错的</del></p>
+]]></description><content:encoded><![CDATA[<h1 id="安装-docker-出现-error-unsupported-distribution-ol-问题">安装 docker 出现 ERROR: Unsupported distribution &lsquo;ol&rsquo; 问题</h1>
+<p>部署 docker 安装出现 ERROR: Unsupported distribution &lsquo;ol&rsquo;</p>
+<ol>
+<li>确认是不是 arm 架构</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">uname -r
+</span></span></code></pre></div><ol start="2">
+<li>确认使用的是不是 oracle 服务器系统,如果是请继续操作，安装依赖：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">dnf install -y dnf-utils zip unzip
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dnf config-manager --add-repo<span class="o">=</span>https://download.docker.com/linux/centos/docker-ce.repo
+</span></span></code></pre></div><ol start="3">
+<li>安装 docker</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">dnf remove -y runc
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dnf install -y docker-ce --nobest
+</span></span></code></pre></div><ol start="4">
+<li>完成 docker 安装并检查</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">systemctl <span class="nb">enable</span> docker.service
+</span></span><span class="line"><span class="ln">2</span><span class="cl">systemctl start docker.service
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">#检查</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">systemctl status docker.service
+</span></span><span class="line"><span class="ln">3</span><span class="cl">docker info
+</span></span><span class="line"><span class="ln">4</span><span class="cl">docker version
+</span></span></code></pre></div><h2 id="结尾">结尾</h2>
+<p>该问题主要是 oracle 没有支持依赖导致的<del>oracle 还是很不错的</del></p>
+]]></content:encoded></item></channel></rss>

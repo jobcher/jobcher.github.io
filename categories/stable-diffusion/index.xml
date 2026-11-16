@@ -1,94 +1,291 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Stable Diffusion on 打工人日志</title><link>https://www.jobcher.com/categories/stable-diffusion/</link><description>Recent content in Stable Diffusion on 打工人日志</description><generator>Hugo</generator><language>zh-hans</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Mon, 16 Nov 2026 13:03:26 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/categories/stable-diffusion/index.xml" rel="self" type="application/rss+xml"/><item><title>SD-webui 批量处理图片</title><link>https://www.jobcher.com/stable-diffusion-03/</link><pubDate>Thu, 25 Jan 2024 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/stable-diffusion-03/</guid><description>&lt;h2 id="背景"&gt;背景&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;Stable Diffusion&lt;/code&gt; 在训练数据集之前，需要先对数据进行预处理。&lt;br&gt;
-本篇文章就是介绍如何对图像进行批量预处理。&lt;/p&gt;
-&lt;h2 id="图片上传"&gt;图片上传&lt;/h2&gt;
-&lt;p&gt;上传图像到你指定目录，我的目录时&lt;code&gt;/mnt/smb/&lt;/code&gt;&lt;br&gt;
-&lt;img src="https://www.jobcher.com/images/1706143682775.jpg" alt="上传共享文件夹" loading="lazy" decoding="async"&gt;
-&lt;br&gt;
-打开&lt;code&gt;SD-web&lt;/code&gt;地址，进入&lt;a href="http://192.168.1.232:7861"&gt;192.168.1.232:7861&lt;/a&gt;，选择&lt;code&gt;附加功能&lt;/code&gt;，进行图像预处理&lt;br&gt;
-&lt;img src="https://www.jobcher.com/images/1706143565210.jpg" alt="图像处理" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;
-&lt;h2 id="批量抠图"&gt;批量抠图&lt;/h2&gt;
-&lt;h3 id="选择从目录进行批量处理"&gt;选择&lt;code&gt;从目录进行批量处理&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;img src="https://www.jobcher.com/images/1706144053842.jpg" alt="从目录进行批量处理" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;
-&lt;h3 id="填写输入目录和输出目录"&gt;填写&lt;code&gt;输入目录&lt;/code&gt;和&lt;code&gt;输出目录&lt;/code&gt;&lt;/h3&gt;
-&lt;p&gt;举例：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;原本我的共享文件夹 地址是&lt;code&gt;\\192.168.1.249\DB Training\ai-pre-photo\out-photo&lt;/code&gt; 将所有的 &lt;code&gt;\\192.168.1.249\DB Training\&lt;/code&gt; 改为 &lt;code&gt;/mnt/smb/&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;所有的 &lt;code&gt;\&lt;/code&gt; 改为 &lt;code&gt;/&lt;/code&gt;
-因此 需填写地址如下图：&lt;br&gt;
-&lt;img src="https://www.jobcher.com/images/1706144668484.jpg" alt="输入目录" loading="lazy" decoding="async"&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id="选择抠图模型"&gt;选择抠图模型&lt;/h3&gt;
-&lt;p&gt;滑倒最底部选择&lt;code&gt;背景去除算法&lt;/code&gt;,选择你要使用的算法，我这边选择&lt;code&gt;silueta&lt;/code&gt;算法,可以根据你自己的需求使用算法&lt;br&gt;
-&lt;img src="https://www.jobcher.com/images/1706144851240.jpg" alt="选择模型" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;
-&lt;h3 id="执行生成"&gt;执行生成&lt;/h3&gt;
-&lt;p&gt;点击&lt;code&gt;生成&lt;/code&gt;按钮，开始对图像批量处理&lt;br&gt;
-&lt;img src="https://www.jobcher.com/images/1706144948763.jpg" alt="执行生成" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;
-&lt;h3 id="查看生成的图像"&gt;查看生成的图像&lt;/h3&gt;
-&lt;p&gt;&lt;img src="https://www.jobcher.com/images/1706145130721.jpg" alt="执行生成" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;在对应的&lt;code&gt;共享文件夹&lt;/code&gt;也可以查看&lt;/p&gt;
-&lt;/blockquote&gt;</description></item><item><title>ubuntu 安装 ComfyUI</title><link>https://www.jobcher.com/stable-diffusion-02/</link><pubDate>Fri, 12 Jan 2024 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/stable-diffusion-02/</guid><description>&lt;h2 id="背景"&gt;背景&lt;/h2&gt;
-&lt;p&gt;ComfyUI 是用于稳定扩散的基于节点的用户界面。ComfyUI 由 Comfyanonymous 于 2023 年 1 月创建，他创建了该工具来学习稳定扩散的工作原理。&lt;/p&gt;
-&lt;h2 id="效果"&gt;效果&lt;/h2&gt;
-&lt;p&gt;webui和ComfyUI之间的区别,相比较webUI，ComfyUI更工业化，更符合高级使用者的配置&lt;br&gt;
-&lt;img src="https://www.jobcher.com/images/b5i0v5krtcdb1-1024x435.png" alt="" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;
-&lt;h2 id="安装"&gt;安装&lt;/h2&gt;
-&lt;h3 id="安装本体"&gt;安装本体&lt;/h3&gt;
-&lt;p&gt;下载软件&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;mkdir ~/sd-web
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ~/sd-web
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;git clone https://github.jobcher.com/gh/https://github.com/comfyanonymous/ComfyUI.git
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;环境依赖&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ~/sd-web/ComfyUI
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;conda create -n ComfyUI &lt;span class="nv"&gt;python&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;3.10
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;pip install -r requirements.txt -i https://pypi.douban.com/simple --trusted-host&lt;span class="o"&gt;=&lt;/span&gt;pypi.douban.com
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;下载sd_xl_turbo模型&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;aria2c --console-log-level&lt;span class="o"&gt;=&lt;/span&gt;error -c -x &lt;span class="m"&gt;16&lt;/span&gt; -s &lt;span class="m"&gt;16&lt;/span&gt; -k 1M https://huggingface.jobcher.com/https://huggingface.co/stabilityai/sdxl-turbo/resolve/main/sd_xl_turbo_1.0_fp16.safetensors -d ~/sd-web/ComfyUI/models/checkpoints -o sd_xl_turbo_1.0_fp16.safetensors
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;启动服务&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ~/sd-web/ComfyUI
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;python main.py --listen --port &lt;span class="m"&gt;6006&lt;/span&gt; --cuda-device &lt;span class="m"&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="webui共享模型"&gt;webUI共享模型&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;mv extra_model_paths.yaml..example extra_model_paths.yaml
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;编辑参数&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;vim extra_model_paths.yaml
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;修改 &lt;code&gt;base_path: path/to/stable-diffusion-webui/&lt;/code&gt; 改为你的webui实际地址，例如：
-&lt;code&gt;base_path: ~/sd-web/stable-diffusion-webui/ &lt;/code&gt;&lt;/p&gt;</description></item><item><title>ubuntu 安装 stable-diffusion-webui</title><link>https://www.jobcher.com/stable-diffusion-01/</link><pubDate>Wed, 10 Jan 2024 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/stable-diffusion-01/</guid><description>&lt;h2 id="背景"&gt;背景&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;Stable Diffusion&lt;/code&gt; (稳定扩散) 是一个扩散模型，2022年8月由德国CompVis协同Stability AI和Runway发表论文，并推出相关程序。&lt;br&gt;
-&lt;code&gt;AUTOMATIC1111&lt;/code&gt;开发了&lt;code&gt;图形化界面&lt;/code&gt;：「Stable Diffusion WebUI」，这是能用AI技术生成图片的开源软件，只要给定一组描述文本，AI就会开始绘图(准确的说是「算图」或「生图」)；亦能模仿现有的图片，生成另一张图片。甚至给它一部分涂黑的图片，AI也能按照你的意愿将图片填上适当的内容。除此之外还支持自行训练模型加强生图效果。&lt;br&gt;
-本篇文章就是介绍如何安装 stable-diffusion-webui&lt;/p&gt;
-&lt;h2 id="安装conda"&gt;安装conda&lt;/h2&gt;
-&lt;p&gt;在 Ubuntu 上安装 Anaconda 的步骤如下：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;首先，你需要下载 Anaconda 的安装包。你可以从 Anaconda 的官方网站上下载最新版本的 Anaconda for Linux。选择适合你的系统的版本（Python 3.x）。&lt;/p&gt;
-&lt;p&gt;访问下载链接：&lt;a href="https://www.anaconda.com/products/distribution#download-section"&gt;https://www.anaconda.com/products/distribution#download-section&lt;/a&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;下载完成后，你可以在终端中导航到下载的文件所在的目录。你可以使用 &lt;code&gt;cd&lt;/code&gt; 命令来改变目录。例如，如果你的下载文件在 Downloads 文件夹中，你可以输入以下命令：&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ~/Downloads
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="3"&gt;
-&lt;li&gt;然后，你需要运行 bash 命令来安装 Anaconda。假设你下载的 Anaconda 文件名为 &amp;ldquo;Anaconda3-2020.02-Linux-x86_64.sh&amp;rdquo;，你可以输入以下命令：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;bash Anaconda3-2020.02-Linux-x86_64.sh
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;请注意，你需要将上述命令中的 &amp;ldquo;Anaconda3-2020.02-Linux-x86_64.sh&amp;rdquo; 替换为你实际下载的文件名。&lt;br&gt;
-4. 接下来，你会看到 Anaconda 的许可协议。按 &lt;code&gt;Enter&lt;/code&gt; 键滚动到底部，然后输入 &amp;lsquo;yes&amp;rsquo; 来接受许可协议。&lt;br&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Stable Diffusion - 打工人日志</title><link>https://www.jobcher.com/categories/stable-diffusion/</link><description>打工人日志（Jobcher）——面向开发者与运维的技术博客，覆盖 Kubernetes、Docker、Linux、监控、AI 与开发者工具的实战教程与干货。</description><generator>Hugo</generator><language>zh-cn</language><copyright>Copyright © 2022-2026 All Rights Reserved.</copyright><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor><webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 25 Jan 2024 00:00:00 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/categories/stable-diffusion/index.xml" rel="self" type="application/rss+xml"/><item><title>SD-webui 批量处理图片</title><link>https://www.jobcher.com/stable-diffusion-03/</link><pubDate>Thu, 25 Jan 2024 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/stable-diffusion-03/</guid><description><![CDATA[<h2 id="背景">背景</h2>
+<p><code>Stable Diffusion</code> 在训练数据集之前，需要先对数据进行预处理。<br>
+本篇文章就是介绍如何对图像进行批量预处理。</p>
+<h2 id="图片上传">图片上传</h2>
+<p>上传图像到你指定目录，我的目录时<code>/mnt/smb/</code><br>
+<img src="https://www.jobcher.com/images/1706143682775.jpg" alt="上传共享文件夹" loading="lazy" decoding="async">
+<br>
+打开<code>SD-web</code>地址，进入<a href="http://192.168.1.232:7861">192.168.1.232:7861</a>，选择<code>附加功能</code>，进行图像预处理<br>
+<img src="https://www.jobcher.com/images/1706143565210.jpg" alt="图像处理" loading="lazy" decoding="async">
+</p>
+<h2 id="批量抠图">批量抠图</h2>
+<h3 id="选择从目录进行批量处理">选择<code>从目录进行批量处理</code></h3>
+<p><img src="https://www.jobcher.com/images/1706144053842.jpg" alt="从目录进行批量处理" loading="lazy" decoding="async">
+</p>
+<h3 id="填写输入目录和输出目录">填写<code>输入目录</code>和<code>输出目录</code></h3>
+<p>举例：</p>
+<ul>
+<li>原本我的共享文件夹 地址是<code>\\192.168.1.249\DB Training\ai-pre-photo\out-photo</code> 将所有的 <code>\\192.168.1.249\DB Training\</code> 改为 <code>/mnt/smb/</code></li>
+<li>所有的 <code>\</code> 改为 <code>/</code>
+因此 需填写地址如下图：<br>
+<img src="https://www.jobcher.com/images/1706144668484.jpg" alt="输入目录" loading="lazy" decoding="async">
+</li>
+</ul>
+<h3 id="选择抠图模型">选择抠图模型</h3>
+<p>滑倒最底部选择<code>背景去除算法</code>,选择你要使用的算法，我这边选择<code>silueta</code>算法,可以根据你自己的需求使用算法<br>
+<img src="https://www.jobcher.com/images/1706144851240.jpg" alt="选择模型" loading="lazy" decoding="async">
+</p>
+<h3 id="执行生成">执行生成</h3>
+<p>点击<code>生成</code>按钮，开始对图像批量处理<br>
+<img src="https://www.jobcher.com/images/1706144948763.jpg" alt="执行生成" loading="lazy" decoding="async">
+</p>
+<h3 id="查看生成的图像">查看生成的图像</h3>
+<p><img src="https://www.jobcher.com/images/1706145130721.jpg" alt="执行生成" loading="lazy" decoding="async">
+</p>
+<blockquote>
+<p>在对应的<code>共享文件夹</code>也可以查看</p>
+</blockquote>
+]]></description><content:encoded><![CDATA[<h2 id="背景">背景</h2>
+<p><code>Stable Diffusion</code> 在训练数据集之前，需要先对数据进行预处理。<br>
+本篇文章就是介绍如何对图像进行批量预处理。</p>
+<h2 id="图片上传">图片上传</h2>
+<p>上传图像到你指定目录，我的目录时<code>/mnt/smb/</code><br>
+<img src="https://www.jobcher.com/images/1706143682775.jpg" alt="上传共享文件夹" loading="lazy" decoding="async">
+<br>
+打开<code>SD-web</code>地址，进入<a href="http://192.168.1.232:7861">192.168.1.232:7861</a>，选择<code>附加功能</code>，进行图像预处理<br>
+<img src="https://www.jobcher.com/images/1706143565210.jpg" alt="图像处理" loading="lazy" decoding="async">
+</p>
+<h2 id="批量抠图">批量抠图</h2>
+<h3 id="选择从目录进行批量处理">选择<code>从目录进行批量处理</code></h3>
+<p><img src="https://www.jobcher.com/images/1706144053842.jpg" alt="从目录进行批量处理" loading="lazy" decoding="async">
+</p>
+<h3 id="填写输入目录和输出目录">填写<code>输入目录</code>和<code>输出目录</code></h3>
+<p>举例：</p>
+<ul>
+<li>原本我的共享文件夹 地址是<code>\\192.168.1.249\DB Training\ai-pre-photo\out-photo</code> 将所有的 <code>\\192.168.1.249\DB Training\</code> 改为 <code>/mnt/smb/</code></li>
+<li>所有的 <code>\</code> 改为 <code>/</code>
+因此 需填写地址如下图：<br>
+<img src="https://www.jobcher.com/images/1706144668484.jpg" alt="输入目录" loading="lazy" decoding="async">
+</li>
+</ul>
+<h3 id="选择抠图模型">选择抠图模型</h3>
+<p>滑倒最底部选择<code>背景去除算法</code>,选择你要使用的算法，我这边选择<code>silueta</code>算法,可以根据你自己的需求使用算法<br>
+<img src="https://www.jobcher.com/images/1706144851240.jpg" alt="选择模型" loading="lazy" decoding="async">
+</p>
+<h3 id="执行生成">执行生成</h3>
+<p>点击<code>生成</code>按钮，开始对图像批量处理<br>
+<img src="https://www.jobcher.com/images/1706144948763.jpg" alt="执行生成" loading="lazy" decoding="async">
+</p>
+<h3 id="查看生成的图像">查看生成的图像</h3>
+<p><img src="https://www.jobcher.com/images/1706145130721.jpg" alt="执行生成" loading="lazy" decoding="async">
+</p>
+<blockquote>
+<p>在对应的<code>共享文件夹</code>也可以查看</p>
+</blockquote>
+]]></content:encoded></item><item><title>ubuntu 安装 ComfyUI</title><link>https://www.jobcher.com/stable-diffusion-02/</link><pubDate>Fri, 12 Jan 2024 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/stable-diffusion-02/</guid><description><![CDATA[<h2 id="背景">背景</h2>
+<p>ComfyUI 是用于稳定扩散的基于节点的用户界面。ComfyUI 由 Comfyanonymous 于 2023 年 1 月创建，他创建了该工具来学习稳定扩散的工作原理。</p>
+<h2 id="效果">效果</h2>
+<p>webui和ComfyUI之间的区别,相比较webUI，ComfyUI更工业化，更符合高级使用者的配置<br>
+<img src="https://www.jobcher.com/images/b5i0v5krtcdb1-1024x435.png" alt="" loading="lazy" decoding="async">
+</p>
+<h2 id="安装">安装</h2>
+<h3 id="安装本体">安装本体</h3>
+<p>下载软件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">mkdir ~/sd-web
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> ~/sd-web
+</span></span><span class="line"><span class="ln">3</span><span class="cl">git clone https://github.jobcher.com/gh/https://github.com/comfyanonymous/ComfyUI.git
+</span></span></code></pre></div><p>环境依赖</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">cd</span> ~/sd-web/ComfyUI
+</span></span><span class="line"><span class="ln">2</span><span class="cl">conda create -n ComfyUI <span class="nv">python</span><span class="o">=</span>3.10
+</span></span><span class="line"><span class="ln">3</span><span class="cl">pip install -r requirements.txt -i https://pypi.douban.com/simple --trusted-host<span class="o">=</span>pypi.douban.com
+</span></span></code></pre></div><p>下载sd_xl_turbo模型</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">aria2c --console-log-level<span class="o">=</span>error -c -x <span class="m">16</span> -s <span class="m">16</span> -k 1M https://huggingface.jobcher.com/https://huggingface.co/stabilityai/sdxl-turbo/resolve/main/sd_xl_turbo_1.0_fp16.safetensors -d ~/sd-web/ComfyUI/models/checkpoints -o sd_xl_turbo_1.0_fp16.safetensors
+</span></span></code></pre></div><p>启动服务</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">cd</span> ~/sd-web/ComfyUI
+</span></span><span class="line"><span class="ln">2</span><span class="cl">python main.py --listen --port <span class="m">6006</span> --cuda-device <span class="m">1</span>
+</span></span></code></pre></div><h2 id="webui共享模型">webUI共享模型</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">cd</span> 
+</span></span><span class="line"><span class="ln">2</span><span class="cl">mv extra_model_paths.yaml..example extra_model_paths.yaml
+</span></span></code></pre></div><p>编辑参数</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">vim extra_model_paths.yaml
+</span></span></code></pre></div><p>修改 <code>base_path: path/to/stable-diffusion-webui/</code> 改为你的webui实际地址，例如：
+<code>base_path: ~/sd-web/stable-diffusion-webui/ </code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c">#config for a1111 ui</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w"></span><span class="c">#all you have to do is change the base_path to where yours is installed</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w"></span><span class="nt">a111</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">    </span><span class="nt">base_path</span><span class="p">:</span><span class="w"> </span><span class="l">path/to/stable-diffusion-webui/</span><span class="w"> </span><span class="c">## 这里改为你实际的webui地址</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">    </span><span class="nt">checkpoints</span><span class="p">:</span><span class="w"> </span><span class="l">models/Stable-diffusion</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">    </span><span class="nt">configs</span><span class="p">:</span><span class="w"> </span><span class="l">models/Stable-diffusion</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">    </span><span class="nt">vae</span><span class="p">:</span><span class="w"> </span><span class="l">models/VAE</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">    </span><span class="nt">loras</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="sd">         models/Lora
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="sd">         models/LyCORIS</span><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w">    </span><span class="nt">upscale_models</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="sd">                  models/ESRGAN
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="sd">                  models/RealESRGAN
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="sd">                  models/SwinIR</span><span class="w">
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="w">    </span><span class="nt">embeddings</span><span class="p">:</span><span class="w"> </span><span class="l">embeddings</span><span class="w">
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="w">    </span><span class="nt">hypernetworks</span><span class="p">:</span><span class="w"> </span><span class="l">models/hypernetworks</span><span class="w">
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="w">    </span><span class="nt">controlnet</span><span class="p">:</span><span class="w"> </span><span class="l">models/ControlNet</span><span class="w">
+</span></span></span></code></pre></div><p>重启服务</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">python main.py --listen --port <span class="m">6006</span> --cuda-device <span class="m">1</span>
+</span></span></code></pre></div>]]></description><content:encoded><![CDATA[<h2 id="背景">背景</h2>
+<p>ComfyUI 是用于稳定扩散的基于节点的用户界面。ComfyUI 由 Comfyanonymous 于 2023 年 1 月创建，他创建了该工具来学习稳定扩散的工作原理。</p>
+<h2 id="效果">效果</h2>
+<p>webui和ComfyUI之间的区别,相比较webUI，ComfyUI更工业化，更符合高级使用者的配置<br>
+<img src="https://www.jobcher.com/images/b5i0v5krtcdb1-1024x435.png" alt="" loading="lazy" decoding="async">
+</p>
+<h2 id="安装">安装</h2>
+<h3 id="安装本体">安装本体</h3>
+<p>下载软件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">mkdir ~/sd-web
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> ~/sd-web
+</span></span><span class="line"><span class="ln">3</span><span class="cl">git clone https://github.jobcher.com/gh/https://github.com/comfyanonymous/ComfyUI.git
+</span></span></code></pre></div><p>环境依赖</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">cd</span> ~/sd-web/ComfyUI
+</span></span><span class="line"><span class="ln">2</span><span class="cl">conda create -n ComfyUI <span class="nv">python</span><span class="o">=</span>3.10
+</span></span><span class="line"><span class="ln">3</span><span class="cl">pip install -r requirements.txt -i https://pypi.douban.com/simple --trusted-host<span class="o">=</span>pypi.douban.com
+</span></span></code></pre></div><p>下载sd_xl_turbo模型</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">aria2c --console-log-level<span class="o">=</span>error -c -x <span class="m">16</span> -s <span class="m">16</span> -k 1M https://huggingface.jobcher.com/https://huggingface.co/stabilityai/sdxl-turbo/resolve/main/sd_xl_turbo_1.0_fp16.safetensors -d ~/sd-web/ComfyUI/models/checkpoints -o sd_xl_turbo_1.0_fp16.safetensors
+</span></span></code></pre></div><p>启动服务</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">cd</span> ~/sd-web/ComfyUI
+</span></span><span class="line"><span class="ln">2</span><span class="cl">python main.py --listen --port <span class="m">6006</span> --cuda-device <span class="m">1</span>
+</span></span></code></pre></div><h2 id="webui共享模型">webUI共享模型</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">cd</span> 
+</span></span><span class="line"><span class="ln">2</span><span class="cl">mv extra_model_paths.yaml..example extra_model_paths.yaml
+</span></span></code></pre></div><p>编辑参数</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">vim extra_model_paths.yaml
+</span></span></code></pre></div><p>修改 <code>base_path: path/to/stable-diffusion-webui/</code> 改为你的webui实际地址，例如：
+<code>base_path: ~/sd-web/stable-diffusion-webui/ </code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c">#config for a1111 ui</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w"></span><span class="c">#all you have to do is change the base_path to where yours is installed</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w"></span><span class="nt">a111</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">    </span><span class="nt">base_path</span><span class="p">:</span><span class="w"> </span><span class="l">path/to/stable-diffusion-webui/</span><span class="w"> </span><span class="c">## 这里改为你实际的webui地址</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">    </span><span class="nt">checkpoints</span><span class="p">:</span><span class="w"> </span><span class="l">models/Stable-diffusion</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">    </span><span class="nt">configs</span><span class="p">:</span><span class="w"> </span><span class="l">models/Stable-diffusion</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">    </span><span class="nt">vae</span><span class="p">:</span><span class="w"> </span><span class="l">models/VAE</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">    </span><span class="nt">loras</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="sd">         models/Lora
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="sd">         models/LyCORIS</span><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w">    </span><span class="nt">upscale_models</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="sd">                  models/ESRGAN
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="sd">                  models/RealESRGAN
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="sd">                  models/SwinIR</span><span class="w">
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="w">    </span><span class="nt">embeddings</span><span class="p">:</span><span class="w"> </span><span class="l">embeddings</span><span class="w">
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="w">    </span><span class="nt">hypernetworks</span><span class="p">:</span><span class="w"> </span><span class="l">models/hypernetworks</span><span class="w">
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="w">    </span><span class="nt">controlnet</span><span class="p">:</span><span class="w"> </span><span class="l">models/ControlNet</span><span class="w">
+</span></span></span></code></pre></div><p>重启服务</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">python main.py --listen --port <span class="m">6006</span> --cuda-device <span class="m">1</span>
+</span></span></code></pre></div>]]></content:encoded></item><item><title>ubuntu 安装 stable-diffusion-webui</title><link>https://www.jobcher.com/stable-diffusion-01/</link><pubDate>Wed, 10 Jan 2024 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/stable-diffusion-01/</guid><description><![CDATA[<h2 id="背景">背景</h2>
+<p><code>Stable Diffusion</code> (稳定扩散) 是一个扩散模型，2022年8月由德国CompVis协同Stability AI和Runway发表论文，并推出相关程序。<br>
+<code>AUTOMATIC1111</code>开发了<code>图形化界面</code>：「Stable Diffusion WebUI」，这是能用AI技术生成图片的开源软件，只要给定一组描述文本，AI就会开始绘图(准确的说是「算图」或「生图」)；亦能模仿现有的图片，生成另一张图片。甚至给它一部分涂黑的图片，AI也能按照你的意愿将图片填上适当的内容。除此之外还支持自行训练模型加强生图效果。<br>
+本篇文章就是介绍如何安装 stable-diffusion-webui</p>
+<h2 id="安装conda">安装conda</h2>
+<p>在 Ubuntu 上安装 Anaconda 的步骤如下：</p>
+<ol>
+<li>
+<p>首先，你需要下载 Anaconda 的安装包。你可以从 Anaconda 的官方网站上下载最新版本的 Anaconda for Linux。选择适合你的系统的版本（Python 3.x）。</p>
+<p>访问下载链接：<a href="https://www.anaconda.com/products/distribution#download-section">https://www.anaconda.com/products/distribution#download-section</a></p>
+</li>
+<li>
+<p>下载完成后，你可以在终端中导航到下载的文件所在的目录。你可以使用 <code>cd</code> 命令来改变目录。例如，如果你的下载文件在 Downloads 文件夹中，你可以输入以下命令：</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">cd</span> ~/Downloads
+</span></span></code></pre></div><ol start="3">
+<li>然后，你需要运行 bash 命令来安装 Anaconda。假设你下载的 Anaconda 文件名为 &ldquo;Anaconda3-2020.02-Linux-x86_64.sh&rdquo;，你可以输入以下命令：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">bash Anaconda3-2020.02-Linux-x86_64.sh
+</span></span></code></pre></div><p>请注意，你需要将上述命令中的 &ldquo;Anaconda3-2020.02-Linux-x86_64.sh&rdquo; 替换为你实际下载的文件名。<br>
+4. 接下来，你会看到 Anaconda 的许可协议。按 <code>Enter</code> 键滚动到底部，然后输入 &lsquo;yes&rsquo; 来接受许可协议。<br>
 5. 然后，你需要确认 Anaconda 的安装位置。你可以选择默认位置或输入新的位置。
-6. 安装完成后，你会看到一个提示，询问你是否希望 Anaconda3 添加到你的 PATH。你应该输入 &amp;lsquo;yes&amp;rsquo;。
-7. 最后，你需要激活安装。你可以通过关闭并重新打开终端或运行以下命令来完成此操作：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;source&lt;/span&gt; ~/.bashrc
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="8"&gt;
-&lt;li&gt;验证安装。在终端中输入以下命令：&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;conda list
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;如果安装成功，这个命令会显示一个已安装的包的列表。&lt;/p&gt;</description></item></channel></rss>
+6. 安装完成后，你会看到一个提示，询问你是否希望 Anaconda3 添加到你的 PATH。你应该输入 &lsquo;yes&rsquo;。
+7. 最后，你需要激活安装。你可以通过关闭并重新打开终端或运行以下命令来完成此操作：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">source</span> ~/.bashrc
+</span></span></code></pre></div><ol start="8">
+<li>验证安装。在终端中输入以下命令：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">conda list
+</span></span></code></pre></div><p>如果安装成功，这个命令会显示一个已安装的包的列表。</p>
+<h2 id="搭建环境">搭建环境</h2>
+<p>安装软件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">apt -y update -qq
+</span></span><span class="line"><span class="ln">2</span><span class="cl">apt -y install -qq aria2
+</span></span></code></pre></div><p>创建python环境</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">conda create -n sd-web <span class="nv">python</span><span class="o">=</span>3.9
+</span></span></code></pre></div><p>下载github代码</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">mkdir ~/sd-web
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> ~/sd-web/
+</span></span><span class="line"><span class="ln">3</span><span class="cl">git clone https://github.jobcher.com/gh/https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
+</span></span></code></pre></div><p>下载模型</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">aria2c --console-log-level<span class="o">=</span>error -c -x <span class="m">16</span> -s <span class="m">16</span> -k 1M https://huggingface.jobcher.com/https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.safetensors -d ~/sd-web/stable-diffusion-webui/extensions/sd-webui-controlnet/models -o v1-5-pruned-emaonly.safetensors
+</span></span></code></pre></div><p>安装依赖</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">cd</span> ~/cd-web/stable-diffusion-webui
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"># 先安装requirements_versions.txt</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">pip install -r requirements_versions.txt -i https://pypi.douban.com/simple --trusted-host<span class="o">=</span>pypi.douban.com --verbose basicsr --use-pep517
+</span></span><span class="line"><span class="ln">4</span><span class="cl">pip install -r requirements.txt -i https://pypi.douban.com/simple --trusted-host<span class="o">=</span>pypi.douban.com --verbose basicsr --use-pep517
+</span></span></code></pre></div><p>开放外部访问</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">export</span> <span class="nv">COMMANDLINE_ARGS</span><span class="o">=</span><span class="s2">&#34;--listen&#34;</span>
+</span></span></code></pre></div><p>运行软件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">cd</span> ~/cd-web/stable-diffusion-webui
+</span></span><span class="line"><span class="ln">2</span><span class="cl">bash ./webui.sh
+</span></span></code></pre></div><p>出现一下画面说明已安装成功<br>
+<img src="https://www.jobcher.com/images/1704866846903.jpg" alt="success" loading="lazy" decoding="async">
+</p>
+<h2 id="正常使用软件">正常使用软件</h2>
+<p>进入你的地址例如 127.0.0.1:7860你会看到一下界面，开始正常训练模型吧 <br>
+<img src="https://www.jobcher.com/images/1704867402210.jpg" alt="demo" loading="lazy" decoding="async">
+</p>
+]]></description><content:encoded><![CDATA[<h2 id="背景">背景</h2>
+<p><code>Stable Diffusion</code> (稳定扩散) 是一个扩散模型，2022年8月由德国CompVis协同Stability AI和Runway发表论文，并推出相关程序。<br>
+<code>AUTOMATIC1111</code>开发了<code>图形化界面</code>：「Stable Diffusion WebUI」，这是能用AI技术生成图片的开源软件，只要给定一组描述文本，AI就会开始绘图(准确的说是「算图」或「生图」)；亦能模仿现有的图片，生成另一张图片。甚至给它一部分涂黑的图片，AI也能按照你的意愿将图片填上适当的内容。除此之外还支持自行训练模型加强生图效果。<br>
+本篇文章就是介绍如何安装 stable-diffusion-webui</p>
+<h2 id="安装conda">安装conda</h2>
+<p>在 Ubuntu 上安装 Anaconda 的步骤如下：</p>
+<ol>
+<li>
+<p>首先，你需要下载 Anaconda 的安装包。你可以从 Anaconda 的官方网站上下载最新版本的 Anaconda for Linux。选择适合你的系统的版本（Python 3.x）。</p>
+<p>访问下载链接：<a href="https://www.anaconda.com/products/distribution#download-section">https://www.anaconda.com/products/distribution#download-section</a></p>
+</li>
+<li>
+<p>下载完成后，你可以在终端中导航到下载的文件所在的目录。你可以使用 <code>cd</code> 命令来改变目录。例如，如果你的下载文件在 Downloads 文件夹中，你可以输入以下命令：</p>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">cd</span> ~/Downloads
+</span></span></code></pre></div><ol start="3">
+<li>然后，你需要运行 bash 命令来安装 Anaconda。假设你下载的 Anaconda 文件名为 &ldquo;Anaconda3-2020.02-Linux-x86_64.sh&rdquo;，你可以输入以下命令：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">bash Anaconda3-2020.02-Linux-x86_64.sh
+</span></span></code></pre></div><p>请注意，你需要将上述命令中的 &ldquo;Anaconda3-2020.02-Linux-x86_64.sh&rdquo; 替换为你实际下载的文件名。<br>
+4. 接下来，你会看到 Anaconda 的许可协议。按 <code>Enter</code> 键滚动到底部，然后输入 &lsquo;yes&rsquo; 来接受许可协议。<br>
+5. 然后，你需要确认 Anaconda 的安装位置。你可以选择默认位置或输入新的位置。
+6. 安装完成后，你会看到一个提示，询问你是否希望 Anaconda3 添加到你的 PATH。你应该输入 &lsquo;yes&rsquo;。
+7. 最后，你需要激活安装。你可以通过关闭并重新打开终端或运行以下命令来完成此操作：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">source</span> ~/.bashrc
+</span></span></code></pre></div><ol start="8">
+<li>验证安装。在终端中输入以下命令：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">conda list
+</span></span></code></pre></div><p>如果安装成功，这个命令会显示一个已安装的包的列表。</p>
+<h2 id="搭建环境">搭建环境</h2>
+<p>安装软件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">apt -y update -qq
+</span></span><span class="line"><span class="ln">2</span><span class="cl">apt -y install -qq aria2
+</span></span></code></pre></div><p>创建python环境</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">conda create -n sd-web <span class="nv">python</span><span class="o">=</span>3.9
+</span></span></code></pre></div><p>下载github代码</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">mkdir ~/sd-web
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> ~/sd-web/
+</span></span><span class="line"><span class="ln">3</span><span class="cl">git clone https://github.jobcher.com/gh/https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
+</span></span></code></pre></div><p>下载模型</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">aria2c --console-log-level<span class="o">=</span>error -c -x <span class="m">16</span> -s <span class="m">16</span> -k 1M https://huggingface.jobcher.com/https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.safetensors -d ~/sd-web/stable-diffusion-webui/extensions/sd-webui-controlnet/models -o v1-5-pruned-emaonly.safetensors
+</span></span></code></pre></div><p>安装依赖</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">cd</span> ~/cd-web/stable-diffusion-webui
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"># 先安装requirements_versions.txt</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">pip install -r requirements_versions.txt -i https://pypi.douban.com/simple --trusted-host<span class="o">=</span>pypi.douban.com --verbose basicsr --use-pep517
+</span></span><span class="line"><span class="ln">4</span><span class="cl">pip install -r requirements.txt -i https://pypi.douban.com/simple --trusted-host<span class="o">=</span>pypi.douban.com --verbose basicsr --use-pep517
+</span></span></code></pre></div><p>开放外部访问</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">export</span> <span class="nv">COMMANDLINE_ARGS</span><span class="o">=</span><span class="s2">&#34;--listen&#34;</span>
+</span></span></code></pre></div><p>运行软件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">cd</span> ~/cd-web/stable-diffusion-webui
+</span></span><span class="line"><span class="ln">2</span><span class="cl">bash ./webui.sh
+</span></span></code></pre></div><p>出现一下画面说明已安装成功<br>
+<img src="https://www.jobcher.com/images/1704866846903.jpg" alt="success" loading="lazy" decoding="async">
+</p>
+<h2 id="正常使用软件">正常使用软件</h2>
+<p>进入你的地址例如 127.0.0.1:7860你会看到一下界面，开始正常训练模型吧 <br>
+<img src="https://www.jobcher.com/images/1704867402210.jpg" alt="demo" loading="lazy" decoding="async">
+</p>
+]]></content:encoded></item></channel></rss>

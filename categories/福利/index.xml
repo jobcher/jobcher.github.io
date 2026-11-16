@@ -1,327 +1,737 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>福利 on 打工人日志</title><link>https://www.jobcher.com/categories/%E7%A6%8F%E5%88%A9/</link><description>Recent content in 福利 on 打工人日志</description><generator>Hugo</generator><language>zh-hans</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Mon, 16 Nov 2026 13:03:26 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/categories/%E7%A6%8F%E5%88%A9/index.xml" rel="self" type="application/rss+xml"/><item><title>【福利】免费！本地部署！去除视频中移动的物体</title><link>https://www.jobcher.com/watermark-removal/</link><pubDate>Mon, 22 Jul 2024 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/watermark-removal/</guid><description>&lt;p&gt;分享一款 去除视频中移动的物体。的本地部署软件，完全免费！&lt;/p&gt;
-&lt;h2 id="效果"&gt;效果&lt;/h2&gt;
-&lt;h3 id="物体移除"&gt;物体移除&lt;/h3&gt;
-&lt;p&gt;&lt;img src="https://www.jobcher.com/images/object_removal1.gif" alt="物体移除1" loading="lazy" decoding="async"&gt;
-&lt;br&gt;
-&lt;img src="https://www.jobcher.com/images/object_removal2.gif" alt="物体移除2" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;
-&lt;h3 id="水印去除"&gt;水印去除&lt;/h3&gt;
-&lt;p&gt;&lt;img src="https://www.jobcher.com/images/video_completion1.gif" alt="水印去除1" loading="lazy" decoding="async"&gt;
-&lt;br&gt;
-&lt;img src="https://www.jobcher.com/images/video_completion2.gif" alt="水印去除2" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;
-&lt;h3 id="下载地址"&gt;下载地址&lt;/h3&gt;
-&lt;p&gt;&lt;a href="https://pan.baidu.com/s/1XkQhzCzTtzVfgQg5heQQrA?pwd=jo38"&gt;国内下载&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id="代码仓库"&gt;代码仓库&lt;/h3&gt;
-&lt;p&gt;&lt;a href="https://github.com/sczhou/ProPainter"&gt;ProPainter&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id="安装"&gt;安装&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;git clone https://github.com/sczhou/ProPainter.git
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;conda create -n propainter &lt;span class="nv"&gt;python&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;3.8 -y
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;conda activate propainter
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;cd&lt;/span&gt; ProPainter
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;pip3 install -r requirements.txt
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="版本要求"&gt;版本要求&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;CUDA &amp;gt;= 9.2&lt;/li&gt;
-&lt;li&gt;PyTorch &amp;gt;= 1.7.1&lt;/li&gt;
-&lt;li&gt;Torchvision &amp;gt;= 0.8.2&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="开始使用"&gt;开始使用&lt;/h2&gt;
-&lt;h3 id="准备预训练模型"&gt;准备预训练模型&lt;/h3&gt;
-&lt;p&gt;预训练模型从版本 V0.1.0 下载到 weights 文件夹。&lt;br&gt;
-&lt;a href="https://github.com/sczhou/ProPainter/releases/tag/v0.1.0"&gt;https://github.com/sczhou/ProPainter/releases/tag/v0.1.0&lt;/a&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;weights
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;|&lt;/span&gt;- ProPainter.pth
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;|&lt;/span&gt;- recurrent_flow_completion.pth
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;|&lt;/span&gt;- raft-things.pth
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;|&lt;/span&gt;- i3d_rgb_imagenet.pt &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt; evaluating VFID metric&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;6&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;|&lt;/span&gt;- README.md
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="快速测试"&gt;快速测试&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# The first example (object removal)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;python inference_propainter.py --video inputs/object_removal/bmx-trees --mask inputs/object_removal/bmx-trees_mask 
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# The second example (video completion)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;python inference_propainter.py --video inputs/video_completion/running_car.mp4 --mask inputs/video_completion/mask_square.png --height &lt;span class="m"&gt;240&lt;/span&gt; --width &lt;span class="m"&gt;432&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="内存高效推理"&gt;内存高效推理&lt;/h3&gt;
-&lt;p&gt;视频修复通常需要大量 GPU 内存。在这里，我们提供了各种有助于内存高效推理的功能，有效避免内存不足（OOM）错误。您可以使用以下选项进一步减少内存使用量：&lt;/p&gt;</description></item><item><title>KyBook 3 | calibre-web - IOS系统最佳图书伴侣</title><link>https://www.jobcher.com/kybook3/</link><pubDate>Wed, 19 Jun 2024 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/kybook3/</guid><description>&lt;h2 id="背景"&gt;背景&lt;/h2&gt;
-&lt;p&gt;calibre-web 支持opds协议，ip+端口/opds就是opds路径，所有支持opds的客户端都可以。安卓下推荐&lt;code&gt;静读天下&lt;/code&gt;，ios推荐&lt;code&gt;kybook 3&lt;/code&gt;，我这边主要介绍一下，&lt;code&gt;kybook 3&lt;/code&gt;。&lt;br&gt;
-&lt;code&gt;KyBook 3&lt;/code&gt; 支持几乎所有主要的电子书格式，包括：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;EPub、FictionBook（fb2，fb2.zip）、纯文本和富文本（txt，rtf）、PDF、漫画（CBR，CBZ，CBT）、MobiPocket、Kindle（mobi，azw3）以及有声读物（mp3，m4a，m4b）。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;基本上你在网络上找到的书籍资源，都可以用 KyBook 3 打开。&lt;/p&gt;
-&lt;h2 id="下载"&gt;下载&lt;/h2&gt;
-&lt;h3 id="kybook-3-下载"&gt;&lt;a href="https://apps.apple.com/us/app/kybook-3-ebook-reader/id1348198785?"&gt;KyBook 3 下载&lt;/a&gt;&lt;/h3&gt;
-&lt;p&gt;&lt;img src="https://www.jobcher.com/images/kybook3_1.jpg" alt="下载页面" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;
-&lt;h2 id="添加opds源"&gt;添加OPDS源&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;打开KyBook 3 -&amp;gt; 底部目录 -&amp;gt; 添加&lt;/li&gt;
-&lt;/ol&gt;
-&lt;blockquote&gt;
-&lt;p&gt;添加源地址 https://ip:port/opds 例如 https://192.168.1.1:8080/opds&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src="https://www.jobcher.com/images/kybook3-2.jpg" alt="添加源" loading="lazy" decoding="async"&gt;
-&lt;br&gt;
-2. 输入密码&lt;br&gt;
-&lt;img src="https://www.jobcher.com/images/kybook3-3.jpg" alt="输入密码" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;
-&lt;h2 id="添加书籍"&gt;添加书籍&lt;/h2&gt;
-&lt;p&gt;&lt;img src="https://www.jobcher.com/images/kybook3-4.png" alt="添加书籍" loading="lazy" decoding="async"&gt;
-&lt;br&gt;
-&lt;img src="https://www.jobcher.com/images/kybook3-5.jpg" alt="添加书籍" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;
-&lt;h2 id="总结"&gt;总结&lt;/h2&gt;
-&lt;p&gt;亚马逊 Kindle 一直是受欢迎的电子书阅读器，在我看来，它的巨大优势之一在于亚马逊丰富的线上资源，可以很方便地购买，并在 PC、移动端和实体 Kindle 上同步观看。&lt;/p&gt;
-&lt;p&gt;KyBooks 3 相比之下，最强大的在于对不同文件格式的支持，以及丰富的阅读自定义设置。&lt;/p&gt;
-&lt;h3 id="不足"&gt;不足&lt;/h3&gt;
-&lt;p&gt;当然，Kybooks 3 也存在一些问题，比如不少人都反馈无法注册，从而影响同步，这应该和 KyBook 的服务器设置有关。还有它仅支持iOS端，平台多少有些单一了。&lt;br&gt;
-你可以在 Appstore 免费下载 KyBook 3，它提供了「专业版」与「高级订阅」两个内购的选项：「专业版」包含去广告（不过免费版目前并没有广告）、用户辞典、手写标注、自动滚动等功能，花费 4.99$ 可永久升级，你可以免费体验 14 天以绝对是否购买。&lt;br&gt;
-「高级订阅」在解锁了全部「专业版」功能外，还允许用户使用 KyBook 服务器在不同设备间同步数据，年费为 14.99$，但因为前面所说的登陆问题，同步功能的体验可能会受到影响。&lt;/p&gt;</description></item><item><title>iOS 17 「待机显示」适配普通 iPhone（非 Pro/Max），屏幕在充电时常亮</title><link>https://www.jobcher.com/ios17-standby/</link><pubDate>Tue, 26 Sep 2023 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/ios17-standby/</guid><description>&lt;h2 id="让-ios-17-待机显示适配普通-iphone非-promax屏幕在充电时常亮"&gt;让 iOS 17 「待机显示」适配普通 iPhone（非 Pro/Max），屏幕在充电时常亮&lt;/h2&gt;
-&lt;h2 id="背景"&gt;背景&lt;/h2&gt;
-&lt;p&gt;让 &lt;code&gt;iPhone 14/15 Pro/Max 以下机型&lt;/code&gt;也可以在屏幕&lt;code&gt;激活待机显示功能&lt;/code&gt;（充电且横置）时&lt;code&gt;保持常亮&lt;/code&gt;，以显示小组件内容。&lt;br&gt;
-2023 年新发布的 iOS 17 有一个新功能：待机显示 StandBy，它能在 iPhone 横向放置且充电时，全屏显示小组件，比如时钟、日历等等，但所有的&lt;code&gt;非 Pro/Max 机型&lt;/code&gt;，由于没有&lt;code&gt;全天候显示屏&lt;/code&gt;（&lt;code&gt;显示屏能够以低至 1 Hz 的刷新率运行&lt;/code&gt;），所以并不能持续使用待机显示，会在几秒钟之后熄灭屏幕，当感受到震动（轻轻拍一下桌子），或有新通知时，再次点亮。&lt;/p&gt;
-&lt;h2 id="原理"&gt;原理&lt;/h2&gt;
-&lt;p&gt;&lt;img src="https://www.jobcher.com/images/photo_2023-09-25_15-52-04.jpg" alt="standby-yuanli" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;如果 iPhone 接入充电器充电 &amp;gt; 等待 19 秒 &amp;gt; 开关一次低电量模式 &amp;gt; 再运行一次脚本&lt;/li&gt;
-&lt;li&gt;如果没有充电 &amp;gt; 关闭低电量模式 &amp;gt; 停止脚本
-之后，使用自动化功能，当 iPhone 接入充电器时，自动运行这个脚本就行了。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="教程"&gt;教程&lt;/h2&gt;
-&lt;h2 id="获取链接"&gt;&lt;a href="https://www.icloud.com/shortcuts/f50d508c7ec9471a9fb94a3b2b57f1af"&gt;获取链接&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;自带19秒等待间隔，如果遇到熄屏可以修改为15秒。
-&lt;div class="video"&gt;
- &lt;iframe class="bilibili-frame" src="https://player.bilibili.com/player.html?bvid=BV11N4y1Z7Hk" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen loading="lazy"&gt;&lt;/iframe&gt;
-&lt;/div&gt;
-&lt;/p&gt;
-&lt;h2 id="注意"&gt;注意&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;小组件自动轮换失效&lt;/li&gt;
-&lt;li&gt;烧屏：请务必小心，长期使用可能会导致的屏幕问题&lt;/li&gt;
-&lt;li&gt;充电前需要手动熄屏，否则会因为不断的开关低电量模式而无法进入待机显示&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>【福利】埃隆·马斯克传 [沃尔特·艾萨克森] 在线下载</title><link>https://www.jobcher.com/elon-musk/</link><pubDate>Tue, 19 Sep 2023 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/elon-musk/</guid><description>&lt;h2 id="介绍"&gt;介绍&lt;/h2&gt;
-&lt;p&gt;著名传记作家艾萨克森以近距离的观察视角，揭开了如今全球引人注目、富有争议性的创新企业家的神秘面纱：他善于突破常规，引领全球进入电动汽车时代、私人太空探索时代和人工智能时代，还将推特收入囊中。 埃隆·马斯克小时候在南非生活，那时他经常遭受校园欺凌，但同父亲给他造成的情感创伤相比，这些伤痛都微不足道。他的童年浸透了人性，这将他塑造为一个坚强而又脆弱的男孩，他对风险的容忍度极高，渴望营造出富有戏剧性的生活，让人类文明成为星际文明是他的宏大目标。 2008年，SpaceX的火箭在前三次发射过程中接连爆炸，特斯拉也即将破产，这是他生命中地狱般的至暗时期。在飓风来临时，他是最兴奋的人之一。动荡的环境和剧烈的冲突对他有着莫大的吸引力，有时他甚至渴望这些东西，无论是在工作中，还是在他努力维持却未能持久的恋爱关系中。每当面临艰巨的挑战，紧张感常常让他夜不能寐，甚至呕吐不止，但这些都是他赖以为生的养分。 2022年年初，也就是在SpaceX成功发射了31颗卫星、特斯拉卖出了近100万辆汽车、埃隆成为地球上最富有的人一年后，对于自己一再挑起戏剧性冲突的背后动机，他略带感伤地谈起了他的反思。 他说：“我需要改变我的思维模式，不能一直处于危机战备状态，我这种状态已经持续了大概14年，或者说我人生的大部分时间。”这更像是一个自怨自艾的评价，而不是在表达新年新气象的决心。他一边做出了这些反思和保证，一边还在秘密买入推特的股票。 两年来，艾萨克森形影不离地跟访马斯克，参加他大大小小的会议，与他一起走访工厂，深度采访了他本人，以及他的家人、朋友、同事、前妻和对手。艾萨克森揭开了马斯克内幕故事的面纱，其中有荡气回肠的胜利，也有跌宕起伏的乱局，令人拍案称奇。这些故事回答了这样一个问题：那个在马斯克心底驱使着他的恶魔，是不是也是推动创新与进步所必需的呢？&lt;/p&gt;
-&lt;h2 id="下载链接"&gt;下载链接&lt;/h2&gt;
-&lt;p&gt;&lt;a href="https://www.aliyundrive.com/s/3j32s7zQwU1"&gt;埃隆·马斯克传 [沃尔特·艾萨克森].pdf&lt;/a&gt;&lt;br&gt;
-&lt;a href="https://www.aliyundrive.com/s/ud1SeNR4YQK"&gt;埃隆·马斯克传 [沃尔特·艾萨克森].epub&lt;/a&gt;&lt;/p&gt;</description></item><item><title>【破解】小鹏P5和小鹏G9开启adb和网络adb</title><link>https://www.jobcher.com/hackp5g9/</link><pubDate>Thu, 14 Sep 2023 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/hackp5g9/</guid><description>&lt;h1 id="lets-hack-now"&gt;LET&amp;rsquo;S HACK NOW!&lt;/h1&gt;
-&lt;p&gt;本文章可以帮助当前正式版本的小鹏P5和小鹏G9开启adb和网络adb&lt;/p&gt;
-&lt;h1 id="重要提示"&gt;重要提示&lt;/h1&gt;
-&lt;h2 id="如果你对第三方软件的需求高于ota需求请关闭ota功能p5和g9的下一个版本大概率或已经启用了更高级的加密方式无法获取解锁码需要等待其他方式破解"&gt;如果你对第三方软件的需求高于OTA需求，请关闭OTA功能，P5和G9的下一个版本大概率或已经启用了更高级的加密方式，无法获取解锁码，需要等待其他方式破解&lt;/h2&gt;
-&lt;h1 id="开启adb步骤"&gt;开启adb步骤&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;首先确认您的爱车是小鹏P5（OTA3.5.0及之前）或小鹏G9（OTA4.3.1及之前）或小鹏G6（未测试）或小鹏P7（OTA2.10及之前）或小鹏G3（版本不确定，最新版不行）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;将您的笔记本电脑（已安装adb组件）或安卓手机（已安装甲壳虫adb软件）和您的车机连接到同一无线局域网中（此处可使用另一台手机打开热点），以下使用笔记本电脑举例&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;打开车机的拨号界面，输入&lt;code&gt;*#9925*111#*&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;此时车机会显示一个页面，其中包含一个二维码&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;使用微信扫描您的车机的二维码，并将内容保存备用&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;在任意输入框中输入内容&lt;code&gt;https://hackxpeng.bgcpdd.eu.org/xpeng?m=hackxpeng&amp;amp;id=&lt;/code&gt;，然后将您获取到的二维码内容复制到最后面，注意此处不要有任何的空格&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;使用浏览器打开您输入框中的所有内容（网址拼接，如：&lt;code&gt;https://hackxpeng.bgcpdd.eu.org/xpeng?m=hackxpeng&amp;amp;id=XPENGD55xxxxxxxxxxxxxx&lt;/code&gt;）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;浏览器返回一个解锁码（如：&lt;code&gt;*#03*12345678*#&lt;/code&gt;）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;将该解锁码输入车机的拨号界面，此时解锁码会自动消失，如果没有消失请手动删除所有内容&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;使用拨号界面输入&lt;code&gt;*#9387*141#*&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;打开调试和网络调试（一般是前两个选项）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;笔记本电脑使用&lt;code&gt;win+r&lt;/code&gt;，输入&lt;code&gt;cmd&lt;/code&gt;回车，输入&lt;code&gt;adb connect 车机页面中的ip:5050&lt;/code&gt;（如&lt;code&gt;adb connect 172.20.10.2:5050&lt;/code&gt;）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;cmd显示连接成功&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;下载你需要安装的apk&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;使用&lt;code&gt;adb install&lt;/code&gt;安装软件（如：&lt;code&gt;adb install C:\abc\a.apk&lt;/code&gt;）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;安装成功&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;adb还有更多好玩有趣的玩法等你发现&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id="笔记本电脑安装adb套件"&gt;笔记本电脑安装adb套件&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;打开&lt;code&gt;https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn&lt;/code&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;下载windows版本 并解压&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;将所有文件放入c盘windows目录下的system32和syswow64 注意两个都要放&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id="致小鹏汽车以下是关闭获取解锁码api的步骤"&gt;致小鹏汽车：以下是关闭获取解锁码api的步骤&lt;/h1&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;将P7 P5的地图更新到高德地图最新版本（包括红绿灯倒计时，最新版高精地图，组队功能，普通道路沉浸导航，语音包等）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;将P7 P5的QQ音乐更新到最新版本&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;承诺定期公布OTA进度（最低界限为每月公布）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;将P5 p版sr下放到e版车型（显示车辆运动轨迹）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;优化P7 P5 G3/i自动泊车&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;优化NGP并将速度上限设置为130&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;将P7 P5的夜晚/白天切换逻辑修改为根据光线传感器，而非日出日落时间&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;上线P5的智慧场景或私人定制2.0&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;重新评估P7 P5适配新版UI的可行性&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;重新评估P7更换8155车机的可行性&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;全部完成后使用小鹏汽车官方Github账号在本仓库发送issue&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;文章转载于网络，侵权即删
-&lt;a href="https://github.com/hackxpeng/hackp5g9"&gt;原文连接&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</description></item><item><title>3D Gaussian Splatting：3D模型渲染</title><link>https://www.jobcher.com/3dgaussiansplatting/</link><pubDate>Wed, 30 Aug 2023 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/3dgaussiansplatting/</guid><description>&lt;h2 id="简介"&gt;简介&lt;/h2&gt;
-&lt;p&gt;只需要一组照片或者一个视频，就能快速地生成一个3D模型。&lt;br&gt;
-它使了用一种叫做“3D高斯函数”的数学工具来表示这个3D模型，并找到了一种更快的算法来渲染（即生成）3D模型。&lt;/p&gt;
-&lt;h2 id="介绍"&gt;介绍&lt;/h2&gt;
-&lt;p&gt;想象一下，你有一堆照片或视频，你想从一个全新的角度看这些场景。3D Gaussian Splatting 就是一个能让你做到这一点的高级工具。它用一种特别快和高质量的方式来“重建”这些场景，让你能够从任何角度观看它们，就像你实际站在那里一样。&lt;/p&gt;
-&lt;p&gt;这个工具的“大脑”使用了一种叫做3D高斯的数学模型，这个模型能够非常精确地描述场景的每一个细节。更酷的是，这个工具还能实时地显示这些新角度的场景，这意味着你不必等待很长时间就能看到结果。&lt;/p&gt;
-&lt;p&gt;简而言之，这是一个能让你以全新、快速和高质量的方式探索照片和视频场景的工具。&lt;/p&gt;
-&lt;h2 id="使用"&gt;使用&lt;/h2&gt;
-&lt;h3 id="硬件要求"&gt;硬件要求&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;具有计算能力 7.0+ 的 CUDA 就绪 GPU&lt;/li&gt;
-&lt;li&gt;24 GB VRAM（用于训练论文评估质量）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id="软件要求"&gt;软件要求&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;Conda（推荐使用，以便于设置）&lt;/li&gt;
-&lt;li&gt;用于 PyTorch 扩展的 C++ 编译器（我们使用 Visual Studio 2019 for Windows）&lt;/li&gt;
-&lt;li&gt;用于 PyTorch 扩展的 CUDA SDK 11，在 Visual Studio 之后安装（我们使用 11.8，11.6 存在已知问题）&lt;/li&gt;
-&lt;li&gt;C++编译器和CUDA SDK必须兼容&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id="设置"&gt;设置&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;SET &lt;span class="nv"&gt;DISTUTILS_USE_SDK&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="c1"&gt;# Windows only&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;conda env create --file environment.yml
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;conda activate gaussian_splatting
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;请注意，此过程假设您安装了 CUDA SDK 11，而不是 12。有关修改，请参阅下文。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;conda config --add pkgs_dirs &amp;lt;Drive&amp;gt;/&amp;lt;pkg_path&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;conda env create --file environment.yml --prefix &amp;lt;Drive&amp;gt;/&amp;lt;env_path&amp;gt;/gaussian_splatting
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;conda activate &amp;lt;Drive&amp;gt;/&amp;lt;env_path&amp;gt;/gaussian_splatting
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;运行&lt;/p&gt;</description></item><item><title>2023亚运会电竞门票民购买指南（报名+抽签）</title><link>https://www.jobcher.com/2023yayunhui/</link><pubDate>Mon, 14 Aug 2023 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/2023yayunhui/</guid><description>&lt;h2 id="2023亚运会电竞门票民购买指南报名抽签"&gt;2023亚运会电竞门票民购买指南（报名+抽签）&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;杭州亚运会电子竞技项目门票于8月14日陆续启动销售，门票实名登记。杭州亚运会电子竞技项目以报名抽签，中签支付的形式对公众销售&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;杭州亚运会电子竞技项目以&lt;code&gt;报名抽签，中签支付&lt;/code&gt;的形式对公众销售，包括&lt;code&gt;梦三国2、DOTA2、王者荣耀亚运版本、FIFAOnline4、和平精英亚运版本、街霸V、英雄联盟&lt;/code&gt;7个小项全部可售场次。&lt;/p&gt;
-&lt;p&gt;根据竞赛日程安排，上述7个项目将分&lt;code&gt;4批次启动报名&lt;/code&gt;，每个批次的报名、抽签、支付时间不同，具体安排如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://www.jobcher.com/images/2023diyici.png" alt="2023diyici.png" loading="lazy" decoding="async"&gt;
-&lt;br&gt;
-&lt;img src="https://www.jobcher.com/images/2023di2.png" alt="2023diyici.png" loading="lazy" decoding="async"&gt;
-&lt;br&gt;
-&lt;img src="https://www.jobcher.com/images/2023di3.png" alt="2023diyici.png" loading="lazy" decoding="async"&gt;
-&lt;br&gt;
-&lt;img src="https://www.jobcher.com/images/2023di4.png" alt="2023diyici.png" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;电子竞技项目报名抽签工作在杭州市国立公证处监督下，通过系统随机抽签、订单中签的方式进行，系统不设任何加权抽签系数。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="报名阶段"&gt;报名阶段&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;报名渠道&lt;/code&gt;:杭州亚运会公众售票官方网站PC端或H5页面、智能亚运一站通·票务通（&lt;a href="https://ticket.hangzhou2022.cn/#/preSale/preSaleEventList"&gt;点击进入选择项目进行报名&lt;/a&gt;）。&lt;/li&gt;
-&lt;li&gt;用户报名申请单需如实提交以下内容:&lt;code&gt;姓名、证件类型、证件号&lt;/code&gt;。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;报名规则&lt;/code&gt;:在有效报名时间内，注册用户仅可成功&lt;code&gt;提交同一场次1个报名申请单&lt;/code&gt;，且报名时间内可随时取消报名申请单，&lt;code&gt;最多可取消&lt;/code&gt;同一场次报名申请单&lt;code&gt;10次&lt;/code&gt;。每个申请单&lt;code&gt;最多包含2名观赛人&lt;/code&gt;，每一名观赛人每一场次只允许成功报名一次。单场次报名申请单如&lt;code&gt;达到200万个&lt;/code&gt;则将提前&lt;code&gt;截止报名&lt;/code&gt;，截止后不可再提交报名申请单。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;调剂规则&lt;/code&gt;:用户可选择是否接受调剂。如未能中签首选票档，在调剂票档有库存时系统将自动调剂至调剂票档进行抽签。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id="通知结果阶段"&gt;通知结果阶段&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;抽签结果告知方式&lt;/code&gt; :用户可在“&lt;code&gt;用户中心-我的报名&lt;/code&gt;”中查看抽签结果。&lt;/p&gt;
-&lt;h2 id="支付阶段"&gt;支付阶段&lt;/h2&gt;
-&lt;p&gt;用户在“&lt;code&gt;用户中心-我的报名&lt;/code&gt;”确认支付后，已完成支付报名单可在“我的订单”查询门票订单信息。用户在报名单支付有效期内如需放弃门票可随时点击“放弃购买资格，或在支付阶段支付截止时间前未支付也视为放弃门票。&lt;/p&gt;
-&lt;h2 id="出票及配送阶段"&gt;出票及配送阶段&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;配座规则&lt;/code&gt;:根据订单支付时间先后顺序进行配座出票，含多张门票的订单尽量满足连座。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;出票方式&lt;/code&gt;:电子竞技项目门票配座完成出票后，选择电子票的用户可在票夹中查看具体门票信息，选择纸质票的用户可在“我的订单”页查看门票信息。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id="门票购票规则"&gt;门票购票规则&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;购票要求&lt;/code&gt;:购票人需年满18周岁，18周岁以下应在法定代理人陪同下购票。购票时需填写与门票数量一一对应的实名制信息。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;实名制购票及入场&lt;/code&gt;:用户需携带门票(纸质票或电子票) 及购票时填写的有效身份证件入场。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;不支持转售及转送&lt;/code&gt;:电子竞技项目门票为报名抽签项目，电子票与纸质票订单和门票均不支持转售及转送。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id="门票退票规则"&gt;门票退票规则&lt;/h2&gt;
-&lt;p&gt;所购门票一旦售出，除杭州亚组委另有规定或者比赛取消外&lt;code&gt;一律不予退换&lt;/code&gt;。如比赛取消，持票观众无需在线提交退票申请，杭州亚组委统一安排退票事宜，纸质票无需寄回，电子票在线作废。不能要求更换其他比赛场次的门票。&lt;/p&gt;</description></item><item><title>大麦抢票辅助软件(福利 TFBOYS十年之约演唱会 2023 全机位 视频)</title><link>https://www.jobcher.com/damaihelp/</link><pubDate>Tue, 08 Aug 2023 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/damaihelp/</guid><description>&lt;h1 id="大麦抢票辅助软件福利-tfboys十年之约演唱会-2023-全机位-视频"&gt;大麦抢票辅助软件(福利 TFBOYS十年之约演唱会 2023 全机位 视频)&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;只限android手机！IOS手机不支持！&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;DaMaiHelper是一款大麦抢票辅助软件（只抢待开抢中的），软件原理是抓取页面ui控件id，通过模拟点击实现的大麦辅助抢票，软件需要开启相应的权限，如果页面渲染太慢，就会抓取失败导致点击超时无效，所以可以手动辅助点击，该软件只能起到辅助效果，帮忙快速点击，一定要提前选好场次、价格还有观影人，收藏到想看。&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/jobcher/DaMaiHelper"&gt;项目地址&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.pgyer.com/VTHAB7"&gt;软件下载&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id="使用教程"&gt;使用教程&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;先去演唱会主页预选好场次、价格还有观演人，点击&lt;code&gt;想看&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;（可选）手机后台杀掉大麦app任务&lt;/li&gt;
-&lt;li&gt;打开辅助app，给于对应权限&lt;/li&gt;
-&lt;li&gt;（可选）&lt;code&gt;输入歌手名字&lt;/code&gt;，默认五月天&lt;/li&gt;
-&lt;li&gt;点击开抢按钮即可&lt;/li&gt;
-&lt;li&gt;如果点击&lt;code&gt;开抢&lt;/code&gt;后，页面未开始自动跳转，可手动杀死大麦，再次切到辅助app点击开抢&lt;/li&gt;
-&lt;li&gt;如果想终止辅助app，点击右上角悬浮窗&lt;code&gt;&amp;lt;点击停止&amp;gt;&lt;/code&gt;即可&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;img src="https://www.jobcher.com/images/xkan.png" alt="操作演示" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;
-&lt;h2 id="福利"&gt;福利&lt;/h2&gt;
-&lt;p&gt;TFBOYS十年之约演唱会 2023 全机位&lt;br&gt;
-&lt;img src="https://www.jobcher.com/images/tfboy.jpeg" alt="tfboy" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;
-&lt;h3 id="百度网盘下载"&gt;百度网盘下载&lt;/h3&gt;
-&lt;p&gt;链接: &lt;a href="https://pan.baidu.com/s/1mry1Mib5TSAuTJWpasoG-g"&gt;https://pan.baidu.com/s/1mry1Mib5TSAuTJWpasoG-g&lt;/a&gt;&lt;br&gt;
-提取码: icep&lt;/p&gt;</description></item><item><title>最好的微信朋友圈集赞神器-福利推荐</title><link>https://www.jobcher.com/fuli-1/</link><pubDate>Mon, 10 Jul 2023 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/fuli-1/</guid><description>&lt;h1 id="最好的微信朋友圈集赞神器-集赞20"&gt;最好的微信朋友圈集赞神器-集赞2.0&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;奶茶店活动，朋友圈集满50个赞，送一杯奶茶。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>福利 - 打工人日志</title><link>https://www.jobcher.com/categories/%E7%A6%8F%E5%88%A9/</link><description>打工人日志（Jobcher）——面向开发者与运维的技术博客，覆盖 Kubernetes、Docker、Linux、监控、AI 与开发者工具的实战教程与干货。</description><generator>Hugo</generator><language>zh-cn</language><copyright>Copyright © 2022-2026 All Rights Reserved.</copyright><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor><webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 22 Jul 2024 00:00:00 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/categories/%E7%A6%8F%E5%88%A9/index.xml" rel="self" type="application/rss+xml"/><item><title>【福利】免费！本地部署！去除视频中移动的物体</title><link>https://www.jobcher.com/watermark-removal/</link><pubDate>Mon, 22 Jul 2024 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/watermark-removal/</guid><description><![CDATA[<p>分享一款 去除视频中移动的物体。的本地部署软件，完全免费！</p>
+<h2 id="效果">效果</h2>
+<h3 id="物体移除">物体移除</h3>
+<p><img src="https://www.jobcher.com/images/object_removal1.gif" alt="物体移除1" loading="lazy" decoding="async">
+<br>
+<img src="https://www.jobcher.com/images/object_removal2.gif" alt="物体移除2" loading="lazy" decoding="async">
+</p>
+<h3 id="水印去除">水印去除</h3>
+<p><img src="https://www.jobcher.com/images/video_completion1.gif" alt="水印去除1" loading="lazy" decoding="async">
+<br>
+<img src="https://www.jobcher.com/images/video_completion2.gif" alt="水印去除2" loading="lazy" decoding="async">
+</p>
+<h3 id="下载地址">下载地址</h3>
+<p><a href="https://pan.baidu.com/s/1XkQhzCzTtzVfgQg5heQQrA?pwd=jo38">国内下载</a></p>
+<h3 id="代码仓库">代码仓库</h3>
+<p><a href="https://github.com/sczhou/ProPainter">ProPainter</a></p>
+<h2 id="安装">安装</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">git clone https://github.com/sczhou/ProPainter.git
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">conda create -n propainter <span class="nv">python</span><span class="o">=</span>3.8 -y
+</span></span><span class="line"><span class="ln">2</span><span class="cl">conda activate propainter
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nb">cd</span> ProPainter
+</span></span><span class="line"><span class="ln">4</span><span class="cl">pip3 install -r requirements.txt
+</span></span></code></pre></div><h3 id="版本要求">版本要求</h3>
+<ul>
+<li>CUDA &gt;= 9.2</li>
+<li>PyTorch &gt;= 1.7.1</li>
+<li>Torchvision &gt;= 0.8.2</li>
+</ul>
+<h2 id="开始使用">开始使用</h2>
+<h3 id="准备预训练模型">准备预训练模型</h3>
+<p>预训练模型从版本 V0.1.0 下载到 weights 文件夹。<br>
+<a href="https://github.com/sczhou/ProPainter/releases/tag/v0.1.0">https://github.com/sczhou/ProPainter/releases/tag/v0.1.0</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">weights
+</span></span><span class="line"><span class="ln">2</span><span class="cl">   <span class="p">|</span>- ProPainter.pth
+</span></span><span class="line"><span class="ln">3</span><span class="cl">   <span class="p">|</span>- recurrent_flow_completion.pth
+</span></span><span class="line"><span class="ln">4</span><span class="cl">   <span class="p">|</span>- raft-things.pth
+</span></span><span class="line"><span class="ln">5</span><span class="cl">   <span class="p">|</span>- i3d_rgb_imagenet.pt <span class="o">(</span><span class="k">for</span> evaluating VFID metric<span class="o">)</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">   <span class="p">|</span>- README.md
+</span></span></code></pre></div><h3 id="快速测试">快速测试</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># The first example (object removal)</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">python inference_propainter.py --video inputs/object_removal/bmx-trees --mask inputs/object_removal/bmx-trees_mask 
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># The second example (video completion)</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">python inference_propainter.py --video inputs/video_completion/running_car.mp4 --mask inputs/video_completion/mask_square.png --height <span class="m">240</span> --width <span class="m">432</span>
+</span></span></code></pre></div><h3 id="内存高效推理">内存高效推理</h3>
+<p>视频修复通常需要大量 GPU 内存。在这里，我们提供了各种有助于内存高效推理的功能，有效避免内存不足（OOM）错误。您可以使用以下选项进一步减少内存使用量：</p>
+<ul>
+<li>通过减少 <code>--neighbor_length</code> （默认 10）来减少本地邻居的数量。</li>
+<li>通过增加 <code>--ref_stride</code> （默认 10）来减少全局引用的数量。</li>
+<li>设置 <code>--resize_ratio</code> （默认1.0）以调整处理视频的大小。</li>
+<li>通过指定 <code>--width</code> 和 <code>--height</code> 设置较小的视频大小。</li>
+<li>设置 <code>--fp16</code> 在推理过程中使用 fp16（半精度）。</li>
+<li>减少子视频 <code>--subvideo_length</code> 的帧数（默认80），有效解耦GPU内存消耗和视频长度。</li>
+</ul>
+<h3 id="训练">训练</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"> <span class="c1"># For training Recurrent Flow Completion Network</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"> python train.py -c configs/train_flowcomp.json
+</span></span><span class="line"><span class="ln">3</span><span class="cl"> <span class="c1"># For training ProPainter</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"> python train.py -c configs/train_propainter.json
+</span></span></code></pre></div><h2 id="web端">web端</h2>
+<p><a href="https://openxlab.org.cn/apps/detail/ShangchenZhou/ProPainter">Hugging Face 在线演示</a><br>
+<a href="https://huggingface.co/spaces/sczhou/ProPainter">OpenXLab 在线演示</a></p>
+]]></description><content:encoded><![CDATA[<p>分享一款 去除视频中移动的物体。的本地部署软件，完全免费！</p>
+<h2 id="效果">效果</h2>
+<h3 id="物体移除">物体移除</h3>
+<p><img src="https://www.jobcher.com/images/object_removal1.gif" alt="物体移除1" loading="lazy" decoding="async">
+<br>
+<img src="https://www.jobcher.com/images/object_removal2.gif" alt="物体移除2" loading="lazy" decoding="async">
+</p>
+<h3 id="水印去除">水印去除</h3>
+<p><img src="https://www.jobcher.com/images/video_completion1.gif" alt="水印去除1" loading="lazy" decoding="async">
+<br>
+<img src="https://www.jobcher.com/images/video_completion2.gif" alt="水印去除2" loading="lazy" decoding="async">
+</p>
+<h3 id="下载地址">下载地址</h3>
+<p><a href="https://pan.baidu.com/s/1XkQhzCzTtzVfgQg5heQQrA?pwd=jo38">国内下载</a></p>
+<h3 id="代码仓库">代码仓库</h3>
+<p><a href="https://github.com/sczhou/ProPainter">ProPainter</a></p>
+<h2 id="安装">安装</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">git clone https://github.com/sczhou/ProPainter.git
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">conda create -n propainter <span class="nv">python</span><span class="o">=</span>3.8 -y
+</span></span><span class="line"><span class="ln">2</span><span class="cl">conda activate propainter
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nb">cd</span> ProPainter
+</span></span><span class="line"><span class="ln">4</span><span class="cl">pip3 install -r requirements.txt
+</span></span></code></pre></div><h3 id="版本要求">版本要求</h3>
+<ul>
+<li>CUDA &gt;= 9.2</li>
+<li>PyTorch &gt;= 1.7.1</li>
+<li>Torchvision &gt;= 0.8.2</li>
+</ul>
+<h2 id="开始使用">开始使用</h2>
+<h3 id="准备预训练模型">准备预训练模型</h3>
+<p>预训练模型从版本 V0.1.0 下载到 weights 文件夹。<br>
+<a href="https://github.com/sczhou/ProPainter/releases/tag/v0.1.0">https://github.com/sczhou/ProPainter/releases/tag/v0.1.0</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">weights
+</span></span><span class="line"><span class="ln">2</span><span class="cl">   <span class="p">|</span>- ProPainter.pth
+</span></span><span class="line"><span class="ln">3</span><span class="cl">   <span class="p">|</span>- recurrent_flow_completion.pth
+</span></span><span class="line"><span class="ln">4</span><span class="cl">   <span class="p">|</span>- raft-things.pth
+</span></span><span class="line"><span class="ln">5</span><span class="cl">   <span class="p">|</span>- i3d_rgb_imagenet.pt <span class="o">(</span><span class="k">for</span> evaluating VFID metric<span class="o">)</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">   <span class="p">|</span>- README.md
+</span></span></code></pre></div><h3 id="快速测试">快速测试</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># The first example (object removal)</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">python inference_propainter.py --video inputs/object_removal/bmx-trees --mask inputs/object_removal/bmx-trees_mask 
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># The second example (video completion)</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">python inference_propainter.py --video inputs/video_completion/running_car.mp4 --mask inputs/video_completion/mask_square.png --height <span class="m">240</span> --width <span class="m">432</span>
+</span></span></code></pre></div><h3 id="内存高效推理">内存高效推理</h3>
+<p>视频修复通常需要大量 GPU 内存。在这里，我们提供了各种有助于内存高效推理的功能，有效避免内存不足（OOM）错误。您可以使用以下选项进一步减少内存使用量：</p>
+<ul>
+<li>通过减少 <code>--neighbor_length</code> （默认 10）来减少本地邻居的数量。</li>
+<li>通过增加 <code>--ref_stride</code> （默认 10）来减少全局引用的数量。</li>
+<li>设置 <code>--resize_ratio</code> （默认1.0）以调整处理视频的大小。</li>
+<li>通过指定 <code>--width</code> 和 <code>--height</code> 设置较小的视频大小。</li>
+<li>设置 <code>--fp16</code> 在推理过程中使用 fp16（半精度）。</li>
+<li>减少子视频 <code>--subvideo_length</code> 的帧数（默认80），有效解耦GPU内存消耗和视频长度。</li>
+</ul>
+<h3 id="训练">训练</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"> <span class="c1"># For training Recurrent Flow Completion Network</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"> python train.py -c configs/train_flowcomp.json
+</span></span><span class="line"><span class="ln">3</span><span class="cl"> <span class="c1"># For training ProPainter</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"> python train.py -c configs/train_propainter.json
+</span></span></code></pre></div><h2 id="web端">web端</h2>
+<p><a href="https://openxlab.org.cn/apps/detail/ShangchenZhou/ProPainter">Hugging Face 在线演示</a><br>
+<a href="https://huggingface.co/spaces/sczhou/ProPainter">OpenXLab 在线演示</a></p>
+]]></content:encoded></item><item><title>KyBook 3 | calibre-web - IOS系统最佳图书伴侣</title><link>https://www.jobcher.com/kybook3/</link><pubDate>Wed, 19 Jun 2024 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/kybook3/</guid><description><![CDATA[<h2 id="背景">背景</h2>
+<p>calibre-web 支持opds协议，ip+端口/opds就是opds路径，所有支持opds的客户端都可以。安卓下推荐<code>静读天下</code>，ios推荐<code>kybook 3</code>，我这边主要介绍一下，<code>kybook 3</code>。<br>
+<code>KyBook 3</code> 支持几乎所有主要的电子书格式，包括：</p>
+<blockquote>
+<p>EPub、FictionBook（fb2，fb2.zip）、纯文本和富文本（txt，rtf）、PDF、漫画（CBR，CBZ，CBT）、MobiPocket、Kindle（mobi，azw3）以及有声读物（mp3，m4a，m4b）。</p>
+</blockquote>
+<p>基本上你在网络上找到的书籍资源，都可以用 KyBook 3 打开。</p>
+<h2 id="下载">下载</h2>
+<h3 id="kybook-3-下载"><a href="https://apps.apple.com/us/app/kybook-3-ebook-reader/id1348198785?">KyBook 3 下载</a></h3>
+<p><img src="https://www.jobcher.com/images/kybook3_1.jpg" alt="下载页面" loading="lazy" decoding="async">
+</p>
+<h2 id="添加opds源">添加OPDS源</h2>
+<ol>
+<li>打开KyBook 3  -&gt; 底部目录 -&gt; 添加</li>
+</ol>
+<blockquote>
+<p>添加源地址 https://ip:port/opds 例如 https://192.168.1.1:8080/opds</p>
+</blockquote>
+<p><img src="https://www.jobcher.com/images/kybook3-2.jpg" alt="添加源" loading="lazy" decoding="async">
+<br>
+2. 输入密码<br>
+<img src="https://www.jobcher.com/images/kybook3-3.jpg" alt="输入密码" loading="lazy" decoding="async">
+</p>
+<h2 id="添加书籍">添加书籍</h2>
+<p><img src="https://www.jobcher.com/images/kybook3-4.png" alt="添加书籍" loading="lazy" decoding="async">
+<br>
+<img src="https://www.jobcher.com/images/kybook3-5.jpg" alt="添加书籍" loading="lazy" decoding="async">
+</p>
+<h2 id="总结">总结</h2>
+<p>亚马逊 Kindle 一直是受欢迎的电子书阅读器，在我看来，它的巨大优势之一在于亚马逊丰富的线上资源，可以很方便地购买，并在 PC、移动端和实体 Kindle 上同步观看。</p>
+<p>KyBooks 3 相比之下，最强大的在于对不同文件格式的支持，以及丰富的阅读自定义设置。</p>
+<h3 id="不足">不足</h3>
+<p>当然，Kybooks 3 也存在一些问题，比如不少人都反馈无法注册，从而影响同步，这应该和 KyBook 的服务器设置有关。还有它仅支持iOS端，平台多少有些单一了。<br>
+你可以在 Appstore 免费下载 KyBook 3，它提供了「专业版」与「高级订阅」两个内购的选项：「专业版」包含去广告（不过免费版目前并没有广告）、用户辞典、手写标注、自动滚动等功能，花费 4.99$ 可永久升级，你可以免费体验 14 天以绝对是否购买。<br>
+「高级订阅」在解锁了全部「专业版」功能外，还允许用户使用 KyBook 服务器在不同设备间同步数据，年费为 14.99$，但因为前面所说的登陆问题，同步功能的体验可能会受到影响。</p>
+]]></description><content:encoded><![CDATA[<h2 id="背景">背景</h2>
+<p>calibre-web 支持opds协议，ip+端口/opds就是opds路径，所有支持opds的客户端都可以。安卓下推荐<code>静读天下</code>，ios推荐<code>kybook 3</code>，我这边主要介绍一下，<code>kybook 3</code>。<br>
+<code>KyBook 3</code> 支持几乎所有主要的电子书格式，包括：</p>
+<blockquote>
+<p>EPub、FictionBook（fb2，fb2.zip）、纯文本和富文本（txt，rtf）、PDF、漫画（CBR，CBZ，CBT）、MobiPocket、Kindle（mobi，azw3）以及有声读物（mp3，m4a，m4b）。</p>
+</blockquote>
+<p>基本上你在网络上找到的书籍资源，都可以用 KyBook 3 打开。</p>
+<h2 id="下载">下载</h2>
+<h3 id="kybook-3-下载"><a href="https://apps.apple.com/us/app/kybook-3-ebook-reader/id1348198785?">KyBook 3 下载</a></h3>
+<p><img src="https://www.jobcher.com/images/kybook3_1.jpg" alt="下载页面" loading="lazy" decoding="async">
+</p>
+<h2 id="添加opds源">添加OPDS源</h2>
+<ol>
+<li>打开KyBook 3  -&gt; 底部目录 -&gt; 添加</li>
+</ol>
+<blockquote>
+<p>添加源地址 https://ip:port/opds 例如 https://192.168.1.1:8080/opds</p>
+</blockquote>
+<p><img src="https://www.jobcher.com/images/kybook3-2.jpg" alt="添加源" loading="lazy" decoding="async">
+<br>
+2. 输入密码<br>
+<img src="https://www.jobcher.com/images/kybook3-3.jpg" alt="输入密码" loading="lazy" decoding="async">
+</p>
+<h2 id="添加书籍">添加书籍</h2>
+<p><img src="https://www.jobcher.com/images/kybook3-4.png" alt="添加书籍" loading="lazy" decoding="async">
+<br>
+<img src="https://www.jobcher.com/images/kybook3-5.jpg" alt="添加书籍" loading="lazy" decoding="async">
+</p>
+<h2 id="总结">总结</h2>
+<p>亚马逊 Kindle 一直是受欢迎的电子书阅读器，在我看来，它的巨大优势之一在于亚马逊丰富的线上资源，可以很方便地购买，并在 PC、移动端和实体 Kindle 上同步观看。</p>
+<p>KyBooks 3 相比之下，最强大的在于对不同文件格式的支持，以及丰富的阅读自定义设置。</p>
+<h3 id="不足">不足</h3>
+<p>当然，Kybooks 3 也存在一些问题，比如不少人都反馈无法注册，从而影响同步，这应该和 KyBook 的服务器设置有关。还有它仅支持iOS端，平台多少有些单一了。<br>
+你可以在 Appstore 免费下载 KyBook 3，它提供了「专业版」与「高级订阅」两个内购的选项：「专业版」包含去广告（不过免费版目前并没有广告）、用户辞典、手写标注、自动滚动等功能，花费 4.99$ 可永久升级，你可以免费体验 14 天以绝对是否购买。<br>
+「高级订阅」在解锁了全部「专业版」功能外，还允许用户使用 KyBook 服务器在不同设备间同步数据，年费为 14.99$，但因为前面所说的登陆问题，同步功能的体验可能会受到影响。</p>
+]]></content:encoded></item><item><title>iOS 17 「待机显示」适配普通 iPhone（非 Pro/Max），屏幕在充电时常亮</title><link>https://www.jobcher.com/ios17-standby/</link><pubDate>Tue, 26 Sep 2023 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/ios17-standby/</guid><description><![CDATA[<h2 id="让-ios-17-待机显示适配普通-iphone非-promax屏幕在充电时常亮">让 iOS 17 「待机显示」适配普通 iPhone（非 Pro/Max），屏幕在充电时常亮</h2>
+<h2 id="背景">背景</h2>
+<p>让 <code>iPhone 14/15 Pro/Max 以下机型</code>也可以在屏幕<code>激活待机显示功能</code>（充电且横置）时<code>保持常亮</code>，以显示小组件内容。<br>
+2023 年新发布的 iOS 17 有一个新功能：待机显示 StandBy，它能在 iPhone 横向放置且充电时，全屏显示小组件，比如时钟、日历等等，但所有的<code>非 Pro/Max 机型</code>，由于没有<code>全天候显示屏</code>（<code>显示屏能够以低至 1 Hz 的刷新率运行</code>），所以并不能持续使用待机显示，会在几秒钟之后熄灭屏幕，当感受到震动（轻轻拍一下桌子），或有新通知时，再次点亮。</p>
+<h2 id="原理">原理</h2>
+<p><img src="https://www.jobcher.com/images/photo_2023-09-25_15-52-04.jpg" alt="standby-yuanli" loading="lazy" decoding="async">
+</p>
+<ul>
+<li>如果 iPhone 接入充电器充电 &gt; 等待 19 秒 &gt; 开关一次低电量模式 &gt; 再运行一次脚本</li>
+<li>如果没有充电 &gt; 关闭低电量模式 &gt; 停止脚本
+之后，使用自动化功能，当 iPhone 接入充电器时，自动运行这个脚本就行了。</li>
+</ul>
+<h2 id="教程">教程</h2>
+<h2 id="获取链接"><a href="https://www.icloud.com/shortcuts/f50d508c7ec9471a9fb94a3b2b57f1af">获取链接</a></h2>
+<p>自带19秒等待间隔，如果遇到熄屏可以修改为15秒。
+<div class="video">
+  <iframe class="bilibili-frame" src="https://player.bilibili.com/player.html?bvid=BV11N4y1Z7Hk" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen loading="lazy"></iframe>
+</div>
+</p>
+<h2 id="注意">注意</h2>
+<ul>
+<li>小组件自动轮换失效</li>
+<li>烧屏：请务必小心，长期使用可能会导致的屏幕问题</li>
+<li>充电前需要手动熄屏，否则会因为不断的开关低电量模式而无法进入待机显示</li>
+</ul>
+]]></description><content:encoded><![CDATA[<h2 id="让-ios-17-待机显示适配普通-iphone非-promax屏幕在充电时常亮">让 iOS 17 「待机显示」适配普通 iPhone（非 Pro/Max），屏幕在充电时常亮</h2>
+<h2 id="背景">背景</h2>
+<p>让 <code>iPhone 14/15 Pro/Max 以下机型</code>也可以在屏幕<code>激活待机显示功能</code>（充电且横置）时<code>保持常亮</code>，以显示小组件内容。<br>
+2023 年新发布的 iOS 17 有一个新功能：待机显示 StandBy，它能在 iPhone 横向放置且充电时，全屏显示小组件，比如时钟、日历等等，但所有的<code>非 Pro/Max 机型</code>，由于没有<code>全天候显示屏</code>（<code>显示屏能够以低至 1 Hz 的刷新率运行</code>），所以并不能持续使用待机显示，会在几秒钟之后熄灭屏幕，当感受到震动（轻轻拍一下桌子），或有新通知时，再次点亮。</p>
+<h2 id="原理">原理</h2>
+<p><img src="https://www.jobcher.com/images/photo_2023-09-25_15-52-04.jpg" alt="standby-yuanli" loading="lazy" decoding="async">
+</p>
+<ul>
+<li>如果 iPhone 接入充电器充电 &gt; 等待 19 秒 &gt; 开关一次低电量模式 &gt; 再运行一次脚本</li>
+<li>如果没有充电 &gt; 关闭低电量模式 &gt; 停止脚本
+之后，使用自动化功能，当 iPhone 接入充电器时，自动运行这个脚本就行了。</li>
+</ul>
+<h2 id="教程">教程</h2>
+<h2 id="获取链接"><a href="https://www.icloud.com/shortcuts/f50d508c7ec9471a9fb94a3b2b57f1af">获取链接</a></h2>
+<p>自带19秒等待间隔，如果遇到熄屏可以修改为15秒。
+<div class="video">
+  <iframe class="bilibili-frame" src="https://player.bilibili.com/player.html?bvid=BV11N4y1Z7Hk" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen loading="lazy"></iframe>
+</div>
+</p>
+<h2 id="注意">注意</h2>
+<ul>
+<li>小组件自动轮换失效</li>
+<li>烧屏：请务必小心，长期使用可能会导致的屏幕问题</li>
+<li>充电前需要手动熄屏，否则会因为不断的开关低电量模式而无法进入待机显示</li>
+</ul>
+]]></content:encoded></item><item><title>【福利】埃隆·马斯克传 [沃尔特·艾萨克森] 在线下载</title><link>https://www.jobcher.com/elon-musk/</link><pubDate>Tue, 19 Sep 2023 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/elon-musk/</guid><description><![CDATA[<h2 id="介绍">介绍</h2>
+<p>著名传记作家艾萨克森以近距离的观察视角，揭开了如今全球引人注目、富有争议性的创新企业家的神秘面纱：他善于突破常规，引领全球进入电动汽车时代、私人太空探索时代和人工智能时代，还将推特收入囊中。 埃隆·马斯克小时候在南非生活，那时他经常遭受校园欺凌，但同父亲给他造成的情感创伤相比，这些伤痛都微不足道。他的童年浸透了人性，这将他塑造为一个坚强而又脆弱的男孩，他对风险的容忍度极高，渴望营造出富有戏剧性的生活，让人类文明成为星际文明是他的宏大目标。 2008年，SpaceX的火箭在前三次发射过程中接连爆炸，特斯拉也即将破产，这是他生命中地狱般的至暗时期。在飓风来临时，他是最兴奋的人之一。动荡的环境和剧烈的冲突对他有着莫大的吸引力，有时他甚至渴望这些东西，无论是在工作中，还是在他努力维持却未能持久的恋爱关系中。每当面临艰巨的挑战，紧张感常常让他夜不能寐，甚至呕吐不止，但这些都是他赖以为生的养分。 2022年年初，也就是在SpaceX成功发射了31颗卫星、特斯拉卖出了近100万辆汽车、埃隆成为地球上最富有的人一年后，对于自己一再挑起戏剧性冲突的背后动机，他略带感伤地谈起了他的反思。 他说：“我需要改变我的思维模式，不能一直处于危机战备状态，我这种状态已经持续了大概14年，或者说我人生的大部分时间。”这更像是一个自怨自艾的评价，而不是在表达新年新气象的决心。他一边做出了这些反思和保证，一边还在秘密买入推特的股票。 两年来，艾萨克森形影不离地跟访马斯克，参加他大大小小的会议，与他一起走访工厂，深度采访了他本人，以及他的家人、朋友、同事、前妻和对手。艾萨克森揭开了马斯克内幕故事的面纱，其中有荡气回肠的胜利，也有跌宕起伏的乱局，令人拍案称奇。这些故事回答了这样一个问题：那个在马斯克心底驱使着他的恶魔，是不是也是推动创新与进步所必需的呢？</p>
+<h2 id="下载链接">下载链接</h2>
+<p><a href="https://www.aliyundrive.com/s/3j32s7zQwU1">埃隆·马斯克传 [沃尔特·艾萨克森].pdf</a><br>
+<a href="https://www.aliyundrive.com/s/ud1SeNR4YQK">埃隆·马斯克传 [沃尔特·艾萨克森].epub</a></p>
+]]></description><content:encoded><![CDATA[<h2 id="介绍">介绍</h2>
+<p>著名传记作家艾萨克森以近距离的观察视角，揭开了如今全球引人注目、富有争议性的创新企业家的神秘面纱：他善于突破常规，引领全球进入电动汽车时代、私人太空探索时代和人工智能时代，还将推特收入囊中。 埃隆·马斯克小时候在南非生活，那时他经常遭受校园欺凌，但同父亲给他造成的情感创伤相比，这些伤痛都微不足道。他的童年浸透了人性，这将他塑造为一个坚强而又脆弱的男孩，他对风险的容忍度极高，渴望营造出富有戏剧性的生活，让人类文明成为星际文明是他的宏大目标。 2008年，SpaceX的火箭在前三次发射过程中接连爆炸，特斯拉也即将破产，这是他生命中地狱般的至暗时期。在飓风来临时，他是最兴奋的人之一。动荡的环境和剧烈的冲突对他有着莫大的吸引力，有时他甚至渴望这些东西，无论是在工作中，还是在他努力维持却未能持久的恋爱关系中。每当面临艰巨的挑战，紧张感常常让他夜不能寐，甚至呕吐不止，但这些都是他赖以为生的养分。 2022年年初，也就是在SpaceX成功发射了31颗卫星、特斯拉卖出了近100万辆汽车、埃隆成为地球上最富有的人一年后，对于自己一再挑起戏剧性冲突的背后动机，他略带感伤地谈起了他的反思。 他说：“我需要改变我的思维模式，不能一直处于危机战备状态，我这种状态已经持续了大概14年，或者说我人生的大部分时间。”这更像是一个自怨自艾的评价，而不是在表达新年新气象的决心。他一边做出了这些反思和保证，一边还在秘密买入推特的股票。 两年来，艾萨克森形影不离地跟访马斯克，参加他大大小小的会议，与他一起走访工厂，深度采访了他本人，以及他的家人、朋友、同事、前妻和对手。艾萨克森揭开了马斯克内幕故事的面纱，其中有荡气回肠的胜利，也有跌宕起伏的乱局，令人拍案称奇。这些故事回答了这样一个问题：那个在马斯克心底驱使着他的恶魔，是不是也是推动创新与进步所必需的呢？</p>
+<h2 id="下载链接">下载链接</h2>
+<p><a href="https://www.aliyundrive.com/s/3j32s7zQwU1">埃隆·马斯克传 [沃尔特·艾萨克森].pdf</a><br>
+<a href="https://www.aliyundrive.com/s/ud1SeNR4YQK">埃隆·马斯克传 [沃尔特·艾萨克森].epub</a></p>
+]]></content:encoded></item><item><title>【破解】小鹏P5和小鹏G9开启adb和网络adb</title><link>https://www.jobcher.com/hackp5g9/</link><pubDate>Thu, 14 Sep 2023 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/hackp5g9/</guid><description><![CDATA[<h1 id="lets-hack-now">LET&rsquo;S HACK NOW!</h1>
+<p>本文章可以帮助当前正式版本的小鹏P5和小鹏G9开启adb和网络adb</p>
+<h1 id="重要提示">重要提示</h1>
+<h2 id="如果你对第三方软件的需求高于ota需求请关闭ota功能p5和g9的下一个版本大概率或已经启用了更高级的加密方式无法获取解锁码需要等待其他方式破解">如果你对第三方软件的需求高于OTA需求，请关闭OTA功能，P5和G9的下一个版本大概率或已经启用了更高级的加密方式，无法获取解锁码，需要等待其他方式破解</h2>
+<h1 id="开启adb步骤">开启adb步骤</h1>
+<ul>
+<li>
+<p>首先确认您的爱车是小鹏P5（OTA3.5.0及之前）或小鹏G9（OTA4.3.1及之前）或小鹏G6（未测试）或小鹏P7（OTA2.10及之前）或小鹏G3（版本不确定，最新版不行）</p>
+</li>
+<li>
+<p>将您的笔记本电脑（已安装adb组件）或安卓手机（已安装甲壳虫adb软件）和您的车机连接到同一无线局域网中（此处可使用另一台手机打开热点），以下使用笔记本电脑举例</p>
+</li>
+<li>
+<p>打开车机的拨号界面，输入<code>*#9925*111#*</code></p>
+</li>
+<li>
+<p>此时车机会显示一个页面，其中包含一个二维码</p>
+</li>
+<li>
+<p>使用微信扫描您的车机的二维码，并将内容保存备用</p>
+</li>
+<li>
+<p>在任意输入框中输入内容<code>https://hackxpeng.bgcpdd.eu.org/xpeng?m=hackxpeng&amp;id=</code>，然后将您获取到的二维码内容复制到最后面，注意此处不要有任何的空格</p>
+</li>
+<li>
+<p>使用浏览器打开您输入框中的所有内容（网址拼接，如：<code>https://hackxpeng.bgcpdd.eu.org/xpeng?m=hackxpeng&amp;id=XPENGD55xxxxxxxxxxxxxx</code>）</p>
+</li>
+<li>
+<p>浏览器返回一个解锁码（如：<code>*#03*12345678*#</code>）</p>
+</li>
+<li>
+<p>将该解锁码输入车机的拨号界面，此时解锁码会自动消失，如果没有消失请手动删除所有内容</p>
+</li>
+<li>
+<p>使用拨号界面输入<code>*#9387*141#*</code></p>
+</li>
+<li>
+<p>打开调试和网络调试（一般是前两个选项）</p>
+</li>
+<li>
+<p>笔记本电脑使用<code>win+r</code>，输入<code>cmd</code>回车，输入<code>adb connect 车机页面中的ip:5050</code>（如<code>adb connect 172.20.10.2:5050</code>）</p>
+</li>
+<li>
+<p>cmd显示连接成功</p>
+</li>
+<li>
+<p>下载你需要安装的apk</p>
+</li>
+<li>
+<p>使用<code>adb install</code>安装软件（如：<code>adb install C:\abc\a.apk</code>）</p>
+</li>
+<li>
+<p>安装成功</p>
+</li>
+<li>
+<p>adb还有更多好玩有趣的玩法等你发现</p>
+</li>
+</ul>
+<h1 id="笔记本电脑安装adb套件">笔记本电脑安装adb套件</h1>
+<ul>
+<li>
+<p>打开<code>https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn</code></p>
+</li>
+<li>
+<p>下载windows版本 并解压</p>
+</li>
+<li>
+<p>将所有文件放入c盘windows目录下的system32和syswow64 注意两个都要放</p>
+</li>
+</ul>
+<h1 id="致小鹏汽车以下是关闭获取解锁码api的步骤">致小鹏汽车：以下是关闭获取解锁码api的步骤</h1>
+<ul>
+<li>
+<p>将P7 P5的地图更新到高德地图最新版本（包括红绿灯倒计时，最新版高精地图，组队功能，普通道路沉浸导航，语音包等）</p>
+</li>
+<li>
+<p>将P7 P5的QQ音乐更新到最新版本</p>
+</li>
+<li>
+<p>承诺定期公布OTA进度（最低界限为每月公布）</p>
+</li>
+<li>
+<p>将P5 p版sr下放到e版车型（显示车辆运动轨迹）</p>
+</li>
+<li>
+<p>优化P7 P5 G3/i自动泊车</p>
+</li>
+<li>
+<p>优化NGP并将速度上限设置为130</p>
+</li>
+<li>
+<p>将P7 P5的夜晚/白天切换逻辑修改为根据光线传感器，而非日出日落时间</p>
+</li>
+<li>
+<p>上线P5的智慧场景或私人定制2.0</p>
+</li>
+<li>
+<p>重新评估P7 P5适配新版UI的可行性</p>
+</li>
+<li>
+<p>重新评估P7更换8155车机的可行性</p>
+</li>
+<li>
+<p>全部完成后使用小鹏汽车官方Github账号在本仓库发送issue</p>
+</li>
+</ul>
+<blockquote>
+<p>文章转载于网络，侵权即删
+<a href="https://github.com/hackxpeng/hackp5g9">原文连接</a></p>
+</blockquote>
+]]></description><content:encoded><![CDATA[<h1 id="lets-hack-now">LET&rsquo;S HACK NOW!</h1>
+<p>本文章可以帮助当前正式版本的小鹏P5和小鹏G9开启adb和网络adb</p>
+<h1 id="重要提示">重要提示</h1>
+<h2 id="如果你对第三方软件的需求高于ota需求请关闭ota功能p5和g9的下一个版本大概率或已经启用了更高级的加密方式无法获取解锁码需要等待其他方式破解">如果你对第三方软件的需求高于OTA需求，请关闭OTA功能，P5和G9的下一个版本大概率或已经启用了更高级的加密方式，无法获取解锁码，需要等待其他方式破解</h2>
+<h1 id="开启adb步骤">开启adb步骤</h1>
+<ul>
+<li>
+<p>首先确认您的爱车是小鹏P5（OTA3.5.0及之前）或小鹏G9（OTA4.3.1及之前）或小鹏G6（未测试）或小鹏P7（OTA2.10及之前）或小鹏G3（版本不确定，最新版不行）</p>
+</li>
+<li>
+<p>将您的笔记本电脑（已安装adb组件）或安卓手机（已安装甲壳虫adb软件）和您的车机连接到同一无线局域网中（此处可使用另一台手机打开热点），以下使用笔记本电脑举例</p>
+</li>
+<li>
+<p>打开车机的拨号界面，输入<code>*#9925*111#*</code></p>
+</li>
+<li>
+<p>此时车机会显示一个页面，其中包含一个二维码</p>
+</li>
+<li>
+<p>使用微信扫描您的车机的二维码，并将内容保存备用</p>
+</li>
+<li>
+<p>在任意输入框中输入内容<code>https://hackxpeng.bgcpdd.eu.org/xpeng?m=hackxpeng&amp;id=</code>，然后将您获取到的二维码内容复制到最后面，注意此处不要有任何的空格</p>
+</li>
+<li>
+<p>使用浏览器打开您输入框中的所有内容（网址拼接，如：<code>https://hackxpeng.bgcpdd.eu.org/xpeng?m=hackxpeng&amp;id=XPENGD55xxxxxxxxxxxxxx</code>）</p>
+</li>
+<li>
+<p>浏览器返回一个解锁码（如：<code>*#03*12345678*#</code>）</p>
+</li>
+<li>
+<p>将该解锁码输入车机的拨号界面，此时解锁码会自动消失，如果没有消失请手动删除所有内容</p>
+</li>
+<li>
+<p>使用拨号界面输入<code>*#9387*141#*</code></p>
+</li>
+<li>
+<p>打开调试和网络调试（一般是前两个选项）</p>
+</li>
+<li>
+<p>笔记本电脑使用<code>win+r</code>，输入<code>cmd</code>回车，输入<code>adb connect 车机页面中的ip:5050</code>（如<code>adb connect 172.20.10.2:5050</code>）</p>
+</li>
+<li>
+<p>cmd显示连接成功</p>
+</li>
+<li>
+<p>下载你需要安装的apk</p>
+</li>
+<li>
+<p>使用<code>adb install</code>安装软件（如：<code>adb install C:\abc\a.apk</code>）</p>
+</li>
+<li>
+<p>安装成功</p>
+</li>
+<li>
+<p>adb还有更多好玩有趣的玩法等你发现</p>
+</li>
+</ul>
+<h1 id="笔记本电脑安装adb套件">笔记本电脑安装adb套件</h1>
+<ul>
+<li>
+<p>打开<code>https://developer.android.google.cn/studio/releases/platform-tools?hl=zh-cn</code></p>
+</li>
+<li>
+<p>下载windows版本 并解压</p>
+</li>
+<li>
+<p>将所有文件放入c盘windows目录下的system32和syswow64 注意两个都要放</p>
+</li>
+</ul>
+<h1 id="致小鹏汽车以下是关闭获取解锁码api的步骤">致小鹏汽车：以下是关闭获取解锁码api的步骤</h1>
+<ul>
+<li>
+<p>将P7 P5的地图更新到高德地图最新版本（包括红绿灯倒计时，最新版高精地图，组队功能，普通道路沉浸导航，语音包等）</p>
+</li>
+<li>
+<p>将P7 P5的QQ音乐更新到最新版本</p>
+</li>
+<li>
+<p>承诺定期公布OTA进度（最低界限为每月公布）</p>
+</li>
+<li>
+<p>将P5 p版sr下放到e版车型（显示车辆运动轨迹）</p>
+</li>
+<li>
+<p>优化P7 P5 G3/i自动泊车</p>
+</li>
+<li>
+<p>优化NGP并将速度上限设置为130</p>
+</li>
+<li>
+<p>将P7 P5的夜晚/白天切换逻辑修改为根据光线传感器，而非日出日落时间</p>
+</li>
+<li>
+<p>上线P5的智慧场景或私人定制2.0</p>
+</li>
+<li>
+<p>重新评估P7 P5适配新版UI的可行性</p>
+</li>
+<li>
+<p>重新评估P7更换8155车机的可行性</p>
+</li>
+<li>
+<p>全部完成后使用小鹏汽车官方Github账号在本仓库发送issue</p>
+</li>
+</ul>
+<blockquote>
+<p>文章转载于网络，侵权即删
+<a href="https://github.com/hackxpeng/hackp5g9">原文连接</a></p>
+</blockquote>
+]]></content:encoded></item><item><title>3D Gaussian Splatting：3D模型渲染</title><link>https://www.jobcher.com/3dgaussiansplatting/</link><pubDate>Wed, 30 Aug 2023 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/3dgaussiansplatting/</guid><description><![CDATA[<h2 id="简介">简介</h2>
+<p>只需要一组照片或者一个视频，就能快速地生成一个3D模型。<br>
+它使了用一种叫做“3D高斯函数”的数学工具来表示这个3D模型，并找到了一种更快的算法来渲染（即生成）3D模型。</p>
+<h2 id="介绍">介绍</h2>
+<p>想象一下，你有一堆照片或视频，你想从一个全新的角度看这些场景。3D Gaussian Splatting 就是一个能让你做到这一点的高级工具。它用一种特别快和高质量的方式来“重建”这些场景，让你能够从任何角度观看它们，就像你实际站在那里一样。</p>
+<p>这个工具的“大脑”使用了一种叫做3D高斯的数学模型，这个模型能够非常精确地描述场景的每一个细节。更酷的是，这个工具还能实时地显示这些新角度的场景，这意味着你不必等待很长时间就能看到结果。</p>
+<p>简而言之，这是一个能让你以全新、快速和高质量的方式探索照片和视频场景的工具。</p>
+<h2 id="使用">使用</h2>
+<h3 id="硬件要求">硬件要求</h3>
+<ul>
+<li>具有计算能力 7.0+ 的 CUDA 就绪 GPU</li>
+<li>24 GB VRAM（用于训练论文评估质量）</li>
+</ul>
+<h3 id="软件要求">软件要求</h3>
+<ul>
+<li>Conda（推荐使用，以便于设置）</li>
+<li>用于 PyTorch 扩展的 C++ 编译器（我们使用 Visual Studio 2019 for Windows）</li>
+<li>用于 PyTorch 扩展的 CUDA SDK 11，在 Visual Studio 之后安装（我们使用 11.8，11.6 存在已知问题）</li>
+<li>C++编译器和CUDA SDK必须兼容</li>
+</ul>
+<h3 id="设置">设置</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">SET <span class="nv">DISTUTILS_USE_SDK</span><span class="o">=</span><span class="m">1</span> <span class="c1"># Windows only</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">conda env create --file environment.yml
+</span></span><span class="line"><span class="ln">3</span><span class="cl">conda activate gaussian_splatting
+</span></span></code></pre></div><p>请注意，此过程假设您安装了 CUDA SDK 11，而不是 12。有关修改，请参阅下文。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">conda config --add pkgs_dirs &lt;Drive&gt;/&lt;pkg_path&gt;
+</span></span><span class="line"><span class="ln">2</span><span class="cl">conda env create --file environment.yml --prefix &lt;Drive&gt;/&lt;env_path&gt;/gaussian_splatting
+</span></span><span class="line"><span class="ln">3</span><span class="cl">conda activate &lt;Drive&gt;/&lt;env_path&gt;/gaussian_splatting
+</span></span></code></pre></div><p>运行</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">python train.py -s &lt;path to COLMAP or NeRF Synthetic dataset&gt;
+</span></span></code></pre></div><p>评估</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">python train.py -s &lt;path to COLMAP or NeRF Synthetic dataset&gt; --eval <span class="c1"># Train with train/test split</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">python render.py -m &lt;path to trained model&gt; <span class="c1"># Generate renderings</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">python metrics.py -m &lt;path to trained model&gt; <span class="c1"># Compute error metrics on renderings</span>
+</span></span></code></pre></div><p>项目地址及演示：<a href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/">链接</a><br>
+GitHub：<a href="https://github.com/graphdeco-inria/gaussian-splatting">链接</a></p>
+<h2 id="演示视频">演示视频</h2>
+<p><div class="video">
+  <iframe class="youtube-frame" src="https://www.youtube-nocookie.com/embed/kShNYOuDnlI" title="YouTube" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+<br>
+<br/>
+<div class="video">
+  <iframe class="youtube-frame" src="https://www.youtube-nocookie.com/embed/mD0oBE9LJTQ" title="YouTube" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+</p>
+]]></description><content:encoded><![CDATA[<h2 id="简介">简介</h2>
+<p>只需要一组照片或者一个视频，就能快速地生成一个3D模型。<br>
+它使了用一种叫做“3D高斯函数”的数学工具来表示这个3D模型，并找到了一种更快的算法来渲染（即生成）3D模型。</p>
+<h2 id="介绍">介绍</h2>
+<p>想象一下，你有一堆照片或视频，你想从一个全新的角度看这些场景。3D Gaussian Splatting 就是一个能让你做到这一点的高级工具。它用一种特别快和高质量的方式来“重建”这些场景，让你能够从任何角度观看它们，就像你实际站在那里一样。</p>
+<p>这个工具的“大脑”使用了一种叫做3D高斯的数学模型，这个模型能够非常精确地描述场景的每一个细节。更酷的是，这个工具还能实时地显示这些新角度的场景，这意味着你不必等待很长时间就能看到结果。</p>
+<p>简而言之，这是一个能让你以全新、快速和高质量的方式探索照片和视频场景的工具。</p>
+<h2 id="使用">使用</h2>
+<h3 id="硬件要求">硬件要求</h3>
+<ul>
+<li>具有计算能力 7.0+ 的 CUDA 就绪 GPU</li>
+<li>24 GB VRAM（用于训练论文评估质量）</li>
+</ul>
+<h3 id="软件要求">软件要求</h3>
+<ul>
+<li>Conda（推荐使用，以便于设置）</li>
+<li>用于 PyTorch 扩展的 C++ 编译器（我们使用 Visual Studio 2019 for Windows）</li>
+<li>用于 PyTorch 扩展的 CUDA SDK 11，在 Visual Studio 之后安装（我们使用 11.8，11.6 存在已知问题）</li>
+<li>C++编译器和CUDA SDK必须兼容</li>
+</ul>
+<h3 id="设置">设置</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">SET <span class="nv">DISTUTILS_USE_SDK</span><span class="o">=</span><span class="m">1</span> <span class="c1"># Windows only</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">conda env create --file environment.yml
+</span></span><span class="line"><span class="ln">3</span><span class="cl">conda activate gaussian_splatting
+</span></span></code></pre></div><p>请注意，此过程假设您安装了 CUDA SDK 11，而不是 12。有关修改，请参阅下文。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">conda config --add pkgs_dirs &lt;Drive&gt;/&lt;pkg_path&gt;
+</span></span><span class="line"><span class="ln">2</span><span class="cl">conda env create --file environment.yml --prefix &lt;Drive&gt;/&lt;env_path&gt;/gaussian_splatting
+</span></span><span class="line"><span class="ln">3</span><span class="cl">conda activate &lt;Drive&gt;/&lt;env_path&gt;/gaussian_splatting
+</span></span></code></pre></div><p>运行</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">python train.py -s &lt;path to COLMAP or NeRF Synthetic dataset&gt;
+</span></span></code></pre></div><p>评估</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">python train.py -s &lt;path to COLMAP or NeRF Synthetic dataset&gt; --eval <span class="c1"># Train with train/test split</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">python render.py -m &lt;path to trained model&gt; <span class="c1"># Generate renderings</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">python metrics.py -m &lt;path to trained model&gt; <span class="c1"># Compute error metrics on renderings</span>
+</span></span></code></pre></div><p>项目地址及演示：<a href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/">链接</a><br>
+GitHub：<a href="https://github.com/graphdeco-inria/gaussian-splatting">链接</a></p>
+<h2 id="演示视频">演示视频</h2>
+<p><div class="video">
+  <iframe class="youtube-frame" src="https://www.youtube-nocookie.com/embed/kShNYOuDnlI" title="YouTube" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+<br>
+<br/>
+<div class="video">
+  <iframe class="youtube-frame" src="https://www.youtube-nocookie.com/embed/mD0oBE9LJTQ" title="YouTube" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+</div>
+</p>
+]]></content:encoded></item><item><title>2023亚运会电竞门票民购买指南（报名+抽签）</title><link>https://www.jobcher.com/2023yayunhui/</link><pubDate>Mon, 14 Aug 2023 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/2023yayunhui/</guid><description><![CDATA[<h2 id="2023亚运会电竞门票民购买指南报名抽签">2023亚运会电竞门票民购买指南（报名+抽签）</h2>
+<blockquote>
+<p>杭州亚运会电子竞技项目门票于8月14日陆续启动销售，门票实名登记。杭州亚运会电子竞技项目以报名抽签，中签支付的形式对公众销售</p>
+</blockquote>
+<p>杭州亚运会电子竞技项目以<code>报名抽签，中签支付</code>的形式对公众销售，包括<code>梦三国2、DOTA2、王者荣耀亚运版本、FIFAOnline4、和平精英亚运版本、街霸V、英雄联盟</code>7个小项全部可售场次。</p>
+<p>根据竞赛日程安排，上述7个项目将分<code>4批次启动报名</code>，每个批次的报名、抽签、支付时间不同，具体安排如下：</p>
+<p><img src="https://www.jobcher.com/images/2023diyici.png" alt="2023diyici.png" loading="lazy" decoding="async">
+<br>
+<img src="https://www.jobcher.com/images/2023di2.png" alt="2023diyici.png" loading="lazy" decoding="async">
+<br>
+<img src="https://www.jobcher.com/images/2023di3.png" alt="2023diyici.png" loading="lazy" decoding="async">
+<br>
+<img src="https://www.jobcher.com/images/2023di4.png" alt="2023diyici.png" loading="lazy" decoding="async">
+</p>
+<blockquote>
+<p>电子竞技项目报名抽签工作在杭州市国立公证处监督下，通过系统随机抽签、订单中签的方式进行，系统不设任何加权抽签系数。</p>
+</blockquote>
+<h2 id="报名阶段">报名阶段</h2>
+<ol>
+<li><code>报名渠道</code>:杭州亚运会公众售票官方网站PC端或H5页面、智能亚运一站通·票务通（<a href="https://ticket.hangzhou2022.cn/#/preSale/preSaleEventList">点击进入选择项目进行报名</a>）。</li>
+<li>用户报名申请单需如实提交以下内容:<code>姓名、证件类型、证件号</code>。</li>
+<li><code>报名规则</code>:在有效报名时间内，注册用户仅可成功<code>提交同一场次1个报名申请单</code>，且报名时间内可随时取消报名申请单，<code>最多可取消</code>同一场次报名申请单<code>10次</code>。每个申请单<code>最多包含2名观赛人</code>，每一名观赛人每一场次只允许成功报名一次。单场次报名申请单如<code>达到200万个</code>则将提前<code>截止报名</code>，截止后不可再提交报名申请单。</li>
+<li><code>调剂规则</code>:用户可选择是否接受调剂。如未能中签首选票档，在调剂票档有库存时系统将自动调剂至调剂票档进行抽签。</li>
+</ol>
+<h2 id="通知结果阶段">通知结果阶段</h2>
+<p><code>抽签结果告知方式</code> :用户可在“<code>用户中心-我的报名</code>”中查看抽签结果。</p>
+<h2 id="支付阶段">支付阶段</h2>
+<p>用户在“<code>用户中心-我的报名</code>”确认支付后，已完成支付报名单可在“我的订单”查询门票订单信息。用户在报名单支付有效期内如需放弃门票可随时点击“放弃购买资格，或在支付阶段支付截止时间前未支付也视为放弃门票。</p>
+<h2 id="出票及配送阶段">出票及配送阶段</h2>
+<ol>
+<li><code>配座规则</code>:根据订单支付时间先后顺序进行配座出票，含多张门票的订单尽量满足连座。</li>
+<li><code>出票方式</code>:电子竞技项目门票配座完成出票后，选择电子票的用户可在票夹中查看具体门票信息，选择纸质票的用户可在“我的订单”页查看门票信息。</li>
+</ol>
+<h2 id="门票购票规则">门票购票规则</h2>
+<ol>
+<li><code>购票要求</code>:购票人需年满18周岁，18周岁以下应在法定代理人陪同下购票。购票时需填写与门票数量一一对应的实名制信息。</li>
+<li><code>实名制购票及入场</code>:用户需携带门票(纸质票或电子票) 及购票时填写的有效身份证件入场。</li>
+<li><code>不支持转售及转送</code>:电子竞技项目门票为报名抽签项目，电子票与纸质票订单和门票均不支持转售及转送。</li>
+</ol>
+<h2 id="门票退票规则">门票退票规则</h2>
+<p>所购门票一旦售出，除杭州亚组委另有规定或者比赛取消外<code>一律不予退换</code>。如比赛取消，持票观众无需在线提交退票申请，杭州亚组委统一安排退票事宜，纸质票无需寄回，电子票在线作废。不能要求更换其他比赛场次的门票。</p>
+]]></description><content:encoded><![CDATA[<h2 id="2023亚运会电竞门票民购买指南报名抽签">2023亚运会电竞门票民购买指南（报名+抽签）</h2>
+<blockquote>
+<p>杭州亚运会电子竞技项目门票于8月14日陆续启动销售，门票实名登记。杭州亚运会电子竞技项目以报名抽签，中签支付的形式对公众销售</p>
+</blockquote>
+<p>杭州亚运会电子竞技项目以<code>报名抽签，中签支付</code>的形式对公众销售，包括<code>梦三国2、DOTA2、王者荣耀亚运版本、FIFAOnline4、和平精英亚运版本、街霸V、英雄联盟</code>7个小项全部可售场次。</p>
+<p>根据竞赛日程安排，上述7个项目将分<code>4批次启动报名</code>，每个批次的报名、抽签、支付时间不同，具体安排如下：</p>
+<p><img src="https://www.jobcher.com/images/2023diyici.png" alt="2023diyici.png" loading="lazy" decoding="async">
+<br>
+<img src="https://www.jobcher.com/images/2023di2.png" alt="2023diyici.png" loading="lazy" decoding="async">
+<br>
+<img src="https://www.jobcher.com/images/2023di3.png" alt="2023diyici.png" loading="lazy" decoding="async">
+<br>
+<img src="https://www.jobcher.com/images/2023di4.png" alt="2023diyici.png" loading="lazy" decoding="async">
+</p>
+<blockquote>
+<p>电子竞技项目报名抽签工作在杭州市国立公证处监督下，通过系统随机抽签、订单中签的方式进行，系统不设任何加权抽签系数。</p>
+</blockquote>
+<h2 id="报名阶段">报名阶段</h2>
+<ol>
+<li><code>报名渠道</code>:杭州亚运会公众售票官方网站PC端或H5页面、智能亚运一站通·票务通（<a href="https://ticket.hangzhou2022.cn/#/preSale/preSaleEventList">点击进入选择项目进行报名</a>）。</li>
+<li>用户报名申请单需如实提交以下内容:<code>姓名、证件类型、证件号</code>。</li>
+<li><code>报名规则</code>:在有效报名时间内，注册用户仅可成功<code>提交同一场次1个报名申请单</code>，且报名时间内可随时取消报名申请单，<code>最多可取消</code>同一场次报名申请单<code>10次</code>。每个申请单<code>最多包含2名观赛人</code>，每一名观赛人每一场次只允许成功报名一次。单场次报名申请单如<code>达到200万个</code>则将提前<code>截止报名</code>，截止后不可再提交报名申请单。</li>
+<li><code>调剂规则</code>:用户可选择是否接受调剂。如未能中签首选票档，在调剂票档有库存时系统将自动调剂至调剂票档进行抽签。</li>
+</ol>
+<h2 id="通知结果阶段">通知结果阶段</h2>
+<p><code>抽签结果告知方式</code> :用户可在“<code>用户中心-我的报名</code>”中查看抽签结果。</p>
+<h2 id="支付阶段">支付阶段</h2>
+<p>用户在“<code>用户中心-我的报名</code>”确认支付后，已完成支付报名单可在“我的订单”查询门票订单信息。用户在报名单支付有效期内如需放弃门票可随时点击“放弃购买资格，或在支付阶段支付截止时间前未支付也视为放弃门票。</p>
+<h2 id="出票及配送阶段">出票及配送阶段</h2>
+<ol>
+<li><code>配座规则</code>:根据订单支付时间先后顺序进行配座出票，含多张门票的订单尽量满足连座。</li>
+<li><code>出票方式</code>:电子竞技项目门票配座完成出票后，选择电子票的用户可在票夹中查看具体门票信息，选择纸质票的用户可在“我的订单”页查看门票信息。</li>
+</ol>
+<h2 id="门票购票规则">门票购票规则</h2>
+<ol>
+<li><code>购票要求</code>:购票人需年满18周岁，18周岁以下应在法定代理人陪同下购票。购票时需填写与门票数量一一对应的实名制信息。</li>
+<li><code>实名制购票及入场</code>:用户需携带门票(纸质票或电子票) 及购票时填写的有效身份证件入场。</li>
+<li><code>不支持转售及转送</code>:电子竞技项目门票为报名抽签项目，电子票与纸质票订单和门票均不支持转售及转送。</li>
+</ol>
+<h2 id="门票退票规则">门票退票规则</h2>
+<p>所购门票一旦售出，除杭州亚组委另有规定或者比赛取消外<code>一律不予退换</code>。如比赛取消，持票观众无需在线提交退票申请，杭州亚组委统一安排退票事宜，纸质票无需寄回，电子票在线作废。不能要求更换其他比赛场次的门票。</p>
+]]></content:encoded></item><item><title>大麦抢票辅助软件(福利 TFBOYS十年之约演唱会 2023 全机位 视频)</title><link>https://www.jobcher.com/damaihelp/</link><pubDate>Tue, 08 Aug 2023 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/damaihelp/</guid><description><![CDATA[<h1 id="大麦抢票辅助软件福利-tfboys十年之约演唱会-2023-全机位-视频">大麦抢票辅助软件(福利 TFBOYS十年之约演唱会 2023 全机位 视频)</h1>
+<blockquote>
+<p>只限android手机！IOS手机不支持！</p>
+</blockquote>
+<p>DaMaiHelper是一款大麦抢票辅助软件（只抢待开抢中的），软件原理是抓取页面ui控件id，通过模拟点击实现的大麦辅助抢票，软件需要开启相应的权限，如果页面渲染太慢，就会抓取失败导致点击超时无效，所以可以手动辅助点击，该软件只能起到辅助效果，帮忙快速点击，一定要提前选好场次、价格还有观影人，收藏到想看。</p>
+<p><a href="https://github.com/jobcher/DaMaiHelper">项目地址</a></p>
+<p><a href="https://www.pgyer.com/VTHAB7">软件下载</a></p>
+<h2 id="使用教程">使用教程</h2>
+<ol>
+<li>先去演唱会主页预选好场次、价格还有观演人，点击<code>想看</code></li>
+<li>（可选）手机后台杀掉大麦app任务</li>
+<li>打开辅助app，给于对应权限</li>
+<li>（可选）<code>输入歌手名字</code>，默认五月天</li>
+<li>点击开抢按钮即可</li>
+<li>如果点击<code>开抢</code>后，页面未开始自动跳转，可手动杀死大麦，再次切到辅助app点击开抢</li>
+<li>如果想终止辅助app，点击右上角悬浮窗<code>&lt;点击停止&gt;</code>即可</li>
+</ol>
+<p><img src="https://www.jobcher.com/images/xkan.png" alt="操作演示" loading="lazy" decoding="async">
+</p>
+<h2 id="福利">福利</h2>
+<p>TFBOYS十年之约演唱会 2023 全机位<br>
+<img src="https://www.jobcher.com/images/tfboy.jpeg" alt="tfboy" loading="lazy" decoding="async">
+</p>
+<h3 id="百度网盘下载">百度网盘下载</h3>
+<p>链接: <a href="https://pan.baidu.com/s/1mry1Mib5TSAuTJWpasoG-g">https://pan.baidu.com/s/1mry1Mib5TSAuTJWpasoG-g</a><br>
+提取码: icep</p>
+]]></description><content:encoded><![CDATA[<h1 id="大麦抢票辅助软件福利-tfboys十年之约演唱会-2023-全机位-视频">大麦抢票辅助软件(福利 TFBOYS十年之约演唱会 2023 全机位 视频)</h1>
+<blockquote>
+<p>只限android手机！IOS手机不支持！</p>
+</blockquote>
+<p>DaMaiHelper是一款大麦抢票辅助软件（只抢待开抢中的），软件原理是抓取页面ui控件id，通过模拟点击实现的大麦辅助抢票，软件需要开启相应的权限，如果页面渲染太慢，就会抓取失败导致点击超时无效，所以可以手动辅助点击，该软件只能起到辅助效果，帮忙快速点击，一定要提前选好场次、价格还有观影人，收藏到想看。</p>
+<p><a href="https://github.com/jobcher/DaMaiHelper">项目地址</a></p>
+<p><a href="https://www.pgyer.com/VTHAB7">软件下载</a></p>
+<h2 id="使用教程">使用教程</h2>
+<ol>
+<li>先去演唱会主页预选好场次、价格还有观演人，点击<code>想看</code></li>
+<li>（可选）手机后台杀掉大麦app任务</li>
+<li>打开辅助app，给于对应权限</li>
+<li>（可选）<code>输入歌手名字</code>，默认五月天</li>
+<li>点击开抢按钮即可</li>
+<li>如果点击<code>开抢</code>后，页面未开始自动跳转，可手动杀死大麦，再次切到辅助app点击开抢</li>
+<li>如果想终止辅助app，点击右上角悬浮窗<code>&lt;点击停止&gt;</code>即可</li>
+</ol>
+<p><img src="https://www.jobcher.com/images/xkan.png" alt="操作演示" loading="lazy" decoding="async">
+</p>
+<h2 id="福利">福利</h2>
+<p>TFBOYS十年之约演唱会 2023 全机位<br>
+<img src="https://www.jobcher.com/images/tfboy.jpeg" alt="tfboy" loading="lazy" decoding="async">
+</p>
+<h3 id="百度网盘下载">百度网盘下载</h3>
+<p>链接: <a href="https://pan.baidu.com/s/1mry1Mib5TSAuTJWpasoG-g">https://pan.baidu.com/s/1mry1Mib5TSAuTJWpasoG-g</a><br>
+提取码: icep</p>
+]]></content:encoded></item><item><title>最好的微信朋友圈集赞神器-福利推荐</title><link>https://www.jobcher.com/fuli-1/</link><pubDate>Mon, 10 Jul 2023 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/fuli-1/</guid><description><![CDATA[<h1 id="最好的微信朋友圈集赞神器-集赞20">最好的微信朋友圈集赞神器-集赞2.0</h1>
+<blockquote>
+<p>奶茶店活动，朋友圈集满50个赞，送一杯奶茶。
 饭店新开张，朋友圈集满98个赞，全场7折优惠。
-旅游景点拉人气，朋友圈集满60个赞，送门票。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;还在为这些恼人的朋友圈集赞发愁吗？
+旅游景点拉人气，朋友圈集满60个赞，送门票。</p>
+</blockquote>
+<blockquote>
+<p>还在为这些恼人的朋友圈集赞发愁吗？
 还在为拿着其他地方生成的集赞图片，怕被发现而胆战心惊吗？
-翻遍通讯录，求着好友帮忙点赞。还是不够数？&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;现在“集赞”发布，&lt;code&gt;1比1还原微信&lt;/code&gt;，轻松设置点赞数，再也不用担心点赞数量，大大方方展示，不惧查验，轻松薅羊毛。
-应付生活中各种需要转发点赞场景，体验效果绝非是那种仅仅生成一张点赞图片能比的。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;img src="https://www.jobcher.com/images/p9CGZnI.jpg" alt="集赞2.0" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;
-&lt;p&gt;如果你有这样的烦恼，我推荐你试试这款免费的微信朋友圈集赞神器，简单体验了一下，发现这款工具高度还原了一个整个微信界面ui，现在“集赞2.0 ”发布，逻辑重构，去除一天只能发布一条朋友圈的限制，删除“三连”功能，现在可以无限制的发布，&lt;code&gt;1比1还原微信&lt;/code&gt;，轻松设置点赞数，再也不用担心点赞数量。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;集赞神器&lt;/code&gt;使用帮助页面：&lt;a href="https://blog.itakeo.com/help"&gt;https://blog.itakeo.com/help&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>
+翻遍通讯录，求着好友帮忙点赞。还是不够数？</p>
+</blockquote>
+<blockquote>
+<p>现在“集赞”发布，<code>1比1还原微信</code>，轻松设置点赞数，再也不用担心点赞数量，大大方方展示，不惧查验，轻松薅羊毛。
+应付生活中各种需要转发点赞场景，体验效果绝非是那种仅仅生成一张点赞图片能比的。</p>
+</blockquote>
+<p><img src="https://www.jobcher.com/images/p9CGZnI.jpg" alt="集赞2.0" loading="lazy" decoding="async">
+</p>
+<p>如果你有这样的烦恼，我推荐你试试这款免费的微信朋友圈集赞神器，简单体验了一下，发现这款工具高度还原了一个整个微信界面ui，现在“集赞2.0 ”发布，逻辑重构，去除一天只能发布一条朋友圈的限制，删除“三连”功能，现在可以无限制的发布，<code>1比1还原微信</code>，轻松设置点赞数，再也不用担心点赞数量。</p>
+<p><code>集赞神器</code>使用帮助页面：<a href="https://blog.itakeo.com/help">https://blog.itakeo.com/help</a></p>
+]]></description><content:encoded><![CDATA[<h1 id="最好的微信朋友圈集赞神器-集赞20">最好的微信朋友圈集赞神器-集赞2.0</h1>
+<blockquote>
+<p>奶茶店活动，朋友圈集满50个赞，送一杯奶茶。
+饭店新开张，朋友圈集满98个赞，全场7折优惠。
+旅游景点拉人气，朋友圈集满60个赞，送门票。</p>
+</blockquote>
+<blockquote>
+<p>还在为这些恼人的朋友圈集赞发愁吗？
+还在为拿着其他地方生成的集赞图片，怕被发现而胆战心惊吗？
+翻遍通讯录，求着好友帮忙点赞。还是不够数？</p>
+</blockquote>
+<blockquote>
+<p>现在“集赞”发布，<code>1比1还原微信</code>，轻松设置点赞数，再也不用担心点赞数量，大大方方展示，不惧查验，轻松薅羊毛。
+应付生活中各种需要转发点赞场景，体验效果绝非是那种仅仅生成一张点赞图片能比的。</p>
+</blockquote>
+<p><img src="https://www.jobcher.com/images/p9CGZnI.jpg" alt="集赞2.0" loading="lazy" decoding="async">
+</p>
+<p>如果你有这样的烦恼，我推荐你试试这款免费的微信朋友圈集赞神器，简单体验了一下，发现这款工具高度还原了一个整个微信界面ui，现在“集赞2.0 ”发布，逻辑重构，去除一天只能发布一条朋友圈的限制，删除“三连”功能，现在可以无限制的发布，<code>1比1还原微信</code>，轻松设置点赞数，再也不用担心点赞数量。</p>
+<p><code>集赞神器</code>使用帮助页面：<a href="https://blog.itakeo.com/help">https://blog.itakeo.com/help</a></p>
+]]></content:encoded></item></channel></rss>

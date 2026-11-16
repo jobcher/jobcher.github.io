@@ -1,44 +1,163 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>K3s on 打工人日志</title><link>https://www.jobcher.com/tags/k3s/</link><description>Recent content in K3s on 打工人日志</description><generator>Hugo</generator><language>zh-hans</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Mon, 16 Nov 2026 13:03:26 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/tags/k3s/index.xml" rel="self" type="application/rss+xml"/><item><title>k3s 升级版本</title><link>https://www.jobcher.com/k3supgrade/</link><pubDate>Mon, 27 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/k3supgrade/</guid><description>&lt;h1 id="k3s-升级版本"&gt;k3s 升级版本&lt;/h1&gt;
-&lt;h2 id="停止所有的-k3s-容器慎用"&gt;停止所有的 K3s 容器（慎用）&lt;/h2&gt;
-&lt;p&gt;从 server 节点运行 killall 脚本&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;/usr/local/bin/k3s-killall.sh
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="开始升级"&gt;开始升级&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;使用安装脚本升级 K3s&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;curl -sfL https://get.k3s.io &lt;span class="p"&gt;|&lt;/span&gt; sh -
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;#国内可用&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;curl -sfL http://rancher-mirror.cnrancher.com/k3s/k3s-install.sh &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="nv"&gt;INSTALL_K3S_MIRROR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;cn sh -
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="2"&gt;
-&lt;li&gt;重启 k3s&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;sudo systemctl restart k3s
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>树莓派搭建k3s</title><link>https://www.jobcher.com/rasberry/</link><pubDate>Mon, 06 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/rasberry/</guid><description>&lt;h1 id="树莓派安装-k3s"&gt;树莓派安装 k3s&lt;/h1&gt;
-&lt;h2 id="1安装-k3s"&gt;1.安装 k3s&lt;/h2&gt;
-&lt;h3 id="控制节点"&gt;控制节点&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt; curl -sfL https://get.k3s.io &lt;span class="p"&gt;|&lt;/span&gt; sh -
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt; cat /var/lib/rancher/k3s/server/node-token
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="工作节点"&gt;工作节点&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt; curl -sfL https://get.k3s.io &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="nv"&gt;K3S_URL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;https://myserver:6443 &lt;span class="nv"&gt;K3S_TOKEN&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;mynodetoken sh -
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;树莓派特别要注意一个坑，就是关于内存的问题这个之后再讲&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt; k3s kubectl get nodes
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;#显示正确的节点表示完成&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="卸载-k3s"&gt;卸载 k3s&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;#server 节点&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt; /usr/local/bin/k3s-uninstall.sh
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="c1"&gt;#agent 节点&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt; /usr/local/bin/k3s-agent-uninstall.sh
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="2安装-dashboard-k3s-面板"&gt;2.安装 dashboard k3s 面板&lt;/h2&gt;
-&lt;h3 id="部署-kubernetes-仪表盘"&gt;部署 Kubernetes 仪表盘&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="nv"&gt;GITHUB_URL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;https://github.com/kubernetes/dashboard/releases
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt; &lt;span class="nv"&gt;VERSION_KUBE_DASHBOARD&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl -w &lt;span class="s1"&gt;&amp;#39;%{url_effective}&amp;#39;&lt;/span&gt; -I -L -s -S &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;GITHUB_URL&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;/latest -o /dev/null &lt;span class="p"&gt;|&lt;/span&gt; sed -e &lt;span class="s1"&gt;&amp;#39;s|.*/||&amp;#39;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt; sudo k3s kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/&lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;VERSION_KUBE_DASHBOARD&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;/aio/deploy/recommended.yaml
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="仪表盘-rbac-配置"&gt;仪表盘 RBAC 配置&lt;/h3&gt;
-&lt;p&gt;创建以下资源清单文件：&lt;/p&gt;
-&lt;p&gt;dashboard.admin-user.yml&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yaml" data-lang="yaml"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nt"&gt;apiVersion&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;v1&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="nt"&gt;kind&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;ServiceAccount&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="nt"&gt;metadata&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;admin-user&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;namespace&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;kubernetes-dashboard&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;dashboard.admin-user-role.yml&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>K3s - 打工人日志</title><link>https://www.jobcher.com/tags/k3s/</link><description>打工人日志（Jobcher）——面向开发者与运维的技术博客，覆盖 Kubernetes、Docker、Linux、监控、AI 与开发者工具的实战教程与干货。</description><generator>Hugo</generator><language>zh-cn</language><copyright>Copyright © 2022-2026 All Rights Reserved.</copyright><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor><webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 27 Dec 2021 00:00:00 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/tags/k3s/index.xml" rel="self" type="application/rss+xml"/><item><title>k3s 升级版本</title><link>https://www.jobcher.com/k3supgrade/</link><pubDate>Mon, 27 Dec 2021 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/k3supgrade/</guid><description><![CDATA[<h1 id="k3s-升级版本">k3s 升级版本</h1>
+<h2 id="停止所有的-k3s-容器慎用">停止所有的 K3s 容器（慎用）</h2>
+<p>从 server 节点运行 killall 脚本</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">/usr/local/bin/k3s-killall.sh
+</span></span></code></pre></div><h2 id="开始升级">开始升级</h2>
+<ol>
+<li>使用安装脚本升级 K3s</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">curl -sfL https://get.k3s.io <span class="p">|</span> sh -
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1">#国内可用</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">curl -sfL http://rancher-mirror.cnrancher.com/k3s/k3s-install.sh <span class="p">|</span> <span class="nv">INSTALL_K3S_MIRROR</span><span class="o">=</span>cn sh -
+</span></span></code></pre></div><ol start="2">
+<li>重启 k3s</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">sudo systemctl restart k3s
+</span></span></code></pre></div>]]></description><content:encoded><![CDATA[<h1 id="k3s-升级版本">k3s 升级版本</h1>
+<h2 id="停止所有的-k3s-容器慎用">停止所有的 K3s 容器（慎用）</h2>
+<p>从 server 节点运行 killall 脚本</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">/usr/local/bin/k3s-killall.sh
+</span></span></code></pre></div><h2 id="开始升级">开始升级</h2>
+<ol>
+<li>使用安装脚本升级 K3s</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">curl -sfL https://get.k3s.io <span class="p">|</span> sh -
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1">#国内可用</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">curl -sfL http://rancher-mirror.cnrancher.com/k3s/k3s-install.sh <span class="p">|</span> <span class="nv">INSTALL_K3S_MIRROR</span><span class="o">=</span>cn sh -
+</span></span></code></pre></div><ol start="2">
+<li>重启 k3s</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">sudo systemctl restart k3s
+</span></span></code></pre></div>]]></content:encoded></item><item><title>树莓派搭建k3s</title><link>https://www.jobcher.com/rasberry/</link><pubDate>Mon, 06 Dec 2021 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/rasberry/</guid><description><![CDATA[<h1 id="树莓派安装-k3s">树莓派安装 k3s</h1>
+<h2 id="1安装-k3s">1.安装 k3s</h2>
+<h3 id="控制节点">控制节点</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    curl -sfL https://get.k3s.io <span class="p">|</span> sh -
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    cat /var/lib/rancher/k3s/server/node-token
+</span></span></code></pre></div><h3 id="工作节点">工作节点</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    curl -sfL https://get.k3s.io <span class="p">|</span> <span class="nv">K3S_URL</span><span class="o">=</span>https://myserver:6443 <span class="nv">K3S_TOKEN</span><span class="o">=</span>mynodetoken sh -
+</span></span></code></pre></div><p>树莓派特别要注意一个坑，就是关于内存的问题这个之后再讲</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    k3s kubectl get nodes
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="c1">#显示正确的节点表示完成</span>
+</span></span></code></pre></div><h3 id="卸载-k3s">卸载 k3s</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    <span class="c1">#server 节点</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    /usr/local/bin/k3s-uninstall.sh
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="c1">#agent 节点</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    /usr/local/bin/k3s-agent-uninstall.sh
+</span></span></code></pre></div><h2 id="2安装-dashboard-k3s-面板">2.安装 dashboard k3s 面板</h2>
+<h3 id="部署-kubernetes-仪表盘">部署 Kubernetes 仪表盘</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    <span class="nv">GITHUB_URL</span><span class="o">=</span>https://github.com/kubernetes/dashboard/releases
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="nv">VERSION_KUBE_DASHBOARD</span><span class="o">=</span><span class="k">$(</span>curl -w <span class="s1">&#39;%{url_effective}&#39;</span> -I -L -s -S <span class="si">${</span><span class="nv">GITHUB_URL</span><span class="si">}</span>/latest -o /dev/null <span class="p">|</span> sed -e <span class="s1">&#39;s|.*/||&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    sudo k3s kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/<span class="si">${</span><span class="nv">VERSION_KUBE_DASHBOARD</span><span class="si">}</span>/aio/deploy/recommended.yaml
+</span></span></code></pre></div><h3 id="仪表盘-rbac-配置">仪表盘 RBAC 配置</h3>
+<p>创建以下资源清单文件：</p>
+<p>dashboard.admin-user.yml</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ServiceAccount</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">admin-user</span><span class="w">
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">kubernetes-dashboard</span><span class="w">
+</span></span></span></code></pre></div><p>dashboard.admin-user-role.yml</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">rbac.authorization.k8s.io/v1</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ClusterRoleBinding</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">admin-user</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w"></span><span class="nt">roleRef</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">  </span><span class="nt">apiGroup</span><span class="p">:</span><span class="w"> </span><span class="l">rbac.authorization.k8s.io</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">  </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ClusterRole</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">cluster-admin</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w"></span><span class="nt">subjects</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">  </span>- <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ServiceAccount</span><span class="w">
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">admin-user</span><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w">    </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">kubernetes-dashboard</span><span class="w">
+</span></span></span></code></pre></div><p>部署 admin-user 配置：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    sudo k3s kubectl create -f dashboard.admin-user.yml -f dashboard.admin-user-role.yml
+</span></span></code></pre></div><p>获得 Bearer Token</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    sudo k3s kubectl -n kubernetes-dashboard describe secret admin-user-token <span class="p">|</span> grep <span class="s1">&#39;^token&#39;</span>
+</span></span></code></pre></div><p>现在可以通过以下网址访问仪表盘：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    sudo k3s kubectl proxy
+</span></span></code></pre></div><p>http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/</p>
+<h3 id="连接-lens">连接 lens</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    cat /etc/rancher/k3s/k3s.yaml
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    更改本地host
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    穿透服务器IP    <span class="nb">local</span>
+</span></span></code></pre></div><h2 id="3安装-kubeprometheus-监控">3.安装 kube—prometheus 监控</h2>
+<h3 id="一键安装">一键安装</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    wget https://github.com/prometheus-operator/kube-prometheus/archive/refs/tags/v0.9.0.tar.gz
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    tar -zxvf v0.9.0.tar.gz
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="nb">cd</span> kube-prometheus-0.9.0/manifests
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    k3s kubectl apply -f setup/
+</span></span><span class="line"><span class="ln">5</span><span class="cl">    k3s kubectl get pod -n monitoring
+</span></span><span class="line"><span class="ln">6</span><span class="cl">    k3s kubectl apply -f .
+</span></span></code></pre></div><h3 id="一键卸载">一键卸载</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    <span class="nb">cd</span> kube-prometheus/manifests
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    k3s kubectl delete -f .
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    k3s kubectl delete -f setup/
+</span></span></code></pre></div><h2 id="4安装-nfs-外部驱动挂载-storageclass">4.安装 nfs 外部驱动挂载 storageclass</h2>
+<h2 id="5创建有状态-podsmysql">5.创建有状态 pods（mysql）</h2>
+]]></description><content:encoded><![CDATA[<h1 id="树莓派安装-k3s">树莓派安装 k3s</h1>
+<h2 id="1安装-k3s">1.安装 k3s</h2>
+<h3 id="控制节点">控制节点</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    curl -sfL https://get.k3s.io <span class="p">|</span> sh -
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    cat /var/lib/rancher/k3s/server/node-token
+</span></span></code></pre></div><h3 id="工作节点">工作节点</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    curl -sfL https://get.k3s.io <span class="p">|</span> <span class="nv">K3S_URL</span><span class="o">=</span>https://myserver:6443 <span class="nv">K3S_TOKEN</span><span class="o">=</span>mynodetoken sh -
+</span></span></code></pre></div><p>树莓派特别要注意一个坑，就是关于内存的问题这个之后再讲</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    k3s kubectl get nodes
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="c1">#显示正确的节点表示完成</span>
+</span></span></code></pre></div><h3 id="卸载-k3s">卸载 k3s</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    <span class="c1">#server 节点</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    /usr/local/bin/k3s-uninstall.sh
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="c1">#agent 节点</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    /usr/local/bin/k3s-agent-uninstall.sh
+</span></span></code></pre></div><h2 id="2安装-dashboard-k3s-面板">2.安装 dashboard k3s 面板</h2>
+<h3 id="部署-kubernetes-仪表盘">部署 Kubernetes 仪表盘</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    <span class="nv">GITHUB_URL</span><span class="o">=</span>https://github.com/kubernetes/dashboard/releases
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="nv">VERSION_KUBE_DASHBOARD</span><span class="o">=</span><span class="k">$(</span>curl -w <span class="s1">&#39;%{url_effective}&#39;</span> -I -L -s -S <span class="si">${</span><span class="nv">GITHUB_URL</span><span class="si">}</span>/latest -o /dev/null <span class="p">|</span> sed -e <span class="s1">&#39;s|.*/||&#39;</span><span class="k">)</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    sudo k3s kubectl create -f https://raw.githubusercontent.com/kubernetes/dashboard/<span class="si">${</span><span class="nv">VERSION_KUBE_DASHBOARD</span><span class="si">}</span>/aio/deploy/recommended.yaml
+</span></span></code></pre></div><h3 id="仪表盘-rbac-配置">仪表盘 RBAC 配置</h3>
+<p>创建以下资源清单文件：</p>
+<p>dashboard.admin-user.yml</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ServiceAccount</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">admin-user</span><span class="w">
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">kubernetes-dashboard</span><span class="w">
+</span></span></span></code></pre></div><p>dashboard.admin-user-role.yml</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">rbac.authorization.k8s.io/v1</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ClusterRoleBinding</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">admin-user</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w"></span><span class="nt">roleRef</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">  </span><span class="nt">apiGroup</span><span class="p">:</span><span class="w"> </span><span class="l">rbac.authorization.k8s.io</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">  </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ClusterRole</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">cluster-admin</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w"></span><span class="nt">subjects</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">  </span>- <span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ServiceAccount</span><span class="w">
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">admin-user</span><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w">    </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">kubernetes-dashboard</span><span class="w">
+</span></span></span></code></pre></div><p>部署 admin-user 配置：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    sudo k3s kubectl create -f dashboard.admin-user.yml -f dashboard.admin-user-role.yml
+</span></span></code></pre></div><p>获得 Bearer Token</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    sudo k3s kubectl -n kubernetes-dashboard describe secret admin-user-token <span class="p">|</span> grep <span class="s1">&#39;^token&#39;</span>
+</span></span></code></pre></div><p>现在可以通过以下网址访问仪表盘：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    sudo k3s kubectl proxy
+</span></span></code></pre></div><p>http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/</p>
+<h3 id="连接-lens">连接 lens</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    cat /etc/rancher/k3s/k3s.yaml
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    更改本地host
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    穿透服务器IP    <span class="nb">local</span>
+</span></span></code></pre></div><h2 id="3安装-kubeprometheus-监控">3.安装 kube—prometheus 监控</h2>
+<h3 id="一键安装">一键安装</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    wget https://github.com/prometheus-operator/kube-prometheus/archive/refs/tags/v0.9.0.tar.gz
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    tar -zxvf v0.9.0.tar.gz
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    <span class="nb">cd</span> kube-prometheus-0.9.0/manifests
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    k3s kubectl apply -f setup/
+</span></span><span class="line"><span class="ln">5</span><span class="cl">    k3s kubectl get pod -n monitoring
+</span></span><span class="line"><span class="ln">6</span><span class="cl">    k3s kubectl apply -f .
+</span></span></code></pre></div><h3 id="一键卸载">一键卸载</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    <span class="nb">cd</span> kube-prometheus/manifests
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    k3s kubectl delete -f .
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    k3s kubectl delete -f setup/
+</span></span></code></pre></div><h2 id="4安装-nfs-外部驱动挂载-storageclass">4.安装 nfs 外部驱动挂载 storageclass</h2>
+<h2 id="5创建有状态-podsmysql">5.创建有状态 pods（mysql）</h2>
+]]></content:encoded></item></channel></rss>

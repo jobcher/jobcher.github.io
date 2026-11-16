@@ -1,32 +1,105 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Oracle系列 on 打工人日志</title><link>https://www.jobcher.com/series/oracle%E7%B3%BB%E5%88%97/</link><description>Recent content in Oracle系列 on 打工人日志</description><generator>Hugo</generator><language>zh-hans</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Mon, 16 Nov 2026 13:03:26 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/series/oracle%E7%B3%BB%E5%88%97/index.xml" rel="self" type="application/rss+xml"/><item><title>Oracle Instant Client 安装配置实现远程连接oracle</title><link>https://www.jobcher.com/oracle-client/</link><pubDate>Tue, 15 Nov 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/oracle-client/</guid><description>&lt;h2 id="背景"&gt;背景&lt;/h2&gt;
-&lt;p&gt;关于 Oracle 数据库一直是许多初学者比较头疼的地方，一方面受限于线上文档比较少，令一方面在企业中不得不接触和使用 Oracle 数据库，这篇文章是教大家如何通过配置 oracle client 来远程访问 Oracle 数据库。本文会通过 python3 和 cx_Oracle 来实现对 Oracle 的访问和增删改查&lt;/p&gt;
-&lt;h2 id="下载-oracle-客户端"&gt;下载 oracle 客户端&lt;/h2&gt;
-&lt;p&gt;&lt;a href="https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html"&gt;官方地址下载&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id="安装"&gt;安装&lt;/h3&gt;
-&lt;p&gt;下载并安装你的 oracle client，因为我连接的 11g oracle，所以下载 11.2 版本&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 下载&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;wget https://download.oracle.com/otn/linux/instantclient/11204/oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 安装&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;rpm -ivh oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="配置环境变量"&gt;配置环境变量&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 直接运行&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;ORACLE_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/usr/lib/oracle/11.2/client64
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;ORABIN&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/usr/lib/oracle/11.2/client64/bin
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 编辑环境变量配置文件&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;vim /etc/profile
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 底部增加内容&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;export&lt;/span&gt; PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;ORACLE_HOME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/usr/lib/oracle/11.2/client64
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;TNS_ADMIN&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/usr/lib/oracle/11.2/client64
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/usr/lib/oracle/11.2/client64/lib
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;ORABIN&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/usr/lib/oracle/11.2/client64/bin
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$PATH&lt;/span&gt;:&lt;span class="nv"&gt;$ORABIN&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;export&lt;/span&gt; PATH
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$ORACLE_HOME&lt;/span&gt;:&lt;span class="nv"&gt;$PATH&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;11&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$PATH&lt;/span&gt;:&lt;span class="nv"&gt;$HOME&lt;/span&gt;/bin:&lt;span class="nv"&gt;$ORACLE_HOME&lt;/span&gt;/bin
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 刷新环境变量&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;source&lt;/span&gt; /etc/profile
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="下载-cx_oracle"&gt;下载 cx_Oracle&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;pip3 install cx_Oracle
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;创建 Oracle.py 文件&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Oracle系列 - 打工人日志</title><link>https://www.jobcher.com/series/oracle%E7%B3%BB%E5%88%97/</link><description>打工人日志（Jobcher）——面向开发者与运维的技术博客，覆盖 Kubernetes、Docker、Linux、监控、AI 与开发者工具的实战教程与干货。</description><generator>Hugo</generator><language>zh-cn</language><copyright>Copyright © 2022-2026 All Rights Reserved.</copyright><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor><webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 15 Nov 2022 00:00:00 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/series/oracle%E7%B3%BB%E5%88%97/index.xml" rel="self" type="application/rss+xml"/><item><title>Oracle Instant Client 安装配置实现远程连接oracle</title><link>https://www.jobcher.com/oracle-client/</link><pubDate>Tue, 15 Nov 2022 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/oracle-client/</guid><description><![CDATA[<h2 id="背景">背景</h2>
+<p>关于 Oracle 数据库一直是许多初学者比较头疼的地方，一方面受限于线上文档比较少，令一方面在企业中不得不接触和使用 Oracle 数据库，这篇文章是教大家如何通过配置 oracle client 来远程访问 Oracle 数据库。本文会通过 python3 和 cx_Oracle 来实现对 Oracle 的访问和增删改查</p>
+<h2 id="下载-oracle-客户端">下载 oracle 客户端</h2>
+<p><a href="https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html">官方地址下载</a></p>
+<h3 id="安装">安装</h3>
+<p>下载并安装你的 oracle client，因为我连接的 11g oracle，所以下载 11.2 版本</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># 下载</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">wget https://download.oracle.com/otn/linux/instantclient/11204/oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># 安装</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">rpm -ivh oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm
+</span></span></code></pre></div><h3 id="配置环境变量">配置环境变量</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># 直接运行</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">export</span> <span class="nv">ORACLE_HOME</span><span class="o">=</span>/usr/lib/oracle/11.2/client64
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nb">export</span> <span class="nv">ORABIN</span><span class="o">=</span>/usr/lib/oracle/11.2/client64/bin
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># 编辑环境变量配置文件</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">vim /etc/profile
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1"># 底部增加内容</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="nb">export</span> PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="nb">export</span> <span class="nv">ORACLE_HOME</span><span class="o">=</span>/usr/lib/oracle/11.2/client64
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="nb">export</span> <span class="nv">TNS_ADMIN</span><span class="o">=</span>/usr/lib/oracle/11.2/client64
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/usr/lib/oracle/11.2/client64/lib
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="nb">export</span> <span class="nv">ORABIN</span><span class="o">=</span>/usr/lib/oracle/11.2/client64/bin
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$ORABIN</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="nb">export</span> PATH
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$ORACLE_HOME</span>:<span class="nv">$PATH</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HOME</span>/bin:<span class="nv">$ORACLE_HOME</span>/bin
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># 刷新环境变量</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">source</span> /etc/profile
+</span></span></code></pre></div><h2 id="下载-cx_oracle">下载 cx_Oracle</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">pip3 install cx_Oracle
+</span></span></code></pre></div><p>创建 Oracle.py 文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="ch">#!/usr/bin/python3</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="s2">使用python 对oracle数据进行操作
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="s2">提前安装好 cx_Oracle
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="s2">pip3 install cx_Oracle
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="kn">import</span> <span class="nn">cx_Oracle</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="n">conn</span> <span class="o">=</span> <span class="n">cx_Oracle</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;用户名&#39;</span><span class="p">,</span><span class="s1">&#39;密码&#39;</span><span class="p">,</span><span class="s1">&#39;IP/SN&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;SELECT * FROM test_table&#39;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="nb">print</span> <span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="执行文件">执行文件</h2>
+<blockquote>
+<p>python3 oracle.py</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">#输出内容</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="o">[</span>none,0<span class="o">]</span>
+</span></span></code></pre></div>]]></description><content:encoded><![CDATA[<h2 id="背景">背景</h2>
+<p>关于 Oracle 数据库一直是许多初学者比较头疼的地方，一方面受限于线上文档比较少，令一方面在企业中不得不接触和使用 Oracle 数据库，这篇文章是教大家如何通过配置 oracle client 来远程访问 Oracle 数据库。本文会通过 python3 和 cx_Oracle 来实现对 Oracle 的访问和增删改查</p>
+<h2 id="下载-oracle-客户端">下载 oracle 客户端</h2>
+<p><a href="https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html">官方地址下载</a></p>
+<h3 id="安装">安装</h3>
+<p>下载并安装你的 oracle client，因为我连接的 11g oracle，所以下载 11.2 版本</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># 下载</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">wget https://download.oracle.com/otn/linux/instantclient/11204/oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># 安装</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">rpm -ivh oracle-instantclient11.2-basic-11.2.0.4.0-1.x86_64.rpm
+</span></span></code></pre></div><h3 id="配置环境变量">配置环境变量</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># 直接运行</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">export</span> <span class="nv">ORACLE_HOME</span><span class="o">=</span>/usr/lib/oracle/11.2/client64
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nb">export</span> <span class="nv">ORABIN</span><span class="o">=</span>/usr/lib/oracle/11.2/client64/bin
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># 编辑环境变量配置文件</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">vim /etc/profile
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c1"># 底部增加内容</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="nb">export</span> PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="nb">export</span> <span class="nv">ORACLE_HOME</span><span class="o">=</span>/usr/lib/oracle/11.2/client64
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="nb">export</span> <span class="nv">TNS_ADMIN</span><span class="o">=</span>/usr/lib/oracle/11.2/client64
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/usr/lib/oracle/11.2/client64/lib
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="nb">export</span> <span class="nv">ORABIN</span><span class="o">=</span>/usr/lib/oracle/11.2/client64/bin
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$ORABIN</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="nb">export</span> PATH
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$ORACLE_HOME</span>:<span class="nv">$PATH</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HOME</span>/bin:<span class="nv">$ORACLE_HOME</span>/bin
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># 刷新环境变量</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">source</span> /etc/profile
+</span></span></code></pre></div><h2 id="下载-cx_oracle">下载 cx_Oracle</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">pip3 install cx_Oracle
+</span></span></code></pre></div><p>创建 Oracle.py 文件</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-py" data-lang="py"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="ch">#!/usr/bin/python3</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="s2">&#34;&#34;&#34;
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="s2">使用python 对oracle数据进行操作
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="s2">提前安装好 cx_Oracle
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="s2">pip3 install cx_Oracle
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="s2">&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="kn">import</span> <span class="nn">cx_Oracle</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="n">conn</span> <span class="o">=</span> <span class="n">cx_Oracle</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;用户名&#39;</span><span class="p">,</span><span class="s1">&#39;密码&#39;</span><span class="p">,</span><span class="s1">&#39;IP/SN&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="n">sql</span> <span class="o">=</span> <span class="s1">&#39;SELECT * FROM test_table&#39;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="n">res</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="nb">print</span> <span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</span></span></code></pre></div><h2 id="执行文件">执行文件</h2>
+<blockquote>
+<p>python3 oracle.py</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1">#输出内容</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="o">[</span>none,0<span class="o">]</span>
+</span></span></code></pre></div>]]></content:encoded></item></channel></rss>

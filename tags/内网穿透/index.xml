@@ -1,76 +1,167 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>内网穿透 on 打工人日志</title><link>https://www.jobcher.com/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</link><description>Recent content in 内网穿透 on 打工人日志</description><generator>Hugo</generator><language>zh-hans</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Mon, 16 Nov 2026 13:03:26 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/index.xml" rel="self" type="application/rss+xml"/><item><title>Cloudflare Zero Trust 内网穿透</title><link>https://www.jobcher.com/cloudflaretrust/</link><pubDate>Fri, 30 Sep 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/cloudflaretrust/</guid><description>&lt;h1 id="cloudflare-zero-trust-内网穿透"&gt;Cloudflare Zero Trust 内网穿透&lt;/h1&gt;
-&lt;p&gt;&lt;img src="https://www.jobcher.com/images/cloudflare.png" alt="cloud" loading="lazy" decoding="async"&gt;
-&lt;br&gt;
-最快的 &lt;code&gt;Zero Trust&lt;/code&gt; 应用访问和互联网浏览平台&lt;br&gt;
-增加可见性，消除复杂性，降低远程和办公室用户的风险。杜绝数据丢失、恶意软件和网络钓鱼，保护用户、应用程序和设备安全。&lt;br&gt;
-使用 Tunnel 隧道来实现内网传统，实现内网访问各类应用&lt;/p&gt;
-&lt;h2 id="安装部署"&gt;安装部署&lt;/h2&gt;
-&lt;p&gt;&lt;a href="https://dash.teams.cloudflare.com/"&gt;https://dash.teams.cloudflare.com/&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id="docker-部署"&gt;Docker 部署&lt;/h3&gt;
-&lt;p&gt;在 docker 环境运行 &lt;code&gt;&amp;lt;token&amp;gt;&lt;/code&gt; 是你个人令牌&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;docker run -d --name cloudflared cloudflare/cloudflared:latest tunnel --no-autoupdate run --token &amp;lt;token&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="linux-部署"&gt;Linux 部署&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;X86-64 位&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-x86_64.rpm &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="se"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt;sudo yum localinstall -y cloudflared.rpm &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="se"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt;sudo cloudflared service install &amp;lt;token&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="2"&gt;
-&lt;li&gt;X86-32 位&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386.rpm &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;sudo yum localinstall -y cloudflared.rpm &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;sudo cloudflared service install &amp;lt;token&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="3"&gt;
-&lt;li&gt;arm64&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-aarch64.rpm &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;sudo yum localinstall -y cloudflared.rpm &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;sudo cloudflared service install &amp;lt;token&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="4"&gt;
-&lt;li&gt;arm32&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm.rpm &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;sudo yum localinstall -y cloudflared.rpm &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;sudo cloudflared service install &amp;lt;token&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="windows-部署"&gt;windows 部署&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;下载 &lt;a href="https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.msi"&gt;https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.msi&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;运行安装程序&lt;/li&gt;
-&lt;li&gt;以管理员身份打开命令提示符&lt;/li&gt;
-&lt;li&gt;运行以下命令&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;cloudflared.exe service install &amp;lt;token&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="在-cloudflare-里配置内网穿透"&gt;在 cloudflare 里配置内网穿透&lt;/h2&gt;
-&lt;p&gt;&lt;img src="https://www.jobcher.com/images/cloudflare2.png" alt="image" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;</description></item><item><title>自建服务器内网穿透</title><link>https://www.jobcher.com/nps/</link><pubDate>Wed, 08 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/nps/</guid><description>&lt;h1 id="内网穿透"&gt;内网穿透&lt;/h1&gt;
-&lt;p&gt;文章中使用的内网穿透前提是必须具有公网 IP 的云服务器，不符合条件的同学可以跳过了。&lt;/p&gt;
-&lt;h2 id="nps-内网穿透"&gt;nps 内网穿透&lt;/h2&gt;
-&lt;p&gt;nps 是一款轻量级、高性能、功能强大的内网穿透代理服务器。&lt;/p&gt;
-&lt;h3 id="在公网服务器上安装-nps-sever-端"&gt;在公网服务器上安装 nps sever 端&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt; wget https://github.com/ehang-io/nps/releases/download/v0.26.10/linux_amd64_server.tar.gz
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt; tar -zxvf linux_amd64_server.tar.gz
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt; sudo ./nps install
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt; sudo nps start
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="在控制端安装-npc-client-端"&gt;在控制端安装 npc client 端&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt; wget https://github.com/ehang-io/nps/releases/download/v0.26.10/linux_amd64_client.tar.gz
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt; tar -zxvf linux_amd64_client.tar.gz
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt; sudo ./npc -server&lt;span class="o"&gt;=&lt;/span&gt;ip:port -vkey&lt;span class="o"&gt;=&lt;/span&gt;web界面中显示的密钥
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt; sudo npc start
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;npc 安装完成可以进入 web 页面穿透端口和域名&lt;br&gt;
-http://localhost:8080&lt;/p&gt;
-&lt;h2 id="frps-内网穿透"&gt;frps 内网穿透&lt;/h2&gt;
-&lt;p&gt;frps 相对于 nps 的劣势是有断流的风险&lt;br&gt;
-frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可靠的支持&lt;/p&gt;
-&lt;h3 id="安装-frps"&gt;安装 frps&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt; wget https://code.aliyun.com/MvsCode/frps-onekey/raw/master/install-frps.sh -O ./install-frps.sh
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt; chmod &lt;span class="m"&gt;700&lt;/span&gt; ./install-frps.sh
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt; ./install-frps.sh install
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;卸载 frps 服务&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>内网穿透 - 打工人日志</title><link>https://www.jobcher.com/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</link><description>打工人日志（Jobcher）——面向开发者与运维的技术博客，覆盖 Kubernetes、Docker、Linux、监控、AI 与开发者工具的实战教程与干货。</description><generator>Hugo</generator><language>zh-cn</language><copyright>Copyright © 2022-2026 All Rights Reserved.</copyright><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor><webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 30 Sep 2022 00:00:00 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/tags/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/index.xml" rel="self" type="application/rss+xml"/><item><title>Cloudflare Zero Trust 内网穿透</title><link>https://www.jobcher.com/cloudflaretrust/</link><pubDate>Fri, 30 Sep 2022 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/cloudflaretrust/</guid><description><![CDATA[<h1 id="cloudflare-zero-trust-内网穿透">Cloudflare Zero Trust 内网穿透</h1>
+<p><img src="https://www.jobcher.com/images/cloudflare.png" alt="cloud" loading="lazy" decoding="async">
+<br>
+最快的 <code>Zero Trust</code> 应用访问和互联网浏览平台<br>
+增加可见性，消除复杂性，降低远程和办公室用户的风险。杜绝数据丢失、恶意软件和网络钓鱼，保护用户、应用程序和设备安全。<br>
+使用 Tunnel 隧道来实现内网传统，实现内网访问各类应用</p>
+<h2 id="安装部署">安装部署</h2>
+<p><a href="https://dash.teams.cloudflare.com/">https://dash.teams.cloudflare.com/</a></p>
+<h3 id="docker-部署">Docker 部署</h3>
+<p>在 docker 环境运行 <code>&lt;token&gt;</code> 是你个人令牌</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">docker run -d --name cloudflared cloudflare/cloudflared:latest tunnel --no-autoupdate run --token &lt;token&gt;
+</span></span></code></pre></div><h3 id="linux-部署">Linux 部署</h3>
+<ol>
+<li>X86-64 位</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-x86_64.rpm <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="se"></span>sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="se"></span>sudo cloudflared service install &lt;token&gt;
+</span></span></code></pre></div><ol start="2">
+<li>X86-32 位</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386.rpm <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">
+</span></span><span class="line"><span class="ln">3</span><span class="cl">sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">
+</span></span><span class="line"><span class="ln">5</span><span class="cl">sudo cloudflared service install &lt;token&gt;
+</span></span></code></pre></div><ol start="3">
+<li>arm64</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-aarch64.rpm <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">
+</span></span><span class="line"><span class="ln">3</span><span class="cl">sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">
+</span></span><span class="line"><span class="ln">5</span><span class="cl">sudo cloudflared service install &lt;token&gt;
+</span></span></code></pre></div><ol start="4">
+<li>arm32</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm.rpm <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">
+</span></span><span class="line"><span class="ln">3</span><span class="cl">sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">
+</span></span><span class="line"><span class="ln">5</span><span class="cl">sudo cloudflared service install &lt;token&gt;
+</span></span></code></pre></div><h3 id="windows-部署">windows 部署</h3>
+<ol>
+<li>下载 <a href="https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.msi">https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.msi</a></li>
+<li>运行安装程序</li>
+<li>以管理员身份打开命令提示符</li>
+<li>运行以下命令</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">cloudflared.exe service install &lt;token&gt;
+</span></span></code></pre></div><h2 id="在-cloudflare-里配置内网穿透">在 cloudflare 里配置内网穿透</h2>
+<p><img src="https://www.jobcher.com/images/cloudflare2.png" alt="image" loading="lazy" decoding="async">
+</p>
+<p>欢迎关注我的博客<a href="https://www.jobcher.com/">www.jobcher.com</a></p>
+]]></description><content:encoded><![CDATA[<h1 id="cloudflare-zero-trust-内网穿透">Cloudflare Zero Trust 内网穿透</h1>
+<p><img src="https://www.jobcher.com/images/cloudflare.png" alt="cloud" loading="lazy" decoding="async">
+<br>
+最快的 <code>Zero Trust</code> 应用访问和互联网浏览平台<br>
+增加可见性，消除复杂性，降低远程和办公室用户的风险。杜绝数据丢失、恶意软件和网络钓鱼，保护用户、应用程序和设备安全。<br>
+使用 Tunnel 隧道来实现内网传统，实现内网访问各类应用</p>
+<h2 id="安装部署">安装部署</h2>
+<p><a href="https://dash.teams.cloudflare.com/">https://dash.teams.cloudflare.com/</a></p>
+<h3 id="docker-部署">Docker 部署</h3>
+<p>在 docker 环境运行 <code>&lt;token&gt;</code> 是你个人令牌</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">docker run -d --name cloudflared cloudflare/cloudflared:latest tunnel --no-autoupdate run --token &lt;token&gt;
+</span></span></code></pre></div><h3 id="linux-部署">Linux 部署</h3>
+<ol>
+<li>X86-64 位</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-x86_64.rpm <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="se"></span>sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="se"></span>sudo cloudflared service install &lt;token&gt;
+</span></span></code></pre></div><ol start="2">
+<li>X86-32 位</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-386.rpm <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">
+</span></span><span class="line"><span class="ln">3</span><span class="cl">sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">
+</span></span><span class="line"><span class="ln">5</span><span class="cl">sudo cloudflared service install &lt;token&gt;
+</span></span></code></pre></div><ol start="3">
+<li>arm64</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-aarch64.rpm <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">
+</span></span><span class="line"><span class="ln">3</span><span class="cl">sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">
+</span></span><span class="line"><span class="ln">5</span><span class="cl">sudo cloudflared service install &lt;token&gt;
+</span></span></code></pre></div><ol start="4">
+<li>arm32</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-arm.rpm <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">
+</span></span><span class="line"><span class="ln">3</span><span class="cl">sudo yum localinstall -y cloudflared.rpm <span class="o">&amp;&amp;</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">
+</span></span><span class="line"><span class="ln">5</span><span class="cl">sudo cloudflared service install &lt;token&gt;
+</span></span></code></pre></div><h3 id="windows-部署">windows 部署</h3>
+<ol>
+<li>下载 <a href="https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.msi">https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-windows-amd64.msi</a></li>
+<li>运行安装程序</li>
+<li>以管理员身份打开命令提示符</li>
+<li>运行以下命令</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">cloudflared.exe service install &lt;token&gt;
+</span></span></code></pre></div><h2 id="在-cloudflare-里配置内网穿透">在 cloudflare 里配置内网穿透</h2>
+<p><img src="https://www.jobcher.com/images/cloudflare2.png" alt="image" loading="lazy" decoding="async">
+</p>
+<p>欢迎关注我的博客<a href="https://www.jobcher.com/">www.jobcher.com</a></p>
+]]></content:encoded></item><item><title>自建服务器内网穿透</title><link>https://www.jobcher.com/nps/</link><pubDate>Wed, 08 Dec 2021 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/nps/</guid><description><![CDATA[<h1 id="内网穿透">内网穿透</h1>
+<p>文章中使用的内网穿透前提是必须具有公网 IP 的云服务器，不符合条件的同学可以跳过了。</p>
+<h2 id="nps-内网穿透">nps 内网穿透</h2>
+<p>nps 是一款轻量级、高性能、功能强大的内网穿透代理服务器。</p>
+<h3 id="在公网服务器上安装-nps-sever-端">在公网服务器上安装 nps sever 端</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    wget https://github.com/ehang-io/nps/releases/download/v0.26.10/linux_amd64_server.tar.gz
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    tar -zxvf linux_amd64_server.tar.gz
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    sudo ./nps install
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    sudo nps start
+</span></span></code></pre></div><h3 id="在控制端安装-npc-client-端">在控制端安装 npc client 端</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    wget https://github.com/ehang-io/nps/releases/download/v0.26.10/linux_amd64_client.tar.gz
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    tar -zxvf linux_amd64_client.tar.gz
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    sudo ./npc -server<span class="o">=</span>ip:port -vkey<span class="o">=</span>web界面中显示的密钥
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    sudo npc start
+</span></span></code></pre></div><p>npc 安装完成可以进入 web 页面穿透端口和域名<br>
+http://localhost:8080</p>
+<h2 id="frps-内网穿透">frps 内网穿透</h2>
+<p>frps 相对于 nps 的劣势是有断流的风险<br>
+frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可靠的支持</p>
+<h3 id="安装-frps">安装 frps</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    wget https://code.aliyun.com/MvsCode/frps-onekey/raw/master/install-frps.sh -O ./install-frps.sh
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    chmod <span class="m">700</span> ./install-frps.sh
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    ./install-frps.sh install
+</span></span></code></pre></div><p>卸载 frps 服务</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    ./install-frps.sh uninstall
+</span></span></code></pre></div><p>更新 frps 服务</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    ./install-frps.sh update
+</span></span></code></pre></div><p>Server management（服务管理器）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    Usage: /etc/init.d/frps <span class="o">{</span>start<span class="p">|</span>stop<span class="p">|</span>restart<span class="p">|</span>status<span class="p">|</span>config<span class="p">|</span>version<span class="o">}</span>
+</span></span></code></pre></div>]]></description><content:encoded><![CDATA[<h1 id="内网穿透">内网穿透</h1>
+<p>文章中使用的内网穿透前提是必须具有公网 IP 的云服务器，不符合条件的同学可以跳过了。</p>
+<h2 id="nps-内网穿透">nps 内网穿透</h2>
+<p>nps 是一款轻量级、高性能、功能强大的内网穿透代理服务器。</p>
+<h3 id="在公网服务器上安装-nps-sever-端">在公网服务器上安装 nps sever 端</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    wget https://github.com/ehang-io/nps/releases/download/v0.26.10/linux_amd64_server.tar.gz
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    tar -zxvf linux_amd64_server.tar.gz
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    sudo ./nps install
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    sudo nps start
+</span></span></code></pre></div><h3 id="在控制端安装-npc-client-端">在控制端安装 npc client 端</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    wget https://github.com/ehang-io/nps/releases/download/v0.26.10/linux_amd64_client.tar.gz
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    tar -zxvf linux_amd64_client.tar.gz
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    sudo ./npc -server<span class="o">=</span>ip:port -vkey<span class="o">=</span>web界面中显示的密钥
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    sudo npc start
+</span></span></code></pre></div><p>npc 安装完成可以进入 web 页面穿透端口和域名<br>
+http://localhost:8080</p>
+<h2 id="frps-内网穿透">frps 内网穿透</h2>
+<p>frps 相对于 nps 的劣势是有断流的风险<br>
+frps 相对于 nps 的优势是对于高流量的媒体服务能够提供更可靠的支持</p>
+<h3 id="安装-frps">安装 frps</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    wget https://code.aliyun.com/MvsCode/frps-onekey/raw/master/install-frps.sh -O ./install-frps.sh
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    chmod <span class="m">700</span> ./install-frps.sh
+</span></span><span class="line"><span class="ln">3</span><span class="cl">    ./install-frps.sh install
+</span></span></code></pre></div><p>卸载 frps 服务</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    ./install-frps.sh uninstall
+</span></span></code></pre></div><p>更新 frps 服务</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    ./install-frps.sh update
+</span></span></code></pre></div><p>Server management（服务管理器）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">    Usage: /etc/init.d/frps <span class="o">{</span>start<span class="p">|</span>stop<span class="p">|</span>restart<span class="p">|</span>status<span class="p">|</span>config<span class="p">|</span>version<span class="o">}</span>
+</span></span></code></pre></div>]]></content:encoded></item></channel></rss>

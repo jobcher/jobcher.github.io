@@ -1,41 +1,85 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>美食 on 打工人日志</title><link>https://www.jobcher.com/categories/%E7%BE%8E%E9%A3%9F/</link><description>Recent content in 美食 on 打工人日志</description><generator>Hugo</generator><language>zh-hans</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Mon, 16 Nov 2026 13:03:26 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/categories/%E7%BE%8E%E9%A3%9F/index.xml" rel="self" type="application/rss+xml"/><item><title>懒人烧排骨</title><link>https://www.jobcher.com/paigu/</link><pubDate>Mon, 26 Sep 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/paigu/</guid><description>&lt;h3 id="主料"&gt;【主料】&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;精排骨（500 克）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id="辅料"&gt;【辅料】&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;食用面碱（约 2 克）&lt;/li&gt;
-&lt;li&gt;柠檬（半个）&lt;/li&gt;
-&lt;li&gt;生姜（1 小块）&lt;/li&gt;
-&lt;li&gt;小葱（2 根）&lt;/li&gt;
-&lt;li&gt;八角（1 颗）&lt;/li&gt;
-&lt;li&gt;桂皮（1 小块）&lt;/li&gt;
-&lt;li&gt;香叶（半片）&lt;/li&gt;
-&lt;li&gt;冰糖（约 50 克）&lt;/li&gt;
-&lt;li&gt;可乐（1000 克）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id="调味料"&gt;【调味料】&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;食用盐（适量）&lt;/li&gt;
-&lt;li&gt;料酒（适量）&lt;/li&gt;
-&lt;li&gt;生抽酱油（20 克）&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>孜然杏鲍菇-素食</title><link>https://www.jobcher.com/eryngii/</link><pubDate>Sun, 26 Dec 2021 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/eryngii/</guid><description>&lt;h1 id="孜然杏鲍菇-素食"&gt;孜然杏鲍菇-素食&lt;/h1&gt;
-&lt;h2 id="准备食材"&gt;准备食材&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;杏鲍菇&lt;/li&gt;
-&lt;li&gt;蒜&lt;/li&gt;
-&lt;li&gt;糖&lt;/li&gt;
-&lt;li&gt;白芝麻&lt;/li&gt;
-&lt;li&gt;孜然粉&lt;/li&gt;
-&lt;li&gt;老抽&lt;/li&gt;
-&lt;li&gt;生抽&lt;/li&gt;
-&lt;li&gt;蚝油&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id="步骤"&gt;步骤&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;杏鲍菇切片&lt;/li&gt;
-&lt;li&gt;蒜切成末&lt;/li&gt;
-&lt;li&gt;热油下蒜爆香&lt;/li&gt;
-&lt;li&gt;杏鲍菇下锅把水分炒干&lt;/li&gt;
-&lt;li&gt;加一勺生抽、半勺老抽，半勺蚝油，一勺孜然粉，一勺白芝麻，半勺糖炒匀&lt;/li&gt;
-&lt;/ol&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>美食 - 打工人日志</title><link>https://www.jobcher.com/categories/%E7%BE%8E%E9%A3%9F/</link><description>打工人日志（Jobcher）——面向开发者与运维的技术博客，覆盖 Kubernetes、Docker、Linux、监控、AI 与开发者工具的实战教程与干货。</description><generator>Hugo</generator><language>zh-cn</language><copyright>Copyright © 2022-2026 All Rights Reserved.</copyright><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor><webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 26 Sep 2022 00:00:00 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/categories/%E7%BE%8E%E9%A3%9F/index.xml" rel="self" type="application/rss+xml"/><item><title>懒人烧排骨</title><link>https://www.jobcher.com/paigu/</link><pubDate>Mon, 26 Sep 2022 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/paigu/</guid><description><![CDATA[<h3 id="主料">【主料】</h3>
+<ul>
+<li>精排骨（500 克）</li>
+</ul>
+<h3 id="辅料">【辅料】</h3>
+<ul>
+<li>食用面碱（约 2 克）</li>
+<li>柠檬（半个）</li>
+<li>生姜（1 小块）</li>
+<li>小葱（2 根）</li>
+<li>八角（1 颗）</li>
+<li>桂皮（1 小块）</li>
+<li>香叶（半片）</li>
+<li>冰糖（约 50 克）</li>
+<li>可乐（1000 克）</li>
+</ul>
+<h3 id="调味料">【调味料】</h3>
+<ul>
+<li>食用盐（适量）</li>
+<li>料酒（适量）</li>
+<li>生抽酱油（20 克）</li>
+</ul>
+]]></description><content:encoded><![CDATA[<h3 id="主料">【主料】</h3>
+<ul>
+<li>精排骨（500 克）</li>
+</ul>
+<h3 id="辅料">【辅料】</h3>
+<ul>
+<li>食用面碱（约 2 克）</li>
+<li>柠檬（半个）</li>
+<li>生姜（1 小块）</li>
+<li>小葱（2 根）</li>
+<li>八角（1 颗）</li>
+<li>桂皮（1 小块）</li>
+<li>香叶（半片）</li>
+<li>冰糖（约 50 克）</li>
+<li>可乐（1000 克）</li>
+</ul>
+<h3 id="调味料">【调味料】</h3>
+<ul>
+<li>食用盐（适量）</li>
+<li>料酒（适量）</li>
+<li>生抽酱油（20 克）</li>
+</ul>
+]]></content:encoded></item><item><title>孜然杏鲍菇-素食</title><link>https://www.jobcher.com/eryngii/</link><pubDate>Sun, 26 Dec 2021 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/eryngii/</guid><description><![CDATA[<h1 id="孜然杏鲍菇-素食">孜然杏鲍菇-素食</h1>
+<h2 id="准备食材">准备食材</h2>
+<ol>
+<li>杏鲍菇</li>
+<li>蒜</li>
+<li>糖</li>
+<li>白芝麻</li>
+<li>孜然粉</li>
+<li>老抽</li>
+<li>生抽</li>
+<li>蚝油</li>
+</ol>
+<h2 id="步骤">步骤</h2>
+<ol>
+<li>杏鲍菇切片</li>
+<li>蒜切成末</li>
+<li>热油下蒜爆香</li>
+<li>杏鲍菇下锅把水分炒干</li>
+<li>加一勺生抽、半勺老抽，半勺蚝油，一勺孜然粉，一勺白芝麻，半勺糖炒匀</li>
+</ol>
+]]></description><content:encoded><![CDATA[<h1 id="孜然杏鲍菇-素食">孜然杏鲍菇-素食</h1>
+<h2 id="准备食材">准备食材</h2>
+<ol>
+<li>杏鲍菇</li>
+<li>蒜</li>
+<li>糖</li>
+<li>白芝麻</li>
+<li>孜然粉</li>
+<li>老抽</li>
+<li>生抽</li>
+<li>蚝油</li>
+</ol>
+<h2 id="步骤">步骤</h2>
+<ol>
+<li>杏鲍菇切片</li>
+<li>蒜切成末</li>
+<li>热油下蒜爆香</li>
+<li>杏鲍菇下锅把水分炒干</li>
+<li>加一勺生抽、半勺老抽，半勺蚝油，一勺孜然粉，一勺白芝麻，半勺糖炒匀</li>
+</ol>
+]]></content:encoded></item></channel></rss>

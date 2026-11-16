@@ -1,84 +1,169 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Pve on 打工人日志</title><link>https://www.jobcher.com/tags/pve/</link><description>Recent content in Pve on 打工人日志</description><generator>Hugo</generator><language>zh-hans</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Mon, 16 Nov 2026 13:03:26 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/tags/pve/index.xml" rel="self" type="application/rss+xml"/><item><title>Proxmox VE（PVE） 更新到最新版本</title><link>https://www.jobcher.com/pve-update/</link><pubDate>Mon, 14 Jul 2025 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/pve-update/</guid><description>&lt;h2 id="背景"&gt;背景&lt;/h2&gt;
-&lt;p&gt;由于增加了新的pve机器组了pve集群，这过程中发生很多事情，打算记录一下过程中发生的问题。&lt;/p&gt;
-&lt;h2 id="如何不使用企业源完成pve更新"&gt;如何不使用企业源完成pve更新&lt;/h2&gt;
-&lt;h3 id="修改订阅源"&gt;修改订阅源&lt;/h3&gt;
-&lt;p&gt;&lt;img src="https://www.jobcher.com/images/pve-update-1.png" alt="pve 订阅源" loading="lazy" decoding="async"&gt;
-&lt;br&gt;
-禁用企业源&lt;br&gt;
-&lt;img src="https://www.jobcher.com/images/pve-update-2.png" alt="pve 禁用企业源" loading="lazy" decoding="async"&gt;
-&lt;br&gt;
-添加 no-subscription 源&lt;br&gt;
-&lt;img src="https://www.jobcher.com/images/pve-update-3.png" alt="pve 添加 no-subscription 源" loading="lazy" decoding="async"&gt;
-&lt;br&gt;
-&lt;img src="https://www.jobcher.com/images/pve-update-4.png" alt="pve 确认 no-subscription 源" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;
-&lt;h3 id="执行命令"&gt;执行命令&lt;/h3&gt;
-&lt;p&gt;到具体的pve机器上执行命令&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;apt update
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;apt dist-upgrade
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 查看版本&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;pveversion
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="ha-集群无法正常运行"&gt;HA 集群无法正常运行&lt;/h2&gt;
-&lt;p&gt;出现&lt;code&gt;lrm pve (old timestamp - dead?)&lt;/code&gt;获取不到pve主机状态&lt;br&gt;
-查看 lrm 服务状态&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;systemctl status pve-ha-lrm
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;systemctl status pve-ha-crm
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;重启 lrm 服务&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 重启 lrm 服务&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;systemctl restart pve-ha-lrm
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 重启 crm 服务&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;systemctl restart pve-ha-crm
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Proxmox VE 在线扩容磁盘分区</title><link>https://www.jobcher.com/pve1/</link><pubDate>Wed, 19 Jan 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/pve1/</guid><description>&lt;h1 id="proxmox-ve-在线扩容磁盘分区"&gt;Proxmox VE 在线扩容磁盘分区&lt;/h1&gt;
-&lt;h2 id="添加磁盘大小"&gt;添加磁盘大小&lt;/h2&gt;
-&lt;p&gt;&lt;img src="https://www.jobcher.com/images/pve1.png" alt="pve1-1" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;
-&lt;h2 id="在-vm-上做扩容操作"&gt;在 VM 上做扩容操作&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;安装 growpart&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;yum install -y epel-release
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;yum install -y cloud-utils
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="2"&gt;
-&lt;li&gt;查看系统盘 路径&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;fdisk -l
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;df -h
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src="https://www.jobcher.com/images/pve2.png" alt="pve1-2" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;
-&lt;ol start="3"&gt;
-&lt;li&gt;扩容设备并重启&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;growpart /dev/sda &lt;span class="m"&gt;2&lt;/span&gt; &lt;span class="c1"&gt;#2代表是第二块系统分区，不是sda2,中间有空格&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;reboot
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="4"&gt;
-&lt;li&gt;重启执行命令&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;xfs_growfs /dev/sda2 &lt;span class="c1"&gt;#(xfs 文件系统)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;resize2fs /dev/sda2 &lt;span class="c1"&gt;#(ext4 文件系统)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol start="5"&gt;
-&lt;li&gt;更新完成&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;df -h
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="逻辑卷没有正常扩容的情况"&gt;逻辑卷没有正常扩容的情况&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;检查当前逻辑卷属于哪个卷组:&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;vgdisplay
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src="https://www.jobcher.com/images/pve1-1.png" alt="pve1-1.png" loading="lazy" decoding="async"&gt;
-&lt;br&gt;
-检查卷组中是有足够的空间可以扩容,还有99g&lt;/p&gt;
-&lt;ol start="2"&gt;
-&lt;li&gt;扩展逻辑卷大小到200G:&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;lvextend -L +99G /dev/mapper/ubuntu--vg-ubuntu--lv
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src="https://www.jobcher.com/images/pve1-2.png" alt="pve1-2.png" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;
-&lt;ol start="3"&gt;
-&lt;li&gt;调整文件系统大小到逻辑卷大小:&lt;/li&gt;
-&lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;img src="https://www.jobcher.com/images/pve1-3.png" alt="pve1-3.png" loading="lazy" decoding="async"&gt;
-&lt;br&gt;
-4. 检查&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;df -h /dev/mapper/ubuntu--vg-ubuntu--lv
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;成功扩容&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Pve - 打工人日志</title><link>https://www.jobcher.com/tags/pve/</link><description>打工人日志（Jobcher）——面向开发者与运维的技术博客，覆盖 Kubernetes、Docker、Linux、监控、AI 与开发者工具的实战教程与干货。</description><generator>Hugo</generator><language>zh-cn</language><copyright>Copyright © 2022-2026 All Rights Reserved.</copyright><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor><webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 14 Jul 2025 00:00:00 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/tags/pve/index.xml" rel="self" type="application/rss+xml"/><item><title>Proxmox VE（PVE） 更新到最新版本</title><link>https://www.jobcher.com/pve-update/</link><pubDate>Mon, 14 Jul 2025 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/pve-update/</guid><description><![CDATA[<h2 id="背景">背景</h2>
+<p>由于增加了新的pve机器组了pve集群，这过程中发生很多事情，打算记录一下过程中发生的问题。</p>
+<h2 id="如何不使用企业源完成pve更新">如何不使用企业源完成pve更新</h2>
+<h3 id="修改订阅源">修改订阅源</h3>
+<p><img src="https://www.jobcher.com/images/pve-update-1.png" alt="pve 订阅源" loading="lazy" decoding="async">
+<br>
+禁用企业源<br>
+<img src="https://www.jobcher.com/images/pve-update-2.png" alt="pve 禁用企业源" loading="lazy" decoding="async">
+<br>
+添加 no-subscription 源<br>
+<img src="https://www.jobcher.com/images/pve-update-3.png" alt="pve 添加 no-subscription 源" loading="lazy" decoding="async">
+<br>
+<img src="https://www.jobcher.com/images/pve-update-4.png" alt="pve 确认 no-subscription 源" loading="lazy" decoding="async">
+</p>
+<h3 id="执行命令">执行命令</h3>
+<p>到具体的pve机器上执行命令</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">apt update
+</span></span><span class="line"><span class="ln">2</span><span class="cl">apt dist-upgrade
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># 查看版本</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">pveversion
+</span></span></code></pre></div><h2 id="ha-集群无法正常运行">HA 集群无法正常运行</h2>
+<p>出现<code>lrm pve (old timestamp - dead?)</code>获取不到pve主机状态<br>
+查看 lrm 服务状态</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">systemctl status pve-ha-lrm
+</span></span><span class="line"><span class="ln">2</span><span class="cl">systemctl status pve-ha-crm
+</span></span></code></pre></div><p>重启 lrm 服务</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># 重启 lrm 服务</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">systemctl restart pve-ha-lrm
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># 重启 crm 服务</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">systemctl restart pve-ha-crm
+</span></span></code></pre></div>]]></description><content:encoded><![CDATA[<h2 id="背景">背景</h2>
+<p>由于增加了新的pve机器组了pve集群，这过程中发生很多事情，打算记录一下过程中发生的问题。</p>
+<h2 id="如何不使用企业源完成pve更新">如何不使用企业源完成pve更新</h2>
+<h3 id="修改订阅源">修改订阅源</h3>
+<p><img src="https://www.jobcher.com/images/pve-update-1.png" alt="pve 订阅源" loading="lazy" decoding="async">
+<br>
+禁用企业源<br>
+<img src="https://www.jobcher.com/images/pve-update-2.png" alt="pve 禁用企业源" loading="lazy" decoding="async">
+<br>
+添加 no-subscription 源<br>
+<img src="https://www.jobcher.com/images/pve-update-3.png" alt="pve 添加 no-subscription 源" loading="lazy" decoding="async">
+<br>
+<img src="https://www.jobcher.com/images/pve-update-4.png" alt="pve 确认 no-subscription 源" loading="lazy" decoding="async">
+</p>
+<h3 id="执行命令">执行命令</h3>
+<p>到具体的pve机器上执行命令</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">apt update
+</span></span><span class="line"><span class="ln">2</span><span class="cl">apt dist-upgrade
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># 查看版本</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">pveversion
+</span></span></code></pre></div><h2 id="ha-集群无法正常运行">HA 集群无法正常运行</h2>
+<p>出现<code>lrm pve (old timestamp - dead?)</code>获取不到pve主机状态<br>
+查看 lrm 服务状态</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">systemctl status pve-ha-lrm
+</span></span><span class="line"><span class="ln">2</span><span class="cl">systemctl status pve-ha-crm
+</span></span></code></pre></div><p>重启 lrm 服务</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># 重启 lrm 服务</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">systemctl restart pve-ha-lrm
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="c1"># 重启 crm 服务</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">systemctl restart pve-ha-crm
+</span></span></code></pre></div>]]></content:encoded></item><item><title>Proxmox VE 在线扩容磁盘分区</title><link>https://www.jobcher.com/pve1/</link><pubDate>Wed, 19 Jan 2022 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/pve1/</guid><description><![CDATA[<h1 id="proxmox-ve-在线扩容磁盘分区">Proxmox VE 在线扩容磁盘分区</h1>
+<h2 id="添加磁盘大小">添加磁盘大小</h2>
+<p><img src="https://www.jobcher.com/images/pve1.png" alt="pve1-1" loading="lazy" decoding="async">
+</p>
+<h2 id="在-vm-上做扩容操作">在 VM 上做扩容操作</h2>
+<ol>
+<li>安装 growpart</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">yum install -y epel-release
+</span></span><span class="line"><span class="ln">2</span><span class="cl">yum install -y cloud-utils
+</span></span></code></pre></div><ol start="2">
+<li>查看系统盘 路径</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">fdisk -l
+</span></span><span class="line"><span class="ln">2</span><span class="cl">df -h
+</span></span></code></pre></div><p><img src="https://www.jobcher.com/images/pve2.png" alt="pve1-2" loading="lazy" decoding="async">
+</p>
+<ol start="3">
+<li>扩容设备并重启</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">growpart /dev/sda <span class="m">2</span> <span class="c1">#2代表是第二块系统分区，不是sda2,中间有空格</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">reboot
+</span></span></code></pre></div><ol start="4">
+<li>重启执行命令</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">xfs_growfs /dev/sda2 <span class="c1">#(xfs 文件系统)</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">resize2fs /dev/sda2 <span class="c1">#(ext4 文件系统)</span>
+</span></span></code></pre></div><ol start="5">
+<li>更新完成</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">df -h
+</span></span></code></pre></div><h2 id="逻辑卷没有正常扩容的情况">逻辑卷没有正常扩容的情况</h2>
+<ol>
+<li>检查当前逻辑卷属于哪个卷组:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">vgdisplay
+</span></span></code></pre></div><p><img src="https://www.jobcher.com/images/pve1-1.png" alt="pve1-1.png" loading="lazy" decoding="async">
+<br>
+检查卷组中是有足够的空间可以扩容,还有99g</p>
+<ol start="2">
+<li>扩展逻辑卷大小到200G:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">lvextend -L +99G /dev/mapper/ubuntu--vg-ubuntu--lv
+</span></span></code></pre></div><p><img src="https://www.jobcher.com/images/pve1-2.png" alt="pve1-2.png" loading="lazy" decoding="async">
+</p>
+<ol start="3">
+<li>调整文件系统大小到逻辑卷大小:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
+</span></span></code></pre></div><p><img src="https://www.jobcher.com/images/pve1-3.png" alt="pve1-3.png" loading="lazy" decoding="async">
+<br>
+4. 检查</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">df -h /dev/mapper/ubuntu--vg-ubuntu--lv
+</span></span></code></pre></div><p>成功扩容</p>
+]]></description><content:encoded><![CDATA[<h1 id="proxmox-ve-在线扩容磁盘分区">Proxmox VE 在线扩容磁盘分区</h1>
+<h2 id="添加磁盘大小">添加磁盘大小</h2>
+<p><img src="https://www.jobcher.com/images/pve1.png" alt="pve1-1" loading="lazy" decoding="async">
+</p>
+<h2 id="在-vm-上做扩容操作">在 VM 上做扩容操作</h2>
+<ol>
+<li>安装 growpart</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">yum install -y epel-release
+</span></span><span class="line"><span class="ln">2</span><span class="cl">yum install -y cloud-utils
+</span></span></code></pre></div><ol start="2">
+<li>查看系统盘 路径</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">fdisk -l
+</span></span><span class="line"><span class="ln">2</span><span class="cl">df -h
+</span></span></code></pre></div><p><img src="https://www.jobcher.com/images/pve2.png" alt="pve1-2" loading="lazy" decoding="async">
+</p>
+<ol start="3">
+<li>扩容设备并重启</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">growpart /dev/sda <span class="m">2</span> <span class="c1">#2代表是第二块系统分区，不是sda2,中间有空格</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">reboot
+</span></span></code></pre></div><ol start="4">
+<li>重启执行命令</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">xfs_growfs /dev/sda2 <span class="c1">#(xfs 文件系统)</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">resize2fs /dev/sda2 <span class="c1">#(ext4 文件系统)</span>
+</span></span></code></pre></div><ol start="5">
+<li>更新完成</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">df -h
+</span></span></code></pre></div><h2 id="逻辑卷没有正常扩容的情况">逻辑卷没有正常扩容的情况</h2>
+<ol>
+<li>检查当前逻辑卷属于哪个卷组:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">vgdisplay
+</span></span></code></pre></div><p><img src="https://www.jobcher.com/images/pve1-1.png" alt="pve1-1.png" loading="lazy" decoding="async">
+<br>
+检查卷组中是有足够的空间可以扩容,还有99g</p>
+<ol start="2">
+<li>扩展逻辑卷大小到200G:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">lvextend -L +99G /dev/mapper/ubuntu--vg-ubuntu--lv
+</span></span></code></pre></div><p><img src="https://www.jobcher.com/images/pve1-2.png" alt="pve1-2.png" loading="lazy" decoding="async">
+</p>
+<ol start="3">
+<li>调整文件系统大小到逻辑卷大小:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
+</span></span></code></pre></div><p><img src="https://www.jobcher.com/images/pve1-3.png" alt="pve1-3.png" loading="lazy" decoding="async">
+<br>
+4. 检查</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">df -h /dev/mapper/ubuntu--vg-ubuntu--lv
+</span></span></code></pre></div><p>成功扩容</p>
+]]></content:encoded></item></channel></rss>

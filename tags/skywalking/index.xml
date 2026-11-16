@@ -1,118 +1,365 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Skywalking on 打工人日志</title><link>https://www.jobcher.com/tags/skywalking/</link><description>Recent content in Skywalking on 打工人日志</description><generator>Hugo</generator><language>zh-hans</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Mon, 16 Nov 2026 13:03:26 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/tags/skywalking/index.xml" rel="self" type="application/rss+xml"/><item><title>skywalking python agent 安装和配置</title><link>https://www.jobcher.com/skywalking-python/</link><pubDate>Wed, 31 May 2023 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/skywalking-python/</guid><description>&lt;h2 id="背景"&gt;背景&lt;/h2&gt;
-&lt;p&gt;skywalking 是一个APM监控，在java和微服务领域非常流行。但是在python领域，skywalking的使用率并不高。本文将介绍如何安装和配置skywalking python agent。&lt;br&gt;
-&lt;code&gt;SkyWalking Python&lt;/code&gt; 代理实现了一个命令行界面，可用于在部署期间将代理附加到出色的应用程序，而无需更改任何应用程序代码，就像 SkyWalking Java 代理一样。&lt;/p&gt;
-&lt;h3 id="安装skywalking-python-agent"&gt;安装skywalking python agent&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;pip install apache-skywalking
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
-&lt;p&gt;运行 &lt;code&gt;sw-python&lt;/code&gt; 以查看它是否可用，您需要按环境变量传递配置。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id="配置skywalking-python-agent"&gt;配置skywalking python agent&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;SW_AGENT_NAME&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;服务名称
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 服务器地址&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;SW_AGENT_COLLECTOR_BACKEND_SERVICES&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;127.0.0.1:11800
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="执行python程序"&gt;执行python程序&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;sw-python run -p python app.py
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="启用-cli-调试模式以便在启动应用程序时查看代理日志"&gt;启用 CLI 调试模式，以便在启动应用程序时查看代理日志：&lt;/h4&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;sw-python -d run python app.py
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>windows-exporter 监控</title><link>https://www.jobcher.com/windows-exporter/</link><pubDate>Sat, 08 Oct 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/windows-exporter/</guid><description>&lt;h1 id="windows-exporter-监控安装"&gt;windows-exporter 监控安装&lt;/h1&gt;
-&lt;h3 id="windows_"&gt;&lt;a href="https://github.com/prometheus-community/windows_exporter"&gt;windows_exporter&lt;/a&gt;&lt;/h3&gt;
-&lt;h3 id="下载安装"&gt;&lt;a href="https://github.com/prometheus-community/windows_exporter/releases/download/v0.20.0/windows_exporter-0.20.0-amd64.msi"&gt;下载安装&lt;/a&gt;&lt;/h3&gt;
-&lt;h2 id="启动"&gt;启动&lt;/h2&gt;
-&lt;p&gt;下载 msi 版本，输入一下命令启动&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;msiexec /i C:&lt;span class="se"&gt;\U&lt;/span&gt;sers&lt;span class="se"&gt;\A&lt;/span&gt;dministrator&lt;span class="se"&gt;\D&lt;/span&gt;ownloads&lt;span class="se"&gt;\w&lt;/span&gt;indows_exporter.msi &lt;span class="nv"&gt;ENABLED_COLLECTORS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;ad,iis,logon,memory,process,tcp,scheduled_task&amp;#34;&lt;/span&gt; &lt;span class="nv"&gt;TEXTFILE_DIR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;C:\custom_metrics\&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;卸载&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;msiexec /uninstall C:&lt;span class="se"&gt;\U&lt;/span&gt;sers&lt;span class="se"&gt;\A&lt;/span&gt;dministrator&lt;span class="se"&gt;\D&lt;/span&gt;ownloads&lt;span class="se"&gt;\w&lt;/span&gt;indows_exporter.msi
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="添加-prometheus-监控"&gt;添加 prometheus 监控&lt;/h2&gt;
-&lt;p&gt;prometheus.yaml&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yml" data-lang="yml"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c"&gt;# 新增 windows-exporter&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;- &lt;span class="nt"&gt;job_name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;windows-exporter&amp;#34;&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;file_sd_configs&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="nt"&gt;files&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="s2"&gt;&amp;#34;./file_sd/windows-exporter.yaml&amp;#34;&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;./file_sd/windows-exporter.yaml&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yml" data-lang="yml"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c"&gt;# 新增 windows-exporter&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;- &lt;span class="nt"&gt;targets&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;192.168.0.6:9182&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;labels&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;instance&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;windows-task&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="添加-alertmanager-告警"&gt;添加 alertmanager 告警&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-yml" data-lang="yml"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 1&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="c"&gt;# 告警信息&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 2&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="nt"&gt;groups&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 3&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="nt"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;sanjiang windows 任务计划程序告警&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 4&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;rules&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 5&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;- &lt;span class="nt"&gt;alert&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;windows实例任务告警&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 6&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;expr&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;windows_scheduled_task_state{state=&amp;#34;disabled&amp;#34;,task=~&amp;#34;/ETL_kettle_tasks/.*&amp;#34;}==1&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 7&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;for&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;30s&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 8&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;labels&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt; 9&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;severity&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="l"&gt;critical&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;10&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;target&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;{{$labels.job}}&amp;#34;&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;11&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;annotations&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;12&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;summary&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;sanjiang: {{$labels.job}} windows 任务异常&amp;#34;&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;13&lt;/span&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;description&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;#34;{{$labels.task}} of job {{$labels.job}} 该任务断联已超过1分钟&amp;#34;&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>skywalking APM 监控</title><link>https://www.jobcher.com/skywalking/</link><pubDate>Wed, 10 Aug 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/skywalking/</guid><description>&lt;h1 id="skywalking"&gt;skywalking&lt;/h1&gt;
-&lt;p&gt;基于 OpenTracing 规范，专门为微服务架构以及云原生服务。&lt;/p&gt;
-&lt;h2 id="apm-监控"&gt;APM 监控&lt;/h2&gt;
-&lt;p&gt;一个基于微服务架构的电商系统&lt;br&gt;
-&lt;img src="https://www.jobcher.com/images/skywalkning.png" width="100%"&gt;&lt;br&gt;
-&lt;code&gt;APM &lt;/code&gt;(Application Performance Management) 即应用性能管理，属于 IT 运维管理（ITOM)范畴.&lt;br&gt;
-分为一下三个方面：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Logging&lt;br&gt;
-服务在处理某个请求时打印的错误日志，可以将这些日志信息记录到&lt;code&gt;Elasticsearch&lt;/code&gt;或是其他存储中。通过 Kibana 或是其他工具来分析这些日志了解服务的行为和状态，大多数情况下。日志记录的数据很分散，并且相互独立。例如错误日志，请求处理过程中关键步骤的日志等等。&lt;/li&gt;
-&lt;li&gt;Metrics&lt;br&gt;
-&lt;code&gt;Metric&lt;/code&gt;是可以聚合的，例如为电商系统中每个 HTTP 接口添加一个计数器，计算每个接口的 QPS，可以通过简单的加和计算得到系统的总负载情况。&lt;/li&gt;
-&lt;li&gt;Tracing&lt;br&gt;
-在微服务架构系统中一请求会经过很多服务处理，调用链路会非常长，要确定中间哪个服务出现异常是非常麻烦的事情，通过分布式链路追踪，运维人员就可以构建一个请求的视图。视图上战术了一个请求从进入系统开始到返回响应的整个流程。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;系统交互图&lt;/code&gt;&lt;br&gt;
-&lt;img src="https://www.jobcher.com/images/skywalking2.svg" width="70%"&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;code&gt;系统加载图&lt;/code&gt; &amp;gt; &lt;img src="https://www.jobcher.com/images/skywalking3.svg" width="100%"&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="目前流行的apm监控"&gt;目前流行的&lt;code&gt;APM监控&lt;/code&gt;&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Zipkin
-&lt;ul&gt;
-&lt;li&gt;对 web.xml 进行修改，代码侵入&lt;/li&gt;
-&lt;li&gt;twitter 开源&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Cat
-&lt;ul&gt;
-&lt;li&gt;支持 Java、C/C++、Node.Js、Python、go&lt;/li&gt;
-&lt;li&gt;代码侵入，埋点&lt;/li&gt;
-&lt;li&gt;美团开源&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Pinpoint
-&lt;ul&gt;
-&lt;li&gt;基于字节码注入技术，代码无侵入&lt;/li&gt;
-&lt;li&gt;韩国公司开发，社区交流滞后&lt;/li&gt;
-&lt;li&gt;只支持 hbase&lt;/li&gt;
-&lt;li&gt;颗粒度更细&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Skywalking&lt;br&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Skywalking - 打工人日志</title><link>https://www.jobcher.com/tags/skywalking/</link><description>打工人日志（Jobcher）——面向开发者与运维的技术博客，覆盖 Kubernetes、Docker、Linux、监控、AI 与开发者工具的实战教程与干货。</description><generator>Hugo</generator><language>zh-cn</language><copyright>Copyright © 2022-2026 All Rights Reserved.</copyright><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor><webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 31 May 2023 00:00:00 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/tags/skywalking/index.xml" rel="self" type="application/rss+xml"/><item><title>skywalking python agent 安装和配置</title><link>https://www.jobcher.com/skywalking-python/</link><pubDate>Wed, 31 May 2023 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/skywalking-python/</guid><description><![CDATA[<h2 id="背景">背景</h2>
+<p>skywalking 是一个APM监控，在java和微服务领域非常流行。但是在python领域，skywalking的使用率并不高。本文将介绍如何安装和配置skywalking python agent。<br>
+<code>SkyWalking Python</code> 代理实现了一个命令行界面，可用于在部署期间将代理附加到出色的应用程序，而无需更改任何应用程序代码，就像 SkyWalking Java 代理一样。</p>
+<h3 id="安装skywalking-python-agent">安装skywalking python agent</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">pip install apache-skywalking
+</span></span></code></pre></div><blockquote>
+<p>运行 <code>sw-python</code> 以查看它是否可用，您需要按环境变量传递配置。</p>
+</blockquote>
+<h3 id="配置skywalking-python-agent">配置skywalking python agent</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">export</span> <span class="nv">SW_AGENT_NAME</span><span class="o">=</span>服务名称
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"># 服务器地址</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nb">export</span> <span class="nv">SW_AGENT_COLLECTOR_BACKEND_SERVICES</span><span class="o">=</span>127.0.0.1:11800
+</span></span></code></pre></div><h3 id="执行python程序">执行python程序</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">sw-python run -p python app.py
+</span></span></code></pre></div><h4 id="启用-cli-调试模式以便在启动应用程序时查看代理日志">启用 CLI 调试模式，以便在启动应用程序时查看代理日志：</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">sw-python -d run python app.py
+</span></span></code></pre></div>]]></description><content:encoded><![CDATA[<h2 id="背景">背景</h2>
+<p>skywalking 是一个APM监控，在java和微服务领域非常流行。但是在python领域，skywalking的使用率并不高。本文将介绍如何安装和配置skywalking python agent。<br>
+<code>SkyWalking Python</code> 代理实现了一个命令行界面，可用于在部署期间将代理附加到出色的应用程序，而无需更改任何应用程序代码，就像 SkyWalking Java 代理一样。</p>
+<h3 id="安装skywalking-python-agent">安装skywalking python agent</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">pip install apache-skywalking
+</span></span></code></pre></div><blockquote>
+<p>运行 <code>sw-python</code> 以查看它是否可用，您需要按环境变量传递配置。</p>
+</blockquote>
+<h3 id="配置skywalking-python-agent">配置skywalking python agent</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl"><span class="nb">export</span> <span class="nv">SW_AGENT_NAME</span><span class="o">=</span>服务名称
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1"># 服务器地址</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nb">export</span> <span class="nv">SW_AGENT_COLLECTOR_BACKEND_SERVICES</span><span class="o">=</span>127.0.0.1:11800
+</span></span></code></pre></div><h3 id="执行python程序">执行python程序</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">sw-python run -p python app.py
+</span></span></code></pre></div><h4 id="启用-cli-调试模式以便在启动应用程序时查看代理日志">启用 CLI 调试模式，以便在启动应用程序时查看代理日志：</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl">sw-python -d run python app.py
+</span></span></code></pre></div>]]></content:encoded></item><item><title>windows-exporter 监控</title><link>https://www.jobcher.com/windows-exporter/</link><pubDate>Sat, 08 Oct 2022 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/windows-exporter/</guid><description><![CDATA[<h1 id="windows-exporter-监控安装">windows-exporter 监控安装</h1>
+<h3 id="windows_"><a href="https://github.com/prometheus-community/windows_exporter">windows_exporter</a></h3>
+<h3 id="下载安装"><a href="https://github.com/prometheus-community/windows_exporter/releases/download/v0.20.0/windows_exporter-0.20.0-amd64.msi">下载安装</a></h3>
+<h2 id="启动">启动</h2>
+<p>下载 msi 版本，输入一下命令启动</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">msiexec /i C:<span class="se">\U</span>sers<span class="se">\A</span>dministrator<span class="se">\D</span>ownloads<span class="se">\w</span>indows_exporter.msi <span class="nv">ENABLED_COLLECTORS</span><span class="o">=</span><span class="s2">&#34;ad,iis,logon,memory,process,tcp,scheduled_task&#34;</span> <span class="nv">TEXTFILE_DIR</span><span class="o">=</span><span class="s2">&#34;C:\custom_metrics\&#34;
+</span></span></span></code></pre></div><p>卸载</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">msiexec /uninstall C:<span class="se">\U</span>sers<span class="se">\A</span>dministrator<span class="se">\D</span>ownloads<span class="se">\w</span>indows_exporter.msi
+</span></span></code></pre></div><h2 id="添加-prometheus-监控">添加 prometheus 监控</h2>
+<p>prometheus.yaml</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="ln">1</span><span class="cl"><span class="c"># 新增 windows-exporter</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span>- <span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;windows-exporter&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w">  </span><span class="nt">file_sd_configs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w">    </span>- <span class="nt">files</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="w">        </span>- <span class="s2">&#34;./file_sd/windows-exporter.yaml&#34;</span><span class="w">
+</span></span></span></code></pre></div><p>./file_sd/windows-exporter.yaml</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="ln">1</span><span class="cl"><span class="c"># 新增 windows-exporter</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span>- <span class="nt">targets</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;192.168.0.6:9182&#34;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w">    </span><span class="nt">instance</span><span class="p">:</span><span class="w"> </span><span class="l">windows-task</span><span class="w">
+</span></span></span></code></pre></div><h2 id="添加-alertmanager-告警">添加 alertmanager 告警</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c"># 告警信息</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w"></span><span class="nt">groups</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">sanjiang windows 任务计划程序告警</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">    </span><span class="nt">rules</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w">      </span>- <span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l">windows实例任务告警</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">        </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l">windows_scheduled_task_state{state=&#34;disabled&#34;,task=~&#34;/ETL_kettle_tasks/.*&#34;}==1</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">        </span><span class="nt">for</span><span class="p">:</span><span class="w"> </span><span class="l">30s</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">        </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">          </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l">critical</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">          </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{$labels.job}}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w">        </span><span class="nt">annotations</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w">          </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;sanjiang: {{$labels.job}} windows 任务异常&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="w">          </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{$labels.task}} of job {{$labels.job}} 该任务断联已超过1分钟&#34;</span><span class="w">
+</span></span></span></code></pre></div>]]></description><content:encoded><![CDATA[<h1 id="windows-exporter-监控安装">windows-exporter 监控安装</h1>
+<h3 id="windows_"><a href="https://github.com/prometheus-community/windows_exporter">windows_exporter</a></h3>
+<h3 id="下载安装"><a href="https://github.com/prometheus-community/windows_exporter/releases/download/v0.20.0/windows_exporter-0.20.0-amd64.msi">下载安装</a></h3>
+<h2 id="启动">启动</h2>
+<p>下载 msi 版本，输入一下命令启动</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">msiexec /i C:<span class="se">\U</span>sers<span class="se">\A</span>dministrator<span class="se">\D</span>ownloads<span class="se">\w</span>indows_exporter.msi <span class="nv">ENABLED_COLLECTORS</span><span class="o">=</span><span class="s2">&#34;ad,iis,logon,memory,process,tcp,scheduled_task&#34;</span> <span class="nv">TEXTFILE_DIR</span><span class="o">=</span><span class="s2">&#34;C:\custom_metrics\&#34;
+</span></span></span></code></pre></div><p>卸载</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">msiexec /uninstall C:<span class="se">\U</span>sers<span class="se">\A</span>dministrator<span class="se">\D</span>ownloads<span class="se">\w</span>indows_exporter.msi
+</span></span></code></pre></div><h2 id="添加-prometheus-监控">添加 prometheus 监控</h2>
+<p>prometheus.yaml</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="ln">1</span><span class="cl"><span class="c"># 新增 windows-exporter</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span>- <span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;windows-exporter&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w">  </span><span class="nt">file_sd_configs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w">    </span>- <span class="nt">files</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="w">        </span>- <span class="s2">&#34;./file_sd/windows-exporter.yaml&#34;</span><span class="w">
+</span></span></span></code></pre></div><p>./file_sd/windows-exporter.yaml</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="ln">1</span><span class="cl"><span class="c"># 新增 windows-exporter</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span>- <span class="nt">targets</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;192.168.0.6:9182&#34;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w">    </span><span class="nt">instance</span><span class="p">:</span><span class="w"> </span><span class="l">windows-task</span><span class="w">
+</span></span></span></code></pre></div><h2 id="添加-alertmanager-告警">添加 alertmanager 告警</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="c"># 告警信息</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w"></span><span class="nt">groups</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w">  </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">sanjiang windows 任务计划程序告警</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">    </span><span class="nt">rules</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w">      </span>- <span class="nt">alert</span><span class="p">:</span><span class="w"> </span><span class="l">windows实例任务告警</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">        </span><span class="nt">expr</span><span class="p">:</span><span class="w"> </span><span class="l">windows_scheduled_task_state{state=&#34;disabled&#34;,task=~&#34;/ETL_kettle_tasks/.*&#34;}==1</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">        </span><span class="nt">for</span><span class="p">:</span><span class="w"> </span><span class="l">30s</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">        </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">          </span><span class="nt">severity</span><span class="p">:</span><span class="w"> </span><span class="l">critical</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">          </span><span class="nt">target</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{$labels.job}}&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w">        </span><span class="nt">annotations</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w">          </span><span class="nt">summary</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;sanjiang: {{$labels.job}} windows 任务异常&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="w">          </span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;{{$labels.task}} of job {{$labels.job}} 该任务断联已超过1分钟&#34;</span><span class="w">
+</span></span></span></code></pre></div>]]></content:encoded></item><item><title>skywalking APM 监控</title><link>https://www.jobcher.com/skywalking/</link><pubDate>Wed, 10 Aug 2022 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/skywalking/</guid><description><![CDATA[<h1 id="skywalking">skywalking</h1>
+<p>基于 OpenTracing 规范，专门为微服务架构以及云原生服务。</p>
+<h2 id="apm-监控">APM 监控</h2>
+<p>一个基于微服务架构的电商系统<br>
+<img src="https://www.jobcher.com/images/skywalkning.png" width="100%"><br>
+<code>APM </code>(Application Performance Management) 即应用性能管理，属于 IT 运维管理（ITOM)范畴.<br>
+分为一下三个方面：</p>
+<ul>
+<li>Logging<br>
+服务在处理某个请求时打印的错误日志，可以将这些日志信息记录到<code>Elasticsearch</code>或是其他存储中。通过 Kibana 或是其他工具来分析这些日志了解服务的行为和状态，大多数情况下。日志记录的数据很分散，并且相互独立。例如错误日志，请求处理过程中关键步骤的日志等等。</li>
+<li>Metrics<br>
+<code>Metric</code>是可以聚合的，例如为电商系统中每个 HTTP 接口添加一个计数器，计算每个接口的 QPS，可以通过简单的加和计算得到系统的总负载情况。</li>
+<li>Tracing<br>
+在微服务架构系统中一请求会经过很多服务处理，调用链路会非常长，要确定中间哪个服务出现异常是非常麻烦的事情，通过分布式链路追踪，运维人员就可以构建一个请求的视图。视图上战术了一个请求从进入系统开始到返回响应的整个流程。</li>
+</ul>
+<blockquote>
+<p><code>系统交互图</code><br>
+<img src="https://www.jobcher.com/images/skywalking2.svg" width="70%"></p>
+</blockquote>
+<blockquote>
+<p><code>系统加载图</code> &gt; <img src="https://www.jobcher.com/images/skywalking3.svg" width="100%"></p>
+</blockquote>
+<h2 id="目前流行的apm监控">目前流行的<code>APM监控</code></h2>
+<ul>
+<li>Zipkin
+<ul>
+<li>对 web.xml 进行修改，代码侵入</li>
+<li>twitter 开源</li>
+</ul>
+</li>
+<li>Cat
+<ul>
+<li>支持 Java、C/C++、Node.Js、Python、go</li>
+<li>代码侵入，埋点</li>
+<li>美团开源</li>
+</ul>
+</li>
+<li>Pinpoint
+<ul>
+<li>基于字节码注入技术，代码无侵入</li>
+<li>韩国公司开发，社区交流滞后</li>
+<li>只支持 hbase</li>
+<li>颗粒度更细</li>
+</ul>
+</li>
+<li>Skywalking<br>
 观测性分析平台
-&lt;ul&gt;
-&lt;li&gt;基于字节码注入技术，代码无侵入&lt;/li&gt;
-&lt;li&gt;服务、服务实例、端点指标分析&lt;/li&gt;
-&lt;li&gt;服务拓扑图分析&lt;/li&gt;
-&lt;li&gt;服务、服务实例和端点（Endpont）SLA 分析&lt;/li&gt;
-&lt;li&gt;支持 es，h2,mysql,TiDb,sharding-sphere&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1 id="skywalking-整体框架"&gt;skywalking 整体框架&lt;/h1&gt;
-&lt;img src="https://www.jobcher.com/images/skywalking4.jpg" width="100%"&gt; 
-&lt;ul&gt;
-&lt;li&gt;上部分 &lt;code&gt;Agent&lt;/code&gt; ：负责从应用中，收集链路信息，发送给 SkyWalking OAP 服务器。目前支持 SkyWalking、Zikpin、Jaeger 等提供的 Tracing 数据信息。而我们目前采用的是，SkyWalking Agent 收集 SkyWalking Tracing 数据，传递给服务器。&lt;/li&gt;
-&lt;li&gt;下部分 &lt;code&gt;SkyWalking OAP&lt;/code&gt; ：负责接收 Agent 发送的 Tracing 数据信息，然后进行分析(Analysis Core) ，存储到外部存储器( Storage )，最终提供查询( Query )功能。&lt;/li&gt;
-&lt;li&gt;右部分 &lt;code&gt;Storage&lt;/code&gt; ：Tracing 数据存储。目前支持 ES、MySQL、Sharding Sphere、TiDB、H2 多种存储器。而我们目前采用的是 ES ，主要考虑是 SkyWalking 开发团队自己的生产环境采用 ES 为主。&lt;/li&gt;
-&lt;li&gt;左部分 &lt;code&gt;SkyWalking UI&lt;/code&gt; ：负责提供控台，查看链路等等。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="skywalking-配置"&gt;skywalking 配置&lt;/h2&gt;
-&lt;h2 id="使用-docker-compose-安装"&gt;使用 docker-compose 安装&lt;/h2&gt;
-&lt;p&gt;使用 mysql 作为存储&lt;br&gt;
-下载 &lt;code&gt;mysql-connector-java-8.0.30.jar&lt;/code&gt;&lt;/p&gt;</description></item></channel></rss>
+<ul>
+<li>基于字节码注入技术，代码无侵入</li>
+<li>服务、服务实例、端点指标分析</li>
+<li>服务拓扑图分析</li>
+<li>服务、服务实例和端点（Endpont）SLA 分析</li>
+<li>支持 es，h2,mysql,TiDb,sharding-sphere</li>
+</ul>
+</li>
+</ul>
+<h1 id="skywalking-整体框架">skywalking 整体框架</h1>
+<img src="https://www.jobcher.com/images/skywalking4.jpg" width="100%">  
+<ul>
+<li>上部分 <code>Agent</code> ：负责从应用中，收集链路信息，发送给 SkyWalking OAP 服务器。目前支持 SkyWalking、Zikpin、Jaeger 等提供的 Tracing 数据信息。而我们目前采用的是，SkyWalking Agent 收集 SkyWalking Tracing 数据，传递给服务器。</li>
+<li>下部分 <code>SkyWalking OAP</code> ：负责接收 Agent 发送的 Tracing 数据信息，然后进行分析(Analysis Core) ，存储到外部存储器( Storage )，最终提供查询( Query )功能。</li>
+<li>右部分 <code>Storage</code> ：Tracing 数据存储。目前支持 ES、MySQL、Sharding Sphere、TiDB、H2 多种存储器。而我们目前采用的是 ES ，主要考虑是 SkyWalking 开发团队自己的生产环境采用 ES 为主。</li>
+<li>左部分 <code>SkyWalking UI</code> ：负责提供控台，查看链路等等。</li>
+</ul>
+<h2 id="skywalking-配置">skywalking 配置</h2>
+<h2 id="使用-docker-compose-安装">使用 docker-compose 安装</h2>
+<p>使用 mysql 作为存储<br>
+下载 <code>mysql-connector-java-8.0.30.jar</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">mkdir ./libs/
+</span></span><span class="line"><span class="ln">2</span><span class="cl">mv mysql-connector-java-8.0.30.jar ./libs/
+</span></span></code></pre></div><p>创建带 mysql 驱动的基础镜像</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="s">apache/skywalking-oap-server:9.1.0</span><span class="err">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="err"></span><span class="k">LABEL</span> <span class="nv">maintainer</span><span class="o">=</span><span class="s2">&#34;nb@nbtyfood.com&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="err"></span><span class="k">COPY</span> ./libs/* /skywalking/oap-libs<span class="err">
+</span></span></span></code></pre></div><p>上传 dockerhub 或者自己的镜像仓库，这里我是上传到自己的仓库</p>
+<ol>
+<li>创建镜像
+<blockquote>
+<p>docker build -t skywalking-mysql-server:v1.0 .</p>
+</blockquote>
+</li>
+<li>打 tag，选择上传位置
+<blockquote>
+<p>docker tag skywalking-mysql-server:v1.0 &lt;仓库地址&gt;/blog/skywalking-mysql-server:v1.0</p>
+</blockquote>
+</li>
+<li>上传镜像
+<blockquote>
+<p>docker push &lt;仓库地址&gt;/blog/skywalking-mysql-server:v1.0</p>
+</blockquote>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w">  </span><span class="nt">skywalking-oap-server</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;hub.docker.com/jobcher/skywalking-mysql-server:v1.0&#34;</span><span class="w"> </span><span class="c">#docker iamge 地址</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;oap-server&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;always&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">      </span>- <span class="l">SW_STORAGE=mysql</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">      </span>- <span class="l">SW_JDBC_URL=&#34;jdbc:mysql://10.12.12.4:3306/sk&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">      </span>- <span class="l">SW_DATA_SOURCE_USER=user</span><span class="w"> </span><span class="c"># mysql用户名</span><span class="w">
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w">      </span>- <span class="l">SW_DATA_SOURCE_PASSWORD=password</span><span class="w"> </span><span class="c"># mysql密码</span><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="w">      </span>- <span class="s2">&#34;10.12.12.16:12800:12800&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="w">      </span>- <span class="s2">&#34;10.12.12.16:1234:1234&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="w">      </span>- <span class="s2">&#34;10.12.12.16:11800:11800&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="w">  </span><span class="nt">skywalking-oap-ui</span><span class="p">:</span><span class="w"> </span><span class="c">#UI界面</span><span class="w">
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;apache/skywalking-ui:9.1.0&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;oap-ui&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;always&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="w">      </span>- <span class="l">SW_OAP_ADDRESS=http://10.12.12.16:12800</span><span class="w">
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="w">      </span>- <span class="s2">&#34;8180:8080&#34;</span><span class="w">
+</span></span></span></code></pre></div><h2 id="skywalking-客户端部署">skywalking 客户端部署</h2>
+<p>下载客户端<br>
+<a href="https://archive.apache.org/dist/skywalking/8.14.0/apache-skywalking-java-agent-8.14.0.tgz">点击下载</a></p>
+<h3 id="安装到要监控的主机">安装到要监控的主机</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">wget https://archive.apache.org/dist/skywalking/8.14.0/apache-skywalking-java-agent-8.14.0.tgz
+</span></span><span class="line"><span class="ln">2</span><span class="cl">tar -zxvf apache-skywalking-java-agent-8.14.0.tgz
+</span></span></code></pre></div><h3 id="配置变量">配置变量</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># SkyWalking Agent 配置</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">export</span> <span class="nv">SW_AGENT_NAME</span><span class="o">=</span>rf-consumer <span class="c1"># 配置 Agent 名字。一般来说，我们直接使用 Spring Boot 项目的 `spring.application.name` 。</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nb">export</span> <span class="nv">SW_AGENT_COLLECTOR_BACKEND_SERVICES</span><span class="o">=</span>10.12.12.16:11800 <span class="c1"># 配置 Collector 地址。</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1">#export SW_AGENT_SPAN_LIMIT=2000 # 配置链路的最大 Span 数量。一般情况下，不需要配置，默认为 300 。主要考虑，有些新上 SkyWalking Agent 的项目，代码可能比较糟糕。</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nb">export</span> <span class="nv">JAVA_AGENT</span><span class="o">=</span>-javaagent:/home/ubuntu/skywalking-agent/skywalking-agent.jar <span class="c1"># SkyWalking Agent jar 地址。</span>
+</span></span></code></pre></div><h3 id="启动java程序">启动java程序</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">java <span class="nv">$JAVA_AGENT</span> -jar yourapp.jar
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1">#或者</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">java -javaagent:&lt;skywalking-agent-path&gt; -jar yourApp.jar
+</span></span></code></pre></div>]]></description><content:encoded><![CDATA[<h1 id="skywalking">skywalking</h1>
+<p>基于 OpenTracing 规范，专门为微服务架构以及云原生服务。</p>
+<h2 id="apm-监控">APM 监控</h2>
+<p>一个基于微服务架构的电商系统<br>
+<img src="https://www.jobcher.com/images/skywalkning.png" width="100%"><br>
+<code>APM </code>(Application Performance Management) 即应用性能管理，属于 IT 运维管理（ITOM)范畴.<br>
+分为一下三个方面：</p>
+<ul>
+<li>Logging<br>
+服务在处理某个请求时打印的错误日志，可以将这些日志信息记录到<code>Elasticsearch</code>或是其他存储中。通过 Kibana 或是其他工具来分析这些日志了解服务的行为和状态，大多数情况下。日志记录的数据很分散，并且相互独立。例如错误日志，请求处理过程中关键步骤的日志等等。</li>
+<li>Metrics<br>
+<code>Metric</code>是可以聚合的，例如为电商系统中每个 HTTP 接口添加一个计数器，计算每个接口的 QPS，可以通过简单的加和计算得到系统的总负载情况。</li>
+<li>Tracing<br>
+在微服务架构系统中一请求会经过很多服务处理，调用链路会非常长，要确定中间哪个服务出现异常是非常麻烦的事情，通过分布式链路追踪，运维人员就可以构建一个请求的视图。视图上战术了一个请求从进入系统开始到返回响应的整个流程。</li>
+</ul>
+<blockquote>
+<p><code>系统交互图</code><br>
+<img src="https://www.jobcher.com/images/skywalking2.svg" width="70%"></p>
+</blockquote>
+<blockquote>
+<p><code>系统加载图</code> &gt; <img src="https://www.jobcher.com/images/skywalking3.svg" width="100%"></p>
+</blockquote>
+<h2 id="目前流行的apm监控">目前流行的<code>APM监控</code></h2>
+<ul>
+<li>Zipkin
+<ul>
+<li>对 web.xml 进行修改，代码侵入</li>
+<li>twitter 开源</li>
+</ul>
+</li>
+<li>Cat
+<ul>
+<li>支持 Java、C/C++、Node.Js、Python、go</li>
+<li>代码侵入，埋点</li>
+<li>美团开源</li>
+</ul>
+</li>
+<li>Pinpoint
+<ul>
+<li>基于字节码注入技术，代码无侵入</li>
+<li>韩国公司开发，社区交流滞后</li>
+<li>只支持 hbase</li>
+<li>颗粒度更细</li>
+</ul>
+</li>
+<li>Skywalking<br>
+观测性分析平台
+<ul>
+<li>基于字节码注入技术，代码无侵入</li>
+<li>服务、服务实例、端点指标分析</li>
+<li>服务拓扑图分析</li>
+<li>服务、服务实例和端点（Endpont）SLA 分析</li>
+<li>支持 es，h2,mysql,TiDb,sharding-sphere</li>
+</ul>
+</li>
+</ul>
+<h1 id="skywalking-整体框架">skywalking 整体框架</h1>
+<img src="https://www.jobcher.com/images/skywalking4.jpg" width="100%">  
+<ul>
+<li>上部分 <code>Agent</code> ：负责从应用中，收集链路信息，发送给 SkyWalking OAP 服务器。目前支持 SkyWalking、Zikpin、Jaeger 等提供的 Tracing 数据信息。而我们目前采用的是，SkyWalking Agent 收集 SkyWalking Tracing 数据，传递给服务器。</li>
+<li>下部分 <code>SkyWalking OAP</code> ：负责接收 Agent 发送的 Tracing 数据信息，然后进行分析(Analysis Core) ，存储到外部存储器( Storage )，最终提供查询( Query )功能。</li>
+<li>右部分 <code>Storage</code> ：Tracing 数据存储。目前支持 ES、MySQL、Sharding Sphere、TiDB、H2 多种存储器。而我们目前采用的是 ES ，主要考虑是 SkyWalking 开发团队自己的生产环境采用 ES 为主。</li>
+<li>左部分 <code>SkyWalking UI</code> ：负责提供控台，查看链路等等。</li>
+</ul>
+<h2 id="skywalking-配置">skywalking 配置</h2>
+<h2 id="使用-docker-compose-安装">使用 docker-compose 安装</h2>
+<p>使用 mysql 作为存储<br>
+下载 <code>mysql-connector-java-8.0.30.jar</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">mkdir ./libs/
+</span></span><span class="line"><span class="ln">2</span><span class="cl">mv mysql-connector-java-8.0.30.jar ./libs/
+</span></span></code></pre></div><p>创建带 mysql 驱动的基础镜像</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-Dockerfile" data-lang="Dockerfile"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">FROM</span><span class="w"> </span><span class="s">apache/skywalking-oap-server:9.1.0</span><span class="err">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="err"></span><span class="k">LABEL</span> <span class="nv">maintainer</span><span class="o">=</span><span class="s2">&#34;nb@nbtyfood.com&#34;</span><span class="err">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="err"></span><span class="k">COPY</span> ./libs/* /skywalking/oap-libs<span class="err">
+</span></span></span></code></pre></div><p>上传 dockerhub 或者自己的镜像仓库，这里我是上传到自己的仓库</p>
+<ol>
+<li>创建镜像
+<blockquote>
+<p>docker build -t skywalking-mysql-server:v1.0 .</p>
+</blockquote>
+</li>
+<li>打 tag，选择上传位置
+<blockquote>
+<p>docker tag skywalking-mysql-server:v1.0 &lt;仓库地址&gt;/blog/skywalking-mysql-server:v1.0</p>
+</blockquote>
+</li>
+<li>上传镜像
+<blockquote>
+<p>docker push &lt;仓库地址&gt;/blog/skywalking-mysql-server:v1.0</p>
+</blockquote>
+</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w">  </span><span class="nt">skywalking-oap-server</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;hub.docker.com/jobcher/skywalking-mysql-server:v1.0&#34;</span><span class="w"> </span><span class="c">#docker iamge 地址</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;oap-server&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;always&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">      </span>- <span class="l">SW_STORAGE=mysql</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">      </span>- <span class="l">SW_JDBC_URL=&#34;jdbc:mysql://10.12.12.4:3306/sk&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">      </span>- <span class="l">SW_DATA_SOURCE_USER=user</span><span class="w"> </span><span class="c"># mysql用户名</span><span class="w">
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w">      </span>- <span class="l">SW_DATA_SOURCE_PASSWORD=password</span><span class="w"> </span><span class="c"># mysql密码</span><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="w">      </span>- <span class="s2">&#34;10.12.12.16:12800:12800&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="w">      </span>- <span class="s2">&#34;10.12.12.16:1234:1234&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="w">      </span>- <span class="s2">&#34;10.12.12.16:11800:11800&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="w">  </span><span class="nt">skywalking-oap-ui</span><span class="p">:</span><span class="w"> </span><span class="c">#UI界面</span><span class="w">
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;apache/skywalking-ui:9.1.0&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;oap-ui&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;always&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="w">      </span>- <span class="l">SW_OAP_ADDRESS=http://10.12.12.16:12800</span><span class="w">
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="w">      </span>- <span class="s2">&#34;8180:8080&#34;</span><span class="w">
+</span></span></span></code></pre></div><h2 id="skywalking-客户端部署">skywalking 客户端部署</h2>
+<p>下载客户端<br>
+<a href="https://archive.apache.org/dist/skywalking/8.14.0/apache-skywalking-java-agent-8.14.0.tgz">点击下载</a></p>
+<h3 id="安装到要监控的主机">安装到要监控的主机</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">wget https://archive.apache.org/dist/skywalking/8.14.0/apache-skywalking-java-agent-8.14.0.tgz
+</span></span><span class="line"><span class="ln">2</span><span class="cl">tar -zxvf apache-skywalking-java-agent-8.14.0.tgz
+</span></span></code></pre></div><h3 id="配置变量">配置变量</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="ln">1</span><span class="cl"><span class="c1"># SkyWalking Agent 配置</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">export</span> <span class="nv">SW_AGENT_NAME</span><span class="o">=</span>rf-consumer <span class="c1"># 配置 Agent 名字。一般来说，我们直接使用 Spring Boot 项目的 `spring.application.name` 。</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="nb">export</span> <span class="nv">SW_AGENT_COLLECTOR_BACKEND_SERVICES</span><span class="o">=</span>10.12.12.16:11800 <span class="c1"># 配置 Collector 地址。</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="c1">#export SW_AGENT_SPAN_LIMIT=2000 # 配置链路的最大 Span 数量。一般情况下，不需要配置，默认为 300 。主要考虑，有些新上 SkyWalking Agent 的项目，代码可能比较糟糕。</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="nb">export</span> <span class="nv">JAVA_AGENT</span><span class="o">=</span>-javaagent:/home/ubuntu/skywalking-agent/skywalking-agent.jar <span class="c1"># SkyWalking Agent jar 地址。</span>
+</span></span></code></pre></div><h3 id="启动java程序">启动java程序</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">java <span class="nv">$JAVA_AGENT</span> -jar yourapp.jar
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="c1">#或者</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">java -javaagent:&lt;skywalking-agent-path&gt; -jar yourApp.jar
+</span></span></code></pre></div>]]></content:encoded></item></channel></rss>

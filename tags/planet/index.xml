@@ -1,21 +1,43 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Planet on 打工人日志</title><link>https://www.jobcher.com/tags/planet/</link><description>Recent content in Planet on 打工人日志</description><generator>Hugo</generator><language>zh-hans</language><copyright>Copyright © 2022-{year} All Rights Reserved.</copyright><lastBuildDate>Mon, 16 Nov 2026 13:03:26 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/tags/planet/index.xml" rel="self" type="application/rss+xml"/><item><title>Planet 下载及安装</title><link>https://www.jobcher.com/planet/</link><pubDate>Wed, 17 Aug 2022 00:00:00 +0000</pubDate><guid>https://www.jobcher.com/planet/</guid><description>&lt;h1 id="planet-下载及安装"&gt;Planet 下载及安装&lt;/h1&gt;
-&lt;h2 id="官网下载"&gt;&lt;a href="https://www.planetable.xyz/"&gt;官网下载&lt;/a&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;code&gt;Planet&lt;/code&gt; 是一款用于发布和关注 Web 内容的免费开源软件，它不需要集中式服务器或服务。它使用 &lt;code&gt;IPFS&lt;/code&gt; 来实现&lt;code&gt;点对点&lt;/code&gt;的&lt;code&gt;内容分发&lt;/code&gt;。此外，您可以将您的内容链接到&lt;code&gt;以太坊名称 (.eth)&lt;/code&gt;，以便其他人可以通过 &lt;code&gt;Planet&lt;/code&gt; 以 &lt;code&gt;.eth&lt;/code&gt; 名称关注您。由于 &lt;code&gt;IPFS&lt;/code&gt; 和 &lt;code&gt;ENS&lt;/code&gt; 都是去中心化的，因此您可以以&lt;code&gt;去中心化&lt;/code&gt;的方式构建您的网站或关注其他网站。&lt;/p&gt;
-&lt;h2 id="如何使用"&gt;如何使用&lt;/h2&gt;
-&lt;p&gt;标准是 &lt;code&gt;EIP-1577&lt;/code&gt;，这个 &lt;code&gt;Content Hash&lt;/code&gt; 字段可以接受一些可能的值。例如，&lt;code&gt;IPFS&lt;/code&gt;——另一种去中心化的内容分发技术。而&lt;a href="https://ipfs.io/ipns/vitalik.eth"&gt;vitalik.eth&lt;/a&gt; 网站已经在 IPFS 上运行。&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://www.jobcher.com/images/vitalik-eth.png" alt="logo" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;通过 Planet 关注来自 vitalik.eth 的更新&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;使用 &lt;code&gt;Planet&lt;/code&gt; 创建网站后，右键单击侧栏中的项目，然后选择&lt;code&gt;Copy IPNS&lt;/code&gt;，然后您将在粘贴板中看到如下所示的内容：&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="ln"&gt;1&lt;/span&gt;&lt;span class="cl"&gt;k51qzi5uqu5dgv8kzl1anc0m74n6t9ffdjnypdh846ct5wgpljc7rulynxa74a
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="公开-ens"&gt;公开 ENS&lt;/h2&gt;
-&lt;p&gt;然后您可以像这样将该 &lt;code&gt;IPNS&lt;/code&gt; 放入您的 &lt;code&gt;ENS ContentHash&lt;/code&gt; 中：&lt;br&gt;
-&lt;img src="https://www.jobcher.com/images/set-content-hash.png" alt="ETH" loading="lazy" decoding="async"&gt;
-&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;确保在该字符串之前添加了 &lt;code&gt;ipns://&lt;/code&gt;。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="完成"&gt;完成！&lt;/h2&gt;
-&lt;p&gt;然后您的网站将链接到您的 &lt;code&gt;ENS&lt;/code&gt;。恭喜！现在你有一个在 &lt;code&gt;ENS + IPFS&lt;/code&gt; 上运行的去中心化网站！&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Planet - 打工人日志</title><link>https://www.jobcher.com/tags/planet/</link><description>打工人日志（Jobcher）——面向开发者与运维的技术博客，覆盖 Kubernetes、Docker、Linux、监控、AI 与开发者工具的实战教程与干货。</description><generator>Hugo</generator><language>zh-cn</language><copyright>Copyright © 2022-2026 All Rights Reserved.</copyright><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor><webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Wed, 17 Aug 2022 00:00:00 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/tags/planet/index.xml" rel="self" type="application/rss+xml"/><item><title>Planet 下载及安装</title><link>https://www.jobcher.com/planet/</link><pubDate>Wed, 17 Aug 2022 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/planet/</guid><description><![CDATA[<h1 id="planet-下载及安装">Planet 下载及安装</h1>
+<h2 id="官网下载"><a href="https://www.planetable.xyz/">官网下载</a></h2>
+<p><code>Planet</code> 是一款用于发布和关注 Web 内容的免费开源软件，它不需要集中式服务器或服务。它使用 <code>IPFS</code> 来实现<code>点对点</code>的<code>内容分发</code>。此外，您可以将您的内容链接到<code>以太坊名称 (.eth)</code>，以便其他人可以通过 <code>Planet</code> 以 <code>.eth</code> 名称关注您。由于 <code>IPFS</code> 和 <code>ENS</code> 都是去中心化的，因此您可以以<code>去中心化</code>的方式构建您的网站或关注其他网站。</p>
+<h2 id="如何使用">如何使用</h2>
+<p>标准是 <code>EIP-1577</code>，这个 <code>Content Hash</code> 字段可以接受一些可能的值。例如，<code>IPFS</code>——另一种去中心化的内容分发技术。而<a href="https://ipfs.io/ipns/vitalik.eth">vitalik.eth</a> 网站已经在 IPFS 上运行。</p>
+<p><img src="https://www.jobcher.com/images/vitalik-eth.png" alt="logo" loading="lazy" decoding="async">
+</p>
+<blockquote>
+<p>通过 Planet 关注来自 vitalik.eth 的更新</p>
+</blockquote>
+<p>使用 <code>Planet</code> 创建网站后，右键单击侧栏中的项目，然后选择<code>Copy IPNS</code>，然后您将在粘贴板中看到如下所示的内容：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">k51qzi5uqu5dgv8kzl1anc0m74n6t9ffdjnypdh846ct5wgpljc7rulynxa74a
+</span></span></code></pre></div><h2 id="公开-ens">公开 ENS</h2>
+<p>然后您可以像这样将该 <code>IPNS</code> 放入您的 <code>ENS   ContentHash</code> 中：<br>
+<img src="https://www.jobcher.com/images/set-content-hash.png" alt="ETH" loading="lazy" decoding="async">
+</p>
+<blockquote>
+<p>确保在该字符串之前添加了 <code>ipns://</code>。</p>
+</blockquote>
+<h2 id="完成">完成！</h2>
+<p>然后您的网站将链接到您的 <code>ENS</code>。恭喜！现在你有一个在 <code>ENS + IPFS</code> 上运行的去中心化网站！</p>
+]]></description><content:encoded><![CDATA[<h1 id="planet-下载及安装">Planet 下载及安装</h1>
+<h2 id="官网下载"><a href="https://www.planetable.xyz/">官网下载</a></h2>
+<p><code>Planet</code> 是一款用于发布和关注 Web 内容的免费开源软件，它不需要集中式服务器或服务。它使用 <code>IPFS</code> 来实现<code>点对点</code>的<code>内容分发</code>。此外，您可以将您的内容链接到<code>以太坊名称 (.eth)</code>，以便其他人可以通过 <code>Planet</code> 以 <code>.eth</code> 名称关注您。由于 <code>IPFS</code> 和 <code>ENS</code> 都是去中心化的，因此您可以以<code>去中心化</code>的方式构建您的网站或关注其他网站。</p>
+<h2 id="如何使用">如何使用</h2>
+<p>标准是 <code>EIP-1577</code>，这个 <code>Content Hash</code> 字段可以接受一些可能的值。例如，<code>IPFS</code>——另一种去中心化的内容分发技术。而<a href="https://ipfs.io/ipns/vitalik.eth">vitalik.eth</a> 网站已经在 IPFS 上运行。</p>
+<p><img src="https://www.jobcher.com/images/vitalik-eth.png" alt="logo" loading="lazy" decoding="async">
+</p>
+<blockquote>
+<p>通过 Planet 关注来自 vitalik.eth 的更新</p>
+</blockquote>
+<p>使用 <code>Planet</code> 创建网站后，右键单击侧栏中的项目，然后选择<code>Copy IPNS</code>，然后您将在粘贴板中看到如下所示的内容：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="ln">1</span><span class="cl">k51qzi5uqu5dgv8kzl1anc0m74n6t9ffdjnypdh846ct5wgpljc7rulynxa74a
+</span></span></code></pre></div><h2 id="公开-ens">公开 ENS</h2>
+<p>然后您可以像这样将该 <code>IPNS</code> 放入您的 <code>ENS   ContentHash</code> 中：<br>
+<img src="https://www.jobcher.com/images/set-content-hash.png" alt="ETH" loading="lazy" decoding="async">
+</p>
+<blockquote>
+<p>确保在该字符串之前添加了 <code>ipns://</code>。</p>
+</blockquote>
+<h2 id="完成">完成！</h2>
+<p>然后您的网站将链接到您的 <code>ENS</code>。恭喜！现在你有一个在 <code>ENS + IPFS</code> 上运行的去中心化网站！</p>
+]]></content:encoded></item></channel></rss>
