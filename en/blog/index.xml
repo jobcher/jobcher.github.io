@@ -11,13 +11,13 @@
 <p>Git LFS can also replace a large file with a pointer, and the blob storage is usually tied to the Git host. A DVC remote can be object storage or an SSH machine you already operate, and the pipeline is part of the tool: it records which dataset, which script, and which parameters a training run depended on.</p>
 <h2 id="how-it-works">How it works</h2>
 <p>The workspace, the local cache, and the remote each hold a copy of the data. Git holds only the pointers.</p>
-<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart LR
+<pre class="mermaid">flowchart LR
   workspace[&#34;Data and models in the workspace&#34;] --&gt;|dvc add / dvc repro| cache[&#34;Local cache .dvc/cache&#34;]
   cache --&gt;|dvc push| remote[&#34;Remote&#34;]
   remote --&gt;|dvc pull| cache
   cache --&gt;|dvc checkout| workspace
-  meta[&#34;.dvc, dvc.yaml, dvc.lock&#34;] --&gt;|git commit| gitrepo[&#34;Git repository&#34;]
-</code></pre><h3 id="pointer-files">Pointer files</h3>
+  meta[&#34;.dvc, dvc.yaml, dvc.lock&#34;] --&gt;|git commit| gitrepo[&#34;Git repository&#34;]</pre>
+<h3 id="pointer-files">Pointer files</h3>
 <p><code>dvc add data/raw.csv</code> does three things: hash the file contents, store the file in <code>.dvc/cache</code>, write <code>data/raw.csv.dvc</code> beside it, and add <code>data/raw.csv</code> to <code>.gitignore</code>.</p>
 <p>A pointer file looks like this (the hash and size are filled in by the command):</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nt">outs</span><span class="p">:</span><span class="w">
@@ -337,13 +337,13 @@
 <p>Git LFS can also replace a large file with a pointer, and the blob storage is usually tied to the Git host. A DVC remote can be object storage or an SSH machine you already operate, and the pipeline is part of the tool: it records which dataset, which script, and which parameters a training run depended on.</p>
 <h2 id="how-it-works">How it works</h2>
 <p>The workspace, the local cache, and the remote each hold a copy of the data. Git holds only the pointers.</p>
-<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart LR
+<pre class="mermaid">flowchart LR
   workspace[&#34;Data and models in the workspace&#34;] --&gt;|dvc add / dvc repro| cache[&#34;Local cache .dvc/cache&#34;]
   cache --&gt;|dvc push| remote[&#34;Remote&#34;]
   remote --&gt;|dvc pull| cache
   cache --&gt;|dvc checkout| workspace
-  meta[&#34;.dvc, dvc.yaml, dvc.lock&#34;] --&gt;|git commit| gitrepo[&#34;Git repository&#34;]
-</code></pre><h3 id="pointer-files">Pointer files</h3>
+  meta[&#34;.dvc, dvc.yaml, dvc.lock&#34;] --&gt;|git commit| gitrepo[&#34;Git repository&#34;]</pre>
+<h3 id="pointer-files">Pointer files</h3>
 <p><code>dvc add data/raw.csv</code> does three things: hash the file contents, store the file in <code>.dvc/cache</code>, write <code>data/raw.csv.dvc</code> beside it, and add <code>data/raw.csv</code> to <code>.gitignore</code>.</p>
 <p>A pointer file looks like this (the hash and size are filled in by the command):</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nt">outs</span><span class="p">:</span><span class="w">

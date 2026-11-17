@@ -11,13 +11,13 @@
 <p>Git LFS 也能把大文件换成指针，存储一般绑在 Git 托管平台上。DVC 的远端可以是你已经在用的对象存储或一台 SSH 机器，并且自带流水线：它知道训练依赖哪份数据、哪个脚本、哪几个参数。</p>
 <h2 id="原理">原理</h2>
 <p>工作区、本地缓存、远端各有一份数据。Git 里只有指针。</p>
-<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart LR
+<pre class="mermaid">flowchart LR
   workspace[&#34;工作区里的数据和模型&#34;] --&gt;|dvc add / dvc repro| cache[&#34;本地缓存 .dvc/cache&#34;]
   cache --&gt;|dvc push| remote[&#34;远端&#34;]
   remote --&gt;|dvc pull| cache
   cache --&gt;|dvc checkout| workspace
-  meta[&#34;.dvc、dvc.yaml、dvc.lock&#34;] --&gt;|git commit| gitrepo[&#34;Git 仓库&#34;]
-</code></pre><h3 id="指针文件">指针文件</h3>
+  meta[&#34;.dvc、dvc.yaml、dvc.lock&#34;] --&gt;|git commit| gitrepo[&#34;Git 仓库&#34;]</pre>
+<h3 id="指针文件">指针文件</h3>
 <p><code>dvc add data/raw.csv</code> 做三件事：按文件内容算哈希，把文件放进 <code>.dvc/cache</code>，在旁边写下 <code>data/raw.csv.dvc</code>，并把 <code>data/raw.csv</code> 写进 <code>.gitignore</code>。</p>
 <p>指针文件类似这样（哈希和大小由命令生成）：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nt">outs</span><span class="p">:</span><span class="w">
@@ -337,13 +337,13 @@
 <p>Git LFS 也能把大文件换成指针，存储一般绑在 Git 托管平台上。DVC 的远端可以是你已经在用的对象存储或一台 SSH 机器，并且自带流水线：它知道训练依赖哪份数据、哪个脚本、哪几个参数。</p>
 <h2 id="原理">原理</h2>
 <p>工作区、本地缓存、远端各有一份数据。Git 里只有指针。</p>
-<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart LR
+<pre class="mermaid">flowchart LR
   workspace[&#34;工作区里的数据和模型&#34;] --&gt;|dvc add / dvc repro| cache[&#34;本地缓存 .dvc/cache&#34;]
   cache --&gt;|dvc push| remote[&#34;远端&#34;]
   remote --&gt;|dvc pull| cache
   cache --&gt;|dvc checkout| workspace
-  meta[&#34;.dvc、dvc.yaml、dvc.lock&#34;] --&gt;|git commit| gitrepo[&#34;Git 仓库&#34;]
-</code></pre><h3 id="指针文件">指针文件</h3>
+  meta[&#34;.dvc、dvc.yaml、dvc.lock&#34;] --&gt;|git commit| gitrepo[&#34;Git 仓库&#34;]</pre>
+<h3 id="指针文件">指针文件</h3>
 <p><code>dvc add data/raw.csv</code> 做三件事：按文件内容算哈希，把文件放进 <code>.dvc/cache</code>，在旁边写下 <code>data/raw.csv.dvc</code>，并把 <code>data/raw.csv</code> 写进 <code>.gitignore</code>。</p>
 <p>指针文件类似这样（哈希和大小由命令生成）：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nt">outs</span><span class="p">:</span><span class="w">
