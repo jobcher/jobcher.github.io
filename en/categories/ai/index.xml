@@ -1,4 +1,656 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>AI - Jobcher's Blog</title><link>https://www.jobcher.com/en/categories/ai/</link><description>Jobcher's Blog — hands-on notes for developers and SRE on Kubernetes, Docker, Linux, monitoring, AI, and developer tooling.</description><generator>Hugo</generator><language>en</language><copyright>Copyright © 2022-2026 All Rights Reserved.</copyright><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor><webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Mon, 16 Nov 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/en/categories/ai/index.xml" rel="self" type="application/rss+xml"/><item><title>How to learn MLOps, in practice</title><link>https://www.jobcher.com/en/mlops-learning-path/</link><pubDate>Mon, 16 Nov 2026 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/en/mlops-learning-path/</guid><description><![CDATA[<p>MLOps is the work of making a model trainable by someone else, blocked by evaluation, deployed, observed, and reversible to the previous version when it goes wrong.</p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>AI - Jobcher's Blog</title><link>https://www.jobcher.com/en/categories/ai/</link><description>Jobcher's Blog — hands-on notes for developers and SRE on Kubernetes, Docker, Linux, monitoring, AI, and developer tooling.</description><generator>Hugo</generator><language>en</language><copyright>Copyright © 2022-2026 All Rights Reserved.</copyright><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor><webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 17 Nov 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/en/categories/ai/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting started with DVC: purpose, how it works, and the commands</title><link>https://www.jobcher.com/en/dvc/</link><pubDate>Tue, 17 Nov 2026 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/en/dvc/</guid><description><![CDATA[<p>Datasets and model files do not belong in Git. A CSV of a few hundred megabytes, and a model larger than that, makes clone, diff, and rollback slow. DVC (Data Version Control) keeps those files outside Git, commits a small pointer instead, and uses the same idea for the training pipeline: when code, parameters, or data change, only the affected steps run again.</p>
+<p>DVC does not replace Git. Git keeps the code and the pointers. DVC keeps the data, the models, and the pipeline outputs.</p>
+<h2 id="what-it-is-for">What it is for</h2>
+<p>Day to day, that is four jobs:</p>
+<ul>
+<li>Version data and models. Each <code>dvc add</code> or pipeline rerun records a content hash that lines up with a Git commit.</li>
+<li>Sync those large files between machines. One copy lives in the local cache, another on a remote (disk, NFS, S3, SSH, or WebDAV).</li>
+<li>Turn &ldquo;prepare data → train → write metrics&rdquo; into a pipeline. Steps whose dependencies did not change are skipped.</li>
+<li>Switch data and models together with the code. After <code>git checkout</code>, run <code>dvc checkout</code>.</li>
+</ul>
+<p>Git LFS can also replace a large file with a pointer, and the blob storage is usually tied to the Git host. A DVC remote can be object storage or an SSH machine you already operate, and the pipeline is part of the tool: it records which dataset, which script, and which parameters a training run depended on.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>The workspace, the local cache, and the remote each hold a copy of the data. Git holds only the pointers.</p>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart LR
+  workspace[&#34;Data and models in the workspace&#34;] --&gt;|dvc add / dvc repro| cache[&#34;Local cache .dvc/cache&#34;]
+  cache --&gt;|dvc push| remote[&#34;Remote&#34;]
+  remote --&gt;|dvc pull| cache
+  cache --&gt;|dvc checkout| workspace
+  meta[&#34;.dvc, dvc.yaml, dvc.lock&#34;] --&gt;|git commit| gitrepo[&#34;Git repository&#34;]
+</code></pre><h3 id="pointer-files">Pointer files</h3>
+<p><code>dvc add data/raw.csv</code> does three things: hash the file contents, store the file in <code>.dvc/cache</code>, write <code>data/raw.csv.dvc</code> beside it, and add <code>data/raw.csv</code> to <code>.gitignore</code>.</p>
+<p>A pointer file looks like this (the hash and size are filled in by the command):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nt">outs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span>- <span class="nt">md5</span><span class="p">:</span><span class="w"> </span><span class="l">22a1a2931c8370d3aeedd7183606fd7f</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w">  </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="m">1048576</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w">  </span><span class="nt">hash</span><span class="p">:</span><span class="w"> </span><span class="l">md5</span><span class="w">
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">raw.csv</span><span class="w">
+</span></span></span></code></pre></div><p>The file is only a few lines, so it can be committed. After someone clones the repo they still do not have the CSV. <code>dvc pull</code> fetches the bytes from the remote by that hash.</p>
+<p>Directories work the same way. <code>dvc add data/</code> tracks the whole directory. The cache stores each file plus a directory listing.</p>
+<h3 id="content-addressed-storage">Content-addressed storage</h3>
+<p>The cache lives in <code>.dvc/cache</code> and is stored by MD5 of the file contents, not by file name. Identical contents are stored once. Change one byte and the hash changes, so the cache gains a new object. The old object stays until you clean it up. Checking out an old commit restores the file as long as that hash is still in the cache or on the remote.</p>
+<p>Workspace files are often hard links into the cache, and they are read-only, so editing the workspace does not overwrite a historical version in the cache. To change a tracked file, run <code>dvc unprotect</code>, edit it, then <code>dvc add</code> again.</p>
+<h3 id="a-pipeline-records-dependencies">A pipeline records dependencies</h3>
+<p>A pipeline is <code>dvc.yaml</code>. Each stage has:</p>
+<ul>
+<li><code>cmd</code>: the command to run</li>
+<li><code>deps</code>: inputs, data files or code</li>
+<li><code>params</code>: parameters read from <code>params.yaml</code></li>
+<li><code>outs</code>: data or models the command writes; DVC caches these</li>
+<li><code>metrics</code>: a metrics file. With <code>cache: false</code> it stays out of the cache, and a small file can go straight into Git</li>
+</ul>
+<p><code>dvc repro</code> writes <code>dvc.lock</code>. The lockfile records the hash of every dependency and output from that run, and it should be committed. The next rerun compares the workspace with the hashes in the lock:</p>
+<ul>
+<li>Dependencies, parameters, and the command are unchanged: skip the stage</li>
+<li>An input to one stage changed: start at that stage and follow the graph downstream</li>
+<li>Before a stage runs, DVC deletes the <code>outs</code> that stage declared, then runs <code>cmd</code>. The script has to create its output directories, and it should overwrite output files rather than append to them</li>
+</ul>
+<p><code>dvc.yaml</code> says what to do. <code>dvc.lock</code> says what the last run produced. Both go into Git. The CSV and <code>model.pkl</code> go into the cache and the remote.</p>
+<p>If a metrics file sets <code>cache: false</code>, its hash is still written to <code>dvc.lock</code> and the file itself stays in the workspace. You can run <code>dvc metrics diff</code> and compare AUC across two commits without pulling the data.</p>
+<h3 id="where-configuration-goes">Where configuration goes</h3>
+<p><code>dvc init</code> creates <code>.dvc/</code>. Commit <code>.dvc/config</code>, which holds the remote URL. Write secrets to <code>.dvc/config.local</code>. That file is ignored by default.</p>
+<p>One complete version is these four pieces:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Where</th>
+          <th>What</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Git</td>
+          <td>Code, <code>params.yaml</code>, <code>dvc.yaml</code>, <code>dvc.lock</code>, <code>*.dvc</code>, <code>.dvc/config</code></td>
+      </tr>
+      <tr>
+          <td><code>.dvc/cache</code></td>
+          <td>Data and models, stored by hash</td>
+      </tr>
+      <tr>
+          <td>Remote</td>
+          <td>A copy of the cache, so other machines can <code>dvc pull</code></td>
+      </tr>
+      <tr>
+          <td><code>.dvc/config.local</code></td>
+          <td>Credentials for the remote, not committed</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="commands">Commands</h2>
+<p>The commands sit next to Git: one side commits pointers, the other pushes data.</p>
+<h3 id="init-and-remotes">Init and remotes</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl">dvc init
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"># Local disk or a shared mount. -d makes it the default remote</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">dvc remote add -d storage /mnt/dvc-storage
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1"># Object storage. Install the plugin first, and keep credentials in the local config</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"># pip install dvc-s3</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">dvc remote add -d storage s3://team-ml/churn/dvc
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">dvc remote modify --local storage access_key_id <span class="s1">&#39;AKIA...&#39;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">dvc remote modify --local storage secret_access_key <span class="s1">&#39;...&#39;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">
+</span></span><span class="line"><span class="ln">12</span><span class="cl">dvc remote list
+</span></span><span class="line"><span class="ln">13</span><span class="cl">dvc remote default storage
+</span></span></code></pre></div><p>An SSH remote is <code>ssh://user@host/data/dvc-cache</code>. Pick one remote for the team and commit its address in <code>.dvc/config</code>.</p>
+<h3 id="synology-webdav-as-dvc-storage">Synology WebDAV as DVC storage</h3>
+<p>When a Synology NAS is already on the home or office LAN, DSM&rsquo;s WebDAV Server can be the DVC remote. Another machine then uses <code>dvc pull</code> to fetch the data and the model.</p>
+<p>On the NAS:</p>
+<ol>
+<li>Install <strong>WebDAV Server</strong> from Package Center. Enable HTTPS and leave the port at the default <code>5006</code>. On a LAN you can also enable HTTP on <code>5005</code>.</li>
+<li>Control Panel → Shared Folder, and create a folder that holds only the cache, for example <code>dvc</code>. Turn the recycle bin off for that folder, so cleaning up old versions actually returns disk space.</li>
+<li>Control Panel → User &amp; Group, and create a user <code>dvc</code>. Grant that user read/write on the shared folder, and allow WebDAV Server in the user&rsquo;s application permissions.</li>
+</ol>
+<p>In the project, install the WebDAV extra, commit the address, and keep the account on the machine:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">pip install <span class="s1">&#39;dvc[webdav]&#39;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc remote add -d nas-webdav webdavs://192.168.1.20:5006/dvc
+</span></span><span class="line"><span class="ln">4</span><span class="cl">dvc remote modify --local nas-webdav user <span class="s1">&#39;your-user&#39;</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">dvc remote modify --local nas-webdav password <span class="s1">&#39;your-password&#39;</span>
+</span></span></code></pre></div><p>Replace <code>192.168.1.20</code> with the NAS address on the LAN. <code>dvc</code> is the shared folder name. For HTTP only, use <code>webdav://192.168.1.20:5005/dvc</code>.</p>
+<p>DSM ships with a self-signed certificate. If <code>dvc push</code> fails on certificate verification, turn verification off for LAN use:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc remote modify nas-webdav ssl_verify <span class="nb">false</span>
+</span></span></code></pre></div><p>If the NAS already has your own certificate, or you exported the CA, point <code>ssl_verify</code> at that pem file.</p>
+<p>What you commit is <code>.dvc/config</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">[core]</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="na">remote</span> <span class="o">=</span> <span class="s">nas-webdav</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="k">[&#39;remote &#34;nas-webdav&#34;&#39;]</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="na">url</span> <span class="o">=</span> <span class="s">webdavs://192.168.1.20:5006/dvc
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="s">    ssl_verify = false</span>
+</span></span></code></pre></div><p>The account stays in <code>.dvc/config.local</code>, which is already ignored:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">[&#39;remote &#34;nas-webdav&#34;&#39;]</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="na">user</span> <span class="o">=</span> <span class="s">your-user
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="s">    password = your-password</span>
+</span></span></code></pre></div><p>Push and check it like any other remote:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc push
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc status --cloud
+</span></span></code></pre></div><p>If <code>dvc push</code> fails while listing directories, enable <strong>Depth Infinity</strong> in WebDAV Server and push again. A reverse proxy in front of port 443 has to allow uploads larger than a single model file. The built-in <code>5006</code> port has no such limit.</p>
+<h3 id="track-data">Track data</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc add data/raw.csv          <span class="c1"># write the .dvc file, cache the data, ignore the original</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc unprotect data/raw.csv    <span class="c1"># make a read-only hard link writable before editing</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc add data/raw.csv          <span class="c1"># refresh the hash after the edit</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">dvc commit                    <span class="c1"># copy workspace edits of tracked files back into the cache and update pointers</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">dvc remove data/raw.csv.dvc   <span class="c1"># stop tracking the file and update the ignore rules</span>
+</span></span></code></pre></div><p>Use <code>dvc add</code> for new data, or to update a file tracked by its own <code>.dvc</code> file. Leave pipeline outputs alone. Change a dependency and run <code>dvc repro</code>.</p>
+<h3 id="sync-and-switch-versions">Sync and switch versions</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc status            <span class="c1"># workspace compared with the pointers</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc status --cloud    <span class="c1"># what the local cache is missing relative to the remote</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc push              <span class="c1"># cache → remote</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">dvc fetch             <span class="c1"># remote → cache, workspace unchanged</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">dvc pull              <span class="c1"># fetch, then checkout</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">dvc checkout          <span class="c1"># restore the workspace from the cache using the pointers in the current Git commit</span>
+</span></span></code></pre></div><p>Switching code and switching data are two commands:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git checkout &lt;commit&gt;
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc checkout
+</span></span></code></pre></div><p>If the cache does not contain that hash, <code>dvc checkout</code> reports it missing. Run <code>dvc pull</code> next.</p>
+<h3 id="pipelines">Pipelines</h3>
+<p>Write <code>dvc.yaml</code> by hand, or generate it with <code>dvc stage add</code>. This is the same <code>train</code> stage as in the example below:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc stage add -n train <span class="se">\
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="se"></span>  -d src/train.py -d data/train.csv -d data/test.csv <span class="se">\
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="se"></span>  -p train <span class="se">\
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="se"></span>  -o models/model.pkl <span class="se">\
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="se"></span>  -M metrics.json <span class="se">\
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="se"></span>  python src/train.py
+</span></span></code></pre></div><p><code>-M</code> declares a metrics file. The default is <code>cache: false</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc repro                 <span class="c1"># rerun stages whose dependencies changed, in graph order</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc repro train           <span class="c1"># check train and its upstream stages only</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc repro --dry           <span class="c1"># print the commands that would run</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">dvc dag                   <span class="c1"># show the stage graph</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">dvc metrics show          <span class="c1"># current metrics</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">dvc metrics diff HEAD     <span class="c1"># compare workspace metrics with a commit</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl">dvc params diff HEAD      <span class="c1"># compare parameters</span>
+</span></span></code></pre></div><h3 id="experiments-and-cache-cleanup">Experiments and cache cleanup</h3>
+<p>When you are still trying parameters and do not want a commit yet, the experiment commands record a run and leave the workspace as it was:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc exp run -S train.max_depth<span class="o">=</span><span class="m">6</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc exp show
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc exp apply &lt;experiment&gt;   <span class="c1"># bring that run back into the workspace, then commit it yourself</span>
+</span></span></code></pre></div><p>The local cache grows with every version. <code>dvc gc</code> deletes nothing unless you pass a scope. <code>-w</code> keeps only the objects referenced by the pointers in the current workspace, and drops other versions from the local cache:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc gc -w
+</span></span></code></pre></div><p>Objects you already <code>dvc push</code>ed can be restored later with <code>dvc fetch</code>. <code>--cloud</code> deletes the remote with the same scope. Versions removed there are gone from that remote, so use it only after you are sure the old data can go.</p>
+<h2 id="a-typical-example">A typical example</h2>
+<p>The dataset below is for churn prediction. DVC tracks the raw CSV. Split and train are two stages. On another machine, <code>git clone</code> and <code>dvc pull</code> retrieve the same data and the same model.</p>
+<p>Repository layout:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">.
+</span></span><span class="line"><span class="ln">2</span><span class="cl">├── data/
+</span></span><span class="line"><span class="ln">3</span><span class="cl">│   └── raw.csv
+</span></span><span class="line"><span class="ln">4</span><span class="cl">├── src/
+</span></span><span class="line"><span class="ln">5</span><span class="cl">│   ├── prepare.py
+</span></span><span class="line"><span class="ln">6</span><span class="cl">│   └── train.py
+</span></span><span class="line"><span class="ln">7</span><span class="cl">├── params.yaml
+</span></span><span class="line"><span class="ln">8</span><span class="cl">├── dvc.yaml
+</span></span><span class="line"><span class="ln">9</span><span class="cl">└── dvc.lock          # written by dvc repro
+</span></span></code></pre></div><p><code>data/raw.csv</code> needs feature columns and <code>label</code>. These three rows only show the shape. A real file needs enough rows of both labels, or one side of the split will be missing a class:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csv" data-lang="csv"><span class="line"><span class="ln">1</span><span class="cl"><span class="s">tenure</span><span class="p">,</span><span class="s">monthly_charges</span><span class="p">,</span><span class="s">label</span><span class="p">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="p"></span><span class="s">3</span><span class="p">,</span><span class="s">29.85</span><span class="p">,</span><span class="s">0</span><span class="p">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="p"></span><span class="s">12</span><span class="p">,</span><span class="s">56.95</span><span class="p">,</span><span class="s">0</span><span class="p">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="p"></span><span class="s">1</span><span class="p">,</span><span class="s">89.10</span><span class="p">,</span><span class="s">1</span><span class="p">
+</span></span></span></code></pre></div><p><code>params.yaml</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nt">prepare</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w">  </span><span class="nt">test_size</span><span class="p">:</span><span class="w"> </span><span class="m">0.2</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w">  </span><span class="nt">seed</span><span class="p">:</span><span class="w"> </span><span class="m">7</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w"></span><span class="nt">train</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="w">  </span><span class="nt">max_depth</span><span class="p">:</span><span class="w"> </span><span class="m">4</span><span class="w">
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="w">  </span><span class="nt">seed</span><span class="p">:</span><span class="w"> </span><span class="m">7</span><span class="w">
+</span></span></span></code></pre></div><p><code>src/prepare.py</code> reads the parameters and the raw data, and writes the two splits:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kn">import</span> <span class="nn">yaml</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;params.yaml&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="n">params</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="s2">&#34;prepare&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&#34;data/raw.csv&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="n">df</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="n">test_size</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&#34;test_size&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="n">random_state</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&#34;seed&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="n">Path</span><span class="p">(</span><span class="s2">&#34;data&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="n">train</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&#34;data/train.csv&#34;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="n">test</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&#34;data/test.csv&#34;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">
+</span></span><span class="line"><span class="ln">21</span><span class="cl">
+</span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></div><p><code>src/train.py</code> reads the splits and writes the model and the metrics:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kn">import</span> <span class="nn">joblib</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="kn">import</span> <span class="nn">yaml</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_auc_score</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;params.yaml&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="n">params</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="s2">&#34;train&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&#34;data/train.csv&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&#34;data/test.csv&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">train</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">col</span> <span class="o">!=</span> <span class="s2">&#34;label&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="n">model</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="n">max_depth</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&#34;max_depth&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">        <span class="n">random_state</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&#34;seed&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">features</span><span class="p">],</span> <span class="n">train</span><span class="p">[</span><span class="s2">&#34;label&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="n">proba</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">features</span><span class="p">])[:,</span> <span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">
+</span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="n">Path</span><span class="p">(</span><span class="s2">&#34;models&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">    <span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&#34;models/model.pkl&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">    <span class="n">Path</span><span class="p">(</span><span class="s2">&#34;metrics.json&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">        <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&#34;roc_auc&#34;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="s2">&#34;label&#34;</span><span class="p">],</span> <span class="n">proba</span><span class="p">))},</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">        <span class="o">+</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">
+</span></span><span class="line"><span class="ln">32</span><span class="cl">
+</span></span><span class="line"><span class="ln">33</span><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl">    <span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></div><p><code>dvc.yaml</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="nt">stages</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w">  </span><span class="nt">prepare</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w">    </span><span class="nt">cmd</span><span class="p">:</span><span class="w"> </span><span class="l">python src/prepare.py</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">    </span><span class="nt">deps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w">      </span>- <span class="l">src/prepare.py</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">      </span>- <span class="l">data/raw.csv</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">    </span><span class="nt">params</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">      </span>- <span class="l">prepare</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">    </span><span class="nt">outs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">      </span>- <span class="l">data/train.csv</span><span class="w">
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w">      </span>- <span class="l">data/test.csv</span><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w">  </span><span class="nt">train</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="w">    </span><span class="nt">cmd</span><span class="p">:</span><span class="w"> </span><span class="l">python src/train.py</span><span class="w">
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="w">    </span><span class="nt">deps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="w">      </span>- <span class="l">src/train.py</span><span class="w">
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="w">      </span>- <span class="l">data/train.csv</span><span class="w">
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="w">      </span>- <span class="l">data/test.csv</span><span class="w">
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="w">    </span><span class="nt">params</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="w">      </span>- <span class="l">train</span><span class="w">
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="w">    </span><span class="nt">outs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="w">      </span>- <span class="l">models/model.pkl</span><span class="w">
+</span></span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="w">    </span><span class="nt">metrics</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="w">      </span>- <span class="nt">metrics.json</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="w">          </span><span class="nt">cache</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span></code></pre></div><h3 id="track-the-data-the-first-time">Track the data the first time</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl">git init
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">dvc init
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">pip install dvc pandas scikit-learn pyyaml joblib
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">dvc add data/raw.csv
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">git add data/raw.csv.dvc data/.gitignore .dvc
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">git commit -m <span class="s2">&#34;track raw dataset with dvc&#34;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">dvc remote add -d storage /mnt/dvc-storage
+</span></span><span class="line"><span class="ln">10</span><span class="cl">git add .dvc/config
+</span></span><span class="line"><span class="ln">11</span><span class="cl">git commit -m <span class="s2">&#34;add dvc remote&#34;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">dvc push
+</span></span></code></pre></div><p>If the Synology NAS is not mounted as a share, use the WebDAV remote from the previous section instead of <code>/mnt/dvc-storage</code>. The <code>git add</code> and <code>dvc push</code> steps stay the same.</p>
+<p>At this point Git has the pointer and the remote address, and the remote has the CSV. <code>data/raw.csv</code> does not show up as a file to commit in <code>git status</code>.</p>
+<h3 id="run-the-pipeline-and-commit">Run the pipeline and commit</h3>
+<p>After the scripts, <code>params.yaml</code>, and <code>dvc.yaml</code> are in place:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc repro
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc metrics show
+</span></span></code></pre></div><p><code>dvc repro</code> runs <code>prepare</code>, then <code>train</code>, and writes <code>dvc.lock</code>. <code>data/train.csv</code>, <code>data/test.csv</code>, and <code>models/model.pkl</code> go into the cache. <code>metrics.json</code> stays in the workspace.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git add dvc.yaml dvc.lock params.yaml src metrics.json
+</span></span><span class="line"><span class="ln">2</span><span class="cl">git commit -m <span class="s2">&#34;add prepare and train stages&#34;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc push
+</span></span><span class="line"><span class="ln">4</span><span class="cl">git push
+</span></span></code></pre></div><p>Both <code>git commit</code> and <code>dvc push</code> have to happen. Pushing only Git tells others the hash, but they cannot fetch the file. Pushing only DVC leaves them without the hash to pull.</p>
+<h3 id="another-machine">Another machine</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git clone git@github.com:org/churn.git
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> churn
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc pull          <span class="c1"># fetch raw.csv, the splits, and the model from the lockfile</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">dvc repro         <span class="c1"># nothing changed, so both stages are skipped</span>
+</span></span></code></pre></div><h3 id="change-a-parameter">Change a parameter</h3>
+<p>Set <code>train.max_depth</code> in <code>params.yaml</code> from 4 to 8:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc repro
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc metrics diff HEAD
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc params diff HEAD
+</span></span></code></pre></div><p><code>prepare</code> is unchanged, so it is skipped. <code>train</code> sees a new parameter and runs again. After you accept the metrics:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git add dvc.lock params.yaml metrics.json
+</span></span><span class="line"><span class="ln">2</span><span class="cl">git commit -m <span class="s2">&#34;train with max_depth 8&#34;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc push
+</span></span></code></pre></div><p>When the data itself changes, edit <code>data/raw.csv</code> and run <code>dvc add data/raw.csv</code> again. Once the hash changes, <code>dvc repro</code> starts over from <code>prepare</code>.</p>
+<p>To compare a few depths before committing:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc exp run -S train.max_depth<span class="o">=</span><span class="m">6</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc exp show
+</span></span></code></pre></div><p>Pick one run, bring it back with <code>dvc exp apply</code>, then commit and <code>dvc push</code> as above.</p>
+<h3 id="return-to-the-previous-version">Return to the previous version</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git checkout HEAD~1
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc checkout
+</span></span></code></pre></div><p>Code, parameters, and <code>dvc.lock</code> return to the previous commit, and the CSV and model in the workspace return to that hash. That is the version you get by tying DVC to one Git commit.</p>
+<p>Command details are in the <a href="https://doc.dvc.org/command-reference">DVC Command Reference</a>. Pipeline fields are in <a href="https://doc.dvc.org/user-guide/project-structure/dvcyaml-files">dvc.yaml</a>. Get &ldquo;pointers in Git, contents on the remote, reruns decided by the lockfile&rdquo; working before you add experiments and cache cleanup.</p>
+]]></description><content:encoded><![CDATA[<p>Datasets and model files do not belong in Git. A CSV of a few hundred megabytes, and a model larger than that, makes clone, diff, and rollback slow. DVC (Data Version Control) keeps those files outside Git, commits a small pointer instead, and uses the same idea for the training pipeline: when code, parameters, or data change, only the affected steps run again.</p>
+<p>DVC does not replace Git. Git keeps the code and the pointers. DVC keeps the data, the models, and the pipeline outputs.</p>
+<h2 id="what-it-is-for">What it is for</h2>
+<p>Day to day, that is four jobs:</p>
+<ul>
+<li>Version data and models. Each <code>dvc add</code> or pipeline rerun records a content hash that lines up with a Git commit.</li>
+<li>Sync those large files between machines. One copy lives in the local cache, another on a remote (disk, NFS, S3, SSH, or WebDAV).</li>
+<li>Turn &ldquo;prepare data → train → write metrics&rdquo; into a pipeline. Steps whose dependencies did not change are skipped.</li>
+<li>Switch data and models together with the code. After <code>git checkout</code>, run <code>dvc checkout</code>.</li>
+</ul>
+<p>Git LFS can also replace a large file with a pointer, and the blob storage is usually tied to the Git host. A DVC remote can be object storage or an SSH machine you already operate, and the pipeline is part of the tool: it records which dataset, which script, and which parameters a training run depended on.</p>
+<h2 id="how-it-works">How it works</h2>
+<p>The workspace, the local cache, and the remote each hold a copy of the data. Git holds only the pointers.</p>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart LR
+  workspace[&#34;Data and models in the workspace&#34;] --&gt;|dvc add / dvc repro| cache[&#34;Local cache .dvc/cache&#34;]
+  cache --&gt;|dvc push| remote[&#34;Remote&#34;]
+  remote --&gt;|dvc pull| cache
+  cache --&gt;|dvc checkout| workspace
+  meta[&#34;.dvc, dvc.yaml, dvc.lock&#34;] --&gt;|git commit| gitrepo[&#34;Git repository&#34;]
+</code></pre><h3 id="pointer-files">Pointer files</h3>
+<p><code>dvc add data/raw.csv</code> does three things: hash the file contents, store the file in <code>.dvc/cache</code>, write <code>data/raw.csv.dvc</code> beside it, and add <code>data/raw.csv</code> to <code>.gitignore</code>.</p>
+<p>A pointer file looks like this (the hash and size are filled in by the command):</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nt">outs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span>- <span class="nt">md5</span><span class="p">:</span><span class="w"> </span><span class="l">22a1a2931c8370d3aeedd7183606fd7f</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w">  </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="m">1048576</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w">  </span><span class="nt">hash</span><span class="p">:</span><span class="w"> </span><span class="l">md5</span><span class="w">
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">raw.csv</span><span class="w">
+</span></span></span></code></pre></div><p>The file is only a few lines, so it can be committed. After someone clones the repo they still do not have the CSV. <code>dvc pull</code> fetches the bytes from the remote by that hash.</p>
+<p>Directories work the same way. <code>dvc add data/</code> tracks the whole directory. The cache stores each file plus a directory listing.</p>
+<h3 id="content-addressed-storage">Content-addressed storage</h3>
+<p>The cache lives in <code>.dvc/cache</code> and is stored by MD5 of the file contents, not by file name. Identical contents are stored once. Change one byte and the hash changes, so the cache gains a new object. The old object stays until you clean it up. Checking out an old commit restores the file as long as that hash is still in the cache or on the remote.</p>
+<p>Workspace files are often hard links into the cache, and they are read-only, so editing the workspace does not overwrite a historical version in the cache. To change a tracked file, run <code>dvc unprotect</code>, edit it, then <code>dvc add</code> again.</p>
+<h3 id="a-pipeline-records-dependencies">A pipeline records dependencies</h3>
+<p>A pipeline is <code>dvc.yaml</code>. Each stage has:</p>
+<ul>
+<li><code>cmd</code>: the command to run</li>
+<li><code>deps</code>: inputs, data files or code</li>
+<li><code>params</code>: parameters read from <code>params.yaml</code></li>
+<li><code>outs</code>: data or models the command writes; DVC caches these</li>
+<li><code>metrics</code>: a metrics file. With <code>cache: false</code> it stays out of the cache, and a small file can go straight into Git</li>
+</ul>
+<p><code>dvc repro</code> writes <code>dvc.lock</code>. The lockfile records the hash of every dependency and output from that run, and it should be committed. The next rerun compares the workspace with the hashes in the lock:</p>
+<ul>
+<li>Dependencies, parameters, and the command are unchanged: skip the stage</li>
+<li>An input to one stage changed: start at that stage and follow the graph downstream</li>
+<li>Before a stage runs, DVC deletes the <code>outs</code> that stage declared, then runs <code>cmd</code>. The script has to create its output directories, and it should overwrite output files rather than append to them</li>
+</ul>
+<p><code>dvc.yaml</code> says what to do. <code>dvc.lock</code> says what the last run produced. Both go into Git. The CSV and <code>model.pkl</code> go into the cache and the remote.</p>
+<p>If a metrics file sets <code>cache: false</code>, its hash is still written to <code>dvc.lock</code> and the file itself stays in the workspace. You can run <code>dvc metrics diff</code> and compare AUC across two commits without pulling the data.</p>
+<h3 id="where-configuration-goes">Where configuration goes</h3>
+<p><code>dvc init</code> creates <code>.dvc/</code>. Commit <code>.dvc/config</code>, which holds the remote URL. Write secrets to <code>.dvc/config.local</code>. That file is ignored by default.</p>
+<p>One complete version is these four pieces:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Where</th>
+          <th>What</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Git</td>
+          <td>Code, <code>params.yaml</code>, <code>dvc.yaml</code>, <code>dvc.lock</code>, <code>*.dvc</code>, <code>.dvc/config</code></td>
+      </tr>
+      <tr>
+          <td><code>.dvc/cache</code></td>
+          <td>Data and models, stored by hash</td>
+      </tr>
+      <tr>
+          <td>Remote</td>
+          <td>A copy of the cache, so other machines can <code>dvc pull</code></td>
+      </tr>
+      <tr>
+          <td><code>.dvc/config.local</code></td>
+          <td>Credentials for the remote, not committed</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="commands">Commands</h2>
+<p>The commands sit next to Git: one side commits pointers, the other pushes data.</p>
+<h3 id="init-and-remotes">Init and remotes</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl">dvc init
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"># Local disk or a shared mount. -d makes it the default remote</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">dvc remote add -d storage /mnt/dvc-storage
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1"># Object storage. Install the plugin first, and keep credentials in the local config</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"># pip install dvc-s3</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">dvc remote add -d storage s3://team-ml/churn/dvc
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">dvc remote modify --local storage access_key_id <span class="s1">&#39;AKIA...&#39;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">dvc remote modify --local storage secret_access_key <span class="s1">&#39;...&#39;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">
+</span></span><span class="line"><span class="ln">12</span><span class="cl">dvc remote list
+</span></span><span class="line"><span class="ln">13</span><span class="cl">dvc remote default storage
+</span></span></code></pre></div><p>An SSH remote is <code>ssh://user@host/data/dvc-cache</code>. Pick one remote for the team and commit its address in <code>.dvc/config</code>.</p>
+<h3 id="synology-webdav-as-dvc-storage">Synology WebDAV as DVC storage</h3>
+<p>When a Synology NAS is already on the home or office LAN, DSM&rsquo;s WebDAV Server can be the DVC remote. Another machine then uses <code>dvc pull</code> to fetch the data and the model.</p>
+<p>On the NAS:</p>
+<ol>
+<li>Install <strong>WebDAV Server</strong> from Package Center. Enable HTTPS and leave the port at the default <code>5006</code>. On a LAN you can also enable HTTP on <code>5005</code>.</li>
+<li>Control Panel → Shared Folder, and create a folder that holds only the cache, for example <code>dvc</code>. Turn the recycle bin off for that folder, so cleaning up old versions actually returns disk space.</li>
+<li>Control Panel → User &amp; Group, and create a user <code>dvc</code>. Grant that user read/write on the shared folder, and allow WebDAV Server in the user&rsquo;s application permissions.</li>
+</ol>
+<p>In the project, install the WebDAV extra, commit the address, and keep the account on the machine:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">pip install <span class="s1">&#39;dvc[webdav]&#39;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc remote add -d nas-webdav webdavs://192.168.1.20:5006/dvc
+</span></span><span class="line"><span class="ln">4</span><span class="cl">dvc remote modify --local nas-webdav user <span class="s1">&#39;your-user&#39;</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">dvc remote modify --local nas-webdav password <span class="s1">&#39;your-password&#39;</span>
+</span></span></code></pre></div><p>Replace <code>192.168.1.20</code> with the NAS address on the LAN. <code>dvc</code> is the shared folder name. For HTTP only, use <code>webdav://192.168.1.20:5005/dvc</code>.</p>
+<p>DSM ships with a self-signed certificate. If <code>dvc push</code> fails on certificate verification, turn verification off for LAN use:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc remote modify nas-webdav ssl_verify <span class="nb">false</span>
+</span></span></code></pre></div><p>If the NAS already has your own certificate, or you exported the CA, point <code>ssl_verify</code> at that pem file.</p>
+<p>What you commit is <code>.dvc/config</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">[core]</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="na">remote</span> <span class="o">=</span> <span class="s">nas-webdav</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="k">[&#39;remote &#34;nas-webdav&#34;&#39;]</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="na">url</span> <span class="o">=</span> <span class="s">webdavs://192.168.1.20:5006/dvc
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="s">    ssl_verify = false</span>
+</span></span></code></pre></div><p>The account stays in <code>.dvc/config.local</code>, which is already ignored:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">[&#39;remote &#34;nas-webdav&#34;&#39;]</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="na">user</span> <span class="o">=</span> <span class="s">your-user
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="s">    password = your-password</span>
+</span></span></code></pre></div><p>Push and check it like any other remote:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc push
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc status --cloud
+</span></span></code></pre></div><p>If <code>dvc push</code> fails while listing directories, enable <strong>Depth Infinity</strong> in WebDAV Server and push again. A reverse proxy in front of port 443 has to allow uploads larger than a single model file. The built-in <code>5006</code> port has no such limit.</p>
+<h3 id="track-data">Track data</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc add data/raw.csv          <span class="c1"># write the .dvc file, cache the data, ignore the original</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc unprotect data/raw.csv    <span class="c1"># make a read-only hard link writable before editing</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc add data/raw.csv          <span class="c1"># refresh the hash after the edit</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">dvc commit                    <span class="c1"># copy workspace edits of tracked files back into the cache and update pointers</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">dvc remove data/raw.csv.dvc   <span class="c1"># stop tracking the file and update the ignore rules</span>
+</span></span></code></pre></div><p>Use <code>dvc add</code> for new data, or to update a file tracked by its own <code>.dvc</code> file. Leave pipeline outputs alone. Change a dependency and run <code>dvc repro</code>.</p>
+<h3 id="sync-and-switch-versions">Sync and switch versions</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc status            <span class="c1"># workspace compared with the pointers</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc status --cloud    <span class="c1"># what the local cache is missing relative to the remote</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc push              <span class="c1"># cache → remote</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">dvc fetch             <span class="c1"># remote → cache, workspace unchanged</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">dvc pull              <span class="c1"># fetch, then checkout</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">dvc checkout          <span class="c1"># restore the workspace from the cache using the pointers in the current Git commit</span>
+</span></span></code></pre></div><p>Switching code and switching data are two commands:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git checkout &lt;commit&gt;
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc checkout
+</span></span></code></pre></div><p>If the cache does not contain that hash, <code>dvc checkout</code> reports it missing. Run <code>dvc pull</code> next.</p>
+<h3 id="pipelines">Pipelines</h3>
+<p>Write <code>dvc.yaml</code> by hand, or generate it with <code>dvc stage add</code>. This is the same <code>train</code> stage as in the example below:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc stage add -n train <span class="se">\
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="se"></span>  -d src/train.py -d data/train.csv -d data/test.csv <span class="se">\
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="se"></span>  -p train <span class="se">\
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="se"></span>  -o models/model.pkl <span class="se">\
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="se"></span>  -M metrics.json <span class="se">\
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="se"></span>  python src/train.py
+</span></span></code></pre></div><p><code>-M</code> declares a metrics file. The default is <code>cache: false</code>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc repro                 <span class="c1"># rerun stages whose dependencies changed, in graph order</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc repro train           <span class="c1"># check train and its upstream stages only</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc repro --dry           <span class="c1"># print the commands that would run</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">dvc dag                   <span class="c1"># show the stage graph</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">dvc metrics show          <span class="c1"># current metrics</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">dvc metrics diff HEAD     <span class="c1"># compare workspace metrics with a commit</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl">dvc params diff HEAD      <span class="c1"># compare parameters</span>
+</span></span></code></pre></div><h3 id="experiments-and-cache-cleanup">Experiments and cache cleanup</h3>
+<p>When you are still trying parameters and do not want a commit yet, the experiment commands record a run and leave the workspace as it was:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc exp run -S train.max_depth<span class="o">=</span><span class="m">6</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc exp show
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc exp apply &lt;experiment&gt;   <span class="c1"># bring that run back into the workspace, then commit it yourself</span>
+</span></span></code></pre></div><p>The local cache grows with every version. <code>dvc gc</code> deletes nothing unless you pass a scope. <code>-w</code> keeps only the objects referenced by the pointers in the current workspace, and drops other versions from the local cache:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc gc -w
+</span></span></code></pre></div><p>Objects you already <code>dvc push</code>ed can be restored later with <code>dvc fetch</code>. <code>--cloud</code> deletes the remote with the same scope. Versions removed there are gone from that remote, so use it only after you are sure the old data can go.</p>
+<h2 id="a-typical-example">A typical example</h2>
+<p>The dataset below is for churn prediction. DVC tracks the raw CSV. Split and train are two stages. On another machine, <code>git clone</code> and <code>dvc pull</code> retrieve the same data and the same model.</p>
+<p>Repository layout:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">.
+</span></span><span class="line"><span class="ln">2</span><span class="cl">├── data/
+</span></span><span class="line"><span class="ln">3</span><span class="cl">│   └── raw.csv
+</span></span><span class="line"><span class="ln">4</span><span class="cl">├── src/
+</span></span><span class="line"><span class="ln">5</span><span class="cl">│   ├── prepare.py
+</span></span><span class="line"><span class="ln">6</span><span class="cl">│   └── train.py
+</span></span><span class="line"><span class="ln">7</span><span class="cl">├── params.yaml
+</span></span><span class="line"><span class="ln">8</span><span class="cl">├── dvc.yaml
+</span></span><span class="line"><span class="ln">9</span><span class="cl">└── dvc.lock          # written by dvc repro
+</span></span></code></pre></div><p><code>data/raw.csv</code> needs feature columns and <code>label</code>. These three rows only show the shape. A real file needs enough rows of both labels, or one side of the split will be missing a class:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csv" data-lang="csv"><span class="line"><span class="ln">1</span><span class="cl"><span class="s">tenure</span><span class="p">,</span><span class="s">monthly_charges</span><span class="p">,</span><span class="s">label</span><span class="p">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="p"></span><span class="s">3</span><span class="p">,</span><span class="s">29.85</span><span class="p">,</span><span class="s">0</span><span class="p">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="p"></span><span class="s">12</span><span class="p">,</span><span class="s">56.95</span><span class="p">,</span><span class="s">0</span><span class="p">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="p"></span><span class="s">1</span><span class="p">,</span><span class="s">89.10</span><span class="p">,</span><span class="s">1</span><span class="p">
+</span></span></span></code></pre></div><p><code>params.yaml</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nt">prepare</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w">  </span><span class="nt">test_size</span><span class="p">:</span><span class="w"> </span><span class="m">0.2</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w">  </span><span class="nt">seed</span><span class="p">:</span><span class="w"> </span><span class="m">7</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w"></span><span class="nt">train</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="w">  </span><span class="nt">max_depth</span><span class="p">:</span><span class="w"> </span><span class="m">4</span><span class="w">
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="w">  </span><span class="nt">seed</span><span class="p">:</span><span class="w"> </span><span class="m">7</span><span class="w">
+</span></span></span></code></pre></div><p><code>src/prepare.py</code> reads the parameters and the raw data, and writes the two splits:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kn">import</span> <span class="nn">yaml</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;params.yaml&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="n">params</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="s2">&#34;prepare&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&#34;data/raw.csv&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="n">df</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="n">test_size</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&#34;test_size&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="n">random_state</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&#34;seed&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="n">Path</span><span class="p">(</span><span class="s2">&#34;data&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="n">train</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&#34;data/train.csv&#34;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="n">test</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&#34;data/test.csv&#34;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">
+</span></span><span class="line"><span class="ln">21</span><span class="cl">
+</span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></div><p><code>src/train.py</code> reads the splits and writes the model and the metrics:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kn">import</span> <span class="nn">joblib</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="kn">import</span> <span class="nn">yaml</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_auc_score</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;params.yaml&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="n">params</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="s2">&#34;train&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&#34;data/train.csv&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&#34;data/test.csv&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">train</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">col</span> <span class="o">!=</span> <span class="s2">&#34;label&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="n">model</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="n">max_depth</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&#34;max_depth&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">        <span class="n">random_state</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&#34;seed&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">features</span><span class="p">],</span> <span class="n">train</span><span class="p">[</span><span class="s2">&#34;label&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="n">proba</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">features</span><span class="p">])[:,</span> <span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">
+</span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="n">Path</span><span class="p">(</span><span class="s2">&#34;models&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">    <span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&#34;models/model.pkl&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">    <span class="n">Path</span><span class="p">(</span><span class="s2">&#34;metrics.json&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">        <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&#34;roc_auc&#34;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="s2">&#34;label&#34;</span><span class="p">],</span> <span class="n">proba</span><span class="p">))},</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">        <span class="o">+</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">
+</span></span><span class="line"><span class="ln">32</span><span class="cl">
+</span></span><span class="line"><span class="ln">33</span><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl">    <span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></div><p><code>dvc.yaml</code>:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="nt">stages</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w">  </span><span class="nt">prepare</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w">    </span><span class="nt">cmd</span><span class="p">:</span><span class="w"> </span><span class="l">python src/prepare.py</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">    </span><span class="nt">deps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w">      </span>- <span class="l">src/prepare.py</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">      </span>- <span class="l">data/raw.csv</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">    </span><span class="nt">params</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">      </span>- <span class="l">prepare</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">    </span><span class="nt">outs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">      </span>- <span class="l">data/train.csv</span><span class="w">
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w">      </span>- <span class="l">data/test.csv</span><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w">  </span><span class="nt">train</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="w">    </span><span class="nt">cmd</span><span class="p">:</span><span class="w"> </span><span class="l">python src/train.py</span><span class="w">
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="w">    </span><span class="nt">deps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="w">      </span>- <span class="l">src/train.py</span><span class="w">
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="w">      </span>- <span class="l">data/train.csv</span><span class="w">
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="w">      </span>- <span class="l">data/test.csv</span><span class="w">
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="w">    </span><span class="nt">params</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="w">      </span>- <span class="l">train</span><span class="w">
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="w">    </span><span class="nt">outs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="w">      </span>- <span class="l">models/model.pkl</span><span class="w">
+</span></span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="w">    </span><span class="nt">metrics</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="w">      </span>- <span class="nt">metrics.json</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="w">          </span><span class="nt">cache</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span></code></pre></div><h3 id="track-the-data-the-first-time">Track the data the first time</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl">git init
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">dvc init
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">pip install dvc pandas scikit-learn pyyaml joblib
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">dvc add data/raw.csv
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">git add data/raw.csv.dvc data/.gitignore .dvc
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">git commit -m <span class="s2">&#34;track raw dataset with dvc&#34;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">dvc remote add -d storage /mnt/dvc-storage
+</span></span><span class="line"><span class="ln">10</span><span class="cl">git add .dvc/config
+</span></span><span class="line"><span class="ln">11</span><span class="cl">git commit -m <span class="s2">&#34;add dvc remote&#34;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">dvc push
+</span></span></code></pre></div><p>If the Synology NAS is not mounted as a share, use the WebDAV remote from the previous section instead of <code>/mnt/dvc-storage</code>. The <code>git add</code> and <code>dvc push</code> steps stay the same.</p>
+<p>At this point Git has the pointer and the remote address, and the remote has the CSV. <code>data/raw.csv</code> does not show up as a file to commit in <code>git status</code>.</p>
+<h3 id="run-the-pipeline-and-commit">Run the pipeline and commit</h3>
+<p>After the scripts, <code>params.yaml</code>, and <code>dvc.yaml</code> are in place:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc repro
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc metrics show
+</span></span></code></pre></div><p><code>dvc repro</code> runs <code>prepare</code>, then <code>train</code>, and writes <code>dvc.lock</code>. <code>data/train.csv</code>, <code>data/test.csv</code>, and <code>models/model.pkl</code> go into the cache. <code>metrics.json</code> stays in the workspace.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git add dvc.yaml dvc.lock params.yaml src metrics.json
+</span></span><span class="line"><span class="ln">2</span><span class="cl">git commit -m <span class="s2">&#34;add prepare and train stages&#34;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc push
+</span></span><span class="line"><span class="ln">4</span><span class="cl">git push
+</span></span></code></pre></div><p>Both <code>git commit</code> and <code>dvc push</code> have to happen. Pushing only Git tells others the hash, but they cannot fetch the file. Pushing only DVC leaves them without the hash to pull.</p>
+<h3 id="another-machine">Another machine</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git clone git@github.com:org/churn.git
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> churn
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc pull          <span class="c1"># fetch raw.csv, the splits, and the model from the lockfile</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">dvc repro         <span class="c1"># nothing changed, so both stages are skipped</span>
+</span></span></code></pre></div><h3 id="change-a-parameter">Change a parameter</h3>
+<p>Set <code>train.max_depth</code> in <code>params.yaml</code> from 4 to 8:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc repro
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc metrics diff HEAD
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc params diff HEAD
+</span></span></code></pre></div><p><code>prepare</code> is unchanged, so it is skipped. <code>train</code> sees a new parameter and runs again. After you accept the metrics:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git add dvc.lock params.yaml metrics.json
+</span></span><span class="line"><span class="ln">2</span><span class="cl">git commit -m <span class="s2">&#34;train with max_depth 8&#34;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc push
+</span></span></code></pre></div><p>When the data itself changes, edit <code>data/raw.csv</code> and run <code>dvc add data/raw.csv</code> again. Once the hash changes, <code>dvc repro</code> starts over from <code>prepare</code>.</p>
+<p>To compare a few depths before committing:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc exp run -S train.max_depth<span class="o">=</span><span class="m">6</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc exp show
+</span></span></code></pre></div><p>Pick one run, bring it back with <code>dvc exp apply</code>, then commit and <code>dvc push</code> as above.</p>
+<h3 id="return-to-the-previous-version">Return to the previous version</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git checkout HEAD~1
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc checkout
+</span></span></code></pre></div><p>Code, parameters, and <code>dvc.lock</code> return to the previous commit, and the CSV and model in the workspace return to that hash. That is the version you get by tying DVC to one Git commit.</p>
+<p>Command details are in the <a href="https://doc.dvc.org/command-reference">DVC Command Reference</a>. Pipeline fields are in <a href="https://doc.dvc.org/user-guide/project-structure/dvcyaml-files">dvc.yaml</a>. Get &ldquo;pointers in Git, contents on the remote, reruns decided by the lockfile&rdquo; working before you add experiments and cache cleanup.</p>
+]]></content:encoded></item><item><title>How to learn MLOps, in practice</title><link>https://www.jobcher.com/en/mlops-learning-path/</link><pubDate>Mon, 16 Nov 2026 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/en/mlops-learning-path/</guid><description><![CDATA[<p>MLOps is the work of making a model trainable by someone else, blocked by evaluation, deployed, observed, and reversible to the previous version when it goes wrong.</p>
 <p>If you already know Linux, Docker, Kubernetes, and CI/CD, what is missing is wiring data, experiments, and models into that delivery path. The stages below start from there. If your background is algorithms or data analysis, replace stage 0 with the engineering gap (Git, tests, Docker, one scheduler). The later stages stay the same.</p>
 <h2 id="how-mlops-maps-onto-the-ops-you-already-do">How MLOps maps onto the ops you already do</h2>
 <p>A model path usually looks like this:</p>

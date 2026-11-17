@@ -1,0 +1,653 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Git - 打工人日志</title><link>https://www.jobcher.com/tags/git/</link><description>打工人日志（Jobcher）——面向开发者与运维的技术博客，覆盖 Kubernetes、Docker、Linux、监控、AI 与开发者工具的实战教程与干货。</description><generator>Hugo</generator><language>zh-cn</language><copyright>Copyright © 2022-2026 All Rights Reserved.</copyright><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor><webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Tue, 17 Nov 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/tags/git/index.xml" rel="self" type="application/rss+xml"/><item><title>DVC 入门：用途、原理和常用命令</title><link>https://www.jobcher.com/dvc/</link><pubDate>Tue, 17 Nov 2026 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/dvc/</guid><description><![CDATA[<p>数据集和模型文件不适合进 Git。一份 CSV 几百 MB，模型再大一些，仓库克隆、diff、回滚都会变得很慢。DVC（Data Version Control）把这些大文件留在 Git 外面，只把一个很小的指针交进仓库，并用同一套思路描述训练流水线：代码、参数或数据变了，就只重跑受影响的步骤。</p>
+<p>它不替换 Git。Git 继续管代码和指针，DVC 管数据、模型和流水线产物。</p>
+<h2 id="用来做什么">用来做什么</h2>
+<p>日常就这四件事：</p>
+<ul>
+<li>给数据和模型做版本。每次 <code>dvc add</code> 或流水线重跑，都会留下内容哈希，能和某次 Git 提交对上。</li>
+<li>在机器之间同步这些大文件。本地缓存一份，远端（磁盘、NFS、S3、SSH、WebDAV）再存一份。</li>
+<li>把「准备数据 → 训练 → 写出指标」写成流水线。依赖没变的步骤不重跑。</li>
+<li>换一版代码时，把对应的数据和模型一起换回来。<code>git checkout</code> 之后再 <code>dvc checkout</code>。</li>
+</ul>
+<p>Git LFS 也能把大文件换成指针，存储一般绑在 Git 托管平台上。DVC 的远端可以是你已经在用的对象存储或一台 SSH 机器，并且自带流水线：它知道训练依赖哪份数据、哪个脚本、哪几个参数。</p>
+<h2 id="原理">原理</h2>
+<p>工作区、本地缓存、远端各有一份数据。Git 里只有指针。</p>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart LR
+  workspace[&#34;工作区里的数据和模型&#34;] --&gt;|dvc add / dvc repro| cache[&#34;本地缓存 .dvc/cache&#34;]
+  cache --&gt;|dvc push| remote[&#34;远端&#34;]
+  remote --&gt;|dvc pull| cache
+  cache --&gt;|dvc checkout| workspace
+  meta[&#34;.dvc、dvc.yaml、dvc.lock&#34;] --&gt;|git commit| gitrepo[&#34;Git 仓库&#34;]
+</code></pre><h3 id="指针文件">指针文件</h3>
+<p><code>dvc add data/raw.csv</code> 做三件事：按文件内容算哈希，把文件放进 <code>.dvc/cache</code>，在旁边写下 <code>data/raw.csv.dvc</code>，并把 <code>data/raw.csv</code> 写进 <code>.gitignore</code>。</p>
+<p>指针文件类似这样（哈希和大小由命令生成）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nt">outs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span>- <span class="nt">md5</span><span class="p">:</span><span class="w"> </span><span class="l">22a1a2931c8370d3aeedd7183606fd7f</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w">  </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="m">1048576</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w">  </span><span class="nt">hash</span><span class="p">:</span><span class="w"> </span><span class="l">md5</span><span class="w">
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">raw.csv</span><span class="w">
+</span></span></span></code></pre></div><p>这个文件通常只有几行，可以提交。别人克隆仓库后看不到 CSV 本身，要执行 <code>dvc pull</code>，DVC 才按哈希去远端把内容取回来。</p>
+<p>目录也一样。<code>dvc add data/</code> 会跟踪整个目录，缓存里除了每个文件，还有一份目录清单。</p>
+<h3 id="内容寻址">内容寻址</h3>
+<p>缓存放在 <code>.dvc/cache</code>，按文件内容的 MD5 存储，而不是按文件名。同一份内容只存一份。文件改了一个字节，哈希就变，缓存里会多一个新对象，旧对象还在，直到你清理。回到旧提交时，只要缓存或远端还留着那个哈希，文件就能恢复。</p>
+<p>工作区里的文件经常是缓存的硬链接，并且是只读的，避免改工作区时把缓存里的历史版本一起改掉。要修改已跟踪的数据，先 <code>dvc unprotect</code>，改完再 <code>dvc add</code>。</p>
+<h3 id="流水线记的是依赖不是再跑一遍全部">流水线记的是依赖，不是“再跑一遍全部”</h3>
+<p>流水线写在 <code>dvc.yaml</code> 里，每一段叫一个 stage，包含：</p>
+<ul>
+<li><code>cmd</code>：实际执行的命令</li>
+<li><code>deps</code>：输入，数据文件或代码</li>
+<li><code>params</code>：从 <code>params.yaml</code> 里依赖的参数</li>
+<li><code>outs</code>：命令生成的数据或模型，DVC 会缓存</li>
+<li><code>metrics</code>：指标文件。加上 <code>cache: false</code> 时不进缓存，小文件可以直接交给 Git</li>
+</ul>
+<p><code>dvc repro</code> 运行后生成 <code>dvc.lock</code>。锁文件记下这一次每个依赖和产物的哈希，也要提交。下次重跑时，DVC 对比工作区和锁里的哈希：</p>
+<ul>
+<li>依赖、参数、命令都没变：跳过</li>
+<li>某一段的输入变了：从那段开始，按依赖图往后跑</li>
+<li>重跑前会先删除该阶段声明的 <code>outs</code>，再执行 <code>cmd</code>。脚本需要自己创建输出目录，也不要往产物文件里追加写</li>
+</ul>
+<p><code>dvc.yaml</code> 描述「要做什么」，<code>dvc.lock</code> 描述「上次做成了什么样」。两者都进 Git。真正的 CSV 和 <code>model.pkl</code> 进缓存和远端。</p>
+<p>指标文件如果设了 <code>cache: false</code>，哈希仍然写在 <code>dvc.lock</code> 里，文件本身留在工作区。这样不拉数据也能 <code>dvc metrics diff</code>，比较两次提交的 AUC。</p>
+<h3 id="配置放哪">配置放哪</h3>
+<p><code>dvc init</code> 会建立 <code>.dvc/</code>。需要提交的是 <code>.dvc/config</code>（远端地址）。密钥写到 <code>.dvc/config.local</code>，这个文件默认被忽略。</p>
+<p>一次完整的版本包含四样东西，缺一就对不齐：</p>
+<table>
+  <thead>
+      <tr>
+          <th>放在哪</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Git</td>
+          <td>代码、<code>params.yaml</code>、<code>dvc.yaml</code>、<code>dvc.lock</code>、<code>*.dvc</code>、<code>.dvc/config</code></td>
+      </tr>
+      <tr>
+          <td><code>.dvc/cache</code></td>
+          <td>数据、模型，按哈希存储</td>
+      </tr>
+      <tr>
+          <td>远端</td>
+          <td>缓存的副本，给别的机器 <code>dvc pull</code></td>
+      </tr>
+      <tr>
+          <td><code>.dvc/config.local</code></td>
+          <td>访问远端的密钥，不进 Git</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="常用命令">常用命令</h2>
+<p>命令和 Git 是平行的：一边提交指针，一边推送数据。</p>
+<h3 id="初始化和远端">初始化和远端</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl">dvc init
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"># 本机或共享盘。-d 设为默认远端</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">dvc remote add -d storage /mnt/dvc-storage
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1"># 对象存储。先装对应插件，密钥只写本地配置</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"># pip install dvc-s3</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">dvc remote add -d storage s3://team-ml/churn/dvc
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">dvc remote modify --local storage access_key_id <span class="s1">&#39;AKIA...&#39;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">dvc remote modify --local storage secret_access_key <span class="s1">&#39;...&#39;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">
+</span></span><span class="line"><span class="ln">12</span><span class="cl">dvc remote list
+</span></span><span class="line"><span class="ln">13</span><span class="cl">dvc remote default storage
+</span></span></code></pre></div><p>SSH 远端写成 <code>ssh://user@host/data/dvc-cache</code>。团队共用哪一种，就固定哪一种，地址写在 <code>.dvc/config</code> 里提交。</p>
+<h3 id="群晖-webdav-作为-dvc-存储">群晖 WebDAV 作为 DVC 存储</h3>
+<p>家里或办公室已经有群晖时，不必再挂一块共享盘。DSM 自带的 WebDAV Server 就能当 DVC 远端，另一台机器用 <code>dvc pull</code> 把数据和模型拉下来。</p>
+<p>群晖上先准备目录和账号：</p>
+<ol>
+<li>套件中心安装 <strong>WebDAV Server</strong>。打开后启用 HTTPS，端口保持默认的 <code>5006</code>。只在局域网使用时可以同时开 HTTP <code>5005</code>。</li>
+<li>控制面板 → 共享文件夹，新建一个只放缓存的文件夹，例如 <code>dvc</code>。编辑该文件夹时关掉回收站，后面清理旧版本才能把磁盘空间还回来。</li>
+<li>控制面板 → 用户与群组，新建用户 <code>dvc</code>。共享文件夹权限给这个用户读写；用户的应用程序权限里允许 WebDAV Server。</li>
+</ol>
+<p>项目里安装 WebDAV 插件，把地址写进仓库，把账号留在本机：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">pip install <span class="s1">&#39;dvc[webdav]&#39;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc remote add -d nas-webdav webdavs://192.168.1.20:5006/dvc
+</span></span><span class="line"><span class="ln">4</span><span class="cl">dvc remote modify --local nas-webdav user <span class="s1">&#39;你的用户名&#39;</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">dvc remote modify --local nas-webdav password <span class="s1">&#39;你的密码&#39;</span>
+</span></span></code></pre></div><p><code>192.168.1.20</code> 换成群晖的局域网地址，<code>dvc</code> 是共享文件夹名。只用 HTTP 时，协议和端口改成 <code>webdav://192.168.1.20:5005/dvc</code>。</p>
+<p>DSM 默认证书是自签的。<code>dvc push</code> 报证书错误时，先把校验关掉，局域网里可以先这样用：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc remote modify nas-webdav ssl_verify <span class="nb">false</span>
+</span></span></code></pre></div><p>已经给群晖装了自己的证书，或者导出了 CA 时，把 <code>ssl_verify</code> 指到那个 pem 文件，不必关掉校验。</p>
+<p>提交进去的是 <code>.dvc/config</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">[core]</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="na">remote</span> <span class="o">=</span> <span class="s">nas-webdav</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="k">[&#39;remote &#34;nas-webdav&#34;&#39;]</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="na">url</span> <span class="o">=</span> <span class="s">webdavs://192.168.1.20:5006/dvc
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="s">    ssl_verify = false</span>
+</span></span></code></pre></div><p>账号在 <code>.dvc/config.local</code>，这个文件已经被忽略：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">[&#39;remote &#34;nas-webdav&#34;&#39;]</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="na">user</span> <span class="o">=</span> <span class="s">你的用户名
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="s">    password = 你的密码</span>
+</span></span></code></pre></div><p>然后和别的远端一样：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc push
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc status --cloud
+</span></span></code></pre></div><p><code>dvc push</code> 列目录失败时，到 WebDAV Server 里打开「启用 Depth Infinity」，再推一次。前面如果用反向代理转到 443，代理上的上传大小要大于单个模型文件，内置的 <code>5006</code> 端口没有这条限制。</p>
+<h3 id="跟踪数据">跟踪数据</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc add data/raw.csv          <span class="c1"># 生成 .dvc，写入缓存，忽略原文件</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc unprotect data/raw.csv    <span class="c1"># 数据是只读硬链接时，改之前先解锁</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc add data/raw.csv          <span class="c1"># 改完后更新哈希</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">dvc commit                    <span class="c1"># 已跟踪文件有改动时，把工作区写回缓存并更新指针</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">dvc remove data/raw.csv.dvc   <span class="c1"># 停止跟踪，并处理对应的忽略规则</span>
+</span></span></code></pre></div><p><code>dvc add</code> 用来纳入新数据，或更新一份由 <code>.dvc</code> 单独跟踪的文件。流水线产物不要手改，改依赖后用 <code>dvc repro</code>。</p>
+<h3 id="同步和切换版本">同步和切换版本</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc status            <span class="c1"># 工作区相对指针有没有变化</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc status --cloud    <span class="c1"># 本地缓存相对远端缺什么</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc push              <span class="c1"># 缓存 → 远端</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">dvc fetch             <span class="c1"># 远端 → 缓存，不改工作区</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">dvc pull              <span class="c1"># fetch 再 checkout</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">dvc checkout          <span class="c1"># 按当前 Git 提交里的指针，从缓存恢复工作区</span>
+</span></span></code></pre></div><p>切代码和切数据是两条命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git checkout &lt;commit&gt;
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc checkout
+</span></span></code></pre></div><p>缓存里没有那个哈希时，<code>dvc checkout</code> 会提示缺失，接着 <code>dvc pull</code>。</p>
+<h3 id="流水线">流水线</h3>
+<p>可以手写 <code>dvc.yaml</code>，也可以用 <code>dvc stage add</code> 生成。下面这条和后文示例里的 <code>train</code> 阶段是一回事：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc stage add -n train <span class="se">\
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="se"></span>  -d src/train.py -d data/train.csv -d data/test.csv <span class="se">\
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="se"></span>  -p train <span class="se">\
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="se"></span>  -o models/model.pkl <span class="se">\
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="se"></span>  -M metrics.json <span class="se">\
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="se"></span>  python src/train.py
+</span></span></code></pre></div><p><code>-M</code> 声明指标文件，默认 <code>cache: false</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc repro                 <span class="c1"># 按依赖图重跑有变化的阶段</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc repro train           <span class="c1"># 只检查 train 及其上游</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc repro --dry           <span class="c1"># 只打印会执行的命令</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">dvc dag                   <span class="c1"># 看阶段依赖</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">dvc metrics show          <span class="c1"># 当前指标</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">dvc metrics diff HEAD     <span class="c1"># 工作区和某次提交比指标</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl">dvc params diff HEAD      <span class="c1"># 比参数</span>
+</span></span></code></pre></div><h3 id="实验和缓存清理">实验和缓存清理</h3>
+<p>参数还没想好、不想先提交时，用实验命令。它会记下一次运行，跑完把工作区留在原来的状态：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc exp run -S train.max_depth<span class="o">=</span><span class="m">6</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc exp show
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc exp apply &lt;实验名&gt;     <span class="c1"># 把某次实验的结果拿回工作区，再自己 git commit</span>
+</span></span></code></pre></div><p>本地缓存会随版本变多。<code>dvc gc</code> 不带范围参数时什么都不删。<code>-w</code> 只保留工作区当前这份指针用到的对象，历史提交里的其他版本会从本地缓存去掉：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc gc -w
+</span></span></code></pre></div><p>这些对象如果已经 <code>dvc push</code> 过，以后还能 <code>dvc fetch</code> 回来。<code>--cloud</code> 会按同样的范围删除远端，删掉的历史版本这块远端就没有了，确认不再需要旧数据再使用。</p>
+<h2 id="一个常用例子">一个常用例子</h2>
+<p>下面是一份流失预测数据。原始 CSV 用 DVC 跟踪，切分和训练写成两个阶段。换机器时 <code>git clone</code> 加 <code>dvc pull</code> 就能拿到同一份数据和模型。</p>
+<p>仓库结构：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">.
+</span></span><span class="line"><span class="ln">2</span><span class="cl">├── data/
+</span></span><span class="line"><span class="ln">3</span><span class="cl">│   └── raw.csv
+</span></span><span class="line"><span class="ln">4</span><span class="cl">├── src/
+</span></span><span class="line"><span class="ln">5</span><span class="cl">│   ├── prepare.py
+</span></span><span class="line"><span class="ln">6</span><span class="cl">│   └── train.py
+</span></span><span class="line"><span class="ln">7</span><span class="cl">├── params.yaml
+</span></span><span class="line"><span class="ln">8</span><span class="cl">├── dvc.yaml
+</span></span><span class="line"><span class="ln">9</span><span class="cl">└── dvc.lock          # dvc repro 之后生成
+</span></span></code></pre></div><p><code>data/raw.csv</code> 要有特征列和 <code>label</code>。下面三行只说明格式，真要跑通训练，两种 label 都得有足够行数，否则切分后某一边会缺类别：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csv" data-lang="csv"><span class="line"><span class="ln">1</span><span class="cl"><span class="s">tenure</span><span class="p">,</span><span class="s">monthly_charges</span><span class="p">,</span><span class="s">label</span><span class="p">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="p"></span><span class="s">3</span><span class="p">,</span><span class="s">29.85</span><span class="p">,</span><span class="s">0</span><span class="p">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="p"></span><span class="s">12</span><span class="p">,</span><span class="s">56.95</span><span class="p">,</span><span class="s">0</span><span class="p">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="p"></span><span class="s">1</span><span class="p">,</span><span class="s">89.10</span><span class="p">,</span><span class="s">1</span><span class="p">
+</span></span></span></code></pre></div><p><code>params.yaml</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nt">prepare</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w">  </span><span class="nt">test_size</span><span class="p">:</span><span class="w"> </span><span class="m">0.2</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w">  </span><span class="nt">seed</span><span class="p">:</span><span class="w"> </span><span class="m">7</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w"></span><span class="nt">train</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="w">  </span><span class="nt">max_depth</span><span class="p">:</span><span class="w"> </span><span class="m">4</span><span class="w">
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="w">  </span><span class="nt">seed</span><span class="p">:</span><span class="w"> </span><span class="m">7</span><span class="w">
+</span></span></span></code></pre></div><p><code>src/prepare.py</code> 只读参数和原始数据，写出两份切分结果：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kn">import</span> <span class="nn">yaml</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;params.yaml&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="n">params</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="s2">&#34;prepare&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&#34;data/raw.csv&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="n">df</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="n">test_size</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&#34;test_size&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="n">random_state</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&#34;seed&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="n">Path</span><span class="p">(</span><span class="s2">&#34;data&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="n">train</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&#34;data/train.csv&#34;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="n">test</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&#34;data/test.csv&#34;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">
+</span></span><span class="line"><span class="ln">21</span><span class="cl">
+</span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></div><p><code>src/train.py</code> 读切分结果，写模型和指标：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kn">import</span> <span class="nn">joblib</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="kn">import</span> <span class="nn">yaml</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_auc_score</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;params.yaml&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="n">params</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="s2">&#34;train&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&#34;data/train.csv&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&#34;data/test.csv&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">train</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">col</span> <span class="o">!=</span> <span class="s2">&#34;label&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="n">model</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="n">max_depth</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&#34;max_depth&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">        <span class="n">random_state</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&#34;seed&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">features</span><span class="p">],</span> <span class="n">train</span><span class="p">[</span><span class="s2">&#34;label&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="n">proba</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">features</span><span class="p">])[:,</span> <span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">
+</span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="n">Path</span><span class="p">(</span><span class="s2">&#34;models&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">    <span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&#34;models/model.pkl&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">    <span class="n">Path</span><span class="p">(</span><span class="s2">&#34;metrics.json&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">        <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&#34;roc_auc&#34;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="s2">&#34;label&#34;</span><span class="p">],</span> <span class="n">proba</span><span class="p">))},</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">        <span class="o">+</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">
+</span></span><span class="line"><span class="ln">32</span><span class="cl">
+</span></span><span class="line"><span class="ln">33</span><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl">    <span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></div><p><code>dvc.yaml</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="nt">stages</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w">  </span><span class="nt">prepare</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w">    </span><span class="nt">cmd</span><span class="p">:</span><span class="w"> </span><span class="l">python src/prepare.py</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">    </span><span class="nt">deps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w">      </span>- <span class="l">src/prepare.py</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">      </span>- <span class="l">data/raw.csv</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">    </span><span class="nt">params</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">      </span>- <span class="l">prepare</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">    </span><span class="nt">outs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">      </span>- <span class="l">data/train.csv</span><span class="w">
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w">      </span>- <span class="l">data/test.csv</span><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w">  </span><span class="nt">train</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="w">    </span><span class="nt">cmd</span><span class="p">:</span><span class="w"> </span><span class="l">python src/train.py</span><span class="w">
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="w">    </span><span class="nt">deps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="w">      </span>- <span class="l">src/train.py</span><span class="w">
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="w">      </span>- <span class="l">data/train.csv</span><span class="w">
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="w">      </span>- <span class="l">data/test.csv</span><span class="w">
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="w">    </span><span class="nt">params</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="w">      </span>- <span class="l">train</span><span class="w">
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="w">    </span><span class="nt">outs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="w">      </span>- <span class="l">models/model.pkl</span><span class="w">
+</span></span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="w">    </span><span class="nt">metrics</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="w">      </span>- <span class="nt">metrics.json</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="w">          </span><span class="nt">cache</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span></code></pre></div><h3 id="第一次把数据放进去">第一次把数据放进去</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl">git init
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">dvc init
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">pip install dvc pandas scikit-learn pyyaml joblib
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">dvc add data/raw.csv
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">git add data/raw.csv.dvc data/.gitignore .dvc
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">git commit -m <span class="s2">&#34;track raw dataset with dvc&#34;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">dvc remote add -d storage /mnt/dvc-storage
+</span></span><span class="line"><span class="ln">10</span><span class="cl">git add .dvc/config
+</span></span><span class="line"><span class="ln">11</span><span class="cl">git commit -m <span class="s2">&#34;add dvc remote&#34;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">dvc push
+</span></span></code></pre></div><p>群晖没有挂载成共享盘时，用前面的 WebDAV 远端代替 <code>/mnt/dvc-storage</code>，后面的 <code>git add</code> 和 <code>dvc push</code> 不变。</p>
+<p>到这里，Git 里有指针和远端地址，远端里有 CSV 的内容。<code>data/raw.csv</code> 不会出现在 <code>git status</code> 的待提交列表里。</p>
+<h3 id="跑通流水线并提交">跑通流水线并提交</h3>
+<p>把上面的脚本、<code>params.yaml</code>、<code>dvc.yaml</code> 放好之后：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc repro
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc metrics show
+</span></span></code></pre></div><p><code>dvc repro</code> 会先跑 <code>prepare</code>，再跑 <code>train</code>，并写下 <code>dvc.lock</code>。<code>data/train.csv</code>、<code>data/test.csv</code>、<code>models/model.pkl</code> 进入缓存；<code>metrics.json</code> 留在工作区。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git add dvc.yaml dvc.lock params.yaml src metrics.json
+</span></span><span class="line"><span class="ln">2</span><span class="cl">git commit -m <span class="s2">&#34;add prepare and train stages&#34;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc push
+</span></span><span class="line"><span class="ln">4</span><span class="cl">git push
+</span></span></code></pre></div><p><code>git commit</code> 和 <code>dvc push</code> 都要做。只推 Git，别人知道哈希但拉不到文件。只推 DVC，别人看不到该用哪个哈希。</p>
+<h3 id="另一台机器">另一台机器</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git clone git@github.com:org/churn.git
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> churn
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc pull          <span class="c1"># 按锁文件把 raw.csv、切分结果和模型拿回来</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">dvc repro         <span class="c1"># 依赖没变，两个阶段都会跳过</span>
+</span></span></code></pre></div><h3 id="改了参数">改了参数</h3>
+<p>把 <code>params.yaml</code> 里的 <code>train.max_depth</code> 从 4 改成 8：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc repro
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc metrics diff HEAD
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc params diff HEAD
+</span></span></code></pre></div><p><code>prepare</code> 的依赖没变，会跳过。<code>train</code> 的参数变了，会重跑。确认指标后：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git add dvc.lock params.yaml metrics.json
+</span></span><span class="line"><span class="ln">2</span><span class="cl">git commit -m <span class="s2">&#34;train with max_depth 8&#34;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc push
+</span></span></code></pre></div><p>数据本身更新时，先改 <code>data/raw.csv</code>，再 <code>dvc add data/raw.csv</code>。哈希变了之后 <code>dvc repro</code> 会从 <code>prepare</code> 开始重跑。</p>
+<p>想先对比几种深度、暂不提交：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc exp run -S train.max_depth<span class="o">=</span><span class="m">6</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc exp show
+</span></span></code></pre></div><p>看中某一次，再用 <code>dvc exp apply</code> 拿回工作区，按上面的方式提交和 <code>dvc push</code>。</p>
+<h3 id="回到上一版">回到上一版</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git checkout HEAD~1
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc checkout
+</span></span></code></pre></div><p>代码、参数、<code>dvc.lock</code> 回到上一提交，工作区里的 CSV 和模型也回到当时的哈希。这就是 DVC 和一次 Git 提交绑在一起的用法。</p>
+<p>官方命令说明在 <a href="https://doc.dvc.org/command-reference">DVC Command Reference</a>，流水线字段在 <a href="https://doc.dvc.org/user-guide/project-structure/dvcyaml-files">dvc.yaml</a>。先把「指针进 Git、内容进远端、重跑看锁文件」这条路径走通，再加实验和缓存清理。</p>
+]]></description><content:encoded><![CDATA[<p>数据集和模型文件不适合进 Git。一份 CSV 几百 MB，模型再大一些，仓库克隆、diff、回滚都会变得很慢。DVC（Data Version Control）把这些大文件留在 Git 外面，只把一个很小的指针交进仓库，并用同一套思路描述训练流水线：代码、参数或数据变了，就只重跑受影响的步骤。</p>
+<p>它不替换 Git。Git 继续管代码和指针，DVC 管数据、模型和流水线产物。</p>
+<h2 id="用来做什么">用来做什么</h2>
+<p>日常就这四件事：</p>
+<ul>
+<li>给数据和模型做版本。每次 <code>dvc add</code> 或流水线重跑，都会留下内容哈希，能和某次 Git 提交对上。</li>
+<li>在机器之间同步这些大文件。本地缓存一份，远端（磁盘、NFS、S3、SSH、WebDAV）再存一份。</li>
+<li>把「准备数据 → 训练 → 写出指标」写成流水线。依赖没变的步骤不重跑。</li>
+<li>换一版代码时，把对应的数据和模型一起换回来。<code>git checkout</code> 之后再 <code>dvc checkout</code>。</li>
+</ul>
+<p>Git LFS 也能把大文件换成指针，存储一般绑在 Git 托管平台上。DVC 的远端可以是你已经在用的对象存储或一台 SSH 机器，并且自带流水线：它知道训练依赖哪份数据、哪个脚本、哪几个参数。</p>
+<h2 id="原理">原理</h2>
+<p>工作区、本地缓存、远端各有一份数据。Git 里只有指针。</p>
+<pre tabindex="0"><code class="language-mermaid" data-lang="mermaid">flowchart LR
+  workspace[&#34;工作区里的数据和模型&#34;] --&gt;|dvc add / dvc repro| cache[&#34;本地缓存 .dvc/cache&#34;]
+  cache --&gt;|dvc push| remote[&#34;远端&#34;]
+  remote --&gt;|dvc pull| cache
+  cache --&gt;|dvc checkout| workspace
+  meta[&#34;.dvc、dvc.yaml、dvc.lock&#34;] --&gt;|git commit| gitrepo[&#34;Git 仓库&#34;]
+</code></pre><h3 id="指针文件">指针文件</h3>
+<p><code>dvc add data/raw.csv</code> 做三件事：按文件内容算哈希，把文件放进 <code>.dvc/cache</code>，在旁边写下 <code>data/raw.csv.dvc</code>，并把 <code>data/raw.csv</code> 写进 <code>.gitignore</code>。</p>
+<p>指针文件类似这样（哈希和大小由命令生成）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nt">outs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w"></span>- <span class="nt">md5</span><span class="p">:</span><span class="w"> </span><span class="l">22a1a2931c8370d3aeedd7183606fd7f</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w">  </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="m">1048576</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w">  </span><span class="nt">hash</span><span class="p">:</span><span class="w"> </span><span class="l">md5</span><span class="w">
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="w">  </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">raw.csv</span><span class="w">
+</span></span></span></code></pre></div><p>这个文件通常只有几行，可以提交。别人克隆仓库后看不到 CSV 本身，要执行 <code>dvc pull</code>，DVC 才按哈希去远端把内容取回来。</p>
+<p>目录也一样。<code>dvc add data/</code> 会跟踪整个目录，缓存里除了每个文件，还有一份目录清单。</p>
+<h3 id="内容寻址">内容寻址</h3>
+<p>缓存放在 <code>.dvc/cache</code>，按文件内容的 MD5 存储，而不是按文件名。同一份内容只存一份。文件改了一个字节，哈希就变，缓存里会多一个新对象，旧对象还在，直到你清理。回到旧提交时，只要缓存或远端还留着那个哈希，文件就能恢复。</p>
+<p>工作区里的文件经常是缓存的硬链接，并且是只读的，避免改工作区时把缓存里的历史版本一起改掉。要修改已跟踪的数据，先 <code>dvc unprotect</code>，改完再 <code>dvc add</code>。</p>
+<h3 id="流水线记的是依赖不是再跑一遍全部">流水线记的是依赖，不是“再跑一遍全部”</h3>
+<p>流水线写在 <code>dvc.yaml</code> 里，每一段叫一个 stage，包含：</p>
+<ul>
+<li><code>cmd</code>：实际执行的命令</li>
+<li><code>deps</code>：输入，数据文件或代码</li>
+<li><code>params</code>：从 <code>params.yaml</code> 里依赖的参数</li>
+<li><code>outs</code>：命令生成的数据或模型，DVC 会缓存</li>
+<li><code>metrics</code>：指标文件。加上 <code>cache: false</code> 时不进缓存，小文件可以直接交给 Git</li>
+</ul>
+<p><code>dvc repro</code> 运行后生成 <code>dvc.lock</code>。锁文件记下这一次每个依赖和产物的哈希，也要提交。下次重跑时，DVC 对比工作区和锁里的哈希：</p>
+<ul>
+<li>依赖、参数、命令都没变：跳过</li>
+<li>某一段的输入变了：从那段开始，按依赖图往后跑</li>
+<li>重跑前会先删除该阶段声明的 <code>outs</code>，再执行 <code>cmd</code>。脚本需要自己创建输出目录，也不要往产物文件里追加写</li>
+</ul>
+<p><code>dvc.yaml</code> 描述「要做什么」，<code>dvc.lock</code> 描述「上次做成了什么样」。两者都进 Git。真正的 CSV 和 <code>model.pkl</code> 进缓存和远端。</p>
+<p>指标文件如果设了 <code>cache: false</code>，哈希仍然写在 <code>dvc.lock</code> 里，文件本身留在工作区。这样不拉数据也能 <code>dvc metrics diff</code>，比较两次提交的 AUC。</p>
+<h3 id="配置放哪">配置放哪</h3>
+<p><code>dvc init</code> 会建立 <code>.dvc/</code>。需要提交的是 <code>.dvc/config</code>（远端地址）。密钥写到 <code>.dvc/config.local</code>，这个文件默认被忽略。</p>
+<p>一次完整的版本包含四样东西，缺一就对不齐：</p>
+<table>
+  <thead>
+      <tr>
+          <th>放在哪</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Git</td>
+          <td>代码、<code>params.yaml</code>、<code>dvc.yaml</code>、<code>dvc.lock</code>、<code>*.dvc</code>、<code>.dvc/config</code></td>
+      </tr>
+      <tr>
+          <td><code>.dvc/cache</code></td>
+          <td>数据、模型，按哈希存储</td>
+      </tr>
+      <tr>
+          <td>远端</td>
+          <td>缓存的副本，给别的机器 <code>dvc pull</code></td>
+      </tr>
+      <tr>
+          <td><code>.dvc/config.local</code></td>
+          <td>访问远端的密钥，不进 Git</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="常用命令">常用命令</h2>
+<p>命令和 Git 是平行的：一边提交指针，一边推送数据。</p>
+<h3 id="初始化和远端">初始化和远端</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl">dvc init
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="c1"># 本机或共享盘。-d 设为默认远端</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">dvc remote add -d storage /mnt/dvc-storage
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="c1"># 对象存储。先装对应插件，密钥只写本地配置</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="c1"># pip install dvc-s3</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">dvc remote add -d storage s3://team-ml/churn/dvc
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">dvc remote modify --local storage access_key_id <span class="s1">&#39;AKIA...&#39;</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">dvc remote modify --local storage secret_access_key <span class="s1">&#39;...&#39;</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">
+</span></span><span class="line"><span class="ln">12</span><span class="cl">dvc remote list
+</span></span><span class="line"><span class="ln">13</span><span class="cl">dvc remote default storage
+</span></span></code></pre></div><p>SSH 远端写成 <code>ssh://user@host/data/dvc-cache</code>。团队共用哪一种，就固定哪一种，地址写在 <code>.dvc/config</code> 里提交。</p>
+<h3 id="群晖-webdav-作为-dvc-存储">群晖 WebDAV 作为 DVC 存储</h3>
+<p>家里或办公室已经有群晖时，不必再挂一块共享盘。DSM 自带的 WebDAV Server 就能当 DVC 远端，另一台机器用 <code>dvc pull</code> 把数据和模型拉下来。</p>
+<p>群晖上先准备目录和账号：</p>
+<ol>
+<li>套件中心安装 <strong>WebDAV Server</strong>。打开后启用 HTTPS，端口保持默认的 <code>5006</code>。只在局域网使用时可以同时开 HTTP <code>5005</code>。</li>
+<li>控制面板 → 共享文件夹，新建一个只放缓存的文件夹，例如 <code>dvc</code>。编辑该文件夹时关掉回收站，后面清理旧版本才能把磁盘空间还回来。</li>
+<li>控制面板 → 用户与群组，新建用户 <code>dvc</code>。共享文件夹权限给这个用户读写；用户的应用程序权限里允许 WebDAV Server。</li>
+</ol>
+<p>项目里安装 WebDAV 插件，把地址写进仓库，把账号留在本机：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">pip install <span class="s1">&#39;dvc[webdav]&#39;</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc remote add -d nas-webdav webdavs://192.168.1.20:5006/dvc
+</span></span><span class="line"><span class="ln">4</span><span class="cl">dvc remote modify --local nas-webdav user <span class="s1">&#39;你的用户名&#39;</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">dvc remote modify --local nas-webdav password <span class="s1">&#39;你的密码&#39;</span>
+</span></span></code></pre></div><p><code>192.168.1.20</code> 换成群晖的局域网地址，<code>dvc</code> 是共享文件夹名。只用 HTTP 时，协议和端口改成 <code>webdav://192.168.1.20:5005/dvc</code>。</p>
+<p>DSM 默认证书是自签的。<code>dvc push</code> 报证书错误时，先把校验关掉，局域网里可以先这样用：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc remote modify nas-webdav ssl_verify <span class="nb">false</span>
+</span></span></code></pre></div><p>已经给群晖装了自己的证书，或者导出了 CA 时，把 <code>ssl_verify</code> 指到那个 pem 文件，不必关掉校验。</p>
+<p>提交进去的是 <code>.dvc/config</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">[core]</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="na">remote</span> <span class="o">=</span> <span class="s">nas-webdav</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="k">[&#39;remote &#34;nas-webdav&#34;&#39;]</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">    <span class="na">url</span> <span class="o">=</span> <span class="s">webdavs://192.168.1.20:5006/dvc
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="s">    ssl_verify = false</span>
+</span></span></code></pre></div><p>账号在 <code>.dvc/config.local</code>，这个文件已经被忽略：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="line"><span class="ln">1</span><span class="cl"><span class="k">[&#39;remote &#34;nas-webdav&#34;&#39;]</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">    <span class="na">user</span> <span class="o">=</span> <span class="s">你的用户名
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="s">    password = 你的密码</span>
+</span></span></code></pre></div><p>然后和别的远端一样：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc push
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc status --cloud
+</span></span></code></pre></div><p><code>dvc push</code> 列目录失败时，到 WebDAV Server 里打开「启用 Depth Infinity」，再推一次。前面如果用反向代理转到 443，代理上的上传大小要大于单个模型文件，内置的 <code>5006</code> 端口没有这条限制。</p>
+<h3 id="跟踪数据">跟踪数据</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc add data/raw.csv          <span class="c1"># 生成 .dvc，写入缓存，忽略原文件</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc unprotect data/raw.csv    <span class="c1"># 数据是只读硬链接时，改之前先解锁</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc add data/raw.csv          <span class="c1"># 改完后更新哈希</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">dvc commit                    <span class="c1"># 已跟踪文件有改动时，把工作区写回缓存并更新指针</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">dvc remove data/raw.csv.dvc   <span class="c1"># 停止跟踪，并处理对应的忽略规则</span>
+</span></span></code></pre></div><p><code>dvc add</code> 用来纳入新数据，或更新一份由 <code>.dvc</code> 单独跟踪的文件。流水线产物不要手改，改依赖后用 <code>dvc repro</code>。</p>
+<h3 id="同步和切换版本">同步和切换版本</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc status            <span class="c1"># 工作区相对指针有没有变化</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc status --cloud    <span class="c1"># 本地缓存相对远端缺什么</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc push              <span class="c1"># 缓存 → 远端</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">dvc fetch             <span class="c1"># 远端 → 缓存，不改工作区</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">dvc pull              <span class="c1"># fetch 再 checkout</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">dvc checkout          <span class="c1"># 按当前 Git 提交里的指针，从缓存恢复工作区</span>
+</span></span></code></pre></div><p>切代码和切数据是两条命令：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git checkout &lt;commit&gt;
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc checkout
+</span></span></code></pre></div><p>缓存里没有那个哈希时，<code>dvc checkout</code> 会提示缺失，接着 <code>dvc pull</code>。</p>
+<h3 id="流水线">流水线</h3>
+<p>可以手写 <code>dvc.yaml</code>，也可以用 <code>dvc stage add</code> 生成。下面这条和后文示例里的 <code>train</code> 阶段是一回事：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc stage add -n train <span class="se">\
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="se"></span>  -d src/train.py -d data/train.csv -d data/test.csv <span class="se">\
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="se"></span>  -p train <span class="se">\
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="se"></span>  -o models/model.pkl <span class="se">\
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="se"></span>  -M metrics.json <span class="se">\
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="se"></span>  python src/train.py
+</span></span></code></pre></div><p><code>-M</code> 声明指标文件，默认 <code>cache: false</code>。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc repro                 <span class="c1"># 按依赖图重跑有变化的阶段</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc repro train           <span class="c1"># 只检查 train 及其上游</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc repro --dry           <span class="c1"># 只打印会执行的命令</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">dvc dag                   <span class="c1"># 看阶段依赖</span>
+</span></span><span class="line"><span class="ln">5</span><span class="cl">dvc metrics show          <span class="c1"># 当前指标</span>
+</span></span><span class="line"><span class="ln">6</span><span class="cl">dvc metrics diff HEAD     <span class="c1"># 工作区和某次提交比指标</span>
+</span></span><span class="line"><span class="ln">7</span><span class="cl">dvc params diff HEAD      <span class="c1"># 比参数</span>
+</span></span></code></pre></div><h3 id="实验和缓存清理">实验和缓存清理</h3>
+<p>参数还没想好、不想先提交时，用实验命令。它会记下一次运行，跑完把工作区留在原来的状态：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc exp run -S train.max_depth<span class="o">=</span><span class="m">6</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc exp show
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc exp apply &lt;实验名&gt;     <span class="c1"># 把某次实验的结果拿回工作区，再自己 git commit</span>
+</span></span></code></pre></div><p>本地缓存会随版本变多。<code>dvc gc</code> 不带范围参数时什么都不删。<code>-w</code> 只保留工作区当前这份指针用到的对象，历史提交里的其他版本会从本地缓存去掉：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc gc -w
+</span></span></code></pre></div><p>这些对象如果已经 <code>dvc push</code> 过，以后还能 <code>dvc fetch</code> 回来。<code>--cloud</code> 会按同样的范围删除远端，删掉的历史版本这块远端就没有了，确认不再需要旧数据再使用。</p>
+<h2 id="一个常用例子">一个常用例子</h2>
+<p>下面是一份流失预测数据。原始 CSV 用 DVC 跟踪，切分和训练写成两个阶段。换机器时 <code>git clone</code> 加 <code>dvc pull</code> 就能拿到同一份数据和模型。</p>
+<p>仓库结构：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="ln">1</span><span class="cl">.
+</span></span><span class="line"><span class="ln">2</span><span class="cl">├── data/
+</span></span><span class="line"><span class="ln">3</span><span class="cl">│   └── raw.csv
+</span></span><span class="line"><span class="ln">4</span><span class="cl">├── src/
+</span></span><span class="line"><span class="ln">5</span><span class="cl">│   ├── prepare.py
+</span></span><span class="line"><span class="ln">6</span><span class="cl">│   └── train.py
+</span></span><span class="line"><span class="ln">7</span><span class="cl">├── params.yaml
+</span></span><span class="line"><span class="ln">8</span><span class="cl">├── dvc.yaml
+</span></span><span class="line"><span class="ln">9</span><span class="cl">└── dvc.lock          # dvc repro 之后生成
+</span></span></code></pre></div><p><code>data/raw.csv</code> 要有特征列和 <code>label</code>。下面三行只说明格式，真要跑通训练，两种 label 都得有足够行数，否则切分后某一边会缺类别：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-csv" data-lang="csv"><span class="line"><span class="ln">1</span><span class="cl"><span class="s">tenure</span><span class="p">,</span><span class="s">monthly_charges</span><span class="p">,</span><span class="s">label</span><span class="p">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="p"></span><span class="s">3</span><span class="p">,</span><span class="s">29.85</span><span class="p">,</span><span class="s">0</span><span class="p">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="p"></span><span class="s">12</span><span class="p">,</span><span class="s">56.95</span><span class="p">,</span><span class="s">0</span><span class="p">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="p"></span><span class="s">1</span><span class="p">,</span><span class="s">89.10</span><span class="p">,</span><span class="s">1</span><span class="p">
+</span></span></span></code></pre></div><p><code>params.yaml</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln">1</span><span class="cl"><span class="nt">prepare</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="w">  </span><span class="nt">test_size</span><span class="p">:</span><span class="w"> </span><span class="m">0.2</span><span class="w">
+</span></span></span><span class="line"><span class="ln">3</span><span class="cl"><span class="w">  </span><span class="nt">seed</span><span class="p">:</span><span class="w"> </span><span class="m">7</span><span class="w">
+</span></span></span><span class="line"><span class="ln">4</span><span class="cl"><span class="w"></span><span class="nt">train</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">5</span><span class="cl"><span class="w">  </span><span class="nt">max_depth</span><span class="p">:</span><span class="w"> </span><span class="m">4</span><span class="w">
+</span></span></span><span class="line"><span class="ln">6</span><span class="cl"><span class="w">  </span><span class="nt">seed</span><span class="p">:</span><span class="w"> </span><span class="m">7</span><span class="w">
+</span></span></span></code></pre></div><p><code>src/prepare.py</code> 只读参数和原始数据，写出两份切分结果：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kn">import</span> <span class="nn">yaml</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;params.yaml&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">10</span><span class="cl">        <span class="n">params</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="s2">&#34;prepare&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">11</span><span class="cl">    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&#34;data/raw.csv&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="n">train</span><span class="p">,</span> <span class="n">test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="n">df</span><span class="p">,</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">        <span class="n">test_size</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&#34;test_size&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">        <span class="n">random_state</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&#34;seed&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">    <span class="n">Path</span><span class="p">(</span><span class="s2">&#34;data&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="n">train</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&#34;data/train.csv&#34;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">    <span class="n">test</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&#34;data/test.csv&#34;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">
+</span></span><span class="line"><span class="ln">21</span><span class="cl">
+</span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></div><p><code>src/train.py</code> 读切分结果，写模型和指标：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="kn">import</span> <span class="nn">json</span>
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="kn">import</span> <span class="nn">joblib</span>
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="kn">import</span> <span class="nn">yaml</span>
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_auc_score</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">
+</span></span><span class="line"><span class="ln">10</span><span class="cl">
+</span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&#34;params.yaml&#34;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">13</span><span class="cl">        <span class="n">params</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)[</span><span class="s2">&#34;train&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">14</span><span class="cl">    <span class="n">train</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&#34;data/train.csv&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">15</span><span class="cl">    <span class="n">test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&#34;data/test.csv&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">16</span><span class="cl">    <span class="n">features</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">train</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">col</span> <span class="o">!=</span> <span class="s2">&#34;label&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">17</span><span class="cl">
+</span></span><span class="line"><span class="ln">18</span><span class="cl">    <span class="n">model</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span>
+</span></span><span class="line"><span class="ln">19</span><span class="cl">        <span class="n">max_depth</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&#34;max_depth&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="ln">20</span><span class="cl">        <span class="n">random_state</span><span class="o">=</span><span class="n">params</span><span class="p">[</span><span class="s2">&#34;seed&#34;</span><span class="p">],</span>
+</span></span><span class="line"><span class="ln">21</span><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="ln">22</span><span class="cl">    <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train</span><span class="p">[</span><span class="n">features</span><span class="p">],</span> <span class="n">train</span><span class="p">[</span><span class="s2">&#34;label&#34;</span><span class="p">])</span>
+</span></span><span class="line"><span class="ln">23</span><span class="cl">    <span class="n">proba</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="n">features</span><span class="p">])[:,</span> <span class="mi">1</span><span class="p">]</span>
+</span></span><span class="line"><span class="ln">24</span><span class="cl">
+</span></span><span class="line"><span class="ln">25</span><span class="cl">    <span class="n">Path</span><span class="p">(</span><span class="s2">&#34;models&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">26</span><span class="cl">    <span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">&#34;models/model.pkl&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">27</span><span class="cl">    <span class="n">Path</span><span class="p">(</span><span class="s2">&#34;metrics.json&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">write_text</span><span class="p">(</span>
+</span></span><span class="line"><span class="ln">28</span><span class="cl">        <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="s2">&#34;roc_auc&#34;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">test</span><span class="p">[</span><span class="s2">&#34;label&#34;</span><span class="p">],</span> <span class="n">proba</span><span class="p">))},</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</span></span><span class="line"><span class="ln">29</span><span class="cl">        <span class="o">+</span> <span class="s2">&#34;</span><span class="se">\n</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="ln">30</span><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="ln">31</span><span class="cl">
+</span></span><span class="line"><span class="ln">32</span><span class="cl">
+</span></span><span class="line"><span class="ln">33</span><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&#34;__main__&#34;</span><span class="p">:</span>
+</span></span><span class="line"><span class="ln">34</span><span class="cl">    <span class="n">main</span><span class="p">()</span>
+</span></span></code></pre></div><p><code>dvc.yaml</code>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="ln"> 1</span><span class="cl"><span class="nt">stages</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 2</span><span class="cl"><span class="w">  </span><span class="nt">prepare</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 3</span><span class="cl"><span class="w">    </span><span class="nt">cmd</span><span class="p">:</span><span class="w"> </span><span class="l">python src/prepare.py</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 4</span><span class="cl"><span class="w">    </span><span class="nt">deps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 5</span><span class="cl"><span class="w">      </span>- <span class="l">src/prepare.py</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 6</span><span class="cl"><span class="w">      </span>- <span class="l">data/raw.csv</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 7</span><span class="cl"><span class="w">    </span><span class="nt">params</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 8</span><span class="cl"><span class="w">      </span>- <span class="l">prepare</span><span class="w">
+</span></span></span><span class="line"><span class="ln"> 9</span><span class="cl"><span class="w">    </span><span class="nt">outs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">10</span><span class="cl"><span class="w">      </span>- <span class="l">data/train.csv</span><span class="w">
+</span></span></span><span class="line"><span class="ln">11</span><span class="cl"><span class="w">      </span>- <span class="l">data/test.csv</span><span class="w">
+</span></span></span><span class="line"><span class="ln">12</span><span class="cl"><span class="w">  </span><span class="nt">train</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">13</span><span class="cl"><span class="w">    </span><span class="nt">cmd</span><span class="p">:</span><span class="w"> </span><span class="l">python src/train.py</span><span class="w">
+</span></span></span><span class="line"><span class="ln">14</span><span class="cl"><span class="w">    </span><span class="nt">deps</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">15</span><span class="cl"><span class="w">      </span>- <span class="l">src/train.py</span><span class="w">
+</span></span></span><span class="line"><span class="ln">16</span><span class="cl"><span class="w">      </span>- <span class="l">data/train.csv</span><span class="w">
+</span></span></span><span class="line"><span class="ln">17</span><span class="cl"><span class="w">      </span>- <span class="l">data/test.csv</span><span class="w">
+</span></span></span><span class="line"><span class="ln">18</span><span class="cl"><span class="w">    </span><span class="nt">params</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">19</span><span class="cl"><span class="w">      </span>- <span class="l">train</span><span class="w">
+</span></span></span><span class="line"><span class="ln">20</span><span class="cl"><span class="w">    </span><span class="nt">outs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">21</span><span class="cl"><span class="w">      </span>- <span class="l">models/model.pkl</span><span class="w">
+</span></span></span><span class="line"><span class="ln">22</span><span class="cl"><span class="w">    </span><span class="nt">metrics</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">23</span><span class="cl"><span class="w">      </span>- <span class="nt">metrics.json</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="ln">24</span><span class="cl"><span class="w">          </span><span class="nt">cache</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span></code></pre></div><h3 id="第一次把数据放进去">第一次把数据放进去</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln"> 1</span><span class="cl">git init
+</span></span><span class="line"><span class="ln"> 2</span><span class="cl">dvc init
+</span></span><span class="line"><span class="ln"> 3</span><span class="cl">pip install dvc pandas scikit-learn pyyaml joblib
+</span></span><span class="line"><span class="ln"> 4</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 5</span><span class="cl">dvc add data/raw.csv
+</span></span><span class="line"><span class="ln"> 6</span><span class="cl">git add data/raw.csv.dvc data/.gitignore .dvc
+</span></span><span class="line"><span class="ln"> 7</span><span class="cl">git commit -m <span class="s2">&#34;track raw dataset with dvc&#34;</span>
+</span></span><span class="line"><span class="ln"> 8</span><span class="cl">
+</span></span><span class="line"><span class="ln"> 9</span><span class="cl">dvc remote add -d storage /mnt/dvc-storage
+</span></span><span class="line"><span class="ln">10</span><span class="cl">git add .dvc/config
+</span></span><span class="line"><span class="ln">11</span><span class="cl">git commit -m <span class="s2">&#34;add dvc remote&#34;</span>
+</span></span><span class="line"><span class="ln">12</span><span class="cl">dvc push
+</span></span></code></pre></div><p>群晖没有挂载成共享盘时，用前面的 WebDAV 远端代替 <code>/mnt/dvc-storage</code>，后面的 <code>git add</code> 和 <code>dvc push</code> 不变。</p>
+<p>到这里，Git 里有指针和远端地址，远端里有 CSV 的内容。<code>data/raw.csv</code> 不会出现在 <code>git status</code> 的待提交列表里。</p>
+<h3 id="跑通流水线并提交">跑通流水线并提交</h3>
+<p>把上面的脚本、<code>params.yaml</code>、<code>dvc.yaml</code> 放好之后：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc repro
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc metrics show
+</span></span></code></pre></div><p><code>dvc repro</code> 会先跑 <code>prepare</code>，再跑 <code>train</code>，并写下 <code>dvc.lock</code>。<code>data/train.csv</code>、<code>data/test.csv</code>、<code>models/model.pkl</code> 进入缓存；<code>metrics.json</code> 留在工作区。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git add dvc.yaml dvc.lock params.yaml src metrics.json
+</span></span><span class="line"><span class="ln">2</span><span class="cl">git commit -m <span class="s2">&#34;add prepare and train stages&#34;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc push
+</span></span><span class="line"><span class="ln">4</span><span class="cl">git push
+</span></span></code></pre></div><p><code>git commit</code> 和 <code>dvc push</code> 都要做。只推 Git，别人知道哈希但拉不到文件。只推 DVC，别人看不到该用哪个哈希。</p>
+<h3 id="另一台机器">另一台机器</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git clone git@github.com:org/churn.git
+</span></span><span class="line"><span class="ln">2</span><span class="cl"><span class="nb">cd</span> churn
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc pull          <span class="c1"># 按锁文件把 raw.csv、切分结果和模型拿回来</span>
+</span></span><span class="line"><span class="ln">4</span><span class="cl">dvc repro         <span class="c1"># 依赖没变，两个阶段都会跳过</span>
+</span></span></code></pre></div><h3 id="改了参数">改了参数</h3>
+<p>把 <code>params.yaml</code> 里的 <code>train.max_depth</code> 从 4 改成 8：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc repro
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc metrics diff HEAD
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc params diff HEAD
+</span></span></code></pre></div><p><code>prepare</code> 的依赖没变，会跳过。<code>train</code> 的参数变了，会重跑。确认指标后：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git add dvc.lock params.yaml metrics.json
+</span></span><span class="line"><span class="ln">2</span><span class="cl">git commit -m <span class="s2">&#34;train with max_depth 8&#34;</span>
+</span></span><span class="line"><span class="ln">3</span><span class="cl">dvc push
+</span></span></code></pre></div><p>数据本身更新时，先改 <code>data/raw.csv</code>，再 <code>dvc add data/raw.csv</code>。哈希变了之后 <code>dvc repro</code> 会从 <code>prepare</code> 开始重跑。</p>
+<p>想先对比几种深度、暂不提交：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">dvc exp run -S train.max_depth<span class="o">=</span><span class="m">6</span>
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc exp show
+</span></span></code></pre></div><p>看中某一次，再用 <code>dvc exp apply</code> 拿回工作区，按上面的方式提交和 <code>dvc push</code>。</p>
+<h3 id="回到上一版">回到上一版</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="ln">1</span><span class="cl">git checkout HEAD~1
+</span></span><span class="line"><span class="ln">2</span><span class="cl">dvc checkout
+</span></span></code></pre></div><p>代码、参数、<code>dvc.lock</code> 回到上一提交，工作区里的 CSV 和模型也回到当时的哈希。这就是 DVC 和一次 Git 提交绑在一起的用法。</p>
+<p>官方命令说明在 <a href="https://doc.dvc.org/command-reference">DVC Command Reference</a>，流水线字段在 <a href="https://doc.dvc.org/user-guide/project-structure/dvcyaml-files">dvc.yaml</a>。先把「指针进 Git、内容进远端、重跑看锁文件」这条路径走通，再加实验和缓存清理。</p>
+]]></content:encoded></item></channel></rss>
