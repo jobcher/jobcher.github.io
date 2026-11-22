@@ -1,4 +1,270 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>日报 - 打工人日志</title><link>https://www.jobcher.com/tags/%E6%97%A5%E6%8A%A5/</link><description>打工人日志（Jobcher）——面向开发者与运维的技术博客，覆盖 Kubernetes、Docker、Linux、监控、AI 与开发者工具的实战教程与干货。</description><generator>Hugo</generator><language>zh-cn</language><copyright>Copyright © 2022-2026 All Rights Reserved.</copyright><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor><webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Sat, 21 Nov 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/tags/%E6%97%A5%E6%8A%A5/index.xml" rel="self" type="application/rss+xml"/><item><title>2026-11-21 打工人日报</title><link>https://www.jobcher.com/new/daily/github_trending_2026-11-21/</link><pubDate>Sat, 21 Nov 2026 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/new/daily/github_trending_2026-11-21/</guid><description><![CDATA[<h2 id="github-热门榜单">GitHub 热门榜单</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>日报 - 打工人日志</title><link>https://www.jobcher.com/tags/%E6%97%A5%E6%8A%A5/</link><description>打工人日志（Jobcher）——面向开发者与运维的技术博客，覆盖 Kubernetes、Docker、Linux、监控、AI 与开发者工具的实战教程与干货。</description><generator>Hugo</generator><language>zh-cn</language><copyright>Copyright © 2022-2026 All Rights Reserved.</copyright><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor><webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Sun, 22 Nov 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/tags/%E6%97%A5%E6%8A%A5/index.xml" rel="self" type="application/rss+xml"/><item><title>2026-11-22 打工人日报</title><link>https://www.jobcher.com/new/daily/github_trending_2026-11-22/</link><pubDate>Sun, 22 Nov 2026 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/new/daily/github_trending_2026-11-22/</guid><description><![CDATA[<h2 id="github-热门榜单">GitHub 热门榜单</h2>
+<h4 id="排名-1elementalsoulsclaude-bughunter">排名 1:/elementalsouls/Claude-BugHunter</h4>
+<ul>
+<li>简介: 用于bug搜寻和外部红队工作的Claude Code技能包——82项技能、15条斜线命令、681项披露的报告模式，涵盖24个核心漏洞类别，以及企业身份+基础设施攻击矩阵。</li>
+<li>URL: <a href="https://github.com/elementalsouls/Claude-BugHunter">https://github.com/elementalsouls/Claude-BugHunter</a></li>
+<li>作者: elementalsouls</li>
+</ul>
+<h4 id="排名-2obrasuperpowers">排名 2:/obra/superpowers</h4>
+<ul>
+<li>简介: 一个有效的代理技能框架和软件开发方法。</li>
+<li>URL: <a href="https://github.com/obra/superpowers">https://github.com/obra/superpowers</a></li>
+<li>作者: obra</li>
+</ul>
+<h4 id="排名-3hkudscli-anything">排名 3:/HKUDS/CLI-Anything</h4>
+<ul>
+<li>简介: “CLI Anything：使所有软件代理都成为本机”&ndash;CLI Hub：https://clianything.cc/</li>
+<li>URL: <a href="https://github.com/HKUDS/CLI-Anything">https://github.com/HKUDS/CLI-Anything</a></li>
+<li>作者: HKUDS</li>
+</ul>
+<h4 id="排名-4jingyaogongminimind">排名 4:/jingyaogong/minimind</h4>
+<ul>
+<li>简介: 🧠 两小时从 0 训出你的 64M 大模型。在2小时内从头开始训练自己的64M法学硕士。</li>
+<li>URL: <a href="https://github.com/jingyaogong/minimind">https://github.com/jingyaogong/minimind</a></li>
+<li>作者: jingyaogong</li>
+</ul>
+<h4 id="排名-5cursorplugins">排名 5:/cursor/plugins</h4>
+<ul>
+<li>简介: 游标插件规范和官方插件</li>
+<li>URL: <a href="https://github.com/cursor/plugins">https://github.com/cursor/plugins</a></li>
+<li>作者: cursor</li>
+</ul>
+<h4 id="排名-6firecrawlfirecrawl">排名 6:/firecrawl/firecrawl</h4>
+<ul>
+<li>简介: 知识基础设施，使您的代理更智能。通过一个API搜索、抓取和访问550+个数据提供商。</li>
+<li>URL: <a href="https://github.com/firecrawl/firecrawl">https://github.com/firecrawl/firecrawl</a></li>
+<li>作者: firecrawl</li>
+</ul>
+<h4 id="排名-7nginxnginx">排名 7:/nginx/nginx</h4>
+<ul>
+<li>简介: NGINX官方开源仓库。</li>
+<li>URL: <a href="https://github.com/nginx/nginx">https://github.com/nginx/nginx</a></li>
+<li>作者: nginx</li>
+</ul>
+<h4 id="排名-8openvinotoolkitopenvino">排名 8:/openvinotoolkit/openvino</h4>
+<ul>
+<li>简介: OpenVINO™是一个用于优化和部署AI推理的开源工具包</li>
+<li>URL: <a href="https://github.com/openvinotoolkit/openvino">https://github.com/openvinotoolkit/openvino</a></li>
+<li>作者: openvinotoolkit</li>
+</ul>
+<h4 id="排名-9cathrynlaverydiagram-design">排名 9:/cathrynlavery/diagram-design</h4>
+<ul>
+<li>简介: Claude Code、Codex、GitHub Copilot、Cursor、Factory Droid、Qoder和Pi的编辑图设计。45种图表类型。独立的HTML+SVG。没有阴影。没有美人鱼的粪便。</li>
+<li>URL: <a href="https://github.com/cathrynlavery/diagram-design">https://github.com/cathrynlavery/diagram-design</a></li>
+<li>作者: cathrynlavery</li>
+</ul>
+<h4 id="排名-10mvanhornlast30days-skill">排名 10:/mvanhorn/last30days-skill</h4>
+<ul>
+<li>简介: 人工智能代理技能，研究Reddit、X、YouTube、HN、Polymarket和网络上的任何主题，然后综合一个有根据的总结</li>
+<li>URL: <a href="https://github.com/mvanhorn/last30days-skill">https://github.com/mvanhorn/last30days-skill</a></li>
+<li>作者: mvanhorn</li>
+</ul>
+<h4 id="排名-11google-labs-codestitch-skills">排名 11:/google-labs-code/stitch-skills</h4>
+<ul>
+<li>简介: 一个旨在与Stitch MCP服务器配合使用的代理技能库。每种技能都遵循Agent Skills开放标准，与Antigravity、Gemini CLI、Claude Code、Cursor等编码代理兼容。</li>
+<li>URL: <a href="https://github.com/google-labs-code/stitch-skills">https://github.com/google-labs-code/stitch-skills</a></li>
+<li>作者: google-labs-code</li>
+</ul>
+<h4 id="排名-12mjmirzaapp-store-compliance">排名 12:/mjmirza/app-store-compliance</h4>
+<ul>
+<li>简介: 避免常见的App Store和Google Play拒绝。开放式剧本和预提交保护，有124个记录在案的拒绝模式和修复程序、隐私清单和数据安全检查、111个跟踪截止日期（欧盟人工智能法案、DSA、COPPA、年龄法），以及人工智能编码代理的技能。</li>
+<li>URL: <a href="https://github.com/mjmirza/app-store-compliance">https://github.com/mjmirza/app-store-compliance</a></li>
+<li>作者: mjmirza</li>
+</ul>
+<h4 id="排名-13tracer-cloudopensre">排名 13:/Tracer-Cloud/opensre</h4>
+<ul>
+<li>简介: CI/CD可靠性的开源代理。</li>
+<li>URL: <a href="https://github.com/Tracer-Cloud/opensre">https://github.com/Tracer-Cloud/opensre</a></li>
+<li>作者: Tracer-Cloud</li>
+</ul>
+<h4 id="排名-14toeverythingaffine">排名 14:/toeverything/AFFiNE</h4>
+<ul>
+<li>简介: 可能不止Notion和Miro。AFFiNE（发音为[ə&rsquo;fain]）是一个下一代知识库，将规划、分类和创建结合在一起。隐私第一、开源、可定制且随时可用。</li>
+<li>URL: <a href="https://github.com/toeverything/AFFiNE">https://github.com/toeverything/AFFiNE</a></li>
+<li>作者: toeverything</li>
+</ul>
+<h4 id="排名-15xiaoyouchrghost-downloader-3">排名 15:/XiaoYouChR/Ghost-Downloader-3</h4>
+<ul>
+<li>简介: 你唯一需要的下载器。 下载器的集大成者。</li>
+<li>URL: <a href="https://github.com/XiaoYouChR/Ghost-Downloader-3">https://github.com/XiaoYouChR/Ghost-Downloader-3</a></li>
+<li>作者: XiaoYouChR</li>
+</ul>
+<h4 id="排名-16zhouxiaokaautoclip">排名 16:/zhouxiaoka/autoclip</h4>
+<ul>
+<li>简介: 自动剪辑｜一个链接，一键出片。开源 AI 视频剪辑桌面工具，将播客、访谈、课程等长视频自动剪成短视频，生成字幕、封面和发布文案，适配抖音、小红书、TikTok、Reels与 YouTube短片开源AI视频剪辑和内容再利用。</li>
+<li>URL: <a href="https://github.com/zhouxiaoka/autoclip">https://github.com/zhouxiaoka/autoclip</a></li>
+<li>作者: zhouxiaoka</li>
+</ul>
+<h2 id="v2ex-热门帖子">v2ex 热门帖子</h2>
+<ul>
+<li>1.<a href="https://www.v2ex.com/t/1258845#reply19">为什么没有AI攻克医学难题的消息？是因为跨学科吗？</a></li>
+<li>2.<a href="https://www.v2ex.com/t/1258850#reply10">Google黑五1年100刀的活动，和现在APP上15刀3个月的活动能叠加吗？</a></li>
+<li>3.<a href="https://www.v2ex.com/t/1258843#reply3">所以解决黎曼猜想真的会得到永生</a></li>
+<li>4.<a href="https://www.v2ex.com/t/1258852#reply2">意外！reasonix停更了！</a></li>
+<li>5.<a href="https://www.v2ex.com/t/1258851#reply1">大家觉得特斯拉FSDV15的TeslaRealityView是怎么实现的？</a></li>
+<li>6.<a href="https://www.v2ex.com/t/1258854#reply1">桌面下载工具Douzy：抖音、TikTok、YouTube、Telegram、X(推特)，一键存到自己电脑上</a></li>
+<li>7.<a href="https://www.v2ex.com/t/1258855#reply1">AppleWatch：戴了8年，我的使用测评</a></li>
+<li>8.<a href="https://www.v2ex.com/t/1258857#reply1">你怎么做项目开发管理?</a></li>
+<li>9.<a href="https://www.v2ex.com/t/1258844#reply0">想也想不到：我昨晚发布在番茄上的短篇小说，早晨AI告诉我被盗版了</a></li>
+<li>10.<a href="https://www.v2ex.com/t/1258847#reply0">我写了个分析聊天记录的skill</a></li>
+<li>11.<a href="https://www.v2ex.com/t/1258858#reply0">发现Devin还是挺好用的</a></li>
+</ul>
+<h3 id="热点新闻">热点新闻</h3>
+<h4 id="险资专家交流减仓接近尾声">险资专家交流：减仓接近尾声</h4>
+<p></p><blockquote>险资专家交流：减仓接近尾声<br><br>Q：为什么险资会集中清仓科技成长股，是不看好板块基本面吗？<br>A：并不是机构对科技板块基本面观点发生转向，核心是险资内部一套刚性止损纪律在发挥作用，这是一个偏机械的风控机制。保险公司做权益投资大多设置回撤红线，常规的控制区间在20%到30%之间，一旦回撤超过30%，基本就要执行强制清仓，没有太多商量余地；如果投资经理坚持认为持仓值得保留，必须提交专项报告，最后由管理层审批拍板。今年4、5月不少险企选择加仓科技成长股，紧接着7、8月市场出现剧烈调整，很多持仓直接打穿止损线，触发一连串被动卖出，这类资金在下跌过程里没法接盘，反而持续砍仓，也是科技板块调整阶段很容易被忽略的资金面因素。<br>Q：险资如果想重新布局科技股，是不是很快就能进场形成增量资金？<br>A：短期很难指望险资重新成为科技成长板块的增量资金来源，风控流程和投资约束摆在前面。就算后续市场企稳，想要再度买入这类资产，首先要出现足够明确的企稳信号，同时还要重新走完内部完整的投资审批流程，不是市场稍微反弹就能直接买回。险资这套止损机制是硬性要求，经历过这一轮击穿止损线强制卖出之后，机构对于科技成长风格的风险偏好明显压低，在没有充分论证、走完内部决策流程之前，不会轻易恢复配置，所以不能简单预设科技反弹的时候险资会回来托底。<br>Q：险资减仓的时候，会不会优先赎回委外公募，保留自营仓位？<br>A：市场流传过一种说法，险资集中减仓阶段，会优先赎回公募委外产品，保住自营持仓，这个说法并不成立。自营盘和委外资金之间不存在赎回优先级，两边标准完全一视同仁，判断要不要卖出或者赎回，核心看标的本身业绩表现，以及距离内部止损线的远近，谁先触及风控条件、业绩不及预期，就优先处理谁，不会因为是自营就天然保留，也不会因为是外部委外就提前一刀切赎回，风控规则对两类资金统一适用。</blockquote><p></p>
+<h4 id="彭博顺丰速运因涉嫌违规被暂停参与全军物资工程和服务的采购">彭博：顺丰速运因涉嫌违规被暂停参与全军物资、工程和服务的采购。</h4>
+<p>彭博：顺丰速运因涉嫌违规被暂停参与全军物资、工程和服务的采购。</p>
+<h4 id="-中配原声molly-osheaanthropic上市估值达2万亿altimeter解读ai四季">🎬 中配+原声·【Molly OShea】Anthropic上市估值达2万亿，Altimeter解读AI四季</h4>
+<p><b>中配+原声·【Molly OShea】Anthropic上市估值达2万亿，Altimeter解读AI四季</b><br><br><b>▎</b><a href="https://www.bilibili.com/video/BV1ypyszzESm/" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><b>Source</b></a></p> <blockquote><b>Video is too big</b></blockquote> 
+<h4 id="-英伟达本周下跌23为自2008年10月以来的最大单周跌幅">↩️ 英伟达本周下跌23%，为自2008年10月以来的最大单周跌幅。</h4>
+<div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me//8818"><b></b>:</a></p>                                                                        <p>BREAKING: Nvidia, $NVDA, ends the week down -23% in its biggest weekly decline since October 2008.  The stock erased -$905 billion in market cap this week and officially closed down -$2.88 trillion since October 6th.  No comment from the company's board or…</p>                                </blockquote></div><p>英伟达本周下跌23%，为自2008年10月以来的最大单周跌幅。<br><br>本周，该公司的市值蒸发了9050亿美元，自10月6日以来，股价累计下跌2.88万亿美元。</p>
+<h4 id="美股期权微观结构与流动性踩踏监控仪表盘">美股期权微观结构与流动性踩踏监控仪表盘</h4>
+<p>美股期权微观结构与流动性踩踏监控仪表盘<br><br><a href="http://sites.google.com/view/fupeng715/full-page-embed" target="_blank" rel="noopener">sites.google.com/view/fupeng715/full-page-embed</a><br><br><a href="https://x.com/fupenglondon/status/2123664102166040898" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">付鹏的财经世界</a></p>
+<h4 id="成立时间较短的红筹企业将被禁止赴中国内地以外上市">成立时间较短的“红筹”企业将被禁止赴中国内地以外上市</h4>
+<p><a href="https://telegra.ph/%E6%88%90%E7%AB%8B%E6%97%B6%E9%97%B4%E8%BE%83%E7%9F%AD%E7%9A%84%E7%BA%A2%E7%AD%B9%E4%BC%81%E4%B8%9A%E5%B0%86%E8%A2%AB%E7%A6%81%E6%AD%A2%E8%B5%B4%E4%B8%AD%E5%9B%BD%E5%86%85%E5%9C%B0%E4%BB%A5%E5%A4%96%E4%B8%8A%E5%B8%82-11-20" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><b>成立时间较短的“红筹”企业将被禁止赴中国内地以外上市</b></a><br><br>据知情人士透露，证监会已告知部分律师事务所，将不批准成立时间较短的红筹企业赴中国内地以外上市的计划。此举加强了对境外融资的管控，并将对香港IPO市场构成打击。<br><br>此举核心在于加强对企业境外融资和资本架构的监管。一方面，防止企业通过专门设立境外主体的方式规避境外上市监管；另一方面，加强对境内资产、股权控制以及跨境资本流动的管理。尤其是2023年3月新规实施后成立的红筹企业，正在成为监管关注的重点。<br><br>结合此前相关报道，阶跃行程、月之暗面、可灵AI等明星企业可能受到影响。<br><br><b>▎</b><a href="https://mp.weixin.qq.com/s/uAXGzO5MwRRnFnSiOKNwdA" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><b>Source</b></a></p>
+<h4 id="中国主权财富基金拟重启对美私募股权投资寻求增设地缘风险保护条款">中国主权财富基金拟重启对美私募股权投资，寻求增设地缘风险保护条款</h4>
+<p></p><blockquote expandable=""><b>中国主权财富基金拟重启对美私募股权投资，寻求增设地缘风险保护条款</b><br><br>据《金融时报》援引知情人士消息，中国投资有限责任公司（中投公司）正牵头推进重启对美国私募股权基金的投资，并与多家基金管理人就新增特殊风险保护条款展开磋商。受此前贸易摩擦影响，中国主权机构一度暂停了对美私募领域的新增出资；随着近期中美高层互动释放缓和信号，中方重返该市场的意愿有所回升，但地缘政治及半导体出口限制等潜在变数依然存在。<br><br>为应对中美关系恶化或欧美制裁等极端情况，中投公司要求设立无需折价抛售非流动性资产即可退出的机制。目前探讨的具体方案包括与基金退出挂钩的本票支付安排、允许跟投特定项目的“并行基金”（Sidecars），以及可选择性退出单一敏感交易而不构成整体违约的“豁免条款”（Excuse Provisions）。过往中投及国家外汇管理局曾是黑石、凯雷等美国大型私募机构的重要资金来源。<br><br>来源：<a href="https://www.ft.com/content/73e7d386-c5d1-4422-8abb-adbfaf92aa0d" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">FT</a></blockquote><p></p>
+<h2 id="热点新闻-1">热点新闻</h2>
+<h3 id="热点新闻-2">热点新闻</h3>
+<h4 id="-俄罗斯一枚kh-101导弹11月20日落在波兰境内传出巨大爆炸声波兰总理图斯克认为此举可能是一次挑衅针对欧洲在波兰举行的军事演习俄罗斯并未回应此事">↩️ 俄罗斯一枚Kh-101导弹11月20日落在波兰境内，传出巨大爆炸声。波兰总理图斯克认为此举可能是一次挑衅，针对欧洲在波兰举行的军事演习。俄罗斯并未回应此事&hellip;</h4>
+<div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me/tnews365/35794"><b>竹新社</b>:</a></p>                                                                        <p>乌克兰已在4天内连续3次袭击克里米亚大桥。克里米亚大桥铁路段的列车通行暂停，当局预计交通能于19日16时左右恢复。 普京表示，克里米亚大桥是民用资产，他已禁止克里米亚大桥用于军事装备或弹药运输。普京誓言会作出回应并重建桥梁。 （美联社）</p>                                </blockquote></div><p>俄罗斯一枚Kh-101导弹11月20日落在波兰境内，传出巨大爆炸声。波兰总理图斯克认为此举可能是一次挑衅，针对欧洲在波兰举行的军事演习。俄罗斯并未回应此事。<br>（<a href="https://apnews.com/article/ukraine-russia-war-kyiv-attacks-putin-crimea-433e18f00cbd37a2a9da94e60fce0e07" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">美联社</a>）</p>
+<h4 id="一名日本公民本月18日在上海死亡当局拘留了一名涉案日本公民-驻上海日本总领事馆19日已接到相关通知目前正就与被拘留的日本公民会面一事进行协调-tbs">一名日本公民本月18日在上海死亡，当局拘留了一名涉案日本公民。 驻上海日本总领事馆19日已接到相关通知，目前正就与被拘留的日本公民会面一事进行协调。 （TBS&hellip;</h4>
+<p>一名日本公民本月18日在上海死亡，当局拘留了一名涉案日本公民。<br>驻上海日本总领事馆19日已接到相关通知，目前正就与被拘留的日本公民会面一事进行协调。<br>（<a href="https://newsdig.tbs.co.jp/articles/-/3101779" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">TBS</a>）</p>
+<h2 id="福利分享">福利分享</h2>
+]]></description><content:encoded><![CDATA[<h2 id="github-热门榜单">GitHub 热门榜单</h2>
+<h4 id="排名-1elementalsoulsclaude-bughunter">排名 1:/elementalsouls/Claude-BugHunter</h4>
+<ul>
+<li>简介: 用于bug搜寻和外部红队工作的Claude Code技能包——82项技能、15条斜线命令、681项披露的报告模式，涵盖24个核心漏洞类别，以及企业身份+基础设施攻击矩阵。</li>
+<li>URL: <a href="https://github.com/elementalsouls/Claude-BugHunter">https://github.com/elementalsouls/Claude-BugHunter</a></li>
+<li>作者: elementalsouls</li>
+</ul>
+<h4 id="排名-2obrasuperpowers">排名 2:/obra/superpowers</h4>
+<ul>
+<li>简介: 一个有效的代理技能框架和软件开发方法。</li>
+<li>URL: <a href="https://github.com/obra/superpowers">https://github.com/obra/superpowers</a></li>
+<li>作者: obra</li>
+</ul>
+<h4 id="排名-3hkudscli-anything">排名 3:/HKUDS/CLI-Anything</h4>
+<ul>
+<li>简介: “CLI Anything：使所有软件代理都成为本机”&ndash;CLI Hub：https://clianything.cc/</li>
+<li>URL: <a href="https://github.com/HKUDS/CLI-Anything">https://github.com/HKUDS/CLI-Anything</a></li>
+<li>作者: HKUDS</li>
+</ul>
+<h4 id="排名-4jingyaogongminimind">排名 4:/jingyaogong/minimind</h4>
+<ul>
+<li>简介: 🧠 两小时从 0 训出你的 64M 大模型。在2小时内从头开始训练自己的64M法学硕士。</li>
+<li>URL: <a href="https://github.com/jingyaogong/minimind">https://github.com/jingyaogong/minimind</a></li>
+<li>作者: jingyaogong</li>
+</ul>
+<h4 id="排名-5cursorplugins">排名 5:/cursor/plugins</h4>
+<ul>
+<li>简介: 游标插件规范和官方插件</li>
+<li>URL: <a href="https://github.com/cursor/plugins">https://github.com/cursor/plugins</a></li>
+<li>作者: cursor</li>
+</ul>
+<h4 id="排名-6firecrawlfirecrawl">排名 6:/firecrawl/firecrawl</h4>
+<ul>
+<li>简介: 知识基础设施，使您的代理更智能。通过一个API搜索、抓取和访问550+个数据提供商。</li>
+<li>URL: <a href="https://github.com/firecrawl/firecrawl">https://github.com/firecrawl/firecrawl</a></li>
+<li>作者: firecrawl</li>
+</ul>
+<h4 id="排名-7nginxnginx">排名 7:/nginx/nginx</h4>
+<ul>
+<li>简介: NGINX官方开源仓库。</li>
+<li>URL: <a href="https://github.com/nginx/nginx">https://github.com/nginx/nginx</a></li>
+<li>作者: nginx</li>
+</ul>
+<h4 id="排名-8openvinotoolkitopenvino">排名 8:/openvinotoolkit/openvino</h4>
+<ul>
+<li>简介: OpenVINO™是一个用于优化和部署AI推理的开源工具包</li>
+<li>URL: <a href="https://github.com/openvinotoolkit/openvino">https://github.com/openvinotoolkit/openvino</a></li>
+<li>作者: openvinotoolkit</li>
+</ul>
+<h4 id="排名-9cathrynlaverydiagram-design">排名 9:/cathrynlavery/diagram-design</h4>
+<ul>
+<li>简介: Claude Code、Codex、GitHub Copilot、Cursor、Factory Droid、Qoder和Pi的编辑图设计。45种图表类型。独立的HTML+SVG。没有阴影。没有美人鱼的粪便。</li>
+<li>URL: <a href="https://github.com/cathrynlavery/diagram-design">https://github.com/cathrynlavery/diagram-design</a></li>
+<li>作者: cathrynlavery</li>
+</ul>
+<h4 id="排名-10mvanhornlast30days-skill">排名 10:/mvanhorn/last30days-skill</h4>
+<ul>
+<li>简介: 人工智能代理技能，研究Reddit、X、YouTube、HN、Polymarket和网络上的任何主题，然后综合一个有根据的总结</li>
+<li>URL: <a href="https://github.com/mvanhorn/last30days-skill">https://github.com/mvanhorn/last30days-skill</a></li>
+<li>作者: mvanhorn</li>
+</ul>
+<h4 id="排名-11google-labs-codestitch-skills">排名 11:/google-labs-code/stitch-skills</h4>
+<ul>
+<li>简介: 一个旨在与Stitch MCP服务器配合使用的代理技能库。每种技能都遵循Agent Skills开放标准，与Antigravity、Gemini CLI、Claude Code、Cursor等编码代理兼容。</li>
+<li>URL: <a href="https://github.com/google-labs-code/stitch-skills">https://github.com/google-labs-code/stitch-skills</a></li>
+<li>作者: google-labs-code</li>
+</ul>
+<h4 id="排名-12mjmirzaapp-store-compliance">排名 12:/mjmirza/app-store-compliance</h4>
+<ul>
+<li>简介: 避免常见的App Store和Google Play拒绝。开放式剧本和预提交保护，有124个记录在案的拒绝模式和修复程序、隐私清单和数据安全检查、111个跟踪截止日期（欧盟人工智能法案、DSA、COPPA、年龄法），以及人工智能编码代理的技能。</li>
+<li>URL: <a href="https://github.com/mjmirza/app-store-compliance">https://github.com/mjmirza/app-store-compliance</a></li>
+<li>作者: mjmirza</li>
+</ul>
+<h4 id="排名-13tracer-cloudopensre">排名 13:/Tracer-Cloud/opensre</h4>
+<ul>
+<li>简介: CI/CD可靠性的开源代理。</li>
+<li>URL: <a href="https://github.com/Tracer-Cloud/opensre">https://github.com/Tracer-Cloud/opensre</a></li>
+<li>作者: Tracer-Cloud</li>
+</ul>
+<h4 id="排名-14toeverythingaffine">排名 14:/toeverything/AFFiNE</h4>
+<ul>
+<li>简介: 可能不止Notion和Miro。AFFiNE（发音为[ə&rsquo;fain]）是一个下一代知识库，将规划、分类和创建结合在一起。隐私第一、开源、可定制且随时可用。</li>
+<li>URL: <a href="https://github.com/toeverything/AFFiNE">https://github.com/toeverything/AFFiNE</a></li>
+<li>作者: toeverything</li>
+</ul>
+<h4 id="排名-15xiaoyouchrghost-downloader-3">排名 15:/XiaoYouChR/Ghost-Downloader-3</h4>
+<ul>
+<li>简介: 你唯一需要的下载器。 下载器的集大成者。</li>
+<li>URL: <a href="https://github.com/XiaoYouChR/Ghost-Downloader-3">https://github.com/XiaoYouChR/Ghost-Downloader-3</a></li>
+<li>作者: XiaoYouChR</li>
+</ul>
+<h4 id="排名-16zhouxiaokaautoclip">排名 16:/zhouxiaoka/autoclip</h4>
+<ul>
+<li>简介: 自动剪辑｜一个链接，一键出片。开源 AI 视频剪辑桌面工具，将播客、访谈、课程等长视频自动剪成短视频，生成字幕、封面和发布文案，适配抖音、小红书、TikTok、Reels与 YouTube短片开源AI视频剪辑和内容再利用。</li>
+<li>URL: <a href="https://github.com/zhouxiaoka/autoclip">https://github.com/zhouxiaoka/autoclip</a></li>
+<li>作者: zhouxiaoka</li>
+</ul>
+<h2 id="v2ex-热门帖子">v2ex 热门帖子</h2>
+<ul>
+<li>1.<a href="https://www.v2ex.com/t/1258845#reply19">为什么没有AI攻克医学难题的消息？是因为跨学科吗？</a></li>
+<li>2.<a href="https://www.v2ex.com/t/1258850#reply10">Google黑五1年100刀的活动，和现在APP上15刀3个月的活动能叠加吗？</a></li>
+<li>3.<a href="https://www.v2ex.com/t/1258843#reply3">所以解决黎曼猜想真的会得到永生</a></li>
+<li>4.<a href="https://www.v2ex.com/t/1258852#reply2">意外！reasonix停更了！</a></li>
+<li>5.<a href="https://www.v2ex.com/t/1258851#reply1">大家觉得特斯拉FSDV15的TeslaRealityView是怎么实现的？</a></li>
+<li>6.<a href="https://www.v2ex.com/t/1258854#reply1">桌面下载工具Douzy：抖音、TikTok、YouTube、Telegram、X(推特)，一键存到自己电脑上</a></li>
+<li>7.<a href="https://www.v2ex.com/t/1258855#reply1">AppleWatch：戴了8年，我的使用测评</a></li>
+<li>8.<a href="https://www.v2ex.com/t/1258857#reply1">你怎么做项目开发管理?</a></li>
+<li>9.<a href="https://www.v2ex.com/t/1258844#reply0">想也想不到：我昨晚发布在番茄上的短篇小说，早晨AI告诉我被盗版了</a></li>
+<li>10.<a href="https://www.v2ex.com/t/1258847#reply0">我写了个分析聊天记录的skill</a></li>
+<li>11.<a href="https://www.v2ex.com/t/1258858#reply0">发现Devin还是挺好用的</a></li>
+</ul>
+<h3 id="热点新闻">热点新闻</h3>
+<h4 id="险资专家交流减仓接近尾声">险资专家交流：减仓接近尾声</h4>
+<p></p><blockquote>险资专家交流：减仓接近尾声<br><br>Q：为什么险资会集中清仓科技成长股，是不看好板块基本面吗？<br>A：并不是机构对科技板块基本面观点发生转向，核心是险资内部一套刚性止损纪律在发挥作用，这是一个偏机械的风控机制。保险公司做权益投资大多设置回撤红线，常规的控制区间在20%到30%之间，一旦回撤超过30%，基本就要执行强制清仓，没有太多商量余地；如果投资经理坚持认为持仓值得保留，必须提交专项报告，最后由管理层审批拍板。今年4、5月不少险企选择加仓科技成长股，紧接着7、8月市场出现剧烈调整，很多持仓直接打穿止损线，触发一连串被动卖出，这类资金在下跌过程里没法接盘，反而持续砍仓，也是科技板块调整阶段很容易被忽略的资金面因素。<br>Q：险资如果想重新布局科技股，是不是很快就能进场形成增量资金？<br>A：短期很难指望险资重新成为科技成长板块的增量资金来源，风控流程和投资约束摆在前面。就算后续市场企稳，想要再度买入这类资产，首先要出现足够明确的企稳信号，同时还要重新走完内部完整的投资审批流程，不是市场稍微反弹就能直接买回。险资这套止损机制是硬性要求，经历过这一轮击穿止损线强制卖出之后，机构对于科技成长风格的风险偏好明显压低，在没有充分论证、走完内部决策流程之前，不会轻易恢复配置，所以不能简单预设科技反弹的时候险资会回来托底。<br>Q：险资减仓的时候，会不会优先赎回委外公募，保留自营仓位？<br>A：市场流传过一种说法，险资集中减仓阶段，会优先赎回公募委外产品，保住自营持仓，这个说法并不成立。自营盘和委外资金之间不存在赎回优先级，两边标准完全一视同仁，判断要不要卖出或者赎回，核心看标的本身业绩表现，以及距离内部止损线的远近，谁先触及风控条件、业绩不及预期，就优先处理谁，不会因为是自营就天然保留，也不会因为是外部委外就提前一刀切赎回，风控规则对两类资金统一适用。</blockquote><p></p>
+<h4 id="彭博顺丰速运因涉嫌违规被暂停参与全军物资工程和服务的采购">彭博：顺丰速运因涉嫌违规被暂停参与全军物资、工程和服务的采购。</h4>
+<p>彭博：顺丰速运因涉嫌违规被暂停参与全军物资、工程和服务的采购。</p>
+<h4 id="-中配原声molly-osheaanthropic上市估值达2万亿altimeter解读ai四季">🎬 中配+原声·【Molly OShea】Anthropic上市估值达2万亿，Altimeter解读AI四季</h4>
+<p><b>中配+原声·【Molly OShea】Anthropic上市估值达2万亿，Altimeter解读AI四季</b><br><br><b>▎</b><a href="https://www.bilibili.com/video/BV1ypyszzESm/" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><b>Source</b></a></p> <blockquote><b>Video is too big</b></blockquote> 
+<h4 id="-英伟达本周下跌23为自2008年10月以来的最大单周跌幅">↩️ 英伟达本周下跌23%，为自2008年10月以来的最大单周跌幅。</h4>
+<div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me//8818"><b></b>:</a></p>                                                                        <p>BREAKING: Nvidia, $NVDA, ends the week down -23% in its biggest weekly decline since October 2008.  The stock erased -$905 billion in market cap this week and officially closed down -$2.88 trillion since October 6th.  No comment from the company's board or…</p>                                </blockquote></div><p>英伟达本周下跌23%，为自2008年10月以来的最大单周跌幅。<br><br>本周，该公司的市值蒸发了9050亿美元，自10月6日以来，股价累计下跌2.88万亿美元。</p>
+<h4 id="美股期权微观结构与流动性踩踏监控仪表盘">美股期权微观结构与流动性踩踏监控仪表盘</h4>
+<p>美股期权微观结构与流动性踩踏监控仪表盘<br><br><a href="http://sites.google.com/view/fupeng715/full-page-embed" target="_blank" rel="noopener">sites.google.com/view/fupeng715/full-page-embed</a><br><br><a href="https://x.com/fupenglondon/status/2123664102166040898" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">付鹏的财经世界</a></p>
+<h4 id="成立时间较短的红筹企业将被禁止赴中国内地以外上市">成立时间较短的“红筹”企业将被禁止赴中国内地以外上市</h4>
+<p><a href="https://telegra.ph/%E6%88%90%E7%AB%8B%E6%97%B6%E9%97%B4%E8%BE%83%E7%9F%AD%E7%9A%84%E7%BA%A2%E7%AD%B9%E4%BC%81%E4%B8%9A%E5%B0%86%E8%A2%AB%E7%A6%81%E6%AD%A2%E8%B5%B4%E4%B8%AD%E5%9B%BD%E5%86%85%E5%9C%B0%E4%BB%A5%E5%A4%96%E4%B8%8A%E5%B8%82-11-20" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><b>成立时间较短的“红筹”企业将被禁止赴中国内地以外上市</b></a><br><br>据知情人士透露，证监会已告知部分律师事务所，将不批准成立时间较短的红筹企业赴中国内地以外上市的计划。此举加强了对境外融资的管控，并将对香港IPO市场构成打击。<br><br>此举核心在于加强对企业境外融资和资本架构的监管。一方面，防止企业通过专门设立境外主体的方式规避境外上市监管；另一方面，加强对境内资产、股权控制以及跨境资本流动的管理。尤其是2023年3月新规实施后成立的红筹企业，正在成为监管关注的重点。<br><br>结合此前相关报道，阶跃行程、月之暗面、可灵AI等明星企业可能受到影响。<br><br><b>▎</b><a href="https://mp.weixin.qq.com/s/uAXGzO5MwRRnFnSiOKNwdA" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);"><b>Source</b></a></p>
+<h4 id="中国主权财富基金拟重启对美私募股权投资寻求增设地缘风险保护条款">中国主权财富基金拟重启对美私募股权投资，寻求增设地缘风险保护条款</h4>
+<p></p><blockquote expandable=""><b>中国主权财富基金拟重启对美私募股权投资，寻求增设地缘风险保护条款</b><br><br>据《金融时报》援引知情人士消息，中国投资有限责任公司（中投公司）正牵头推进重启对美国私募股权基金的投资，并与多家基金管理人就新增特殊风险保护条款展开磋商。受此前贸易摩擦影响，中国主权机构一度暂停了对美私募领域的新增出资；随着近期中美高层互动释放缓和信号，中方重返该市场的意愿有所回升，但地缘政治及半导体出口限制等潜在变数依然存在。<br><br>为应对中美关系恶化或欧美制裁等极端情况，中投公司要求设立无需折价抛售非流动性资产即可退出的机制。目前探讨的具体方案包括与基金退出挂钩的本票支付安排、允许跟投特定项目的“并行基金”（Sidecars），以及可选择性退出单一敏感交易而不构成整体违约的“豁免条款”（Excuse Provisions）。过往中投及国家外汇管理局曾是黑石、凯雷等美国大型私募机构的重要资金来源。<br><br>来源：<a href="https://www.ft.com/content/73e7d386-c5d1-4422-8abb-adbfaf92aa0d" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">FT</a></blockquote><p></p>
+<h2 id="热点新闻-1">热点新闻</h2>
+<h3 id="热点新闻-2">热点新闻</h3>
+<h4 id="-俄罗斯一枚kh-101导弹11月20日落在波兰境内传出巨大爆炸声波兰总理图斯克认为此举可能是一次挑衅针对欧洲在波兰举行的军事演习俄罗斯并未回应此事">↩️ 俄罗斯一枚Kh-101导弹11月20日落在波兰境内，传出巨大爆炸声。波兰总理图斯克认为此举可能是一次挑衅，针对欧洲在波兰举行的军事演习。俄罗斯并未回应此事&hellip;</h4>
+<div class="rsshub-quote"><blockquote>                                    <p><a href="https://t.me/tnews365/35794"><b>竹新社</b>:</a></p>                                                                        <p>乌克兰已在4天内连续3次袭击克里米亚大桥。克里米亚大桥铁路段的列车通行暂停，当局预计交通能于19日16时左右恢复。 普京表示，克里米亚大桥是民用资产，他已禁止克里米亚大桥用于军事装备或弹药运输。普京誓言会作出回应并重建桥梁。 （美联社）</p>                                </blockquote></div><p>俄罗斯一枚Kh-101导弹11月20日落在波兰境内，传出巨大爆炸声。波兰总理图斯克认为此举可能是一次挑衅，针对欧洲在波兰举行的军事演习。俄罗斯并未回应此事。<br>（<a href="https://apnews.com/article/ukraine-russia-war-kyiv-attacks-putin-crimea-433e18f00cbd37a2a9da94e60fce0e07" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">美联社</a>）</p>
+<h4 id="一名日本公民本月18日在上海死亡当局拘留了一名涉案日本公民-驻上海日本总领事馆19日已接到相关通知目前正就与被拘留的日本公民会面一事进行协调-tbs">一名日本公民本月18日在上海死亡，当局拘留了一名涉案日本公民。 驻上海日本总领事馆19日已接到相关通知，目前正就与被拘留的日本公民会面一事进行协调。 （TBS&hellip;</h4>
+<p>一名日本公民本月18日在上海死亡，当局拘留了一名涉案日本公民。<br>驻上海日本总领事馆19日已接到相关通知，目前正就与被拘留的日本公民会面一事进行协调。<br>（<a href="https://newsdig.tbs.co.jp/articles/-/3101779" target="_blank" rel="noopener" onclick="return confirm('Open this link?\n\n'+this.href);">TBS</a>）</p>
+<h2 id="福利分享">福利分享</h2>
+]]></content:encoded></item><item><title>2026-11-21 打工人日报</title><link>https://www.jobcher.com/new/daily/github_trending_2026-11-21/</link><pubDate>Sat, 21 Nov 2026 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/new/daily/github_trending_2026-11-21/</guid><description><![CDATA[<h2 id="github-热门榜单">GitHub 热门榜单</h2>
 <h4 id="排名-1elementalsoulsclaude-bughunter">排名 1:/elementalsouls/Claude-BugHunter</h4>
 <ul>
 <li>简介: 用于bug搜寻和外部红队工作的Claude Code技能包——82项技能、15条斜线命令、681项披露的报告模式，涵盖24个核心漏洞类别，以及企业身份+基础设施攻击矩阵。</li>
@@ -7989,274 +8255,6 @@
 <li>38.<a href="https://www.v2ex.com/t/1250804#reply7">[娱乐]做了一个评价网站AI感的网站，可以相互打分</a></li>
 <li>39.<a href="https://www.v2ex.com/t/1250809#reply7">大家都用什么渠道买的claude会员？什么价格？</a></li>
 <li>40.<a href="https://www.v2ex.com/t/1250817#reply6">后端基础架构方向现在流行什么？</a></li>
-</ul>
-<h2 id="热点新闻">热点新闻</h2>
-<h2 id="福利分享">福利分享</h2>
-]]></content:encoded></item><item><title>2026-10-21 打工人日报</title><link>https://www.jobcher.com/new/daily/github_trending_2026-10-21/</link><pubDate>Wed, 21 Oct 2026 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/new/daily/github_trending_2026-10-21/</guid><description><![CDATA[<h2 id="github-热门榜单">GitHub 热门榜单</h2>
-<h4 id="排名-1madslorentzenai-job-search">排名 1:/MadsLorentzen/ai-job-search</h4>
-<ul>
-<li>简介: 在你的机器上运行的求职。基于Claude Code构建的人工智能求职框架：评估职位、定制简历、写求职信、准备面试。叉它，拥有它。</li>
-<li>URL: <a href="https://github.com/MadsLorentzen/ai-job-search">https://github.com/MadsLorentzen/ai-job-search</a></li>
-<li>作者: MadsLorentzen</li>
-</ul>
-<h4 id="排名-2cloudflaresecurity-audit-skill">排名 2:/cloudflare/security-audit-skill</h4>
-<ul>
-<li>简介: 具有独立验证、机器可读结果的多阶段安全审计的编码代理技能</li>
-<li>URL: <a href="https://github.com/cloudflare/security-audit-skill">https://github.com/cloudflare/security-audit-skill</a></li>
-<li>作者: cloudflare</li>
-</ul>
-<h4 id="排名-3stablyaiorca">排名 3:/stablyai/orca</h4>
-<ul>
-<li>简介: 奥卡是与一队特工（如Grok Bot、Claude Code）合作的地方。使用您自己的订阅运行任何编码代理。可在桌面、移动和远程运行时使用。</li>
-<li>URL: <a href="https://github.com/stablyai/orca">https://github.com/stablyai/orca</a></li>
-<li>作者: stablyai</li>
-</ul>
-<h4 id="排名-4dietrichgebertponytail">排名 4:/DietrichGebert/ponytail</h4>
-<ul>
-<li>简介: 让你的AI代理像房间里最懒惰的高级开发人员一样思考。最好的代码是你从未写过的代码。</li>
-<li>URL: <a href="https://github.com/DietrichGebert/ponytail">https://github.com/DietrichGebert/ponytail</a></li>
-<li>作者: DietrichGebert</li>
-</ul>
-<h4 id="排名-5comfy-orgcomfyui">排名 5:/Comfy-Org/ComfyUI</h4>
-<ul>
-<li>简介: 最强大和模块化的扩散模型GUI、api和后端，具有图形/节点界面。世界上最快的本地推理引擎。</li>
-<li>URL: <a href="https://github.com/Comfy-Org/ComfyUI">https://github.com/Comfy-Org/ComfyUI</a></li>
-<li>作者: Comfy-Org</li>
-</ul>
-<h4 id="排名-6ruvnetruflo">排名 6:/ruvnet/ruflo</h4>
-<ul>
-<li>简介: 🌊 原始代理线束。部署智能多玩家群体，协调自主工作流程，构建对话式人工智能系统。具有自适应记忆、自学习智能、联邦、矢量RAG集成和本地Claude Code/Copyro/Hemis等集成功能</li>
-<li>URL: <a href="https://github.com/ruvnet/ruflo">https://github.com/ruvnet/ruflo</a></li>
-<li>作者: ruvnet</li>
-</ul>
-<h4 id="排名-7graphify-labsgraphify">排名 7:/Graphify-Labs/graphify</h4>
-<ul>
-<li>简介: 将任何代码库及其文档、SQL模式、配置和PDF转换为可查询的知识图。Claude Code、Cursor、Codex和Gemini CLI的图形化技能：本地确定性AST解析，每个边都有解释，没有向量存储。</li>
-<li>URL: <a href="https://github.com/Graphify-Labs/graphify">https://github.com/Graphify-Labs/graphify</a></li>
-<li>作者: Graphify-Labs</li>
-</ul>
-<h4 id="排名-8anomalycoopencode">排名 8:/anomalyco/opencode</h4>
-<ul>
-<li>简介: 开源编码代理。</li>
-<li>URL: <a href="https://github.com/anomalyco/opencode">https://github.com/anomalyco/opencode</a></li>
-<li>作者: anomalyco</li>
-</ul>
-<h4 id="排名-9msitarzewskiagency-agents">排名 9:/msitarzewski/agency-agents</h4>
-<ul>
-<li>简介: 一个完整的人工智能机构触手可及——从前端向导到Reddit社区忍者，从奇思妙想的注射器到现实检查器。每个代理都是具有个性、流程和经过验证的可交付成果的专业专家。</li>
-<li>URL: <a href="https://github.com/msitarzewski/agency-agents">https://github.com/msitarzewski/agency-agents</a></li>
-<li>作者: msitarzewski</li>
-</ul>
-<h4 id="排名-10headroomlabs-aiheadroom">排名 10:/headroomlabs-ai/headroom</h4>
-<ul>
-<li>简介: 在工具输出、日志、文件和RAG块到达LLM之前对其进行压缩。编码代理的令牌减少20%，JSON的令牌减少60-95%，答案相同。库、代理、MCP服务器。</li>
-<li>URL: <a href="https://github.com/headroomlabs-ai/headroom">https://github.com/headroomlabs-ai/headroom</a></li>
-<li>作者: headroomlabs-ai</li>
-</ul>
-<h4 id="排名-11anthropicsknowledge-work-plugins">排名 11:/anthropics/knowledge-work-plugins</h4>
-<ul>
-<li>简介: 主要供知识工作者在Claude Cowork中使用的开源插件库</li>
-<li>URL: <a href="https://github.com/anthropics/knowledge-work-plugins">https://github.com/anthropics/knowledge-work-plugins</a></li>
-<li>作者: anthropics</li>
-</ul>
-<h4 id="排名-12wshobsonagents">排名 12:/wshobson/agents</h4>
-<ul>
-<li>简介: Claude Code、Codex、Cursor、OpenCode、GitHub Copilot、Google Antigravity和Pi的多线束代理插件市场</li>
-<li>URL: <a href="https://github.com/wshobson/agents">https://github.com/wshobson/agents</a></li>
-<li>作者: wshobson</li>
-</ul>
-<h4 id="排名-13sickn33agentic-awesome-skills">排名 13:/sickn33/agentic-awesome-skills</h4>
-<ul>
-<li>简介: AAS Core是本地的、代理优先的控制平面，用于完成目录发现、代理拥有的选择、堆栈验证和规划，并由2600多种代理技能提供支持。包括CLI、本地MCP、目录、插件和工作台。</li>
-<li>URL: <a href="https://github.com/sickn33/agentic-awesome-skills">https://github.com/sickn33/agentic-awesome-skills</a></li>
-<li>作者: sickn33</li>
-</ul>
-<h4 id="排名-14shiyu-coderkronos">排名 14:/shiyu-coder/Kronos</h4>
-<ul>
-<li>简介: Kronos：金融市场语言的基础模型</li>
-<li>URL: <a href="https://github.com/shiyu-coder/Kronos">https://github.com/shiyu-coder/Kronos</a></li>
-<li>作者: shiyu-coder</li>
-</ul>
-<h4 id="排名-15vllm-projectvllm">排名 15:/vllm-project/vllm</h4>
-<ul>
-<li>简介: 一种高吞吐量、内存高效的LLM推理和服务引擎</li>
-<li>URL: <a href="https://github.com/vllm-project/vllm">https://github.com/vllm-project/vllm</a></li>
-<li>作者: vllm-project</li>
-</ul>
-<h2 id="v2ex-热门帖子">v2ex 热门帖子</h2>
-<ul>
-<li>1.<a href="https://www.v2ex.com/t/1250524#reply92">前端这个行业真要完了</a></li>
-<li>2.<a href="https://www.v2ex.com/t/1250477#reply80">[图一乐]给大家看看我的Claude账号到底有多硬</a></li>
-<li>3.<a href="https://www.v2ex.com/t/1250493#reply65">给自建Umami写了原生iOS/Android客户端SiteGlance：纯端侧直连、支持桌面小组件，单次买断（附兑换码）</a></li>
-<li>4.<a href="https://www.v2ex.com/t/1250482#reply56">感叹Codex的过度设计。</a></li>
-<li>5.<a href="https://www.v2ex.com/t/1250533#reply55">前端想学后端，但是看完这段代码就已经力竭了</a></li>
-<li>6.<a href="https://www.v2ex.com/t/1250481#reply42">有人租过共享菜园吗？</a></li>
-<li>7.<a href="https://www.v2ex.com/t/1250498#reply41">经济困难只排第三？</a></li>
-<li>8.<a href="https://www.v2ex.com/t/1250519#reply41">有骑电瓶车通勤的吗，有啥必买的配件推荐一下呗。</a></li>
-<li>9.<a href="https://www.v2ex.com/t/1250480#reply35">Linux同好，一起移植win上的软件</a></li>
-<li>10.<a href="https://www.v2ex.com/t/1250485#reply32">我的前端同事开发联调时竟然还在代码里写临时的mock数据！</a></li>
-<li>11.<a href="https://www.v2ex.com/t/1250476#reply30">cleanyourtv很火，新增电视列表大部分是国产，苦广告久矣</a></li>
-<li>12.<a href="https://www.v2ex.com/t/1250500#reply27">成都最近找工作有感</a></li>
-<li>13.<a href="https://www.v2ex.com/t/1250506#reply27">有了AI以后，职场环境似乎更加恶劣了。</a></li>
-<li>14.<a href="https://www.v2ex.com/t/1250489#reply22">双11到了，拼多多靠谱不？价格比京东便宜不少</a></li>
-<li>15.<a href="https://www.v2ex.com/t/1250521#reply22">[前端转全栈学Java，挑战30天独立做项目！望开发大佬指条明路]</a></li>
-<li>16.<a href="https://www.v2ex.com/t/1250505#reply18">有喜欢玩单片机或者想学习单片机的V友吗，做了一个单片机模拟网站</a></li>
-<li>17.<a href="https://www.v2ex.com/t/1250496#reply16">1.雨天早高峰遇上智驾“路障”</a></li>
-<li>18.<a href="https://www.v2ex.com/t/1250503#reply16">最近从Windows10迁移到Debian13，感觉直接起飞。</a></li>
-<li>19.<a href="https://www.v2ex.com/t/1250541#reply16">刚Tibo说codex支持会话的永久缓存，有懂技术的解释下这可能吗</a></li>
-<li>20.<a href="https://www.v2ex.com/t/1250479#reply15">deepseek开源推理框架了</a></li>
-<li>21.<a href="https://www.v2ex.com/t/1250529#reply15">我把我儿子的玩具做成了小游戏，开发了2天，审核了快一个月，终于上线了！</a></li>
-<li>22.<a href="https://www.v2ex.com/t/1250522#reply13">公司内部用的原型交付工具，对外开放注册了，给大家尝鲜，送50个Pro兑换码</a></li>
-<li>23.<a href="https://www.v2ex.com/t/1250537#reply12">全屋wifi路由器推荐</a></li>
-<li>24.<a href="https://www.v2ex.com/t/1250576#reply9">局域网跨平台多设备之间的复制粘贴</a></li>
-<li>25.<a href="https://www.v2ex.com/t/1250578#reply9">大家如何看待ai文章(博客，公众号，推文帖子)</a></li>
-<li>26.<a href="https://www.v2ex.com/t/1250603#reply9">中低端的个人开发者除了送外卖或者自媒体外还有什么出路？</a></li>
-<li>27.<a href="https://www.v2ex.com/t/1250554#reply9">用了半年的claude还是被封了,我曾经以为我是天选之人</a></li>
-<li>28.<a href="https://www.v2ex.com/t/1250560#reply8">大家用过deepseek的搜索服务吗？腾讯又来抄袭了</a></li>
-<li>29.<a href="https://www.v2ex.com/t/1250523#reply8">GoogleAIPro12个月教育活动不能使用反重力里的Gemini4吗？</a></li>
-<li>30.<a href="https://www.v2ex.com/t/1250569#reply7">前后端其实只是一个阶段性的岗位</a></li>
-<li>31.<a href="https://www.v2ex.com/t/1250491#reply7">闲鱼搞的Jio赠送的GoogleAIpro的订阅，怎么退掉呀</a></li>
-<li>32.<a href="https://www.v2ex.com/t/1250564#reply6">同事恶心到我了，吐槽一下</a></li>
-<li>33.<a href="https://www.v2ex.com/t/1250586#reply6">高德地图10月21停轨迹记录服务后，安卓和苹果还有什么好用的轨迹记录软件？用过dawarich，不如高德记录查阅历史轨迹好用。记录自己的行程用的。</a></li>
-<li>34.<a href="https://www.v2ex.com/t/1250488#reply6">小米智能音箱，和苹果智能音响，有没有办法接入deepseek大模型。</a></li>
-<li>35.<a href="https://www.v2ex.com/t/1250542#reply6">京东macminim624g512g国补之后七千四百多元，要入手吗？</a></li>
-<li>36.<a href="https://www.v2ex.com/t/1250565#reply5">做了款苹果四端播放器Vanto，支持杜比视界、空间音频，送200份永久版</a></li>
-<li>37.<a href="https://www.v2ex.com/t/1250580#reply5">美元汇率都6.68了</a></li>
-<li>38.<a href="https://www.v2ex.com/t/1250587#reply5">离奇，头一次职场遇到下属NPD的。</a></li>
-</ul>
-<h2 id="热点新闻">热点新闻</h2>
-<h2 id="福利分享">福利分享</h2>
-]]></description><content:encoded><![CDATA[<h2 id="github-热门榜单">GitHub 热门榜单</h2>
-<h4 id="排名-1madslorentzenai-job-search">排名 1:/MadsLorentzen/ai-job-search</h4>
-<ul>
-<li>简介: 在你的机器上运行的求职。基于Claude Code构建的人工智能求职框架：评估职位、定制简历、写求职信、准备面试。叉它，拥有它。</li>
-<li>URL: <a href="https://github.com/MadsLorentzen/ai-job-search">https://github.com/MadsLorentzen/ai-job-search</a></li>
-<li>作者: MadsLorentzen</li>
-</ul>
-<h4 id="排名-2cloudflaresecurity-audit-skill">排名 2:/cloudflare/security-audit-skill</h4>
-<ul>
-<li>简介: 具有独立验证、机器可读结果的多阶段安全审计的编码代理技能</li>
-<li>URL: <a href="https://github.com/cloudflare/security-audit-skill">https://github.com/cloudflare/security-audit-skill</a></li>
-<li>作者: cloudflare</li>
-</ul>
-<h4 id="排名-3stablyaiorca">排名 3:/stablyai/orca</h4>
-<ul>
-<li>简介: 奥卡是与一队特工（如Grok Bot、Claude Code）合作的地方。使用您自己的订阅运行任何编码代理。可在桌面、移动和远程运行时使用。</li>
-<li>URL: <a href="https://github.com/stablyai/orca">https://github.com/stablyai/orca</a></li>
-<li>作者: stablyai</li>
-</ul>
-<h4 id="排名-4dietrichgebertponytail">排名 4:/DietrichGebert/ponytail</h4>
-<ul>
-<li>简介: 让你的AI代理像房间里最懒惰的高级开发人员一样思考。最好的代码是你从未写过的代码。</li>
-<li>URL: <a href="https://github.com/DietrichGebert/ponytail">https://github.com/DietrichGebert/ponytail</a></li>
-<li>作者: DietrichGebert</li>
-</ul>
-<h4 id="排名-5comfy-orgcomfyui">排名 5:/Comfy-Org/ComfyUI</h4>
-<ul>
-<li>简介: 最强大和模块化的扩散模型GUI、api和后端，具有图形/节点界面。世界上最快的本地推理引擎。</li>
-<li>URL: <a href="https://github.com/Comfy-Org/ComfyUI">https://github.com/Comfy-Org/ComfyUI</a></li>
-<li>作者: Comfy-Org</li>
-</ul>
-<h4 id="排名-6ruvnetruflo">排名 6:/ruvnet/ruflo</h4>
-<ul>
-<li>简介: 🌊 原始代理线束。部署智能多玩家群体，协调自主工作流程，构建对话式人工智能系统。具有自适应记忆、自学习智能、联邦、矢量RAG集成和本地Claude Code/Copyro/Hemis等集成功能</li>
-<li>URL: <a href="https://github.com/ruvnet/ruflo">https://github.com/ruvnet/ruflo</a></li>
-<li>作者: ruvnet</li>
-</ul>
-<h4 id="排名-7graphify-labsgraphify">排名 7:/Graphify-Labs/graphify</h4>
-<ul>
-<li>简介: 将任何代码库及其文档、SQL模式、配置和PDF转换为可查询的知识图。Claude Code、Cursor、Codex和Gemini CLI的图形化技能：本地确定性AST解析，每个边都有解释，没有向量存储。</li>
-<li>URL: <a href="https://github.com/Graphify-Labs/graphify">https://github.com/Graphify-Labs/graphify</a></li>
-<li>作者: Graphify-Labs</li>
-</ul>
-<h4 id="排名-8anomalycoopencode">排名 8:/anomalyco/opencode</h4>
-<ul>
-<li>简介: 开源编码代理。</li>
-<li>URL: <a href="https://github.com/anomalyco/opencode">https://github.com/anomalyco/opencode</a></li>
-<li>作者: anomalyco</li>
-</ul>
-<h4 id="排名-9msitarzewskiagency-agents">排名 9:/msitarzewski/agency-agents</h4>
-<ul>
-<li>简介: 一个完整的人工智能机构触手可及——从前端向导到Reddit社区忍者，从奇思妙想的注射器到现实检查器。每个代理都是具有个性、流程和经过验证的可交付成果的专业专家。</li>
-<li>URL: <a href="https://github.com/msitarzewski/agency-agents">https://github.com/msitarzewski/agency-agents</a></li>
-<li>作者: msitarzewski</li>
-</ul>
-<h4 id="排名-10headroomlabs-aiheadroom">排名 10:/headroomlabs-ai/headroom</h4>
-<ul>
-<li>简介: 在工具输出、日志、文件和RAG块到达LLM之前对其进行压缩。编码代理的令牌减少20%，JSON的令牌减少60-95%，答案相同。库、代理、MCP服务器。</li>
-<li>URL: <a href="https://github.com/headroomlabs-ai/headroom">https://github.com/headroomlabs-ai/headroom</a></li>
-<li>作者: headroomlabs-ai</li>
-</ul>
-<h4 id="排名-11anthropicsknowledge-work-plugins">排名 11:/anthropics/knowledge-work-plugins</h4>
-<ul>
-<li>简介: 主要供知识工作者在Claude Cowork中使用的开源插件库</li>
-<li>URL: <a href="https://github.com/anthropics/knowledge-work-plugins">https://github.com/anthropics/knowledge-work-plugins</a></li>
-<li>作者: anthropics</li>
-</ul>
-<h4 id="排名-12wshobsonagents">排名 12:/wshobson/agents</h4>
-<ul>
-<li>简介: Claude Code、Codex、Cursor、OpenCode、GitHub Copilot、Google Antigravity和Pi的多线束代理插件市场</li>
-<li>URL: <a href="https://github.com/wshobson/agents">https://github.com/wshobson/agents</a></li>
-<li>作者: wshobson</li>
-</ul>
-<h4 id="排名-13sickn33agentic-awesome-skills">排名 13:/sickn33/agentic-awesome-skills</h4>
-<ul>
-<li>简介: AAS Core是本地的、代理优先的控制平面，用于完成目录发现、代理拥有的选择、堆栈验证和规划，并由2600多种代理技能提供支持。包括CLI、本地MCP、目录、插件和工作台。</li>
-<li>URL: <a href="https://github.com/sickn33/agentic-awesome-skills">https://github.com/sickn33/agentic-awesome-skills</a></li>
-<li>作者: sickn33</li>
-</ul>
-<h4 id="排名-14shiyu-coderkronos">排名 14:/shiyu-coder/Kronos</h4>
-<ul>
-<li>简介: Kronos：金融市场语言的基础模型</li>
-<li>URL: <a href="https://github.com/shiyu-coder/Kronos">https://github.com/shiyu-coder/Kronos</a></li>
-<li>作者: shiyu-coder</li>
-</ul>
-<h4 id="排名-15vllm-projectvllm">排名 15:/vllm-project/vllm</h4>
-<ul>
-<li>简介: 一种高吞吐量、内存高效的LLM推理和服务引擎</li>
-<li>URL: <a href="https://github.com/vllm-project/vllm">https://github.com/vllm-project/vllm</a></li>
-<li>作者: vllm-project</li>
-</ul>
-<h2 id="v2ex-热门帖子">v2ex 热门帖子</h2>
-<ul>
-<li>1.<a href="https://www.v2ex.com/t/1250524#reply92">前端这个行业真要完了</a></li>
-<li>2.<a href="https://www.v2ex.com/t/1250477#reply80">[图一乐]给大家看看我的Claude账号到底有多硬</a></li>
-<li>3.<a href="https://www.v2ex.com/t/1250493#reply65">给自建Umami写了原生iOS/Android客户端SiteGlance：纯端侧直连、支持桌面小组件，单次买断（附兑换码）</a></li>
-<li>4.<a href="https://www.v2ex.com/t/1250482#reply56">感叹Codex的过度设计。</a></li>
-<li>5.<a href="https://www.v2ex.com/t/1250533#reply55">前端想学后端，但是看完这段代码就已经力竭了</a></li>
-<li>6.<a href="https://www.v2ex.com/t/1250481#reply42">有人租过共享菜园吗？</a></li>
-<li>7.<a href="https://www.v2ex.com/t/1250498#reply41">经济困难只排第三？</a></li>
-<li>8.<a href="https://www.v2ex.com/t/1250519#reply41">有骑电瓶车通勤的吗，有啥必买的配件推荐一下呗。</a></li>
-<li>9.<a href="https://www.v2ex.com/t/1250480#reply35">Linux同好，一起移植win上的软件</a></li>
-<li>10.<a href="https://www.v2ex.com/t/1250485#reply32">我的前端同事开发联调时竟然还在代码里写临时的mock数据！</a></li>
-<li>11.<a href="https://www.v2ex.com/t/1250476#reply30">cleanyourtv很火，新增电视列表大部分是国产，苦广告久矣</a></li>
-<li>12.<a href="https://www.v2ex.com/t/1250500#reply27">成都最近找工作有感</a></li>
-<li>13.<a href="https://www.v2ex.com/t/1250506#reply27">有了AI以后，职场环境似乎更加恶劣了。</a></li>
-<li>14.<a href="https://www.v2ex.com/t/1250489#reply22">双11到了，拼多多靠谱不？价格比京东便宜不少</a></li>
-<li>15.<a href="https://www.v2ex.com/t/1250521#reply22">[前端转全栈学Java，挑战30天独立做项目！望开发大佬指条明路]</a></li>
-<li>16.<a href="https://www.v2ex.com/t/1250505#reply18">有喜欢玩单片机或者想学习单片机的V友吗，做了一个单片机模拟网站</a></li>
-<li>17.<a href="https://www.v2ex.com/t/1250496#reply16">1.雨天早高峰遇上智驾“路障”</a></li>
-<li>18.<a href="https://www.v2ex.com/t/1250503#reply16">最近从Windows10迁移到Debian13，感觉直接起飞。</a></li>
-<li>19.<a href="https://www.v2ex.com/t/1250541#reply16">刚Tibo说codex支持会话的永久缓存，有懂技术的解释下这可能吗</a></li>
-<li>20.<a href="https://www.v2ex.com/t/1250479#reply15">deepseek开源推理框架了</a></li>
-<li>21.<a href="https://www.v2ex.com/t/1250529#reply15">我把我儿子的玩具做成了小游戏，开发了2天，审核了快一个月，终于上线了！</a></li>
-<li>22.<a href="https://www.v2ex.com/t/1250522#reply13">公司内部用的原型交付工具，对外开放注册了，给大家尝鲜，送50个Pro兑换码</a></li>
-<li>23.<a href="https://www.v2ex.com/t/1250537#reply12">全屋wifi路由器推荐</a></li>
-<li>24.<a href="https://www.v2ex.com/t/1250576#reply9">局域网跨平台多设备之间的复制粘贴</a></li>
-<li>25.<a href="https://www.v2ex.com/t/1250578#reply9">大家如何看待ai文章(博客，公众号，推文帖子)</a></li>
-<li>26.<a href="https://www.v2ex.com/t/1250603#reply9">中低端的个人开发者除了送外卖或者自媒体外还有什么出路？</a></li>
-<li>27.<a href="https://www.v2ex.com/t/1250554#reply9">用了半年的claude还是被封了,我曾经以为我是天选之人</a></li>
-<li>28.<a href="https://www.v2ex.com/t/1250560#reply8">大家用过deepseek的搜索服务吗？腾讯又来抄袭了</a></li>
-<li>29.<a href="https://www.v2ex.com/t/1250523#reply8">GoogleAIPro12个月教育活动不能使用反重力里的Gemini4吗？</a></li>
-<li>30.<a href="https://www.v2ex.com/t/1250569#reply7">前后端其实只是一个阶段性的岗位</a></li>
-<li>31.<a href="https://www.v2ex.com/t/1250491#reply7">闲鱼搞的Jio赠送的GoogleAIpro的订阅，怎么退掉呀</a></li>
-<li>32.<a href="https://www.v2ex.com/t/1250564#reply6">同事恶心到我了，吐槽一下</a></li>
-<li>33.<a href="https://www.v2ex.com/t/1250586#reply6">高德地图10月21停轨迹记录服务后，安卓和苹果还有什么好用的轨迹记录软件？用过dawarich，不如高德记录查阅历史轨迹好用。记录自己的行程用的。</a></li>
-<li>34.<a href="https://www.v2ex.com/t/1250488#reply6">小米智能音箱，和苹果智能音响，有没有办法接入deepseek大模型。</a></li>
-<li>35.<a href="https://www.v2ex.com/t/1250542#reply6">京东macminim624g512g国补之后七千四百多元，要入手吗？</a></li>
-<li>36.<a href="https://www.v2ex.com/t/1250565#reply5">做了款苹果四端播放器Vanto，支持杜比视界、空间音频，送200份永久版</a></li>
-<li>37.<a href="https://www.v2ex.com/t/1250580#reply5">美元汇率都6.68了</a></li>
-<li>38.<a href="https://www.v2ex.com/t/1250587#reply5">离奇，头一次职场遇到下属NPD的。</a></li>
 </ul>
 <h2 id="热点新闻">热点新闻</h2>
 <h2 id="福利分享">福利分享</h2>
