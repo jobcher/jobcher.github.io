@@ -1,4 +1,268 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>日报 - 打工人日志</title><link>https://www.jobcher.com/new/</link><description>打工人日志（Jobcher）——面向开发者与运维的技术博客，覆盖 Kubernetes、Docker、Linux、监控、AI 与开发者工具的实战教程与干货。</description><generator>Hugo</generator><language>zh-cn</language><copyright>Copyright © 2022-2026 All Rights Reserved.</copyright><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor><webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Thu, 26 Nov 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/new/index.xml" rel="self" type="application/rss+xml"/><item><title>2026-11-26 打工人日报</title><link>https://www.jobcher.com/new/daily/github_trending_2026-11-26/</link><pubDate>Thu, 26 Nov 2026 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/new/daily/github_trending_2026-11-26/</guid><description><![CDATA[<h2 id="github-热门榜单">GitHub 热门榜单</h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>日报 - 打工人日志</title><link>https://www.jobcher.com/new/</link><description>打工人日志（Jobcher）——面向开发者与运维的技术博客，覆盖 Kubernetes、Docker、Linux、监控、AI 与开发者工具的实战教程与干货。</description><generator>Hugo</generator><language>zh-cn</language><copyright>Copyright © 2022-2026 All Rights Reserved.</copyright><managingEditor>nb@nbtyfood.com (jobcher)</managingEditor><webMaster>nb@nbtyfood.com (jobcher)</webMaster><lastBuildDate>Fri, 27 Nov 2026 00:00:00 +0800</lastBuildDate><atom:link href="https://www.jobcher.com/new/index.xml" rel="self" type="application/rss+xml"/><item><title>2026-11-27 打工人日报</title><link>https://www.jobcher.com/new/daily/github_trending_2026-11-27/</link><pubDate>Fri, 27 Nov 2026 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/new/daily/github_trending_2026-11-27/</guid><description><![CDATA[<h2 id="github-热门榜单">GitHub 热门榜单</h2>
+<h4 id="排名-1elementalsoulsclaude-bughunter">排名 1:/elementalsouls/Claude-BugHunter</h4>
+<ul>
+<li>简介: 用于bug搜寻和外部红队工作的Claude Code技能包-85项技能、16条斜线命令、681项披露的报告模式，涵盖24个核心漏洞类别，以及企业身份+基础设施攻击矩阵。</li>
+<li>URL: <a href="https://github.com/elementalsouls/Claude-BugHunter">https://github.com/elementalsouls/Claude-BugHunter</a></li>
+<li>作者: elementalsouls</li>
+</ul>
+<h4 id="排名-2obrasuperpowers">排名 2:/obra/superpowers</h4>
+<ul>
+<li>简介: 一个有效的代理技能框架和软件开发方法。</li>
+<li>URL: <a href="https://github.com/obra/superpowers">https://github.com/obra/superpowers</a></li>
+<li>作者: obra</li>
+</ul>
+<h4 id="排名-3hkudscli-anything">排名 3:/HKUDS/CLI-Anything</h4>
+<ul>
+<li>简介: “CLI Anything：使所有软件代理都成为本机”&ndash;CLI Hub：https://clianything.cc/</li>
+<li>URL: <a href="https://github.com/HKUDS/CLI-Anything">https://github.com/HKUDS/CLI-Anything</a></li>
+<li>作者: HKUDS</li>
+</ul>
+<h4 id="排名-4jingyaogongminimind">排名 4:/jingyaogong/minimind</h4>
+<ul>
+<li>简介: 🧠 两小时从 0 训出你的 64M 大模型。在2小时内从头开始训练自己的64M法学硕士。</li>
+<li>URL: <a href="https://github.com/jingyaogong/minimind">https://github.com/jingyaogong/minimind</a></li>
+<li>作者: jingyaogong</li>
+</ul>
+<h4 id="排名-5cursorplugins">排名 5:/cursor/plugins</h4>
+<ul>
+<li>简介: 游标插件规范和官方插件</li>
+<li>URL: <a href="https://github.com/cursor/plugins">https://github.com/cursor/plugins</a></li>
+<li>作者: cursor</li>
+</ul>
+<h4 id="排名-6firecrawlfirecrawl">排名 6:/firecrawl/firecrawl</h4>
+<ul>
+<li>简介: 知识基础设施，使您的代理更智能。通过一个API搜索、抓取和访问550+个数据提供商。</li>
+<li>URL: <a href="https://github.com/firecrawl/firecrawl">https://github.com/firecrawl/firecrawl</a></li>
+<li>作者: firecrawl</li>
+</ul>
+<h4 id="排名-7nginxnginx">排名 7:/nginx/nginx</h4>
+<ul>
+<li>简介: NGINX官方开源仓库。</li>
+<li>URL: <a href="https://github.com/nginx/nginx">https://github.com/nginx/nginx</a></li>
+<li>作者: nginx</li>
+</ul>
+<h4 id="排名-8openvinotoolkitopenvino">排名 8:/openvinotoolkit/openvino</h4>
+<ul>
+<li>简介: OpenVINO™是一个用于优化和部署AI推理的开源工具包</li>
+<li>URL: <a href="https://github.com/openvinotoolkit/openvino">https://github.com/openvinotoolkit/openvino</a></li>
+<li>作者: openvinotoolkit</li>
+</ul>
+<h4 id="排名-9cathrynlaverydiagram-design">排名 9:/cathrynlavery/diagram-design</h4>
+<ul>
+<li>简介: Claude Code、Codex、GitHub Copilot、Cursor、Factory Droid、Qoder和Pi的编辑图设计。52种图表类型。独立的HTML+SVG。没有阴影。没有美人鱼的粪便。</li>
+<li>URL: <a href="https://github.com/cathrynlavery/diagram-design">https://github.com/cathrynlavery/diagram-design</a></li>
+<li>作者: cathrynlavery</li>
+</ul>
+<h4 id="排名-10mvanhornlast30days-skill">排名 10:/mvanhorn/last30days-skill</h4>
+<ul>
+<li>简介: 人工智能代理技能，研究Reddit、X、YouTube、HN、Polymarket和网络上的任何主题，然后综合一个有根据的总结</li>
+<li>URL: <a href="https://github.com/mvanhorn/last30days-skill">https://github.com/mvanhorn/last30days-skill</a></li>
+<li>作者: mvanhorn</li>
+</ul>
+<h4 id="排名-11google-labs-codestitch-skills">排名 11:/google-labs-code/stitch-skills</h4>
+<ul>
+<li>简介: 一个旨在与Stitch MCP服务器配合使用的代理技能库。每种技能都遵循Agent Skills开放标准，与Antigravity、Gemini CLI、Claude Code、Cursor等编码代理兼容。</li>
+<li>URL: <a href="https://github.com/google-labs-code/stitch-skills">https://github.com/google-labs-code/stitch-skills</a></li>
+<li>作者: google-labs-code</li>
+</ul>
+<h4 id="排名-12mjmirzaapp-store-compliance">排名 12:/mjmirza/app-store-compliance</h4>
+<ul>
+<li>简介: 避免常见的App Store和Google Play拒绝。开放式剧本和预提交保护，有125个记录在案的拒绝模式和修复程序、隐私清单和数据安全检查、117个跟踪截止日期（欧盟人工智能法案、DSA、COPPA、年龄法），以及人工智能编码代理的技能。</li>
+<li>URL: <a href="https://github.com/mjmirza/app-store-compliance">https://github.com/mjmirza/app-store-compliance</a></li>
+<li>作者: mjmirza</li>
+</ul>
+<h4 id="排名-13tracer-cloudopensre">排名 13:/Tracer-Cloud/opensre</h4>
+<ul>
+<li>简介: CI/CD可靠性的开源代理。</li>
+<li>URL: <a href="https://github.com/Tracer-Cloud/opensre">https://github.com/Tracer-Cloud/opensre</a></li>
+<li>作者: Tracer-Cloud</li>
+</ul>
+<h4 id="排名-14toeverythingaffine">排名 14:/toeverything/AFFiNE</h4>
+<ul>
+<li>简介: 可能不止Notion和Miro。AFFiNE（发音为[ə&rsquo;fain]）是一个下一代知识库，将规划、分类和创建结合在一起。隐私第一、开源、可定制且随时可用。</li>
+<li>URL: <a href="https://github.com/toeverything/AFFiNE">https://github.com/toeverything/AFFiNE</a></li>
+<li>作者: toeverything</li>
+</ul>
+<h4 id="排名-15xiaoyouchrghost-downloader-3">排名 15:/XiaoYouChR/Ghost-Downloader-3</h4>
+<ul>
+<li>简介: 你唯一需要的下载器。 下载器的集大成者。</li>
+<li>URL: <a href="https://github.com/XiaoYouChR/Ghost-Downloader-3">https://github.com/XiaoYouChR/Ghost-Downloader-3</a></li>
+<li>作者: XiaoYouChR</li>
+</ul>
+<h4 id="排名-16zhouxiaokaautoclip">排名 16:/zhouxiaoka/autoclip</h4>
+<ul>
+<li>简介: AutoClip｜开源OpusClip替代品——本地首个AI剪辑和MCP服务器，零订阅。 一个链接，一键出片。开源 AI 视频剪辑桌面工具，将播客、访谈、课程等长视频自动剪成短视频，生成字幕、封面和发布文案，适配抖音、小红书、TikTok、Reels与 YouTube短片</li>
+<li>URL: <a href="https://github.com/zhouxiaoka/autoclip">https://github.com/zhouxiaoka/autoclip</a></li>
+<li>作者: zhouxiaoka</li>
+</ul>
+<h2 id="v2ex-热门帖子">v2ex 热门帖子</h2>
+<ul>
+<li>1.<a href="https://www.v2ex.com/t/1260206#reply24">翻墙协议14年进化史：我只跑过最后两个，前面六个是这么被逼出来的</a></li>
+<li>2.<a href="https://www.v2ex.com/t/1260181#reply22">给兄弟们看下我最近怎么用claude远程vibe的</a></li>
+<li>3.<a href="https://www.v2ex.com/t/1260186#reply18">请问一下，有办流量卡的方法吗？</a></li>
+<li>4.<a href="https://www.v2ex.com/t/1260196#reply18">网传Hysteria的多名代码贡献者已经被抓</a></li>
+<li>5.<a href="https://www.v2ex.com/t/1260182#reply15">一个人公司（OPC）现在怎么样了</a></li>
+<li>6.<a href="https://www.v2ex.com/t/1260187#reply15">最近Antigravity重置太频繁了，于是我上线了一个AgyReset重置信号监测站，让你不错过每一次重置，且本贴随楼抽50位评论者每位赠送50$V2EX</a></li>
+<li>7.<a href="https://www.v2ex.com/t/1260208#reply12">2-3k可以买到比较可以的相机吗</a></li>
+<li>8.<a href="https://www.v2ex.com/t/1260212#reply8">周五好，大家周末打算干啥</a></li>
+<li>9.<a href="https://www.v2ex.com/t/1260194#reply7">Mole黑五终于来啦，一年仅一次的8折，附带最近有意思的更新</a></li>
+<li>10.<a href="https://www.v2ex.com/t/1260190#reply6">让Gemini当主控，让Codex干活。</a></li>
+<li>11.<a href="https://www.v2ex.com/t/1260214#reply5">元旦准备飞到香港看MyGO演唱会，有点纠结要不要告诉父母</a></li>
+<li>12.<a href="https://www.v2ex.com/t/1260184#reply4">GoogleAIPro挽留半价到期后，黑五老用户通道无优惠，补买Plus仍不触发5折年付，求问还有救吗？</a></li>
+<li>13.<a href="https://www.v2ex.com/t/1260189#reply4">为啥我的账号看不到黑五价？</a></li>
+<li>14.<a href="https://www.v2ex.com/t/1260203#reply4">geminii黑五大促，忘记改免税州，有啥办法吗</a></li>
+<li>15.<a href="https://www.v2ex.com/t/1260192#reply3">googleaipro半价今天还能搞吗</a></li>
+<li>16.<a href="https://www.v2ex.com/t/1260204#reply3">反重力账号太多，切换太麻烦AGYSwitch来帮你。</a></li>
+<li>17.<a href="https://www.v2ex.com/t/1260185#reply2">大额存单有推荐的吗</a></li>
+<li>18.<a href="https://www.v2ex.com/t/1260191#reply1">PinShell：一款写给AI的趣应用</a></li>
+<li>19.<a href="https://www.v2ex.com/t/1260193#reply1">《HelloGitHub》第128期</a></li>
+<li>20.<a href="https://www.v2ex.com/t/1260215#reply1">大佬们uu远控要收费，还有什么方式可以流畅远程办公?</a></li>
+<li>21.<a href="https://www.v2ex.com/t/1260216#reply1">英伟达、谷歌、特斯拉、亚马逊、苹果、腾讯、阿里、拼多多都在这里了</a></li>
+<li>22.<a href="https://www.v2ex.com/t/1260183#reply0">给Antigravity打包了套后台浏览器插件：faster-mac-use+browser-routing（macOS开源）</a></li>
+<li>23.<a href="https://www.v2ex.com/t/1260195#reply0">一个支持对白和环境声的MAGI-2在线视频生成器</a></li>
+<li>24.<a href="https://www.v2ex.com/t/1260197#reply0">discard，账号加入分享的频道链接会失败，同时账号会被踢出登录？</a></li>
+<li>25.<a href="https://www.v2ex.com/t/1260198#reply0">把「相等」判成陈旧：一个原生二进制新鲜度谓词的边界</a></li>
+<li>26.<a href="https://www.v2ex.com/t/1260199#reply0">[开源]Archify破10万+Star了，分享下v3.3.2新增的离线仓库架构诊断、1080p演练视频与PR变更图解</a></li>
+<li>27.<a href="https://www.v2ex.com/t/1260213#reply0">用同一句英文做两轮听写，怎么判断自己卡在哪？</a></li>
+<li>28.<a href="https://www.v2ex.com/t/1260217#reply0">推荐一个VibeCoding的语音输入遥控器。</a></li>
+<li>29.<a href="https://www.v2ex.com/t/1260218#reply0">能分享个人长期关注且熟悉股票吗，不限国内外？</a></li>
+<li>30.<a href="https://www.v2ex.com/t/1260219#reply0">哈基米只能用国外的银行卡支付吗？</a></li>
+</ul>
+<h2 id="热点新闻">热点新闻</h2>
+<h2 id="福利分享">福利分享</h2>
+]]></description><content:encoded><![CDATA[<h2 id="github-热门榜单">GitHub 热门榜单</h2>
+<h4 id="排名-1elementalsoulsclaude-bughunter">排名 1:/elementalsouls/Claude-BugHunter</h4>
+<ul>
+<li>简介: 用于bug搜寻和外部红队工作的Claude Code技能包-85项技能、16条斜线命令、681项披露的报告模式，涵盖24个核心漏洞类别，以及企业身份+基础设施攻击矩阵。</li>
+<li>URL: <a href="https://github.com/elementalsouls/Claude-BugHunter">https://github.com/elementalsouls/Claude-BugHunter</a></li>
+<li>作者: elementalsouls</li>
+</ul>
+<h4 id="排名-2obrasuperpowers">排名 2:/obra/superpowers</h4>
+<ul>
+<li>简介: 一个有效的代理技能框架和软件开发方法。</li>
+<li>URL: <a href="https://github.com/obra/superpowers">https://github.com/obra/superpowers</a></li>
+<li>作者: obra</li>
+</ul>
+<h4 id="排名-3hkudscli-anything">排名 3:/HKUDS/CLI-Anything</h4>
+<ul>
+<li>简介: “CLI Anything：使所有软件代理都成为本机”&ndash;CLI Hub：https://clianything.cc/</li>
+<li>URL: <a href="https://github.com/HKUDS/CLI-Anything">https://github.com/HKUDS/CLI-Anything</a></li>
+<li>作者: HKUDS</li>
+</ul>
+<h4 id="排名-4jingyaogongminimind">排名 4:/jingyaogong/minimind</h4>
+<ul>
+<li>简介: 🧠 两小时从 0 训出你的 64M 大模型。在2小时内从头开始训练自己的64M法学硕士。</li>
+<li>URL: <a href="https://github.com/jingyaogong/minimind">https://github.com/jingyaogong/minimind</a></li>
+<li>作者: jingyaogong</li>
+</ul>
+<h4 id="排名-5cursorplugins">排名 5:/cursor/plugins</h4>
+<ul>
+<li>简介: 游标插件规范和官方插件</li>
+<li>URL: <a href="https://github.com/cursor/plugins">https://github.com/cursor/plugins</a></li>
+<li>作者: cursor</li>
+</ul>
+<h4 id="排名-6firecrawlfirecrawl">排名 6:/firecrawl/firecrawl</h4>
+<ul>
+<li>简介: 知识基础设施，使您的代理更智能。通过一个API搜索、抓取和访问550+个数据提供商。</li>
+<li>URL: <a href="https://github.com/firecrawl/firecrawl">https://github.com/firecrawl/firecrawl</a></li>
+<li>作者: firecrawl</li>
+</ul>
+<h4 id="排名-7nginxnginx">排名 7:/nginx/nginx</h4>
+<ul>
+<li>简介: NGINX官方开源仓库。</li>
+<li>URL: <a href="https://github.com/nginx/nginx">https://github.com/nginx/nginx</a></li>
+<li>作者: nginx</li>
+</ul>
+<h4 id="排名-8openvinotoolkitopenvino">排名 8:/openvinotoolkit/openvino</h4>
+<ul>
+<li>简介: OpenVINO™是一个用于优化和部署AI推理的开源工具包</li>
+<li>URL: <a href="https://github.com/openvinotoolkit/openvino">https://github.com/openvinotoolkit/openvino</a></li>
+<li>作者: openvinotoolkit</li>
+</ul>
+<h4 id="排名-9cathrynlaverydiagram-design">排名 9:/cathrynlavery/diagram-design</h4>
+<ul>
+<li>简介: Claude Code、Codex、GitHub Copilot、Cursor、Factory Droid、Qoder和Pi的编辑图设计。52种图表类型。独立的HTML+SVG。没有阴影。没有美人鱼的粪便。</li>
+<li>URL: <a href="https://github.com/cathrynlavery/diagram-design">https://github.com/cathrynlavery/diagram-design</a></li>
+<li>作者: cathrynlavery</li>
+</ul>
+<h4 id="排名-10mvanhornlast30days-skill">排名 10:/mvanhorn/last30days-skill</h4>
+<ul>
+<li>简介: 人工智能代理技能，研究Reddit、X、YouTube、HN、Polymarket和网络上的任何主题，然后综合一个有根据的总结</li>
+<li>URL: <a href="https://github.com/mvanhorn/last30days-skill">https://github.com/mvanhorn/last30days-skill</a></li>
+<li>作者: mvanhorn</li>
+</ul>
+<h4 id="排名-11google-labs-codestitch-skills">排名 11:/google-labs-code/stitch-skills</h4>
+<ul>
+<li>简介: 一个旨在与Stitch MCP服务器配合使用的代理技能库。每种技能都遵循Agent Skills开放标准，与Antigravity、Gemini CLI、Claude Code、Cursor等编码代理兼容。</li>
+<li>URL: <a href="https://github.com/google-labs-code/stitch-skills">https://github.com/google-labs-code/stitch-skills</a></li>
+<li>作者: google-labs-code</li>
+</ul>
+<h4 id="排名-12mjmirzaapp-store-compliance">排名 12:/mjmirza/app-store-compliance</h4>
+<ul>
+<li>简介: 避免常见的App Store和Google Play拒绝。开放式剧本和预提交保护，有125个记录在案的拒绝模式和修复程序、隐私清单和数据安全检查、117个跟踪截止日期（欧盟人工智能法案、DSA、COPPA、年龄法），以及人工智能编码代理的技能。</li>
+<li>URL: <a href="https://github.com/mjmirza/app-store-compliance">https://github.com/mjmirza/app-store-compliance</a></li>
+<li>作者: mjmirza</li>
+</ul>
+<h4 id="排名-13tracer-cloudopensre">排名 13:/Tracer-Cloud/opensre</h4>
+<ul>
+<li>简介: CI/CD可靠性的开源代理。</li>
+<li>URL: <a href="https://github.com/Tracer-Cloud/opensre">https://github.com/Tracer-Cloud/opensre</a></li>
+<li>作者: Tracer-Cloud</li>
+</ul>
+<h4 id="排名-14toeverythingaffine">排名 14:/toeverything/AFFiNE</h4>
+<ul>
+<li>简介: 可能不止Notion和Miro。AFFiNE（发音为[ə&rsquo;fain]）是一个下一代知识库，将规划、分类和创建结合在一起。隐私第一、开源、可定制且随时可用。</li>
+<li>URL: <a href="https://github.com/toeverything/AFFiNE">https://github.com/toeverything/AFFiNE</a></li>
+<li>作者: toeverything</li>
+</ul>
+<h4 id="排名-15xiaoyouchrghost-downloader-3">排名 15:/XiaoYouChR/Ghost-Downloader-3</h4>
+<ul>
+<li>简介: 你唯一需要的下载器。 下载器的集大成者。</li>
+<li>URL: <a href="https://github.com/XiaoYouChR/Ghost-Downloader-3">https://github.com/XiaoYouChR/Ghost-Downloader-3</a></li>
+<li>作者: XiaoYouChR</li>
+</ul>
+<h4 id="排名-16zhouxiaokaautoclip">排名 16:/zhouxiaoka/autoclip</h4>
+<ul>
+<li>简介: AutoClip｜开源OpusClip替代品——本地首个AI剪辑和MCP服务器，零订阅。 一个链接，一键出片。开源 AI 视频剪辑桌面工具，将播客、访谈、课程等长视频自动剪成短视频，生成字幕、封面和发布文案，适配抖音、小红书、TikTok、Reels与 YouTube短片</li>
+<li>URL: <a href="https://github.com/zhouxiaoka/autoclip">https://github.com/zhouxiaoka/autoclip</a></li>
+<li>作者: zhouxiaoka</li>
+</ul>
+<h2 id="v2ex-热门帖子">v2ex 热门帖子</h2>
+<ul>
+<li>1.<a href="https://www.v2ex.com/t/1260206#reply24">翻墙协议14年进化史：我只跑过最后两个，前面六个是这么被逼出来的</a></li>
+<li>2.<a href="https://www.v2ex.com/t/1260181#reply22">给兄弟们看下我最近怎么用claude远程vibe的</a></li>
+<li>3.<a href="https://www.v2ex.com/t/1260186#reply18">请问一下，有办流量卡的方法吗？</a></li>
+<li>4.<a href="https://www.v2ex.com/t/1260196#reply18">网传Hysteria的多名代码贡献者已经被抓</a></li>
+<li>5.<a href="https://www.v2ex.com/t/1260182#reply15">一个人公司（OPC）现在怎么样了</a></li>
+<li>6.<a href="https://www.v2ex.com/t/1260187#reply15">最近Antigravity重置太频繁了，于是我上线了一个AgyReset重置信号监测站，让你不错过每一次重置，且本贴随楼抽50位评论者每位赠送50$V2EX</a></li>
+<li>7.<a href="https://www.v2ex.com/t/1260208#reply12">2-3k可以买到比较可以的相机吗</a></li>
+<li>8.<a href="https://www.v2ex.com/t/1260212#reply8">周五好，大家周末打算干啥</a></li>
+<li>9.<a href="https://www.v2ex.com/t/1260194#reply7">Mole黑五终于来啦，一年仅一次的8折，附带最近有意思的更新</a></li>
+<li>10.<a href="https://www.v2ex.com/t/1260190#reply6">让Gemini当主控，让Codex干活。</a></li>
+<li>11.<a href="https://www.v2ex.com/t/1260214#reply5">元旦准备飞到香港看MyGO演唱会，有点纠结要不要告诉父母</a></li>
+<li>12.<a href="https://www.v2ex.com/t/1260184#reply4">GoogleAIPro挽留半价到期后，黑五老用户通道无优惠，补买Plus仍不触发5折年付，求问还有救吗？</a></li>
+<li>13.<a href="https://www.v2ex.com/t/1260189#reply4">为啥我的账号看不到黑五价？</a></li>
+<li>14.<a href="https://www.v2ex.com/t/1260203#reply4">geminii黑五大促，忘记改免税州，有啥办法吗</a></li>
+<li>15.<a href="https://www.v2ex.com/t/1260192#reply3">googleaipro半价今天还能搞吗</a></li>
+<li>16.<a href="https://www.v2ex.com/t/1260204#reply3">反重力账号太多，切换太麻烦AGYSwitch来帮你。</a></li>
+<li>17.<a href="https://www.v2ex.com/t/1260185#reply2">大额存单有推荐的吗</a></li>
+<li>18.<a href="https://www.v2ex.com/t/1260191#reply1">PinShell：一款写给AI的趣应用</a></li>
+<li>19.<a href="https://www.v2ex.com/t/1260193#reply1">《HelloGitHub》第128期</a></li>
+<li>20.<a href="https://www.v2ex.com/t/1260215#reply1">大佬们uu远控要收费，还有什么方式可以流畅远程办公?</a></li>
+<li>21.<a href="https://www.v2ex.com/t/1260216#reply1">英伟达、谷歌、特斯拉、亚马逊、苹果、腾讯、阿里、拼多多都在这里了</a></li>
+<li>22.<a href="https://www.v2ex.com/t/1260183#reply0">给Antigravity打包了套后台浏览器插件：faster-mac-use+browser-routing（macOS开源）</a></li>
+<li>23.<a href="https://www.v2ex.com/t/1260195#reply0">一个支持对白和环境声的MAGI-2在线视频生成器</a></li>
+<li>24.<a href="https://www.v2ex.com/t/1260197#reply0">discard，账号加入分享的频道链接会失败，同时账号会被踢出登录？</a></li>
+<li>25.<a href="https://www.v2ex.com/t/1260198#reply0">把「相等」判成陈旧：一个原生二进制新鲜度谓词的边界</a></li>
+<li>26.<a href="https://www.v2ex.com/t/1260199#reply0">[开源]Archify破10万+Star了，分享下v3.3.2新增的离线仓库架构诊断、1080p演练视频与PR变更图解</a></li>
+<li>27.<a href="https://www.v2ex.com/t/1260213#reply0">用同一句英文做两轮听写，怎么判断自己卡在哪？</a></li>
+<li>28.<a href="https://www.v2ex.com/t/1260217#reply0">推荐一个VibeCoding的语音输入遥控器。</a></li>
+<li>29.<a href="https://www.v2ex.com/t/1260218#reply0">能分享个人长期关注且熟悉股票吗，不限国内外？</a></li>
+<li>30.<a href="https://www.v2ex.com/t/1260219#reply0">哈基米只能用国外的银行卡支付吗？</a></li>
+</ul>
+<h2 id="热点新闻">热点新闻</h2>
+<h2 id="福利分享">福利分享</h2>
+]]></content:encoded></item><item><title>2026-11-26 打工人日报</title><link>https://www.jobcher.com/new/daily/github_trending_2026-11-26/</link><pubDate>Thu, 26 Nov 2026 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/new/daily/github_trending_2026-11-26/</guid><description><![CDATA[<h2 id="github-热门榜单">GitHub 热门榜单</h2>
 <h4 id="排名-1elementalsoulsclaude-bughunter">排名 1:/elementalsouls/Claude-BugHunter</h4>
 <ul>
 <li>简介: 用于bug搜寻和外部红队工作的Claude Code技能包-85项技能、16条斜线命令、681项披露的报告模式，涵盖24个核心漏洞类别，以及企业身份+基础设施攻击矩阵。</li>
@@ -8507,226 +8771,6 @@
 <li>34.<a href="https://www.v2ex.com/t/1252137#reply10">macos27.2双屏显示问题</a></li>
 <li>35.<a href="https://www.v2ex.com/t/1252084#reply10">pngdeer—效果最好的开源的PNG压缩库（超过TinyPNG8%~12%）</a></li>
 <li>36.<a href="https://www.v2ex.com/t/1252093#reply10">GPT-6.1Terra出来了</a></li>
-</ul>
-<h2 id="热点新闻">热点新闻</h2>
-<h2 id="福利分享">福利分享</h2>
-]]></content:encoded></item><item><title>2026-10-26 打工人日报</title><link>https://www.jobcher.com/new/daily/github_trending_2026-10-26/</link><pubDate>Mon, 26 Oct 2026 00:00:00 +0800</pubDate><author>nb@nbtyfood.com (jobcher)</author><guid isPermaLink="true">https://www.jobcher.com/new/daily/github_trending_2026-10-26/</guid><description><![CDATA[<h2 id="github-热门榜单">GitHub 热门榜单</h2>
-<h4 id="排名-1makecindycindy">排名 1:/makecindy/cindy</h4>
-<ul>
-<li>简介: 认为它完成了。开箱即用的开源AI代理想到，就能做到。开源、开箱即用的 AI代理</li>
-<li>URL: <a href="https://github.com/makecindy/cindy">https://github.com/makecindy/cindy</a></li>
-<li>作者: makecindy</li>
-</ul>
-<h4 id="排名-2nutlopehallmark">排名 2:/Nutlope/hallmark</h4>
-<ul>
-<li>简介: Claude Code、Cursor和Codex的反AI斜面设计技巧。</li>
-<li>URL: <a href="https://github.com/Nutlope/hallmark">https://github.com/Nutlope/hallmark</a></li>
-<li>作者: Nutlope</li>
-</ul>
-<h4 id="排名-3debpalashvoicestudio">排名 3:/debpalash/VoiceStudio</h4>
-<ul>
-<li>简介: VoiceStudio是ElevenLabs的一个开源、完全本地化的替代品——646种语言的语音克隆、语音设计、视频配音、听写、转录和有声读物创作。</li>
-<li>URL: <a href="https://github.com/debpalash/VoiceStudio">https://github.com/debpalash/VoiceStudio</a></li>
-<li>作者: debpalash</li>
-</ul>
-<h4 id="排名-4pbakausimpeccable">排名 4:/pbakaus/impeccable</h4>
-<ul>
-<li>简介: 设计语言，使您的AI线束在设计方面更好。</li>
-<li>URL: <a href="https://github.com/pbakaus/impeccable">https://github.com/pbakaus/impeccable</a></li>
-<li>作者: pbakaus</li>
-</ul>
-<h4 id="排名-5pollen-roboticsmicroduck">排名 5:/pollen-robotics/microduck</h4>
-<ul>
-<li>简介: 一个微型双足鸭子机器人🦆</li>
-<li>URL: <a href="https://github.com/pollen-robotics/microduck">https://github.com/pollen-robotics/microduck</a></li>
-<li>作者: pollen-robotics</li>
-</ul>
-<h4 id="排名-6tauricresearchtradingagents">排名 6:/TauricResearch/TradingAgents</h4>
-<ul>
-<li>简介: TradingAgents：多代理LLM金融交易框架</li>
-<li>URL: <a href="https://github.com/TauricResearch/TradingAgents">https://github.com/TauricResearch/TradingAgents</a></li>
-<li>作者: TauricResearch</li>
-</ul>
-<h4 id="排名-7renhuai123ziwei-doushu">排名 7:/Renhuai123/ziwei-doushu</h4>
-<ul>
-<li>简介: 紫微斗数开源排盘引擎 — 基于倪海厦《天纪》体系，含完整排盘算法、四化系统、格局知识库、古籍原文数据</li>
-<li>URL: <a href="https://github.com/Renhuai123/ziwei-doushu">https://github.com/Renhuai123/ziwei-doushu</a></li>
-<li>作者: Renhuai123</li>
-</ul>
-<h4 id="排名-8jetbrainsthinkrail">排名 8:/JetBrains/thinkrail</h4>
-<ul>
-<li>简介: 在一个轻量级的、真正的IDE中使用pi的Vibe代码，该IDE可以根据您的工作方式进行自我定制——您需要的Vibe</li>
-<li>URL: <a href="https://github.com/JetBrains/thinkrail">https://github.com/JetBrains/thinkrail</a></li>
-<li>作者: JetBrains</li>
-</ul>
-<h4 id="排名-9coollabsiocoolify">排名 9:/coollabsio/coolify</h4>
-<ul>
-<li>简介: 作为Vercel、Heroku和Netlify的开源、自托管PaaS替代品，您可以在自己的服务器上轻松部署静态站点、数据库、全栈应用程序和360多个一键服务。</li>
-<li>URL: <a href="https://github.com/coollabsio/coolify">https://github.com/coollabsio/coolify</a></li>
-<li>作者: coollabsio</li>
-</ul>
-<h4 id="排名-10cloudflaresecurity-audit-skill">排名 10:/cloudflare/security-audit-skill</h4>
-<ul>
-<li>简介: 具有独立验证、机器可读结果的多阶段安全审计的编码代理技能</li>
-<li>URL: <a href="https://github.com/cloudflare/security-audit-skill">https://github.com/cloudflare/security-audit-skill</a></li>
-<li>作者: cloudflare</li>
-</ul>
-<h4 id="排名-11agricidanielclaude-seo">排名 11:/AgriciDaniel/claude-seo</h4>
-<ul>
-<li>简介: Claude Code的通用SEO技能。26个子技能+19个子代理，涵盖技术SEO、E-E-A-T、模式、GEO/AEO、代理准备（Lighthouse代理浏览、WebMCP、llms.txt）、反向链接、本地SEO、电子商务、国际SEO、谷歌API和PDF/Excel报告。9个可选的实时SEO数据扩展。</li>
-<li>URL: <a href="https://github.com/AgriciDaniel/claude-seo">https://github.com/AgriciDaniel/claude-seo</a></li>
-<li>作者: AgriciDaniel</li>
-</ul>
-<h2 id="v2ex-热门帖子">v2ex 热门帖子</h2>
-<ul>
-<li>1.<a href="https://www.v2ex.com/t/1251749#reply100">偶然和一个在药店工作的女生聊了聊，震惊于药店的黑心，写了个总结，和大家分享一下</a></li>
-<li>2.<a href="https://www.v2ex.com/t/1251768#reply93">创业一年了，还活着</a></li>
-<li>3.<a href="https://www.v2ex.com/t/1251738#reply67">股灾来了就开个银河买纳指或者红利低波ETF吧，“万1免5”股票基金免5大笑脸开户</a></li>
-<li>4.<a href="https://www.v2ex.com/t/1251787#reply62">大家有没有好看的电视剧推荐，最近出的，经典的都行</a></li>
-<li>5.<a href="https://www.v2ex.com/t/1251745#reply58">国产《长虹》安卓电视机不支持开通ADB</a></li>
-<li>6.<a href="https://www.v2ex.com/t/1251740#reply56">双十一撸了一个微波炉，有什么好的食谱或者怎么用好它呢</a></li>
-<li>7.<a href="https://www.v2ex.com/t/1251751#reply51">MacminiM6价格彻底崩了</a></li>
-<li>8.<a href="https://www.v2ex.com/t/1251781#reply47">反思了下，原来我是个黄毛</a></li>
-<li>9.<a href="https://www.v2ex.com/t/1251765#reply45">来聊聊大家第一次被AI真正震撼到的瞬间吧</a></li>
-<li>10.<a href="https://www.v2ex.com/t/1251794#reply37">大家一个月可以存下多少钱</a></li>
-<li>11.<a href="https://www.v2ex.com/t/1251746#reply36">天塌了，还是被A家封了</a></li>
-<li>12.<a href="https://www.v2ex.com/t/1251759#reply33">[送码]自己做了个专门用来看课程/教程的视频播放器ePlayer，送10个终身Pro兑换码</a></li>
-<li>13.<a href="https://www.v2ex.com/t/1251810#reply29">self-host代码仓库，各位老哥公司里都是什么方案？</a></li>
-<li>14.<a href="https://www.v2ex.com/t/1251827#reply21">虽然AI编码很厉害，但是这些问题怎么办呢？</a></li>
-<li>15.<a href="https://www.v2ex.com/t/1251739#reply19">很严重的选择困难症</a></li>
-<li>16.<a href="https://www.v2ex.com/t/1251754#reply18">大家看看我这个二手电动车回收副业评估一下</a></li>
-<li>17.<a href="https://www.v2ex.com/t/1251815#reply18">周一刚开工，就面谈通知被裁，心情复杂</a></li>
-<li>18.<a href="https://www.v2ex.com/t/1251742#reply16">在外企英语不好天天切屏复制，写了个在任意App敲空格(快捷键)即瞬换的小工具</a></li>
-<li>19.<a href="https://www.v2ex.com/t/1251757#reply15">求推荐静音耳塞</a></li>
-<li>20.<a href="https://www.v2ex.com/t/1251800#reply15">大家怎么看毛不易这个事？</a></li>
-<li>21.<a href="https://www.v2ex.com/t/1251773#reply14">国内访问我的网站登录慢，断联如何解决？</a></li>
-<li>22.<a href="https://www.v2ex.com/t/1251841#reply13">佬们推荐个机场，花云太差了</a></li>
-<li>23.<a href="https://www.v2ex.com/t/1251748#reply13">做了个Instagram数据API（千次$0.1）,挂在RapidAPI上按次卖,</a></li>
-<li>24.<a href="https://www.v2ex.com/t/1251785#reply13">VibeCoding的工程化约束</a></li>
-<li>25.<a href="https://www.v2ex.com/t/1251736#reply11">workbuddy领积分活动结束了？今天没弹窗了</a></li>
-<li>26.<a href="https://www.v2ex.com/t/1251825#reply10">V2ex一个精简的客户端-适配iPhoneDuo</a></li>
-<li>27.<a href="https://www.v2ex.com/t/1251873#reply9">各位的VibeCoding究竟是怎么跑起来的？</a></li>
-<li>28.<a href="https://www.v2ex.com/t/1251778#reply9">gptpro账号过期了为啥还能继续用？</a></li>
-<li>29.<a href="https://www.v2ex.com/t/1251818#reply9">我可以认为股市即国运吗</a></li>
-<li>30.<a href="https://www.v2ex.com/t/1251853#reply8">感觉我创伤比较严重怎么一点点克服啊</a></li>
-<li>31.<a href="https://www.v2ex.com/t/1251760#reply8">用AI开发出海网站的SOP流程</a></li>
-<li>32.<a href="https://www.v2ex.com/t/1251766#reply8">Codex又偷偷减额度了吗？5X每周额度只剩5500</a></li>
-<li>33.<a href="https://www.v2ex.com/t/1251776#reply8">闰时在信息时代是不是要执行不下去了？</a></li>
-<li>34.<a href="https://www.v2ex.com/t/1251767#reply7">当下这个AI的时代，还有什么行业是值得深耕的</a></li>
-<li>35.<a href="https://www.v2ex.com/t/1251764#reply6">明明我没告诉店员我的appleid，为什么他们能把收据发我邮箱？</a></li>
-<li>36.<a href="https://www.v2ex.com/t/1251772#reply6">三星的a57咋样,才两千五六</a></li>
-<li>37.<a href="https://www.v2ex.com/t/1251830#reply6">同时长期用过天玑旗舰和骁龙旗舰的人，日常体验上真正能感觉到的差异有哪些？</a></li>
-<li>38.<a href="https://www.v2ex.com/t/1251782#reply5">YouTube视频太卡？教你把视频一键存进手机，离线随便看</a></li>
-</ul>
-<h2 id="热点新闻">热点新闻</h2>
-<h2 id="福利分享">福利分享</h2>
-]]></description><content:encoded><![CDATA[<h2 id="github-热门榜单">GitHub 热门榜单</h2>
-<h4 id="排名-1makecindycindy">排名 1:/makecindy/cindy</h4>
-<ul>
-<li>简介: 认为它完成了。开箱即用的开源AI代理想到，就能做到。开源、开箱即用的 AI代理</li>
-<li>URL: <a href="https://github.com/makecindy/cindy">https://github.com/makecindy/cindy</a></li>
-<li>作者: makecindy</li>
-</ul>
-<h4 id="排名-2nutlopehallmark">排名 2:/Nutlope/hallmark</h4>
-<ul>
-<li>简介: Claude Code、Cursor和Codex的反AI斜面设计技巧。</li>
-<li>URL: <a href="https://github.com/Nutlope/hallmark">https://github.com/Nutlope/hallmark</a></li>
-<li>作者: Nutlope</li>
-</ul>
-<h4 id="排名-3debpalashvoicestudio">排名 3:/debpalash/VoiceStudio</h4>
-<ul>
-<li>简介: VoiceStudio是ElevenLabs的一个开源、完全本地化的替代品——646种语言的语音克隆、语音设计、视频配音、听写、转录和有声读物创作。</li>
-<li>URL: <a href="https://github.com/debpalash/VoiceStudio">https://github.com/debpalash/VoiceStudio</a></li>
-<li>作者: debpalash</li>
-</ul>
-<h4 id="排名-4pbakausimpeccable">排名 4:/pbakaus/impeccable</h4>
-<ul>
-<li>简介: 设计语言，使您的AI线束在设计方面更好。</li>
-<li>URL: <a href="https://github.com/pbakaus/impeccable">https://github.com/pbakaus/impeccable</a></li>
-<li>作者: pbakaus</li>
-</ul>
-<h4 id="排名-5pollen-roboticsmicroduck">排名 5:/pollen-robotics/microduck</h4>
-<ul>
-<li>简介: 一个微型双足鸭子机器人🦆</li>
-<li>URL: <a href="https://github.com/pollen-robotics/microduck">https://github.com/pollen-robotics/microduck</a></li>
-<li>作者: pollen-robotics</li>
-</ul>
-<h4 id="排名-6tauricresearchtradingagents">排名 6:/TauricResearch/TradingAgents</h4>
-<ul>
-<li>简介: TradingAgents：多代理LLM金融交易框架</li>
-<li>URL: <a href="https://github.com/TauricResearch/TradingAgents">https://github.com/TauricResearch/TradingAgents</a></li>
-<li>作者: TauricResearch</li>
-</ul>
-<h4 id="排名-7renhuai123ziwei-doushu">排名 7:/Renhuai123/ziwei-doushu</h4>
-<ul>
-<li>简介: 紫微斗数开源排盘引擎 — 基于倪海厦《天纪》体系，含完整排盘算法、四化系统、格局知识库、古籍原文数据</li>
-<li>URL: <a href="https://github.com/Renhuai123/ziwei-doushu">https://github.com/Renhuai123/ziwei-doushu</a></li>
-<li>作者: Renhuai123</li>
-</ul>
-<h4 id="排名-8jetbrainsthinkrail">排名 8:/JetBrains/thinkrail</h4>
-<ul>
-<li>简介: 在一个轻量级的、真正的IDE中使用pi的Vibe代码，该IDE可以根据您的工作方式进行自我定制——您需要的Vibe</li>
-<li>URL: <a href="https://github.com/JetBrains/thinkrail">https://github.com/JetBrains/thinkrail</a></li>
-<li>作者: JetBrains</li>
-</ul>
-<h4 id="排名-9coollabsiocoolify">排名 9:/coollabsio/coolify</h4>
-<ul>
-<li>简介: 作为Vercel、Heroku和Netlify的开源、自托管PaaS替代品，您可以在自己的服务器上轻松部署静态站点、数据库、全栈应用程序和360多个一键服务。</li>
-<li>URL: <a href="https://github.com/coollabsio/coolify">https://github.com/coollabsio/coolify</a></li>
-<li>作者: coollabsio</li>
-</ul>
-<h4 id="排名-10cloudflaresecurity-audit-skill">排名 10:/cloudflare/security-audit-skill</h4>
-<ul>
-<li>简介: 具有独立验证、机器可读结果的多阶段安全审计的编码代理技能</li>
-<li>URL: <a href="https://github.com/cloudflare/security-audit-skill">https://github.com/cloudflare/security-audit-skill</a></li>
-<li>作者: cloudflare</li>
-</ul>
-<h4 id="排名-11agricidanielclaude-seo">排名 11:/AgriciDaniel/claude-seo</h4>
-<ul>
-<li>简介: Claude Code的通用SEO技能。26个子技能+19个子代理，涵盖技术SEO、E-E-A-T、模式、GEO/AEO、代理准备（Lighthouse代理浏览、WebMCP、llms.txt）、反向链接、本地SEO、电子商务、国际SEO、谷歌API和PDF/Excel报告。9个可选的实时SEO数据扩展。</li>
-<li>URL: <a href="https://github.com/AgriciDaniel/claude-seo">https://github.com/AgriciDaniel/claude-seo</a></li>
-<li>作者: AgriciDaniel</li>
-</ul>
-<h2 id="v2ex-热门帖子">v2ex 热门帖子</h2>
-<ul>
-<li>1.<a href="https://www.v2ex.com/t/1251749#reply100">偶然和一个在药店工作的女生聊了聊，震惊于药店的黑心，写了个总结，和大家分享一下</a></li>
-<li>2.<a href="https://www.v2ex.com/t/1251768#reply93">创业一年了，还活着</a></li>
-<li>3.<a href="https://www.v2ex.com/t/1251738#reply67">股灾来了就开个银河买纳指或者红利低波ETF吧，“万1免5”股票基金免5大笑脸开户</a></li>
-<li>4.<a href="https://www.v2ex.com/t/1251787#reply62">大家有没有好看的电视剧推荐，最近出的，经典的都行</a></li>
-<li>5.<a href="https://www.v2ex.com/t/1251745#reply58">国产《长虹》安卓电视机不支持开通ADB</a></li>
-<li>6.<a href="https://www.v2ex.com/t/1251740#reply56">双十一撸了一个微波炉，有什么好的食谱或者怎么用好它呢</a></li>
-<li>7.<a href="https://www.v2ex.com/t/1251751#reply51">MacminiM6价格彻底崩了</a></li>
-<li>8.<a href="https://www.v2ex.com/t/1251781#reply47">反思了下，原来我是个黄毛</a></li>
-<li>9.<a href="https://www.v2ex.com/t/1251765#reply45">来聊聊大家第一次被AI真正震撼到的瞬间吧</a></li>
-<li>10.<a href="https://www.v2ex.com/t/1251794#reply37">大家一个月可以存下多少钱</a></li>
-<li>11.<a href="https://www.v2ex.com/t/1251746#reply36">天塌了，还是被A家封了</a></li>
-<li>12.<a href="https://www.v2ex.com/t/1251759#reply33">[送码]自己做了个专门用来看课程/教程的视频播放器ePlayer，送10个终身Pro兑换码</a></li>
-<li>13.<a href="https://www.v2ex.com/t/1251810#reply29">self-host代码仓库，各位老哥公司里都是什么方案？</a></li>
-<li>14.<a href="https://www.v2ex.com/t/1251827#reply21">虽然AI编码很厉害，但是这些问题怎么办呢？</a></li>
-<li>15.<a href="https://www.v2ex.com/t/1251739#reply19">很严重的选择困难症</a></li>
-<li>16.<a href="https://www.v2ex.com/t/1251754#reply18">大家看看我这个二手电动车回收副业评估一下</a></li>
-<li>17.<a href="https://www.v2ex.com/t/1251815#reply18">周一刚开工，就面谈通知被裁，心情复杂</a></li>
-<li>18.<a href="https://www.v2ex.com/t/1251742#reply16">在外企英语不好天天切屏复制，写了个在任意App敲空格(快捷键)即瞬换的小工具</a></li>
-<li>19.<a href="https://www.v2ex.com/t/1251757#reply15">求推荐静音耳塞</a></li>
-<li>20.<a href="https://www.v2ex.com/t/1251800#reply15">大家怎么看毛不易这个事？</a></li>
-<li>21.<a href="https://www.v2ex.com/t/1251773#reply14">国内访问我的网站登录慢，断联如何解决？</a></li>
-<li>22.<a href="https://www.v2ex.com/t/1251841#reply13">佬们推荐个机场，花云太差了</a></li>
-<li>23.<a href="https://www.v2ex.com/t/1251748#reply13">做了个Instagram数据API（千次$0.1）,挂在RapidAPI上按次卖,</a></li>
-<li>24.<a href="https://www.v2ex.com/t/1251785#reply13">VibeCoding的工程化约束</a></li>
-<li>25.<a href="https://www.v2ex.com/t/1251736#reply11">workbuddy领积分活动结束了？今天没弹窗了</a></li>
-<li>26.<a href="https://www.v2ex.com/t/1251825#reply10">V2ex一个精简的客户端-适配iPhoneDuo</a></li>
-<li>27.<a href="https://www.v2ex.com/t/1251873#reply9">各位的VibeCoding究竟是怎么跑起来的？</a></li>
-<li>28.<a href="https://www.v2ex.com/t/1251778#reply9">gptpro账号过期了为啥还能继续用？</a></li>
-<li>29.<a href="https://www.v2ex.com/t/1251818#reply9">我可以认为股市即国运吗</a></li>
-<li>30.<a href="https://www.v2ex.com/t/1251853#reply8">感觉我创伤比较严重怎么一点点克服啊</a></li>
-<li>31.<a href="https://www.v2ex.com/t/1251760#reply8">用AI开发出海网站的SOP流程</a></li>
-<li>32.<a href="https://www.v2ex.com/t/1251766#reply8">Codex又偷偷减额度了吗？5X每周额度只剩5500</a></li>
-<li>33.<a href="https://www.v2ex.com/t/1251776#reply8">闰时在信息时代是不是要执行不下去了？</a></li>
-<li>34.<a href="https://www.v2ex.com/t/1251767#reply7">当下这个AI的时代，还有什么行业是值得深耕的</a></li>
-<li>35.<a href="https://www.v2ex.com/t/1251764#reply6">明明我没告诉店员我的appleid，为什么他们能把收据发我邮箱？</a></li>
-<li>36.<a href="https://www.v2ex.com/t/1251772#reply6">三星的a57咋样,才两千五六</a></li>
-<li>37.<a href="https://www.v2ex.com/t/1251830#reply6">同时长期用过天玑旗舰和骁龙旗舰的人，日常体验上真正能感觉到的差异有哪些？</a></li>
-<li>38.<a href="https://www.v2ex.com/t/1251782#reply5">YouTube视频太卡？教你把视频一键存进手机，离线随便看</a></li>
 </ul>
 <h2 id="热点新闻">热点新闻</h2>
 <h2 id="福利分享">福利分享</h2>
